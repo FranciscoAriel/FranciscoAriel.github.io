@@ -1,6 +1,6 @@
 ---
 layout: post
-theme:jekyll-theme-architect
+theme: jekyll-theme-architect
 title: Blogging Like a Hacker
 ---
 ## Welcome to GitHub Pages
