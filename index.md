@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Mi blog"
+theme: jekyll-theme-architect
 ---
 
 # Hola mundo
