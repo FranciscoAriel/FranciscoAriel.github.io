@@ -1,7 +1,7 @@
 # Github pages
 
 This is a **readme page**. 
-If you want to visit mi blog, [click here](https://franciscoariel.github.io/site/index.html).
+If you want to visit mi blog, [click here](https://franciscoariel.github.io/docs/index.html).
 
 
 ## Welcome to GitHub Pages
