@@ -1,0 +1,7 @@
+site_name: My Personal blog
+nav:
+    - Home: index.md
+    - About: about.md
+theme:
+    name: bootstrap4
+repo_url: https://github.com/FranciscoAriel/JRStat.github.io
