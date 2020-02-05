@@ -4,23 +4,21 @@ En este sitio web subiré todo el contenido e información de diversos programas
 
 ## SAS
 
-Para ir al blog de SAS haz click [aquí](sas/intro_sas)
+Para ir al blog de SAS haz click [aquí](sas/intro_sas/index.html).
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+En este blog conoceras todo lo relacionado a:
 
-## Project layout
+* **SAS/BASE** - Create a new project.
+* **SAS/IML** - Start the live-reloading docs server.
+* **OTROS** - Build the documentation site.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## R
 
-## Español
+Visita mi blog sobre R.
 
-Aquí va algo nuevo
+## Python
+
+Aquí va algo nuevo.
 
 ## Redes sociales
 
