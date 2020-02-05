@@ -4,7 +4,7 @@ En este sitio web subiré todo el contenido e información de diversos programas
 
 ## SAS
 
-Para ir al blog de SAS haz click [aquí](/sas/sas_intro.md)
+Para ir al blog de SAS haz click [aquí](sas/intro_sas)
 
 * `mkdocs new [dir-name]` - Create a new project.
 * `mkdocs serve` - Start the live-reloading docs server.
