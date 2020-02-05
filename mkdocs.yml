@@ -3,6 +3,10 @@ nav:
     - Home: index.md
     - "Blog de sas":
         - "Introducción a SAS": sas/intro_sas.md
+    - "Blog de R":
+        - "Introducción a R": r/r_intro.md
+    - "Blog de Python":
+        - "Introducción a Python": python/python_intro.md
     - About: about.md
 theme:
     name: mkdocs

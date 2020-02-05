@@ -14,11 +14,11 @@ En este blog conoceras todo lo relacionado a:
 
 ## R
 
-Visita mi blog sobre R.
+Visita mi [blog sobre R](r/intro_r/index.html).
 
 ## Python
 
-Aquí va algo nuevo.
+[Click aquí](python/intro_python/index.html) para ir a mi blog de Python.
 
 ## Redes sociales
 
