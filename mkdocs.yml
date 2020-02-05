@@ -2,7 +2,7 @@ site_name: My Personal blog
 nav:
     - Home: index.md
     - "Blog de sas":
-        - "Introducción a SAS":intro_sas.md
+        - "IntroducciÃ³n a SAS":intro_sas.md
     - About: about.md
 theme:
     name: readthedocs
