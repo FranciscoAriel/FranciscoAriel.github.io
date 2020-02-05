@@ -1,3 +1,7 @@
+This is a **readme page**. 
+If you want to visit mi blog, [click here](https://franciscoariel.github.io/site/index.html).
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/FranciscoAriel/FranciscoAriel.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
