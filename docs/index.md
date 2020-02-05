@@ -1,10 +1,10 @@
-# Welcome to MkDocs
+# Bienvenido a mi blog
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+En este sitio web subiré todo el contenido e información de diversos programas de software estadístico.
 
-Hola mundo.
+## SAS
 
-## Commands
+Para ir al blog de SAS haz click [aquí](/sas/sas_intro.md)
 
 * `mkdocs new [dir-name]` - Create a new project.
 * `mkdocs serve` - Start the live-reloading docs server.
