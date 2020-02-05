@@ -3,5 +3,10 @@ nav:
     - Home: index.md
     - About: about.md
 theme:
-    name: bootstrap4
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - sas
+        - r
+        - python
 repo_url: https://github.com/FranciscoAriel/JRStat.github.io
