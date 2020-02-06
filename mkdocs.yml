@@ -1,12 +1,12 @@
 site_name: My Personal blog
 nav:
-    - Home: index.md
+    - Home: ../
     - "Blog de sas":
         - "Introducción a SAS": sas/intro_sas.md
     - "Blog de R":
-        - "Introducción a R": r/r_intro.md
+        - "Introducción a R": r/intro_r.md
     - "Blog de Python":
-        - "Introducción a Python": python/python_intro.md
+        - "Introducción a Python": python/intro_pythonn.md
     - About: about.md
 theme:
     name: mkdocs
@@ -15,4 +15,6 @@ theme:
         - sas
         - r
         - python
-repo_url: https://github.com/FranciscoAriel/JRStat.github.io
+repo_url: https://github.com/FranciscoAriel/FranciscoAriel.github.io
+edit_uri: blob/master/docs/
+site_url: https://FranciscoAriel.github.io/site/
