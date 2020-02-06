@@ -15,4 +15,8 @@ import numpy as np
 import os
 ````
 
-Para referirnos a pandas usaremos `pd` y `np` para referirnos a numpy.
+!!! Nota
+    En ocasiones es preferible usar nombres más cortos para referirnos a
+    los nombres de las librerías. Por ejemplo, a `pandas` le llamaremos `pd` y `np` para referirnos a `numpy`.
+
+Ahora llamaremos a la función para leer los datos.

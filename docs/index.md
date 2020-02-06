@@ -8,13 +8,24 @@ Para ir al blog de SAS haz click [aquí](sas/intro_sas/index.html).
 
 En este blog conoceras todo lo relacionado a:
 
-* **SAS/BASE** - Create a new project.
-* **SAS/IML** - Start the live-reloading docs server.
-* **OTROS** - Build the documentation site.
+* **SAS/BASE** - Contiene todo lo esencial para leer, manipular datos asíc omo otras funciones básicas de SAS.
+* **SAS/STAT** - Tiene muchos métodos estadísticos y otros análisis de datos.
+* **SAS/IML** - Es un lenguaje específico para lenguaje de matrices y funciones matemáticas y estadísticas avanzadas.
+* **OTROS** - Conexión de SAS con otros lenguajes de programación y sus configuraciones.
 
 ## R
 
 Visita mi [blog sobre R](r/intro_r/index.html).
+
+En este blog encontrarás todo lo relacionada al lenguaje R.
+
+* Variables
+* Funciones
+* Matrices
+* Gráficas
+* Data sets
+
+Entre otras cosas más.
 
 ## Python
 
@@ -23,3 +34,5 @@ Visita mi [blog sobre R](r/intro_r/index.html).
 ## Redes sociales
 
 Síguenos en nuestras redes sociales
+
+[Github](https://github.com/FranciscoAriel)

@@ -10,7 +10,14 @@ nav:
         - "Python nivel básico": python/basico.md
     - About: about.md
 theme:
-    name: mkdocs
+    name: material
 repo_url: https://github.com/FranciscoAriel/FranciscoAriel.github.io
 edit_uri: blob/master/docs/
 site_url: https://FranciscoAriel.github.io/site/
+markdown_extensions:
+    - smarty
+    - admonition
+    - codehilite:
+        linenums: true
+    - toc:
+        permalink: True
