@@ -10,6 +10,26 @@ Esta es un tutorial rápido sobre el programa.
 
 ## Instalación
 
-### SAS University Edition
+Consulte el sitio web de [sas](https://www.sas.com) para más detalles.
 
-Usted puede descargar el software gratuitamente. Visite [SAS University edition](https://www.sas.com/en_us/software/university-edition.html) para más información.
+!!! info "SAS University Edition"
+    SAS no es software libre ni es gratuito, sin embargo usted puede descargar el software gratuitamente.
+    Visite [SAS University edition](https://www.sas.com/en_us/software/university-edition.html) para más información.
+
+## Interfaces gráficas
+
+### SAS Base
+
+### SAS Enterprise Guide
+
+### SAS Studio
+
+## Conceptos básicos
+
+### Datasets
+
+### Librerías
+
+### Procedimientos
+
+### Variables macro

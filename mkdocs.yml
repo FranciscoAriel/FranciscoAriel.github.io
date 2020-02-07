@@ -1,7 +1,7 @@
 site_name: My Personal blog
 nav:
     - Home: ../
-    - "Blog de sas":
+    - "Blog de SAS":
         - "Introducción a SAS": sas/intro_sas.md
     - "Blog de R":
         - "Introducción a R": r/intro_r.md
