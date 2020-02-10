@@ -596,6 +596,8 @@ Visite <a href="https://www.sas.com/en_us/software/university-edition.html">SAS 
 </div>
 <h2 id="interfaces-graficas">Interfaces gráficas<a class="headerlink" href="#interfaces-graficas" title="Permanent link">&para;</a></h2>
 <h3 id="sas-base">SAS Base<a class="headerlink" href="#sas-base" title="Permanent link">&para;</a></h3>
+<p>Es la interfaz gráfica clásica de SAS. Contiene una verntana lateral con una lista de librerías, mientras que hay una ventana principal de mensajes (log) y otra para escribir código.</p>
+<p><img alt="Screenshot" src="../sasbase.png" /></p>
 <h3 id="sas-enterprise-guide">SAS Enterprise Guide<a class="headerlink" href="#sas-enterprise-guide" title="Permanent link">&para;</a></h3>
 <h3 id="sas-studio">SAS Studio<a class="headerlink" href="#sas-studio" title="Permanent link">&para;</a></h3>
 <h2 id="conceptos-basicos">Conceptos básicos<a class="headerlink" href="#conceptos-basicos" title="Permanent link">&para;</a></h2>
@@ -603,6 +605,31 @@ Visite <a href="https://www.sas.com/en_us/software/university-edition.html">SAS 
 <h3 id="librerias">Librerías<a class="headerlink" href="#librerias" title="Permanent link">&para;</a></h3>
 <h3 id="procedimientos">Procedimientos<a class="headerlink" href="#procedimientos" title="Permanent link">&para;</a></h3>
 <h3 id="variables-macro">Variables macro<a class="headerlink" href="#variables-macro" title="Permanent link">&para;</a></h3>
+<p>Es posible definir variables mediante funciones especiales mediante el uso de sentencias macro. Dichas variables pueden ser llamadas en cualquier procedimiento y son evaluadas.</p>
+<p>Se usa la sentencia <code>%let macro-variable = &lt;value&gt;;</code> y para mandar llamar el valor de dicha variable maro se usa <code>&amp;macro-variable</code>.</p>
+<p>Por ejemplo si se desea definir ciertas variables a analizar, se puede crear la siguiente sentencia;</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">%let</span> <span class="k">x</span> = age weight height<span class="kr">;</span>
+
+<span class="kr">proc means </span>data = sashelp<span class="m">.</span>class;
+    var <span class="nv">&amp;x</span><span class="kr">;</span>
+<span class="kr">run;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Para ver el valor de la variable macro, se puede usar la sentencia macro <code>%PUT &lt;&amp;macro-variable&gt;</code>, por ejemplo:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">%PUT </span><span class="nv">&amp;x</span><span class="err">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>y el resultado será</p>
+<blockquote>
+<p>age weight height</p>
+</blockquote>
+<p>Para más información acerca de sentencias y variables macro visite la <a href="https://documentation.sas.com/?cdcId=pgmsascdc&amp;cdcVersion=9.4_3.5&amp;docsetId=mcrolref&amp;docsetTarget=titlepage.htm&amp;locale=es">documentación de SAS</a>.</p>
                 
                   
                 
