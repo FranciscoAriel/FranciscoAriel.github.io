@@ -32,13 +32,72 @@ Es la interfaz gráfica clásica de SAS. Contiene una verntana lateral con una l
 
 ### Datasets
 
+SAS almacena los datos en tablas llamadas datasets, los cuales son archivos que se almacenan en carpetas (librerías) de la computadora.
+
+SAS maneja dos tipos de datos: numéricos y caracter. Los dataset permiten almacenar un tipo de dato en cada variable.
+
+Para crear un dataset, se utiliza un bloque de instrucciones comunmente llamado paso DATA. El paso DATA inicia con la sentencia DATA seguido del nombre del dataset y termina con la palabra clave RUN.
+
+Por ejemplo el siguiente código crea un dataset con 1 observación y tres variables (2 numéricas y otra caracter).
+
+````sas
+data ejemplo;
+    format fecha date.;
+    fecha = today();
+    input x grupo $;
+    datalines;
+    12.5 azul
+    ;
+run;
+````
+
+La primer sentencia define el nombre del dataset. 
+
+La segunda le asina un formato de fecha a una variable. 
+
+En la tercer sentencia se define una variable numérica mediante una función, la cual obtiene la fecha de hoy (número de días transcurridos desde el 1 de enero de 1960). 
+
+En la siguiente sentencia se declaran 2 variables, la segunda se define como caracter al agregarle el signo `$`.
+
+La sentencia `datalines` le dice al programa que se introducirán valores de manera manual (cada renglón representa la primera observación y cada variable está separada por un espacio). El punto y coma dicta el fin de la introducción de datos.
+
+Finalmente la palabra RUN define el fin del paso DATA.
+
 ### Librerías
 
-### Procedimientos
+Las librerías o bibliotecas son rutas donde se almacenan los datasets.
 
-### Variables macro
+Si no se define una librería, sas define una librería temporal llamada WORK, la cual eliminará todos los datasets al finalizar la sesión.
 
-Es posible definir variables mediante funciones especiales mediante el uso de sentencias macro. Dichas variables pueden ser llamadas en cualquier procedimiento y son evaluadas.
+Para definir una librería, se puede asignar una librería a un ruta de la forma `libname libref 'sas-library';`, donde _libref_ es el nombre de la librería y _sas-library_ es la ruta donde se almacenarán los dataset, por ejemplo:
+
+````sas
+libname tareas "C:\Users\Default\Documents";
+````
+
+asignaría dicho directorio a la librería _tareas_.
+
+Para referirse a un dataset almacenado en dicha librería, se utiliza el siguiente nombre `library.dataset`, por ejemplo `tareas.tabla`.
+
+### Procedimientos y pasos DATA
+
+SAS se compone de dos grandes bloques: el paso DATA para crear o modificar un dataset y paso PROC.
+
+### Macros y variables macro
+
+Además de los pasos PROC y DATA, SAS tiene un lenguaje especial llamado lenguaje macro, el cual especie de procesador de instrucciones que compila y ejecuta.
+
+Este lenguaje es muy útil para ejecutar tareas comunes o repetitivas
+
+A diferencia de otros lenguajes de programación, SAS no permite definir variables de forma directa. Sin embargo, es posible definir _variables macro_, las cuales almacenan un valor ya sea un número o un texto. 
+Dichas variables son evaluadas y pueden ser llamadas en cualquier procedimiento macro.
+
+Hay tres formas de crear variables macro:
+
+- Con la sentencia `%let`.
+- Con la llamada `symput()`.
+- con la sentencia `INTO` dentro de un procedimiento SQL.
+
 
 Se usa la sentencia `%let macro-variable = <value>;` y para mandar llamar el valor de dicha variable maro se usa `&macro-variable`.
 
