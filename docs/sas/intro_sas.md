@@ -53,7 +53,7 @@ run;
 
 La primer sentencia define el nombre del dataset. 
 
-La segunda le asina un formato de fecha a una variable. 
+La segunda le asigna un formato de fecha a la variable fecha. 
 
 En la tercer sentencia se define una variable numérica mediante una función, la cual obtiene la fecha de hoy (número de días transcurridos desde el 1 de enero de 1960). 
 

@@ -16,4 +16,45 @@ Usted puede descargar el software gratuitamente. Visite la página de [R](https:
 
 ## R studio
 
-R tiene una interfaz gráfica para crear código de forma más amigable. visite [R Studio](https://rstudio.com/) para más información.
+R tiene una interfaz gráfica para crear código de forma más amigable. Visite [R Studio](https://rstudio.com/) para más información.
+
+
+## Conceptos básicos
+
+R es un lenguaje de programación que usa objetos. Estos objetos tienen identidad, atributos y propiedades.
+
+### Escalares
+
+Un escalar es un vector con un solo elemento.
+
+Se pueden crear escalares con el símbolo de asignación `<-` o `=`.
+
+````r
+n <- 5
+m = n + 1
+a = "Hola mundo!"
+````
+
+### Vectores
+
+Un vector es un objeto con uno o más elementos. Puede contener elementos numéricos o caracteres.
+
+Se pueden crear vectores con la función `c()`, por ejemplo:
+
+````r
+x = c(2,1,5)
+y = m*x+n
+z = c("ABC","AEI","XYZ")
+````
+
+Los vectores permiten algunas operaciones 
+
+
+### Matrices
+
+
+### Factores
+
+### Data Frames
+
+### Listas
