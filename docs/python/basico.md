@@ -20,3 +20,13 @@ import os
     los nombres de las librerías. Por ejemplo, a `pandas` le llamaremos `pd` y `np` para referirnos a `numpy`.
 
 Ahora llamaremos a la función para leer los datos.
+
+````python
+datos = pd.read_csv("census.csv")
+````
+
+Para visualizar los primeros 5 datos se puede usar este código
+
+````python
+datos.head(n=5)
+````
