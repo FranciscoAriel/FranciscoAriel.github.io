@@ -5,6 +5,7 @@ nav:
         - "Introducción a SAS": sas/intro_sas.md
     - "Blog de R":
         - "Introducción a R": r/intro_r.md
+        - "R nivel básico": r/basico_r.md
     - "Blog de Python":
         - "Introducción a Python": python/intro_python.md
         - "Python nivel básico": python/basico.md
