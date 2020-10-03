@@ -3,6 +3,7 @@ nav:
     - Home: ../
     - "Blog de SAS":
         - "Introducción a SAS": sas/intro_sas.md
+        - "SAS nivel básico": sas/basico_sas.md
     - "Blog de R":
         - "Introducción a R": r/intro_r.md
         - "R nivel básico": r/basico_r.md

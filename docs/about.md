@@ -7,3 +7,7 @@ Este blog contien códigos personales y bajo ningún motivo el autor es responsa
 ## Software de terceros
 
 Los softwares usados son
+
+- SAS
+- R
+- Python
