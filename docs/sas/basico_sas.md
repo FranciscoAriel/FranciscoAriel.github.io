@@ -7,16 +7,16 @@ date: 2020-09-26
 
 # Bloques DATA y PROC
 
-La programación en SAS está basada en dos grandes bloque DATA y PROC. El bloque DATA sirve para leer o generar datos, mientras que el bloque PROC sirve para analizar dichos datos.
+La programación en SAS está basada en dos grandes bloques: **DATA** y **PROC**. El bloque DATA sirve para leer o generar datos, mientras que el bloque PROC sirve para analizar dichos datos.
 
-Por ejemplo, el siguiente código crea una copia de un dataset existen y posteriormente lo imprime en pantalla.
+Por ejemplo, el siguiente código crea una copia de un dataset existente y posteriormente lo imprime en pantalla.
 
 ````sas
 DATA clase;
     SET SASHELP.CLASS;
 RUN;
 
-PROC PRINT DATA = clase;
+PROC PRINT;
 RUN;
 ````
 
@@ -50,6 +50,25 @@ DATA calificaciones;
 RUN;
 ````
 
+SAS no muestra directamente los resultados, en su lugar, se escribe un mensaje en la ventana de log.
+
+![Log del DATA STEP](log1.png)
+
+Para visualizar el dataset creado, se debe ejecutar el siguiente código:
+
+````sas
+PROC PRINT DATA = calificaciones;
+RUN;
+````
+
 El resultado se muestra a continuación
 
 ![Ejemplo 1](ds1.png)
+
+Aunque se ha producido un resultado, nuevamente aparece un mensaje en la ventana del log:
+
+![Log del PROC PRINT](log2.png)
+
+En el log aparecen las instrucciones que se ejecutaron, seguido de un mensaje indicando que los resultados se estan escribiendo en un archivo html. Finalmente en el log se nos indica el número de observaciones leídas y el tiempo de ejecución del procedimiento.
+
+Como puede verse, el log siempre está activo y registra todas las acciones ejecutadas. Posteriormente se verán como nos puede ayudar a encontrar errores y nos apoyará en la resolución de estos.

@@ -13,6 +13,7 @@ nav:
     - About: about.md
 theme:
     name: material
+    language: es
 repo_url: https://github.com/FranciscoAriel/FranciscoAriel.github.io
 edit_uri: blob/master/docs/
 site_url: https://FranciscoAriel.github.io/site/

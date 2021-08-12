@@ -25,6 +25,18 @@ Ahora llamaremos a la función para leer los datos.
 datos = pd.read_csv("census.csv")
 ````
 
+Como puede observarse, `datos` es un objeto **DataFrame** que se define gracias a la función `read_csv()` de pandas. Se puede obtener información del objeto usando el siguiente comando.
+
+````python
+datos.info()
+````
+
+Para ver un resumen de los datos se puede usar
+
+````python
+datos.describe()
+````
+
 Para visualizar los primeros 5 datos se puede usar este código
 
 ````python
