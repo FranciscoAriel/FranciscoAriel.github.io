@@ -51,11 +51,11 @@ data ejemplo;
 run;
 ````
 
-La primer sentencia define el nombre del dataset. 
+La primer sentencia define el nombre del dataset.
 
-La segunda le asigna un formato de fecha a la variable fecha. 
+La segunda le asigna un formato de fecha a la variable fecha.
 
-En la tercer sentencia se define una variable numérica mediante una función, la cual obtiene la fecha de hoy (número de días transcurridos desde el 1 de enero de 1960). 
+En la tercer sentencia se define una variable numérica mediante una función, la cual obtiene la fecha de hoy (número de días transcurridos desde el 1 de enero de 1960).
 
 En la siguiente sentencia se declaran 2 variables, la segunda se define como caracter al agregarle el signo `$`.
 
@@ -63,13 +63,28 @@ La sentencia `datalines` le dice al programa que se introducirán valores de man
 
 Finalmente la palabra RUN define el fin del paso DATA.
 
+Un dataset consiste de dos partes:
+
+- Una porción descriptora
+- Una porción de datos
+
+La porción de datos es una colección de datos arreglados en una tabla rectangular. Cada renglón o observación representa mediciones de un individuo.
+
+La porción descriptora de un dataset contiene información del descriptor, por ejemplo, el nombre, fecha y hora de creación, número de observaciones y número de variables.
+
+La porción descriptora tambien contiene información de los atributos de cada variable en el dataset. Los atributos contienen información como el nombre de la variable, el tipo, longitud, formato, informato y etiqueta.
+
 ### Librerías
 
 Las librerías o bibliotecas son rutas donde se almacenan los datasets.
 
+!!! Librería
+    Una librería de SAS es una colección de archivos de SAS. Es el nivel más alto de organización para la información dentro de SAS.
+    En el sistema operativo Windows o UNIX, una librería es típicamente un grupo de archivos de SAS en el mismo folder o directorio.
+
 Si no se define una librería, sas define una librería temporal llamada WORK, la cual eliminará todos los datasets al finalizar la sesión.
 
-Para definir una librería, se puede asignar una librería a un ruta de la forma `libname libref 'sas-library';`, donde _libref_ es el nombre de la librería y _sas-library_ es la ruta donde se almacenarán los dataset, por ejemplo:
+Para definir una librería, se puede asignar una librería a un ruta de la forma `libname libref 'sas-library';`, donde _libref_ es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y _sas-library_ es la ruta donde se almacenarán los dataset, por ejemplo:
 
 ````sas
 libname tareas "C:\Users\Default\Documents";
@@ -82,6 +97,19 @@ Para referirse a un dataset almacenado en dicha librería, se utiliza el siguien
 ### Procedimientos y pasos DATA
 
 SAS se compone de dos grandes bloques: el paso DATA para crear o modificar un dataset y paso PROC.
+
+El bloque DATA sirve para leer o generar datos, mientras que el bloque PROC sirve para analizar dichos datos.
+
+Por ejemplo, el siguiente código crea una copia de un dataset existente y posteriormente lo imprime en pantalla.
+
+````sas
+DATA clase;
+    SET SASHELP.CLASS;
+RUN;
+
+PROC PRINT;
+RUN;
+````
 
 ### Macros y variables macro
 

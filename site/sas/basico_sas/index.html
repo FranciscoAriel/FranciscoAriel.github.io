@@ -51,7 +51,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bloques-data-y-proc" class="md-skip">
+        <a href="#lectura-de-datos" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -231,8 +231,6 @@
     
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         SAS nivel básico
@@ -246,8 +244,6 @@
       
 <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -267,6 +263,13 @@
           <li class="md-nav__item">
   <a href="#introduccion-de-valores-de-forma-manual" class="md-nav__link">
     Introducción de valores de forma manual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#almacenamiento-de-datos" class="md-nav__link">
+    Almacenamiento de datos
   </a>
   
 </li>
@@ -414,8 +417,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -434,6 +435,13 @@
           <li class="md-nav__item">
   <a href="#introduccion-de-valores-de-forma-manual" class="md-nav__link">
     Introducción de valores de forma manual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#almacenamiento-de-datos" class="md-nav__link">
+    Almacenamiento de datos
   </a>
   
 </li>
@@ -463,24 +471,9 @@
                   
                 
                 
-                <h1 id="bloques-data-y-proc">Bloques DATA y PROC<a class="headerlink" href="#bloques-data-y-proc" title="Permanent link">&para;</a></h1>
-<p>La programación en SAS está basada en dos grandes bloques: <strong>DATA</strong> y <strong>PROC</strong>. El bloque DATA sirve para leer o generar datos, mientras que el bloque PROC sirve para analizar dichos datos.</p>
-<p>Por ejemplo, el siguiente código crea una copia de un dataset existente y posteriormente lo imprime en pantalla.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>clase;
-    <span class="k">SET</span> SASHELP<span class="m">.</span>CLASS<span class="kr">;</span>
-<span class="kr">RUN;</span>
-
-<span class="kr">PROC PRINT;</span>
-<span class="kr">RUN;</span>
-</code></pre></div>
-</td></tr></table>
-
-<h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
+                  <h1>SAS nivel básico</h1>
+                
+                <h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
 <p>Los dataset son el insumo principal para analisis de datos en SAS, por ello iniciaremos con una rápida exploración.</p>
 <p>La creación de un dataset inicia con un bloque <code>DATA</code> y termina con un <code>RUN</code>.</p>
 <h3 id="introduccion-de-valores-de-forma-manual">Introducción de valores de forma manual<a class="headerlink" href="#introduccion-de-valores-de-forma-manual" title="Permanent link">&para;</a></h3>
@@ -527,6 +520,7 @@
 <p><img alt="Log del PROC PRINT" src="../log2.png" /></p>
 <p>En el log aparecen las instrucciones que se ejecutaron, seguido de un mensaje indicando que los resultados se estan escribiendo en un archivo html. Finalmente en el log se nos indica el número de observaciones leídas y el tiempo de ejecución del procedimiento.</p>
 <p>Como puede verse, el log siempre está activo y registra todas las acciones ejecutadas. Posteriormente se verán como nos puede ayudar a encontrar errores y nos apoyará en la resolución de estos.</p>
+<h3 id="almacenamiento-de-datos">Almacenamiento de datos<a class="headerlink" href="#almacenamiento-de-datos" title="Permanent link">&para;</a></h3>
                 
                   
                 

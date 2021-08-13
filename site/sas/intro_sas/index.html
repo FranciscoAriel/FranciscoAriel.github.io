@@ -621,16 +621,29 @@ Visite <a href="https://www.sas.com/en_us/software/university-edition.html">SAS 
 </code></pre></div>
 </td></tr></table>
 
-<p>La primer sentencia define el nombre del dataset. </p>
-<p>La segunda le asigna un formato de fecha a la variable fecha. </p>
-<p>En la tercer sentencia se define una variable numérica mediante una función, la cual obtiene la fecha de hoy (número de días transcurridos desde el 1 de enero de 1960). </p>
+<p>La primer sentencia define el nombre del dataset.</p>
+<p>La segunda le asigna un formato de fecha a la variable fecha.</p>
+<p>En la tercer sentencia se define una variable numérica mediante una función, la cual obtiene la fecha de hoy (número de días transcurridos desde el 1 de enero de 1960).</p>
 <p>En la siguiente sentencia se declaran 2 variables, la segunda se define como caracter al agregarle el signo <code>$</code>.</p>
 <p>La sentencia <code>datalines</code> le dice al programa que se introducirán valores de manera manual (cada renglón representa la primera observación y cada variable está separada por un espacio). El punto y coma dicta el fin de la introducción de datos.</p>
 <p>Finalmente la palabra RUN define el fin del paso DATA.</p>
+<p>Un dataset consiste de dos partes:</p>
+<ul>
+<li>Una porción descriptora</li>
+<li>Una porción de datos</li>
+</ul>
+<p>La porción de datos es una colección de datos arreglados en una tabla rectangular. Cada renglón o observación representa mediciones de un individuo.</p>
+<p>La porción descriptora de un dataset contiene información del descriptor, por ejemplo, el nombre, fecha y hora de creación, número de observaciones y número de variables.</p>
+<p>La porción descriptora tambien contiene información de los atributos de cada variable en el dataset. Los atributos contienen información como el nombre de la variable, el tipo, longitud, formato, informato y etiqueta.</p>
 <h3 id="librerias">Librerías<a class="headerlink" href="#librerias" title="Permanent link">&para;</a></h3>
 <p>Las librerías o bibliotecas son rutas donde se almacenan los datasets.</p>
+<div class="admonition librería">
+<p class="admonition-title">Librería</p>
+<p>Una librería de SAS es una colección de archivos de SAS. Es el nivel más alto de organización para la información dentro de SAS.
+En el sistema operativo Windows o UNIX, una librería es típicamente un grupo de archivos de SAS en el mismo folder o directorio.</p>
+</div>
 <p>Si no se define una librería, sas define una librería temporal llamada WORK, la cual eliminará todos los datasets al finalizar la sesión.</p>
-<p>Para definir una librería, se puede asignar una librería a un ruta de la forma <code>libname libref 'sas-library';</code>, donde <em>libref</em> es el nombre de la librería y <em>sas-library</em> es la ruta donde se almacenarán los dataset, por ejemplo:</p>
+<p>Para definir una librería, se puede asignar una librería a un ruta de la forma <code>libname libref 'sas-library';</code>, donde <em>libref</em> es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y <em>sas-library</em> es la ruta donde se almacenarán los dataset, por ejemplo:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">libname</span> tareas <span class="s">&quot;C:\Users\Default\Documents&quot;</span>;
 </code></pre></div>
 </td></tr></table>
@@ -639,6 +652,22 @@ Visite <a href="https://www.sas.com/en_us/software/university-edition.html">SAS 
 <p>Para referirse a un dataset almacenado en dicha librería, se utiliza el siguiente nombre <code>library.dataset</code>, por ejemplo <code>tareas.tabla</code>.</p>
 <h3 id="procedimientos-y-pasos-data">Procedimientos y pasos DATA<a class="headerlink" href="#procedimientos-y-pasos-data" title="Permanent link">&para;</a></h3>
 <p>SAS se compone de dos grandes bloques: el paso DATA para crear o modificar un dataset y paso PROC.</p>
+<p>El bloque DATA sirve para leer o generar datos, mientras que el bloque PROC sirve para analizar dichos datos.</p>
+<p>Por ejemplo, el siguiente código crea una copia de un dataset existente y posteriormente lo imprime en pantalla.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>clase;
+    <span class="k">SET</span> SASHELP<span class="m">.</span>CLASS<span class="kr">;</span>
+<span class="kr">RUN;</span>
+
+<span class="kr">PROC PRINT;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
 <h3 id="macros-y-variables-macro">Macros y variables macro<a class="headerlink" href="#macros-y-variables-macro" title="Permanent link">&para;</a></h3>
 <p>Además de los pasos PROC y DATA, SAS tiene un lenguaje especial llamado lenguaje macro, el cual especie de procesador de instrucciones que compila y ejecuta.</p>
 <p>Este lenguaje es muy útil para ejecutar tareas comunes o repetitivas</p>
