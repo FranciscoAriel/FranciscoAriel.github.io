@@ -11,3 +11,4 @@ Los softwares usados son
 - SAS
 - R
 - Python
+- Julia

@@ -31,6 +31,16 @@ Entre otras cosas más.
 
 [Click aquí](python/intro_python/index.html) para ir a mi blog de Python.
 
+Aquí encontrarás todo lo relacionado con librerías que se usan en ciencia de datos.
+
+## Julia *¡NUEVO!*
+
+[Click aquí](julia/intro_julia/index.html) para ir a mi blog de Julia.
+
+## Jupyter Notebooks
+
+PROXIMAMENTE ...
+
 ## Redes sociales
 
 Síguenos en nuestras redes sociales
