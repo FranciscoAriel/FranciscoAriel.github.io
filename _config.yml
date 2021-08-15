@@ -1,6 +1,4 @@
-plugins:
-- jekyll-remote-theme
+theme: jekyll-theme-cayman
 title: Mi perfil de github
 description: Un lugar donde podrás aprender lenguajes de programación y colaborar con nuevo conocimiento
 show_downloads: true
-theme: jekyll-theme-cayman
