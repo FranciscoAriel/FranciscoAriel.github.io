@@ -3,10 +3,9 @@ title: Introducción a SAS
 summary: Una guía rápida sobre SAS.
 authors: Francisco Vázquez
 date: 2020-02-05
-
 ---
 
-Esta es un tutorial rápido sobre el programa.
+Este es un tutorial breve sobre el programa, se muestran los principales conceptos de SAS para iniciarse en SAS.
 
 ## Instalación
 
@@ -18,25 +17,70 @@ Consulte el sitio web de [sas](https://www.sas.com) para más detalles.
 
 ## Interfaces gráficas
 
-### SAS Base
-
-Es la interfaz gráfica clásica de SAS. Contiene una verntana lateral con una lista de librerías, mientras que hay una ventana principal de mensajes (log) y otra para escribir código.
+*SAS BASE* es la interfaz gráfica clásica de SAS. Contiene una verntana lateral con una lista de librerías, mientras que hay una ventana principal de mensajes (log) y otra para escribir código.
 
 ![Screenshot](img/sasbase.png)
 
-### SAS Enterprise Guide
+Esta interfaz fue de las primeras en desarrollarse y por ello ya no ha sido mejorada por lo que podría carecer de nuevas características.
 
-### SAS Studio
+Su principal ventaja es que gasta pocos recurso y es bastante rápida.
+
+*SAS Enterprise Guide* es la interfaz gráfica mas reciente y es constantemente mejorada.
 
 ## Conceptos básicos
 
+### Procedimientos y pasos DATA
+
+SAS se compone de dos grandes bloques: el paso DATA y el paso PROC.
+
+El bloque DATA sirve para leer o generar datos, mientras que el bloque PROC generalmente sirve para analizar dichos datos, aunque hay muchos procedimientos.
+
+Este sencillo ejemplo muestra el flujo general de los programas de sas. Primero se creará un dataset con el bloque de instrucciones DATA.
+
+````sas
+DATA calificaciones;
+    INPUT nombre $ Grupo $ puntaje;
+    DATALINES;
+    ANGELICA A 10
+    BRENDA A 9
+    MARCO B 8
+    LILIANA B 8
+    FABIAN C 9
+    MAURICIO C 7
+    ;
+RUN;
+````
+
+SAS no muestra directamente los resultados, en su lugar, se escribe un mensaje en la ventana de log.
+
+![Log del DATA STEP](img/log1.png)
+
+Para visualizar el dataset creado, se debe ejecutar el siguiente código, que constituye el paso PROC:
+
+````sas
+PROC PRINT DATA = calificaciones;
+RUN;
+````
+
+El resultado se muestra a continuación
+
+![Ejemplo 1](img/ds1.png)
+
+Aunque se ha producido un resultado, nuevamente aparece un mensaje en la ventana del log:
+
+![Log del PROC PRINT](img/log2.png)
+
+En el log aparecen las instrucciones que se ejecutaron, seguido de un mensaje indicando que los resultados se estan escribiendo en un archivo html. Finalmente en el log se nos indica el número de observaciones leídas y el tiempo de ejecución del procedimiento.
+
+Como puede verse, el log siempre está activo y registra todas las acciones ejecutadas. Posteriormente se verán como nos puede ayudar a encontrar errores y nos apoyará en la resolución de estos.
+
 ### Datasets
 
-SAS almacena los datos en tablas llamadas datasets, los cuales son archivos que se almacenan en carpetas (librerías) de la computadora.
+SAS almacena los datos en tablas llamadas datasets, los cuales son archivos que se almacenan en bibliotecas (library).
 
 SAS maneja dos tipos de datos: numéricos y caracter. Los dataset permiten almacenar un tipo de dato en cada variable.
 
-Para crear un dataset, se utiliza un bloque de instrucciones comunmente llamado paso DATA. El paso DATA inicia con la sentencia DATA seguido del nombre del dataset y termina con la palabra clave RUN.
+Para crear un dataset, se utiliza el bloque de instrucciones conocido como paso DATA. El paso DATA inicia con la sentencia DATA seguido del nombre del dataset y termina con la palabra clave RUN.
 
 Por ejemplo el siguiente código crea un dataset con 1 observación y tres variables (2 numéricas y otra caracter).
 
@@ -53,11 +97,11 @@ run;
 
 La primer sentencia define el nombre del dataset.
 
-La segunda le asigna un formato de fecha a la variable fecha.
+La segunda le asigna un formato de fecha a la variable fecha. Esto a se debe a que internamente SAS almacena el resultado como un valor numérico, pero quisieramos visualizarlo como una fecha.
 
 En la tercer sentencia se define una variable numérica mediante una función, la cual obtiene la fecha de hoy (número de días transcurridos desde el 1 de enero de 1960).
 
-En la siguiente sentencia se declaran 2 variables, la segunda se define como caracter al agregarle el signo `$`.
+En la siguiente sentencia se declaran 2 variables que sas va a recibir, la segunda se define como caracter al agregarle el signo `$`.
 
 La sentencia `datalines` le dice al programa que se introducirán valores de manera manual (cada renglón representa la primera observación y cada variable está separada por un espacio). El punto y coma dicta el fin de la introducción de datos.
 
@@ -73,6 +117,32 @@ La porción de datos es una colección de datos arreglados en una tabla rectangu
 La porción descriptora de un dataset contiene información del descriptor, por ejemplo, el nombre, fecha y hora de creación, número de observaciones y número de variables.
 
 La porción descriptora tambien contiene información de los atributos de cada variable en el dataset. Los atributos contienen información como el nombre de la variable, el tipo, longitud, formato, informato y etiqueta.
+
+El siguiente cuadro resume los atributos de las variables.
+
+Nombre|Valor|Ejemplo|Requerido|Nota
+------|-----|-------|---------|----
+Variable|Nombre SAS|_nombre_alumno2|Sí|Hasta 32 carácteres, iniciando con `_` o una letras, puede contener valores numéricos.
+Tipo|*char* o *num*|num|Sí|Los valores perdidos (missing) para variables numéricas se representan con `.` o con `""` para caracter.
+Longitud|Hasta 32,767 bytes para caracter, 8 para variables numéricas|8|Sí|Las variables numéricas se almacenan como valores de punto flotante en 8 bytes de longitud.
+Formato|Nombre de formato|date10.|No|Consulte [Formatos de SAS](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/leforinforref/p1lukpidooq0mrn10r4l5p5dqa8x.htm) para una referencia completa
+Informato|Nombre de Informato|dollar10.|No|Consulte [Informatos de SAS](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/leforinforref/n0by448wuki4dpn1xy00najk93iz.htm) para una referencia completa
+Etiqueta|Una cadena de hasta 256 caracteres|"Segundo nombre del alumno"|No|Algunos procedimientos o reportes usan la etiqueta en lugar del nombre de la variable.
+
+Es posible conocer las propiedades de un dataset usando el PROCEDIMIENTO CONTENTS para conocer la porción descriptora de un dataset.
+
+El siguiente código nos muestra cómo saber las propiedades de un dataset almacenado en sas.
+
+````sas
+PROC CONTENTS DATA = sashelp.heart VARNUM;
+RUN;
+````
+
+El resultado se muestra a continuación
+
+![Contenido 1](img/contents1.png)
+
+![Contenido 2](img/contents2.png)
 
 ### Librerías
 
@@ -93,23 +163,6 @@ libname tareas "C:\Users\Default\Documents";
 asignaría dicho directorio a la librería _tareas_.
 
 Para referirse a un dataset almacenado en dicha librería, se utiliza el siguiente nombre `library.dataset`, por ejemplo `tareas.tabla`.
-
-### Procedimientos y pasos DATA
-
-SAS se compone de dos grandes bloques: el paso DATA para crear o modificar un dataset y paso PROC.
-
-El bloque DATA sirve para leer o generar datos, mientras que el bloque PROC sirve para analizar dichos datos.
-
-Por ejemplo, el siguiente código crea una copia de un dataset existente y posteriormente lo imprime en pantalla.
-
-````sas
-DATA clase;
-    SET SASHELP.CLASS;
-RUN;
-
-PROC PRINT;
-RUN;
-````
 
 ### Macros y variables macro
 

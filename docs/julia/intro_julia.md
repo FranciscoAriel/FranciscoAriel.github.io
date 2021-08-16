@@ -11,7 +11,7 @@ Al iniciar Julia se muestra una pantalla en que es la consola de Julia.
 
 ## Variables
 
-Julia tiene varios tipos de variables, por ejemplo tipo numérico (entero y flotante) booleano o caracter.
+Julia tiene varios tipos de variables, por ejemplo tipo numérico (entero y flotante) booleano o caracter. Para conocer todos los tipos de variables que existen, consulte la [documentación](https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/).
 
 Se puede definir una variable usando el operador de asignación `=` como se muestra en el siguiente ejemplo.
 
@@ -30,6 +30,23 @@ typeof(x)
 ````
 
 > Int64
+
+## Operadores aritméticos
+
+Julia soporta diversos operadores aritméticos, la siguiente tabla muestra los principales operadores.
+
+Expresión|Nombre|Descripción
+----|------|------
+`x + y`|suma|realiza adición
+`x - y`|resta|realiza substracción
+`x * y`|producto|realiza multiplicación
+`x / y`|división|realiza división
+`x ÷ y`|división entera|similar a `x/y`, pero truncado a un entero
+`x \ y`|división inversa|equivalente a `y/x`
+`x ^ y`|potencia|eleva `x` a la potencia `y`
+`x % y`|resto|equivalente to `rem(x,y)`
+
+Para una mayor referencia visita la sección[operadores aritméticos](https://docs.julialang.org/en/v1/manual/mathematical-operations/#Arithmetic-Operators).
 
 ## Ciclos
 

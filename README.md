@@ -58,14 +58,11 @@ Párrafo
 Párrafo
 ````
 
-Para agregar fragmentos de código, se debe poner 3 o 4 comillas inversas con el nombre del lenguaje y se cierra el bloque con 3 o4 comills inversas.
+## Extras
 
-Se pueden agregar bloques para resaltar conceptos usando tres símbolos (!!!) seguido del nombre de cuadro, en la siguiente línea se dejan 3 espacios y se coloca el texto, por ejemplo:
+Para agregar fragmentos de código, consulte la sección [code blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-blocks) para conocer sobre como resaltar los códigos o lenguajes soportados.
 
-````
-!!! Nota
-   Esto es una nota importante
-````
+Se pueden agregar cuadros que resaltan la información consulte [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#admonitions) para una referencia completa.
 
 ----
 

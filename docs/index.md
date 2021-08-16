@@ -8,7 +8,7 @@ Para ir al blog de SAS haz click [aquí](sas/intro_sas/index.html).
 
 En este blog conoceras todo lo relacionado a:
 
-* **SAS/BASE** - Contiene todo lo esencial para leer, manipular datos asíc omo otras funciones básicas de SAS.
+* **SAS/BASE** - Contiene todo lo esencial para leer, manipular datos así como otras funciones básicas de SAS.
 * **SAS/STAT** - Tiene muchos métodos estadísticos y otros análisis de datos.
 * **SAS/IML** - Es un lenguaje específico para lenguaje de matrices y funciones matemáticas y estadísticas avanzadas.
 * **OTROS** - Conexión de SAS con otros lenguajes de programación y sus configuraciones.
