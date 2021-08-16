@@ -16,9 +16,14 @@ nav:
         - "Introducción a Julia": julia/intro_julia.md
 
     - About: about.md
-theme:
+
+    theme:
     name: material
     language: es
+    favicon: img/favicon.png
+  icon:
+    logo: logo
+
 repo_url: https://github.com/FranciscoAriel/FranciscoAriel.github.io
 edit_uri: blob/master/docs/
 site_url: https://FranciscoAriel.github.io/site/
@@ -29,3 +34,9 @@ markdown_extensions:
         linenums: true
     - toc:
         permalink: True
+extra:
+      social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/squidfunk
+    - icon: fontawesome/brands/github
+      link: https://t.me/fcoavc

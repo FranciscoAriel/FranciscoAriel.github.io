@@ -37,7 +37,7 @@ RUN;
 
 SAS no muestra directamente los resultados, en su lugar, se escribe un mensaje en la ventana de log.
 
-![Log del DATA STEP](log1.png)
+![Log del DATA STEP](img/log1.png)
 
 Para visualizar el dataset creado, se debe ejecutar el siguiente código:
 
@@ -48,14 +48,18 @@ RUN;
 
 El resultado se muestra a continuación
 
-![Ejemplo 1](ds1.png)
+![Ejemplo 1](img/ds1.png)
 
 Aunque se ha producido un resultado, nuevamente aparece un mensaje en la ventana del log:
 
-![Log del PROC PRINT](log2.png)
+![Log del PROC PRINT](img/log2.png)
 
 En el log aparecen las instrucciones que se ejecutaron, seguido de un mensaje indicando que los resultados se estan escribiendo en un archivo html. Finalmente en el log se nos indica el número de observaciones leídas y el tiempo de ejecución del procedimiento.
 
 Como puede verse, el log siempre está activo y registra todas las acciones ejecutadas. Posteriormente se verán como nos puede ayudar a encontrar errores y nos apoyará en la resolución de estos.
 
-### Almacenamiento de datos
+### Lectura de datos desde un archivo externo
+
+### Leyendo archivos desde web
+
+### Usando un procedimiento para leer datos externos

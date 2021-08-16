@@ -22,7 +22,7 @@ Consulte el sitio web de [sas](https://www.sas.com) para más detalles.
 
 Es la interfaz gráfica clásica de SAS. Contiene una verntana lateral con una lista de librerías, mientras que hay una ventana principal de mensajes (log) y otra para escribir código.
 
-![Screenshot](sasbase.png)
+![Screenshot](img/sasbase.png)
 
 ### SAS Enterprise Guide
 
