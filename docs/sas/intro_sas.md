@@ -85,14 +85,14 @@ Para crear un dataset, se utiliza el bloque de instrucciones conocido como paso 
 Por ejemplo el siguiente código crea un dataset con 1 observación y tres variables (2 numéricas y otra caracter).
 
 ````sas
-data ejemplo;
-    format fecha date.;
-    fecha = today();
-    input x grupo $;
-    datalines;
+DATA EJEMPLO;
+    FORMAT FECHA DATE.;
+    FECHA = TODAY();
+    INPUT X GRUPO $;
+    DATALINES;
     12.5 azul
     ;
-run;
+RUN;
 ````
 
 La primer sentencia define el nombre del dataset.
@@ -103,7 +103,7 @@ En la tercer sentencia se define una variable numérica mediante una función, l
 
 En la siguiente sentencia se declaran 2 variables que sas va a recibir, la segunda se define como caracter al agregarle el signo `$`.
 
-La sentencia `datalines` le dice al programa que se introducirán valores de manera manual (cada renglón representa la primera observación y cada variable está separada por un espacio). El punto y coma dicta el fin de la introducción de datos.
+La sentencia `DATALINES` le dice al programa que se introducirán valores de manera manual (cada renglón representa la primera observación y cada variable está separada por un espacio). El punto y coma dicta el fin de la introducción de datos.
 
 Finalmente la palabra RUN define el fin del paso DATA.
 
@@ -134,7 +134,7 @@ Es posible conocer las propiedades de un dataset usando el PROCEDIMIENTO CONTENT
 El siguiente código nos muestra cómo saber las propiedades de un dataset almacenado en sas.
 
 ````sas
-PROC CONTENTS DATA = sashelp.heart VARNUM;
+PROC CONTENTS DATA = SASHELP.HEART VARNUM;
 RUN;
 ````
 
@@ -154,15 +154,15 @@ Las librerías o bibliotecas son rutas donde se almacenan los datasets.
 
 Si no se define una librería, sas define una librería temporal llamada WORK, la cual eliminará todos los datasets al finalizar la sesión.
 
-Para definir una librería, se puede asignar una librería a un ruta de la forma `libname libref 'sas-library';`, donde _libref_ es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y _sas-library_ es la ruta donde se almacenarán los dataset, por ejemplo:
+Para definir una librería, se puede asignar una librería a un ruta de la forma `LIBNAME libref 'sas-library';`, donde _libref_ es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y _sas-library_ es la ruta donde se almacenarán los dataset, por ejemplo:
 
 ````sas
-libname tareas "C:\Users\Default\Documents";
+LIBNAME TAREAS "C:\Users\Default\Documents";
 ````
 
-asignaría dicho directorio a la librería _tareas_.
+asignaría dicho directorio a la librería _TAREAS_.
 
-Para referirse a un dataset almacenado en dicha librería, se utiliza el siguiente nombre `library.dataset`, por ejemplo `tareas.tabla`.
+Para referirse a un dataset almacenado en dicha librería, se utiliza el siguiente nombre `LIBRARY.DATASET`, por ejemplo `TAREAS.TABLA`.
 
 ### Macros y variables macro
 
@@ -170,15 +170,13 @@ Además de los pasos PROC y DATA, SAS tiene un lenguaje especial llamado lenguaj
 
 Este lenguaje es muy útil para ejecutar tareas comunes o repetitivas
 
-A diferencia de otros lenguajes de programación, SAS no permite definir variables de forma directa. Sin embargo, es posible definir _variables macro_, las cuales almacenan un valor ya sea un número o un texto. 
-Dichas variables son evaluadas y pueden ser llamadas en cualquier procedimiento macro.
+A diferencia de otros lenguajes de programación, SAS no permite definir variables de forma directa. Sin embargo, es posible definir _variables macro_, las cuales almacenan un valor ya sea un número o un texto. Dichas variables son evaluadas y pueden ser llamadas en cualquier procedimiento macro.
 
 Hay tres formas de crear variables macro:
 
 - Con la sentencia `%let`.
 - Con la llamada `symput()`.
 - con la sentencia `INTO` dentro de un procedimiento SQL.
-
 
 Se usa la sentencia `%let macro-variable = <value>;` y para mandar llamar el valor de dicha variable maro se usa `&macro-variable`.
 
@@ -187,9 +185,9 @@ Por ejemplo si se desea definir ciertas variables a analizar, se puede crear la 
 ````sas
 %let x = age weight height;
 
-proc means data = sashelp.class;
-    var &x;
-run;
+PROC MEANS DATA = SASHELP.CLASS;
+    VAR &X;
+RUN;
 ````
 
 Para ver el valor de la variable macro, se puede usar la sentencia macro `%PUT <&macro-variable>`, por ejemplo:

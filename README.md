@@ -14,7 +14,7 @@ También tengo un curso básico de sql en gitbook. Puedes consultarlo en este [e
 
 Si deseas aportar nuevos conocimientos puedes apoyarnos con sugerencias o comentarios.
 
-También puedes hacer aportaciones a mi código fuente, es muy fácil todo está escrito en formato merkdown.
+También puedes hacer aportaciones a mi código fuente, es muy fácil todo está escrito en formato markdown.
 
 Puedes clonar este repositorio.
 
