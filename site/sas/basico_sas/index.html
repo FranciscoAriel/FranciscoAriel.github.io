@@ -297,6 +297,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creacion-de-reportes" class="md-nav__link">
+    Creación de reportes
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación de reportes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reportes-basicos" class="md-nav__link">
+    Reportes básicos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#un-reporte-con-seleccionando-casos-con-total" class="md-nav__link">
+    Un reporte con seleccionando casos con total
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporte-con-subtotales" class="md-nav__link">
+    Reporte con subtotales
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -521,6 +555,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creacion-de-reportes" class="md-nav__link">
+    Creación de reportes
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación de reportes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reportes-basicos" class="md-nav__link">
+    Reportes básicos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#un-reporte-con-seleccionando-casos-con-total" class="md-nav__link">
+    Un reporte con seleccionando casos con total
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reporte-con-subtotales" class="md-nav__link">
+    Reporte con subtotales
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -553,6 +621,116 @@
 <h3 id="lectura-de-datos-desde-un-archivo-externo">Lectura de datos desde un archivo externo<a class="headerlink" href="#lectura-de-datos-desde-un-archivo-externo" title="Permanent link">&para;</a></h3>
 <h3 id="leyendo-archivos-desde-web">Leyendo archivos desde web<a class="headerlink" href="#leyendo-archivos-desde-web" title="Permanent link">&para;</a></h3>
 <h3 id="usando-un-procedimiento-para-leer-datos-externos">Usando un procedimiento para leer datos externos<a class="headerlink" href="#usando-un-procedimiento-para-leer-datos-externos" title="Permanent link">&para;</a></h3>
+<h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
+<p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
+<h3 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h3>
+<p>El reporte más simple que se puede crear, es mostrar el conjunto de datos usando el procedimiento <code>PROC PRINT</code>.</p>
+<p>Sin embargo, para datasets muy grandes, esto no sería una buena opción debido a que SAS gastaría muchos recursos en imprimir toda la tabla. Se pueden usar ciertas configuraciones para que SAS solo procece cierta cantidad de observaciones de un dataset.</p>
+<p>La primera de ellas es mediante las <em>opciones generales</em>, la cual afectaría a todos los procedimientos durante la sesión o mediante las <em>opciones de dataset</em> la cual solo aplica durante ese procedimiento. Para una referencia completa sobre las opciones generales, visite el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lesysoptsref/p1tmgku1vq7pwqn1iqioeflxgec1.htm">diccionario de opciones del sistema</a> y para las opciones de dataset vea el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/ledsoptsref/p1pczmnhbq4axpn1l15s9mk6mobp.htm">diccionario de opciones de datasets</a>.</p>
+<p>El siguiente ejemplo muestra las primeras diez observaciones del conjunto de datos de baseball, pero solo pedimos que muestre ciertas variables.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">PROC PRINT </span>DATA = SASHELP<span class="m">.</span>BASEBALL(OBS=<span class="m">10</span>);
+    VAR NAME TEAM NHOME SALARY<span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Produce el siguiente resultado</p>
+<p><img alt="Mostrando 10 observaciones" src="../img/print1.png" /></p>
+<h3 id="un-reporte-con-seleccionando-casos-con-total">Un reporte con seleccionando casos con total<a class="headerlink" href="#un-reporte-con-seleccionando-casos-con-total" title="Permanent link">&para;</a></h3>
+<p><strong>PROC PRINT</strong> tambien tiene diversas sentencias para hacer reportes más completos o específicos.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">TITLE</span> <span class="s">&quot;Reporte del equipo San Francisco&quot;</span><span class="kr">;</span>
+<span class="kr">PROC PRINT </span>DATA = SASHELP<span class="m">.</span>BASEBALL NOOBS;
+    VAR NAME NHOME SALARY;
+    <span class="k">WHERE</span> TEAM EQ <span class="s">&quot;San Francisco&quot;</span>;
+    <span class="k">FORMAT</span> SALARY DOLLAR12.;
+    <span class="k">LABEL</span> 
+        NAME = <span class="s">&quot;Nombre del jugador&quot;</span>
+        NHOME = <span class="s">&quot;Número de Home Runs en 1986&quot;</span>
+        SALARY = <span class="s">&quot;Salario en 1987 (Miles de dólares)&quot;</span>
+    ;
+    SUM NHOME SALARY<span class="kr">;</span>
+<span class="kr">RUN;</span>
+<span class="k">TITLE</span>;
+</code></pre></div>
+</td></tr></table>
+
+<p>El anterior ejemplo muestra un reporte que incluye el nombre de todos los jugadores del equipo <em>San Francisco</em>, número de home run ysu salario; al final del reporte se presenta el gran total de estas variables. En este ejemplo se modificaron las etiquetas y los formatos, pero sólo para el reporte mediante las sentencias <code>LABEL</code> y <code>FORMAT</code> y se seleccionaron las observaciones que cumplieran cierto criterio.</p>
+<p>La opción <code>NOOBS</code> en la sentencia <code>DATA</code> pide no imprimir el número de observación del dataset y con la opción <code>LABEL</code> se mostrarán las etiquetas de las variables.</p>
+<p>La sentencia <code>VAR</code> especifica las variables a mostrar.</p>
+<p>La sentencia <code>WHERE</code> selecciona las observaciones que cumplan la condición de que el equipo sea igual a <em>San Francisco</em>.</p>
+<p>La sentencia <code>FORMAT</code> le asigna a la variable <strong>SALARY</strong> el formato <code>DOLLAR12.</code>.</p>
+<p><code>LABEL</code> especifica las etiquetas de las variables en el reporte. En caso de que las variables del dataset ya tengan etiquetas, estas etiquetas definidas prevalecen en el reporte.</p>
+<p>La sentencia <code>SUM</code> es la que especifica las variables que mostrarán el gran total. Finalmente se agrega la opción <code>TITLE</code> para que se le ponga un título al reporte y se vuelve a llamar al final para que vuelva a su valor inicial.</p>
+<p><img alt="Reporte gran total" src="../img/print2.png" /></p>
+<h3 id="reporte-con-subtotales">Reporte con subtotales<a class="headerlink" href="#reporte-con-subtotales" title="Permanent link">&para;</a></h3>
+<p>Es posible mostrar los reportes con subtotales por grupos de variables.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Los datos se deberían ordenar por la variables que se desee hacer el agrupamiento para evitar posibles errores en los cálculos. SAS considera valores de la variable de agrupamiento como un bloque. Si SAS encontrara una observación con un valor que ya procesó, se generará un error.</p>
+</div>
+<p>Se puede usar el procedimiento SORT para ordenar una dataset por las variables que se deseen y posteriormente realizar el reporte.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">PROC SORT </span>DATA = SASHELP<span class="m">.</span>BASEBALL <span class="k">OUT</span> = BASEBALL;
+    <span class="k">BY</span> DIVISION TEAM<span class="kr">;</span>
+<span class="kr">RUN;</span>
+
+<span class="kr">PROC PRINT </span>DATA = BASEBALL NOOBS <span class="k">LABEL</span>;
+    VAR NAME POSITION NHOME SALARY;
+    <span class="k">FORMAT</span> SALARY DOLLAR12.;
+    <span class="k">LABEL</span> DIVISION = <span class="s">&quot;División&quot;</span>
+    NAME = <span class="s">&quot;Nombre del jugador&quot;</span>
+    TEAM = <span class="s">&quot;Equipo&quot;</span>
+    POSITION = <span class="s">&quot;Posición&quot;</span>
+    NHOME = <span class="s">&quot;Número de Home Runs en 1986&quot;</span>
+    SALARY = <span class="s">&quot;Salario en 1987 (Miles de dólares)&quot;</span>
+    ;
+    SUM NHOME SALARY;
+    <span class="k">BY</span> DIVISION TEAM<span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El procedimiento SORT especifica que se ordene por las variables <em>division</em> y luego por <em>team</em> y se pide que se guarde una copia temporal, con el fin de no modificar el dataset original.</p>
+<p>En el procedimiento <strong>PRINT</strong> se usa la sentencia <code>BY</code> para que crear el reporte por combinaciones de valores de <em>division</em> y <em>team</em>.</p>
+<p><img alt="Reporte gran total" src="../img/print3.png" /></p>
+<p>La imagen anterior muestra el ultimo grupo de variables (División = West y Equipo = Texas). Nótese que este grupo contiene los subtotales tanto de las variables <em>team</em> y <em>division</em> así como el gran total. Cada grupo contiene como título el valor de las variables <em>division</em> y <em>team</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Se pueden agregar en la sentencia <code>PROC PRINT</code> las opciones <code>SUMLABEL</code> y <code>GRANDTOTAL_LABEL =</code> para personalizar las etiquetas de subtotales y el gran total.</p>
+</div>
+<p>Si se desea mostrar un reporte con otro estilo resaltando las variables de agrupamiento, se puede agregar la sentencia.</p>
+<p><code>ID DIVISION TEAM;</code></p>
+<p>El resultado es el siguente.</p>
+<p><img alt="Reporte gran total" src="../img/print4.png" /></p>
                 
                   
                 

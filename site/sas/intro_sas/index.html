@@ -641,14 +641,14 @@ Visite <a href="https://www.sas.com/en_us/software/university-edition.html">SAS 
 5
 6
 7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">data </span>ejemplo;
-    <span class="k">format</span> fecha date.;
-    fecha = <span class="nb">today(</span>);
-    <span class="k">input</span> <span class="k">x</span> grupo $;
-<span class="k">    datalines;</span><span class="x"></span>
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>EJEMPLO;
+    <span class="k">FORMAT</span> FECHA DATE.;
+    FECHA = <span class="nb">TODAY(</span>);
+    <span class="k">INPUT</span> <span class="k">X</span> GRUPO $;
+<span class="k">    DATALINES;</span><span class="x"></span>
 <span class="x">    12.5 azul</span>
 <span class="x">    ;</span>
-<span class="kr">run;</span>
+<span class="kr">RUN;</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -656,7 +656,7 @@ Visite <a href="https://www.sas.com/en_us/software/university-edition.html">SAS 
 <p>La segunda le asigna un formato de fecha a la variable fecha. Esto a se debe a que internamente SAS almacena el resultado como un valor numérico, pero quisieramos visualizarlo como una fecha.</p>
 <p>En la tercer sentencia se define una variable numérica mediante una función, la cual obtiene la fecha de hoy (número de días transcurridos desde el 1 de enero de 1960).</p>
 <p>En la siguiente sentencia se declaran 2 variables que sas va a recibir, la segunda se define como caracter al agregarle el signo <code>$</code>.</p>
-<p>La sentencia <code>datalines</code> le dice al programa que se introducirán valores de manera manual (cada renglón representa la primera observación y cada variable está separada por un espacio). El punto y coma dicta el fin de la introducción de datos.</p>
+<p>La sentencia <code>DATALINES</code> le dice al programa que se introducirán valores de manera manual (cada renglón representa la primera observación y cada variable está separada por un espacio). El punto y coma dicta el fin de la introducción de datos.</p>
 <p>Finalmente la palabra RUN define el fin del paso DATA.</p>
 <p>Un dataset consiste de dos partes:</p>
 <ul>
@@ -725,7 +725,7 @@ Visite <a href="https://www.sas.com/en_us/software/university-edition.html">SAS 
 <p>Es posible conocer las propiedades de un dataset usando el PROCEDIMIENTO CONTENTS para conocer la porción descriptora de un dataset.</p>
 <p>El siguiente código nos muestra cómo saber las propiedades de un dataset almacenado en sas.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">PROC CONTENTS </span>DATA = sashelp<span class="m">.</span>heart VARNUM<span class="kr">;</span>
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">PROC CONTENTS </span>DATA = SASHELP<span class="m">.</span>HEART VARNUM<span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
 </td></tr></table>
@@ -741,18 +741,17 @@ Visite <a href="https://www.sas.com/en_us/software/university-edition.html">SAS 
 En el sistema operativo Windows o UNIX, una librería es típicamente un grupo de archivos de SAS en el mismo folder o directorio.</p>
 </div>
 <p>Si no se define una librería, sas define una librería temporal llamada WORK, la cual eliminará todos los datasets al finalizar la sesión.</p>
-<p>Para definir una librería, se puede asignar una librería a un ruta de la forma <code>libname libref 'sas-library';</code>, donde <em>libref</em> es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y <em>sas-library</em> es la ruta donde se almacenarán los dataset, por ejemplo:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">libname</span> tareas <span class="s">&quot;C:\Users\Default\Documents&quot;</span>;
+<p>Para definir una librería, se puede asignar una librería a un ruta de la forma <code>LIBNAME libref 'sas-library';</code>, donde <em>libref</em> es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y <em>sas-library</em> es la ruta donde se almacenarán los dataset, por ejemplo:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">LIBNAME</span> TAREAS <span class="s">&quot;C:\Users\Default\Documents&quot;</span>;
 </code></pre></div>
 </td></tr></table>
 
-<p>asignaría dicho directorio a la librería <em>tareas</em>.</p>
-<p>Para referirse a un dataset almacenado en dicha librería, se utiliza el siguiente nombre <code>library.dataset</code>, por ejemplo <code>tareas.tabla</code>.</p>
+<p>asignaría dicho directorio a la librería <em>TAREAS</em>.</p>
+<p>Para referirse a un dataset almacenado en dicha librería, se utiliza el siguiente nombre <code>LIBRARY.DATASET</code>, por ejemplo <code>TAREAS.TABLA</code>.</p>
 <h3 id="macros-y-variables-macro">Macros y variables macro<a class="headerlink" href="#macros-y-variables-macro" title="Permanent link">&para;</a></h3>
 <p>Además de los pasos PROC y DATA, SAS tiene un lenguaje especial llamado lenguaje macro, el cual especie de procesador de instrucciones que compila y ejecuta.</p>
 <p>Este lenguaje es muy útil para ejecutar tareas comunes o repetitivas</p>
-<p>A diferencia de otros lenguajes de programación, SAS no permite definir variables de forma directa. Sin embargo, es posible definir <em>variables macro</em>, las cuales almacenan un valor ya sea un número o un texto. 
-Dichas variables son evaluadas y pueden ser llamadas en cualquier procedimiento macro.</p>
+<p>A diferencia de otros lenguajes de programación, SAS no permite definir variables de forma directa. Sin embargo, es posible definir <em>variables macro</em>, las cuales almacenan un valor ya sea un número o un texto. Dichas variables son evaluadas y pueden ser llamadas en cualquier procedimiento macro.</p>
 <p>Hay tres formas de crear variables macro:</p>
 <ul>
 <li>Con la sentencia <code>%let</code>.</li>
@@ -767,9 +766,9 @@ Dichas variables son evaluadas y pueden ser llamadas en cualquier procedimiento 
 4
 5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nb">%let</span> <span class="k">x</span> = age weight height<span class="kr">;</span>
 
-<span class="kr">proc means </span>data = sashelp<span class="m">.</span>class;
-    var <span class="nv">&amp;x</span><span class="kr">;</span>
-<span class="kr">run;</span>
+<span class="kr">PROC MEANS </span>DATA = SASHELP<span class="m">.</span>CLASS;
+    VAR <span class="nv">&amp;X</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
 </code></pre></div>
 </td></tr></table>
 
