@@ -120,9 +120,9 @@ La porción descriptora tambien contiene información de los atributos de cada v
 
 El siguiente cuadro resume los atributos de las variables.
 
-Nombre|Valor|Ejemplo|Requerido|Nota
+Atributo|Valor|Ejemplo|Requerido|Nota
 ------|-----|-------|---------|----
-Variable|Nombre SAS|_nombre_alumno2|Sí|Hasta 32 carácteres, iniciando con `_` o una letras, puede contener valores numéricos.
+Nombre|Nombre SAS|_nombre_alumno2|Sí|Hasta 32 carácteres, iniciando con `_` o una letras, puede contener valores numéricos.
 Tipo|*char* o *num*|num|Sí|Los valores perdidos (missing) para variables numéricas se representan con `.` o con `""` para caracter.
 Longitud|Hasta 32,767 bytes para caracter, 8 para variables numéricas|8|Sí|Las variables numéricas se almacenan como valores de punto flotante en 8 bytes de longitud.
 Formato|Nombre de formato|date10.|No|Consulte [Formatos de SAS](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/leforinforref/p1lukpidooq0mrn10r4l5p5dqa8x.htm) para una referencia completa

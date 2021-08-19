@@ -615,9 +615,69 @@
 <p>Los dataset son el insumo principal para analisis de datos en SAS, por ello iniciaremos con una rápida exploración.</p>
 <p>La creación de un dataset inicia con un bloque <code>DATA</code> y termina con un <code>RUN</code>.</p>
 <h3 id="introduccion-de-valores-de-forma-manual">Introducción de valores de forma manual<a class="headerlink" href="#introduccion-de-valores-de-forma-manual" title="Permanent link">&para;</a></h3>
-<p>La forma más fácil de crear un dataset, es con el uso de la sentencia <code>INPUT</code> y <code>DATALINES</code> con el fin de introducir valores manualmente.</p>
-<p>La sentencia <code>INPUT</code> sirve para indicar el nombre de las variables del dataset. Se puede poner el símbolo <code>$</code> para indicar que la variable es de tipo caracter.</p>
+<p>La forma más fácil de crear un dataset, es con el uso de la sentencia <code>INPUT</code> y <code>DATALINES</code> con el fin de introducir valores manualmente. Estos datos fueron copiados y pegados directamente de una hoja de excel.</p>
+<p>El siguiente ejemplo muestra como introducir datos manualmente.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>EMPLEADOS(<span class="k">LABEL</span> = <span class="s">&quot;Registro de empleados nuevos&quot;</span>);
+    <span class="k">ATTRIB</span>
+        NOMBRE <span class="k">LENGTH</span> = $<span class="m">16</span> <span class="k">LABEL</span> = <span class="s">&quot;Nombre&quot;</span>
+        APELLIDO <span class="k">LENGTH</span> = $<span class="m">12</span> <span class="k">LABEL</span> = <span class="s">&quot;Apellido&quot;</span>
+        ID <span class="k">LABEL</span> = <span class="s">&quot;ID empleado&quot;</span>
+        GENERO <span class="k">LENGTH</span> = $<span class="m">1</span>. <span class="k">LABEL</span> = <span class="s">&quot;Género&quot;</span>
+        FNAC <span class="k">INFORMAT</span> = DDMMYY10. <span class="k">FORMAT</span> = DATE10. <span class="k">LABEL</span> = <span class="s">&quot;Fecha de nacimiento&quot;</span>
+    ;
+    <span class="k">INPUT</span> NOMBRE -- FNAC;
+<span class="k">    DATALINES;</span><span class="x"></span>
+<span class="x">    Bill Cuddy 11171 M 16/10/1986</span>
+<span class="x">    Susan Krasowski 17023 F 09/07/1959</span>
+<span class="x">    Andreas Rennie 26148 M 18/07/1934</span>
+<span class="x">    Lauren Krasowski 46966 F 24/10/1986</span>
+<span class="x">    Lauren Marx 54655 F 18/08/1969</span>
+<span class="x">    Tommy Mcdonald 70046 M 20/01/1959</span>
+<span class="x">    Colin Byarley 70059 M 20/01/1934</span>
+<span class="x">    Lera Knott 70079 F 11/07/1986</span>
+<span class="x">    Wilma Yeargan 70100 F 23/06/1984</span>
+<span class="x">    Patrick Leach 70108 M 14/04/1939</span>
+<span class="x">    Portia Reynoso 70165 F 11/02/1964</span>
+<span class="x">    Soberina Berent 70187 F 27/09/1986</span>
+<span class="x">    Angel Borwick 70201 F 19/12/1969</span>
+<span class="x">    Alex Santinello 70210 M 22/04/1986</span>
+<span class="x">    Kenan Talarr 70221 M 10/02/1964</span>
+<span class="x">    ;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>La sentencia <code>DATA</code> especifica el nombre del dataset y entre parentesis están las opciones del dataset, en este caso el dataset <em>empleados</em> tendrá una etiqueta para identificarlo.</p>
+<p>Es recomendable especificar las propiedades de las variables a crear mediante la sentencia <code>ATTRIB</code> en donde se especifican sus propiedades. Nótese que para el caso de las variables de tipo caracter se hace uso de la opción <code>LENGTH =</code> seguido del signo de pesos para indicar que es de tipo caracter y la longitud deseada. Para el caso de variables numéricas, se debe especificar al menos un atributo, en este caso se recomienda especificar el atributo <code>LABEL =</code>. En el caso de la variable <em>fnac</em> los datos estan almacenados en formato de fecha (ddmmyyyy) por lo que se usa el informato <code>ddmmyy10.</code> para que lo reconozca como fehca de sas, pero se desea visualizar con el formato de fecha (ddmmmyyyy).</p>
+<p>La sentencia <code>INPUT</code> sirve para indicar el nombre de las variables del dataset. Se puede poner el símbolo <code>$</code> para indicar que la variable es de tipo caracter. Sin embargo en este caso, como ya se han declarado las variables se puede usar una lista, es decir, solo poner el nombre de la primer variable declarada seguido de dos guiones <code>--</code> y el nombre de la última.</p>
 <p>La sentencia <code>DATALINES</code> indica el inicio de los datos y finaliza con un punto y coma.</p>
+<p>Con la sentencia <code>RUN</code> se cierra el bloque de instrucciones y comienza a ejecutar el proceso.</p>
 <h3 id="lectura-de-datos-desde-un-archivo-externo">Lectura de datos desde un archivo externo<a class="headerlink" href="#lectura-de-datos-desde-un-archivo-externo" title="Permanent link">&para;</a></h3>
 <h3 id="leyendo-archivos-desde-web">Leyendo archivos desde web<a class="headerlink" href="#leyendo-archivos-desde-web" title="Permanent link">&para;</a></h3>
 <h3 id="usando-un-procedimiento-para-leer-datos-externos">Usando un procedimiento para leer datos externos<a class="headerlink" href="#usando-un-procedimiento-para-leer-datos-externos" title="Permanent link">&para;</a></h3>
@@ -725,7 +785,7 @@
 <p>La imagen anterior muestra el ultimo grupo de variables (División = West y Equipo = Texas). Nótese que este grupo contiene los subtotales tanto de las variables <em>team</em> y <em>division</em> así como el gran total. Cada grupo contiene como título el valor de las variables <em>division</em> y <em>team</em>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Se pueden agregar en la sentencia <code>PROC PRINT</code> las opciones <code>SUMLABEL</code> y <code>GRANDTOTAL_LABEL =</code> para personalizar las etiquetas de subtotales y el gran total.</p>
+<p>Se pueden agregar en la sentencia <code>PROC PRINT</code> las opciones <code>SUMLABEL =</code> y <code>GRANDTOTAL_LABEL =</code> para personalizar las etiquetas de subtotales y el gran total.</p>
 </div>
 <p>Si se desea mostrar un reporte con otro estilo resaltando las variables de agrupamiento, se puede agregar la sentencia.</p>
 <p><code>ID DIVISION TEAM;</code></p>

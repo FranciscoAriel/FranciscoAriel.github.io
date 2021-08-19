@@ -13,11 +13,49 @@ La creación de un dataset inicia con un bloque `DATA` y termina con un `RUN`.
 
 ### Introducción de valores de forma manual
 
-La forma más fácil de crear un dataset, es con el uso de la sentencia `INPUT` y `DATALINES` con el fin de introducir valores manualmente.
+La forma más fácil de crear un dataset, es con el uso de la sentencia `INPUT` y `DATALINES` con el fin de introducir valores manualmente. Estos datos fueron copiados y pegados directamente de una hoja de excel.
 
-La sentencia `INPUT` sirve para indicar el nombre de las variables del dataset. Se puede poner el símbolo `$` para indicar que la variable es de tipo caracter.
+El siguiente ejemplo muestra como introducir datos manualmente.
+
+````sas
+DATA EMPLEADOS(LABEL = "Registro de empleados nuevos");
+    ATTRIB
+        NOMBRE LENGTH = $16 LABEL = "Nombre"
+        APELLIDO LENGTH = $12 LABEL = "Apellido"
+        ID LABEL = "ID empleado"
+        GENERO LENGTH = $1. LABEL = "Género"
+        FNAC INFORMAT = DDMMYY10. FORMAT = DATE10. LABEL = "Fecha de nacimiento"
+    ;
+    INPUT NOMBRE -- FNAC;
+    DATALINES;
+    Bill Cuddy 11171 M 16/10/1986
+    Susan Krasowski 17023 F 09/07/1959
+    Andreas Rennie 26148 M 18/07/1934
+    Lauren Krasowski 46966 F 24/10/1986
+    Lauren Marx 54655 F 18/08/1969
+    Tommy Mcdonald 70046 M 20/01/1959
+    Colin Byarley 70059 M 20/01/1934
+    Lera Knott 70079 F 11/07/1986
+    Wilma Yeargan 70100 F 23/06/1984
+    Patrick Leach 70108 M 14/04/1939
+    Portia Reynoso 70165 F 11/02/1964
+    Soberina Berent 70187 F 27/09/1986
+    Angel Borwick 70201 F 19/12/1969
+    Alex Santinello 70210 M 22/04/1986
+    Kenan Talarr 70221 M 10/02/1964
+    ;
+RUN;
+````
+
+La sentencia `DATA` especifica el nombre del dataset y entre parentesis están las opciones del dataset, en este caso el dataset *empleados* tendrá una etiqueta para identificarlo.
+
+Es recomendable especificar las propiedades de las variables a crear mediante la sentencia `ATTRIB` en donde se especifican sus propiedades. Nótese que para el caso de las variables de tipo caracter se hace uso de la opción `LENGTH =` seguido del signo de pesos para indicar que es de tipo caracter y la longitud deseada. Para el caso de variables numéricas, se debe especificar al menos un atributo, en este caso se recomienda especificar el atributo `LABEL =`. En el caso de la variable *fnac* los datos estan almacenados en formato de fecha (ddmmyyyy) por lo que se usa el informato `ddmmyy10.` para que lo reconozca como fehca de sas, pero se desea visualizar con el formato de fecha (ddmmmyyyy).
+
+La sentencia `INPUT` sirve para indicar el nombre de las variables del dataset. Se puede poner el símbolo `$` para indicar que la variable es de tipo caracter. Sin embargo en este caso, como ya se han declarado las variables se puede usar una lista, es decir, solo poner el nombre de la primer variable declarada seguido de dos guiones `--` y el nombre de la última.
 
 La sentencia `DATALINES` indica el inicio de los datos y finaliza con un punto y coma.
+
+Con la sentencia `RUN` se cierra el bloque de instrucciones y comienza a ejecutar el proceso.
 
 ### Lectura de datos desde un archivo externo
 
@@ -123,7 +161,7 @@ En el procedimiento **PRINT** se usa la sentencia `BY` para que crear el reporte
 La imagen anterior muestra el ultimo grupo de variables (División = West y Equipo = Texas). Nótese que este grupo contiene los subtotales tanto de las variables *team* y *division* así como el gran total. Cada grupo contiene como título el valor de las variables *division* y *team*.
 
 !!! tip
-    Se pueden agregar en la sentencia `PROC PRINT` las opciones `SUMLABEL` y `GRANDTOTAL_LABEL =` para personalizar las etiquetas de subtotales y el gran total.
+    Se pueden agregar en la sentencia `PROC PRINT` las opciones `SUMLABEL =` y `GRANDTOTAL_LABEL =` para personalizar las etiquetas de subtotales y el gran total.
 
 Si se desea mostrar un reporte con otro estilo resaltando las variables de agrupamiento, se puede agregar la sentencia.
 
