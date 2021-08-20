@@ -5,6 +5,8 @@ authors: Francisco Vázquez
 date: 2020-09-26
 ---
 
+En esta sección se presentan temas para comenzar con la lectura y procesamiento de datos, así como la creación de reportes y agregados que permitan tner una idea general de los datos que se están trabajando.
+
 ## Lectura de datos
 
 Los dataset son el insumo principal para analisis de datos en SAS, por ello iniciaremos con una rápida exploración.
@@ -58,6 +60,47 @@ La sentencia `DATALINES` indica el inicio de los datos y finaliza con un punto y
 Con la sentencia `RUN` se cierra el bloque de instrucciones y comienza a ejecutar el proceso.
 
 ### Lectura de datos desde un archivo externo
+
+SAS puede leer datos de archivos de texto almacenados en distintos formatos, por ejemplo de ancho fijo o delimitados. Para acceder a ellos es necesario usar la referencia para a puntar a ellos, algo similar a la declaración de las librerías.
+
+Se puede hacer mediante la sentencia `FILENAME`:
+
+> **FILENAME** *fileref* '*nombre-archivo*';
+
+donde *fileref* es un nombre sas que hará referencia a un archivo y *nombre-archivo* es el nombre de un archivo físico externo que incluye tanto la ruta como el nombre con su extensión.
+
+Por ejemplo la siguiente sentencia asigna con el nombre *archivo* al archivo "datos" almacenados en formato .dat que estan en la carpeta proyectos.
+
+````sas
+FILENAME archivo "C:\Users\Usuario\Documents\Proyectos\datos.dat";
+````
+
+#### Lectura de un archivo de ancho fijo
+
+En ocasiones se tienen los datos almacenados en formato de texto pero los datos estan alineados de tal forma que es posible saber en que posición inicia cada variable.
+
+![Ejemplo de un archivo en formato de texto de ancho fijo](img/fijo.png)
+
+El ejemplo anterior muestra un ejemplo de un archivo de texto de ancho fijo, obsérvese que el id comienza en la columna 1 mientras que el nombre inicia en la columna 8.
+
+El siguiente código muestra cómo leer datos de un archivo de ancho fijo.
+
+````sas
+DATA VENTAS;
+INFILE ARCHIVO;
+INPUT ID 1 - 7 NOMBRE $ 8 - 18 APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN 54 - 60 PAIS $ 61-62;
+RUN;
+````
+
+La diferencia con ejemplos anteriores es la sentencia `INFILE`. Esta sentencia especifica que se va leer un archivo externo y se usa junto con la sentencia `INPUT`.
+
+En la sentencia `INPUT` se declaran las variables que va a contener el dataset **VENTAS**. SAS leerá el archivo línea por línea y almacenará los valores que encuentre en la variable declarada según la posición indicada, por ejemplo los valores que encuentre de la línea 1 a la 7 se guardarán en la variable *ID*, mientras que los valores de la columna 8 a la 18 se almacenarán en la variable *NOMBRE*, nótese que después de *NOMBRE* hay un signo de pesos, esto es para indicar que la variable es de tipo caracter.
+
+!!! danger "Cuidado con las posiciones de columna"
+    Se debe ser muy cuidadoso al especificar la posición de las columnas para no mezclar los valores.
+    En el ejemplo anterior, si se hubiera declarado `VOLUMEN 54 - 61`, SAS hubiera considerado la columna 61 y nos mostraría un mensaje en el log:
+    ![Error en la lectura de datos](img/error1.png)
+    Debido a aque la columna 61 contiene a la letra A
 
 ### Leyendo archivos desde web
 

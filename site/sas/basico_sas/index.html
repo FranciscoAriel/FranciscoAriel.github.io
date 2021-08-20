@@ -276,6 +276,19 @@
     Lectura de datos desde un archivo externo
   </a>
   
+    <nav class="md-nav" aria-label="Lectura de datos desde un archivo externo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lectura-de-un-archivo-de-ancho-fijo" class="md-nav__link">
+    Lectura de un archivo de ancho fijo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -534,6 +547,19 @@
     Lectura de datos desde un archivo externo
   </a>
   
+    <nav class="md-nav" aria-label="Lectura de datos desde un archivo externo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lectura-de-un-archivo-de-ancho-fijo" class="md-nav__link">
+    Lectura de un archivo de ancho fijo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -611,7 +637,8 @@
                 
                   <h1>SAS nivel básico</h1>
                 
-                <h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
+                <p>En esta sección se presentan temas para comenzar con la lectura y procesamiento de datos, así como la creación de reportes y agregados que permitan tner una idea general de los datos que se están trabajando.</p>
+<h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
 <p>Los dataset son el insumo principal para analisis de datos en SAS, por ello iniciaremos con una rápida exploración.</p>
 <p>La creación de un dataset inicia con un bloque <code>DATA</code> y termina con un <code>RUN</code>.</p>
 <h3 id="introduccion-de-valores-de-forma-manual">Introducción de valores de forma manual<a class="headerlink" href="#introduccion-de-valores-de-forma-manual" title="Permanent link">&para;</a></h3>
@@ -679,6 +706,41 @@
 <p>La sentencia <code>DATALINES</code> indica el inicio de los datos y finaliza con un punto y coma.</p>
 <p>Con la sentencia <code>RUN</code> se cierra el bloque de instrucciones y comienza a ejecutar el proceso.</p>
 <h3 id="lectura-de-datos-desde-un-archivo-externo">Lectura de datos desde un archivo externo<a class="headerlink" href="#lectura-de-datos-desde-un-archivo-externo" title="Permanent link">&para;</a></h3>
+<p>SAS puede leer datos de archivos de texto almacenados en distintos formatos, por ejemplo de ancho fijo o delimitados. Para acceder a ellos es necesario usar la referencia para a puntar a ellos, algo similar a la declaración de las librerías.</p>
+<p>Se puede hacer mediante la sentencia <code>FILENAME</code>:</p>
+<blockquote>
+<p><strong>FILENAME</strong> <em>fileref</em> &lsquo;<em>nombre-archivo</em>&rsquo;;</p>
+</blockquote>
+<p>donde <em>fileref</em> es un nombre sas que hará referencia a un archivo y <em>nombre-archivo</em> es el nombre de un archivo físico externo que incluye tanto la ruta como el nombre con su extensión.</p>
+<p>Por ejemplo la siguiente sentencia asigna con el nombre <em>archivo</em> al archivo &ldquo;datos&rdquo; almacenados en formato .dat que estan en la carpeta proyectos.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\Documents\Proyectos\datos.dat&quot;</span>;
+</code></pre></div>
+</td></tr></table>
+
+<h4 id="lectura-de-un-archivo-de-ancho-fijo">Lectura de un archivo de ancho fijo<a class="headerlink" href="#lectura-de-un-archivo-de-ancho-fijo" title="Permanent link">&para;</a></h4>
+<p>En ocasiones se tienen los datos almacenados en formato de texto pero los datos estan alineados de tal forma que es posible saber en que posición inicia cada variable.</p>
+<p><img alt="Ejemplo de un archivo en formato de texto de ancho fijo" src="../img/fijo.png" /></p>
+<p>El ejemplo anterior muestra un ejemplo de un archivo de texto de ancho fijo, obsérvese que el id comienza en la columna 1 mientras que el nombre inicia en la columna 8.</p>
+<p>El siguiente código muestra cómo leer datos de un archivo de ancho fijo.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>VENTAS;
+<span class="k">INFILE</span> ARCHIVO;
+<span class="k">INPUT</span> ID <span class="m">1</span> - <span class="m">7</span> NOMBRE $ <span class="m">8</span> - <span class="m">18</span> APELLIDO $ <span class="m">19-33</span> POSICION $ <span class="m">34</span> - <span class="m">53</span> VOLUMEN <span class="m">54</span> - <span class="m">60</span> PAIS $ <span class="m">61-62</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>La diferencia con ejemplos anteriores es la sentencia <code>INFILE</code>. Esta sentencia especifica que se va leer un archivo externo y se usa junto con la sentencia <code>INPUT</code>.</p>
+<p>En la sentencia <code>INPUT</code> se declaran las variables que va a contener el dataset <strong>VENTAS</strong>. SAS leerá el archivo línea por línea y almacenará los valores que encuentre en la variable declarada según la posición indicada, por ejemplo los valores que encuentre de la línea 1 a la 7 se guardarán en la variable <em>ID</em>, mientras que los valores de la columna 8 a la 18 se almacenarán en la variable <em>NOMBRE</em>, nótese que después de <em>NOMBRE</em> hay un signo de pesos, esto es para indicar que la variable es de tipo caracter.</p>
+<div class="admonition danger">
+<p class="admonition-title">Cuidado con las posiciones de columna</p>
+<p>Se debe ser muy cuidadoso al especificar la posición de las columnas para no mezclar los valores.
+En el ejemplo anterior, si se hubiera declarado <code>VOLUMEN 54 - 61</code>, SAS hubiera considerado la columna 61 y nos mostraría un mensaje en el log:
+<img alt="Error en la lectura de datos" src="../img/error1.png" />
+Debido a aque la columna 61 contiene a la letra A</p>
+</div>
 <h3 id="leyendo-archivos-desde-web">Leyendo archivos desde web<a class="headerlink" href="#leyendo-archivos-desde-web" title="Permanent link">&para;</a></h3>
 <h3 id="usando-un-procedimiento-para-leer-datos-externos">Usando un procedimiento para leer datos externos<a class="headerlink" href="#usando-un-procedimiento-para-leer-datos-externos" title="Permanent link">&para;</a></h3>
 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>

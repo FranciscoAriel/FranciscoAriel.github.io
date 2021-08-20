@@ -741,7 +741,11 @@ Visite <a href="https://www.sas.com/en_us/software/university-edition.html">SAS 
 En el sistema operativo Windows o UNIX, una librería es típicamente un grupo de archivos de SAS en el mismo folder o directorio.</p>
 </div>
 <p>Si no se define una librería, sas define una librería temporal llamada WORK, la cual eliminará todos los datasets al finalizar la sesión.</p>
-<p>Para definir una librería, se puede asignar una librería a un ruta de la forma <code>LIBNAME libref 'sas-library';</code>, donde <em>libref</em> es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y <em>sas-library</em> es la ruta donde se almacenarán los dataset, por ejemplo:</p>
+<p>Para definir una librería, se puede asignar una librería a un ruta de la forma:</p>
+<blockquote>
+<p><strong>LIBNAME</strong> <em>libref</em> &lsquo;<em>sas-library</em>&rsquo;;</p>
+</blockquote>
+<p>donde <em>libref</em> es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y <em>sas-library</em> es la ruta donde se almacenarán los dataset, por ejemplo:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">LIBNAME</span> TAREAS <span class="s">&quot;C:\Users\Default\Documents&quot;</span>;
 </code></pre></div>
 </td></tr></table>

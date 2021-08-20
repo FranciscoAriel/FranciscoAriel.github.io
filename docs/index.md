@@ -1,6 +1,6 @@
-# Bienvenido a mi blog
+# Bienvenido a mi blog de softwares estadísticos
 
-En este sitio web subiré todo el contenido e información de diversos programas de software estadístico.
+En este sitio web subiré todo el contenido e información de diversos programas de software estadístico más comunes en estadística y ciencias de datos.
 
 ## SAS
 

@@ -154,7 +154,11 @@ Las librerías o bibliotecas son rutas donde se almacenan los datasets.
 
 Si no se define una librería, sas define una librería temporal llamada WORK, la cual eliminará todos los datasets al finalizar la sesión.
 
-Para definir una librería, se puede asignar una librería a un ruta de la forma `LIBNAME libref 'sas-library';`, donde _libref_ es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y _sas-library_ es la ruta donde se almacenarán los dataset, por ejemplo:
+Para definir una librería, se puede asignar una librería a un ruta de la forma:
+ 
+ > **LIBNAME** *libref* '*sas-library*';
+ 
+ donde _libref_ es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y _sas-library_ es la ruta donde se almacenarán los dataset, por ejemplo:
 
 ````sas
 LIBNAME TAREAS "C:\Users\Default\Documents";
