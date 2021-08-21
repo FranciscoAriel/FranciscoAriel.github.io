@@ -286,8 +286,10 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#lectura-de-un-archivo-de-texto-delimitado" class="md-nav__link">
+    Lectura de un archivo de texto delimitado
+  </a>
   
 </li>
         
@@ -295,6 +297,11 @@
   <a href="#leyendo-archivos-desde-web" class="md-nav__link">
     Leyendo archivos desde web
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -557,8 +564,10 @@
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#lectura-de-un-archivo-de-texto-delimitado" class="md-nav__link">
+    Lectura de un archivo de texto delimitado
+  </a>
   
 </li>
         
@@ -566,6 +575,11 @@
   <a href="#leyendo-archivos-desde-web" class="md-nav__link">
     Leyendo archivos desde web
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -717,6 +731,7 @@
 </code></pre></div>
 </td></tr></table>
 
+<p>También será necesario usar la sentencia <code>INFILE</code>. Esta sentencia le da las espeficicaciones a SAS sobre cómo leer archivos externos. Para una mayor referencia consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1rill4udj0tfun1fvce3j401plo.htm">sentencia INPUT</a>.</p>
 <h4 id="lectura-de-un-archivo-de-ancho-fijo">Lectura de un archivo de ancho fijo<a class="headerlink" href="#lectura-de-un-archivo-de-ancho-fijo" title="Permanent link">&para;</a></h4>
 <p>En ocasiones se tienen los datos almacenados en formato de texto pero los datos estan alineados de tal forma que es posible saber en que posición inicia cada variable.</p>
 <p><img alt="Ejemplo de un archivo en formato de texto de ancho fijo" src="../img/fijo.png" /></p>
@@ -739,9 +754,62 @@
 <p>Se debe ser muy cuidadoso al especificar la posición de las columnas para no mezclar los valores.
 En el ejemplo anterior, si se hubiera declarado <code>VOLUMEN 54 - 61</code>, SAS hubiera considerado la columna 61 y nos mostraría un mensaje en el log:
 <img alt="Error en la lectura de datos" src="../img/error1.png" />
-Debido a aque la columna 61 contiene a la letra A</p>
+Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una cadena en una variable numérica, por lo que lo que nos mostraría el error y finalmente le asignaría un valor missing a <em>volumen</em>.</p>
 </div>
-<h3 id="leyendo-archivos-desde-web">Leyendo archivos desde web<a class="headerlink" href="#leyendo-archivos-desde-web" title="Permanent link">&para;</a></h3>
+<p>Una forma alternativa de declarar las variables en la sentencia sería usar el siguiente código:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>VENTAS;
+<span class="k">INFILE</span> ARCHIVO;
+<span class="k">INPUT</span> ID NOMBRE $<span class="m">10</span>. APELLIDO $ <span class="m">19-33</span> POSICION $ <span class="m">34</span> - <span class="m">53</span> VOLUMEN PAIS $<span class="m">3</span>.<span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Note que en la sentencia <code>INPUT</code> se declaran a las variables de tipo caracter de dos formas: por posición (ejemplo <code>APELLIDO $ 19-33</code>) y por formato (ejemplo <code>NOMBRE $10.</code>).</p>
+<p>Para una mayor referencia consulte <a href="https://support.sas.com/documentation/cdl/en/lrcon/62955/HTML/default/viewer.htm#a003209907.htm#:~:text=The%20INPUT%20statement%20reads%20raw%20data%20from%20instream,styles%20of%20input%20in%20a%20single%20INPUT%20statement.">leyendo datos en bruto</a> en la documentación de SAS.</p>
+<h4 id="lectura-de-un-archivo-de-texto-delimitado">Lectura de un archivo de texto delimitado<a class="headerlink" href="#lectura-de-un-archivo-de-texto-delimitado" title="Permanent link">&para;</a></h4>
+<p>El delimitador predeterminado es un espacio en blanco. Sin embargo, los archivos de texto delimitados por otros caracteres (por ejemplo una coma, tabulador, o símbolos especiales) tambien pueden ser leídos por SAS. Para especificar el tipo de delimitador, se utiliza la opción <code>DLM =</code> en la sentencia <code>INFILE</code>.</p>
+<p>Considere el siguiente archivo de texto. Puede notarse que está delimitado por el caracter &ldquo;/&rdquo; y además tiene datos perdidos (resaltados en amarillo). De hecho, los valores perdidos al final de la línea podrían hacer que SAS terminara antes de leer los datos.</p>
+<p><img alt="Archivo de texto delimitado" src="../img/dat1.png" /></p>
+<p>El siguiente código puede ser usado para leer esos datos.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>gerentes;
+    <span class="k">INFILE</span> ARCHIVO DLM = <span class="s">&quot;/&quot;</span> DSD TRUNCOVER;
+    <span class="k">ATTRIB</span>
+        id <span class="k">label</span> = <span class="s">&quot;ID gerente&quot;</span>
+        nombre <span class="k">LENGTH</span> = $<span class="m">12</span> <span class="k">LABEL</span> = <span class="s">&quot;Nombre&quot;</span>
+        apellido <span class="k">LENGTH</span> = $<span class="m">18</span> <span class="k">LABEL</span> = <span class="s">&quot;Apellido&quot;</span>
+        genero <span class="k">LENGTH</span> = $<span class="m">2</span> <span class="k">LABEL</span> = <span class="s">&quot;Género&quot;</span>
+        ventas <span class="k">LABEL</span> = <span class="s">&quot;Ventas totales&quot;</span>
+        posicion <span class="k">LENGTH</span> = $<span class="m">18</span> <span class="k">LABEL</span> = <span class="s">&quot;Posición&quot;</span>
+        pais <span class="k">LENGTH</span> = $<span class="m">2</span> <span class="k">LABEL</span> = <span class="s">&quot;País&quot;</span> 
+        fnac <span class="k">INFORMAT</span> = date12. <span class="k">FORMAT</span> = ddmmyy10. <span class="k">LABEL</span> = <span class="s">&quot;Fecha de nacimiento&quot;</span>
+        fingreso <span class="k">INFORMAT</span> = anydtdte12. <span class="k">FORMAT</span> = ddmmyy10. <span class="k">LABEL</span> = <span class="s">&quot;Fecha de ingreso&quot;</span>
+    ;
+    <span class="k">INPUT</span> id -- fingreso<span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>La opción <code>DSD</code> es útil cuando hay un valor faltante en datos delimitados, de otra forma SAS no reconocería dos delimitadores juntos y no leería los datos correctamente. </p>
+<p>La opción <code>MISSOVER</code> evita que SAS salte a una nueva linea cuando no encuentra valores válidos y asigna valores faltantes a las variables que no encuentre. <code>TRUNCOVER</code> funciona de manera similar a <code>MISSOVER</code> pero la diferencia radica en que asignaría los valores que encuentre pasando el fin de línea.</p>
+<h4 id="leyendo-archivos-desde-web">Leyendo archivos desde web<a class="headerlink" href="#leyendo-archivos-desde-web" title="Permanent link">&para;</a></h4>
+<p>Un ejemplo para descargar datos de covid se encuentran en el siguiente programa de sas: <a href="../src/datos_covid_web.sas">datos_covid_web.sas</a>.</p>
 <h3 id="usando-un-procedimiento-para-leer-datos-externos">Usando un procedimiento para leer datos externos<a class="headerlink" href="#usando-un-procedimiento-para-leer-datos-externos" title="Permanent link">&para;</a></h3>
 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
@@ -801,8 +869,8 @@ Debido a aque la columna 61 contiene a la letra A</p>
 <h3 id="reporte-con-subtotales">Reporte con subtotales<a class="headerlink" href="#reporte-con-subtotales" title="Permanent link">&para;</a></h3>
 <p>Es posible mostrar los reportes con subtotales por grupos de variables.</p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Los datos se deberían ordenar por la variables que se desee hacer el agrupamiento para evitar posibles errores en los cálculos. SAS considera valores de la variable de agrupamiento como un bloque. Si SAS encontrara una observación con un valor que ya procesó, se generará un error.</p>
+<p class="admonition-title">Datos agrupados</p>
+<p>Los datos se deberían ordenar por la variables que se desee hacer el agrupamiento para evitar posibles errores en los cálculos. SAS considera valores iguales de la variable de agrupamiento como un bloque. Si SAS encontrara una observación con un valor que ya procesó, se generará un error.</p>
 </div>
 <p>Se puede usar el procedimiento SORT para ordenar una dataset por las variables que se deseen y posteriormente realizar el reporte.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1

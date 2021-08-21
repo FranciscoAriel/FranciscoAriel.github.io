@@ -75,6 +75,8 @@ Por ejemplo la siguiente sentencia asigna con el nombre *archivo* al archivo "da
 FILENAME archivo "C:\Users\Usuario\Documents\Proyectos\datos.dat";
 ````
 
+También será necesario usar la sentencia `INFILE`. Esta sentencia le da las espeficicaciones a SAS sobre cómo leer archivos externos. Para una mayor referencia consulte la [sentencia INPUT](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1rill4udj0tfun1fvce3j401plo.htm).
+
 #### Lectura de un archivo de ancho fijo
 
 En ocasiones se tienen los datos almacenados en formato de texto pero los datos estan alineados de tal forma que es posible saber en que posición inicia cada variable.
@@ -100,9 +102,57 @@ En la sentencia `INPUT` se declaran las variables que va a contener el dataset *
     Se debe ser muy cuidadoso al especificar la posición de las columnas para no mezclar los valores.
     En el ejemplo anterior, si se hubiera declarado `VOLUMEN 54 - 61`, SAS hubiera considerado la columna 61 y nos mostraría un mensaje en el log:
     ![Error en la lectura de datos](img/error1.png)
-    Debido a aque la columna 61 contiene a la letra A
+    Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una cadena en una variable numérica, por lo que lo que nos mostraría el error y finalmente le asignaría un valor missing a *volumen*.
 
-### Leyendo archivos desde web
+Una forma alternativa de declarar las variables en la sentencia sería usar el siguiente código:
+
+````sas
+DATA VENTAS;
+INFILE ARCHIVO;
+INPUT ID NOMBRE $10. APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN PAIS $3.;
+RUN;
+````
+
+Note que en la sentencia `INPUT` se declaran a las variables de tipo caracter de dos formas: por posición (ejemplo `APELLIDO $ 19-33`) y por formato (ejemplo `NOMBRE $10.`).
+
+Para una mayor referencia consulte [leyendo datos en bruto](https://support.sas.com/documentation/cdl/en/lrcon/62955/HTML/default/viewer.htm#a003209907.htm#:~:text=The%20INPUT%20statement%20reads%20raw%20data%20from%20instream,styles%20of%20input%20in%20a%20single%20INPUT%20statement.) en la documentación de SAS.
+
+#### Lectura de un archivo de texto delimitado
+
+El delimitador predeterminado es un espacio en blanco. Sin embargo, los archivos de texto delimitados por otros caracteres (por ejemplo una coma, tabulador, o símbolos especiales) tambien pueden ser leídos por SAS. Para especificar el tipo de delimitador, se utiliza la opción `DLM =` en la sentencia `INFILE`.
+
+Considere el siguiente archivo de texto. Puede notarse que está delimitado por el caracter "/" y además tiene datos perdidos (resaltados en amarillo). De hecho, los valores perdidos al final de la línea podrían hacer que SAS terminara antes de leer los datos.
+
+![Archivo de texto delimitado](img/dat1.png)
+
+El siguiente código puede ser usado para leer esos datos.
+
+````sas
+DATA gerentes;
+    INFILE ARCHIVO DLM = "/" DSD TRUNCOVER;
+    ATTRIB
+        id label = "ID gerente"
+        nombre LENGTH = $12 LABEL = "Nombre"
+        apellido LENGTH = $18 LABEL = "Apellido"
+        genero LENGTH = $2 LABEL = "Género"
+        ventas LABEL = "Ventas totales"
+        posicion LENGTH = $18 LABEL = "Posición"
+        pais LENGTH = $2 LABEL = "País" 
+        fnac INFORMAT = date12. FORMAT = ddmmyy10. LABEL = "Fecha de nacimiento"
+        fingreso INFORMAT = anydtdte12. FORMAT = ddmmyy10. LABEL = "Fecha de ingreso"
+    ;
+    INPUT id -- fingreso;
+RUN;
+````
+
+La opción `DSD` es útil cuando hay un valor faltante en datos delimitados, de otra forma SAS no reconocería dos delimitadores juntos y no leería los datos correctamente. 
+
+La opción `MISSOVER` evita que SAS salte a una nueva linea cuando no encuentra valores válidos y asigna valores faltantes a las variables que no encuentre. `TRUNCOVER` funciona de manera similar a `MISSOVER` pero la diferencia radica en que asignaría los valores que encuentre pasando el fin de línea.
+
+
+#### Leyendo archivos desde web
+
+Un ejemplo para descargar datos de covid se encuentran en el siguiente programa de sas: [datos_covid_web.sas](src/datos_covid_web.sas).
 
 ### Usando un procedimiento para leer datos externos
 
@@ -170,8 +220,8 @@ La sentencia `SUM` es la que especifica las variables que mostrarán el gran tot
 
 Es posible mostrar los reportes con subtotales por grupos de variables.
 
-!!! warning
-    Los datos se deberían ordenar por la variables que se desee hacer el agrupamiento para evitar posibles errores en los cálculos. SAS considera valores de la variable de agrupamiento como un bloque. Si SAS encontrara una observación con un valor que ya procesó, se generará un error.
+!!! warning "Datos agrupados"
+    Los datos se deberían ordenar por la variables que se desee hacer el agrupamiento para evitar posibles errores en los cálculos. SAS considera valores iguales de la variable de agrupamiento como un bloque. Si SAS encontrara una observación con un valor que ya procesó, se generará un error.
 
 Se puede usar el procedimiento SORT para ordenar una dataset por las variables que se deseen y posteriormente realizar el reporte.
 
