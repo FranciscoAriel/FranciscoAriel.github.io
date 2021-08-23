@@ -318,6 +318,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#escritura-a-un-archivo-externo" class="md-nav__link">
+    Escritura a un archivo externo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-y-manipulacion-de-datos" class="md-nav__link">
+    Creación y manipulación de datos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#creacion-de-reportes" class="md-nav__link">
     Creación de reportes
   </a>
@@ -596,6 +610,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#escritura-a-un-archivo-externo" class="md-nav__link">
+    Escritura a un archivo externo
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creacion-y-manipulacion-de-datos" class="md-nav__link">
+    Creación y manipulación de datos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#creacion-de-reportes" class="md-nav__link">
     Creación de reportes
   </a>
@@ -806,11 +834,51 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 </code></pre></div>
 </td></tr></table>
 
-<p>La opción <code>DSD</code> es útil cuando hay un valor faltante en datos delimitados, de otra forma SAS no reconocería dos delimitadores juntos y no leería los datos correctamente. </p>
+<p>La opción <code>DSD</code> es útil cuando hay un valor faltante en datos delimitados, de otra forma SAS no reconocería dos delimitadores juntos y no leería los datos correctamente.</p>
 <p>La opción <code>MISSOVER</code> evita que SAS salte a una nueva linea cuando no encuentra valores válidos y asigna valores faltantes a las variables que no encuentre. <code>TRUNCOVER</code> funciona de manera similar a <code>MISSOVER</code> pero la diferencia radica en que asignaría los valores que encuentre pasando el fin de línea.</p>
 <h4 id="leyendo-archivos-desde-web">Leyendo archivos desde web<a class="headerlink" href="#leyendo-archivos-desde-web" title="Permanent link">&para;</a></h4>
+<p>Para leer datos desde internet (usualmente en formato csv) se debe especificar el nombre del archivo con la sentencia FILENAME con la opción <code>URL</code>.</p>
+<blockquote>
+<p><strong>FILENAME</strong> <em>fileref</em> URL &lsquo;<em>nombre-archivo</em>&lsquo; <em>&lt; opciones-url &gt;</em>;</p>
+</blockquote>
 <p>Un ejemplo para descargar datos de covid se encuentran en el siguiente programa de sas: <a href="../src/datos_covid_web.sas">datos_covid_web.sas</a>.</p>
+<p>Consulte la documentación de la sentencia <code>FILENAME</code> con el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lestmtsglobal/p103pi2vrzn6qhn1e8alrs01jrb7.htm">método de acceso URL</a> para más información.</p>
 <h3 id="usando-un-procedimiento-para-leer-datos-externos">Usando un procedimiento para leer datos externos<a class="headerlink" href="#usando-un-procedimiento-para-leer-datos-externos" title="Permanent link">&para;</a></h3>
+<p>La forma más fácil de leer archivos externos es mediante el procedimiento <strong>IMPORT</strong>.</p>
+<blockquote>
+<p><strong>PROC IMPORT</strong> DATAFILE = &ldquo;filename&rdquo; OUT = dataset;</p>
+</blockquote>
+<p>Este procesimiento no solo lee archivos de texto, sino tambien de Excel, SPSS, Stata e incluso tablas de Access. Para una mayor referencia vea el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/n1qn5sclnu2l9dn1w61ifw8wqhts.htm">procedimiento IMPORT</a>.</p>
+<p>El siguiente código leerá un archivo en formato excel.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">PROC IMPORT </span><span class="k">OUT</span> = WORK<span class="m">.</span>censo 
+            DATAFILE = <span class="s">&quot;C:\Users\Usuario\census.xlsx&quot;</span> 
+            DBMS = XLSX <span class="k">REPLACE</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Nótese que se ha especificado la opción <code>DBMS = XLSX</code> para que sas utilice los parámetros correspondientes para leer un archivo de excel. La opción <code>REPLACE</code> reemplazaría el dataset que tuviera el mismo nombre, de otro modo SAS mostraría un error y no crearía el dataset.</p>
+<p>El siguiente código muestra cómo leer un archivo en formato csv.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">PROC IMPORT </span><span class="k">OUT</span> = WORK<span class="m">.</span>census 
+            DATAFILE = <span class="s">&quot;C:\Users\Usuario\census.csv&quot;</span> 
+            DBMS = CSV <span class="k">REPLACE</span>;
+     GETNAMES = YES;
+     DATAROW = <span class="m">2</span><span class="kr">; </span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>En el caso de archivos csv, hay dos sentencias adicionales, la sentencia <code>GETNAMES = YES</code> indica si los nombres de las variables se encuentran al inicio del archivo de texto, mientras que la sentencia <code>DATAROW = 2</code> indica que los valores incian en el renglón 2.</p>
+<h2 id="escritura-a-un-archivo-externo">Escritura a un archivo externo<a class="headerlink" href="#escritura-a-un-archivo-externo" title="Permanent link">&para;</a></h2>
+<h2 id="creacion-y-manipulacion-de-datos">Creación y manipulación de datos<a class="headerlink" href="#creacion-y-manipulacion-de-datos" title="Permanent link">&para;</a></h2>
 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
 <h3 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h3>
@@ -914,7 +982,7 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <p><img alt="Reporte gran total" src="../img/print3.png" /></p>
 <p>La imagen anterior muestra el ultimo grupo de variables (División = West y Equipo = Texas). Nótese que este grupo contiene los subtotales tanto de las variables <em>team</em> y <em>division</em> así como el gran total. Cada grupo contiene como título el valor de las variables <em>division</em> y <em>team</em>.</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<p class="admonition-title">Personalizar etiquetas</p>
 <p>Se pueden agregar en la sentencia <code>PROC PRINT</code> las opciones <code>SUMLABEL =</code> y <code>GRANDTOTAL_LABEL =</code> para personalizar las etiquetas de subtotales y el gran total.</p>
 </div>
 <p>Si se desea mostrar un reporte con otro estilo resaltando las variables de agrupamiento, se puede agregar la sentencia.</p>
