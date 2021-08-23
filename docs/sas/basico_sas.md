@@ -145,16 +145,55 @@ DATA gerentes;
 RUN;
 ````
 
-La opción `DSD` es útil cuando hay un valor faltante en datos delimitados, de otra forma SAS no reconocería dos delimitadores juntos y no leería los datos correctamente. 
+La opción `DSD` es útil cuando hay un valor faltante en datos delimitados, de otra forma SAS no reconocería dos delimitadores juntos y no leería los datos correctamente.
 
 La opción `MISSOVER` evita que SAS salte a una nueva linea cuando no encuentra valores válidos y asigna valores faltantes a las variables que no encuentre. `TRUNCOVER` funciona de manera similar a `MISSOVER` pero la diferencia radica en que asignaría los valores que encuentre pasando el fin de línea.
 
-
 #### Leyendo archivos desde web
+
+Para leer datos desde internet (usualmente en formato csv) se debe especificar el nombre del archivo con la sentencia FILENAME con la opción `URL`.
+
+> **FILENAME** *fileref* URL '*nombre-archivo*' *< opciones-url >*;
 
 Un ejemplo para descargar datos de covid se encuentran en el siguiente programa de sas: [datos_covid_web.sas](src/datos_covid_web.sas).
 
+Consulte la documentación de la sentencia `FILENAME` con el [método de acceso URL](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lestmtsglobal/p103pi2vrzn6qhn1e8alrs01jrb7.htm) para más información.
+
 ### Usando un procedimiento para leer datos externos
+
+La forma más fácil de leer archivos externos es mediante el procedimiento **IMPORT**.
+
+> **PROC IMPORT** DATAFILE = "filename" OUT = dataset;
+
+Este procesimiento no solo lee archivos de texto, sino tambien de Excel, SPSS, Stata e incluso tablas de Access. Para una mayor referencia vea el [procedimiento IMPORT](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/n1qn5sclnu2l9dn1w61ifw8wqhts.htm).
+
+El siguiente código leerá un archivo en formato excel.
+
+````sas
+PROC IMPORT OUT = WORK.censo 
+            DATAFILE = "C:\Users\Usuario\census.xlsx" 
+            DBMS = XLSX REPLACE;
+RUN;
+````
+
+Nótese que se ha especificado la opción `DBMS = XLSX` para que sas utilice los parámetros correspondientes para leer un archivo de excel. La opción `REPLACE` reemplazaría el dataset que tuviera el mismo nombre, de otro modo SAS mostraría un error y no crearía el dataset.
+
+El siguiente código muestra cómo leer un archivo en formato csv.
+
+````sas
+PROC IMPORT OUT = WORK.census 
+            DATAFILE = "C:\Users\Usuario\census.csv" 
+            DBMS = CSV REPLACE;
+     GETNAMES = YES;
+     DATAROW = 2; 
+RUN;
+````
+
+En el caso de archivos csv, hay dos sentencias adicionales, la sentencia `GETNAMES = YES` indica si los nombres de las variables se encuentran al inicio del archivo de texto, mientras que la sentencia `DATAROW = 2` indica que los valores incian en el renglón 2.
+
+## Escritura a un archivo externo
+
+## Creación y manipulación de datos
 
 ## Creación de reportes
 
@@ -253,7 +292,7 @@ En el procedimiento **PRINT** se usa la sentencia `BY` para que crear el reporte
 
 La imagen anterior muestra el ultimo grupo de variables (División = West y Equipo = Texas). Nótese que este grupo contiene los subtotales tanto de las variables *team* y *division* así como el gran total. Cada grupo contiene como título el valor de las variables *division* y *team*.
 
-!!! tip
+!!! tip "Personalizar etiquetas"
     Se pueden agregar en la sentencia `PROC PRINT` las opciones `SUMLABEL =` y `GRANDTOTAL_LABEL =` para personalizar las etiquetas de subtotales y el gran total.
 
 Si se desea mostrar un reporte con otro estilo resaltando las variables de agrupamiento, se puede agregar la sentencia.
