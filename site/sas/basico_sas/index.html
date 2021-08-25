@@ -322,6 +322,40 @@
     Escritura a un archivo externo
   </a>
   
+    <nav class="md-nav" aria-label="Escritura a un archivo externo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escritura-de-un-archivo-delimitado" class="md-nav__link">
+    Escritura de un archivo delimitado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escritura-de-un-archivo-de-texto-de-ancho-fijo" class="md-nav__link">
+    Escritura de un archivo de texto de ancho fijo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-archivos-con-encabezados" class="md-nav__link">
+    Crear archivos con encabezados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leer-y-modificar-archivos-de-texto" class="md-nav__link">
+    Leer y modificar archivos de texto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -614,6 +648,40 @@
     Escritura a un archivo externo
   </a>
   
+    <nav class="md-nav" aria-label="Escritura a un archivo externo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escritura-de-un-archivo-delimitado" class="md-nav__link">
+    Escritura de un archivo delimitado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escritura-de-un-archivo-de-texto-de-ancho-fijo" class="md-nav__link">
+    Escritura de un archivo de texto de ancho fijo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-archivos-con-encabezados" class="md-nav__link">
+    Crear archivos con encabezados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leer-y-modificar-archivos-de-texto" class="md-nav__link">
+    Leer y modificar archivos de texto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -878,6 +946,72 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 
 <p>En el caso de archivos csv, hay dos sentencias adicionales, la sentencia <code>GETNAMES = YES</code> indica si los nombres de las variables se encuentran al inicio del archivo de texto, mientras que la sentencia <code>DATAROW = 2</code> indica que los valores incian en el renglón 2.</p>
 <h2 id="escritura-a-un-archivo-externo">Escritura a un archivo externo<a class="headerlink" href="#escritura-a-un-archivo-externo" title="Permanent link">&para;</a></h2>
+<p>SAS tambien puede ser utlizado para escribir archivos externos. En esta sección se mostrará como crear archivos de texto, asi como escribir mensaje del log a archivos externos.</p>
+<h3 id="escritura-de-un-archivo-delimitado">Escritura de un archivo delimitado<a class="headerlink" href="#escritura-de-un-archivo-delimitado" title="Permanent link">&para;</a></h3>
+<p>El siguiente código muestra como crear un archivo de texto.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Francisco\alumnos.dat&quot;</span><span class="kr">;</span>
+<span class="kr">    DATA </span><span class="kc">_NULL_</span>;
+    <span class="k">FILE</span> archivo;
+    <span class="k">SET</span> sashelp<span class="m">.</span>class;<span class="k"></span>
+<span class="k">    PUT </span><span class="err">name age sex;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Como se puede ver, se ha referenciado con la sentencia <code>FILENAME</code> el archivo con el nombre que en el que se desea escribir.</p>
+<p>Nótese que en la sentencia <code>DATA</code> se ha especificado <code>_NULL_</code>, una palabra reservada para pedir que no cree ningún dataset.</p>
+<p>La sentencia <code>FILE</code> da las especificaciones para escribir los archivos de texto. Es muy similar a la sentencia <code>INFILE</code>, para mayor referencia consulte la <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lestmtsref/n15o12lpyoe4gfn1y1vcp6xs6966.htm">sentencia FILE</a>.</p>
+<p>Finalmente, la sentencia <code>PUT</code> indica lo que se va a escribir en el archivo externo, en este caso se especifican la variables de interés. Para una mayor referencia consulte la <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lestmtsref/n1spe7nmkmi7ywn175002rof97fv.htm">sentencia PUT</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Archivos delimitados por un caracter</p>
+<p>SAS crea archivos delimitados por un espacio en blanco. Para crear un archivo delimitado por otro caracter (por ejemplo una coma) se puede usar la opción <code>DLM =</code>. Tambien se puede modificar la extensión del archivo con la sentencia <code>FILENAME</code>.</p>
+</div>
+<p>El resultado sería el siguiente.</p>
+<p><img alt="Ejemplo de un archivo de texto delimitado por espacios en blanco" src="../img/dat2.png" /></p>
+<h3 id="escritura-de-un-archivo-de-texto-de-ancho-fijo">Escritura de un archivo de texto de ancho fijo<a class="headerlink" href="#escritura-de-un-archivo-de-texto-de-ancho-fijo" title="Permanent link">&para;</a></h3>
+<p>Para crear un archivo de texto de ancho fijo, se puede especificar las posiciones en las que se escribiran las observaciones.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
+<span class="kr">DATA </span><span class="kc">_NULL_</span>;
+    <span class="k">FILE</span> archivo;
+    <span class="k">SET</span> sashelp<span class="m">.</span>class;<span class="k"></span>
+<span class="k">    PUT </span><span class="err">name $</span><span class="m">8</span><span class="err">. sex </span><span class="m">10-12</span><span class="err"> age </span><span class="m">2</span><span class="err">. height </span><span class="m">16-20</span><span class="err"> weight </span><span class="m">22-25</span><span class="err">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Nótese que se han especificado los formatos de las variables y las columnas en las que se desea escribir el archivo, es algo muy similar cuando se leían los archivos con la sentencia <code>INPUT</code>.</p>
+<h3 id="crear-archivos-con-encabezados">Crear archivos con encabezados<a class="headerlink" href="#crear-archivos-con-encabezados" title="Permanent link">&para;</a></h3>
+<p>Debido a que sas escribe directamente al archivo, es un poco complicado espeficarle que en el renglón 1 escriba el nombre de las variables.</p>
+<p>Sin embargo, el siguiente código logra especificar el nombre de los archivos en la primer línea.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
+<span class="kr">DATA </span><span class="kc">_NULL_</span>;
+    <span class="k">FILE</span> archivo;
+    <span class="k">IF</span> <span class="kc">_n_</span> EQ <span class="m">1</span> <span class="k">THEN</span> <span class="k">PUT</span> <span class="s">&quot;name &quot;</span> <span class="s">&quot;sex &quot;</span> <span class="s">&quot;age &quot;</span> <span class="s">&quot;height &quot;</span> <span class="s">&quot;weight &quot;</span>;
+    <span class="k">SET</span> sashelp<span class="m">.</span>class;<span class="k"></span>
+<span class="k">    PUT </span><span class="err">name -- weight;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Esto se logra escribiendo la sentencia <code>PUT</code> justo al inicio e inmediatamente despues se carga el dataset que se quiere escribir.</p>
+<p>Las sentencias de la línea 4 se estudiarán en la siguente <a href="#creacion-y-manipulacion-de-datos">sección</a></p>
+<h3 id="leer-y-modificar-archivos-de-texto">Leer y modificar archivos de texto<a class="headerlink" href="#leer-y-modificar-archivos-de-texto" title="Permanent link">&para;</a></h3>
 <h2 id="creacion-y-manipulacion-de-datos">Creación y manipulación de datos<a class="headerlink" href="#creacion-y-manipulacion-de-datos" title="Permanent link">&para;</a></h2>
 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>

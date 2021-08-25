@@ -193,6 +193,73 @@ En el caso de archivos csv, hay dos sentencias adicionales, la sentencia `GETNAM
 
 ## Escritura a un archivo externo
 
+SAS tambien puede ser utlizado para escribir archivos externos. En esta sección se mostrará como crear archivos de texto, asi como escribir mensaje del log a archivos externos.
+
+### Escritura de un archivo delimitado
+
+El siguiente código muestra como crear un archivo de texto.
+
+````sas
+FILENAME archivo "C:\Users\Francisco\alumnos.dat";
+    DATA _NULL_;
+    FILE archivo;
+    SET sashelp.class;
+    PUT name age sex;
+RUN;
+````
+
+Como se puede ver, se ha referenciado con la sentencia `FILENAME` el archivo con el nombre que en el que se desea escribir.
+
+Nótese que en la sentencia `DATA` se ha especificado `_NULL_`, una palabra reservada para pedir que no cree ningún dataset.
+
+La sentencia `FILE` da las especificaciones para escribir los archivos de texto. Es muy similar a la sentencia `INFILE`, para mayor referencia consulte la [sentencia FILE](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lestmtsref/n15o12lpyoe4gfn1y1vcp6xs6966.htm).
+
+Finalmente, la sentencia `PUT` indica lo que se va a escribir en el archivo externo, en este caso se especifican la variables de interés. Para una mayor referencia consulte la [sentencia PUT](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lestmtsref/n1spe7nmkmi7ywn175002rof97fv.htm).
+
+!!! tip "Archivos delimitados por un caracter"
+    SAS crea archivos delimitados por un espacio en blanco. Para crear un archivo delimitado por otro caracter (por ejemplo una coma) se puede usar la opción `DLM =`. Tambien se puede modificar la extensión del archivo con la sentencia `FILENAME`.
+
+El resultado sería el siguiente.
+
+![Ejemplo de un archivo de texto delimitado por espacios en blanco](img/dat2.png)
+
+### Escritura de un archivo de texto de ancho fijo
+
+Para crear un archivo de texto de ancho fijo, se puede especificar las posiciones en las que se escribiran las observaciones.
+
+````sas
+FILENAME archivo "C:\Users\Usuario\alumnos.txt";
+DATA _NULL_;
+    FILE archivo;
+    SET sashelp.class;
+    PUT name $8. sex 10-12 age 2. height 16-20 weight 22-25;
+RUN;
+````
+
+Nótese que se han especificado los formatos de las variables y las columnas en las que se desea escribir el archivo, es algo muy similar cuando se leían los archivos con la sentencia `INPUT`.
+
+### Crear archivos con encabezados
+
+Debido a que sas escribe directamente al archivo, es un poco complicado espeficarle que en el renglón 1 escriba el nombre de las variables.
+
+Sin embargo, el siguiente código logra especificar el nombre de los archivos en la primer línea.
+
+````sas
+FILENAME archivo "C:\Users\Usuario\alumnos.txt";
+DATA _NULL_;
+    FILE archivo;
+    IF _n_ EQ 1 THEN PUT "name " "sex " "age " "height " "weight ";
+    SET sashelp.class;
+    PUT name -- weight;
+RUN;
+````
+
+Esto se logra escribiendo la sentencia `PUT` justo al inicio e inmediatamente despues se carga el dataset que se quiere escribir.
+
+Las sentencias de la línea 4 se estudiarán en la siguente [sección](#creacion-y-manipulacion-de-datos)
+
+### Leer y modificar archivos de texto
+
 ## Creación y manipulación de datos
 
 ## Creación de reportes
