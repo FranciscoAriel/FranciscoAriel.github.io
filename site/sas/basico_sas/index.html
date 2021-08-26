@@ -816,7 +816,7 @@
 <p>La sentencia <code>DATALINES</code> indica el inicio de los datos y finaliza con un punto y coma.</p>
 <p>Con la sentencia <code>RUN</code> se cierra el bloque de instrucciones y comienza a ejecutar el proceso.</p>
 <h3 id="lectura-de-datos-desde-un-archivo-externo">Lectura de datos desde un archivo externo<a class="headerlink" href="#lectura-de-datos-desde-un-archivo-externo" title="Permanent link">&para;</a></h3>
-<p>SAS puede leer datos de archivos de texto almacenados en distintos formatos, por ejemplo de ancho fijo o delimitados. Para acceder a ellos es necesario usar la referencia para a puntar a ellos, algo similar a la declaración de las librerías.</p>
+<p>SAS puede leer datos de archivos de texto almacenados en distintos formatos, por ejemplo de ancho fijo o delimitados. Para acceder a ellos es necesario usar la referencia para apuntar a ellos, algo similar a la declaración de las librerías.</p>
 <p>Se puede hacer mediante la sentencia <code>FILENAME</code>:</p>
 <blockquote>
 <p><strong>FILENAME</strong> <em>fileref</em> &lsquo;<em>nombre-archivo</em>&rsquo;;</p>
@@ -954,7 +954,7 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Francisco\alumnos.dat&quot;</span><span class="kr">;</span>
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.dat&quot;</span><span class="kr">;</span>
 <span class="kr">    DATA </span><span class="kc">_NULL_</span>;
     <span class="k">FILE</span> archivo;
     <span class="k">SET</span> sashelp<span class="m">.</span>class;<span class="k"></span>
@@ -991,7 +991,7 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 
 <p>Nótese que se han especificado los formatos de las variables y las columnas en las que se desea escribir el archivo, es algo muy similar cuando se leían los archivos con la sentencia <code>INPUT</code>.</p>
 <h3 id="crear-archivos-con-encabezados">Crear archivos con encabezados<a class="headerlink" href="#crear-archivos-con-encabezados" title="Permanent link">&para;</a></h3>
-<p>Debido a que sas escribe directamente al archivo, es un poco complicado espeficarle que en el renglón 1 escriba el nombre de las variables.</p>
+<p>Debido a que sas escribe directamente al archivo, es un poco complicado especificarle que en el renglón 1 escriba el nombre de las variables.</p>
 <p>Sin embargo, el siguiente código logra especificar el nombre de los archivos en la primer línea.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1012,6 +1012,44 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <p>Esto se logra escribiendo la sentencia <code>PUT</code> justo al inicio e inmediatamente despues se carga el dataset que se quiere escribir.</p>
 <p>Las sentencias de la línea 4 se estudiarán en la siguente <a href="#creacion-y-manipulacion-de-datos">sección</a></p>
 <h3 id="leer-y-modificar-archivos-de-texto">Leer y modificar archivos de texto<a class="headerlink" href="#leer-y-modificar-archivos-de-texto" title="Permanent link">&para;</a></h3>
+<p>Es posible manipular archivos de texto mediante SAS. para ellos es necesario leerlos y volver a escribir sobre ellos.</p>
+<p><img alt="Arcivo de ancho fijo" src="../img/txt1.png" /></p>
+<p>El siguiente código muestra como actualizar ciertas variables.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">FILENAME</span> ARCHIVO <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
+<span class="kr">DATA </span><span class="kc">_NULL_</span>;
+   <span class="k">INFILE</span> archivo SHAREBUFFERS  FIRSTOBS = <span class="m">2</span> TRUNCOVER;
+   <span class="k">ATTRIB</span>
+    sex <span class="k">LENGTH</span> = $<span class="m">1</span>
+    sex2 <span class="k">LENGTH</span> = $<span class="m">1</span>;
+   <span class="k">INPUT</span> sex $ <span class="m">9</span>; 
+   <span class="k">IF</span> sex = <span class="s">&quot;F&quot;</span> <span class="k">THEN</span> sex2 = <span class="s">&quot;M&quot;</span>;
+   <span class="k">IF</span> sex = <span class="s">&quot;M&quot;</span> <span class="k">THEN</span> sex2 = <span class="s">&quot;H&quot;</span>;
+   <span class="k">FILE</span> archivo TRUNCOVER PAD;<span class="k"></span>
+<span class="k">   PUT </span><span class="err">sex2 </span><span class="m">9</span><span class="err"> ;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Note que se la sentencia <code>LIBNAME</code> apunta al mismo archivo que se está usando en las sentencias <code>INFILE</code> y <code>FILE</code>.</p>
+<p>La opción <code>SHAREBUFFERS</code> es útil para actualizar un archivo externo y solo actualiza ciertos campos. Esta opción se usa junto con las sentencias <code>INFILE</code>, <code>FILE</code> y <code>PUT</code>.</p>
+<p>La variable <em>sex2</em> se usa para guardar el valor que se va a escribir en el archivo cuando <em>sex</em> toma cierto valor.</p>
+<div class="admonition error">
+<p class="admonition-title">Cuidado con las longitudes</p>
+<p>Se debe tener cuidado cuando se actualiza un archivo de texto. Se debe procurar que la variable que se lee como la que se escribe tengan la misma longitud, de otro modo pueden haber resultados inesperados.</p>
+</div>
+<p>El resultado se muestra a continuación</p>
+<p><img alt="Arcivo de ancho fijo" src="../img/txt2.png" /></p>
 <h2 id="creacion-y-manipulacion-de-datos">Creación y manipulación de datos<a class="headerlink" href="#creacion-y-manipulacion-de-datos" title="Permanent link">&para;</a></h2>
 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>

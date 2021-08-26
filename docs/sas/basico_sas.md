@@ -61,7 +61,7 @@ Con la sentencia `RUN` se cierra el bloque de instrucciones y comienza a ejecuta
 
 ### Lectura de datos desde un archivo externo
 
-SAS puede leer datos de archivos de texto almacenados en distintos formatos, por ejemplo de ancho fijo o delimitados. Para acceder a ellos es necesario usar la referencia para a puntar a ellos, algo similar a la declaración de las librerías.
+SAS puede leer datos de archivos de texto almacenados en distintos formatos, por ejemplo de ancho fijo o delimitados. Para acceder a ellos es necesario usar la referencia para apuntar a ellos, algo similar a la declaración de las librerías.
 
 Se puede hacer mediante la sentencia `FILENAME`:
 
@@ -200,7 +200,7 @@ SAS tambien puede ser utlizado para escribir archivos externos. En esta sección
 El siguiente código muestra como crear un archivo de texto.
 
 ````sas
-FILENAME archivo "C:\Users\Francisco\alumnos.dat";
+FILENAME archivo "C:\Users\Usuario\alumnos.dat";
     DATA _NULL_;
     FILE archivo;
     SET sashelp.class;
@@ -240,7 +240,7 @@ Nótese que se han especificado los formatos de las variables y las columnas en 
 
 ### Crear archivos con encabezados
 
-Debido a que sas escribe directamente al archivo, es un poco complicado espeficarle que en el renglón 1 escriba el nombre de las variables.
+Debido a que sas escribe directamente al archivo, es un poco complicado especificarle que en el renglón 1 escriba el nombre de las variables.
 
 Sin embargo, el siguiente código logra especificar el nombre de los archivos en la primer línea.
 
@@ -259,6 +259,42 @@ Esto se logra escribiendo la sentencia `PUT` justo al inicio e inmediatamente de
 Las sentencias de la línea 4 se estudiarán en la siguente [sección](#creacion-y-manipulacion-de-datos)
 
 ### Leer y modificar archivos de texto
+
+Es posible manipular archivos de texto mediante SAS. para ellos es necesario leerlos y volver a escribir sobre ellos.
+
+![Arcivo de ancho fijo](img/txt1.png)
+
+El siguiente código muestra como actualizar ciertas variables.
+
+
+````sas
+FILENAME ARCHIVO "C:\Users\Usuario\alumnos.txt";
+DATA _NULL_;
+   INFILE archivo SHAREBUFFERS  FIRSTOBS = 2 TRUNCOVER;
+   ATTRIB
+    sex LENGTH = $1
+    sex2 LENGTH = $1;
+   INPUT sex $ 9; 
+   IF sex = "F" THEN sex2 = "M";
+   IF sex = "M" THEN sex2 = "H";
+   FILE archivo TRUNCOVER PAD;
+   PUT sex2 9 ;
+RUN;
+````
+
+Note que se la sentencia `LIBNAME` apunta al mismo archivo que se está usando en las sentencias `INFILE` y `FILE`.
+
+La opción `SHAREBUFFERS` es útil para actualizar un archivo externo y solo actualiza ciertos campos. Esta opción se usa junto con las sentencias `INFILE`, `FILE` y `PUT`.
+
+La variable *sex2* se usa para guardar el valor que se va a escribir en el archivo cuando *sex* toma cierto valor.
+
+!!! error "Cuidado con las longitudes"
+    Se debe tener cuidado cuando se actualiza un archivo de texto. Se debe procurar que la variable que se lee como la que se escribe tengan la misma longitud, de otro modo pueden haber resultados inesperados.
+
+El resultado se muestra a continuación
+
+![Arcivo de ancho fijo](img/txt2.png)
+
 
 ## Creación y manipulación de datos
 
