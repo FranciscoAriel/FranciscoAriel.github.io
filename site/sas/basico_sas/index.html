@@ -353,15 +353,69 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#escritura-de-datos-con-el-procedimiento-export" class="md-nav__link">
+    Escritura de datos con el procedimiento EXPORT
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creacion-y-manipulacion-de-datos" class="md-nav__link">
-    Creación y manipulación de datos
+  <a href="#creacion-de-variables-y-manipulacion-de-datos" class="md-nav__link">
+    Creación de variables y manipulación de datos
   </a>
+  
+    <nav class="md-nav" aria-label="Creación de variables y manipulación de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento-del-paso-data" class="md-nav__link">
+    Funcionamiento del paso DATA
+  </a>
+  
+    <nav class="md-nav" aria-label="Funcionamiento del paso DATA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-de-compilacion" class="md-nav__link">
+    Fase de compilación
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-de-ejecucion" class="md-nav__link">
+    Fase de ejecución
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-variables" class="md-nav__link">
+    Creación de variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-acumuladoras-y-contadoras" class="md-nav__link">
+    Variables acumuladoras y contadoras
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -679,15 +733,69 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#escritura-de-datos-con-el-procedimiento-export" class="md-nav__link">
+    Escritura de datos con el procedimiento EXPORT
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creacion-y-manipulacion-de-datos" class="md-nav__link">
-    Creación y manipulación de datos
+  <a href="#creacion-de-variables-y-manipulacion-de-datos" class="md-nav__link">
+    Creación de variables y manipulación de datos
   </a>
+  
+    <nav class="md-nav" aria-label="Creación de variables y manipulación de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcionamiento-del-paso-data" class="md-nav__link">
+    Funcionamiento del paso DATA
+  </a>
+  
+    <nav class="md-nav" aria-label="Funcionamiento del paso DATA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-de-compilacion" class="md-nav__link">
+    Fase de compilación
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-de-ejecucion" class="md-nav__link">
+    Fase de ejecución
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-variables" class="md-nav__link">
+    Creación de variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-acumuladoras-y-contadoras" class="md-nav__link">
+    Variables acumuladoras y contadoras
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -811,7 +919,12 @@
 </td></tr></table>
 
 <p>La sentencia <code>DATA</code> especifica el nombre del dataset y entre parentesis están las opciones del dataset, en este caso el dataset <em>empleados</em> tendrá una etiqueta para identificarlo.</p>
-<p>Es recomendable especificar las propiedades de las variables a crear mediante la sentencia <code>ATTRIB</code> en donde se especifican sus propiedades. Nótese que para el caso de las variables de tipo caracter se hace uso de la opción <code>LENGTH =</code> seguido del signo de pesos para indicar que es de tipo caracter y la longitud deseada. Para el caso de variables numéricas, se debe especificar al menos un atributo, en este caso se recomienda especificar el atributo <code>LABEL =</code>. En el caso de la variable <em>fnac</em> los datos estan almacenados en formato de fecha (ddmmyyyy) por lo que se usa el informato <code>ddmmyy10.</code> para que lo reconozca como fehca de sas, pero se desea visualizar con el formato de fecha (ddmmmyyyy).</p>
+<p>Es recomendable especificar las propiedades de las variables a crear mediante la sentencia <code>ATTRIB</code> en donde se especifican sus propiedades.</p>
+<div class="admonition info">
+<p class="admonition-title">Declaración de variables</p>
+<p>Otra forma de declarar variables es mediante las sentencias <code>LENGTH</code> y <code>FORMAT</code>. Consulte la documentación para más información.</p>
+</div>
+<p>Nótese que para el caso de las variables de tipo caracter se hace uso de la opción <code>LENGTH =</code> seguido del signo de pesos para indicar que es de tipo caracter y la longitud deseada. Para el caso de variables numéricas, se debe especificar al menos un atributo, en este caso se recomienda especificar el atributo <code>LABEL =</code>. En el caso de la variable <em>fnac</em> los datos estan almacenados en formato de fecha (ddmmyyyy) por lo que se usa el informato <code>ddmmyy10.</code> para que lo reconozca como fehca de sas, pero se desea visualizar con el formato de fecha (ddmmmyyyy).</p>
 <p>La sentencia <code>INPUT</code> sirve para indicar el nombre de las variables del dataset. Se puede poner el símbolo <code>$</code> para indicar que la variable es de tipo caracter. Sin embargo en este caso, como ya se han declarado las variables se puede usar una lista, es decir, solo poner el nombre de la primer variable declarada seguido de dos guiones <code>--</code> y el nombre de la última.</p>
 <p>La sentencia <code>DATALINES</code> indica el inicio de los datos y finaliza con un punto y coma.</p>
 <p>Con la sentencia <code>RUN</code> se cierra el bloque de instrucciones y comienza a ejecutar el proceso.</p>
@@ -822,7 +935,7 @@
 <p><strong>FILENAME</strong> <em>fileref</em> &lsquo;<em>nombre-archivo</em>&rsquo;;</p>
 </blockquote>
 <p>donde <em>fileref</em> es un nombre sas que hará referencia a un archivo y <em>nombre-archivo</em> es el nombre de un archivo físico externo que incluye tanto la ruta como el nombre con su extensión.</p>
-<p>Por ejemplo la siguiente sentencia asigna con el nombre <em>archivo</em> al archivo &ldquo;datos&rdquo; almacenados en formato .dat que estan en la carpeta proyectos.</p>
+<p>Por ejemplo la siguiente sentencia asigna con el nombre <em>archivo</em> al archivo &ldquo;datos&rdquo; almacenados en formato .dat que están en la carpeta proyectos.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\Documents\Proyectos\datos.dat&quot;</span>;
 </code></pre></div>
 </td></tr></table>
@@ -916,7 +1029,7 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <blockquote>
 <p><strong>PROC IMPORT</strong> DATAFILE = &ldquo;filename&rdquo; OUT = dataset;</p>
 </blockquote>
-<p>Este procesimiento no solo lee archivos de texto, sino tambien de Excel, SPSS, Stata e incluso tablas de Access. Para una mayor referencia vea el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/n1qn5sclnu2l9dn1w61ifw8wqhts.htm">procedimiento IMPORT</a>.</p>
+<p>Este procedimiento no solo lee archivos de texto, sino tambien de Excel, SPSS, Stata e incluso tablas de Access. Para una mayor referencia vea el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/n1qn5sclnu2l9dn1w61ifw8wqhts.htm">procedimiento IMPORT</a>.</p>
 <p>El siguiente código leerá un archivo en formato excel.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1049,8 +1162,94 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <p>Se debe tener cuidado cuando se actualiza un archivo de texto. Se debe procurar que la variable que se lee como la que se escribe tengan la misma longitud, de otro modo pueden haber resultados inesperados.</p>
 </div>
 <p>El resultado se muestra a continuación</p>
-<p><img alt="Arcivo de ancho fijo" src="../img/txt2.png" /></p>
-<h2 id="creacion-y-manipulacion-de-datos">Creación y manipulación de datos<a class="headerlink" href="#creacion-y-manipulacion-de-datos" title="Permanent link">&para;</a></h2>
+<p><img alt="Archivo de ancho fijo resultante" src="../img/txt2.png" /></p>
+<h3 id="escritura-de-datos-con-el-procedimiento-export">Escritura de datos con el procedimiento EXPORT<a class="headerlink" href="#escritura-de-datos-con-el-procedimiento-export" title="Permanent link">&para;</a></h3>
+<p>Así como es posible leer datos de forma externa con un procedimiento, tambien hay uno para escribir datos a archivos externos. La sintaxis es muy similar.</p>
+<blockquote>
+<p><strong>PROC EXPORT</strong> OUTFILE = “filename” DATA = dataset;</p>
+</blockquote>
+<p>El siguiente código muestra la forma de escribir un dataset a un archivo csv.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">PROC EXPORT </span>DATA= SASHELP<span class="m">.</span>Class 
+            OUTFILE= <span class="s">&quot;C:\Users\Usuario\alumnos.csv&quot;</span> 
+            DBMS = CSV <span class="k">REPLACE</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Para mayores referencias consulte el <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/proc/n045uxf7ll2p5on1ly4at3vpd47e.htm">procedimiento EXPORT</a>.</p>
+<h2 id="creacion-de-variables-y-manipulacion-de-datos">Creación de variables y manipulación de datos<a class="headerlink" href="#creacion-de-variables-y-manipulacion-de-datos" title="Permanent link">&para;</a></h2>
+<p>En esta sección conoceremos la forma de crear variables con el fin de crear variables o variables auxiliares para cálculos posteriores. También se conocerán técnicas de selección de observaciones con el fin de manipular mejor las bases.</p>
+<h3 id="funcionamiento-del-paso-data">Funcionamiento del paso DATA<a class="headerlink" href="#funcionamiento-del-paso-data" title="Permanent link">&para;</a></h3>
+<p>Antes de continnuar con temas mas complejos, es importante comprender de forma general el funcionamiento del paso DATA.</p>
+<p>Para una explicación más detallada consulte <a href="https://support.sas.com/documentation/cdl/en/basess/58133/HTML/default/viewer.htm#a001290590.htm">Cómo funciona el paso DATA</a>.</p>
+<p>El paso DATA tiene dos fases:</p>
+<ul>
+<li>Fase de compilación</li>
+<li>Fase de ejecución</li>
+</ul>
+<p>A continuación se describir´n de forma breve estas fases.</p>
+<h4 id="fase-de-compilacion">Fase de compilación<a class="headerlink" href="#fase-de-compilacion" title="Permanent link">&para;</a></h4>
+<p>Durante la fase de compilación, SAS revisa la sintaxis y si es correcta, se manda a código máquina en dondese procesa el código y se generan los siguientes objetos:</p>
+<ul>
+<li><strong>Memoria de entrada</strong>. Es un lugar en la memoria donde SAS lee registros de un archivo de texto cuando el programa se ejecute.</li>
+<li><strong>Vector de datos del programa</strong>. Es un lugar en la memoria donde SAS construye un conjunto de datos, una observación a la vez.</li>
+<li><strong>Porción descriptora</strong>. Es la información general del dataset como el nombre de la base y los atributos de las variables a crear.</li>
+</ul>
+<p>La memoria de entrada solo aplica en el caso en que se lean archivos externos. En este caso, los datos se leen de la memoria de entrada al vector de datos del programa.</p>
+<p>El vector de datos del programa (VDP) es importante porque en éste se realizarían los cálculos de las sentencias de SAS o funciones. Contiene el nombre de todas las variables declaradas o inicializadas. Es como un paso intermedio entre lo que se lee y calcula con lo que se se escribe al dataset. Al inicio de cada iteración los valores en el VDP son iniciados con valor missing y son llenados según lea o ejecuten sentencias.</p>
+<p>Durante la fase de compilación tambien se crean dos variables auxiliares en el VDP que no se escribirán en el dataset: <code>_N_</code> y <code>_ERROR_</code>. La primera cuenta el número de veces que el paso DATA itera y la segunda registra si hubo algún problema en la fase de ejecución.</p>
+<p>Una vez concluída esta etapa, se procede a la siguiente fase.</p>
+<h4 id="fase-de-ejecucion">Fase de ejecución<a class="headerlink" href="#fase-de-ejecucion" title="Permanent link">&para;</a></h4>
+<p>En esta fase se realizan las siguientes acciones:</p>
+<ol>
+<li>Se leen las observaciones del VDP.</li>
+<li>Se ejecutan las sentencias (cálculo de variables).</li>
+<li>Se escriben al dataset.</li>
+<li>La variables en el VDP son reiniciadas y se colocan valores missing.</li>
+</ol>
+<p>Debido a que es un procesos repetitivo, SAS realiza los pasos mencionados tantas veces como observaciones haya en el archivo externo o dataset leído.</p>
+<p>El proceso termina cuando ya no hay registros que leer y en ese momento el dataset es cerrado y se concluye el paso DATA.</p>
+<h3 id="creacion-de-variables">Creación de variables<a class="headerlink" href="#creacion-de-variables" title="Permanent link">&para;</a></h3>
+<p>Hasta ahora solo conocíamos las sentencias <code>ATTRIB</code>, <code>LENGTH</code> y <code>FORMAT</code> para declarar o iniciar variables. Otra forma de crearlas es mediante la asignación de variables de la siguiente forma:</p>
+<blockquote>
+<p>variable = <em>expresión sas</em>;</p>
+</blockquote>
+<p>Esta sentencia se conoce como <em>sentencias de asignación</em>. Su función es evaluar y almacenar el resultado en alguna variable que está al lado izquierdo del signo <code>=</code>.</p>
+<p>Considere las siguientes sentencias:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">fecha</span> <span class="o">=</span> <span class="s1">&#39;10Jun20&#39;</span><span class="n">d</span><span class="p">;</span>
+<span class="k">version</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">altura</span> <span class="o">=</span> <span class="n">height</span> <span class="o">*</span> <span class="mi">2</span><span class="p">.</span><span class="mi">54</span><span class="p">;</span>
+<span class="n">status</span> <span class="o">=</span> <span class="ss">&quot;ok&quot;</span><span class="p">;</span>
+<span class="n">nombre2</span> <span class="o">=</span> <span class="n">SUBSTR</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>En esas sentencias se han creado las variables simplemente asignando un valor o una expresión SAS. Las primeras tres sentencias crearían variables de tipo numérico; la expresión <code>'10Jun20'd</code> es interpretada por sas como un valor numérico. La tercer sentencia realiza una multiplicación de una variable por una constante. Para una referencia consulte <a href="https://documentation.sas.com/doc/en/lrcon/9.4/p00iah2thp63bmn1lt20esag14lh.htm#n1feyypdf6czp4n15pthf5lafmlf">Operadores SAS en expresiones</a> y <a href="https://documentation.sas.com/doc/en/lrcon/9.4/p1fjvn4giid9e0n1v0wcn4ibwbzi.htm">Funciones SAS en expresiones</a>.</p>
+<h3 id="variables-acumuladoras-y-contadoras">Variables acumuladoras y contadoras<a class="headerlink" href="#variables-acumuladoras-y-contadoras" title="Permanent link">&para;</a></h3>
+<p>En SAS es posible crear una variable que sume o vaya acumulando.</p>
+<p>Considere la siguiente tabla donde se representan la información de los empleados de una compañía. Se desea obtener un acumulado de las ventas de los empleados y un contador para tener en cuenta el número de empleados.</p>
+<p><img alt="Datos del ejemplo" src="../img/ejemplo1.png" /></p>
+<p>El siguiente código muestra la forma de crear el acumulador y el contador de forma muy básica.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>ventas_au2;
+    <span class="k">SET</span> ventas_au;
+    salario_acum + salary;
+    contador = <span class="kc">_N_</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>La tercer línea muestra cómo acumular en la variable <em>salario_acum</em>, en cada iteración se le suma la variable <em>salary</em> a la variable <em>salario_acum</em>. Esta sentencia es conocida como <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1dfiqj146yi2cn1maeju9wo7ijs.htm">sentencia SUMA</a>.</p>
 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
 <h3 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h3>

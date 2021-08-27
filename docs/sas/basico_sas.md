@@ -51,7 +51,12 @@ RUN;
 
 La sentencia `DATA` especifica el nombre del dataset y entre parentesis están las opciones del dataset, en este caso el dataset *empleados* tendrá una etiqueta para identificarlo.
 
-Es recomendable especificar las propiedades de las variables a crear mediante la sentencia `ATTRIB` en donde se especifican sus propiedades. Nótese que para el caso de las variables de tipo caracter se hace uso de la opción `LENGTH =` seguido del signo de pesos para indicar que es de tipo caracter y la longitud deseada. Para el caso de variables numéricas, se debe especificar al menos un atributo, en este caso se recomienda especificar el atributo `LABEL =`. En el caso de la variable *fnac* los datos estan almacenados en formato de fecha (ddmmyyyy) por lo que se usa el informato `ddmmyy10.` para que lo reconozca como fehca de sas, pero se desea visualizar con el formato de fecha (ddmmmyyyy).
+Es recomendable especificar las propiedades de las variables a crear mediante la sentencia `ATTRIB` en donde se especifican sus propiedades.
+
+!!! info "Declaración de variables"
+    Otra forma de declarar variables es mediante las sentencias `LENGTH` y `FORMAT`. Consulte la documentación para más información.
+
+Nótese que para el caso de las variables de tipo caracter se hace uso de la opción `LENGTH =` seguido del signo de pesos para indicar que es de tipo caracter y la longitud deseada. Para el caso de variables numéricas, se debe especificar al menos un atributo, en este caso se recomienda especificar el atributo `LABEL =`. En el caso de la variable *fnac* los datos estan almacenados en formato de fecha (ddmmyyyy) por lo que se usa el informato `ddmmyy10.` para que lo reconozca como fehca de sas, pero se desea visualizar con el formato de fecha (ddmmmyyyy).
 
 La sentencia `INPUT` sirve para indicar el nombre de las variables del dataset. Se puede poner el símbolo `$` para indicar que la variable es de tipo caracter. Sin embargo en este caso, como ya se han declarado las variables se puede usar una lista, es decir, solo poner el nombre de la primer variable declarada seguido de dos guiones `--` y el nombre de la última.
 
@@ -69,7 +74,7 @@ Se puede hacer mediante la sentencia `FILENAME`:
 
 donde *fileref* es un nombre sas que hará referencia a un archivo y *nombre-archivo* es el nombre de un archivo físico externo que incluye tanto la ruta como el nombre con su extensión.
 
-Por ejemplo la siguiente sentencia asigna con el nombre *archivo* al archivo "datos" almacenados en formato .dat que estan en la carpeta proyectos.
+Por ejemplo la siguiente sentencia asigna con el nombre *archivo* al archivo "datos" almacenados en formato .dat que están en la carpeta proyectos.
 
 ````sas
 FILENAME archivo "C:\Users\Usuario\Documents\Proyectos\datos.dat";
@@ -165,7 +170,7 @@ La forma más fácil de leer archivos externos es mediante el procedimiento **IM
 
 > **PROC IMPORT** DATAFILE = "filename" OUT = dataset;
 
-Este procesimiento no solo lee archivos de texto, sino tambien de Excel, SPSS, Stata e incluso tablas de Access. Para una mayor referencia vea el [procedimiento IMPORT](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/n1qn5sclnu2l9dn1w61ifw8wqhts.htm).
+Este procedimiento no solo lee archivos de texto, sino tambien de Excel, SPSS, Stata e incluso tablas de Access. Para una mayor referencia vea el [procedimiento IMPORT](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/n1qn5sclnu2l9dn1w61ifw8wqhts.htm).
 
 El siguiente código leerá un archivo en formato excel.
 
@@ -266,7 +271,6 @@ Es posible manipular archivos de texto mediante SAS. para ellos es necesario lee
 
 El siguiente código muestra como actualizar ciertas variables.
 
-
 ````sas
 FILENAME ARCHIVO "C:\Users\Usuario\alumnos.txt";
 DATA _NULL_;
@@ -293,10 +297,110 @@ La variable *sex2* se usa para guardar el valor que se va a escribir en el archi
 
 El resultado se muestra a continuación
 
-![Arcivo de ancho fijo](img/txt2.png)
+![Archivo de ancho fijo resultante](img/txt2.png)
 
+### Escritura de datos con el procedimiento EXPORT
 
-## Creación y manipulación de datos
+Así como es posible leer datos de forma externa con un procedimiento, tambien hay uno para escribir datos a archivos externos. La sintaxis es muy similar.
+
+> **PROC EXPORT** OUTFILE = “filename” DATA = dataset;
+
+El siguiente código muestra la forma de escribir un dataset a un archivo csv.
+
+````sas
+PROC EXPORT DATA= SASHELP.Class 
+            OUTFILE= "C:\Users\Usuario\alumnos.csv" 
+            DBMS = CSV REPLACE;
+RUN;
+````
+
+Para mayores referencias consulte el [procedimiento EXPORT](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/proc/n045uxf7ll2p5on1ly4at3vpd47e.htm).
+
+## Creación de variables y manipulación de datos
+
+En esta sección conoceremos la forma de crear variables con el fin de crear variables o variables auxiliares para cálculos posteriores. También se conocerán técnicas de selección de observaciones con el fin de manipular mejor las bases.
+
+### Funcionamiento del paso DATA
+
+Antes de continnuar con temas mas complejos, es importante comprender de forma general el funcionamiento del paso DATA.
+
+Para una explicación más detallada consulte [Cómo funciona el paso DATA](https://support.sas.com/documentation/cdl/en/basess/58133/HTML/default/viewer.htm#a001290590.htm).
+
+El paso DATA tiene dos fases:
+
+- Fase de compilación
+- Fase de ejecución
+
+A continuación se describir´n de forma breve estas fases.
+
+#### Fase de compilación
+
+Durante la fase de compilación, SAS revisa la sintaxis y si es correcta, se manda a código máquina en dondese procesa el código y se generan los siguientes objetos:
+
+- **Memoria de entrada**. Es un lugar en la memoria donde SAS lee registros de un archivo de texto cuando el programa se ejecute.
+- **Vector de datos del programa**. Es un lugar en la memoria donde SAS construye un conjunto de datos, una observación a la vez.
+- **Porción descriptora**. Es la información general del dataset como el nombre de la base y los atributos de las variables a crear.
+
+La memoria de entrada solo aplica en el caso en que se lean archivos externos. En este caso, los datos se leen de la memoria de entrada al vector de datos del programa.
+
+El vector de datos del programa (VDP) es importante porque en éste se realizarían los cálculos de las sentencias de SAS o funciones. Contiene el nombre de todas las variables declaradas o inicializadas. Es como un paso intermedio entre lo que se lee y calcula con lo que se se escribe al dataset. Al inicio de cada iteración los valores en el VDP son iniciados con valor missing y son llenados según lea o ejecuten sentencias.
+
+Durante la fase de compilación tambien se crean dos variables auxiliares en el VDP que no se escribirán en el dataset: `_N_` y `_ERROR_`. La primera cuenta el número de veces que el paso DATA itera y la segunda registra si hubo algún problema en la fase de ejecución.
+
+Una vez concluída esta etapa, se procede a la siguiente fase.
+
+#### Fase de ejecución
+
+En esta fase se realizan las siguientes acciones:
+
+1. Se leen las observaciones del VDP.
+2. Se ejecutan las sentencias (cálculo de variables).
+3. Se escriben al dataset.
+4. La variables en el VDP son reiniciadas y se colocan valores missing.
+
+Debido a que es un procesos repetitivo, SAS realiza los pasos mencionados tantas veces como observaciones haya en el archivo externo o dataset leído.
+
+El proceso termina cuando ya no hay registros que leer y en ese momento el dataset es cerrado y se concluye el paso DATA.
+
+### Creación de variables
+
+Hasta ahora solo conocíamos las sentencias `ATTRIB`, `LENGTH` y `FORMAT` para declarar o iniciar variables. Otra forma de crearlas es mediante la asignación de variables de la siguiente forma:
+
+> variable = *expresión sas*;
+
+Esta sentencia se conoce como *sentencias de asignación*. Su función es evaluar y almacenar el resultado en alguna variable que está al lado izquierdo del signo `=`.
+
+Considere las siguientes sentencias:
+
+````
+fecha = '10Jun20'd;
+version = 1;
+altura = height * 2.54;
+status = "ok";
+nombre2 = SUBSTR(name,1,3);
+````
+
+En esas sentencias se han creado las variables simplemente asignando un valor o una expresión SAS. Las primeras tres sentencias crearían variables de tipo numérico; la expresión `'10Jun20'd` es interpretada por sas como un valor numérico. La tercer sentencia realiza una multiplicación de una variable por una constante. Para una referencia consulte [Operadores SAS en expresiones](https://documentation.sas.com/doc/en/lrcon/9.4/p00iah2thp63bmn1lt20esag14lh.htm#n1feyypdf6czp4n15pthf5lafmlf) y [Funciones SAS en expresiones](https://documentation.sas.com/doc/en/lrcon/9.4/p1fjvn4giid9e0n1v0wcn4ibwbzi.htm).
+
+### Variables acumuladoras y contadoras
+
+En SAS es posible crear una variable que sume o vaya acumulando.
+
+Considere la siguiente tabla donde se representan la información de los empleados de una compañía. Se desea obtener un acumulado de las ventas de los empleados y un contador para tener en cuenta el número de empleados.
+
+![Datos del ejemplo](img/ejemplo1.png)
+
+El siguiente código muestra la forma de crear el acumulador y el contador de forma muy básica.
+
+````sas
+DATA ventas_au2;
+    SET ventas_au;
+    salario_acum + salary;
+    contador = _N_;
+RUN;
+````
+
+La tercer línea muestra cómo acumular en la variable *salario_acum*, en cada iteración se le suma la variable *salary* a la variable *salario_acum*. Esta sentencia es conocida como [sentencia SUMA](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1dfiqj146yi2cn1maeju9wo7ijs.htm).
 
 ## Creación de reportes
 
