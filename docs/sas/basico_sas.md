@@ -395,12 +395,31 @@ El siguiente código muestra la forma de crear el acumulador y el contador de fo
 ````sas
 DATA ventas_au2;
     SET ventas_au;
-    salario_acum + salary;
     contador = _N_;
+    salario_acum + salary;
 RUN;
 ````
 
-La tercer línea muestra cómo acumular en la variable *salario_acum*, en cada iteración se le suma la variable *salary* a la variable *salario_acum*. Esta sentencia es conocida como [sentencia SUMA](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1dfiqj146yi2cn1maeju9wo7ijs.htm).
+La tercer línea guarda el número de veces que se ha iterado, es decir el número de registros leídos. Debido a que la variable `_N_` es temporal y no se escribe en el dataset, se guarda en la variable _contador_.
+
+En la cuarta se muestra cómo acumular en la variable *salario_acum*, en cada iteración se le suma la variable *salary* a la variable *salario_acum*. Esta sentencia es conocida como [sentencia SUM](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1dfiqj146yi2cn1maeju9wo7ijs.htm).
+
+!!! error "Cuidado con el operador +"
+    Se debe tener cuidado al usar el operador `+` debido a que si alguno de los operandos tiene un valor _missing_, el resultado sería _missing_. Se recomienda usar la [función SUM](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lefunctionsref/n0zxive1z1ctqin12w06c85jfigd.htm) para evitar esos imprevistos.
+
+Si se hubiese definido `salario_acum = salario_acum + salary`en la línea 4, el resultado en cada observacion nos resultaría un valor _missing_. Como se mencionó previamente, durante la fase de compilación los valores en el VDP se reinician a valor _missing_ causando que el resultado en dicha expresión sea _missing_.
+
+Para evitar que eso ocurra, se puede usar la sentencia `RETAIN` con el fin de que SAS conserve el valor en cada iteración.
+
+````sas
+DATA ventas_au2;
+    SET ventas_au;
+    RETAIN salario_acum2 0;
+    salario_acum2 = salario_acum2 + salary; 
+RUN;
+````
+
+En la línea 3 se pide que SAS retenga la variable _salario_acum2_ en cada iteración y que su valor inicial sea 0. De esta manera se podría sumar de manera normal. Consulte la [sentencia RETAIN](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p0t2ac0tfzcgbjn112mu96hkgg9o.htm) para más información.
 
 ## Creación de reportes
 

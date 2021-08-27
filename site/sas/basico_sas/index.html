@@ -1243,13 +1243,33 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 4
 5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>ventas_au2;
     <span class="k">SET</span> ventas_au;
-    salario_acum + salary;
-    contador = <span class="kc">_N_</span><span class="kr">;</span>
+    contador = <span class="kc">_N_</span>;
+    salario_acum + salary<span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
 </td></tr></table>
 
-<p>La tercer línea muestra cómo acumular en la variable <em>salario_acum</em>, en cada iteración se le suma la variable <em>salary</em> a la variable <em>salario_acum</em>. Esta sentencia es conocida como <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1dfiqj146yi2cn1maeju9wo7ijs.htm">sentencia SUMA</a>.</p>
+<p>La tercer línea guarda el número de veces que se ha iterado, es decir el número de registros leídos. Debido a que la variable <code>_N_</code> es temporal y no se escribe en el dataset, se guarda en la variable <em>contador</em>.</p>
+<p>En la cuarta se muestra cómo acumular en la variable <em>salario_acum</em>, en cada iteración se le suma la variable <em>salary</em> a la variable <em>salario_acum</em>. Esta sentencia es conocida como <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1dfiqj146yi2cn1maeju9wo7ijs.htm">sentencia SUM</a>.</p>
+<div class="admonition error">
+<p class="admonition-title">Cuidado con el operador +</p>
+<p>Se debe tener cuidado al usar el operador <code>+</code> debido a que si alguno de los operandos tiene un valor <em>missing</em>, el resultado sería <em>missing</em>. Se recomienda usar la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lefunctionsref/n0zxive1z1ctqin12w06c85jfigd.htm">función SUM</a> para evitar esos imprevistos.</p>
+</div>
+<p>Si se hubiese definido <code>salario_acum = salario_acum + salary</code>en la línea 4, el resultado en cada observacion nos resultaría un valor <em>missing</em>. Como se mencionó previamente, durante la fase de compilación los valores en el VDP se reinician a valor <em>missing</em> causando que el resultado en dicha expresión sea <em>missing</em>.</p>
+<p>Para evitar que eso ocurra, se puede usar la sentencia <code>RETAIN</code> con el fin de que SAS conserve el valor en cada iteración.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>ventas_au2;
+    <span class="k">SET</span> ventas_au;
+    <span class="k">RETAIN</span> salario_acum2 <span class="m">0</span>;
+    salario_acum2 = salario_acum2 + salary<span class="kr">; </span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>En la línea 3 se pide que SAS retenga la variable <em>salario_acum2</em> en cada iteración y que su valor inicial sea 0. De esta manera se podría sumar de manera normal. Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p0t2ac0tfzcgbjn112mu96hkgg9o.htm">sentencia RETAIN</a> para más información.</p>
 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
 <h3 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h3>
