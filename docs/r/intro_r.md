@@ -82,6 +82,10 @@ Los vectores tienen una dimensión y para conocerla se puede usar la función `l
 
 > [1] 3
 
+ya que sus elementos son:
+
+> [1] 2 1 5
+
 También se puede acceder a sus elementos mediante el operador `[]`, por ejemplo para conocer el segundo elemento de _x_ se puede usar `x[2]` y el resultado es:
 
 > [1] 1
@@ -94,9 +98,37 @@ En ambos, el resultado sería:
 
 El operador `:` sirve para indicar una secuencia consecutiva. Por ejemplo `i = 1:10` crearía un vector de 10 elementos del 1 al 10, esto es útil para crear sucesiones o índices.
 
+Para crear secuencias más complejas se puede usar la función `seq()`.
+
+Por ejemplo con `seq(from = 1,to = 10,by = 1)` se crea una secuencia del 1 al 10 incrementando el valor en 1 y se obtiene el mismo resultado que con `1:10`.
+
+Otra forma de crear un vector es mediante la función `rep()`. Por ejemplo la siguiente expresion:
+
+````r
+u = rep(x = x,each = 2,times = 3)
+````
+
+Crea un el vector _u_ que contiene cada elemento del vector _x_ 2 veces y esta secuencia se recrea 3 veces.
+
+> [1] 2 2 1 1 5 5 2 2 1 1 5 5 2 2 1 1 5 5
+
 ### Matrices
 
-Una matriz es una arreglo de dos dimensiones (renglones y columnas) que contiene valores, especialmente numéricos.
+Una matriz es una arreglo de dos dimensiones (renglones y columnas) que contiene valores, especialmente numéricos. Tiene _n_ renglones y _p_ columnas, es decir tiene _np_ elementos.
+
+Para crea una matriz, se usa la función `matrix()` cuya sintaxis es la siguiente:
+
+> matrix(**data** = objeto, **nrow** = valor, **ncol** = valor _<, **byrow** = FALSE>_)
+
+donde **data** representa un vector o una expresión, **nrow** el número de renglones que se desean, **ncol** el número de columnas y el argumento opcional **byrow** indica si se deberían llenar por columnas.
+
+Si se ejecuta el siguiente comando:
+
+````r
+A1 = matrix(data = u)
+````
+
+el resultado sería una matriz de 18 renglones y una columna.
 
 ### Factores
 
