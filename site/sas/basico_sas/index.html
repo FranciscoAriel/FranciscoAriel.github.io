@@ -1061,18 +1061,67 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <p>Esta sentencia nos permite continuar procesando aquellas observaciones que cumplen la condición, generalmente de comparación.</p>
 <p>Una expresión puede ser el nombre de una varible y puede contener algún operador lógico y un operando. Pueden conectarse mediante conectores lógicos, comunmente llamados booleanos.</p>
 <p>La siguiente tabla resume algunos operadores lógicos y conectores.</p>
-<p>Símbolo|Descripción|Ejemplo
--------|-----------|-------|
-<code>=</code> o <code>EQ</code>|IGUAL A|<code>sex EQ "F"</code>
-<code>^=</code> o <code>¬=</code> o <code>~=</code> o <code>NE</code> |NO IGUAL A|<code>sex NE "F"</code>
-<code>&gt;</code> o <code>GT</code>|MAYOR QUE|<code>age GT 13</code>
-<code>&lt;</code> o <code>LT</code>|MENOR QUE|<code>age LT 13</code>
-<code>&gt;=</code> o <code>GE</code>|MAYOR QUE O IGUAL A|<code>age GE 14</code>
-<code>&lt;=</code> o <code>LE</code>|MENOR QUE O IGUAL A|<code>age LE 14</code>
-<code>IN</code>|(ESTÁ) EN|<code>age in (12 14 15)</code> o <code>sex in ("F" "M")</code>
-<code>&amp;</code> o <code>AND</code>|Y|<code>sex EQ "F" AND age GT 13</code>
-<code>!</code> o <code>OR</code> o |O|<code>sex EQ "F" OR age GT 13</code>
-<code>~</code> o <code>^</code> o <code>¬</code> o <code>NOT</code>|NO|<code>NOT(sex EQ "F" OR age GT 13)</code></p>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=</code> o <code>EQ</code></td>
+<td>IGUAL A</td>
+<td><code>sex EQ "F"</code></td>
+</tr>
+<tr>
+<td><code>^=</code> o <code>¬=</code> o <code>~=</code> o <code>NE</code></td>
+<td>NO IGUAL A</td>
+<td><code>sex NE "F"</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code> o <code>GT</code></td>
+<td>MAYOR QUE</td>
+<td><code>age GT 13</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code> o <code>LT</code></td>
+<td>MENOR QUE</td>
+<td><code>age LT 13</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code> o <code>GE</code></td>
+<td>MAYOR O IGUAL A</td>
+<td><code>age GE 14</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code> o <code>LE</code></td>
+<td>MENOR QUE O IGUAL A</td>
+<td><code>age LE 14</code></td>
+</tr>
+<tr>
+<td><code>IN</code></td>
+<td>(ESTÁ) EN</td>
+<td><code>age in (12 14 15)</code> o <code>sex in ("F" "M")</code></td>
+</tr>
+<tr>
+<td><code>&amp;</code> o <code>AND</code></td>
+<td>Y</td>
+<td><code>sex EQ "F" AND age GT 13</code></td>
+</tr>
+<tr>
+<td><code>!</code> o <code>OR</code> o</td>
+<td>O</td>
+<td><code>sex EQ "F" OR age GT 13</code></td>
+</tr>
+<tr>
+<td><code>~</code> o <code>^</code> o <code>¬</code> o <code>NOT</code></td>
+<td>NO</td>
+<td><code>NOT(sex EQ "F" OR age GT 13)</code></td>
+</tr>
+</tbody>
+</table>
 <p>Por ejemplo el siguiente código solo contendría a empleados de Australia.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1294,23 +1343,52 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 </blockquote>
 <p>Esta sentencia se conoce como <em>sentencias de asignación</em>. Su función es evaluar y almacenar el resultado en alguna variable que está al lado izquierdo del signo <code>=</code>.</p>
 <p>Una forma muy común de crear variables es mediante el uso de operadores matemáticos. La siguiente tabla muestra algunos de los operadores aritméticos en SAS. Para una referencia consulte <a href="https://documentation.sas.com/doc/en/lrcon/9.4/p00iah2thp63bmn1lt20esag14lh.htm#n1feyypdf6czp4n15pthf5lafmlf">Operadores SAS en expresiones</a> y <a href="https://documentation.sas.com/doc/en/lrcon/9.4/p1fjvn4giid9e0n1v0wcn4ibwbzi.htm">Funciones SAS en expresiones</a>.</p>
-<p>Símbolo|Descripción|Ejemplo
--------|-----------|-------|
-+|Adición|<code>fecha + 1</code>
--|Sustracción|<code>fecha - 7</code>
-<em>|Multiplicación|<code>height * 2.54</code>
-/|División|<code>suma / total</code>
-</em>*|Exponenciación|<code>metros ** 2</code>
-Considere las siguientes sentencias:</p>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Adición</td>
+<td><code>fecha + 1</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Sustracción</td>
+<td><code>fecha - 7</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Multiplicación</td>
+<td><code>height * 2.54</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>División</td>
+<td><code>suma / total</code></td>
+</tr>
+<tr>
+<td><code>**</code></td>
+<td>Exponenciación</td>
+<td><code>metros ** 2</code></td>
+</tr>
+</tbody>
+</table>
+<p>Considere las siguientes sentencias:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">fecha</span> <span class="o">=</span> <span class="s1">&#39;10Jun20&#39;</span><span class="n">d</span><span class="p">;</span>
-<span class="k">version</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">status</span> <span class="o">=</span> <span class="ss">&quot;ok&quot;</span><span class="p">;</span>
-<span class="n">altura</span> <span class="o">=</span> <span class="n">height</span> <span class="o">*</span> <span class="mi">2</span><span class="p">.</span><span class="mi">54</span><span class="p">;</span>
-<span class="n">nombre2</span> <span class="o">=</span> <span class="n">SUBSTR</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>fecha = <span class="s">&#39;10Jun20&#39;</span>d;
+version = <span class="m">1</span>;
+status = <span class="s">&quot;ok&quot;</span>;
+altura = height * <span class="m">2.54</span>;
+nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span class="m">3</span>);
 </code></pre></div>
 </td></tr></table>
 
@@ -1354,6 +1432,83 @@ Considere las siguientes sentencias:</p>
 
 <p>En la línea 3 se pide que SAS retenga la variable <em>salario_acum2</em> en cada iteración y que su valor inicial sea 0. De esta manera se podría sumar de manera normal. Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p0t2ac0tfzcgbjn112mu96hkgg9o.htm">sentencia RETAIN</a> para más información.</p>
 <h3 id="filtrado-de-datos">Filtrado de datos<a class="headerlink" href="#filtrado-de-datos" title="Permanent link">&para;</a></h3>
+<p>En ocasiones, se tiene una basta cantidad de datos y solo nos interesa un subconjunto de estos. Para eso se pueden elegir observaciones de un dataset con la sentencia <code>WHERE</code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">WHERE vs IF</p>
+<p>No debe confundirse la sentencia <code>WHERE</code> con <code>IF</code>. La sentencia <code>IF</code> trabaja con observaciones <em>después</em> de ser leídas en el VDP, mietras que <code>WHERE</code> selecciona las observaciones <em>antes</em> de pasar al VDP.</p>
+</div>
+<p>La sintaxis es la siguiente:</p>
+<blockquote>
+<p>WHERE <em>expresión</em>;</p>
+</blockquote>
+<p>donde <em>expresión</em> es una condición a evaluar, vea la sección <a href="#seleccion-de-observaciones">selección de observaciones</a> para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia <code>WHERE</code></p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BETWEEN - AND</code></td>
+<td>Un rango inclusivo</td>
+<td><code>WHERE age BETWEEN 12 AND 15;</code></td>
+</tr>
+<tr>
+<td><code>?</code> o <code>CONTAINS</code></td>
+<td>Una cadena de caracteres</td>
+<td><code>WHERE name ? "Ja";</code></td>
+</tr>
+<tr>
+<td><code>IS NULL</code> o <code>IS MISSING</code></td>
+<td>Valores faltantes</td>
+<td><code>WHERE volumen IS NULL;</code></td>
+</tr>
+<tr>
+<td><code>LIKE</code></td>
+<td>Combinación de patrones</td>
+<td><code>WHERE name LIKE "J%";</code></td>
+</tr>
+<tr>
+<td><code>=*</code></td>
+<td>Suena como (Sólo palabras en inglés)</td>
+<td><code>WHERE name =* "jeims";</code></td>
+</tr>
+<tr>
+<td><code>SAME - AND</code></td>
+<td>Agrega cláusulas a una sentencia <code>WHERE</code> existente</td>
+<td><code>WHERE sex = "F"; WHERE SAME AND age &gt;= 13;</code></td>
+</tr>
+</tbody>
+</table>
+<p>En el siguiente ejemplo se muestra el filtrado usando la sentencia <code>WHERE</code> usando los datos de <a href="#leyendo-archivos-desde-web">covid</a> para tener sólo la información de México.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kr">DATA </span>mexico;
+    <span class="k">SET</span> covid;
+    <span class="k">WHERE</span> iso_code EQ <span class="s">&quot;MEX&quot;</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El log muestra el siguiente mensaje:</p>
+<blockquote>
+<p>NOTE: There were 609 observations read from the data set WORK.COVID.</p>
+<p>WHERE iso_code=&rsquo;MEX&rsquo;</p>
+</blockquote>
+<p>Si se hubiese usado la sentencia <code>IF</code> en lugar de <code>WHERE</code> el resultado hubiera sido el siguiente:</p>
+<blockquote>
+<p>NOTE: There were 113406 observations read from the data set WORK.COVID.</p>
+<p>NOTE: The data set WORK.MEXICO has 609 observations and 60 variables.</p>
+</blockquote>
+<p>El ejemplo anterior muestra las diferencias entre las sentencias <code>IF</code> y <code>WHERE</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title"><code>WHERE</code> como opción de dataset</p>
+<p>Es posible usar la opción <code>WHERE =</code> para filtrar observaciones para un dataset especificado, esto es útil cuando se leen más de un dataset. Vea la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ledsoptsref/p0ny9o8t8hc5zen1qn3ft9dhtsxx.htm">documentación</a> para mayor información</p>
+</div>
 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
 <h3 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h3>

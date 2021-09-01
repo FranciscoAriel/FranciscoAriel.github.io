@@ -678,6 +678,26 @@
 </code></pre></div>
 </td></tr></table>
 
+<p>También pueden crearse matrices a partir de vectores, mediante las funciones <code>cbind()</code> y <code>rbind()</code>. La primera permite concatenar columas y la segunda concatena renglones, por ejemplo</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">a1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">)</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="nf">rbind</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">),</span><span class="n">a3</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El resultado es el siguiente:</p>
+<blockquote>
+<p>A</p>
+<p>a1 a2</p>
+<p>1  4</p>
+<p>2  5</p>
+<p>3  6</p>
+<p>a3  7  8</p>
+</blockquote>
 <h3 id="factores">Factores<a class="headerlink" href="#factores" title="Permanent link">&para;</a></h3>
 <h3 id="data-frames">Data Frames<a class="headerlink" href="#data-frames" title="Permanent link">&para;</a></h3>
 <h3 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h3>

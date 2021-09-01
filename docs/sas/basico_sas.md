@@ -178,18 +178,18 @@ Una expresión puede ser el nombre de una varible y puede contener algún operad
 
 La siguiente tabla resume algunos operadores lógicos y conectores.
 
-Símbolo|Descripción|Ejemplo
--------|-----------|-------|
-`=` o `EQ`|IGUAL A|`sex EQ "F"`
-`^=` o `¬=` o `~=` o `NE` |NO IGUAL A|`sex NE "F"`
-`>` o `GT`|MAYOR QUE|`age GT 13`
-`<` o `LT`|MENOR QUE|`age LT 13`
-`>=` o `GE`|MAYOR QUE O IGUAL A|`age GE 14`
-`<=` o `LE`|MENOR QUE O IGUAL A|`age LE 14`
-`IN`|(ESTÁ) EN|`age in (12 14 15)` o `sex in ("F" "M")`
-`&` o `AND`|Y|`sex EQ "F" AND age GT 13`
-`!` o `OR` o |O|`sex EQ "F" OR age GT 13`
-`~` o `^` o `¬` o `NOT`|NO|`NOT(sex EQ "F" OR age GT 13)`
+Símbolo                   |Descripción|Ejemplo|
+--------------------------|-----------|-------|
+`=` o `EQ`                |IGUAL A    |`sex EQ "F"`
+`^=` o `¬=` o `~=` o `NE` |NO IGUAL A |`sex NE "F"`
+`>` o `GT`                |MAYOR QUE  |`age GT 13`
+`<` o `LT`                |MENOR QUE  |`age LT 13`
+`>=` o `GE`               |MAYOR O IGUAL A|`age GE 14`
+`<=` o `LE`               |MENOR QUE O IGUAL A|`age LE 14`
+`IN`                      |(ESTÁ) EN   |`age in (12 14 15)` o `sex in ("F" "M")`
+`&` o `AND`               |Y          | `sex EQ "F" AND age GT 13`
+`!` o `OR` o              |O          |`sex EQ "F" OR age GT 13`
+`~` o `^` o `¬` o `NOT`   |NO         |`NOT(sex EQ "F" OR age GT 13)`
 
 Por ejemplo el siguiente código solo contendría a empleados de Australia.
 
@@ -419,16 +419,17 @@ Esta sentencia se conoce como *sentencias de asignación*. Su función es evalua
 
 Una forma muy común de crear variables es mediante el uso de operadores matemáticos. La siguiente tabla muestra algunos de los operadores aritméticos en SAS. Para una referencia consulte [Operadores SAS en expresiones](https://documentation.sas.com/doc/en/lrcon/9.4/p00iah2thp63bmn1lt20esag14lh.htm#n1feyypdf6czp4n15pthf5lafmlf) y [Funciones SAS en expresiones](https://documentation.sas.com/doc/en/lrcon/9.4/p1fjvn4giid9e0n1v0wcn4ibwbzi.htm).
 
-Símbolo|Descripción|Ejemplo
+Símbolo|Descripción|Ejemplo|
 -------|-----------|-------|
-+|Adición|`fecha + 1`
--|Sustracción|`fecha - 7`
-*|Multiplicación|`height * 2.54`
-/|División|`suma / total`
-**|Exponenciación|`metros ** 2`
+`+`    |Adición    |`fecha + 1`
+`-`    |Sustracción|`fecha - 7`
+`*`    |Multiplicación|`height * 2.54`
+`/`    |División   |`suma / total`
+`**`   |Exponenciación|`metros ** 2`
+
 Considere las siguientes sentencias:
 
-````
+````sas
 fecha = '10Jun20'd;
 version = 1;
 status = "ok";
@@ -479,8 +480,50 @@ En la línea 3 se pide que SAS retenga la variable _salario_acum2_ en cada itera
 
 ### Filtrado de datos
 
+En ocasiones, se tiene una basta cantidad de datos y solo nos interesa un subconjunto de estos. Para eso se pueden elegir observaciones de un dataset con la sentencia `WHERE`.
 
+!!! caution "WHERE vs IF"
+    No debe confundirse la sentencia `WHERE` con `IF`. La sentencia `IF` trabaja con observaciones _después_ de ser leídas en el VDP, mietras que `WHERE` selecciona las observaciones _antes_ de pasar al VDP.
 
+La sintaxis es la siguiente:
+
+> WHERE _expresión_;
+
+donde _expresión_ es una condición a evaluar, vea la sección [selección de observaciones](#seleccion-de-observaciones) para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia `WHERE`
+
+Operador|Descripción|Ejemplo
+--------|-----------|-------
+`BETWEEN - AND`|Un rango inclusivo| `WHERE age BETWEEN 12 AND 15;`
+`?` o `CONTAINS`|Una cadena de caracteres|`WHERE name ? "Ja";`
+`IS NULL` o `IS MISSING`|Valores faltantes|`WHERE volumen IS NULL;`
+`LIKE`|Combinación de patrones|`WHERE name LIKE "J%";`
+`=*`|Suena como (Sólo palabras en inglés)|`WHERE name =* "jeims";`
+`SAME - AND`|Agrega cláusulas a una sentencia `WHERE` existente|`WHERE sex = "F"; WHERE SAME AND age >= 13;`
+
+En el siguiente ejemplo se muestra el filtrado usando la sentencia `WHERE` usando los datos de [covid](#leyendo-archivos-desde-web) para tener sólo la información de México.
+
+````sas
+DATA mexico;
+    SET covid;
+    WHERE iso_code EQ "MEX";
+RUN;
+````
+El log muestra el siguiente mensaje:
+
+> NOTE: There were 609 observations read from the data set WORK.COVID.
+>      
+> WHERE iso_code='MEX'
+
+Si se hubiese usado la sentencia `IF` en lugar de `WHERE` el resultado hubiera sido el siguiente:
+
+> NOTE: There were 113406 observations read from the data set WORK.COVID.
+>    
+> NOTE: The data set WORK.MEXICO has 609 observations and 60 variables.
+
+El ejemplo anterior muestra las diferencias entre las sentencias `IF` y `WHERE`.
+
+!!! tip "`WHERE` como opción de dataset"
+     Es posible usar la opción `WHERE =` para filtrar observaciones para un dataset especificado, esto es útil cuando se leen más de un dataset. Vea la [documentación](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ledsoptsref/p0ny9o8t8hc5zen1qn3ft9dhtsxx.htm) para mayor información
 
 ## Creación de reportes
 

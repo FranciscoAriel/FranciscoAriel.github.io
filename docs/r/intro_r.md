@@ -136,6 +136,29 @@ Si se desea una matriz de otra dimensión se puede usar este código.
 A1 = matrix(data = u,nrow = 6,byrow = TRUE)
 ````
 
+También pueden crearse matrices a partir de vectores, mediante las funciones `cbind()` y `rbind()`. La primera permite concatenar columas y la segunda concatena renglones, por ejemplo
+
+```r
+a1 = c(1,2,3)
+a2 = c(4,5,6)
+a3 = c(7,8)
+A = rbind(cbind(a1,a2),a3)
+```
+
+El resultado es el siguiente:
+
+> A
+>
+>    a1 a2
+>
+>    1  4
+>
+>    2  5
+>
+>    3  6
+>
+> a3  7  8
+
 ### Factores
 
 ### Data Frames
