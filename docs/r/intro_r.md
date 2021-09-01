@@ -130,6 +130,12 @@ A1 = matrix(data = u)
 
 el resultado sería una matriz de 18 renglones y una columna.
 
+Si se desea una matriz de otra dimensión se puede usar este código.
+
+````r
+A1 = matrix(data = u,nrow = 6,byrow = TRUE)
+````
+
 ### Factores
 
 ### Data Frames

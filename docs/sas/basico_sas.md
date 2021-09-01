@@ -164,6 +164,53 @@ Un ejemplo para descargar datos de covid se encuentran en el siguiente programa 
 
 Consulte la documentación de la sentencia `FILENAME` con el [método de acceso URL](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lestmtsglobal/p103pi2vrzn6qhn1e8alrs01jrb7.htm) para más información.
 
+### Selección de observaciones
+
+Es posible seleccionar las observaciones que se quieren escribir en un dataset, sobre todo aquellas que _cumplan ciertas condiciones_. Al igual que otros lenguajes de programación SAS tiene expresiones lógicas que evalúan cierta condición.
+
+La sintaxis es la siguiente:
+
+> IF _expresión_;
+
+Esta sentencia nos permite continuar procesando aquellas observaciones que cumplen la condición, generalmente de comparación.
+
+Una expresión puede ser el nombre de una varible y puede contener algún operador lógico y un operando. Pueden conectarse mediante conectores lógicos, comunmente llamados booleanos.
+
+La siguiente tabla resume algunos operadores lógicos y conectores.
+
+Símbolo|Descripción|Ejemplo
+-------|-----------|-------|
+`=` o `EQ`|IGUAL A|`sex EQ "F"`
+`^=` o `¬=` o `~=` o `NE` |NO IGUAL A|`sex NE "F"`
+`>` o `GT`|MAYOR QUE|`age GT 13`
+`<` o `LT`|MENOR QUE|`age LT 13`
+`>=` o `GE`|MAYOR QUE O IGUAL A|`age GE 14`
+`<=` o `LE`|MENOR QUE O IGUAL A|`age LE 14`
+`IN`|(ESTÁ) EN|`age in (12 14 15)` o `sex in ("F" "M")`
+`&` o `AND`|Y|`sex EQ "F" AND age GT 13`
+`!` o `OR` o |O|`sex EQ "F" OR age GT 13`
+`~` o `^` o `¬` o `NOT`|NO|`NOT(sex EQ "F" OR age GT 13)`
+
+Por ejemplo el siguiente código solo contendría a empleados de Australia.
+
+````sas
+DATA VENTAS_AU;
+    INFILE ARCHIVO;
+    IF PAIS EQ "AU";
+    INPUT ID 1 - 7 NOMBRE $ 8 - 18 APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN 54 - 60 PAIS $ 61-62;
+RUN;
+````
+
+Para elegir observaciones que no sean nulas, se puede usar la siguiente sentencia.
+
+````sas
+DATA VENTAS_AU;
+    INFILE ARCHIVO;
+    IF VOLUMEN;
+    INPUT ID 1 - 7 NOMBRE $ 8 - 18 APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN 54 - 60 PAIS $ 61-62;
+RUN;
+````
+
 ### Usando un procedimiento para leer datos externos
 
 La forma más fácil de leer archivos externos es mediante el procedimiento **IMPORT**.
@@ -370,17 +417,26 @@ Hasta ahora solo conocíamos las sentencias `ATTRIB`, `LENGTH` y `FORMAT` para d
 
 Esta sentencia se conoce como *sentencias de asignación*. Su función es evaluar y almacenar el resultado en alguna variable que está al lado izquierdo del signo `=`.
 
+Una forma muy común de crear variables es mediante el uso de operadores matemáticos. La siguiente tabla muestra algunos de los operadores aritméticos en SAS. Para una referencia consulte [Operadores SAS en expresiones](https://documentation.sas.com/doc/en/lrcon/9.4/p00iah2thp63bmn1lt20esag14lh.htm#n1feyypdf6czp4n15pthf5lafmlf) y [Funciones SAS en expresiones](https://documentation.sas.com/doc/en/lrcon/9.4/p1fjvn4giid9e0n1v0wcn4ibwbzi.htm).
+
+Símbolo|Descripción|Ejemplo
+-------|-----------|-------|
++|Adición|`fecha + 1`
+-|Sustracción|`fecha - 7`
+*|Multiplicación|`height * 2.54`
+/|División|`suma / total`
+**|Exponenciación|`metros ** 2`
 Considere las siguientes sentencias:
 
 ````
 fecha = '10Jun20'd;
 version = 1;
-altura = height * 2.54;
 status = "ok";
+altura = height * 2.54;
 nombre2 = SUBSTR(name,1,3);
 ````
 
-En esas sentencias se han creado las variables simplemente asignando un valor o una expresión SAS. Las primeras tres sentencias crearían variables de tipo numérico; la expresión `'10Jun20'd` es interpretada por sas como un valor numérico. La tercer sentencia realiza una multiplicación de una variable por una constante. Para una referencia consulte [Operadores SAS en expresiones](https://documentation.sas.com/doc/en/lrcon/9.4/p00iah2thp63bmn1lt20esag14lh.htm#n1feyypdf6czp4n15pthf5lafmlf) y [Funciones SAS en expresiones](https://documentation.sas.com/doc/en/lrcon/9.4/p1fjvn4giid9e0n1v0wcn4ibwbzi.htm).
+En esas sentencias se han creado las variables simplemente asignando un valor o una expresión SAS. Las primeras tres sentencias crearían variables de tipo numérico; la expresión `'10Jun20'd` es interpretada por sas como un valor numérico. La cuarta sentencia realiza una multiplicación de una variable por una constante. Finalmente, la quinta aplica una función a una variable de tipo caracter que extraerá los 3 primeros caracteres de una cadena.
 
 ### Variables acumuladoras y contadoras
 
@@ -420,6 +476,11 @@ RUN;
 ````
 
 En la línea 3 se pide que SAS retenga la variable _salario_acum2_ en cada iteración y que su valor inicial sea 0. De esta manera se podría sumar de manera normal. Consulte la [sentencia RETAIN](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p0t2ac0tfzcgbjn112mu96hkgg9o.htm) para más información.
+
+### Filtrado de datos
+
+
+
 
 ## Creación de reportes
 
