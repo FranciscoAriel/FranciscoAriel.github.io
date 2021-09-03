@@ -523,7 +523,72 @@ Si se hubiese usado la sentencia `IF` en lugar de `WHERE` el resultado hubiera s
 El ejemplo anterior muestra las diferencias entre las sentencias `IF` y `WHERE`.
 
 !!! tip "`WHERE` como opción de dataset"
-     Es posible usar la opción `WHERE =` para filtrar observaciones para un dataset especificado, esto es útil cuando se leen más de un dataset. Vea la [documentación](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ledsoptsref/p0ny9o8t8hc5zen1qn3ft9dhtsxx.htm) para mayor información
+     Es posible usar la opción `WHERE =` para filtrar observaciones para un dataset especificado, esto es útil cuando se leen más de un dataset. Vea la [documentación](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ledsoptsref/p0ny9o8t8hc5zen1qn3ft9dhtsxx.htm) para más información.
+
+### Sentencias condicionales
+
+Anteriormente se había usado la sentencia `IF` para seleccionar variables, ahora se usará en conjunto con la palabra `THEN` con el fin de que realice una acción. Esta sentencia se conoce como sentencia **IF-ELSE**.
+
+La sintaxis es la siguiente:
+
+> IF _expresión_ THEN _acción1_; ELSE _acción2_;
+
+El siguiente ejemplo muestra cómo crear una variable a partir de ciertos valores.
+
+````sas
+DATA clase;
+    SET SASHELP.CLASS;
+    LENGTH sexo $8;
+    IF sex = "F" THEN sexo = "Mujer";
+    ELSE sexo = "Hombre";
+RUN;
+````
+
+Note que la sentencia `IF-ELSE` solo permite una acción a la vez. Para realizar más de una acción se debe usar el bloque `DO`. Consulte la [documentación](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n0el0y2a02ab1ln1pks3gbac1en3.htm) para más información.
+
+````sas
+DATA clase;
+    SET SASHELP.CLASS;
+    sexo = "Hombre";
+    genero = "Masculino";
+    IF sex = "F" THEN DO;
+        sexo = "Mujer";
+        genero = "Femenino";
+    END;
+RUN;
+````
+
+Estas sentencias pueden anidarse para formar sentencias más complejas, por ejemplo.
+
+````sas
+DATA clase;
+   SET SASHELP.CLASS;
+   LENGTH escuela $12.;
+   IF age LE 12 THEN escuela = "Primaria";
+      ELSE IF age GE 16 THEN escuela = "Preparatoria";
+   ELSE escuela = "Secundaria";
+RUN;
+````
+
+!!! caution "Cuidado con las estructuras anidadas"
+    Se debe tener cuidado al usar sentencias anidadas ya que deben ser cerradas correctamente. De no ser así, se pueden cometer errores.
+
+Otra forma de crear sentencias condicionales es mediante el uso de la sentencia `SELECT`. Consulte la [ayuda](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p09213s9jc2t99n1vx0omk2rh9ps.htm) para más información.
+
+````sas
+DATA clase;
+   SET SASHELP.CLASS;
+   LENGTH escuela $12.;
+   SELECT;
+      WHEN (age LE 12) escuela = "Primaria";
+      WHEN (age GE 16) escuela = "Preparatoria";
+      OTHERWISE escuela = "Secundaria";
+   END;
+RUN;
+````
+
+!!! note "No confundirse"
+    Esta sentencia no debe confundirse con la sentencia [SELECT de SQL](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/sqlproc/p0hwg3z33gllron184mzdoqwpe3j.htm). Para hacer algo similar en SQL, revise este [ejemplo](https://vazquez-chavez-francisco-ariel.gitbook.io/notas/consultas-basicas#creacion-de-nuevas-columnas).
 
 ## Creación de reportes
 
