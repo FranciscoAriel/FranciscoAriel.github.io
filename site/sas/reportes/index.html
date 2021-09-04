@@ -12,7 +12,7 @@
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-cave-light.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
 
         <script src="../../js/jquery-1.10.2.min.js" defer></script>
         <script src="../../js/bootstrap.min.js" defer></script>
@@ -134,10 +134,16 @@
             
             <li class="nav-item" data-level="2"><a href="#creacion-de-reportes" class="nav-link">Creación de reportes</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="3"><a href="#reportes-basicos" class="nav-link">Reportes básicos</a>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#formatos" class="nav-link">Formatos</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-level="2"><a href="#reportes-basicos" class="nav-link">Reportes básicos</a>
+              <ul class="nav flex-column">
             <li class="nav-item" data-level="3"><a href="#un-reporte-con-seleccionando-casos-con-total" class="nav-link">Un reporte con seleccionando casos con total</a>
               <ul class="nav flex-column">
               </ul>
@@ -155,7 +161,9 @@
 
 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
-<h3 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h3>
+<h2 id="formatos">Formatos<a class="headerlink" href="#formatos" title="Permanent link">&para;</a></h2>
+<p>Anteriormente ya habíamos hablado de los formatos.</p>
+<h2 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h2>
 <p>El reporte más simple que se puede crear, es mostrar el conjunto de datos usando el procedimiento <code>PROC PRINT</code>.</p>
 <p>Sin embargo, para datasets muy grandes, esto no sería una buena opción debido a que SAS gastaría muchos recursos en imprimir toda la tabla. Se pueden usar ciertas configuraciones para que SAS solo procece cierta cantidad de observaciones de un dataset.</p>
 <p>La primera de ellas es mediante las <em>opciones generales</em>, la cual afectaría a todos los procedimientos durante la sesión o mediante las <em>opciones de dataset</em> la cual solo aplica durante ese procedimiento. Para una referencia completa sobre las opciones generales, visite el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lesysoptsref/p1tmgku1vq7pwqn1iqioeflxgec1.htm">diccionario de opciones del sistema</a> y para las opciones de dataset vea el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/ledsoptsref/p1pczmnhbq4axpn1l15s9mk6mobp.htm">diccionario de opciones de datasets</a>.</p>

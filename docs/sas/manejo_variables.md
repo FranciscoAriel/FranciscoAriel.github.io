@@ -8,11 +8,11 @@ date: 2021-09-03
 # Manejo de bases
 
 En esta sección se presentan temas más profundos acerca del procesamiento de datos.
-Se explorarán distintas formas de manejar variables, seleccionar observaciones así como el uso de cliclos y arreglos que nos permitan tener un mayor control de la información que se tenga.
+Se explorarán distintas formas de manejar bases mediante uso de variables, seleccionar observaciones así como el uso de ciclos y arreglos que nos permitan tener un mayor control de la información que se tenga.
 
 Primero se verá la forma de crear variables con el fin de realizar cálculos posteriores, estas variables pueden ser usadas incluso para crear varios datasets, crear contadores o acumuladores, entre otras. También se conocerán técnicas de selección de observaciones con el fin de manipular mejor las bases.
 
-Después se explorará un poco el tema del ordenamiento con el fin de crear ya sea grupos o realizar otras operciones como uniones, tranposiciones entre otras.
+Después se explorará un poco el tema del ordenamiento con el fin de crear ya sea grupos o realizar otras operciones como uniones, transposiciones entre otras.
 
 Antes de continuar con temas mas complejos, es importante comprender de forma general el funcionamiento del paso DATA.
 
@@ -78,9 +78,15 @@ altura = height * 2.54;
 nombre2 = SUBSTR(name,1,3);
 ````
 
-En esas sentencias se han creado las variables simplemente asignando un valor o una expresión SAS. Las primeras tres sentencias crearían variables de tipo numérico; la expresión `'10Jun20'd` es interpretada por sas como un valor numérico. La cuarta sentencia realiza una multiplicación de una variable por una constante. Finalmente, la quinta aplica una función a una variable de tipo caracter que extraerá los 3 primeros caracteres de una cadena.
+En esas sentencias se han creado las variables simplemente asignando un valor o una expresión SAS.
 
-A continuación se presentan algunas variables que serán muy útiles 
+Las primeras tres sentencias crearían variables de tipo numérico; la expresión `'10Jun20'd` es interpretada por sas como un valor numérico.
+
+La cuarta sentencia realiza una multiplicación de una variable por una constante.
+
+Finalmente, la quinta aplica una función a una variable de tipo caracter que extraerá los 3 primeros caracteres de una cadena. Para conocer un poco más vea la [sección](#funciones-y-llamadas).
+
+A continuación se presentan algunas variables que serán muy útiles.
 
 ### Variables acumuladoras y contadoras
 
@@ -121,9 +127,19 @@ RUN;
 
 En la línea 3 se pide que SAS retenga la variable _salario_acum2_ en cada iteración y que su valor inicial sea 0. De esta manera se podría sumar de manera normal. Consulte la [sentencia RETAIN](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p0t2ac0tfzcgbjn112mu96hkgg9o.htm) para más información.
 
-### Funciones
+### Funciones y llamadas
 
-### Formatos
+Ya habíamos mencionado que las funciones podían usarse para crear variables, sin embargo ahora se profundizará un poco más en su uso.
+
+Las funciones permiten realizar cálculos y operaciones en ocasiones muy complejas, éstas oueden  requerir de cierta información o argumentos con el fin de traer el resultado. Generalmente son almacenadas en variables, aunque pudieran usarse como una expresión en una sentencia `WHERE` o `IF`. Su sintaxis es la siguiente:
+
+> <_variable =_> funcion(<_argumento1,argumento2_,...,_argumenton_>);
+
+Las llamadas, en cambio en lugar de arrojar un resultado, realizan una acción u operacion. Su sintaxis es la siguiente:
+
+> CALL llamada(<_argumento1,argumento2_,...,_argumenton_>);
+
+Para más información acerca de las llamadas y funciones consulte [Funciones SAS y rutinas](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lefunctionsref/p0n609kcs3dmqfn1jrhi0fiitpwk.htm).
 
 ## Filtrado de datos
 
@@ -136,7 +152,7 @@ La sintaxis es la siguiente:
 
 > WHERE _expresión_;
 
-donde _expresión_ es una condición a evaluar, vea la sección [selección de observaciones](#seleccion-de-observaciones) para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia `WHERE`
+donde _expresión_ es una condición a evaluar, vea la sección [selección de observaciones](/sas/basico_sas#seleccion-de-observaciones) para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia `WHERE`
 
 Operador|Descripción|Ejemplo
 --------|-----------|-------

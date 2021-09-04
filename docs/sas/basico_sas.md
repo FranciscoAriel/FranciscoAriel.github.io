@@ -7,13 +7,15 @@ date: 2020-09-26
 
 # Lectura de datos
 
-En esta sección se presentan temas para comenzar con la lectura y procesamiento de datos. Se explorarán distintas formas de leer y escribir datos de distintas fuentes y formatos de archivo.
-
-## Creando datasets
-
 Los dataset son el insumo principal para analisis de datos en SAS, por ello iniciaremos con una rápida exploración.
 
-La creación de un dataset inicia con un bloque `DATA` y termina con un `RUN`.
+En esta sección se presentan temas para comenzar con la lectura y escritura de datos.
+
+Se explorarán distintas formas de leer y escribir datos de distintas fuentes y formatos de archivo.
+
+La creación de un dataset inicia con un bloque `DATA` y termina con un `RUN`. Sin embargo, aprenderemos el uso básico de un procedimiento para leer datos de fuentes externas.
+
+## Creando datasets
 
 En esta sección se mostrarán las principales formas de crear datasets:
 
@@ -104,8 +106,8 @@ El siguiente código muestra cómo leer datos de un archivo de ancho fijo.
 
 ````sas
 DATA VENTAS;
-INFILE ARCHIVO;
-INPUT ID 1 - 7 NOMBRE $ 8 - 18 APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN 54 - 60 PAIS $ 61-62;
+    INFILE ARCHIVO;
+    INPUT ID 1 - 7 NOMBRE $ 8 - 18 APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN 54 - 60 PAIS $ 61-62;
 RUN;
 ````
 
@@ -123,8 +125,8 @@ Una forma alternativa de declarar las variables en la sentencia sería usar el s
 
 ````sas
 DATA VENTAS;
-INFILE ARCHIVO;
-INPUT ID NOMBRE $10. APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN PAIS $3.;
+    INFILE ARCHIVO;
+    INPUT ID NOMBRE $10. APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN PAIS $3.;
 RUN;
 ````
 
@@ -263,7 +265,7 @@ El siguiente código muestra como crear un archivo de texto.
 
 ````sas
 FILENAME archivo "C:\Users\Usuario\alumnos.dat";
-    DATA _NULL_;
+DATA _NULL_;
     FILE archivo;
     SET sashelp.class;
     PUT name age sex;
@@ -318,7 +320,7 @@ RUN;
 
 Esto se logra escribiendo la sentencia `PUT` justo al inicio e inmediatamente despues se carga el dataset que se quiere escribir.
 
-Las sentencias de la línea 4 se estudiarán en la siguente [sección](#creacion-y-manipulacion-de-datos)
+Las sentencias de la línea 4 se estudiarán en la siguente [sección](/sas/manejo_variables#filtrado-de-datos)
 
 #### Leer y modificar archivos de texto
 

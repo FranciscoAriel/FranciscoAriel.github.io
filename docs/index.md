@@ -45,17 +45,15 @@ PROXIMAMENTE ...
 
 Este sitio es una guía para iniciarse en el mundo de la programación en diversos lengajes estadísticos y bajo ningún motivo el autor es responsable de los daños ocasionados por resultados inesperados.
 
-### Software de terceros
-
 Los softwares usados son
 
-- SAS
-- R
-- Python
-- Julia
+* SAS
+* R
+* Python
+* Julia
 
 Los programas son mostrados con fines educativos.
 
 Síguenos en nuestras redes sociales
 
-- [Github](https://github.com/FranciscoAriel)
+* [Github](https://github.com/FranciscoAriel)

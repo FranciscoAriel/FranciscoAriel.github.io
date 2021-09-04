@@ -12,7 +12,7 @@
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-cave-light.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
 
         <script src="../../js/jquery-1.10.2.min.js" defer></script>
         <script src="../../js/bootstrap.min.js" defer></script>
@@ -174,10 +174,11 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h1>
-<p>En esta sección se presentan temas para comenzar con la lectura y procesamiento de datos. Se explorarán distintas formas de leer y escribir datos de distintas fuentes y formatos de archivo.</p>
-<h2 id="creando-datasets">Creando datasets<a class="headerlink" href="#creando-datasets" title="Permanent link">&para;</a></h2>
 <p>Los dataset son el insumo principal para analisis de datos en SAS, por ello iniciaremos con una rápida exploración.</p>
-<p>La creación de un dataset inicia con un bloque <code>DATA</code> y termina con un <code>RUN</code>.</p>
+<p>En esta sección se presentan temas para comenzar con la lectura y escritura de datos.</p>
+<p>Se explorarán distintas formas de leer y escribir datos de distintas fuentes y formatos de archivo.</p>
+<p>La creación de un dataset inicia con un bloque <code>DATA</code> y termina con un <code>RUN</code>. Sin embargo, aprenderemos el uso básico de un procedimiento para leer datos de fuentes externas.</p>
+<h2 id="creando-datasets">Creando datasets<a class="headerlink" href="#creando-datasets" title="Permanent link">&para;</a></h2>
 <p>En esta sección se mostrarán las principales formas de crear datasets:</p>
 <ul>
 <li>Introducción de forma manual</li>
@@ -245,8 +246,8 @@ RUN;
 <p>El ejemplo anterior muestra un ejemplo de un archivo de texto de ancho fijo, obsérvese que el id comienza en la columna 1 mientras que el nombre inicia en la columna 8.</p>
 <p>El siguiente código muestra cómo leer datos de un archivo de ancho fijo.</p>
 <pre><code class="sas">DATA VENTAS;
-INFILE ARCHIVO;
-INPUT ID 1 - 7 NOMBRE $ 8 - 18 APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN 54 - 60 PAIS $ 61-62;
+    INFILE ARCHIVO;
+    INPUT ID 1 - 7 NOMBRE $ 8 - 18 APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN 54 - 60 PAIS $ 61-62;
 RUN;
 </code></pre>
 
@@ -261,8 +262,8 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 </div>
 <p>Una forma alternativa de declarar las variables en la sentencia sería usar el siguiente código:</p>
 <pre><code class="sas">DATA VENTAS;
-INFILE ARCHIVO;
-INPUT ID NOMBRE $10. APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN PAIS $3.;
+    INFILE ARCHIVO;
+    INPUT ID NOMBRE $10. APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN PAIS $3.;
 RUN;
 </code></pre>
 
@@ -414,7 +415,7 @@ RUN;
 <h3 id="escritura-de-un-archivo-delimitado">Escritura de un archivo delimitado<a class="headerlink" href="#escritura-de-un-archivo-delimitado" title="Permanent link">&para;</a></h3>
 <p>El siguiente código muestra como crear un archivo de texto.</p>
 <pre><code class="sas">FILENAME archivo &quot;C:\Users\Usuario\alumnos.dat&quot;;
-    DATA _NULL_;
+DATA _NULL_;
     FILE archivo;
     SET sashelp.class;
     PUT name age sex;
@@ -455,7 +456,7 @@ RUN;
 </code></pre>
 
 <p>Esto se logra escribiendo la sentencia <code>PUT</code> justo al inicio e inmediatamente despues se carga el dataset que se quiere escribir.</p>
-<p>Las sentencias de la línea 4 se estudiarán en la siguente <a href="#creacion-y-manipulacion-de-datos">sección</a></p>
+<p>Las sentencias de la línea 4 se estudiarán en la siguente <a href="/sas/manejo_variables#filtrado-de-datos">sección</a></p>
 <h4 id="leer-y-modificar-archivos-de-texto">Leer y modificar archivos de texto<a class="headerlink" href="#leer-y-modificar-archivos-de-texto" title="Permanent link">&para;</a></h4>
 <p>Es posible manipular archivos de texto mediante SAS. para ellos es necesario leerlos y volver a escribir sobre ellos.</p>
 <p><img alt="Arcivo de ancho fijo" src="../img/txt1.png" /></p>

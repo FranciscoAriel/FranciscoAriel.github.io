@@ -10,7 +10,11 @@ date: 2021-09-03
 
 SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.
 
-### Reportes básicos
+## Formatos
+
+Anteriormente ya habíamos hablado de los formatos.
+
+## Reportes básicos
 
 El reporte más simple que se puede crear, es mostrar el conjunto de datos usando el procedimiento `PROC PRINT`.
 

@@ -7,7 +7,7 @@ repo_url: https://github.com/FranciscoAriel/FranciscoAriel.github.io
 edit_uri: blob/master/docs/
 
 theme:
-    name: minty
+    name: yeti
     locale: es
     highlightjs: true
     hljs_languages:
