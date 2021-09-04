@@ -1,45 +1,49 @@
-site_name: Blog de softwares estadísticos
+site_name: Statcamp
+site_url: https://FranciscoAriel.github.io/site/
 site_description: Un sitio donde aprenderas desde lo básico hasta lo mas avanzado de los mejores lenguajes de programación que se usan en estadística
 site_author: Francisco Ariel Vázquez Chávez 
-nav:
-    - Home: ../
-    - "Aprende SAS":
-        - "Introducción a SAS": sas/intro_sas.md
-        - "SAS nivel básico": sas/basico_sas.md
-    - "Aprende R":
-        - "Introducción a R": r/intro_r.md
-        - "R nivel básico": r/basico_r.md
-    - "Aprende Python":
-        - "Introducción a Python": python/intro_python.md
-        - "Python nivel básico": python/basico.md
-    - "Aprende Julia":
-        - "Introducción a Julia": julia/intro_julia.md
-    - About: about.md
-
-theme:
-    name: material
-    language: es
-    favicon: img/favicon.png
-    icon:
-      logo: logo
 
 repo_url: https://github.com/FranciscoAriel/FranciscoAriel.github.io
 edit_uri: blob/master/docs/
-site_url: https://FranciscoAriel.github.io/site/
+
+theme:
+    name: minty
+    locale: es
+    highlightjs: true
+    hljs_languages:
+        - julia
+        - sas
+        - r
+        - python
+    navigation_depth: 3
+
+nav:
+    - "SAS":
+        - "Introducción a SAS": sas/intro_sas.md
+        - "Lectura y escritura de datos": sas/basico_sas.md
+        - "Manipulación de bases": sas/manejo_variables.md
+        - "Elaboración de reportes": sas/reportes.md
+    - "R":
+        - "Introducción a R": r/intro_r.md
+        - "R nivel básico": r/basico_r.md
+    - "Python":
+        - "Introducción a Python": python/intro_python.md
+        - "Python nivel básico": python/basico.md
+    - "Julia":
+        - "Introducción a Julia": julia/intro_julia.md
+
 markdown_extensions:
     - smarty
+    - sane_lists
     - admonition
-    - codehilite:
-        linenums: true
     - toc:
         permalink: True
 
+plugins:
+    - search
+
 extra:
-    social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/FranciscoAriel
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/fcoavc
-    - icon: fontawesome/brands/telegram
-      link: https://t.me/fcoavc
+    version: 1.0
+
+copyright: Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a>
 

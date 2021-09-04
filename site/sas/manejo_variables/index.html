@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="Francisco Ariel Vázquez Chávez">
+        <link rel="canonical" href="https://FranciscoAriel.github.io/site/sas/manejo_variables/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Manipulación de bases - Statcamp</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atelier-cave-light.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/julia.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Statcamp</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">SAS <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../intro_sas/" class="dropdown-item">Introducción a SAS</a>
+</li>
+                                    
+<li>
+    <a href="../basico_sas/" class="dropdown-item">Lectura y escritura de datos</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Manipulación de bases</a>
+</li>
+                                    
+<li>
+    <a href="../reportes/" class="dropdown-item">Elaboración de reportes</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">R <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../r/intro_r/" class="dropdown-item">Introducción a R</a>
+</li>
+                                    
+<li>
+    <a href="../../r/basico_r/" class="dropdown-item">R nivel básico</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../python/intro_python/" class="dropdown-item">Introducción a Python</a>
+</li>
+                                    
+<li>
+    <a href="../../python/basico/" class="dropdown-item">Python nivel básico</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Julia <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../julia/intro_julia/" class="dropdown-item">Introducción a Julia</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../basico_sas/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../reportes/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/sas/manejo_variables.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#manejo-de-bases" class="nav-link">Manejo de bases</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#creando-variables" class="nav-link">Creando variables</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#variables-acumuladoras-y-contadoras" class="nav-link">Variables acumuladoras y contadoras</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#funciones" class="nav-link">Funciones</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#formatos" class="nav-link">Formatos</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#filtrado-de-datos" class="nav-link">Filtrado de datos</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#sentencias-condicionales" class="nav-link">Sentencias condicionales</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ciclos" class="nav-link">Ciclos</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#arreglos" class="nav-link">Arreglos</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#manipulacion-y-transformacion-de-bases" class="nav-link">Manipulación y transformación de bases</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="manejo-de-bases">Manejo de bases<a class="headerlink" href="#manejo-de-bases" title="Permanent link">&para;</a></h1>
+<p>En esta sección se presentan temas más profundos acerca del procesamiento de datos.
+Se explorarán distintas formas de manejar variables, seleccionar observaciones así como el uso de cliclos y arreglos que nos permitan tener un mayor control de la información que se tenga.</p>
+<p>Primero se verá la forma de crear variables con el fin de realizar cálculos posteriores, estas variables pueden ser usadas incluso para crear varios datasets, crear contadores o acumuladores, entre otras. También se conocerán técnicas de selección de observaciones con el fin de manipular mejor las bases.</p>
+<p>Después se explorará un poco el tema del ordenamiento con el fin de crear ya sea grupos o realizar otras operciones como uniones, tranposiciones entre otras.</p>
+<p>Antes de continuar con temas mas complejos, es importante comprender de forma general el funcionamiento del paso DATA.</p>
+<p>Para una explicación más detallada consulte <a href="https://support.sas.com/documentation/cdl/en/basess/58133/HTML/default/viewer.htm#a001290590.htm">Cómo funciona el paso DATA</a>.</p>
+<p>El paso DATA tiene dos fases:</p>
+<ul>
+<li>Fase de compilación</li>
+<li>Fase de ejecución</li>
+</ul>
+<p>A continuación se describir´n de forma breve estas fases.</p>
+<p>Durante la fase de compilación, SAS revisa la sintaxis y si es correcta, se manda a código máquina en dondese procesa el código y se generan los siguientes objetos:</p>
+<ul>
+<li><strong>Memoria de entrada</strong>. Es un lugar en la memoria donde SAS lee registros de un archivo de texto cuando el programa se ejecute.</li>
+<li><strong>Vector de datos del programa</strong>. Es un lugar en la memoria donde SAS construye un conjunto de datos, una observación a la vez.</li>
+<li><strong>Porción descriptora</strong>. Es la información general del dataset como el nombre de la base y los atributos de las variables a crear.</li>
+</ul>
+<p>La memoria de entrada solo aplica en el caso en que se lean archivos externos. En este caso, los datos se leen de la memoria de entrada al vector de datos del programa.</p>
+<p>El vector de datos del programa (VDP) es importante porque en éste se realizarían los cálculos de las sentencias de SAS o funciones. Contiene el nombre de todas las variables declaradas o inicializadas. Es como un paso intermedio entre lo que se lee y calcula con lo que se se escribe al dataset. Al inicio de cada iteración los valores en el VDP son iniciados con valor missing y son llenados según lea o ejecuten sentencias.</p>
+<p>Durante la fase de compilación tambien se crean dos variables auxiliares en el VDP que no se escribirán en el dataset: <code>_N_</code> y <code>_ERROR_</code>. La primera cuenta el número de veces que el paso DATA itera y la segunda registra si hubo algún problema en la fase de ejecución.</p>
+<p>Una vez concluída esta etapa, se procede a la siguiente fase.</p>
+<p>En la fase de ejecución se realizan las siguientes acciones:</p>
+<ol>
+<li>Se leen las observaciones del VDP.</li>
+<li>Se ejecutan las sentencias (cálculo de variables).</li>
+<li>Se escriben al dataset.</li>
+<li>La variables en el VDP son reiniciadas y se colocan valores missing.</li>
+</ol>
+<p>Debido a que es un procesos repetitivo, SAS realiza los pasos mencionados tantas veces como observaciones haya en el archivo externo o dataset leído.</p>
+<p>El proceso termina cuando ya no hay registros que leer y en ese momento el dataset es cerrado y se concluye el paso DATA.</p>
+<h2 id="creando-variables">Creando variables<a class="headerlink" href="#creando-variables" title="Permanent link">&para;</a></h2>
+<p>Hasta ahora solo conocíamos las sentencias <code>ATTRIB</code>, <code>LENGTH</code> y <code>FORMAT</code> para declarar o iniciar variables. Otra forma de crearlas es mediante la asignación de variables de la siguiente forma:</p>
+<blockquote>
+<p>variable = <em>expresión sas</em>;</p>
+</blockquote>
+<p>Esta sentencia se conoce como <em>sentencias de asignación</em>. Su función es evaluar y almacenar el resultado en alguna variable que está al lado izquierdo del signo <code>=</code>.</p>
+<p>Una forma muy común de crear variables es mediante el uso de operadores matemáticos. La siguiente tabla muestra algunos de los operadores aritméticos en SAS. Para una referencia consulte <a href="https://documentation.sas.com/doc/en/lrcon/9.4/p00iah2thp63bmn1lt20esag14lh.htm#n1feyypdf6czp4n15pthf5lafmlf">Operadores SAS en expresiones</a> y <a href="https://documentation.sas.com/doc/en/lrcon/9.4/p1fjvn4giid9e0n1v0wcn4ibwbzi.htm">Funciones SAS en expresiones</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Adición</td>
+<td><code>fecha + 1</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Sustracción</td>
+<td><code>fecha - 7</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Multiplicación</td>
+<td><code>height * 2.54</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>División</td>
+<td><code>suma / total</code></td>
+</tr>
+<tr>
+<td><code>**</code></td>
+<td>Exponenciación</td>
+<td><code>metros ** 2</code></td>
+</tr>
+</tbody>
+</table>
+<p>Considere las siguientes sentencias:</p>
+<pre><code class="sas">fecha = '10Jun20'd;
+version = 1;
+status = &quot;ok&quot;;
+altura = height * 2.54;
+nombre2 = SUBSTR(name,1,3);
+</code></pre>
+
+<p>En esas sentencias se han creado las variables simplemente asignando un valor o una expresión SAS. Las primeras tres sentencias crearían variables de tipo numérico; la expresión <code>'10Jun20'd</code> es interpretada por sas como un valor numérico. La cuarta sentencia realiza una multiplicación de una variable por una constante. Finalmente, la quinta aplica una función a una variable de tipo caracter que extraerá los 3 primeros caracteres de una cadena.</p>
+<p>A continuación se presentan algunas variables que serán muy útiles </p>
+<h3 id="variables-acumuladoras-y-contadoras">Variables acumuladoras y contadoras<a class="headerlink" href="#variables-acumuladoras-y-contadoras" title="Permanent link">&para;</a></h3>
+<p>En SAS es posible crear una variable que sume o vaya acumulando.</p>
+<p>Considere la siguiente tabla donde se representan la información de los empleados de una compañía. Se desea obtener un acumulado de las ventas de los empleados y un contador para tener en cuenta el número de empleados.</p>
+<p><img alt="Datos del ejemplo" src="../img/ejemplo1.png" /></p>
+<p>El siguiente código muestra la forma de crear el acumulador y el contador de forma muy básica.</p>
+<pre><code class="sas">DATA ventas_au2;
+    SET ventas_au;
+    contador = _N_;
+    salario_acum + salary;
+RUN;
+</code></pre>
+
+<p>La tercer línea guarda el número de veces que se ha iterado, es decir el número de registros leídos. Debido a que la variable <code>_N_</code> es temporal y no se escribe en el dataset, se guarda en la variable <em>contador</em>.</p>
+<p>En la cuarta se muestra cómo acumular en la variable <em>salario_acum</em>, en cada iteración se le suma la variable <em>salary</em> a la variable <em>salario_acum</em>. Esta sentencia es conocida como <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1dfiqj146yi2cn1maeju9wo7ijs.htm">sentencia SUM</a>.</p>
+<div class="admonition error">
+<p class="admonition-title">Cuidado con el operador +</p>
+<p>Se debe tener cuidado al usar el operador <code>+</code> debido a que si alguno de los operandos tiene un valor <em>missing</em>, el resultado sería <em>missing</em>. Se recomienda usar la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lefunctionsref/n0zxive1z1ctqin12w06c85jfigd.htm">función SUM</a> para evitar esos imprevistos.</p>
+</div>
+<p>Si se hubiese definido <code>salario_acum = salario_acum + salary</code>en la línea 4, el resultado en cada observacion nos resultaría un valor <em>missing</em>. Como se mencionó previamente, durante la fase de compilación los valores en el VDP se reinician a valor <em>missing</em> causando que el resultado en dicha expresión sea <em>missing</em>.</p>
+<p>Para evitar que eso ocurra, se puede usar la sentencia <code>RETAIN</code> con el fin de que SAS conserve el valor en cada iteración.</p>
+<pre><code class="sas">DATA ventas_au2;
+    SET ventas_au;
+    RETAIN salario_acum2 0;
+    salario_acum2 = salario_acum2 + salary; 
+RUN;
+</code></pre>
+
+<p>En la línea 3 se pide que SAS retenga la variable <em>salario_acum2</em> en cada iteración y que su valor inicial sea 0. De esta manera se podría sumar de manera normal. Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p0t2ac0tfzcgbjn112mu96hkgg9o.htm">sentencia RETAIN</a> para más información.</p>
+<h3 id="funciones">Funciones<a class="headerlink" href="#funciones" title="Permanent link">&para;</a></h3>
+<h3 id="formatos">Formatos<a class="headerlink" href="#formatos" title="Permanent link">&para;</a></h3>
+<h2 id="filtrado-de-datos">Filtrado de datos<a class="headerlink" href="#filtrado-de-datos" title="Permanent link">&para;</a></h2>
+<p>En ocasiones, se tiene una basta cantidad de datos y solo nos interesa un subconjunto de estos. Para eso se pueden elegir observaciones de un dataset con la sentencia <code>WHERE</code>.</p>
+<div class="admonition caution">
+<p class="admonition-title">WHERE vs IF</p>
+<p>No debe confundirse la sentencia <code>WHERE</code> con <code>IF</code>. La sentencia <code>IF</code> trabaja con observaciones <em>después</em> de ser leídas en el VDP, mietras que <code>WHERE</code> selecciona las observaciones <em>antes</em> de pasar al VDP.</p>
+</div>
+<p>La sintaxis es la siguiente:</p>
+<blockquote>
+<p>WHERE <em>expresión</em>;</p>
+</blockquote>
+<p>donde <em>expresión</em> es una condición a evaluar, vea la sección <a href="#seleccion-de-observaciones">selección de observaciones</a> para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia <code>WHERE</code></p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BETWEEN - AND</code></td>
+<td>Un rango inclusivo</td>
+<td><code>WHERE age BETWEEN 12 AND 15;</code></td>
+</tr>
+<tr>
+<td><code>?</code> o <code>CONTAINS</code></td>
+<td>Una cadena de caracteres</td>
+<td><code>WHERE name ? "Ja";</code></td>
+</tr>
+<tr>
+<td><code>IS NULL</code> o <code>IS MISSING</code></td>
+<td>Valores faltantes</td>
+<td><code>WHERE volumen IS NULL;</code></td>
+</tr>
+<tr>
+<td><code>LIKE</code></td>
+<td>Combinación de patrones</td>
+<td><code>WHERE name LIKE "J%";</code></td>
+</tr>
+<tr>
+<td><code>=*</code></td>
+<td>Suena como (Sólo palabras en inglés)</td>
+<td><code>WHERE name =* "jeims";</code></td>
+</tr>
+<tr>
+<td><code>SAME - AND</code></td>
+<td>Agrega cláusulas a una sentencia <code>WHERE</code> existente</td>
+<td><code>WHERE sex = "F"; WHERE SAME AND age &gt;= 13;</code></td>
+</tr>
+</tbody>
+</table>
+<p>En el siguiente ejemplo se muestra el filtrado usando la sentencia <code>WHERE</code> usando los datos de <a href="#leyendo-archivos-desde-web">covid</a> para tener sólo la información de México.</p>
+<pre><code class="sas">DATA mexico;
+    SET covid;
+    WHERE iso_code EQ &quot;MEX&quot;;
+RUN;
+</code></pre>
+
+<p>El log muestra el siguiente mensaje:</p>
+<blockquote>
+<p>NOTE: There were 609 observations read from the data set WORK.COVID.</p>
+<p>WHERE iso_code=&rsquo;MEX&rsquo;</p>
+</blockquote>
+<p>Si se hubiese usado la sentencia <code>IF</code> en lugar de <code>WHERE</code> el resultado hubiera sido el siguiente:</p>
+<blockquote>
+<p>NOTE: There were 113406 observations read from the data set WORK.COVID.</p>
+<p>NOTE: The data set WORK.MEXICO has 609 observations and 60 variables.</p>
+</blockquote>
+<p>El ejemplo anterior muestra las diferencias entre las sentencias <code>IF</code> y <code>WHERE</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title"><code>WHERE</code> como opción de dataset</p>
+<p>Es posible usar la opción <code>WHERE =</code> para filtrar observaciones para un dataset especificado, esto es útil cuando se leen más de un dataset. Vea la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ledsoptsref/p0ny9o8t8hc5zen1qn3ft9dhtsxx.htm">documentación</a> para más información.</p>
+</div>
+<h3 id="sentencias-condicionales">Sentencias condicionales<a class="headerlink" href="#sentencias-condicionales" title="Permanent link">&para;</a></h3>
+<p>Anteriormente se había usado la sentencia <code>IF</code> para seleccionar variables, ahora se usará en conjunto con la palabra <code>THEN</code> con el fin de que realice una acción. Esta sentencia se conoce como sentencia <strong>IF-ELSE</strong>.</p>
+<p>La sintaxis es la siguiente:</p>
+<blockquote>
+<p>IF <em>expresión</em> THEN <em>acción1</em>; ELSE <em>acción2</em>;</p>
+</blockquote>
+<p>El siguiente ejemplo muestra cómo crear una variable a partir de ciertos valores.</p>
+<pre><code class="sas">DATA clase;
+    SET SASHELP.CLASS;
+    LENGTH sexo $8;
+    IF sex = &quot;F&quot; THEN sexo = &quot;Mujer&quot;;
+    ELSE sexo = &quot;Hombre&quot;;
+RUN;
+</code></pre>
+
+<p>Note que la sentencia <code>IF-ELSE</code> solo permite una acción a la vez. Para realizar más de una acción se debe usar el bloque <code>DO</code>. Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n0el0y2a02ab1ln1pks3gbac1en3.htm">documentación</a> para más información.</p>
+<pre><code class="sas">DATA clase;
+    SET SASHELP.CLASS;
+    sexo = &quot;Hombre&quot;;
+    genero = &quot;Masculino&quot;;
+    IF sex = &quot;F&quot; THEN DO;
+        sexo = &quot;Mujer&quot;;
+        genero = &quot;Femenino&quot;;
+    END;
+RUN;
+</code></pre>
+
+<p>Estas sentencias pueden anidarse para formar sentencias más complejas, por ejemplo.</p>
+<pre><code class="sas">DATA clase;
+   SET SASHELP.CLASS;
+   LENGTH escuela $12.;
+   IF age LE 12 THEN escuela = &quot;Primaria&quot;;
+      ELSE IF age GE 16 THEN escuela = &quot;Preparatoria&quot;;
+   ELSE escuela = &quot;Secundaria&quot;;
+RUN;
+</code></pre>
+
+<div class="admonition caution">
+<p class="admonition-title">Cuidado con las estructuras anidadas</p>
+<p>Se debe tener cuidado al usar sentencias anidadas ya que deben ser cerradas correctamente. De no ser así, se pueden cometer errores.</p>
+</div>
+<p>Otra forma de crear sentencias condicionales es mediante el uso de la sentencia <code>SELECT</code>. Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p09213s9jc2t99n1vx0omk2rh9ps.htm">ayuda</a> para más información.</p>
+<pre><code class="sas">DATA clase;
+   SET SASHELP.CLASS;
+   LENGTH escuela $12.;
+   SELECT;
+      WHEN (age LE 12) escuela = &quot;Primaria&quot;;
+      WHEN (age GE 16) escuela = &quot;Preparatoria&quot;;
+      OTHERWISE escuela = &quot;Secundaria&quot;;
+   END;
+RUN;
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">No confundirse</p>
+<p>Esta sentencia no debe confundirse con la sentencia <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/sqlproc/p0hwg3z33gllron184mzdoqwpe3j.htm">SELECT de SQL</a>. Para hacer algo similar en SQL, revise este <a href="https://vazquez-chavez-francisco-ariel.gitbook.io/notas/consultas-basicas#creacion-de-nuevas-columnas">ejemplo</a>.</p>
+</div>
+<h2 id="ciclos">Ciclos<a class="headerlink" href="#ciclos" title="Permanent link">&para;</a></h2>
+<h2 id="arreglos">Arreglos<a class="headerlink" href="#arreglos" title="Permanent link">&para;</a></h2>
+<h2 id="manipulacion-y-transformacion-de-bases">Manipulación y transformación de bases<a class="headerlink" href="#manipulacion-y-transformacion-de-bases" title="Permanent link">&para;</a></h2></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

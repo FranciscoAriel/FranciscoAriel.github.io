@@ -5,17 +5,21 @@ authors: Francisco Vázquez
 date: 2020-02-05
 ---
 
+# Elementos esenciales
+
 Este es un tutorial breve sobre el programa, se muestran los principales conceptos de SAS para iniciarse en SAS.
 
-## Instalación
+En esta sección se aprenderán los principios sobre los cuales se basa SAS, así como algunas definiciones importantes como datasets o librerías.
+
+Finalmente se muestran algunas pinceladas de lo que se puede hacer con SAS mediante el uso lenguaje más avanzado.
+
+## Instalación e interfaces gráficas
 
 Consulte el sitio web de [sas](https://www.sas.com) para más detalles.
 
 !!! info "SAS University Edition"
     SAS no es software libre ni es gratuito, sin embargo usted puede descargar el software gratuitamente.
     Visite [SAS University edition](https://www.sas.com/en_us/software/university-edition.html) para más información.
-
-## Interfaces gráficas
 
 *SAS BASE* es la interfaz gráfica clásica de SAS. Contiene una verntana lateral con una lista de librerías, mientras que hay una ventana principal de mensajes (log) y otra para escribir código.
 
@@ -25,9 +29,13 @@ Esta interfaz fue de las primeras en desarrollarse y por ello ya no ha sido mejo
 
 Su principal ventaja es que gasta pocos recurso y es bastante rápida.
 
-*SAS Enterprise Guide* es la interfaz gráfica mas reciente y es constantemente mejorada.
+*SAS Enterprise Guide* es la interfaz gráfica mas reciente y es constantemente mejorada. Esta versión tiene muchas características y además permite crear distintos perfiles de usuario.
+
+Tiene un panel principal en el cual se muestra el flujo de trabajo. La idea básica es ir trabajando en pequeños programas y se conectan entre sí, con el fin de tener una visión más global de lo que se está realizando
 
 ## Conceptos básicos
+
+En esta sección se mostrarán 
 
 ### Procedimientos y pasos DATA
 

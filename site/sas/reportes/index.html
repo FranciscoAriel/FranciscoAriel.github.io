@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="Francisco Ariel Vázquez Chávez">
-        <link rel="canonical" href="https://FranciscoAriel.github.io/site/julia/intro_julia/">
+        <link rel="canonical" href="https://FranciscoAriel.github.io/site/sas/reportes/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Introducción a Julia - Statcamp</title>
+        <title>Elaboración de reportes - Statcamp</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -37,24 +37,24 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">SAS <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../sas/intro_sas/" class="dropdown-item">Introducción a SAS</a>
+    <a href="../intro_sas/" class="dropdown-item">Introducción a SAS</a>
 </li>
                                     
 <li>
-    <a href="../../sas/basico_sas/" class="dropdown-item">Lectura y escritura de datos</a>
+    <a href="../basico_sas/" class="dropdown-item">Lectura y escritura de datos</a>
 </li>
                                     
 <li>
-    <a href="../../sas/manejo_variables/" class="dropdown-item">Manipulación de bases</a>
+    <a href="../manejo_variables/" class="dropdown-item">Manipulación de bases</a>
 </li>
                                     
 <li>
-    <a href="../../sas/reportes/" class="dropdown-item">Elaboración de reportes</a>
+    <a href="./" class="dropdown-item active">Elaboración de reportes</a>
 </li>
                                 </ul>
                             </li>
@@ -84,12 +84,12 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Julia <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="./" class="dropdown-item active">Introducción a Julia</a>
+    <a href="../../julia/intro_julia/" class="dropdown-item">Introducción a Julia</a>
 </li>
                                 </ul>
                             </li>
@@ -102,17 +102,17 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../python/basico/" class="nav-link">
+                                <a rel="prev" href="../manejo_variables/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
+                                <a rel="next" href="../../r/intro_r/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/julia/intro_julia.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/sas/reportes.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
                     </ul>
                 </div>
@@ -132,28 +132,20 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#inicio" class="nav-link">Inicio</a>
+            <li class="nav-item" data-level="2"><a href="#creacion-de-reportes" class="nav-link">Creación de reportes</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#reportes-basicos" class="nav-link">Reportes básicos</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="2"><a href="#variables" class="nav-link">Variables</a>
+            <li class="nav-item" data-level="3"><a href="#un-reporte-con-seleccionando-casos-con-total" class="nav-link">Un reporte con seleccionando casos con total</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="2"><a href="#operadores-aritmeticos" class="nav-link">Operadores aritméticos</a>
+            <li class="nav-item" data-level="3"><a href="#reporte-con-subtotales" class="nav-link">Reporte con subtotales</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="2"><a href="#ciclos" class="nav-link">Ciclos</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="2"><a href="#funciones" class="nav-link">Funciones</a>
-              <ul class="nav flex-column">
               </ul>
             </li>
         </ul>
@@ -161,112 +153,83 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="inicio">Inicio<a class="headerlink" href="#inicio" title="Permanent link">&para;</a></h2>
-<p>Al iniciar Julia se muestra una pantalla en que es la consola de Julia.</p>
-<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
-<p>Julia tiene varios tipos de variables, por ejemplo tipo numérico (entero y flotante) booleano o caracter. Para conocer todos los tipos de variables que existen, consulte la <a href="https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/">documentación</a>.</p>
-<p>Se puede definir una variable usando el operador de asignación <code>=</code> como se muestra en el siguiente ejemplo.</p>
-<pre><code class="julia">x = 1
-y = 1.25
-z = x + y
-a = &quot;abc&quot;
-si = true
+<h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
+<p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
+<h3 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h3>
+<p>El reporte más simple que se puede crear, es mostrar el conjunto de datos usando el procedimiento <code>PROC PRINT</code>.</p>
+<p>Sin embargo, para datasets muy grandes, esto no sería una buena opción debido a que SAS gastaría muchos recursos en imprimir toda la tabla. Se pueden usar ciertas configuraciones para que SAS solo procece cierta cantidad de observaciones de un dataset.</p>
+<p>La primera de ellas es mediante las <em>opciones generales</em>, la cual afectaría a todos los procedimientos durante la sesión o mediante las <em>opciones de dataset</em> la cual solo aplica durante ese procedimiento. Para una referencia completa sobre las opciones generales, visite el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lesysoptsref/p1tmgku1vq7pwqn1iqioeflxgec1.htm">diccionario de opciones del sistema</a> y para las opciones de dataset vea el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/ledsoptsref/p1pczmnhbq4axpn1l15s9mk6mobp.htm">diccionario de opciones de datasets</a>.</p>
+<p>El siguiente ejemplo muestra las primeras diez observaciones del conjunto de datos de baseball, pero solo pedimos que muestre ciertas variables.</p>
+<pre><code class="sas">PROC PRINT DATA = SASHELP.BASEBALL(OBS=10);
+    VAR NAME TEAM NHOME SALARY;
+RUN;
 </code></pre>
 
-<p>Para saber de que tipo es, se puede usar la función <code>typeof()</code>, el resultado se muestra</p>
-<pre><code class="julia">typeof(x)
+<p>Produce el siguiente resultado</p>
+<p><img alt="Mostrando 10 observaciones" src="../img/print1.png" /></p>
+<h3 id="un-reporte-con-seleccionando-casos-con-total">Un reporte con seleccionando casos con total<a class="headerlink" href="#un-reporte-con-seleccionando-casos-con-total" title="Permanent link">&para;</a></h3>
+<p><strong>PROC PRINT</strong> tambien tiene diversas sentencias para hacer reportes más completos o específicos.</p>
+<pre><code class="sas">TITLE &quot;Reporte del equipo San Francisco&quot;;
+PROC PRINT DATA = SASHELP.BASEBALL NOOBS;
+    VAR NAME NHOME SALARY;
+    WHERE TEAM EQ &quot;San Francisco&quot;;
+    FORMAT SALARY DOLLAR12.;
+    LABEL 
+        NAME = &quot;Nombre del jugador&quot;
+        NHOME = &quot;Número de Home Runs en 1986&quot;
+        SALARY = &quot;Salario en 1987 (Miles de dólares)&quot;
+    ;
+    SUM NHOME SALARY;
+RUN;
+TITLE;
 </code></pre>
 
-<blockquote>
-<p>Int64</p>
-</blockquote>
-<h2 id="operadores-aritmeticos">Operadores aritméticos<a class="headerlink" href="#operadores-aritmeticos" title="Permanent link">&para;</a></h2>
-<p>Julia soporta diversos operadores aritméticos, la siguiente tabla muestra los principales operadores.</p>
-<table>
-<thead>
-<tr>
-<th>Expresión</th>
-<th>Nombre</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>x + y</code></td>
-<td>suma</td>
-<td>realiza adición</td>
-</tr>
-<tr>
-<td><code>x - y</code></td>
-<td>resta</td>
-<td>realiza substracción</td>
-</tr>
-<tr>
-<td><code>x * y</code></td>
-<td>producto</td>
-<td>realiza multiplicación</td>
-</tr>
-<tr>
-<td><code>x / y</code></td>
-<td>división</td>
-<td>realiza división</td>
-</tr>
-<tr>
-<td><code>x ÷ y</code></td>
-<td>división entera</td>
-<td>similar a <code>x/y</code>, pero truncado a un entero</td>
-</tr>
-<tr>
-<td><code>x \ y</code></td>
-<td>división inversa</td>
-<td>equivalente a <code>y/x</code></td>
-</tr>
-<tr>
-<td><code>x ^ y</code></td>
-<td>potencia</td>
-<td>eleva <code>x</code> a la potencia <code>y</code></td>
-</tr>
-<tr>
-<td><code>x % y</code></td>
-<td>resto</td>
-<td>equivalente to <code>rem(x,y)</code></td>
-</tr>
-</tbody>
-</table>
-<p>Para una mayor referencia visita la sección<a href="https://docs.julialang.org/en/v1/manual/mathematical-operations/#Arithmetic-Operators">operadores aritméticos</a>.</p>
-<h2 id="ciclos">Ciclos<a class="headerlink" href="#ciclos" title="Permanent link">&para;</a></h2>
-<p>Se puede realizar un ciclo usando el siguiente código</p>
-<pre><code class="julia">for x in 1:10
-    println(x)
-end
-</code></pre>
-
-<div class="admonition nota">
-<p class="admonition-title">Nota</p>
-<p>La función <code>print()</code> imprimiría los valores consecutivamente sin espacio, mientras que <code>println()</code> los imprime en una línea nueva.</p>
+<p>El anterior ejemplo muestra un reporte que incluye el nombre de todos los jugadores del equipo <em>San Francisco</em>, número de home run ysu salario; al final del reporte se presenta el gran total de estas variables. En este ejemplo se modificaron las etiquetas y los formatos, pero sólo para el reporte mediante las sentencias <code>LABEL</code> y <code>FORMAT</code> y se seleccionaron las observaciones que cumplieran cierto criterio.</p>
+<p>La opción <code>NOOBS</code> en la sentencia <code>DATA</code> pide no imprimir el número de observación del dataset y con la opción <code>LABEL</code> se mostrarán las etiquetas de las variables.</p>
+<p>La sentencia <code>VAR</code> especifica las variables a mostrar.</p>
+<p>La sentencia <code>WHERE</code> selecciona las observaciones que cumplan la condición de que el equipo sea igual a <em>San Francisco</em>.</p>
+<p>La sentencia <code>FORMAT</code> le asigna a la variable <strong>SALARY</strong> el formato <code>DOLLAR12.</code>.</p>
+<p><code>LABEL</code> especifica las etiquetas de las variables en el reporte. En caso de que las variables del dataset ya tengan etiquetas, estas etiquetas definidas prevalecen en el reporte.</p>
+<p>La sentencia <code>SUM</code> es la que especifica las variables que mostrarán el gran total. Finalmente se agrega la opción <code>TITLE</code> para que se le ponga un título al reporte y se vuelve a llamar al final para que vuelva a su valor inicial.</p>
+<p><img alt="Reporte gran total" src="../img/print2.png" /></p>
+<h3 id="reporte-con-subtotales">Reporte con subtotales<a class="headerlink" href="#reporte-con-subtotales" title="Permanent link">&para;</a></h3>
+<p>Es posible mostrar los reportes con subtotales por grupos de variables.</p>
+<div class="admonition warning">
+<p class="admonition-title">Datos agrupados</p>
+<p>Los datos se deberían ordenar por la variables que se desee hacer el agrupamiento para evitar posibles errores en los cálculos. SAS considera valores iguales de la variable de agrupamiento como un bloque. Si SAS encontrara una observación con un valor que ya procesó, se generará un error.</p>
 </div>
-<p>Se debe tomar en cuenta que la palabra <code>for</code> debe cerrarse con un  <code>end</code> para delimitar el bloque.</p>
-<h2 id="funciones">Funciones<a class="headerlink" href="#funciones" title="Permanent link">&para;</a></h2>
-<p>Para definir una función, se usa la palabra <code>function</code> seguido del nombre de la función y entre paréntesis los argumentos.</p>
-<p>Se debe especificar la paabra clave <code>return</code>, de otro modo retornaría el último valor calculado.</p>
-<p>La función termina con un <code>end</code> e inmediatamente se compila.</p>
-<pre><code class="julia">function signo(x)
-    if x &lt; 0 resp = &quot;Negativo&quot;
-    elseif x &gt; 0 resp = &quot;Positivo&quot;
-        else resp = &quot;Es Cero&quot;
-    end
-    return resp
-end
+<p>Se puede usar el procedimiento SORT para ordenar una dataset por las variables que se deseen y posteriormente realizar el reporte.</p>
+<pre><code class="sas">PROC SORT DATA = SASHELP.BASEBALL OUT = BASEBALL;
+    BY DIVISION TEAM;
+RUN;
+
+PROC PRINT DATA = BASEBALL NOOBS LABEL;
+    VAR NAME POSITION NHOME SALARY;
+    FORMAT SALARY DOLLAR12.;
+    LABEL DIVISION = &quot;División&quot;
+    NAME = &quot;Nombre del jugador&quot;
+    TEAM = &quot;Equipo&quot;
+    POSITION = &quot;Posición&quot;
+    NHOME = &quot;Número de Home Runs en 1986&quot;
+    SALARY = &quot;Salario en 1987 (Miles de dólares)&quot;
+    ;
+    SUM NHOME SALARY;
+    BY DIVISION TEAM;
+RUN;
 </code></pre>
 
-<p>una vez compilada, se puede usar.</p>
-<pre><code class="julia">signo(-5)
-</code></pre>
-
-<p>El resultado sería el siguiente</p>
-<blockquote>
-<p>&ldquo;Negativo&rdquo;</p>
-</blockquote></div>
+<p>El procedimiento SORT especifica que se ordene por las variables <em>division</em> y luego por <em>team</em> y se pide que se guarde una copia temporal, con el fin de no modificar el dataset original.</p>
+<p>En el procedimiento <strong>PRINT</strong> se usa la sentencia <code>BY</code> para que crear el reporte por combinaciones de valores de <em>division</em> y <em>team</em>.</p>
+<p><img alt="Reporte gran total" src="../img/print3.png" /></p>
+<p>La imagen anterior muestra el ultimo grupo de variables (División = West y Equipo = Texas). Nótese que este grupo contiene los subtotales tanto de las variables <em>team</em> y <em>division</em> así como el gran total. Cada grupo contiene como título el valor de las variables <em>division</em> y <em>team</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Personalizar etiquetas</p>
+<p>Se pueden agregar en la sentencia <code>PROC PRINT</code> las opciones <code>SUMLABEL =</code> y <code>GRANDTOTAL_LABEL =</code> para personalizar las etiquetas de subtotales y el gran total.</p>
+</div>
+<p>Si se desea mostrar un reporte con otro estilo resaltando las variables de agrupamiento, se puede agregar la sentencia.</p>
+<p><code>ID DIVISION TEAM;</code></p>
+<p>El resultado es el siguente.</p>
+<p><img alt="Reporte gran total" src="../img/print4.png" /></p></div>
             </div>
         </div>
 

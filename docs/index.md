@@ -1,4 +1,4 @@
-# Bienvenido a mi blog de softwares estadísticos
+# Bienvenido a StatCamp
 
 En este sitio web subiré todo el contenido e información de diversos programas de software estadístico más comunes en estadística y ciencias de datos.
 
@@ -41,8 +41,21 @@ Aquí encontrarás todo lo relacionado con librerías que se usan en ciencia de 
 
 PROXIMAMENTE ...
 
-## Redes sociales
+## Sobre el sitio
+
+Este sitio es una guía para iniciarse en el mundo de la programación en diversos lengajes estadísticos y bajo ningún motivo el autor es responsable de los daños ocasionados por resultados inesperados.
+
+### Software de terceros
+
+Los softwares usados son
+
+- SAS
+- R
+- Python
+- Julia
+
+Los programas son mostrados con fines educativos.
 
 Síguenos en nuestras redes sociales
 
-[Github](https://github.com/FranciscoAriel)
+- [Github](https://github.com/FranciscoAriel)
