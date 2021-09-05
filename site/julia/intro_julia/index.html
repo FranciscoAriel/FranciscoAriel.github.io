@@ -132,28 +132,28 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#inicio" class="nav-link">Inicio</a>
+            <li class="nav-item" data-level="1"><a href="#inicio" class="nav-link">Inicio</a>
               <ul class="nav flex-column">
-              </ul>
-            </li>
-            
             <li class="nav-item" data-level="2"><a href="#variables" class="nav-link">Variables</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="2"><a href="#operadores-aritmeticos" class="nav-link">Operadores aritméticos</a>
+            <li class="nav-item" data-level="2"><a href="#vectores" class="nav-link">Vectores</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#operadores-aritmeticos" class="nav-link">Operadores aritméticos</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="2"><a href="#ciclos" class="nav-link">Ciclos</a>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#control-de-flujo" class="nav-link">Control de flujo</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
             <li class="nav-item" data-level="2"><a href="#funciones" class="nav-link">Funciones</a>
               <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -161,7 +161,8 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="inicio">Inicio<a class="headerlink" href="#inicio" title="Permanent link">&para;</a></h2>
+<h1 id="inicio">Inicio<a class="headerlink" href="#inicio" title="Permanent link">&para;</a></h1>
+<p>Julia es un poderoso lenguaje de programación enfocado en la potencia y velocidad.</p>
 <p>Al iniciar Julia se muestra una pantalla en que es la consola de Julia.</p>
 <h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
 <p>Julia tiene varios tipos de variables, por ejemplo tipo numérico (entero y flotante) booleano o caracter. Para conocer todos los tipos de variables que existen, consulte la <a href="https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/">documentación</a>.</p>
@@ -180,7 +181,22 @@ si = true
 <blockquote>
 <p>Int64</p>
 </blockquote>
-<h2 id="operadores-aritmeticos">Operadores aritméticos<a class="headerlink" href="#operadores-aritmeticos" title="Permanent link">&para;</a></h2>
+<h2 id="vectores">Vectores<a class="headerlink" href="#vectores" title="Permanent link">&para;</a></h2>
+<p>La forma de definir vectores es mediante el uso de corchetes cuadrados <code>[]</code>, por ejemplo:</p>
+<pre><code class="julia">a = [1,2,3]
+b = [2,4,5]
+</code></pre>
+
+<div class="admonition danger">
+<p class="admonition-title">No confundir con tuplas</p>
+<p>La forma de definir una tupla es mediante un paréntesis <code>()</code>.</p>
+</div>
+<p>Al igual que otros lenguajes de programación, la forma de acceder a sus elementos es mediante el operador <code>[]</code> y también con <code>:</code> se puede definir una secuencia.</p>
+<pre><code class="julia">a[2]
+b[1:2]
+</code></pre>
+
+<h3 id="operadores-aritmeticos">Operadores aritméticos<a class="headerlink" href="#operadores-aritmeticos" title="Permanent link">&para;</a></h3>
 <p>Julia soporta diversos operadores aritméticos, la siguiente tabla muestra los principales operadores.</p>
 <table>
 <thead>
@@ -234,8 +250,8 @@ si = true
 </tbody>
 </table>
 <p>Para una mayor referencia visita la sección<a href="https://docs.julialang.org/en/v1/manual/mathematical-operations/#Arithmetic-Operators">operadores aritméticos</a>.</p>
-<h2 id="ciclos">Ciclos<a class="headerlink" href="#ciclos" title="Permanent link">&para;</a></h2>
-<p>Se puede realizar un ciclo usando el siguiente código</p>
+<h2 id="control-de-flujo">Control de flujo<a class="headerlink" href="#control-de-flujo" title="Permanent link">&para;</a></h2>
+<p>Julia posee estructuras para control de flujo. Se puede realizar un ciclo usando el siguiente código</p>
 <pre><code class="julia">for x in 1:10
     println(x)
 end
@@ -246,6 +262,18 @@ end
 <p>La función <code>print()</code> imprimiría los valores consecutivamente sin espacio, mientras que <code>println()</code> los imprime en una línea nueva.</p>
 </div>
 <p>Se debe tomar en cuenta que la palabra <code>for</code> debe cerrarse con un  <code>end</code> para delimitar el bloque.</p>
+<p>Para usar el ciclo while, se usa el siguiente código</p>
+<pre><code class="julia">x = 0
+while x &lt;= 5 
+    println(x)
+    x = x + 1
+end
+</code></pre>
+
+<div class="admonition danger">
+<p class="admonition-title">Ciclo infinito</p>
+<p>No olvides aumentar el contador con el fin de que se cumpla la condición, de otro modo se entraría en un ciclo infinito.</p>
+</div>
 <h2 id="funciones">Funciones<a class="headerlink" href="#funciones" title="Permanent link">&para;</a></h2>
 <p>Para definir una función, se usa la palabra <code>function</code> seguido del nombre de la función y entre paréntesis los argumentos.</p>
 <p>Se debe especificar la paabra clave <code>return</code>, de otro modo retornaría el último valor calculado.</p>

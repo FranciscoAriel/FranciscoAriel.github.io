@@ -5,7 +5,9 @@ authors: Francisco Vázquez
 date: 2021-08-13
 ---
 
-## Inicio
+# Inicio
+
+Julia es un poderoso lenguaje de programación enfocado en la potencia y velocidad.
 
 Al iniciar Julia se muestra una pantalla en que es la consola de Julia.
 
@@ -31,7 +33,26 @@ typeof(x)
 
 > Int64
 
-## Operadores aritméticos
+## Vectores
+
+La forma de definir vectores es mediante el uso de corchetes cuadrados `[]`, por ejemplo:
+
+````julia
+a = [1,2,3]
+b = [2,4,5]
+````
+
+!!! danger "No confundir con tuplas"
+    La forma de definir una tupla es mediante un paréntesis `()`.
+
+Al igual que otros lenguajes de programación, la forma de acceder a sus elementos es mediante el operador `[]` y también con `:` se puede definir una secuencia.
+
+````julia
+a[2]
+b[1:2]
+````
+
+### Operadores aritméticos
 
 Julia soporta diversos operadores aritméticos, la siguiente tabla muestra los principales operadores.
 
@@ -48,9 +69,9 @@ Expresión|Nombre|Descripción
 
 Para una mayor referencia visita la sección[operadores aritméticos](https://docs.julialang.org/en/v1/manual/mathematical-operations/#Arithmetic-Operators).
 
-## Ciclos
+## Control de flujo
 
-Se puede realizar un ciclo usando el siguiente código
+Julia posee estructuras para control de flujo. Se puede realizar un ciclo usando el siguiente código
 
 ````julia
 for x in 1:10
@@ -62,6 +83,19 @@ end
     La función `print()` imprimiría los valores consecutivamente sin espacio, mientras que `println()` los imprime en una línea nueva.
 
 Se debe tomar en cuenta que la palabra `for` debe cerrarse con un  `end` para delimitar el bloque.
+
+Para usar el ciclo while, se usa el siguiente código
+
+````julia
+x = 0
+while x <= 5 
+    println(x)
+    x = x + 1
+end
+````
+
+!!! danger "Ciclo infinito"
+    No olvides aumentar el contador con el fin de que se cumpla la condición, de otro modo se entraría en un ciclo infinito.
 
 ## Funciones
 

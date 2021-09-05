@@ -57,3 +57,4 @@ Los programas son mostrados con fines educativos.
 Síguenos en nuestras redes sociales
 
 * [Github](https://github.com/FranciscoAriel)
+* [LinkedIn](https://www.linkedin.com/in/fcoavc/)

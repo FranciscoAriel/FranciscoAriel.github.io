@@ -84,7 +84,7 @@ Las primeras tres sentencias crearían variables de tipo numérico; la expresió
 
 La cuarta sentencia realiza una multiplicación de una variable por una constante.
 
-Finalmente, la quinta aplica una función a una variable de tipo caracter que extraerá los 3 primeros caracteres de una cadena. Para conocer un poco más vea la [sección](#funciones-y-llamadas).
+Finalmente, la quinta aplica una función a una variable de tipo caracter que extraerá los 3 primeros caracteres de una cadena. Para conocer un poco más vea la [sección](#funciones-y-llamadas-a-rutinas).
 
 A continuación se presentan algunas variables que serán muy útiles.
 
@@ -127,19 +127,19 @@ RUN;
 
 En la línea 3 se pide que SAS retenga la variable _salario_acum2_ en cada iteración y que su valor inicial sea 0. De esta manera se podría sumar de manera normal. Consulte la [sentencia RETAIN](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p0t2ac0tfzcgbjn112mu96hkgg9o.htm) para más información.
 
-### Funciones y llamadas
+### Funciones y llamadas a rutinas
 
 Ya habíamos mencionado que las funciones podían usarse para crear variables, sin embargo ahora se profundizará un poco más en su uso.
 
-Las funciones permiten realizar cálculos y operaciones en ocasiones muy complejas, éstas oueden  requerir de cierta información o argumentos con el fin de traer el resultado. Generalmente son almacenadas en variables, aunque pudieran usarse como una expresión en una sentencia `WHERE` o `IF`. Su sintaxis es la siguiente:
+Las funciones permiten realizar cálculos y operaciones en ocasiones muy complejas, éstas pueden  requerir de cierta información o argumentos con el fin de traer el resultado. Generalmente son almacenadas en variables, aunque pudieran usarse como una expresión en una sentencia `WHERE` o `IF`. Su sintaxis es la siguiente:
 
 > <_variable =_> funcion(<_argumento1,argumento2_,...,_argumenton_>);
 
-Las llamadas, en cambio en lugar de arrojar un resultado, realizan una acción u operacion. Su sintaxis es la siguiente:
+Las llamadas a rutinas, en cambio en lugar de arrojar un resultado, realizan una acción u operacion. Su sintaxis es la siguiente:
 
-> CALL llamada(<_argumento1,argumento2_,...,_argumenton_>);
+> **CALL** rutina(<_argumento1,argumento2_,...,_argumenton_>);
 
-Para más información acerca de las llamadas y funciones consulte [Funciones SAS y rutinas](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lefunctionsref/p0n609kcs3dmqfn1jrhi0fiitpwk.htm).
+Para más información acerca de las llamadas a rutinas y funciones consulte [Funciones SAS y rutinas](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lefunctionsref/p0n609kcs3dmqfn1jrhi0fiitpwk.htm).
 
 ## Filtrado de datos
 
@@ -152,7 +152,7 @@ La sintaxis es la siguiente:
 
 > WHERE _expresión_;
 
-donde _expresión_ es una condición a evaluar, vea la sección [selección de observaciones](/sas/basico_sas#seleccion-de-observaciones) para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia `WHERE`
+donde _expresión_ es una condición a evaluar, vea la sección [selección de observaciones](/sas/basico_sas/index.html#seleccion-de-observaciones) para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia `WHERE`
 
 Operador|Descripción|Ejemplo
 --------|-----------|-------

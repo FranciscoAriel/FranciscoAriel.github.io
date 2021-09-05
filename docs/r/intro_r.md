@@ -8,7 +8,7 @@ date: 2020-02-05
 
 Este es un tutorial básico sobre el programa. Visite la página de [R](https://www.r-project.org/) para más información.
 
-## Conceptos básicos
+## Objetos de R
 
 R es un lenguaje de programación que usa objetos. Estos objetos tienen identidad, atributos y propiedades.
 
@@ -36,24 +36,6 @@ Para cambiar use la función `setwd("dir")`, donde *dir* es el nuevo directorio.
 !!! caution "Barras verticales"
     R no reconoce una sola barra `/` en los directorios de windows. Use doble barra  `//` o una barra invertida `\`.
 
-### Escalares
-
-Un escalar es un vector con un solo elemento.
-
-Se pueden crear escalares con el símbolo de asignación `<-` o `=`.
-
-````r
-n <- 5
-m = n + 1
-a = "Hola mundo!"
-````
-
-Los escalares son útiles para guardar algún valor. Pueden ser considerados como una variable.
-
-También puede haber escalares lógicos o booleanos, por ejemplo si se construye `nm = n>m` su valor sería:
-
-> [1] FALSE
-
 ### Vectores
 
 Un vector es un objeto con uno o más elementos. Puede contener elementos numéricos o caracteres.
@@ -65,10 +47,11 @@ x = c(2,1,5)
 z = c("ABC","AEI","XYZ")
 ````
 
-Los vectores permiten algunas operaciones, las más comunes son la suma `+`, resta `-`,  multiplicación `*`, división. `/` y potencia `^`.
+Los vectores permiten algunas operaciones, las más comunes son la suma `+`, resta `-`,  multiplicación `*`, división. `/` y potencia `^`, así como valores booleanos.
 
 ````r
 y = m*x+n
+xy = x > y
 ````
 
 !!! Note "Operación entre vectores"
@@ -112,6 +95,37 @@ Crea un el vector _u_ que contiene cada elemento del vector _x_ 2 veces y esta s
 
 > [1] 2 2 1 1 5 5 2 2 1 1 5 5 2 2 1 1 5 5
 
+#### Nombres de vector
+
+Una propiedad de los vectores es que sus elementos pueden tener un nombre.
+
+Se puede usar la función `names()` para consultar o asignar nombres a un vector. El siguiente código asignará nombres a los elementos del vector `a1`.
+
+````r
+nombres <- c("uno","dos","tres")
+names(a1)<-nombres
+````
+
+Los nombres también pueden ser usados para acceder a los elementos de un vector, por ejemplo para acceder al segundo elemento, se puede usar su nombre correspondiente, es decir `a1["dos"]`.
+
+#### Escalares
+
+Un escalar es un vector con un solo elemento.
+
+Se pueden crear escalares con el símbolo de asignación `<-` o `=`.
+
+````r
+n <- 5
+m = n + 1
+a = "Hola mundo!"
+````
+
+Los escalares son útiles para guardar algún valor. Pueden ser considerados como una variable.
+
+También puede haber escalares lógicos o booleanos, por ejemplo si se construye `nm = n>m` su valor sería:
+
+> [1] FALSE
+
 ### Matrices
 
 Una matriz es una arreglo de dos dimensiones (renglones y columnas) que contiene valores, especialmente numéricos. Tiene _n_ renglones y _p_ columnas, es decir tiene _np_ elementos.
@@ -147,20 +161,98 @@ A = rbind(cbind(a1,a2),a3)
 
 El resultado es el siguiente:
 
-> A
->
->    a1 a2
->
->    1  4
->
->    2  5
->
->    3  6
->
-> a3  7  8
+![Resultado de la matriz A](img/matriz.png)
 
-### Factores
+#### Elementos de una matriz
+
+Para acceder a los elementos de una matriz, podemos referirnos por medio de su posición `[row,column]`, por ejemplo para acceder al elemento ubicado en el renglón 1 de la columna 1 se usa:
+
+````r
+A[1,1]
+````
+
+También se puede usar el número de elemento, empezando de izquierda a derecha por columna, en este caso `A[1]`.
+
+Para obtener todo el renglón o toda la columna, únicamente se escribe el elemento que se quiere obtener, pero se debe dejar la coma, por ejemplo
+
+````r
+A[1,]
+A[,2]
+````
+
+Traerían el primer renglón y la segunda columna respectivamente.
+
+Al igual que en el caso de los vectores para trae un rango específico se puede usar el operador `:` o un vector indicando los elemento deseados.
+
+````r
+A[1:2,2]
+A[c(1,3),1]
+````
+
+#### Nombres de una matriz
+
+De la misma forma que los vectores, las matrices pueden tener nombres en sus elementos.
+
+Además se puede consultar y asignar un nombre a sus columnas y renglones usando las funciones `colnames()` y `rownames()`.
+
+De la misma forma, se pueden usar estos nombre para acceder a sus elementos.
 
 ### Data Frames
 
 ### Listas
+
+## Paquetes
+
+R dispone de miles de paquetes que pueden descargarse libremente para enriquecerse son nuevas características. Estos paquetes están almacenados en el [CRAN](https://cran.r-project.org/) y pueden instalarse fácilmente desde la consola con el siguiente comando
+
+````r
+install.packages()
+````
+
+Por ejemplo, si se desea instalar el paquete _ggplot2_ se puede usar el siguiente comando.
+
+````r
+install.packages("ggplot2")
+````
+
+R almacenará los archivos en la carpeta personal llamada biblioteca del usuario o _User library_. Frecuentemente al instalar un paquete R descarga otros paquetes relacionados llamados dependencias que sirven para que las funciones del paquete trabajen adecuadamente.
+
+Sin embargo, aún no podrá usarse debido a que es necesario cargarla mediante el comando `library()`, por ejemplo, para cargar el paquete _ggplot2_ se debe ejecutar
+
+````r
+library(ggplot2)
+````
+
+Con esto, todas las funciones y objetos del paquete estarán definidos y listos para usarse.
+
+## Ayuda
+
+R dispone de un comando especial para obtener ayuda desde la consola. Por ejemplo para buscar ayuda sobre matrices, se puede escribir desde la consola el comando
+
+````r
+?matrix
+````
+
+o bien con
+
+````r
+help(topic = "matrix")
+````
+
+y con eso se abrirá un documento de ayuda.
+
+Para realizar una búsqueda más general simplemente se deben escribir doble signo de interrogación.
+
+````r
+??matrix
+````
+
+El sistema de ayuda nos mostrará los términos relacionados en todos los paquetes que encuentre.
+
+También se puede obtener ayuda acerca de una paquete en específico, por ejemplo
+
+````r
+help(package = "ggplot2")
+````
+
+y con ello se obtendrá la documentación del paquete en específico.
