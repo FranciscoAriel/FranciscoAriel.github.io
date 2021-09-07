@@ -152,7 +152,7 @@ La sintaxis es la siguiente:
 
 > WHERE _expresión_;
 
-donde _expresión_ es una condición a evaluar, vea la sección [selección de observaciones](/sas/basico_sas/index.html#seleccion-de-observaciones) para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia `WHERE`
+donde _expresión_ es una condición a evaluar, vea la sección [selección de observaciones](/site/sas/basico_sas/index.html#seleccion-de-observaciones) para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia `WHERE`
 
 Operador|Descripción|Ejemplo
 --------|-----------|-------
@@ -163,7 +163,7 @@ Operador|Descripción|Ejemplo
 `=*`|Suena como (Sólo palabras en inglés)|`WHERE name =* "jeims";`
 `SAME - AND`|Agrega cláusulas a una sentencia `WHERE` existente|`WHERE sex = "F"; WHERE SAME AND age >= 13;`
 
-En el siguiente ejemplo se muestra el filtrado usando la sentencia `WHERE` usando los datos de [covid](#leyendo-archivos-desde-web) para tener sólo la información de México.
+En el siguiente ejemplo se muestra el filtrado usando la sentencia `WHERE` usando los datos de [covid](src/datos_covid_web.sas) para tener sólo la información de México.
 
 ````sas
 DATA mexico;
@@ -175,13 +175,13 @@ RUN;
 El log muestra el siguiente mensaje:
 
 > NOTE: There were 609 observations read from the data set WORK.COVID.
->      
+>
 > WHERE iso_code='MEX'
 
 Si se hubiese usado la sentencia `IF` en lugar de `WHERE` el resultado hubiera sido el siguiente:
 
 > NOTE: There were 113406 observations read from the data set WORK.COVID.
->    
+>
 > NOTE: The data set WORK.MEXICO has 609 observations and 60 variables.
 
 El ejemplo anterior muestra las diferencias entre las sentencias `IF` y `WHERE`.
@@ -255,6 +255,48 @@ RUN;
     Esta sentencia no debe confundirse con la sentencia [SELECT de SQL](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/sqlproc/p0hwg3z33gllron184mzdoqwpe3j.htm). Para hacer algo similar en SQL, revise este [ejemplo](https://vazquez-chavez-francisco-ariel.gitbook.io/notas/consultas-basicas#creacion-de-nuevas-columnas).
 
 ## Ciclos
+
+Al igual que otros lenguajes de programación SAS dispone de sentencias de ciclo repetitivos. Estas sentencias son útiles para simulación de datos o para ingreso de datos repetitivos.
+
+### DO iterativo
+
+Es el equivalente al FOR de algunos programas
+
+La sintaxis es la siguiente:
+
+> DO _variable-índice_=_lista_;
+> 
+> _sentencias sas_;
+>
+> END;
+
+donde _lista_ puede ser un rango de valores consecutivos () o una lista de valores. Consulte la [documentación](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1cydk5fq0u4bfn1xfbjt7w1c7lu.htm) para una mayor referencia.
+
+El siguiente ejemplo muestra su uso
+
+````sas
+DATA ejemplo;
+    INPUT color :$8.;
+    DO i = 1,3,5;
+        j = _N_;
+        OUTPUT;
+    END;
+    DATALINES;
+    azul
+    verde
+    rojo
+    amarillo
+    ;
+RUN;
+````
+
+El dataset anterior lee los datos señalados por la sentencia `INPUT`. En la primer iteración (es decir,cuando lee "azul") entra al ciclo DO y se escribe en el VDP el primer valor de la secuencia (i). La instrucción `OUTPUT` indica que se debe escribir ese valor al DATASET. Esto se repite para los valores restantes (3 y 5). Note que aún estamos en la primer iteración (es decir `_N_ = 1`).
+
+Cuando se terminan los valores del ciclo DO, se lee la segunda observación del DATALINES y se repite lo mismo.
+
+### DO WHILE
+
+### DO UNTIL
 
 ## Arreglos
 

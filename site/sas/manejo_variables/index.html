@@ -156,6 +156,18 @@
             </li>
             <li class="nav-item" data-level="2"><a href="#ciclos" class="nav-link">Ciclos</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#do-iterativo" class="nav-link">DO iterativo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#do-while" class="nav-link">DO WHILE</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#do-until" class="nav-link">DO UNTIL</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
             <li class="nav-item" data-level="2"><a href="#arreglos" class="nav-link">Arreglos</a>
@@ -310,7 +322,7 @@ RUN;
 <blockquote>
 <p>WHERE <em>expresión</em>;</p>
 </blockquote>
-<p>donde <em>expresión</em> es una condición a evaluar, vea la sección <a href="/sas/basico_sas/index.html#seleccion-de-observaciones">selección de observaciones</a> para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia <code>WHERE</code></p>
+<p>donde <em>expresión</em> es una condición a evaluar, vea la sección <a href="/site/sas/basico_sas/index.html#seleccion-de-observaciones">selección de observaciones</a> para una referencia de los operadores lógicos y booleanos. La siguiente tabla muestra expresiones válidas para la sentencia <code>WHERE</code></p>
 <table>
 <thead>
 <tr>
@@ -352,7 +364,7 @@ RUN;
 </tr>
 </tbody>
 </table>
-<p>En el siguiente ejemplo se muestra el filtrado usando la sentencia <code>WHERE</code> usando los datos de <a href="#leyendo-archivos-desde-web">covid</a> para tener sólo la información de México.</p>
+<p>En el siguiente ejemplo se muestra el filtrado usando la sentencia <code>WHERE</code> usando los datos de <a href="../src/datos_covid_web.sas">covid</a> para tener sólo la información de México.</p>
 <pre><code class="sas">DATA mexico;
     SET covid;
     WHERE iso_code EQ &quot;MEX&quot;;
@@ -432,6 +444,36 @@ RUN;
 <p>Esta sentencia no debe confundirse con la sentencia <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/sqlproc/p0hwg3z33gllron184mzdoqwpe3j.htm">SELECT de SQL</a>. Para hacer algo similar en SQL, revise este <a href="https://vazquez-chavez-francisco-ariel.gitbook.io/notas/consultas-basicas#creacion-de-nuevas-columnas">ejemplo</a>.</p>
 </div>
 <h2 id="ciclos">Ciclos<a class="headerlink" href="#ciclos" title="Permanent link">&para;</a></h2>
+<p>Al igual que otros lenguajes de programación SAS dispone de sentencias de ciclo repetitivos. Estas sentencias son útiles para simulación de datos o para ingreso de datos repetitivos.</p>
+<h3 id="do-iterativo">DO iterativo<a class="headerlink" href="#do-iterativo" title="Permanent link">&para;</a></h3>
+<p>Es el equivalente al FOR de algunos programas</p>
+<p>La sintaxis es la siguiente:</p>
+<blockquote>
+<p>DO <em>variable-índice</em>=<em>lista</em>;</p>
+<p><em>sentencias sas</em>;</p>
+<p>END;</p>
+</blockquote>
+<p>donde <em>lista</em> puede ser un rango de valores consecutivos () o una lista de valores. Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1cydk5fq0u4bfn1xfbjt7w1c7lu.htm">documentación</a> para una mayor referencia.</p>
+<p>El siguiente ejemplo muestra su uso</p>
+<pre><code class="sas">DATA ejemplo;
+    INPUT color :$8.;
+    DO i = 1,3,5;
+        j = _N_;
+        OUTPUT;
+    END;
+    DATALINES;
+    azul
+    verde
+    rojo
+    amarillo
+    ;
+RUN;
+</code></pre>
+
+<p>El dataset anterior lee los datos señalados por la sentencia <code>INPUT</code>. En la primer iteración (es decir,cuando lee &ldquo;azul&rdquo;) entra al ciclo DO y se escribe en el VDP el primer valor de la secuencia (i). La instrucción <code>OUTPUT</code> indica que se debe escribir ese valor al DATASET. Esto se repite para los valores restantes (3 y 5). Note que aún estamos en la primer iteración (es decir <code>_N_ = 1</code>).</p>
+<p>Cuando se terminan los valores del ciclo DO, se lee la segunda observación del DATALINES y se repite lo mismo.</p>
+<h3 id="do-while">DO WHILE<a class="headerlink" href="#do-while" title="Permanent link">&para;</a></h3>
+<h3 id="do-until">DO UNTIL<a class="headerlink" href="#do-until" title="Permanent link">&para;</a></h3>
 <h2 id="arreglos">Arreglos<a class="headerlink" href="#arreglos" title="Permanent link">&para;</a></h2>
 <h2 id="manipulacion-y-transformacion-de-bases">Manipulación y transformación de bases<a class="headerlink" href="#manipulacion-y-transformacion-de-bases" title="Permanent link">&para;</a></h2></div>
             </div>
