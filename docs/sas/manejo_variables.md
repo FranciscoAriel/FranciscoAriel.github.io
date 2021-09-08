@@ -294,6 +294,18 @@ El dataset anterior lee los datos señalados por la sentencia `INPUT`. En la pri
 
 Cuando se terminan los valores del ciclo DO, se lee la segunda observación del DATALINES y se repite lo mismo.
 
+#### DO CONTINUE
+
+SAS tiene una sentencia especial que permite, dentro de un ciclo, saltar al siguiente valor de la variable índice. Esto puede ser útil para prevenir que otras sentencias se ejecuten.
+
+El siguiente ejemplo muestra su uso.
+
+Consulte la [ayuda de SAS](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n0vupy1vhs8gosn1tjd3zg8dtf76.htm) para más información acerca de la sentencia `CONTINUE`.
+
+#### DO LEAVE
+
+A diferencia de la sentencia `CONTINUE`, la sentencia `LEAVE` permite salir del ciclo `DO`.
+
 ### DO WHILE
 
 ### DO UNTIL

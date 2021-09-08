@@ -472,6 +472,12 @@ RUN;
 
 <p>El dataset anterior lee los datos señalados por la sentencia <code>INPUT</code>. En la primer iteración (es decir,cuando lee &ldquo;azul&rdquo;) entra al ciclo DO y se escribe en el VDP el primer valor de la secuencia (i). La instrucción <code>OUTPUT</code> indica que se debe escribir ese valor al DATASET. Esto se repite para los valores restantes (3 y 5). Note que aún estamos en la primer iteración (es decir <code>_N_ = 1</code>).</p>
 <p>Cuando se terminan los valores del ciclo DO, se lee la segunda observación del DATALINES y se repite lo mismo.</p>
+<h4 id="do-continue">DO CONTINUE<a class="headerlink" href="#do-continue" title="Permanent link">&para;</a></h4>
+<p>SAS tiene una sentencia especial que permite, dentro de un ciclo, saltar al siguiente valor de la variable índice. Esto puede ser útil para prevenir que otras sentencias se ejecuten.</p>
+<p>El siguiente ejemplo muestra su uso.</p>
+<p>Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n0vupy1vhs8gosn1tjd3zg8dtf76.htm">ayuda de SAS</a> para más información acerca de la sentencia <code>CONTINUE</code>.</p>
+<h4 id="do-leave">DO LEAVE<a class="headerlink" href="#do-leave" title="Permanent link">&para;</a></h4>
+<p>A diferencia de la sentencia <code>CONTINUE</code>, la sentencia <code>LEAVE</code> permite salir del ciclo <code>DO</code>.</p>
 <h3 id="do-while">DO WHILE<a class="headerlink" href="#do-while" title="Permanent link">&para;</a></h3>
 <h3 id="do-until">DO UNTIL<a class="headerlink" href="#do-until" title="Permanent link">&para;</a></h3>
 <h2 id="arreglos">Arreglos<a class="headerlink" href="#arreglos" title="Permanent link">&para;</a></h2>
