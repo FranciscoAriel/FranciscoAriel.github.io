@@ -270,7 +270,7 @@ La sintaxis es la siguiente:
 >
 > END;
 
-donde _lista_ puede ser un rango de valores consecutivos () o una lista de valores. Consulte la [documentación](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1cydk5fq0u4bfn1xfbjt7w1c7lu.htm) para una mayor referencia.
+donde _lista_ puede ser un rango de valores consecutivos (indicando inicio, fin e incremento) o una lista de valores. Consulte la [documentación](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1cydk5fq0u4bfn1xfbjt7w1c7lu.htm) para una mayor referencia.
 
 El siguiente ejemplo muestra su uso
 
@@ -293,6 +293,26 @@ RUN;
 El dataset anterior lee los datos señalados por la sentencia `INPUT`. En la primer iteración (es decir,cuando lee "azul") entra al ciclo DO y se escribe en el VDP el primer valor de la secuencia (i). La instrucción `OUTPUT` indica que se debe escribir ese valor al DATASET. Esto se repite para los valores restantes (3 y 5). Note que aún estamos en la primer iteración (es decir `_N_ = 1`).
 
 Cuando se terminan los valores del ciclo DO, se lee la segunda observación del DATALINES y se repite lo mismo.
+
+Esta estructura también es útil para leer datos consecutivos y hacer secuencias, por ejemplo
+
+````sas
+DATA colores;
+    DO i = 1 to 4;
+        INPUT color :$8. @@;
+        j = _N_;
+        OUTPUT;
+    END;
+    DATALINES;
+    azul verde rojo amarillo
+    verde rojo amarillo azul
+    rojo amarillo azul verde
+    amarillo azul verde rojo
+    ;
+RUN;
+````
+
+Note que derante la primer iteración (`_N_ = 1`) se inicia el ciclo `DO` con valores del 1 al 4. Una vez dentro del ciclo, SAS empezará a leer los 4 primeros valores del `DATALINES` y los escribirá al dataset. Esto se repetirá hasta que ya no haya observaciones por leer.
 
 #### DO CONTINUE
 

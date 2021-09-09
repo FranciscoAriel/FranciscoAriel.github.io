@@ -1,4 +1,4 @@
-# Bienvenido a StatCamp
+# Bienvenido a Estadística desde Cero
 
 En este sitio web subiré todo el contenido e información de diversos programas de software estadístico más comunes en estadística y ciencias de datos.
 
@@ -58,3 +58,4 @@ Síguenos en nuestras redes sociales
 
 * [Github](https://github.com/FranciscoAriel)
 * [LinkedIn](https://www.linkedin.com/in/fcoavc/)
+* [Telegram](https://t.me/estad_camp_0)
