@@ -6,7 +6,15 @@ date: 2020-02-05
 
 ---
 
+# Introducción a R
+
 Este es un tutorial básico sobre el programa. Visite la página de [R](https://www.r-project.org/) para más información.
+
+R es un lenguaje de programación para cómputo estadístico. Tiene una gran cantidad de funciones que permiten ejecutar análisis estadísticos tradicionales, tales como regresión y modelos lineales, prebas estadísticas, clasificación análisis de series de tiempo, entre otros.
+
+Una ventaja de R es que es altamente extensible a traves de paquetes que cualquier persona puede crear y aportar.
+
+R es un software libre y es ampliamente usado en el ámbito académico e incluso en algunas empresas.
 
 ## Objetos de R
 
@@ -163,6 +171,27 @@ El resultado es el siguiente:
 
 ![Resultado de la matriz A](img/matriz.png)
 
+#### Dimensiones
+
+Para conocer el tamaño o dimensiones de una matriz se puede usar la función `dim()`
+
+````r
+dim(A)
+````
+
+Note que se desplegará en la consola el resultado mostrando la dimensión.
+
+> 2 4
+
+Para conocer el número de renglones y columnas por separado se pueden usar las funciones `nrow()` y `ncol()`.
+
+````r
+nrow(A)
+ncol(A)
+````
+
+Esto es importante ya que como se verá más adelante, nos permitirá hacer operaciones entre matrices.
+
 #### Elementos de una matriz
 
 Para acceder a los elementos de una matriz, podemos referirnos por medio de su posición `[row,column]`, por ejemplo para acceder al elemento ubicado en el renglón 1 de la columna 1 se usa:
@@ -196,6 +225,24 @@ De la misma forma que los vectores, las matrices pueden tener nombres en sus ele
 Además se puede consultar y asignar un nombre a sus columnas y renglones usando las funciones `colnames()` y `rownames()`.
 
 De la misma forma, se pueden usar estos nombre para acceder a sus elementos.
+
+#### Operaciones
+
+Al igual que los vectores, se pueden hacer operaciones entre matrices.
+
+El siguiente cuadro resume las operaciones disponibles
+
+Nombre|Operador|Ejemplo|Nota
+------|--------|-------|----
+Suma  |`+`     |`A + B`|Las matrices deben tener la misma dimensión
+Resta |`-`     |`A - B`|Las matrices deben tener la misma dimensión
+Multiplicación (Elemento a elemento)|`*`|`A * B`|Las matrices deben tener la misma dimensión
+División (Elemento a elemento)|`/`|`A / B`|Las matrices deben tener la misma dimensión
+Potencia|`^`|`A ^ B`|Las matrices deben tener la misma dimensión
+
+Adicional a esto, se puede hacer la _multiplicación de matrices_ usando el operador `%*%`.
+
+Para poder realizar esta operación, las matrices deben ser **conformables**, es decir, el número de columnas de A, debe ser iguales al número de renglones de B y el resultado será una matriz de dimensiones iguales al número de renglones de A y el mismo número de columnas de B.
 
 ### Data Frames
 

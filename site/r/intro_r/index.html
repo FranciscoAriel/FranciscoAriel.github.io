@@ -132,6 +132,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
+            <li class="nav-item" data-level="1"><a href="#introduccion-a-r" class="nav-link">Introducción a R</a>
+              <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#objetos-de-r" class="nav-link">Objetos de R</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="3"><a href="#vectores" class="nav-link">Vectores</a>
@@ -152,14 +154,14 @@
             </li>
               </ul>
             </li>
-            
             <li class="nav-item" data-level="2"><a href="#paquetes" class="nav-link">Paquetes</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
             <li class="nav-item" data-level="2"><a href="#ayuda" class="nav-link">Ayuda</a>
               <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -167,7 +169,11 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
+<h1 id="introduccion-a-r">Introducción a R<a class="headerlink" href="#introduccion-a-r" title="Permanent link">&para;</a></h1>
 <p>Este es un tutorial básico sobre el programa. Visite la página de <a href="https://www.r-project.org/">R</a> para más información.</p>
+<p>R es un lenguaje de programación para cómputo estadístico. Tiene una gran cantidad de funciones que permiten ejecutar análisis estadísticos tradicionales, tales como regresión y modelos lineales, prebas estadísticas, clasificación análisis de series de tiempo, entre otros.</p>
+<p>Una ventaja de R es que es altamente extensible a traves de paquetes que cualquier persona puede crear y aportar.</p>
+<p>R es un software libre y es ampliamente usado en el ámbito académico e incluso en algunas empresas.</p>
 <h2 id="objetos-de-r">Objetos de R<a class="headerlink" href="#objetos-de-r" title="Permanent link">&para;</a></h2>
 <p>R es un lenguaje de programación que usa objetos. Estos objetos tienen identidad, atributos y propiedades.</p>
 <p>Tambien puede considerarse como un intérprete, es decir que espera acciones del usuario. Cuando el usuario ejecuta comandos, R los ejecuta línea por línea.</p>
@@ -282,6 +288,21 @@ A = rbind(cbind(a1,a2),a3)
 
 <p>El resultado es el siguiente:</p>
 <p><img alt="Resultado de la matriz A" src="../img/matriz.png" /></p>
+<h4 id="dimensiones">Dimensiones<a class="headerlink" href="#dimensiones" title="Permanent link">&para;</a></h4>
+<p>Para conocer el tamaño o dimensiones de una matriz se puede usar la función <code>dim()</code></p>
+<pre><code class="r">dim(A)
+</code></pre>
+
+<p>Note que se desplegará en la consola el resultado mostrando la dimensión.</p>
+<blockquote>
+<p>2 4</p>
+</blockquote>
+<p>Para conocer el número de renglones y columnas por separado se pueden usar las funciones <code>nrow()</code> y <code>ncol()</code>.</p>
+<pre><code class="r">nrow(A)
+ncol(A)
+</code></pre>
+
+<p>Esto es importante ya que como se verá más adelante, nos permitirá hacer operaciones entre matrices.</p>
 <h4 id="elementos-de-una-matriz">Elementos de una matriz<a class="headerlink" href="#elementos-de-una-matriz" title="Permanent link">&para;</a></h4>
 <p>Para acceder a los elementos de una matriz, podemos referirnos por medio de su posición <code>[row,column]</code>, por ejemplo para acceder al elemento ubicado en el renglón 1 de la columna 1 se usa:</p>
 <pre><code class="r">A[1,1]
@@ -303,6 +324,53 @@ A[c(1,3),1]
 <p>De la misma forma que los vectores, las matrices pueden tener nombres en sus elementos.</p>
 <p>Además se puede consultar y asignar un nombre a sus columnas y renglones usando las funciones <code>colnames()</code> y <code>rownames()</code>.</p>
 <p>De la misma forma, se pueden usar estos nombre para acceder a sus elementos.</p>
+<h4 id="operaciones">Operaciones<a class="headerlink" href="#operaciones" title="Permanent link">&para;</a></h4>
+<p>Al igual que los vectores, se pueden hacer operaciones entre matrices.</p>
+<p>El siguiente cuadro resume las operaciones disponibles</p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Operador</th>
+<th>Ejemplo</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Suma</td>
+<td><code>+</code></td>
+<td><code>A + B</code></td>
+<td>Las matrices deben tener la misma dimensión</td>
+</tr>
+<tr>
+<td>Resta</td>
+<td><code>-</code></td>
+<td><code>A - B</code></td>
+<td>Las matrices deben tener la misma dimensión</td>
+</tr>
+<tr>
+<td>Multiplicación (Elemento a elemento)</td>
+<td><code>*</code></td>
+<td><code>A * B</code></td>
+<td>Las matrices deben tener la misma dimensión</td>
+</tr>
+<tr>
+<td>División (Elemento a elemento)</td>
+<td><code>/</code></td>
+<td><code>A / B</code></td>
+<td>Las matrices deben tener la misma dimensión</td>
+</tr>
+<tr>
+<td>Potencia</td>
+<td><code>^</code></td>
+<td><code>A ^ B</code></td>
+<td>Las matrices deben tener la misma dimensión</td>
+</tr>
+</tbody>
+</table>
+<p>Adicional a esto, se puede hacer la <em>multiplicación de matrices</em> usando el operador <code>%*%</code>.</p>
+<p>Para poder realizar esta operación, las matrices deben ser <strong>conformables</strong>, es decir, el número de columnas de A, debe ser iguales al número de renglones de B y el resultado será una matriz de dimensiones iguales al número de renglones de A y el mismo número de columnas de B.</p>
 <h3 id="data-frames">Data Frames<a class="headerlink" href="#data-frames" title="Permanent link">&para;</a></h3>
 <h3 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h3>
 <h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2>
