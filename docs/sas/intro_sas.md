@@ -17,11 +17,11 @@ Finalmente se muestran algunas pinceladas de lo que se puede hacer con SAS media
 
 Consulte el sitio web de [sas](https://www.sas.com) para más detalles.
 
-!!! info "SAS University Edition"
-    SAS no es software libre ni es gratuito, sin embargo usted puede descargar el software gratuitamente.
-    Visite [SAS University edition](https://www.sas.com/en_us/software/university-edition.html) para más información.
+!!! info "SAS &reg; OnDemand for Academics"
+    SAS &reg; software no es libre ni es gratuito, sin embargo usted puede usarlo gratuitamente con fines de aprendizaje.
+    Visite [SAS &reg; OnDemand for Academics](https://www.sas.com/en_us/software/on-demand-for-academics.html) para más información.
 
-*SAS BASE* es la interfaz gráfica clásica de SAS. Contiene una verntana lateral con una lista de librerías, mientras que hay una ventana principal de mensajes (log) y otra para escribir código.
+*SAS &reg; BASE* es la interfaz gráfica clásica de SAS. Contiene una verntana lateral con una lista de librerías, mientras que hay una ventana principal de mensajes (log) y otra para escribir código.
 
 ![Screenshot](img/sasbase.png)
 
@@ -29,9 +29,13 @@ Esta interfaz fue de las primeras en desarrollarse y por ello ya no ha sido mejo
 
 Su principal ventaja es que gasta pocos recurso y es bastante rápida.
 
-*SAS Enterprise Guide* es la interfaz gráfica mas reciente y es constantemente mejorada. Esta versión tiene muchas características y además permite crear distintos perfiles de usuario.
+*SAS &reg; Enterprise Guide* es la interfaz gráfica mas reciente y es constantemente mejorada. Esta versión tiene muchas características y además permite crear distintos perfiles de usuario.
 
-Tiene un panel principal en el cual se muestra el flujo de trabajo. La idea básica es ir trabajando en pequeños programas y se conectan entre sí, con el fin de tener una visión más global de lo que se está realizando
+Tiene un panel principal en el cual se muestra el flujo de trabajo. La idea básica es ir trabajando en pequeños programas y se conectan entre sí, con el fin de tener una visión más global de lo que se está realizando.
+
+También puede usarse la interfaz de SAS &reg; Studio
+
+![Sas &reg; Studio](img/sas_studio.png)
 
 ## Conceptos básicos
 
