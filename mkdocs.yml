@@ -19,6 +19,8 @@ theme:
 
  
 nav:
+    - "Estadística":
+        - "Inferencia estadística": estadistica/inferencia.md
     - "SAS":
         - "Introducción a SAS": sas/intro_sas.md
         - "Lectura y escritura de datos": sas/basico_sas.md
@@ -39,6 +41,8 @@ markdown_extensions:
     - admonition
     - toc:
         permalink: True
+    - mdx_math
+    - footnotes
 
 plugins:
     - search
@@ -46,5 +50,7 @@ plugins:
 extra:
     version: 1.0
 
-copyright: Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a>
+copyright: Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a> <br>Iconos diseñados por <a href="https://www.flaticon.es/autores/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a>
 
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
