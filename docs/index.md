@@ -25,7 +25,7 @@ En este blog conoceras todo lo relacionado a:
 
 * **SAS &reg; software** - Contiene todo lo esencial para leer, manipular datos así como otras funciones básicas de SAS.
 * **SAS/STAT &reg; software** - Tiene muchos métodos estadísticos y otros análisis de datos.
-* **SAS/IML &reg; software** - Es un lenguaje específico para lenguaje de matrices y funciones matemáticas y estadísticas avanzadas.
+* **SAS/IML &reg; software** - Es un lenguaje específico para trabajar con vectores, matrices, funciones matemáticas y estadísticas avanzadas.
 * **OTROS** - Conexión de SAS con otros lenguajes de programación y sus configuraciones.
 
 Para ir al blog de SAS haz click [aquí](sas/intro_sas/index.html).
