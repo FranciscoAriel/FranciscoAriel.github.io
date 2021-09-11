@@ -163,6 +163,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#paquetes" class="nav-link">Paquetes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -171,8 +175,11 @@
                     <div class="col-md-9" role="main">
 
 <h1 id="inicio">Inicio<a class="headerlink" href="#inicio" title="Permanent link">&para;</a></h1>
-<p>Julia es un poderoso lenguaje de programación enfocado en la potencia y velocidad.</p>
-<p>Al iniciar Julia se muestra una pantalla en que es la consola de Julia.</p>
+<p>Julia es un poderoso lenguaje de programación enfocado en la potencia y velocidad. Es de código abierto y de libre uso. Visite la <a href="https://julialang.org/">página oficial de Julia</a> para mayor información.</p>
+<p>Al iniciar Julia se muestra una pantalla en que es la línea de comandos de Julia conocida como <strong>Julia REPL</strong>.</p>
+<p><img alt="consola de Julia" src="../img/consola.png" /></p>
+<p>Esta permite la entrada y evalua los comandos al instante.</p>
+<p>Una vez en la consola se pueden entrar a distintos modos, tal como el modo de ayuda escribiendo <code>?</code> o el modo comando de sistema con <code>;</code> o el modo paquetes escribiendo <code>]</code>. Se puede salir de dichos modos con la tecla de borrar o con <strong>Ctrl+c</strong>.</p>
 <h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
 <p>Julia tiene varios tipos de variables, por ejemplo tipo numérico (entero y flotante) booleano o caracter. Para conocer todos los tipos de variables que existen, consulte la <a href="https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/">documentación</a>.</p>
 <p>Se puede definir una variable usando el operador de asignación <code>=</code> como se muestra en el siguiente ejemplo.</p>
@@ -303,7 +310,21 @@ end
 <p>El resultado sería el siguiente</p>
 <blockquote>
 <p>&ldquo;Negativo&rdquo;</p>
-</blockquote></div>
+</blockquote>
+<h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2>
+<p>Julia tiene un gestor de paquetes en el cual se pueden descargar miles de ellos.</p>
+<p>Para acceder a ellos basta con entrar al modo paquete y escribir en la consola. Por ejemplo, para instalar el paquete <em>DataFrames</em> usaremos el siguiente comando</p>
+<pre><code class="julia">add DataFrames
+</code></pre>
+
+<p>alternativamente, desde la consola REPL podemos escribir</p>
+<pre><code class="julia">import Pkg
+Pkg.add(&quot;DataFrames&quot;)
+</code></pre>
+
+<p>Para comenzar a usarlo, escribimos desde la consola</p>
+<pre><code class="julia">using DataFrames
+</code></pre></div>
             </div>
         </div>
 

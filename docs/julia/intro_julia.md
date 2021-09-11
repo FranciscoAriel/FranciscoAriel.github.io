@@ -7,9 +7,15 @@ date: 2021-08-13
 
 # Inicio
 
-Julia es un poderoso lenguaje de programación enfocado en la potencia y velocidad.
+Julia es un poderoso lenguaje de programación enfocado en la potencia y velocidad. Es de código abierto y de libre uso. Visite la [página oficial de Julia](https://julialang.org/) para mayor información.
 
-Al iniciar Julia se muestra una pantalla en que es la consola de Julia.
+Al iniciar Julia se muestra una pantalla en que es la línea de comandos de Julia conocida como **Julia REPL**.
+
+![consola de Julia](img/consola.png)
+
+Esta permite la entrada y evalua los comandos al instante.
+
+Una vez en la consola se pueden entrar a distintos modos, tal como el modo de ayuda escribiendo `?` o el modo comando de sistema con `;` o el modo paquetes escribiendo `]`. Se puede salir de dichos modos con la tecla de borrar o con **Ctrl+c**.
 
 ## Variables
 
@@ -124,3 +130,26 @@ signo(-5)
 El resultado sería el siguiente
 
 > "Negativo"
+
+## Paquetes
+
+Julia tiene un gestor de paquetes en el cual se pueden descargar miles de ellos.
+
+Para acceder a ellos basta con entrar al modo paquete y escribir en la consola. Por ejemplo, para instalar el paquete _DataFrames_ usaremos el siguiente comando
+
+````julia
+add DataFrames
+````
+
+alternativamente, desde la consola REPL podemos escribir
+
+````julia
+import Pkg
+Pkg.add("DataFrames")
+````
+
+Para comenzar a usarlo, escribimos desde la consola
+
+````julia
+using DataFrames
+````
