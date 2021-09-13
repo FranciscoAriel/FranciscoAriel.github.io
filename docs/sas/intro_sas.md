@@ -39,7 +39,7 @@ También puede usarse la interfaz de SAS &reg; Studio
 
 ## Conceptos básicos
 
-En esta sección se mostrarán 
+En esta sección se mostrarán los elementos básicos de SAS, tales como los bloques básico de programación (pasos DATA y PROC), conceptos como bibliotecas, datasets, entre otros.
 
 ### Procedimientos y pasos DATA
 

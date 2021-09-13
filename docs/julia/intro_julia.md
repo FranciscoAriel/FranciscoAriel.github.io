@@ -17,6 +17,8 @@ Esta permite la entrada y evalua los comandos al instante.
 
 Una vez en la consola se pueden entrar a distintos modos, tal como el modo de ayuda escribiendo `?` o el modo comando de sistema con `;` o el modo paquetes escribiendo `]`. Se puede salir de dichos modos con la tecla de borrar o con **Ctrl+c**.
 
+Julia también puede ejecutarse en entornos gráficos, por ejemplo Jypiter Notebooks o VS Code.
+
 ## Variables
 
 Julia tiene varios tipos de variables, por ejemplo tipo numérico (entero y flotante) booleano o caracter. Para conocer todos los tipos de variables que existen, consulte la [documentación](https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/).

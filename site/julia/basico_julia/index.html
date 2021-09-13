@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <meta name="author" content="Francisco Ariel Vázquez Chávez">
-        <link rel="canonical" href="https://FranciscoAriel.github.io/site/julia/intro_julia/">
+        <link rel="canonical" href="https://FranciscoAriel.github.io/site/julia/basico_julia/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Introducción a Julia - Estadística desde Cero</title>
+        <title>Primeros pasos Julia - Estadística desde Cero</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -93,12 +93,12 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown active">
+                            <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Julia <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="./" class="dropdown-item active">Introducción a Julia</a>
+    <a href="../intro_julia/" class="dropdown-item">Introducción a Julia</a>
 </li>
                                 </ul>
                             </li>
@@ -111,17 +111,7 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../python/basico/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/julia/intro_julia.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/julia/basico_julia.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
                     </ul>
                 </div>
@@ -141,29 +131,9 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#inicio" class="nav-link">Inicio</a>
+            <li class="nav-item" data-level="2"><a href="#lectura-de-datos" class="nav-link">Lectura de datos</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#variables" class="nav-link">Variables</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#vectores" class="nav-link">Vectores</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="3"><a href="#operadores-aritmeticos" class="nav-link">Operadores aritméticos</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#control-de-flujo" class="nav-link">Control de flujo</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#funciones" class="nav-link">Funciones</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#paquetes" class="nav-link">Paquetes</a>
+            <li class="nav-item" data-level="3"><a href="#creacion-de-datos" class="nav-link">Creación de datos</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -174,158 +144,66 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="inicio">Inicio<a class="headerlink" href="#inicio" title="Permanent link">&para;</a></h1>
-<p>Julia es un poderoso lenguaje de programación enfocado en la potencia y velocidad. Es de código abierto y de libre uso. Visite la <a href="https://julialang.org/">página oficial de Julia</a> para mayor información.</p>
-<p>Al iniciar Julia se muestra una pantalla en que es la línea de comandos de Julia conocida como <strong>Julia REPL</strong>.</p>
-<p><img alt="consola de Julia" src="../img/consola.png" /></p>
-<p>Esta permite la entrada y evalua los comandos al instante.</p>
-<p>Una vez en la consola se pueden entrar a distintos modos, tal como el modo de ayuda escribiendo <code>?</code> o el modo comando de sistema con <code>;</code> o el modo paquetes escribiendo <code>]</code>. Se puede salir de dichos modos con la tecla de borrar o con <strong>Ctrl+c</strong>.</p>
-<p>Julia también puede ejecutarse en entornos gráficos, por ejemplo Jypiter Notebooks o VS Code.</p>
-<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
-<p>Julia tiene varios tipos de variables, por ejemplo tipo numérico (entero y flotante) booleano o caracter. Para conocer todos los tipos de variables que existen, consulte la <a href="https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/">documentación</a>.</p>
-<p>Se puede definir una variable usando el operador de asignación <code>=</code> como se muestra en el siguiente ejemplo.</p>
-<pre><code class="julia">x = 1
-y = 1.25
-z = x + y
-a = &quot;abc&quot;
-si = true
-</code></pre>
-
-<p>Para saber de que tipo es, se puede usar la función <code>typeof()</code>, el resultado se muestra</p>
-<pre><code class="julia">typeof(x)
-</code></pre>
-
-<blockquote>
-<p>Int64</p>
-</blockquote>
-<h2 id="vectores">Vectores<a class="headerlink" href="#vectores" title="Permanent link">&para;</a></h2>
-<p>La forma de definir vectores es mediante el uso de corchetes cuadrados <code>[]</code>, por ejemplo:</p>
-<pre><code class="julia">a = [1,2,3]
-b = [2,4,5]
-</code></pre>
-
-<div class="admonition danger">
-<p class="admonition-title">No confundir con tuplas</p>
-<p>La forma de definir una tupla es mediante un paréntesis <code>()</code>.</p>
+<h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
+<p>En Julia existen diversos paquetes que nos permiten importar y leer datos de archivos externos. En esta sección nos enfocaremos a la creación de conjuntos de datos.</p>
+<h3 id="creacion-de-datos">Creación de datos<a class="headerlink" href="#creacion-de-datos" title="Permanent link">&para;</a></h3>
+<p>Para manipular conjuntos de datos, se puede usar el paquete <a href="https://dataframes.juliadata.org/stable/">DataFrames</a>.</p>
+<div class="admonition caution">
+<p class="admonition-title">Instalar el paquete</p>
+<p>No olvide instalar el paquete <code>DataFrames</code>, de otro modo se obtendrá un error.</p>
 </div>
-<p>Al igual que otros lenguajes de programación, la forma de acceder a sus elementos es mediante el operador <code>[]</code> y también con <code>:</code> se puede definir una secuencia.</p>
-<pre><code class="julia">a[2]
-b[1:2]
-</code></pre>
-
-<h3 id="operadores-aritmeticos">Operadores aritméticos<a class="headerlink" href="#operadores-aritmeticos" title="Permanent link">&para;</a></h3>
-<p>Julia soporta diversos operadores aritméticos, la siguiente tabla muestra los principales operadores.</p>
+<p>Por ejemplo, para crear el siguiente conjunto de datos</p>
 <table>
 <thead>
 <tr>
-<th>Expresión</th>
-<th>Nombre</th>
-<th>Descripción</th>
+<th>nombre</th>
+<th>grupo</th>
+<th>puntaje</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>x + y</code></td>
-<td>suma</td>
-<td>realiza adición</td>
+<td>ANGELICA</td>
+<td>A</td>
+<td>10</td>
 </tr>
 <tr>
-<td><code>x - y</code></td>
-<td>resta</td>
-<td>realiza substracción</td>
+<td>BRENDA</td>
+<td>A</td>
+<td>9</td>
 </tr>
 <tr>
-<td><code>x * y</code></td>
-<td>producto</td>
-<td>realiza multiplicación</td>
+<td>LILIANA</td>
+<td>B</td>
+<td>8</td>
 </tr>
 <tr>
-<td><code>x / y</code></td>
-<td>división</td>
-<td>realiza división</td>
+<td>MARCO</td>
+<td>B</td>
+<td>8</td>
 </tr>
 <tr>
-<td><code>x ÷ y</code></td>
-<td>división entera</td>
-<td>similar a <code>x/y</code>, pero truncado a un entero</td>
+<td>FABIAN</td>
+<td>C</td>
+<td>9</td>
 </tr>
 <tr>
-<td><code>x \ y</code></td>
-<td>división inversa</td>
-<td>equivalente a <code>y/x</code></td>
-</tr>
-<tr>
-<td><code>x ^ y</code></td>
-<td>potencia</td>
-<td>eleva <code>x</code> a la potencia <code>y</code></td>
-</tr>
-<tr>
-<td><code>x % y</code></td>
-<td>resto</td>
-<td>equivalente to <code>rem(x,y)</code></td>
+<td>MAURICIO</td>
+<td>C</td>
+<td>7</td>
 </tr>
 </tbody>
 </table>
-<p>Para una mayor referencia visita la sección<a href="https://docs.julialang.org/en/v1/manual/mathematical-operations/#Arithmetic-Operators">operadores aritméticos</a>.</p>
-<h2 id="control-de-flujo">Control de flujo<a class="headerlink" href="#control-de-flujo" title="Permanent link">&para;</a></h2>
-<p>Julia posee estructuras para control de flujo. Se puede realizar un ciclo usando el siguiente código</p>
-<pre><code class="julia">for x in 1:10
-    println(x)
-end
-</code></pre>
-
-<div class="admonition nota">
-<p class="admonition-title">Nota</p>
-<p>La función <code>print()</code> imprimiría los valores consecutivamente sin espacio, mientras que <code>println()</code> los imprime en una línea nueva.</p>
-</div>
-<p>Se debe tomar en cuenta que la palabra <code>for</code> debe cerrarse con un  <code>end</code> para delimitar el bloque.</p>
-<p>Para usar el ciclo while, se usa el siguiente código</p>
-<pre><code class="julia">x = 0
-while x &lt;= 5 
-    println(x)
-    x = x + 1
-end
-</code></pre>
-
-<div class="admonition danger">
-<p class="admonition-title">Ciclo infinito</p>
-<p>No olvides aumentar el contador con el fin de que se cumpla la condición, de otro modo se entraría en un ciclo infinito.</p>
-</div>
-<h2 id="funciones">Funciones<a class="headerlink" href="#funciones" title="Permanent link">&para;</a></h2>
-<p>Para definir una función, se usa la palabra <code>function</code> seguido del nombre de la función y entre paréntesis los argumentos.</p>
-<p>Se debe especificar la paabra clave <code>return</code>, de otro modo retornaría el último valor calculado.</p>
-<p>La función termina con un <code>end</code> e inmediatamente se compila.</p>
-<pre><code class="julia">function signo(x)
-    if x &lt; 0 resp = &quot;Negativo&quot;
-    elseif x &gt; 0 resp = &quot;Positivo&quot;
-        else resp = &quot;Es Cero&quot;
-    end
-    return resp
-end
-</code></pre>
-
-<p>una vez compilada, se puede usar.</p>
-<pre><code class="julia">signo(-5)
-</code></pre>
-
-<p>El resultado sería el siguiente</p>
-<blockquote>
-<p>&ldquo;Negativo&rdquo;</p>
-</blockquote>
-<h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2>
-<p>Julia tiene un gestor de paquetes en el cual se pueden descargar miles de ellos.</p>
-<p>Para acceder a ellos basta con entrar al modo paquete y escribir en la consola. Por ejemplo, para instalar el paquete <em>DataFrames</em> usaremos el siguiente comando</p>
-<pre><code class="julia">add DataFrames
-</code></pre>
-
-<p>alternativamente, desde la consola REPL podemos escribir</p>
-<pre><code class="julia">import Pkg
-Pkg.add(&quot;DataFrames&quot;)
-</code></pre>
-
-<p>Para comenzar a usarlo, escribimos desde la consola</p>
+<p>se puede escribir en la consola el siguiente comando:</p>
 <pre><code class="julia">using DataFrames
-</code></pre></div>
+datos = DataFrame(nombre =[&quot;ANGELICA&quot;,&quot;BRENDA&quot;,&quot;LILIANA&quot;,&quot;MARCO&quot;,&quot;FABIAN&quot;,&quot;MAURICIO&quot;],
+    grupo = [&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;C&quot;,&quot;C&quot;],
+    puntaje = [10,9,8,8,9,7]);
+print(datos)
+</code></pre>
+
+<p>Para visualizar los datos, se puede usar el comando <code>print()</code>. El resultado se muestra a continuación.</p>
+<p><img alt="Resultado de los datos" src="../img/datos.png" /></p></div>
             </div>
         </div>
 
