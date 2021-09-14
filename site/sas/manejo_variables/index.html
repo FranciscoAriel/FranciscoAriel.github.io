@@ -100,6 +100,10 @@
 <li>
     <a href="../../julia/intro_julia/" class="dropdown-item">Introducción a Julia</a>
 </li>
+                                    
+<li>
+    <a href="../../julia/basico_julia/" class="dropdown-item">Julia nivel básico</a>
+</li>
                                 </ul>
                             </li>
                         </ul>
@@ -501,9 +505,51 @@ RUN;
 <h4 id="do-continue">DO CONTINUE<a class="headerlink" href="#do-continue" title="Permanent link">&para;</a></h4>
 <p>SAS tiene una sentencia especial que permite, dentro de un ciclo, saltar al siguiente valor de la variable índice. Esto puede ser útil para prevenir que otras sentencias se ejecuten.</p>
 <p>El siguiente ejemplo muestra su uso.</p>
+<pre><code class="sas">DATA colores;
+    DO i = 1 to 4;
+        INPUT color :$8. @@;
+        j = _N_;
+        IF color IN (&quot;blanco&quot; &quot;negro&quot;) THEN CONTINUE;
+        OUTPUT;
+    END;
+    DATALINES;
+    negro azul rojo amarillo
+    azul verde rojo amarillo
+    verde rojo amarillo azul
+    rojo amarillo azul verde
+    blanco azul rojo amarillo
+    amarillo azul verde rojo
+    ;
+RUN;
+</code></pre>
+
+<p>El código anterior evita que en el dataset se ingresen los colores blanco o negro, ya que al cumplirse la condición no se ejecuta la sentencia <code>OUTPUT;</code>.</p>
 <p>Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n0vupy1vhs8gosn1tjd3zg8dtf76.htm">ayuda de SAS</a> para más información acerca de la sentencia <code>CONTINUE</code>.</p>
 <h4 id="do-leave">DO LEAVE<a class="headerlink" href="#do-leave" title="Permanent link">&para;</a></h4>
 <p>A diferencia de la sentencia <code>CONTINUE</code>, la sentencia <code>LEAVE</code> permite salir del ciclo <code>DO</code>.</p>
+<p>El siguiente ejemplo muestra el uso de la sentencia <code>LEAVE</code>.</p>
+<pre><code class="sas">DATA colores;
+    DO i = 1 to 4;
+        INPUT color :$8. @@;
+        j = _N_;
+        IF color IN (&quot;blanco&quot; &quot;negro&quot;) THEN LEAVE;
+        OUTPUT;
+    END;
+    DATALINES;
+    azul verde rojo amarillo
+    verde rojo amarillo azul
+    negro color1 color2 color3
+    azul rojo amarillo verde
+    rojo amarillo azul verde
+    blanco color1 color2 color3
+    azul rojo amarillo verde
+    amarillo azul verde rojo
+    ;
+RUN;
+</code></pre>
+
+<p>En este caso, cuando se cumple la condición, sale del ciclo DO y esto implica que se lea la siguiente línea por lo que no se toma en cuenta los valores que hay en las líneas 3 y 6.</p>
+<p>Consulte la sentencia <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ds2ref/p1irdset32xggmn1c7dwqmthxvnd.htm">LEAVE</a> para más información.</p>
 <h3 id="do-while">DO WHILE<a class="headerlink" href="#do-while" title="Permanent link">&para;</a></h3>
 <h3 id="do-until">DO UNTIL<a class="headerlink" href="#do-until" title="Permanent link">&para;</a></h3>
 <h2 id="arreglos">Arreglos<a class="headerlink" href="#arreglos" title="Permanent link">&para;</a></h2>

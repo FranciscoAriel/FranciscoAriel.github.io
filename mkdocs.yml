@@ -34,6 +34,7 @@ nav:
         - "Python nivel básico": python/basico.md
     - "Julia":
         - "Introducción a Julia": julia/intro_julia.md
+        - "Julia nivel básico": julia/basico_julia.md
 
 markdown_extensions:
     - smarty

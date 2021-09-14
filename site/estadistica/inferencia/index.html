@@ -100,6 +100,10 @@
 <li>
     <a href="../../julia/intro_julia/" class="dropdown-item">Introducción a Julia</a>
 </li>
+                                    
+<li>
+    <a href="../../julia/basico_julia/" class="dropdown-item">Julia nivel básico</a>
+</li>
                                 </ul>
                             </li>
                         </ul>
@@ -158,12 +162,41 @@
 <p>En la vida real quisiéramos estimar valores aproximados de características de interés de una población, por ejemplo la temperatura promedio de cierto lugar.</p>
 <p>Sería conveniente tener <em>fórmulas generales</em> para poder estimar algo desconocido únicamente utilizando información obtenida a partir de la observación de fenómenos; quisiéramos que esas <em>fórmulas generales</em> sean buenas y que se pudieran utilizar con otros datos. Por ello en este documento se detalla la forma en obtener estimadores de los parámetros poblacionales que son de interés.</p>
 <h2 id="propiedades-deseables-de-los-estimadores">Propiedades deseables de los estimadores<a class="headerlink" href="#propiedades-deseables-de-los-estimadores" title="Permanent link">&para;</a></h2>
-<p>Supóngase que <script type="math/tex">\mathbf{X}=( X_1,X_2,\ldots,X_n )</script> es una muestra aleatoria de una densidad <script type="math/tex">f_X(x;\theta)</script> conocida, la cual depende de un parámetro desconocido <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <script type="math/tex">\theta</script>, aunque sabemos que <script type="math/tex">\theta</script> pertenece a un espacio de parámetros <script type="math/tex">\Theta</script>. Si únicamente conocemos la muestra aleatoria (observaciones), <script type="math/tex">\mathbf{x}</script> que representan una realización de <script type="math/tex">\mathbf{X}</script>, ¿Cuál es el valor aproximado de <script type="math/tex">\theta</script>?.</p>
+<p>Supóngase que <script type="math/tex">\mathbf{X}=( X_1,X_2,\ldots,X_n )</script> es una muestra aleatoria de una densidad <script type="math/tex">f_X(x;\theta)</script> conocida, la cual depende de un parámetro desconocido<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <script type="math/tex">\theta</script>, aunque sabemos que <script type="math/tex">\theta</script> pertenece a un espacio de parámetros <script type="math/tex">\Theta</script>. Si únicamente conocemos la muestra aleatoria (observaciones), <script type="math/tex">\mathbf{x}</script> que representan una realización de <script type="math/tex">\mathbf{X}</script>, ¿Cuál es el valor aproximado de <script type="math/tex">\theta</script>?.</p>
+<div class="admonition note">
+<p class="admonition-title">Definición Estadística</p>
+<p>Una estadística es una <em>función de la muestra aleatoria</em> solamente. Note que es una <em>variable aleatoria</em>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Definición Estimador</p>
+<p>Un estimador del parámetro <script type="math/tex">\theta</script> es una estadística <script type="math/tex">T=v(\mathbf{X})</script>, función de la muestra aleatoria, tal que la estimación <script type="math/tex">t=v(\mathbf{x}) \in \Theta</script>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Definición Estimación</p>
+<p>Una estimación es una <em>realización de un estimador</em>, es decir, es un número real.</p>
+</div>
+<p>En otras palabras, para que <script type="math/tex">T</script> sea un estimador<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>, es necesario que al evaluar el estimador en cualquier muestra, <script type="math/tex">T</script> caiga dentro del espacio de parámetros <script type="math/tex">\Theta</script>. Se desea que los estimadores tengan ciertas propiedades deseables:</p>
+<div class="admonition note">
+<p class="admonition-title">Principio de suficiencia</p>
+<p>Si <script type="math/tex">Y_1=u( X_1,X_2,\ldots,X_n )</script> es una estadística suficiente para <script type="math/tex">\theta</script>, entonces cualquier inferencia sobre <script type="math/tex">\theta</script> va a depender de la muestra <script type="math/tex">X_1,X_2,\ldots,X_n</script>
+<em>únicamente a través de la estadística suficiente</em> <script type="math/tex">Y_1</script>.</p>
+<p>Es decir si tenemos dos muestras observadas <script type="math/tex">x_1,x_2,\ldots,x_n</script> y <script type="math/tex">y_1,y_2,\ldots,y_n</script>, entonces la inferencia sobre <script type="math/tex">\theta</script> será la misma sin importar que se use la muestra uno <script type="math/tex">\mathbf{x}=x_1,x_2,\ldots,x_n</script> o la muestra dos <script type="math/tex">\mathbf{y}=y_1,y_2,\ldots,y_n</script>; en otras palabras <script type="math/tex">u( x_1,\ldots,x_n ) =u( y_1,\ldots,y_n ) </script>.</p>
+</div>
+<p>La propiedad de suficiencia se refiere a que una estadística <script type="math/tex">Y_1</script>
+<em>concentra</em> toda la información acerca del parámetro de la muestra aleatoria en <em>una sola variable aleatoria</em>. Es decir debe tomar en cuenta a <em>toda la muestra</em>.</p>
+<p>La estadística suficiente es un tipo especial de estadística, ya que condensa la información de la muestra de tal forma que no se pierda ninguna información acerca del parámetro <script type="math/tex">\theta</script>.</p>
+<div class="admonition note">
+<p class="admonition-title">Definición Estadística suficiente</p>
+<p>Sea <script type="math/tex">\mathbf{X}</script> una muestra aleatoria con densidad conjunta <script type="math/tex">f_{\mathbf{X}}(\mathbf{x} ;\theta)</script>. Una estadística <script type="math/tex">Y_1=u(\mathbf{X}) </script> es suficiente si y sólo si <script type="math/tex">f_{\mathbf{X}|Y_1 } (\mathbf{x}|y_1)</script> no depende de <script type="math/tex">\theta</script>.</p>
+</div>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
 <p>Por ahora se considerará que <script type="math/tex">\theta</script> es de dimensión uno, aunque podría ser un vector de parámetros.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Note que podrían existir infinidad de estimadores con esta característica.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></div>

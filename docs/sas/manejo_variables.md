@@ -320,11 +320,59 @@ SAS tiene una sentencia especial que permite, dentro de un ciclo, saltar al sigu
 
 El siguiente ejemplo muestra su uso.
 
+````sas
+DATA colores;
+    DO i = 1 to 4;
+        INPUT color :$8. @@;
+        j = _N_;
+        IF color IN ("blanco" "negro") THEN CONTINUE;
+        OUTPUT;
+    END;
+    DATALINES;
+    negro azul rojo amarillo
+    azul verde rojo amarillo
+    verde rojo amarillo azul
+    rojo amarillo azul verde
+    blanco azul rojo amarillo
+    amarillo azul verde rojo
+    ;
+RUN;
+````
+
+El código anterior evita que en el dataset se ingresen los colores blanco o negro, ya que al cumplirse la condición no se ejecuta la sentencia `OUTPUT;`.
+
 Consulte la [ayuda de SAS](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n0vupy1vhs8gosn1tjd3zg8dtf76.htm) para más información acerca de la sentencia `CONTINUE`.
 
 #### DO LEAVE
 
 A diferencia de la sentencia `CONTINUE`, la sentencia `LEAVE` permite salir del ciclo `DO`.
+
+El siguiente ejemplo muestra el uso de la sentencia `LEAVE`.
+
+````sas
+DATA colores;
+    DO i = 1 to 4;
+        INPUT color :$8. @@;
+        j = _N_;
+        IF color IN ("blanco" "negro") THEN LEAVE;
+        OUTPUT;
+    END;
+    DATALINES;
+    azul verde rojo amarillo
+    verde rojo amarillo azul
+    negro color1 color2 color3
+    azul rojo amarillo verde
+    rojo amarillo azul verde
+    blanco color1 color2 color3
+    azul rojo amarillo verde
+    amarillo azul verde rojo
+    ;
+RUN;
+````
+
+En este caso, cuando se cumple la condición, sale del ciclo DO y esto implica que se lea la siguiente línea por lo que no se toma en cuenta los valores que hay en las líneas 3 y 6.
+
+Consulte la sentencia [LEAVE](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ds2ref/p1irdset32xggmn1c7dwqmthxvnd.htm) para más información.
 
 ### DO WHILE
 

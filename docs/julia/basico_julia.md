@@ -37,6 +37,22 @@ datos = DataFrame(nombre =["ANGELICA","BRENDA","LILIANA","MARCO","FABIAN","MAURI
 print(datos)
 ````
 
-Para visualizar los datos, se puede usar el comando `print()`. El resultado se muestra a continuación.
+Este código crea un objeto llamado _datos_ que es de tipo _DataFrame_. La forma de definir su contenido es mediante _constructores_ que en este caso son las columnas, aunque pueden ser vectores definidos previamente. 
+
+Para visualizar el objeto, se puede usar el comando `print()`. El resultado se muestra a continuación.
 
 ![Resultado de los datos](img/datos.png)
+
+### Leyendo un archivo CSV
+
+Para leer un archivo csv, recomienda el uso de los paquetes _CSV_ y _DataFrames_.
+
+El siguiente código muestra cómo importar un archivo csv a un objeto `DataFrame`.
+
+````julia
+using CSV, DataFrames
+mi_csv = CSV.read("C:\\Users\\Francisco\\census.csv",DataFrame)
+summary(mi_csv)
+````
+
+La primer línea carga los paquetes instalados previamente, para poder usar todas sus funciones y métodos. En la segunda, se usa la función `CSV.read()` especificándole el nombre de archivo y la función _sink_, en este caso será `DataFrame`, asignándolo al objeto _mi_csv_. Debido a que el archivo es grande se sugiere ver las dimensiones del dataframe usando la función `summary()`.

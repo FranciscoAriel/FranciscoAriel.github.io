@@ -7,3 +7,7 @@ function signo(x)
 end
 
 signo(-5)
+
+using CSV, DataFrames
+
+census = CSV.read("C:\\Users\\Francisco\\census.csv",DataFrame)
