@@ -145,8 +145,20 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
+            <li class="nav-item" data-level="1"><a href="#introduccion" class="nav-link">Introducción</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#variables" class="nav-link">Variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#listas" class="nav-link">Listas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#librerias" class="nav-link">Librerías</a>
               <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -154,6 +166,79 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
+<h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
+<p>En esta sección aprenderemos acerca de los objetos más básicos de python.</p>
+<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
+<p>Las variables son objetos que permiten almacenar un valor.</p>
+<p>Se pueden declarar usando el operador  <code>=</code>, por ejemplo</p>
+<pre><code class="python">x = 5
+y = 2.15
+a = &quot;hola&quot;
+</code></pre>
+
+<p>Para conocer el tipo de variable, se usa la función <code>type</code>, por ejemplo</p>
+<pre><code class="python">type(x)
+type(y)
+type(a)
+</code></pre>
+
+<p>La siguiente tabla muestra algunos de los tipos de datos que existen.</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Data Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x = &ldquo;Hello World&rdquo;</td>
+<td>str</td>
+</tr>
+<tr>
+<td>x = 20</td>
+<td>int</td>
+</tr>
+<tr>
+<td>x = 20.5</td>
+<td>float</td>
+</tr>
+<tr>
+<td>x = 1j</td>
+<td>complex</td>
+</tr>
+<tr>
+<td>x = [&ldquo;apple&rdquo;, &ldquo;banana&rdquo;, &ldquo;cherry&rdquo;]</td>
+<td>list</td>
+</tr>
+<tr>
+<td>x = (&ldquo;apple&rdquo;, &ldquo;banana&rdquo;, &ldquo;cherry&rdquo;)</td>
+<td>tuple</td>
+</tr>
+<tr>
+<td>x = range(6)</td>
+<td>range</td>
+</tr>
+<tr>
+<td>x = {&ldquo;name&rdquo; : &ldquo;John&rdquo;, &ldquo;age&rdquo; : 36}</td>
+<td>dict</td>
+</tr>
+<tr>
+<td>x = {&ldquo;apple&rdquo;, &ldquo;banana&rdquo;, &ldquo;cherry&rdquo;}</td>
+<td>set</td>
+</tr>
+<tr>
+<td>x = frozenset({&ldquo;apple&rdquo;, &ldquo;banana&rdquo;, &ldquo;cherry&rdquo;})</td>
+<td>frozenset</td>
+</tr>
+<tr>
+<td>x = True</td>
+<td>bool</td>
+</tr>
+</tbody>
+</table>
+<h2 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h2>
+<p>Uno de los principales objetos en python son las listas</p>
 <h2 id="librerias">Librerías<a class="headerlink" href="#librerias" title="Permanent link">&para;</a></h2>
 <p>El primer paso es llamar las librerías que se utilizarán en la sesión. Usaremos <strong>pandas</strong> y <strong>numpy</strong> y otra librería adicional llamada <strong>os</strong>.</p>
 <pre><code class="python">import pandas as pd

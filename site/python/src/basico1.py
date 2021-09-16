@@ -20,3 +20,10 @@ datos.describe()
 
 # Mostrar las primeras 5 observaciones
 datos.head(n=5)
+# vectores
+x=(1,2,3,4,5)
+type(x)
+print(x)
+y=(2,4,6,8,10)
+z=x+y
+print(z)
