@@ -9,46 +9,6 @@ date: 2020-02-06
 
 En esta sección aprenderemos acerca de los objetos más básicos de python.
 
-## Variables
-
-Las variables son objetos que permiten almacenar un valor.
-
-Se pueden declarar usando el operador  `=`, por ejemplo
-
-````python
-x = 5
-y = 2.15
-a = "hola"
-````
-
-Para conocer el tipo de variable, se usa la función `type`, por ejemplo
-
-````python
-type(x)
-type(y)
-type(a)
-````
-
-La siguiente tabla muestra algunos de los tipos de datos que existen.
-
-Example |Data Type|
---------|---------|
-x = "Hello World" |str |
-x = 20 |int |
-x = 20.5 |float |
-x = 1j |complex |
-x = ["apple", "banana", "cherry"] |list |
-x = ("apple", "banana", "cherry") |tuple |
-x = range(6) |range |
-x = {"name" : "John", "age" : 36} |dict |
-x = {"apple", "banana", "cherry"} |set |
-x = frozenset({"apple", "banana", "cherry"}) |frozenset |
-x = True |bool|
-
-## Listas
-
-Uno de los principales objetos en python son las listas
-
 ## Librerías
 
 El primer paso es llamar las librerías que se utilizarán en la sesión. Usaremos __pandas__ y __numpy__ y otra librería adicional llamada __os__.

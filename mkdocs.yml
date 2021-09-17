@@ -51,7 +51,7 @@ plugins:
 extra:
     version: 1.0
 
-copyright: Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a> <br>Iconos diseñados por <a href="https://www.flaticon.es/autores/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a>
+copyright: Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a>
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML

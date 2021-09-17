@@ -145,26 +145,29 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#instalacion" class="nav-link">Instalación</a>
+            <li class="nav-item" data-level="1"><a href="#introduccion" class="nav-link">Introducción</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="3"><a href="#anaconda" class="nav-link">Anaconda</a>
+            <li class="nav-item" data-level="2"><a href="#instalacion-e-interfaces-graficas" class="nav-link">Instalación e interfaces gráficas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#objetos" class="nav-link">Objetos</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#variables" class="nav-link">Variables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#listas" class="nav-link">Listas</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#diccionarios" class="nav-link">Diccionarios</a>
               <ul class="nav flex-column">
               </ul>
             </li>
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="2"><a href="#interfaces-graficas" class="nav-link">Interfaces gráficas</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="3"><a href="#consola" class="nav-link">Consola</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="3"><a href="#spyder" class="nav-link">Spyder</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="3"><a href="#jupyter-notebooks" class="nav-link">Jupyter Notebooks</a>
+            <li class="nav-item" data-level="2"><a href="#paquetes" class="nav-link">Paquetes</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -175,25 +178,103 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>Esta es un tutorial rápido sobre el programa.</p>
-<h2 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h2>
-<p>El sitio oficial de Python es <a href="https://www.python.org/">python.org</a>, sin embargo se recomienda instalar <strong>Anaconda</strong>, una distribución de Pthon que contiene muchos módulos y software adicional para trabajar con Python.</p>
-<h3 id="anaconda">Anaconda<a class="headerlink" href="#anaconda" title="Permanent link">&para;</a></h3>
+<h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
+<p>Este es un tutorial rápido sobre el programa enfocado principalmente al manejo de datos y temas relacionados con ciencias de datos.</p>
+<p>Python es un lenguaje que se emplea mucho en diversas áreas, sin embargo recientemente se ha vuelto muy popular en las áreas de ciencias de datos.</p>
+<p>Por esa razón hoy en día es prácticamente indispensable tener conocimientos en el programa.</p>
+<p><img alt="ícono python animado" src="../img/icon_py.png" /></p>
+<p>Iconos diseñados por <a href="https://www.freepik.com">Freepik</a> from <a href="https://www.flaticon.es/">Flaticon</a></p>
+<h2 id="instalacion-e-interfaces-graficas">Instalación e interfaces gráficas<a class="headerlink" href="#instalacion-e-interfaces-graficas" title="Permanent link">&para;</a></h2>
+<p>El sitio oficial de Python es <a href="https://www.python.org/">python.org</a>, sin embargo se recomienda instalar <strong>Anaconda</strong>, una distribución de Python que contiene muchos módulos y software adicional para trabajar con Python.</p>
+<div class="admonition note">
+<p class="admonition-title">Descarga</p>
 <p>Usted puede descargar el software gratuitamente. Visite la página de <a href="https://www.anaconda.com/distribution/">Anaconda</a> para más información.</p>
-<h2 id="interfaces-graficas">Interfaces gráficas<a class="headerlink" href="#interfaces-graficas" title="Permanent link">&para;</a></h2>
-<h3 id="consola">Consola<a class="headerlink" href="#consola" title="Permanent link">&para;</a></h3>
+</div>
 <p>Python corre desde la consola de windows (cmd o powershell), aunque puede ser llamada desde <strong>Anaconda Prompt</strong> o <strong>Anaconda Powershell Prompt</strong>.</p>
-<h3 id="spyder">Spyder<a class="headerlink" href="#spyder" title="Permanent link">&para;</a></h3>
-<p>Es otra interfaz gráfica destinada a desarrollar código eficientemente, ya que cuenta con varias opciones de configuración y ventanas con varias funciones.</p>
-<p>Esta interfaz gráfica ya viene incluida en Anaconda.</p>
-<h3 id="jupyter-notebooks">Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permanent link">&para;</a></h3>
-<p>Python tiene unos cuadernos interactivos para correr código interactivamente. Jupyter Notebooks se instala junto con Anaconda.</p></div>
+<p><strong>Spyder</strong> es otra interfaz gráfica destinada a desarrollar código eficientemente, ya que cuenta con varias opciones de configuración y ventanas con varias funciones. Esta interfaz gráfica ya viene incluida en Anaconda.</p>
+<p>Python tiene unos cuadernos interactivos para correr código al instante llamados <strong>Jupyter Notebooks</strong>, este software se instala junto con Anaconda y permite ejecutar no sólo código de python, sino que tiene plugins llamados <em>kernel</em> que permiten ejecutar código de otros lenguajes.</p>
+<h2 id="objetos">Objetos<a class="headerlink" href="#objetos" title="Permanent link">&para;</a></h2>
+<p>Al ser Python un lenguaje orientado a objetos, es necesario conocer sus objetos y algunas de sus propiedades.</p>
+<h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
+<p>Las variables son objetos que permiten almacenar un valor.</p>
+<p>Se pueden declarar usando el operador  <code>=</code>, por ejemplo</p>
+<pre><code class="python">x = 5
+y = 2.15
+a = &quot;hola&quot;
+</code></pre>
+
+<p>Para conocer el tipo de variable, se usa la función <code>type</code>, por ejemplo</p>
+<pre><code class="python">type(x)
+type(y)
+type(a)
+</code></pre>
+
+<p>La siguiente tabla muestra algunos de los tipos de datos que existen.</p>
+<table>
+<thead>
+<tr>
+<th>Ejemplo</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x = &ldquo;Hola Mundo!&rdquo;</td>
+<td>str</td>
+</tr>
+<tr>
+<td>x = 20</td>
+<td>int</td>
+</tr>
+<tr>
+<td>x = 20.5</td>
+<td>float</td>
+</tr>
+<tr>
+<td>x = 1j</td>
+<td>complex</td>
+</tr>
+<tr>
+<td>x = True</td>
+<td>bool</td>
+</tr>
+</tbody>
+</table>
+<p>Los objetos tienen métodos, por ejemplo, los objetos tipo <em>str</em> tienen métodos que los convierten en mayúsculas, por ejemplo</p>
+<pre><code class="python">a.upper()
+</code></pre>
+
+<h3 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h3>
+<p>Uno de los principales objetos en python son las listas. Las listas permiten guardar varios valores en una sola variable, además sus elementos están ordenados y pueden ser intercambiables. Una lista puede ser vista como un arreglo que permite valores duplicados.</p>
+<p>Por ejemplo para crear una lista se puede declarar de la siguiente forma:</p>
+<pre><code class="python">mi_lista = [&quot;manzana&quot;,&quot;naranja&quot;,&quot;pera&quot;,&quot;uva&quot;]
+print(mi_lista)
+</code></pre>
+
+<p>El resultado que se obtiene es el siguiente:</p>
+<blockquote>
+<p>[&lsquo;manzana&rsquo;, &lsquo;naranja&rsquo;, &lsquo;pera&rsquo;, &lsquo;uva&rsquo;]</p>
+</blockquote>
+<div class="admonition caution">
+<p class="admonition-title">Índices</p>
+<p>A diferencia de otros lenguajes de programación, el primer elemento de un objeto es el 0 y no el 1.</p>
+</div>
+<p>Para acceder a un elemento de una lista, se puede usar <code>[]</code> con el índice del elemento, también se puede definir un rango con <code>:</code>.</p>
+<pre><code class="python">mi_lista[0]
+mi_lista[:1]
+mi_lista[2:]
+</code></pre>
+
+<p>Para una referencia completa acerca de las lista consulte <a href="https://www.w3schools.com/python/python_lists.asp">Listas de Python</a>.</p>
+<h3 id="diccionarios">Diccionarios<a class="headerlink" href="#diccionarios" title="Permanent link">&para;</a></h3>
+<p>Otro tipo de arreglo que existe en python son los diccionarios.</p>
+<h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2></div>
             </div>
         </div>
 
         <footer class="col-md-12">
             <hr>
-                <p>Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a> <br>Iconos diseñados por <a href="https://www.flaticon.es/autores/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></p>
+                <p>Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a></p>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
