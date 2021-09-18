@@ -1,182 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Un sitio donde aprenderás desde lo básico hasta lo mas avanzado acerca de estadística y probabilidad, así como los mejores lenguajes de programación que se usan en estadística.">
-        <meta name="author" content="Francisco Ariel Vázquez Chávez">
-        <link rel="canonical" href="https://FranciscoAriel.github.io/site/">
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Estadística desde Cero</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Un sitio donde aprenderás desde lo básico hasta lo mas avanzado acerca de estadística y probabilidad, así como los mejores lenguajes de programación que se usan en estadística.">
+    <meta name="author" content="Francisco Ariel Vázquez Chávez">
+    <link rel="canonical" href="https://FranciscoAriel.github.io/site/">
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Estadística desde Cero</title>
+    <link href="./css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="./css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
-        <script src="js/jquery-1.10.2.min.js" defer></script>
-        <script src="js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/julia.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/sas.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script> 
-    </head>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/bootstrap-3.3.7.min.js"></script>
+    <script src="./js/highlight.pack.js"></script>
+    
+      <script src="./js/elasticlunr.min.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '.';
+      var is_top_frame = (window === window.parent);
+        
+        var pageToc = [
+          {title: "Bienvenido a Estad\u00edstica desde Cero", url: "#_top", children: [
+              {title: "Conceptos b\u00e1sicos", url: "#conceptos-basicos" },
+              {title: "Software estad\u00edstico", url: "#software-estadistico" },
+              {title: "Sobre el sitio", url: "#sobre-el-sitio" },
+          ]},
+        ];
 
-    <body class="homepage">
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href=".">Estadística desde Cero</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    </script>
+    <script src="./js/base.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
+</head>
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Estadística <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="estadistica/inferencia/" class="dropdown-item">Inferencia estadística</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">SAS <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="sas/intro_sas/" class="dropdown-item">Introducción a SAS</a>
-</li>
-                                    
-<li>
-    <a href="sas/basico_sas/" class="dropdown-item">Lectura y escritura de datos</a>
-</li>
-                                    
-<li>
-    <a href="sas/manejo_variables/" class="dropdown-item">Manipulación de bases</a>
-</li>
-                                    
-<li>
-    <a href="sas/reportes/" class="dropdown-item">Elaboración de reportes</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">R <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="r/intro_r/" class="dropdown-item">Introducción a R</a>
-</li>
-                                    
-<li>
-    <a href="r/basico_r/" class="dropdown-item">R nivel básico</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Python <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="python/intro_python/" class="dropdown-item">Introducción a Python</a>
-</li>
-                                    
-<li>
-    <a href="python/basico/" class="dropdown-item">Python nivel básico</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Julia <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="julia/intro_julia/" class="dropdown-item">Introducción a Julia</a>
-</li>
-                                    
-<li>
-    <a href="julia/basico_julia/" class="dropdown-item">Julia nivel básico</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/index.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+<nav class="navbar wm-page-top-frame">
+  <div class="container-fluid wm-top-container">
+    
+    <div class="wm-top-tool pull-right wm-vcenter">
+      <form class="dropdown wm-vcentered" id="wm-search-form" action="./search.html">
+        
+        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
+          ><i class="fa fa-search" aria-hidden="true"></i></button>
+
+        <div class="input-group input-group-sm wm-top-search">
+          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
+          <span class="input-group-btn" role="search">
+            
+            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
+            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
+            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </span>
         </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
+      </form>
     </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-level="1"><a href="#bienvenido-a-estadistica-desde-cero" class="nav-link">Bienvenido a Estadística desde Cero</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#conceptos-basicos" class="nav-link">Conceptos básicos</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#software-estadistico" class="nav-link">Software estadístico</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="3"><a href="#sas-software" class="nav-link">SAS &reg; Software</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="3"><a href="#r" class="nav-link">R</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="3"><a href="#python" class="nav-link">Python</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="3"><a href="#julia-nuevo" class="nav-link">Julia ¡NUEVO!</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="3"><a href="#jupyter-notebooks" class="nav-link">Jupyter Notebooks</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#sobre-el-sitio" class="nav-link">Sobre el sitio</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
+    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
+      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
 
-<h1 id="bienvenido-a-estadistica-desde-cero">Bienvenido a Estadística desde Cero<a class="headerlink" href="#bienvenido-a-estadistica-desde-cero" title="Permanent link">&para;</a></h1>
+    
+    
+
+    
+    <a href="" class="wm-top-brand wm-top-link wm-vcenter">
+      
+        <img class="wm-top-logo" src="./img/favicon.png"/>
+      
+      <div class="wm-top-title">
+        Estadística desde Cero<br>
+        
+          <span class="wm-top-version">1.0</span>
+        
+      </div>
+    </a>
+  </div>
+</nav>
+
+  <div id="main-content" class="wm-page-top-frame">
+    
+<nav class="wm-toc-pane">
+  
+    <ul class="wm-toctree wm-toc-repo">
+      <li class="wm-toc-li wm-toc-lev1">
+      <a class="wm-article-link wm-toc-text" href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/">
+        <i class="fa fa-github"></i>
+
+        GitHub
+      </a>
+      </li>
+    </ul>
+  <ul class="wm-toctree">
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Estadística</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="estadistica/inferencia/" class="wm-article-link wm-toc-text">Inferencia estadística</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">SAS</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="sas/intro_sas/" class="wm-article-link wm-toc-text">Introducción a SAS</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="sas/basico_sas/" class="wm-article-link wm-toc-text">Lectura y escritura de datos</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="sas/manejo_variables/" class="wm-article-link wm-toc-text">Manipulación de bases</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="sas/reportes/" class="wm-article-link wm-toc-text">Elaboración de reportes</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">R</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="r/intro_r/" class="wm-article-link wm-toc-text">Introducción a R</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="r/basico_r/" class="wm-article-link wm-toc-text">R nivel básico</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Python</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="python/intro_python/" class="wm-article-link wm-toc-text">Introducción a Python</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="python/basico/" class="wm-article-link wm-toc-text">Python nivel básico</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Julia</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="julia/intro_julia/" class="wm-article-link wm-toc-text">Introducción a Julia</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="julia/basico_julia/" class="wm-article-link wm-toc-text">Julia nivel básico</a>
+</li>
+  </ul>
+</li>
+
+  </ul>
+</nav>
+
+    <div class="wm-content-pane">
+      <iframe class="wm-article" name="article"></iframe>
+    </div>
+  </div>
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+
+    <h1 id="bienvenido-a-estadistica-desde-cero">Bienvenido a Estadística desde Cero<a class="headerlink" href="#bienvenido-a-estadistica-desde-cero" title="Permanent link">&para;</a></h1>
 <p>En este sitio web conocerás conceptos básicos de estadística así como fundamentos de diversos programas de software estadístico con el fin de iniciarse en el mundo de la ciencia de datos.</p>
 <p><img alt="Ilustración de una laptop" src="img/laptop.png" />
 Imagen de <a href="https://pixabay.com/es/users/sara_torda-888816/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286">Sara Torda</a> en <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286">Pixabay</a></p>
@@ -237,91 +241,25 @@ Imagen de <a href="https://pixabay.com/es/users/200degrees-2051452/?utm_source=l
 </ul>
 <blockquote>
 <p>SAS and all other SAS Institute Inc. product or service names are registered trademarks or trademarks of SAS Institute Inc. in the USA and other countries. &reg; indicates USA registration.</p>
-</blockquote></div>
-            </div>
-        </div>
+</blockquote>
 
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a></p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = ".",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="js/base.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-        <script src="search/main.js" defer></script>
+  <br>
+    
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+    <br>
 </div>
 
-    </body>
-</html>
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/index.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p><p>Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a></p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
 
+</body>
+</html>
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-09-17 23:29:03.496190+00:00
+Build Date UTC : 2021-09-18 14:39:44.188144+00:00
 -->

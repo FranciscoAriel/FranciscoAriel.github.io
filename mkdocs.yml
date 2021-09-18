@@ -7,7 +7,7 @@ repo_url: https://github.com/FranciscoAriel/FranciscoAriel.github.io
 edit_uri: blob/master/docs/
 
 theme:
-    name: yeti
+    name: windmill
     locale: es
     highlightjs: true
     hljs_languages:
@@ -50,6 +50,7 @@ plugins:
 
 extra:
     version: 1.0
+    logo: img/favicon.png
 
 copyright: Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a>
 
