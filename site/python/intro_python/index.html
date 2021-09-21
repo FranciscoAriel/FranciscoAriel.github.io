@@ -98,6 +98,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </div>
 <p>Python corre desde la consola de windows (cmd o powershell), aunque puede ser llamada desde <strong>Anaconda Prompt</strong> o <strong>Anaconda Powershell Prompt</strong>.</p>
 <p><strong>Spyder</strong> es otra interfaz gráfica destinada a desarrollar código eficientemente, ya que cuenta con varias opciones de configuración y ventanas con varias funciones. Esta interfaz gráfica ya viene incluida en Anaconda.</p>
+<p>También es posible usar python en Visual Studio Code, usando la extensión de Python. Cuando un código de es ejecutado, se abre una consola que ejecuta el código directamente en VSC. El uso del depurador también es una característica importante que se puede usar.</p>
 <p>Python tiene unos cuadernos interactivos para correr código al instante llamados <strong>Jupyter Notebooks</strong>, este software se instala junto con Anaconda y permite ejecutar no sólo código de python, sino que tiene plugins llamados <em>kernel</em> que permiten ejecutar código de otros lenguajes.</p>
 <h2 id="objetos">Objetos<a class="headerlink" href="#objetos" title="Permanent link">&para;</a></h2>
 <p>Al ser Python un lenguaje orientado a objetos, es necesario conocer sus objetos y algunas de sus propiedades.</p>
@@ -174,7 +175,53 @@ mi_lista[2:]
 <p>Para una referencia completa acerca de las lista consulte <a href="https://www.w3schools.com/python/python_lists.asp">Listas de Python</a>.</p>
 <h3 id="diccionarios">Diccionarios<a class="headerlink" href="#diccionarios" title="Permanent link">&para;</a></h3>
 <p>Otro tipo de arreglo que existe en python son los diccionarios.</p>
+<p>Los dicconarios son un arreglo conformado por pares de <strong>claves</strong> y <strong>valores</strong>. Los elementos de un diccionario están dentro de llaves separados por comas, y se usa dos puntos para asignar el valor a la clave. El siguiente ejemplo muestra un diccionario.</p>
+<pre><code class="python">dic = {
+  &quot;nombre&quot;: &quot;Juan&quot;,
+  &quot;apellido&quot;: &quot;Pérez&quot;,
+  &quot;edad&quot;: 30
+}
+</code></pre>
+
+<p>Los valores pueden ser una lista, por ejemplo:</p>
+<pre><code class="python">sexo = [&quot;M&quot;,&quot;F&quot;,&quot;M&quot;]
+dic = {
+  &quot;nombre&quot;: [&quot;Juan&quot;,&quot;María&quot;,&quot;José&quot;],
+  &quot;apellido&quot;: [&quot;Pérez&quot;,&quot;Martínez&quot;,&quot;Pérez&quot;],
+  &quot;edad&quot;: [30,50,45],
+  &quot;genero&quot;:sexo
+}
+</code></pre>
+
+<div class="admonition danger">
+<p class="admonition-title">Claves únicas</p>
+<p>Los diccionarios no permiten tener claves duplicadas, si se agrega una clave ya existente, se mantendrá la más reciente.</p>
+</div>
+<p>Es posible acceder a los elementos de un diccionario mediante sus claves, por ejemplo, para saber el nombre, se puede escribir</p>
+<pre><code class="python">dic[&quot;nombre&quot;]
+</code></pre>
+
+<p>Para una referencia completa acerca de los diccionarios consulte <a href="https://www.w3schools.com/python/python_dictionaries.asp">Diccionario de Python</a>.</p>
 <h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2>
+<p>La mayoría de los paquetes usados en ciencia de datos, son instalados mediante uando se instala Anaconda, por lo que solo es necesario llamar los paquetes necesarios.</p>
+<p>Por ejemplo, para usar las librerías <strong>pandas</strong> y <strong>numpy</strong> y otra librería adicional llamada <strong>os</strong> se puede ejecutar el siguiente código.</p>
+<pre><code class="python">import pandas as pd
+import numpy as np
+import os
+</code></pre>
+
+<div class="admonition nota">
+<p class="admonition-title">Nota</p>
+<p>En ocasiones es preferible usar nombres más cortos para referirnos a
+los nombres de las librerías. Por ejemplo, a <code>pandas</code> le llamaremos <code>pd</code> y <code>np</code> para referirnos a <code>numpy</code>.</p>
+</div>
+<p>si solo se desea llamar una función , se puede ejecutar el siguiente código.</p>
+<pre><code class="python">from pandas import read_csv
+</code></pre>
+
+<p>Sin embargo, se puede instalar paquetes adicionales desde la consola con los siguientes comandos:</p>
+<pre><code class="c">pip install paquete
+</code></pre>
 
   <br>
     

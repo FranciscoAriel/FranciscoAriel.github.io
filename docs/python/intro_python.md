@@ -29,6 +29,8 @@ Python corre desde la consola de windows (cmd o powershell), aunque puede ser ll
 
 **Spyder** es otra interfaz gráfica destinada a desarrollar código eficientemente, ya que cuenta con varias opciones de configuración y ventanas con varias funciones. Esta interfaz gráfica ya viene incluida en Anaconda.
 
+También es posible usar python en Visual Studio Code, usando la extensión de Python. Cuando un código de es ejecutado, se abre una consola que ejecuta el código directamente en VSC. El uso del depurador también es una característica importante que se puede usar.
+
 Python tiene unos cuadernos interactivos para correr código al instante llamados **Jupyter Notebooks**, este software se instala junto con Anaconda y permite ejecutar no sólo código de python, sino que tiene plugins llamados _kernel_ que permiten ejecutar código de otros lenguajes.
 
 ## Objetos
@@ -103,4 +105,64 @@ Para una referencia completa acerca de las lista consulte [Listas de Python](htt
 
 Otro tipo de arreglo que existe en python son los diccionarios.
 
+Los dicconarios son un arreglo conformado por pares de **claves** y **valores**. Los elementos de un diccionario están dentro de llaves separados por comas, y se usa dos puntos para asignar el valor a la clave. El siguiente ejemplo muestra un diccionario.
+
+````python
+dic = {
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "edad": 30
+}
+````
+
+Los valores pueden ser una lista, por ejemplo:
+
+````python
+sexo = ["M","F","M"]
+dic = {
+  "nombre": ["Juan","María","José"],
+  "apellido": ["Pérez","Martínez","Pérez"],
+  "edad": [30,50,45],
+  "genero":sexo
+}
+````
+
+!!! danger "Claves únicas"
+     Los diccionarios no permiten tener claves duplicadas, si se agrega una clave ya existente, se mantendrá la más reciente.
+
+Es posible acceder a los elementos de un diccionario mediante sus claves, por ejemplo, para saber el nombre, se puede escribir
+
+````python
+dic["nombre"]
+````
+
+Para una referencia completa acerca de los diccionarios consulte [Diccionario de Python](https://www.w3schools.com/python/python_dictionaries.asp).
+
+
 ## Paquetes
+
+La mayoría de los paquetes usados en ciencia de datos, son instalados mediante uando se instala Anaconda, por lo que solo es necesario llamar los paquetes necesarios.
+
+Por ejemplo, para usar las librerías __pandas__ y __numpy__ y otra librería adicional llamada __os__ se puede ejecutar el siguiente código.
+
+````python
+import pandas as pd
+import numpy as np
+import os
+````
+
+!!! Nota
+    En ocasiones es preferible usar nombres más cortos para referirnos a
+    los nombres de las librerías. Por ejemplo, a `pandas` le llamaremos `pd` y `np` para referirnos a `numpy`.
+
+si solo se desea llamar una función , se puede ejecutar el siguiente código.
+
+````python
+from pandas import read_csv
+````
+
+Sin embargo, se puede instalar paquetes adicionales desde la consola con los siguientes comandos:
+
+````c
+pip install paquete
+````

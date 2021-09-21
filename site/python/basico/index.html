@@ -33,7 +33,7 @@
         
         var pageToc = [
           {title: "Introducci\u00f3n", url: "#_top", children: [
-              {title: "Librer\u00edas", url: "#librerias" },
+              {title: "Lectura de datos", url: "#lectura-de-datos" },
           ]},
         ];
 
@@ -83,21 +83,38 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
-<p>En esta sección aprenderemos acerca de los objetos más básicos de python.</p>
-<h2 id="librerias">Librerías<a class="headerlink" href="#librerias" title="Permanent link">&para;</a></h2>
-<p>El primer paso es llamar las librerías que se utilizarán en la sesión. Usaremos <strong>pandas</strong> y <strong>numpy</strong> y otra librería adicional llamada <strong>os</strong>.</p>
+<p>En esta sección aprenderemos acerca de cómo leer datos en python, así como el manejo de datos con python.</p>
+<h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
+<p>Para manejar datos en python se usan librerías especiales</p>
+<p>El primer paso es llamar las librerías que se utilizarán en la sesión.</p>
 <pre><code class="python">import pandas as pd
 import numpy as np
 import os
 </code></pre>
 
-<div class="admonition nota">
-<p class="admonition-title">Nota</p>
-<p>En ocasiones es preferible usar nombres más cortos para referirnos a
-los nombres de las librerías. Por ejemplo, a <code>pandas</code> le llamaremos <code>pd</code> y <code>np</code> para referirnos a <code>numpy</code>.</p>
-</div>
-<p>Ahora llamaremos a la función para leer los datos.</p>
-<pre><code class="python">datos = pd.read_csv(&quot;census.csv&quot;)
+<p>La librería <strong>pandas</strong> es la que nos permite manejar objetos de tipo <em>dataframe</em>.</p>
+<h3 id="ingreso-de-datos-de-forma-manual">Ingreso de datos de forma manual<a class="headerlink" href="#ingreso-de-datos-de-forma-manual" title="Permanent link">&para;</a></h3>
+<p>Para introducir datos de manera manual, se puede usar la siguiente sintaxis:</p>
+<pre><code class="python">import pandas as pd
+
+nombres = [&quot;ANGELICA&quot;,&quot;BRENDA&quot;,&quot;LILIANA&quot;,&quot;MARCO&quot;,&quot;FABIAN&quot;,&quot;MAURICIO&quot;]
+gpo = [&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;C&quot;,&quot;C&quot;]
+puntajes = [10,9,8,8,9,7]
+
+dic = {&quot;nombre&quot;:nombres,&quot;grupo&quot;:gpo,&quot;puntaje&quot;:puntajes}
+
+mi_base = pd.DataFrame(dic)
+print(mi_base)
+</code></pre>
+
+<p>La forma más sencilla de crear un dataframe es mediante la definición de un diccionario con las listas definidas y posteriormente se usa la función <code>DataFrame</code> del paquete <em>pandas</em> y se crea el objeto <code>datos</code>. El objeto <code>datos</code> hereda las claves del diccionario y los valores se escriben en el dataset.</p>
+<p>La siguiente imagen muestra el dataframe definido.</p>
+<p><img alt="Resultado del dataset" src="../img/dataframe.png" /></p>
+<h3 id="lectura-de-archivos-externos">Lectura de archivos externos<a class="headerlink" href="#lectura-de-archivos-externos" title="Permanent link">&para;</a></h3>
+<p>Para leer archivos externos, se usa la función <code>read_csv</code> de la librería <em>pandas</em> para leer los datos.</p>
+<pre><code class="python">import pandas as pd
+
+datos = pd.read_csv(&quot;census.csv&quot;)
 </code></pre>
 
 <p>Como puede observarse, <code>datos</code> es un objeto <strong>DataFrame</strong> que se define gracias a la función <code>read_csv()</code> de pandas. Se puede obtener información del objeto usando el siguiente comando.</p>
@@ -108,6 +125,8 @@ los nombres de las librerías. Por ejemplo, a <code>pandas</code> le llamaremos 
 <pre><code class="python">datos.describe()
 </code></pre>
 
+<p>La siguiente imagen muestra el resultado obtenido de la consola.</p>
+<p><img alt="Salida del objeto dataframe" src="../img/info.png" /></p>
 <p>Para visualizar los primeros 5 datos se puede usar este código</p>
 <pre><code class="python">datos.head(n=5)
 </code></pre>

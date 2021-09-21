@@ -11,6 +11,16 @@ os.chdir("C:\\Users\\Francisco\\FranciscoAriel.github.io\\site\\python\\src")
 root=os.getcwd()
 print(root)
 
+nombres = ["ANGELICA","BRENDA","LILIANA","MARCO","FABIAN","MAURICIO"]
+gpo = ["A","A","B","B","C","C"]
+puntajes = [10,9,8,8,9,7]
+
+dic = {"nombre":nombres,"grupo":gpo,"puntaje":puntajes}
+
+mi_base = pd.DataFrame(dic)
+
+print(mi_base)
+
 # Leer archivos en csv (mismo directorio)
 datos = pd.read_csv("census.csv")
 
