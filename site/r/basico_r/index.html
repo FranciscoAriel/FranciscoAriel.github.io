@@ -32,7 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Conociendo R", url: "#_top", children: [
+          {title: "Introducci\u00f3n", url: "#_top", children: [
+              {title: "Lectura de datos", url: "#lectura-de-datos" },
+              {title: "Exploraci\u00f3n de datos", url: "#exploracion-de-datos" },
           ]},
         ];
 
@@ -81,7 +83,49 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h2 id="conociendo-r">Conociendo R<a class="headerlink" href="#conociendo-r" title="Permanent link">&para;</a></h2>
+    <h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
+<p>En esta sección se aprenderá la forma de leer y manejar datos en R, ya sea usando las funciones</p>
+<h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
+<p>R tiene objetos dedicados al manejo de datos, por ejemplo el objeto <code>data.frame</code>, aunque tambien pueden usarse otros paquetes para el mismo fin.</p>
+<p>En esta sección se mostrará la forma de crear datasets y leer archivos externos en R.</p>
+<h3 id="creacion-de-datasets-de-forma-manual">Creación de datasets de forma manual<a class="headerlink" href="#creacion-de-datasets-de-forma-manual" title="Permanent link">&para;</a></h3>
+<p>Una manera fácil de crear conjunto de datos es mediante la función <code>data.frame</code> pasándole vectores como argumentos. Por ejemplo, el siguiente código muestra cómo construir un conjunto de datos.</p>
+<pre><code class="r">datos = data.frame(nombre =c(&quot;ANGELICA&quot;,&quot;BRENDA&quot;,&quot;LILIANA&quot;,&quot;MARCO&quot;,&quot;FABIAN&quot;,&quot;MAURICIO&quot;),
+                  grupo = c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;C&quot;,&quot;C&quot;),
+                  puntaje = c(10,9,8,8,9,7))
+</code></pre>
+
+<p>El resultado es el siguiente.</p>
+<p><img alt="Resultado del dataframe" src="../img/dataframe1.png" /></p>
+<h3 id="lectura-de-datos-externos-en-r">Lectura de datos externos en R<a class="headerlink" href="#lectura-de-datos-externos-en-r" title="Permanent link">&para;</a></h3>
+<p>R tiene muchos paquetes que permiten leer una gran cantidad de tipos de archivos externos. El tipo de archivos más común es el archivo delimitado por comas o CSV.</p>
+<p>El siguiente código muestra como leer un archivo externo.</p>
+<pre><code class="r">census &lt;- read.csv(&quot;C:/Users/Usuario/census.csv&quot;)
+</code></pre>
+
+<p>El resultado se muestra a continuación.</p>
+<p><img alt="Resultado de la importación" src="../img/dataframe2.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Asistente de importación</p>
+<p>RStudio cuenta un asistente de importación que nos permite visualizar los datos que se van a importar o seleccionar el tipo de dato.</p>
+</div>
+<h3 id="leer-archivos-de-excel">Leer archivos de excel<a class="headerlink" href="#leer-archivos-de-excel" title="Permanent link">&para;</a></h3>
+<p>Para leer archivos es formato de Excel, se puede hacer uso de la librería <code>readxl</code> y la función <code>read_excel</code>.</p>
+<p>El siguiente código muestra su uso:</p>
+<pre><code class="r">library(readxl)
+census &lt;- read_excel(&quot;census.xlsx&quot;)
+</code></pre>
+
+<p>Para más información visite <a href="https://readxl.tidyverse.org/">readxl</a>.</p>
+<h3 id="importar-datos-otros-softwares">Importar datos otros softwares<a class="headerlink" href="#importar-datos-otros-softwares" title="Permanent link">&para;</a></h3>
+<p>El paquete <em>haven</em> permite leer y escribir bases de diversos archivos.</p>
+<p>El siguiente código muestra como importar un archivo de <strong>SAS &reg; software</strong>.</p>
+<pre><code class="r">library(haven)
+customer &lt;- read_sas(&quot;customer.sas7bdat&quot;, NULL)
+</code></pre>
+
+<p>Para más información visite <a href="https://haven.tidyverse.org/">haven</a>.</p>
+<h2 id="exploracion-de-datos">Exploración de datos<a class="headerlink" href="#exploracion-de-datos" title="Permanent link">&para;</a></h2>
 
   <br>
     

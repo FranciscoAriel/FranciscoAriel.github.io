@@ -105,7 +105,7 @@ Para una referencia completa acerca de las lista consulte [Listas de Python](htt
 
 Otro tipo de arreglo que existe en python son los diccionarios.
 
-Los dicconarios son un arreglo conformado por pares de **claves** y **valores**. Los elementos de un diccionario están dentro de llaves separados por comas, y se usa dos puntos para asignar el valor a la clave. El siguiente ejemplo muestra un diccionario.
+Los diccionarios son un arreglo conformado por pares de **claves** y **valores**. Los elementos de un diccionario están dentro de llaves separados por comas, y se usa dos puntos para asignar el valor a la clave. El siguiente ejemplo muestra un diccionario.
 
 ````python
 dic = {
