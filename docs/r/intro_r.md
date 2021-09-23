@@ -242,9 +242,54 @@ Potencia|`^`|`A ^ B`|Las matrices deben tener la misma dimensión
 
 Adicional a esto, se puede hacer la _multiplicación de matrices_ usando el operador `%*%`.
 
-Para poder realizar esta operación, las matrices deben ser **conformables**, es decir, el número de columnas de A, debe ser iguales al número de renglones de B y el resultado será una matriz de dimensiones iguales al número de renglones de A y el mismo número de columnas de B.
+Para poder realizar esta operación, las matrices deben ser **comformables**, es decir, el número de columnas de A, debe ser iguales al número de renglones de B y el resultado será una matriz de dimensiones iguales al número de renglones de A y el mismo número de columnas de B.
 
 ### Data Frames
+
+Los data fames son objetos usados para almacenar datos. PAra conocer todas sus propiedades, vea la ayuda de R usando el comando `help("data.frame")`.
+
+Una manera fácil de crear conjunto de datos es mediante la función `data.frame()`, pasándole vectores como argumentos. Por ejemplo, el siguiente código muestra cómo construir un conjunto de datos.
+
+````r
+datos = data.frame(
+    nombre = c("ANGELICA","BRENDA","LILIANA","MARCO","FABIAN","MAURICIO"), 
+    grupo = c("A","A","B","B","C","C"),
+    puntaje = c(10,9,8,8,9,7))
+````
+
+El resultado es el siguiente.
+
+![Resultado del dataframe](img/dataframe1.png)
+
+Un dataset comparte propiedades similares a las listas y vectores. Para acceder a sus valores, se puede usar los corchetes `[renglón,columna]` para seleccionar ya sea renglones, columnas o ambas.
+
+````r
+datos[3,]
+datos[,2]
+datos[1:3,1]
+````
+
+También es posible acceder a las variables mediante `$`, seguido del nombre de la variable. Note que el resultado es un vector.
+
+````r
+datos$nombre
+datos$nombre[1:3]
+````
+
+Se pueden agregar nuevas variables usando el operador `$` seguido del nuevo nombre, por ejemplo
+
+````r
+datos$sexo <- c("F","F","F","M","M","M")
+````
+
+![Resultado del dataframe](img/dataframe3.png)
+
+Es posible pasar de una matriz a un datafreme mediante la función `as.data.frame()`, pasándole como argumento una matriz.
+
+````r
+A = matrix(1:9,3,3)
+Adato = as.data.frame(A)
+````
 
 ### Listas
 

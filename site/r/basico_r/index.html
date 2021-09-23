@@ -88,15 +88,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
 <p>R tiene objetos dedicados al manejo de datos, por ejemplo el objeto <code>data.frame</code>, aunque tambien pueden usarse otros paquetes para el mismo fin.</p>
 <p>En esta sección se mostrará la forma de crear datasets y leer archivos externos en R.</p>
-<h3 id="creacion-de-datasets-de-forma-manual">Creación de datasets de forma manual<a class="headerlink" href="#creacion-de-datasets-de-forma-manual" title="Permanent link">&para;</a></h3>
-<p>Una manera fácil de crear conjunto de datos es mediante la función <code>data.frame</code> pasándole vectores como argumentos. Por ejemplo, el siguiente código muestra cómo construir un conjunto de datos.</p>
-<pre><code class="r">datos = data.frame(nombre =c(&quot;ANGELICA&quot;,&quot;BRENDA&quot;,&quot;LILIANA&quot;,&quot;MARCO&quot;,&quot;FABIAN&quot;,&quot;MAURICIO&quot;),
-                  grupo = c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;C&quot;,&quot;C&quot;),
-                  puntaje = c(10,9,8,8,9,7))
-</code></pre>
-
-<p>El resultado es el siguiente.</p>
-<p><img alt="Resultado del dataframe" src="../img/dataframe1.png" /></p>
 <h3 id="lectura-de-datos-externos-en-r">Lectura de datos externos en R<a class="headerlink" href="#lectura-de-datos-externos-en-r" title="Permanent link">&para;</a></h3>
 <p>R tiene muchos paquetes que permiten leer una gran cantidad de tipos de archivos externos. El tipo de archivos más común es el archivo delimitado por comas o CSV.</p>
 <p>El siguiente código muestra como leer un archivo externo.</p>

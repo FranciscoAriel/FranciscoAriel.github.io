@@ -15,20 +15,6 @@ R tiene objetos dedicados al manejo de datos, por ejemplo el objeto `data.frame`
 
 En esta sección se mostrará la forma de crear datasets y leer archivos externos en R.
 
-### Creación de datasets de forma manual
-
-Una manera fácil de crear conjunto de datos es mediante la función `data.frame` pasándole vectores como argumentos. Por ejemplo, el siguiente código muestra cómo construir un conjunto de datos.
-
-````r
-datos = data.frame(nombre =c("ANGELICA","BRENDA","LILIANA","MARCO","FABIAN","MAURICIO"),
-                  grupo = c("A","A","B","B","C","C"),
-                  puntaje = c(10,9,8,8,9,7))
-````
-
-El resultado es el siguiente.
-
-![Resultado del dataframe](img/dataframe1.png)
-
 ### Lectura de datos externos en R
 
 R tiene muchos paquetes que permiten leer una gran cantidad de tipos de archivos externos. El tipo de archivos más común es el archivo delimitado por comas o CSV.

@@ -217,3 +217,11 @@ y el resultado será
 > age weight height
 
 Para más información acerca de sentencias y variables macro visite la [documentación de SAS](https://documentation.sas.com/?cdcId=pgmsascdc&cdcVersion=9.4_3.5&docsetId=mcrolref&docsetTarget=titlepage.htm&locale=es).
+
+## Consiguiendo ayuda
+
+En internet existe muchos recursos para encontrar ayuda acerca de SAS.
+
+Una de los mejores sitios para encontrar ayuda es en el foro de [sas communities](https://communities.sas.com/). También existe una versión en [español](https://communities.sas.com/t5/SAS-Spanish-Community/gh-p/sasspanish) enfocada en usuarios de México y Latinoamérica.
+
+También hay un [blog](https://blogs.sas.com/content/) en donde se abordan distintos temas especializados tales como [gráficos](https://blogs.sas.com/content/author/robertallison/), [programación](https://blogs.sas.com/content/author/rickwicklin/), entre otros.

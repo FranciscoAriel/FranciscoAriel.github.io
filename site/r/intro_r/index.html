@@ -285,8 +285,39 @@ A[c(1,3),1]
 </tbody>
 </table>
 <p>Adicional a esto, se puede hacer la <em>multiplicación de matrices</em> usando el operador <code>%*%</code>.</p>
-<p>Para poder realizar esta operación, las matrices deben ser <strong>conformables</strong>, es decir, el número de columnas de A, debe ser iguales al número de renglones de B y el resultado será una matriz de dimensiones iguales al número de renglones de A y el mismo número de columnas de B.</p>
+<p>Para poder realizar esta operación, las matrices deben ser <strong>comformables</strong>, es decir, el número de columnas de A, debe ser iguales al número de renglones de B y el resultado será una matriz de dimensiones iguales al número de renglones de A y el mismo número de columnas de B.</p>
 <h3 id="data-frames">Data Frames<a class="headerlink" href="#data-frames" title="Permanent link">&para;</a></h3>
+<p>Los data fames son objetos usados para almacenar datos. PAra conocer todas sus propiedades, vea la ayuda de R usando el comando <code>help("data.frame")</code>.</p>
+<p>Una manera fácil de crear conjunto de datos es mediante la función <code>data.frame()</code>, pasándole vectores como argumentos. Por ejemplo, el siguiente código muestra cómo construir un conjunto de datos.</p>
+<pre><code class="r">datos = data.frame(
+    nombre = c(&quot;ANGELICA&quot;,&quot;BRENDA&quot;,&quot;LILIANA&quot;,&quot;MARCO&quot;,&quot;FABIAN&quot;,&quot;MAURICIO&quot;), 
+    grupo = c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;,&quot;C&quot;,&quot;C&quot;),
+    puntaje = c(10,9,8,8,9,7))
+</code></pre>
+
+<p>El resultado es el siguiente.</p>
+<p><img alt="Resultado del dataframe" src="../img/dataframe1.png" /></p>
+<p>Un dataset comparte propiedades similares a las listas y vectores. Para acceder a sus valores, se puede usar los corchetes <code>[renglón,columna]</code> para seleccionar ya sea renglones, columnas o ambas.</p>
+<pre><code class="r">datos[3,]
+datos[,2]
+datos[1:3,1]
+</code></pre>
+
+<p>También es posible acceder a las variables mediante <code>$</code>, seguido del nombre de la variable. Note que el resultado es un vector.</p>
+<pre><code class="r">datos$nombre
+datos$nombre[1:3]
+</code></pre>
+
+<p>Se pueden agregar nuevas variables usando el operador <code>$</code> seguido del nuevo nombre, por ejemplo</p>
+<pre><code class="r">datos$sexo &lt;- c(&quot;F&quot;,&quot;F&quot;,&quot;F&quot;,&quot;M&quot;,&quot;M&quot;,&quot;M&quot;)
+</code></pre>
+
+<p><img alt="Resultado del dataframe" src="../img/dataframe3.png" /></p>
+<p>Es posible pasar de una matriz a un datafreme mediante la función <code>as.data.frame()</code>, pasándole como argumento una matriz.</p>
+<pre><code class="r">A = matrix(1:9,3,3)
+Adato = as.data.frame(A)
+</code></pre>
+
 <h3 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h3>
 <h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2>
 <p>R dispone de miles de paquetes que pueden descargarse libremente para enriquecerse son nuevas características. Estos paquetes están almacenados en el <a href="https://cran.r-project.org/">CRAN</a> y pueden instalarse fácilmente desde la consola con el siguiente comando</p>
