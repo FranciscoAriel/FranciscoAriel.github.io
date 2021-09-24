@@ -1,89 +1,763 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-    <meta name="author" content="Francisco Ariel Vázquez Chávez">
-    <link rel="canonical" href="https://FranciscoAriel.github.io/site/sas/basico_sas/">
-    <link rel="shortcut icon" href="../../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Lectura y escritura de datos - Estadística desde Cero</title>
-    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/highlight.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../../js/jquery-3.2.1.min.js"></script>
-    <script src="../../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../../js/highlight.pack.js"></script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Un sitio donde aprenderás desde lo básico hasta lo mas avanzado acerca de estadística y probabilidad, así como los mejores lenguajes de programación que se usan en estadística.">
+      
+      
+        <link rel="canonical" href="https://FranciscoAriel.github.io/site/sas/basico_sas/">
+      
+      
+        <meta name="author" content="Francisco Ariel Vázquez Chávez">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
     
-    <base target="_top">
-    <script>
-      var base_url = '../..';
-      var is_top_frame = false;
-        
-        var pageToc = [
-          {title: "Lectura de datos", url: "#_top", children: [
-              {title: "Creando datasets", url: "#creando-datasets" },
-              {title: "Escritura a un archivo externo", url: "#escritura-a-un-archivo-externo" },
-          ]},
-        ];
-
-    </script>
-    <script src="../../js/base.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> 
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
     
-
+      
+        <title>SAS básico - Estadística desde Cero</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
     
     
       
     
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lectura-de-datos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://FranciscoAriel.github.io/site/" title="Estadística desde Cero" class="md-header-nav__button md-logo" aria-label="Estadística desde Cero">
+      
+  <img src="../../img/favicon.png" alt="logo">
 
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../manejo_variables/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../manejo_variables/" class="btn btn-xs btn-link">
-        Manipulación de bases
-      </a>
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Estadística desde Cero
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              SAS básico
+            
+          </span>
+        </div>
+      
     </div>
     
-    <div class="wm-article-nav">
-      <a href="../intro_sas/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../intro_sas/" class="btn btn-xs btn-link">
-        Introducción a SAS
-      </a>
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
     </div>
-    
   </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://FranciscoAriel.github.io/site/" title="Estadística desde Cero" class="md-nav__button md-logo" aria-label="Estadística desde Cero">
+      
+  <img src="../../img/favicon.png" alt="logo">
+
+    </a>
+    Estadística desde Cero
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Estadística
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Estadística" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        <span class="md-nav__icon md-icon"></span>
+        Estadística
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../estadistica/inferencia/" title="Inferencia estadística" class="md-nav__link">
+      Inferencia estadística
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
 
     
+      
+      
+      
 
-    <h1 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h1>
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      SAS
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="SAS" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        SAS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../intro_sas/" title="Introducción a SAS" class="md-nav__link">
+      Introducción a SAS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Lectura y escritura de datos
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Lectura y escritura de datos" class="md-nav__link md-nav__link--active">
+      Lectura y escritura de datos
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creando-datasets" class="md-nav__link">
+    Creando datasets
+  </a>
+  
+    <nav class="md-nav" aria-label="Creando datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion-de-valores-de-forma-manual" class="md-nav__link">
+    Introducción de valores de forma manual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lectura-de-datos-desde-un-archivo-externo" class="md-nav__link">
+    Lectura de datos desde un archivo externo
+  </a>
+  
+    <nav class="md-nav" aria-label="Lectura de datos desde un archivo externo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lectura-de-un-archivo-de-ancho-fijo" class="md-nav__link">
+    Lectura de un archivo de ancho fijo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lectura-de-un-archivo-de-texto-delimitado" class="md-nav__link">
+    Lectura de un archivo de texto delimitado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leyendo-archivos-desde-web" class="md-nav__link">
+    Leyendo archivos desde web
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seleccion-de-observaciones" class="md-nav__link">
+    Selección de observaciones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usando-un-procedimiento-para-leer-datos-externos" class="md-nav__link">
+    Usando un procedimiento para leer datos externos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escritura-a-un-archivo-externo" class="md-nav__link">
+    Escritura a un archivo externo
+  </a>
+  
+    <nav class="md-nav" aria-label="Escritura a un archivo externo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escritura-de-un-archivo-delimitado" class="md-nav__link">
+    Escritura de un archivo delimitado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escritura-de-un-archivo-de-texto-de-ancho-fijo" class="md-nav__link">
+    Escritura de un archivo de texto de ancho fijo
+  </a>
+  
+    <nav class="md-nav" aria-label="Escritura de un archivo de texto de ancho fijo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-archivos-con-encabezados" class="md-nav__link">
+    Crear archivos con encabezados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leer-y-modificar-archivos-de-texto" class="md-nav__link">
+    Leer y modificar archivos de texto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escritura-de-datos-con-el-procedimiento-export" class="md-nav__link">
+    Escritura de datos con el procedimiento EXPORT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../manejo_variables/" title="Manipulación de bases" class="md-nav__link">
+      Manipulación de bases
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../reportes/" title="Elaboración de reportes" class="md-nav__link">
+      Elaboración de reportes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      R
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="R" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        R
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../r/intro_r/" title="Introducción a R" class="md-nav__link">
+      Introducción a R
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../r/basico_r/" title="R nivel básico" class="md-nav__link">
+      R nivel básico
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Python
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Python" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/intro_python/" title="Introducción a Python" class="md-nav__link">
+      Introducción a Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python/basico/" title="Python nivel básico" class="md-nav__link">
+      Python nivel básico
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Julia
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Julia" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Julia
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../julia/intro_julia/" title="Introducción a Julia" class="md-nav__link">
+      Introducción a Julia
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../julia/basico_julia/" title="Julia nivel básico" class="md-nav__link">
+      Julia nivel básico
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creando-datasets" class="md-nav__link">
+    Creando datasets
+  </a>
+  
+    <nav class="md-nav" aria-label="Creando datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion-de-valores-de-forma-manual" class="md-nav__link">
+    Introducción de valores de forma manual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lectura-de-datos-desde-un-archivo-externo" class="md-nav__link">
+    Lectura de datos desde un archivo externo
+  </a>
+  
+    <nav class="md-nav" aria-label="Lectura de datos desde un archivo externo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lectura-de-un-archivo-de-ancho-fijo" class="md-nav__link">
+    Lectura de un archivo de ancho fijo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lectura-de-un-archivo-de-texto-delimitado" class="md-nav__link">
+    Lectura de un archivo de texto delimitado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leyendo-archivos-desde-web" class="md-nav__link">
+    Leyendo archivos desde web
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seleccion-de-observaciones" class="md-nav__link">
+    Selección de observaciones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usando-un-procedimiento-para-leer-datos-externos" class="md-nav__link">
+    Usando un procedimiento para leer datos externos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escritura-a-un-archivo-externo" class="md-nav__link">
+    Escritura a un archivo externo
+  </a>
+  
+    <nav class="md-nav" aria-label="Escritura a un archivo externo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#escritura-de-un-archivo-delimitado" class="md-nav__link">
+    Escritura de un archivo delimitado
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escritura-de-un-archivo-de-texto-de-ancho-fijo" class="md-nav__link">
+    Escritura de un archivo de texto de ancho fijo
+  </a>
+  
+    <nav class="md-nav" aria-label="Escritura de un archivo de texto de ancho fijo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#crear-archivos-con-encabezados" class="md-nav__link">
+    Crear archivos con encabezados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leer-y-modificar-archivos-de-texto" class="md-nav__link">
+    Leer y modificar archivos de texto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#escritura-de-datos-con-el-procedimiento-export" class="md-nav__link">
+    Escritura de datos con el procedimiento EXPORT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/sas/basico_sas.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h1>
 <p>Los dataset son el insumo principal para analisis de datos en SAS, por ello iniciaremos con una rápida exploración.</p>
 <p>En esta sección se presentan temas para comenzar con la lectura y escritura de datos.</p>
 <p>Se explorarán distintas formas de leer y escribir datos de distintas fuentes y formatos de archivo.</p>
@@ -99,34 +773,34 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h3 id="introduccion-de-valores-de-forma-manual">Introducción de valores de forma manual<a class="headerlink" href="#introduccion-de-valores-de-forma-manual" title="Permanent link">&para;</a></h3>
 <p>La forma más fácil de crear un dataset, es con el uso de la sentencia <code>INPUT</code> y <code>DATALINES</code> con el fin de introducir valores manualmente. Estos datos fueron copiados y pegados directamente de una hoja de excel.</p>
 <p>El siguiente ejemplo muestra como introducir datos manualmente.</p>
-<pre><code class="sas">DATA EMPLEADOS(LABEL = &quot;Registro de empleados nuevos&quot;);
-    ATTRIB
-        NOMBRE LENGTH = $16 LABEL = &quot;Nombre&quot;
-        APELLIDO LENGTH = $12 LABEL = &quot;Apellido&quot;
-        ID LABEL = &quot;ID empleado&quot;
-        GENERO LENGTH = $1. LABEL = &quot;Género&quot;
-        FNAC INFORMAT = DDMMYY10. FORMAT = DATE10. LABEL = &quot;Fecha de nacimiento&quot;
+<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>EMPLEADOS(<span class="k">LABEL</span> = <span class="s">&quot;Registro de empleados nuevos&quot;</span>);
+    <span class="k">ATTRIB</span>
+        NOMBRE <span class="k">LENGTH</span> = $<span class="m">16</span> <span class="k">LABEL</span> = <span class="s">&quot;Nombre&quot;</span>
+        APELLIDO <span class="k">LENGTH</span> = $<span class="m">12</span> <span class="k">LABEL</span> = <span class="s">&quot;Apellido&quot;</span>
+        ID <span class="k">LABEL</span> = <span class="s">&quot;ID empleado&quot;</span>
+        GENERO <span class="k">LENGTH</span> = $<span class="m">1</span>. <span class="k">LABEL</span> = <span class="s">&quot;Género&quot;</span>
+        FNAC <span class="k">INFORMAT</span> = DDMMYY10. <span class="k">FORMAT</span> = DATE10. <span class="k">LABEL</span> = <span class="s">&quot;Fecha de nacimiento&quot;</span>
     ;
-    INPUT NOMBRE -- FNAC;
-    DATALINES;
-    Bill Cuddy 11171 M 16/10/1986
-    Susan Krasowski 17023 F 09/07/1959
-    Andreas Rennie 26148 M 18/07/1934
-    Lauren Krasowski 46966 F 24/10/1986
-    Lauren Marx 54655 F 18/08/1969
-    Tommy Mcdonald 70046 M 20/01/1959
-    Colin Byarley 70059 M 20/01/1934
-    Lera Knott 70079 F 11/07/1986
-    Wilma Yeargan 70100 F 23/06/1984
-    Patrick Leach 70108 M 14/04/1939
-    Portia Reynoso 70165 F 11/02/1964
-    Soberina Berent 70187 F 27/09/1986
-    Angel Borwick 70201 F 19/12/1969
-    Alex Santinello 70210 M 22/04/1986
-    Kenan Talarr 70221 M 10/02/1964
-    ;
-RUN;
-</code></pre>
+    <span class="k">INPUT</span> NOMBRE -- FNAC;
+<span class="k">    DATALINES;</span><span class="x"></span>
+<span class="x">    Bill Cuddy 11171 M 16/10/1986</span>
+<span class="x">    Susan Krasowski 17023 F 09/07/1959</span>
+<span class="x">    Andreas Rennie 26148 M 18/07/1934</span>
+<span class="x">    Lauren Krasowski 46966 F 24/10/1986</span>
+<span class="x">    Lauren Marx 54655 F 18/08/1969</span>
+<span class="x">    Tommy Mcdonald 70046 M 20/01/1959</span>
+<span class="x">    Colin Byarley 70059 M 20/01/1934</span>
+<span class="x">    Lera Knott 70079 F 11/07/1986</span>
+<span class="x">    Wilma Yeargan 70100 F 23/06/1984</span>
+<span class="x">    Patrick Leach 70108 M 14/04/1939</span>
+<span class="x">    Portia Reynoso 70165 F 11/02/1964</span>
+<span class="x">    Soberina Berent 70187 F 27/09/1986</span>
+<span class="x">    Angel Borwick 70201 F 19/12/1969</span>
+<span class="x">    Alex Santinello 70210 M 22/04/1986</span>
+<span class="x">    Kenan Talarr 70221 M 10/02/1964</span>
+<span class="x">    ;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>La sentencia <code>DATA</code> especifica el nombre del dataset y entre parentesis están las opciones del dataset, en este caso el dataset <em>empleados</em> tendrá una etiqueta para identificarlo.</p>
 <p>Es recomendable especificar las propiedades de las variables a crear mediante la sentencia <code>ATTRIB</code> en donde se especifican sus propiedades.</p>
@@ -146,8 +820,8 @@ RUN;
 </blockquote>
 <p>donde <em>fileref</em> es un nombre sas que hará referencia a un archivo y <em>nombre-archivo</em> es el nombre de un archivo físico externo que incluye tanto la ruta como el nombre con su extensión.</p>
 <p>Por ejemplo la siguiente sentencia asigna con el nombre <em>archivo</em> al archivo &ldquo;datos&rdquo; almacenados en formato .dat que están en la carpeta proyectos.</p>
-<pre><code class="sas">FILENAME archivo &quot;C:\Users\Usuario\Documents\Proyectos\datos.dat&quot;;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\Documents\Proyectos\datos.dat&quot;</span>;
+</code></pre></div>
 
 <p>También será necesario usar la sentencia <code>INFILE</code>. Esta sentencia le da las espeficicaciones a SAS sobre cómo leer archivos externos. Para una mayor referencia consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1rill4udj0tfun1fvce3j401plo.htm">sentencia INPUT</a>.</p>
 <h4 id="lectura-de-un-archivo-de-ancho-fijo">Lectura de un archivo de ancho fijo<a class="headerlink" href="#lectura-de-un-archivo-de-ancho-fijo" title="Permanent link">&para;</a></h4>
@@ -155,11 +829,11 @@ RUN;
 <p><img alt="Ejemplo de un archivo en formato de texto de ancho fijo" src="../img/fijo.png" /></p>
 <p>El ejemplo anterior muestra un ejemplo de un archivo de texto de ancho fijo, obsérvese que el id comienza en la columna 1 mientras que el nombre inicia en la columna 8.</p>
 <p>El siguiente código muestra cómo leer datos de un archivo de ancho fijo.</p>
-<pre><code class="sas">DATA VENTAS;
-    INFILE ARCHIVO;
-    INPUT ID 1 - 7 NOMBRE $ 8 - 18 APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN 54 - 60 PAIS $ 61-62;
-RUN;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS;
+    <span class="k">INFILE</span> ARCHIVO;
+    <span class="k">INPUT</span> ID <span class="m">1</span> - <span class="m">7</span> NOMBRE $ <span class="m">8</span> - <span class="m">18</span> APELLIDO $ <span class="m">19-33</span> POSICION $ <span class="m">34</span> - <span class="m">53</span> VOLUMEN <span class="m">54</span> - <span class="m">60</span> PAIS $ <span class="m">61-62</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>La diferencia con ejemplos anteriores es la sentencia <code>INFILE</code>. Esta sentencia especifica que se va leer un archivo externo y se usa junto con la sentencia <code>INPUT</code>.</p>
 <p>En la sentencia <code>INPUT</code> se declaran las variables que va a contener el dataset <strong>VENTAS</strong>. SAS leerá el archivo línea por línea y almacenará los valores que encuentre en la variable declarada según la posición indicada, por ejemplo los valores que encuentre de la línea 1 a la 7 se guardarán en la variable <em>ID</em>, mientras que los valores de la columna 8 a la 18 se almacenarán en la variable <em>NOMBRE</em>, nótese que después de <em>NOMBRE</em> hay un signo de pesos, esto es para indicar que la variable es de tipo caracter.</p>
@@ -171,11 +845,11 @@ En el ejemplo anterior, si se hubiera declarado <code>VOLUMEN 54 - 61</code>, SA
 Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una cadena en una variable numérica, por lo que lo que nos mostraría el error y finalmente le asignaría un valor missing a <em>volumen</em>.</p>
 </div>
 <p>Una forma alternativa de declarar las variables en la sentencia sería usar el siguiente código:</p>
-<pre><code class="sas">DATA VENTAS;
-    INFILE ARCHIVO;
-    INPUT ID NOMBRE $10. APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN PAIS $3.;
-RUN;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS;
+    <span class="k">INFILE</span> ARCHIVO;
+    <span class="k">INPUT</span> ID NOMBRE $<span class="m">10</span>. APELLIDO $ <span class="m">19-33</span> POSICION $ <span class="m">34</span> - <span class="m">53</span> VOLUMEN PAIS $<span class="m">3</span>.<span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>Note que en la sentencia <code>INPUT</code> se declaran a las variables de tipo caracter de dos formas: por posición (ejemplo <code>APELLIDO $ 19-33</code>) y por formato (ejemplo <code>NOMBRE $10.</code>).</p>
 <p>Para una mayor referencia consulte <a href="https://support.sas.com/documentation/cdl/en/lrcon/62955/HTML/default/viewer.htm#a003209907.htm#:~:text=The%20INPUT%20statement%20reads%20raw%20data%20from%20instream,styles%20of%20input%20in%20a%20single%20INPUT%20statement.">leyendo datos en bruto</a> en la documentación de SAS.</p>
@@ -184,22 +858,22 @@ RUN;
 <p>Considere el siguiente archivo de texto. Puede notarse que está delimitado por el caracter &ldquo;/&rdquo; y además tiene datos perdidos (resaltados en amarillo). De hecho, los valores perdidos al final de la línea podrían hacer que SAS terminara antes de leer los datos.</p>
 <p><img alt="Archivo de texto delimitado" src="../img/dat1.png" /></p>
 <p>El siguiente código puede ser usado para leer esos datos.</p>
-<pre><code class="sas">DATA gerentes;
-    INFILE ARCHIVO DLM = &quot;/&quot; DSD TRUNCOVER;
-    ATTRIB
-        id label = &quot;ID gerente&quot;
-        nombre LENGTH = $12 LABEL = &quot;Nombre&quot;
-        apellido LENGTH = $18 LABEL = &quot;Apellido&quot;
-        genero LENGTH = $2 LABEL = &quot;Género&quot;
-        ventas LABEL = &quot;Ventas totales&quot;
-        posicion LENGTH = $18 LABEL = &quot;Posición&quot;
-        pais LENGTH = $2 LABEL = &quot;País&quot; 
-        fnac INFORMAT = date12. FORMAT = ddmmyy10. LABEL = &quot;Fecha de nacimiento&quot;
-        fingreso INFORMAT = anydtdte12. FORMAT = ddmmyy10. LABEL = &quot;Fecha de ingreso&quot;
+<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>gerentes;
+    <span class="k">INFILE</span> ARCHIVO DLM = <span class="s">&quot;/&quot;</span> DSD TRUNCOVER;
+    <span class="k">ATTRIB</span>
+        id <span class="k">label</span> = <span class="s">&quot;ID gerente&quot;</span>
+        nombre <span class="k">LENGTH</span> = $<span class="m">12</span> <span class="k">LABEL</span> = <span class="s">&quot;Nombre&quot;</span>
+        apellido <span class="k">LENGTH</span> = $<span class="m">18</span> <span class="k">LABEL</span> = <span class="s">&quot;Apellido&quot;</span>
+        genero <span class="k">LENGTH</span> = $<span class="m">2</span> <span class="k">LABEL</span> = <span class="s">&quot;Género&quot;</span>
+        ventas <span class="k">LABEL</span> = <span class="s">&quot;Ventas totales&quot;</span>
+        posicion <span class="k">LENGTH</span> = $<span class="m">18</span> <span class="k">LABEL</span> = <span class="s">&quot;Posición&quot;</span>
+        pais <span class="k">LENGTH</span> = $<span class="m">2</span> <span class="k">LABEL</span> = <span class="s">&quot;País&quot;</span> 
+        fnac <span class="k">INFORMAT</span> = date12. <span class="k">FORMAT</span> = ddmmyy10. <span class="k">LABEL</span> = <span class="s">&quot;Fecha de nacimiento&quot;</span>
+        fingreso <span class="k">INFORMAT</span> = anydtdte12. <span class="k">FORMAT</span> = ddmmyy10. <span class="k">LABEL</span> = <span class="s">&quot;Fecha de ingreso&quot;</span>
     ;
-    INPUT id -- fingreso;
-RUN;
-</code></pre>
+    <span class="k">INPUT</span> id -- fingreso<span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>La opción <code>DSD</code> es útil cuando hay un valor faltante en datos delimitados, de otra forma SAS no reconocería dos delimitadores juntos y no leería los datos correctamente.</p>
 <p>La opción <code>MISSOVER</code> evita que SAS salte a una nueva linea cuando no encuentra valores válidos y asigna valores faltantes a las variables que no encuentre. <code>TRUNCOVER</code> funciona de manera similar a <code>MISSOVER</code> pero la diferencia radica en que asignaría los valores que encuentre pasando el fin de línea.</p>
@@ -281,20 +955,20 @@ RUN;
 </tbody>
 </table>
 <p>Por ejemplo el siguiente código solo contendría a empleados de Australia.</p>
-<pre><code class="sas">DATA VENTAS_AU;
-    INFILE ARCHIVO;
-    IF PAIS EQ &quot;AU&quot;;
-    INPUT ID 1 - 7 NOMBRE $ 8 - 18 APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN 54 - 60 PAIS $ 61-62;
-RUN;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS_AU;
+    <span class="k">INFILE</span> ARCHIVO;
+    <span class="k">IF</span> PAIS EQ <span class="s">&quot;AU&quot;</span>;
+    <span class="k">INPUT</span> ID <span class="m">1</span> - <span class="m">7</span> NOMBRE $ <span class="m">8</span> - <span class="m">18</span> APELLIDO $ <span class="m">19-33</span> POSICION $ <span class="m">34</span> - <span class="m">53</span> VOLUMEN <span class="m">54</span> - <span class="m">60</span> PAIS $ <span class="m">61-62</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>Para elegir observaciones que no sean nulas, se puede usar la siguiente sentencia.</p>
-<pre><code class="sas">DATA VENTAS_AU;
-    INFILE ARCHIVO;
-    IF VOLUMEN;
-    INPUT ID 1 - 7 NOMBRE $ 8 - 18 APELLIDO $ 19-33 POSICION $ 34 - 53 VOLUMEN 54 - 60 PAIS $ 61-62;
-RUN;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS_AU;
+    <span class="k">INFILE</span> ARCHIVO;
+    <span class="k">IF</span> VOLUMEN;
+    <span class="k">INPUT</span> ID <span class="m">1</span> - <span class="m">7</span> NOMBRE $ <span class="m">8</span> - <span class="m">18</span> APELLIDO $ <span class="m">19-33</span> POSICION $ <span class="m">34</span> - <span class="m">53</span> VOLUMEN <span class="m">54</span> - <span class="m">60</span> PAIS $ <span class="m">61-62</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <h3 id="usando-un-procedimiento-para-leer-datos-externos">Usando un procedimiento para leer datos externos<a class="headerlink" href="#usando-un-procedimiento-para-leer-datos-externos" title="Permanent link">&para;</a></h3>
 <p>La forma más fácil de leer archivos externos es mediante el procedimiento <strong>IMPORT</strong>.</p>
@@ -303,34 +977,34 @@ RUN;
 </blockquote>
 <p>Este procedimiento no solo lee archivos de texto, sino tambien de Excel, SPSS, Stata e incluso tablas de Access. Para una mayor referencia vea el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/n1qn5sclnu2l9dn1w61ifw8wqhts.htm">procedimiento IMPORT</a>.</p>
 <p>El siguiente código leerá un archivo en formato excel.</p>
-<pre><code class="sas">PROC IMPORT OUT = WORK.censo 
-            DATAFILE = &quot;C:\Users\Usuario\census.xlsx&quot; 
-            DBMS = XLSX REPLACE;
-RUN;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kr">PROC IMPORT </span><span class="k">OUT</span> = WORK<span class="m">.</span>censo 
+            DATAFILE = <span class="s">&quot;C:\Users\Usuario\census.xlsx&quot;</span> 
+            DBMS = XLSX <span class="k">REPLACE</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>Nótese que se ha especificado la opción <code>DBMS = XLSX</code> para que sas utilice los parámetros correspondientes para leer un archivo de excel. La opción <code>REPLACE</code> reemplazaría el dataset que tuviera el mismo nombre, de otro modo SAS mostraría un error y no crearía el dataset.</p>
 <p>El siguiente código muestra cómo leer un archivo en formato csv.</p>
-<pre><code class="sas">PROC IMPORT OUT = WORK.census 
-            DATAFILE = &quot;C:\Users\Usuario\census.csv&quot; 
-            DBMS = CSV REPLACE;
+<div class="highlight"><pre><span></span><code><span class="kr">PROC IMPORT </span><span class="k">OUT</span> = WORK<span class="m">.</span>census 
+            DATAFILE = <span class="s">&quot;C:\Users\Usuario\census.csv&quot;</span> 
+            DBMS = CSV <span class="k">REPLACE</span>;
      GETNAMES = YES;
-     DATAROW = 2; 
-RUN;
-</code></pre>
+     DATAROW = <span class="m">2</span><span class="kr">; </span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>En el caso de archivos csv, hay dos sentencias adicionales, la sentencia <code>GETNAMES = YES</code> indica si los nombres de las variables se encuentran al inicio del archivo de texto, mientras que la sentencia <code>DATAROW = 2</code> indica que los valores incian en el renglón 2.</p>
 <h2 id="escritura-a-un-archivo-externo">Escritura a un archivo externo<a class="headerlink" href="#escritura-a-un-archivo-externo" title="Permanent link">&para;</a></h2>
 <p>SAS tambien puede ser utlizado para escribir archivos externos. En esta sección se mostrará como crear archivos de texto, asi como escribir mensaje del log a archivos externos.</p>
 <h3 id="escritura-de-un-archivo-delimitado">Escritura de un archivo delimitado<a class="headerlink" href="#escritura-de-un-archivo-delimitado" title="Permanent link">&para;</a></h3>
 <p>El siguiente código muestra como crear un archivo de texto.</p>
-<pre><code class="sas">FILENAME archivo &quot;C:\Users\Usuario\alumnos.dat&quot;;
-DATA _NULL_;
-    FILE archivo;
-    SET sashelp.class;
-    PUT name age sex;
-RUN;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.dat&quot;</span><span class="kr">;</span>
+<span class="kr">DATA </span><span class="kc">_NULL_</span>;
+    <span class="k">FILE</span> archivo;
+    <span class="k">SET</span> sashelp<span class="m">.</span>class;<span class="k"></span>
+<span class="k">    PUT </span><span class="err">name age sex;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>Como se puede ver, se ha referenciado con la sentencia <code>FILENAME</code> el archivo con el nombre que en el que se desea escribir.</p>
 <p>Nótese que en la sentencia <code>DATA</code> se ha especificado <code>_NULL_</code>, una palabra reservada para pedir que no cree ningún dataset.</p>
@@ -344,26 +1018,26 @@ RUN;
 <p><img alt="Ejemplo de un archivo de texto delimitado por espacios en blanco" src="../img/dat2.png" /></p>
 <h3 id="escritura-de-un-archivo-de-texto-de-ancho-fijo">Escritura de un archivo de texto de ancho fijo<a class="headerlink" href="#escritura-de-un-archivo-de-texto-de-ancho-fijo" title="Permanent link">&para;</a></h3>
 <p>Para crear un archivo de texto de ancho fijo, se puede especificar las posiciones en las que se escribiran las observaciones.</p>
-<pre><code class="sas">FILENAME archivo &quot;C:\Users\Usuario\alumnos.txt&quot;;
-DATA _NULL_;
-    FILE archivo;
-    SET sashelp.class;
-    PUT name $8. sex 10-12 age 2. height 16-20 weight 22-25;
-RUN;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
+<span class="kr">DATA </span><span class="kc">_NULL_</span>;
+    <span class="k">FILE</span> archivo;
+    <span class="k">SET</span> sashelp<span class="m">.</span>class;<span class="k"></span>
+<span class="k">    PUT </span><span class="err">name $</span><span class="m">8</span><span class="err">. sex </span><span class="m">10-12</span><span class="err"> age </span><span class="m">2</span><span class="err">. height </span><span class="m">16-20</span><span class="err"> weight </span><span class="m">22-25</span><span class="err">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>Nótese que se han especificado los formatos de las variables y las columnas en las que se desea escribir el archivo, es algo muy similar cuando se leían los archivos con la sentencia <code>INPUT</code>.</p>
 <h4 id="crear-archivos-con-encabezados">Crear archivos con encabezados<a class="headerlink" href="#crear-archivos-con-encabezados" title="Permanent link">&para;</a></h4>
 <p>Debido a que sas escribe directamente al archivo, es un poco complicado especificarle que en el renglón 1 escriba el nombre de las variables.</p>
 <p>Sin embargo, el siguiente código logra especificar el nombre de los archivos en la primer línea.</p>
-<pre><code class="sas">FILENAME archivo &quot;C:\Users\Usuario\alumnos.txt&quot;;
-DATA _NULL_;
-    FILE archivo;
-    IF _n_ EQ 1 THEN PUT &quot;name &quot; &quot;sex &quot; &quot;age &quot; &quot;height &quot; &quot;weight &quot;;
-    SET sashelp.class;
-    PUT name -- weight;
-RUN;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
+<span class="kr">DATA </span><span class="kc">_NULL_</span>;
+    <span class="k">FILE</span> archivo;
+    <span class="k">IF</span> <span class="kc">_n_</span> EQ <span class="m">1</span> <span class="k">THEN</span> <span class="k">PUT</span> <span class="s">&quot;name &quot;</span> <span class="s">&quot;sex &quot;</span> <span class="s">&quot;age &quot;</span> <span class="s">&quot;height &quot;</span> <span class="s">&quot;weight &quot;</span>;
+    <span class="k">SET</span> sashelp<span class="m">.</span>class;<span class="k"></span>
+<span class="k">    PUT </span><span class="err">name -- weight;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>Esto se logra escribiendo la sentencia <code>PUT</code> justo al inicio e inmediatamente despues se carga el dataset que se quiere escribir.</p>
 <p>Las sentencias de la línea 4 se estudiarán en la sección <a href="site/sas/manejo_variables/index.html#filtrado-de-datos">filtrado de datos</a></p>
@@ -371,19 +1045,19 @@ RUN;
 <p>Es posible manipular archivos de texto mediante SAS. para ellos es necesario leerlos y volver a escribir sobre ellos.</p>
 <p><img alt="Arcivo de ancho fijo" src="../img/txt1.png" /></p>
 <p>El siguiente código muestra como actualizar ciertas variables.</p>
-<pre><code class="sas">FILENAME ARCHIVO &quot;C:\Users\Usuario\alumnos.txt&quot;;
-DATA _NULL_;
-   INFILE archivo SHAREBUFFERS  FIRSTOBS = 2 TRUNCOVER;
-   ATTRIB
-    sex LENGTH = $1
-    sex2 LENGTH = $1;
-   INPUT sex $ 9; 
-   IF sex = &quot;F&quot; THEN sex2 = &quot;M&quot;;
-   IF sex = &quot;M&quot; THEN sex2 = &quot;H&quot;;
-   FILE archivo TRUNCOVER PAD;
-   PUT sex2 9 ;
-RUN;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> ARCHIVO <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
+<span class="kr">DATA </span><span class="kc">_NULL_</span>;
+   <span class="k">INFILE</span> archivo SHAREBUFFERS  FIRSTOBS = <span class="m">2</span> TRUNCOVER;
+   <span class="k">ATTRIB</span>
+    sex <span class="k">LENGTH</span> = $<span class="m">1</span>
+    sex2 <span class="k">LENGTH</span> = $<span class="m">1</span>;
+   <span class="k">INPUT</span> sex $ <span class="m">9</span>; 
+   <span class="k">IF</span> sex = <span class="s">&quot;F&quot;</span> <span class="k">THEN</span> sex2 = <span class="s">&quot;M&quot;</span>;
+   <span class="k">IF</span> sex = <span class="s">&quot;M&quot;</span> <span class="k">THEN</span> sex2 = <span class="s">&quot;H&quot;</span>;
+   <span class="k">FILE</span> archivo TRUNCOVER PAD;<span class="k"></span>
+<span class="k">   PUT </span><span class="err">sex2 </span><span class="m">9</span><span class="err"> ;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>Note que se la sentencia <code>LIBNAME</code> apunta al mismo archivo que se está usando en las sentencias <code>INFILE</code> y <code>FILE</code>.</p>
 <p>La opción <code>SHAREBUFFERS</code> es útil para actualizar un archivo externo y solo actualiza ciertos campos. Esta opción se usa junto con las sentencias <code>INFILE</code>, <code>FILE</code> y <code>PUT</code>.</p>
@@ -400,54 +1074,140 @@ RUN;
 <p><strong>PROC EXPORT</strong> OUTFILE = “filename” DATA = dataset;</p>
 </blockquote>
 <p>El siguiente código muestra la forma de escribir un dataset a un archivo csv.</p>
-<pre><code class="sas">PROC EXPORT DATA= SASHELP.Class 
-            OUTFILE= &quot;C:\Users\Usuario\alumnos.csv&quot; 
-            DBMS = CSV REPLACE;
-RUN;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kr">PROC EXPORT </span>DATA= SASHELP<span class="m">.</span>Class 
+            OUTFILE= <span class="s">&quot;C:\Users\Usuario\alumnos.csv&quot;</span> 
+            DBMS = CSV <span class="k">REPLACE</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
 
 <p>Para mayores referencias consulte el <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/proc/n045uxf7ll2p5on1ly4at3vpd47e.htm">procedimiento EXPORT</a>.</p>
+                
+                  
+                
+              
+              
+                
 
-  <br>
-    
 
-    
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../intro_sas/" title="Introducción a SAS" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Introducción a SAS
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../manejo_variables/" title="Manipulación de bases" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Manipulación de bases
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021. Creado por Francisco Vázquez
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
     
       
-    
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../manejo_variables/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      
+        
+        
+      
+      <a href="https://github.com/FranciscoAriel" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
       </a>
-      <a href="../manejo_variables/" class="btn btn-xs btn-link">
-        Manipulación de bases
-      </a>
-    </div>
     
-    <div class="wm-article-nav">
-      <a href="../intro_sas/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../intro_sas/" class="btn btn-xs btn-link">
-        Introducción a SAS
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/yoo236254676" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
       </a>
-    </div>
+    
+      
+      
+        
+        
+      
+      <a href="https://t.me/estad_camp_0" target="_blank" rel="noopener" title="t.me" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/fcoavc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
     
   </div>
 
-    <br>
-</div>
-
-<footer class="container-fluid wm-page-content">
-      <p>
-        <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/sas/basico_sas.md"><i class="fa fa-github"></i>
-Edit on GitHub</a>
-      </p><p>Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a></p>
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+    </div>
+  </div>
 </footer>
-
-</body>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
 </html>

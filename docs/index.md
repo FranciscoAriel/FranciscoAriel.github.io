@@ -64,7 +64,7 @@ Aquí encontrarás todo lo relacionado con librerías que se usan en ciencia de 
 
 ### Jupyter Notebooks
 
-PROXIMAMENTE ...
+PROXIMAMENTE ... :clock1:
 
 ## Sobre el sitio
 

@@ -7,7 +7,19 @@ repo_url: https://github.com/FranciscoAriel/FranciscoAriel.github.io
 edit_uri: blob/master/docs/
 
 theme:
-    name: windmill
+    name: material
+    palette:
+        - scheme: default
+          primary: indigo
+          accent: indigo
+          toggle:
+            icon: img/toggle-switch-off-outline
+            name: Switch to dark mode
+        - scheme: slate
+          toggle:
+            icon: img/toggle-switch-off-outline
+            name: Switch to light mode
+    logo: img/favicon.png
     locale: es
     highlightjs: true
     hljs_languages:
@@ -44,15 +56,29 @@ markdown_extensions:
         permalink: True
     - mdx_math
     - footnotes
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.tabbed
+    - pymdownx.superfences
 
 plugins:
     - search
 
 extra:
-    version: 1.0
+    version: 0.5
     logo: img/favicon.png
+    social:
+        - icon: fontawesome/brands/github
+          link: https://github.com/FranciscoAriel
+        - icon: fontawesome/brands/twitter
+          link: https://twitter.com/yoo236254676
+        - icon: fontawesome/brands/telegram
+          link: https://t.me/estad_camp_0
+        - icon: fontawesome/brands/linkedin
+          link: https://www.linkedin.com/in/fcoavc/
 
-copyright: Copyright &copy; 2021 <br> <a href="https://github.com/FranciscoAriel">Francisco Vázquez</a>
+copyright: Copyright &copy; 2021. Creado por Francisco Vázquez
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
