@@ -5,6 +5,10 @@ authors: Francisco Vázquez
 date: 2021-09-13
 ---
 
+# Manejo de bases con Julia
+
+En esta página se aprenderá a importar archivos en Julia y trabajar con ellos.
+
 ## Lectura de datos
 
 En Julia existen diversos paquetes que nos permiten importar y leer datos de archivos externos. En esta sección nos enfocaremos a la creación de conjuntos de datos.
@@ -37,7 +41,7 @@ datos = DataFrame(nombre =["ANGELICA","BRENDA","LILIANA","MARCO","FABIAN","MAURI
 print(datos)
 ````
 
-Este código crea un objeto llamado _datos_ que es de tipo _DataFrame_. La forma de definir su contenido es mediante _constructores_ que en este caso son las columnas, aunque pueden ser vectores definidos previamente. 
+Este código crea un objeto llamado _datos_ que es de tipo _DataFrame_. La forma de definir su contenido es mediante _constructores_ que en este caso son las columnas, aunque pueden ser vectores definidos previamente.
 
 Para visualizar el objeto, se puede usar el comando `print()`. El resultado se muestra a continuación.
 
@@ -56,3 +60,41 @@ summary(mi_csv)
 ````
 
 La primer línea carga los paquetes instalados previamente, para poder usar todas sus funciones y métodos. En la segunda, se usa la función `CSV.read()` especificándole el nombre de archivo y la función _sink_, en este caso será `DataFrame`, asignándolo al objeto _mi_csv_. Debido a que el archivo es grande se sugiere ver las dimensiones del dataframe usando la función `summary()`.
+
+## Manejo de datos
+
+En esta sección nos enfocaremos en el manejo de bases, tales como conocer las propiedades de las bases, acceder a los elementos de la base, entre otros.
+
+## Explorando la base
+
+Para saber la dimensión de un objeto **DataFrame** se puede usar la función `summary()`.
+
+También es posible conocer los primeros y últimos renglones de una base con la función `first()` y `last()`. Por ejemplo, para obtener los primeros 3 y últimos 3 se puede usar este código.
+
+````julia
+first(datos,3)
+last(datos,3)
+````
+
+### Accediendo a los datos
+
+Como ya vimos anteriormente, las bases en Julia se guardan en un objeto **DataFrame**.
+
+Para poder acceder a las variables, se pueden usar los corchetes cuadrados de la forma `[renglon,columna], por ejemplo
+
+````julia
+datos[:,"grupo"]
+datos[!,2]
+datos[1:3,:]
+datos[[1,3,5],[1,3]]
+
+````
+
+!!! note "Seleccionar todos los renglones"
+    Se puede usar `!` en lugar de  `:` para indicar que se deben seleccionar todos los elementos. No puede ir vacío.
+
+Para elegir un elemento se puede usar la función `getindex()`, por ejemplo:
+
+````julia
+getindex(datos,3,"nombre")
+````
