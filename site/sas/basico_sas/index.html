@@ -783,21 +783,16 @@
     ;
     <span class="k">INPUT</span> NOMBRE -- FNAC;
 <span class="k">    DATALINES;</span><span class="x"></span>
-<span class="x">    Bill Cuddy 11171 M 16/10/1986</span>
-<span class="x">    Susan Krasowski 17023 F 09/07/1959</span>
-<span class="x">    Andreas Rennie 26148 M 18/07/1934</span>
-<span class="x">    Lauren Krasowski 46966 F 24/10/1986</span>
-<span class="x">    Lauren Marx 54655 F 18/08/1969</span>
-<span class="x">    Tommy Mcdonald 70046 M 20/01/1959</span>
-<span class="x">    Colin Byarley 70059 M 20/01/1934</span>
-<span class="x">    Lera Knott 70079 F 11/07/1986</span>
-<span class="x">    Wilma Yeargan 70100 F 23/06/1984</span>
-<span class="x">    Patrick Leach 70108 M 14/04/1939</span>
-<span class="x">    Portia Reynoso 70165 F 11/02/1964</span>
-<span class="x">    Soberina Berent 70187 F 27/09/1986</span>
-<span class="x">    Angel Borwick 70201 F 19/12/1969</span>
-<span class="x">    Alex Santinello 70210 M 22/04/1986</span>
-<span class="x">    Kenan Talarr 70221 M 10/02/1964</span>
+<span class="x">Ezio Vanegas 1 m 04/06/1942</span>
+<span class="x">Katharina Reséndez 2 f 12/08/1967</span>
+<span class="x">Tamara Monroy 3 f 02/01/1948</span>
+<span class="x">Dunstano Armendáriz 4 m 05/07/1985</span>
+<span class="x">Baldo Ayala 5 m 04/10/1952</span>
+<span class="x">Adrián Rosales 6 m 8/28/1992</span>
+<span class="x">Helvia Viera 7 f 12/16/1994</span>
+<span class="x">Astor Cortez 8 m 12/04/1965</span>
+<span class="x">Giusto Carvajal 9 m 5/27/1986</span>
+<span class="x">Baal Alcalá 10 m 1/15/1961</span>
 <span class="x">    ;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
@@ -812,6 +807,14 @@
 <p>La sentencia <code>INPUT</code> sirve para indicar el nombre de las variables del dataset. Se puede poner el símbolo <code>$</code> para indicar que la variable es de tipo caracter. Sin embargo en este caso, como ya se han declarado las variables se puede usar una lista, es decir, solo poner el nombre de la primer variable declarada seguido de dos guiones <code>--</code> y el nombre de la última.</p>
 <p>La sentencia <code>DATALINES</code> indica el inicio de los datos y finaliza con un punto y coma.</p>
 <p>Con la sentencia <code>RUN</code> se cierra el bloque de instrucciones y comienza a ejecutar el proceso.</p>
+<p>Si los datos estuvieran acomodados secuencialmente, es posible leerlos usando <code>@@</code> al final de la sentencia <code>input</code>, este doble signo arroba es útil cuando un registro tiene más de una observación, por ejemplo si los datos estuvieran acomodados en esta forma</p>
+<div class="highlight"><pre><span></span><code>    <span class="k">INPUT</span> NOMBRE -- FNAC @@;
+<span class="k">    DATALINES;</span>
+Ezio Vanegas <span class="m">1</span> m <span class="m">04</span>/<span class="m">06</span>/<span class="m">1942</span> Katharina Reséndez <span class="m">2</span> f <span class="m">12</span>/<span class="m">08</span>/<span class="m">1967</span> Tamara Monroy <span class="m">3</span> f <span class="m">02</span>/<span class="m">01</span>/<span class="m">1948</span> Dunstano Armendáriz <span class="m">4</span> m <span class="m">05</span>/<span class="m">07</span>/<span class="m">1985</span> Baldo Ayala <span class="m">5</span> m <span class="m">04</span>/<span class="m">10</span>/<span class="m">1952</span>
+Adrián Rosales <span class="m">6</span> m <span class="m">8</span>/<span class="m">28</span>/<span class="m">1992</span> Helvia Viera <span class="m">7</span> f <span class="m">12</span>/<span class="m">16</span>/<span class="m">1994</span> Astor Cortez <span class="m">8</span> m <span class="m">12</span>/<span class="m">04</span>/<span class="m">1965</span> Giusto Carvajal <span class="m">9</span> m <span class="m">5</span>/<span class="m">27</span>/<span class="m">1986</span> Baal Alcalá <span class="m">10</span> m <span class="m">1</span>/<span class="m">15</span>/<span class="m">1961</span>
+</code></pre></div>
+
+<p>la información podría ser leída sin ningún problema.</p>
 <h3 id="lectura-de-datos-desde-un-archivo-externo">Lectura de datos desde un archivo externo<a class="headerlink" href="#lectura-de-datos-desde-un-archivo-externo" title="Permanent link">&para;</a></h3>
 <p>SAS puede leer datos de archivos de texto almacenados en distintos formatos, por ejemplo de ancho fijo o delimitados. Para acceder a ellos es necesario usar la referencia para apuntar a ellos, algo similar a la declaración de las librerías.</p>
 <p>Se puede hacer mediante la sentencia <code>FILENAME</code>:</p>

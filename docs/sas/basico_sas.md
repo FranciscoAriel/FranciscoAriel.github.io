@@ -42,21 +42,16 @@ DATA EMPLEADOS(LABEL = "Registro de empleados nuevos");
     ;
     INPUT NOMBRE -- FNAC;
     DATALINES;
-    Bill Cuddy 11171 M 16/10/1986
-    Susan Krasowski 17023 F 09/07/1959
-    Andreas Rennie 26148 M 18/07/1934
-    Lauren Krasowski 46966 F 24/10/1986
-    Lauren Marx 54655 F 18/08/1969
-    Tommy Mcdonald 70046 M 20/01/1959
-    Colin Byarley 70059 M 20/01/1934
-    Lera Knott 70079 F 11/07/1986
-    Wilma Yeargan 70100 F 23/06/1984
-    Patrick Leach 70108 M 14/04/1939
-    Portia Reynoso 70165 F 11/02/1964
-    Soberina Berent 70187 F 27/09/1986
-    Angel Borwick 70201 F 19/12/1969
-    Alex Santinello 70210 M 22/04/1986
-    Kenan Talarr 70221 M 10/02/1964
+Ezio Vanegas 1 m 04/06/1942
+Katharina Reséndez 2 f 12/08/1967
+Tamara Monroy 3 f 02/01/1948
+Dunstano Armendáriz 4 m 05/07/1985
+Baldo Ayala 5 m 04/10/1952
+Adrián Rosales 6 m 8/28/1992
+Helvia Viera 7 f 12/16/1994
+Astor Cortez 8 m 12/04/1965
+Giusto Carvajal 9 m 5/27/1986
+Baal Alcalá 10 m 1/15/1961
     ;
 RUN;
 ````
@@ -75,6 +70,17 @@ La sentencia `INPUT` sirve para indicar el nombre de las variables del dataset. 
 La sentencia `DATALINES` indica el inicio de los datos y finaliza con un punto y coma.
 
 Con la sentencia `RUN` se cierra el bloque de instrucciones y comienza a ejecutar el proceso.
+
+Si los datos estuvieran acomodados secuencialmente, es posible leerlos usando `@@` al final de la sentencia `input`, este doble signo arroba es útil cuando un registro tiene más de una observación, por ejemplo si los datos estuvieran acomodados en esta forma
+
+````sas
+    INPUT NOMBRE -- FNAC @@;
+    DATALINES;
+Ezio Vanegas 1 m 04/06/1942 Katharina Reséndez 2 f 12/08/1967 Tamara Monroy 3 f 02/01/1948 Dunstano Armendáriz 4 m 05/07/1985 Baldo Ayala 5 m 04/10/1952
+Adrián Rosales 6 m 8/28/1992 Helvia Viera 7 f 12/16/1994 Astor Cortez 8 m 12/04/1965 Giusto Carvajal 9 m 5/27/1986 Baal Alcalá 10 m 1/15/1961
+````
+
+la información podría ser leída sin ningún problema.
 
 ### Lectura de datos desde un archivo externo
 
