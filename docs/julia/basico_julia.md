@@ -55,7 +55,7 @@ El siguiente código muestra cómo importar un archivo csv a un objeto `DataFram
 
 ````julia
 using CSV, DataFrames
-mi_csv = CSV.read("C:\\Users\\Francisco\\census.csv",DataFrame)
+mi_csv = CSV.read("C:\\Users\\Usuario\\census.csv",DataFrame)
 summary(mi_csv)
 ````
 

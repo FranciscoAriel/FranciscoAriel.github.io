@@ -7,7 +7,7 @@ date: 2020-09-05
 
 # Introducción
 
-En esta sección se aprenderá la forma de leer y manejar datos en R, ya sea usando las funciones
+En esta sección se aprenderá la forma de leer y manejar datos en R, ya sea usando las funciones o usando filtros para obtener la información deseada.
 
 ## Lectura de datos
 
@@ -58,4 +58,48 @@ customer <- read_sas("customer.sas7bdat", NULL)
 
 Para más información visite [haven](https://haven.tidyverse.org/).
 
-## Exploración de datos
+## Manipulación de datos
+
+En esta sección se abordará el tema de manejo y manipulación de bases en R.
+
+Para ello es necesario conocer un poco acerca de la base con la que se estará trabajando.
+
+Posteriormente se conocerán las distintas formas de filtrar datos y realizar otro tipo de operaciones.
+
+### Exploración de datos
+
+Una forma de saber el tipo de datos que se ha importado es mediante el comando `class()`, este comando nos devolverá el nombre de la estructura correspondiente en R.
+
+Para conocer la dimensión del objeto, se puede usar el comando `dim()`.
+
+!!! tip "Dimensiones"
+    Otra forma de saber las dimensiones de una base es mediante los comandos `nrow()` y `ncol()`.
+
+Si se desea conocer un resumen con estadísticas descriptivas, se puede usar el comando `summary`.
+
+Los siguientes códigos ilustran los comandos previos:
+
+```` r
+class(census)
+dim(census)
+summary(census)
+````
+
+### Filtrado de datos
+
+Para realizar un filtrado de datos en R, se pueden usar los vectores lógicos, de esta forma, aquellas observaciones que cumplan con la condición, serán las observaciones elegidas.
+
+Por ejemplo, el siguiente código muestra cómo elegir a los alumnos que pertenecen al grupo A
+
+````r
+filtro = datos$grupo=="A"
+grupo_A = datos[filtro,]
+````
+
+Esto también se puede hacer en una sola operación, pasándole directamente la expresión.
+
+````r
+grupo_A = datos[datos$grupo=="A",]
+````
+
+El siguiente cuadro muestra los operadores lógicos que existen en R

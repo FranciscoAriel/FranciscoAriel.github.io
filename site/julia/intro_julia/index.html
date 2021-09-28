@@ -619,34 +619,44 @@
 <h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
 <p>Julia tiene varios tipos de variables, por ejemplo tipo numérico (entero y flotante) booleano o caracter. Para conocer todos los tipos de variables que existen, consulte la <a href="https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/">documentación</a>.</p>
 <p>Se puede definir una variable usando el operador de asignación <code>=</code> como se muestra en el siguiente ejemplo.</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mf">1.25</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 <span class="n">a</span> <span class="o">=</span> <span class="s">&quot;abc&quot;</span>
 <span class="n">si</span> <span class="o">=</span> <span class="kc">true</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para saber de que tipo es, se puede usar la función <code>typeof()</code>, el resultado se muestra</p>
-<div class="highlight"><pre><span></span><code><span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">typeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <blockquote>
 <p>Int64</p>
 </blockquote>
 <h2 id="vectores">Vectores<a class="headerlink" href="#vectores" title="Permanent link">&para;</a></h2>
 <p>La forma de definir vectores es mediante el uso de corchetes cuadrados <code>[]</code>, por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 </code></pre></div>
+</td></tr></table>
 
 <div class="admonition danger">
 <p class="admonition-title">No confundir con tuplas</p>
 <p>La forma de definir una tupla es mediante un paréntesis <code>()</code>.</p>
 </div>
 <p>Al igual que otros lenguajes de programación, la forma de acceder a sus elementos es mediante el operador <code>[]</code> y también con <code>:</code> se puede definir una secuencia.</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span>
 </code></pre></div>
+</td></tr></table>
 
 <h3 id="operadores-aritmeticos">Operadores aritméticos<a class="headerlink" href="#operadores-aritmeticos" title="Permanent link">&para;</a></h3>
 <p>Julia soporta diversos operadores aritméticos, la siguiente tabla muestra los principales operadores.</p>
@@ -704,10 +714,13 @@
 <p>Para una mayor referencia visita la sección<a href="https://docs.julialang.org/en/v1/manual/mathematical-operations/#Arithmetic-Operators">operadores aritméticos</a>.</p>
 <h2 id="control-de-flujo">Control de flujo<a class="headerlink" href="#control-de-flujo" title="Permanent link">&para;</a></h2>
 <p>Julia posee estructuras para control de flujo. Se puede realizar un ciclo usando el siguiente código</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">x</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10</span>
     <span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
+</td></tr></table>
 
 <div class="admonition nota">
 <p class="admonition-title">Nota</p>
@@ -715,12 +728,17 @@
 </div>
 <p>Se debe tomar en cuenta que la palabra <code>for</code> debe cerrarse con un  <code>end</code> para delimitar el bloque.</p>
 <p>Para usar el ciclo while, se usa el siguiente código</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> 
     <span class="n">println</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="k">end</span>
 </code></pre></div>
+</td></tr></table>
 
 <div class="admonition danger">
 <p class="admonition-title">Ciclo infinito</p>
@@ -730,7 +748,13 @@
 <p>Para definir una función, se usa la palabra <code>function</code> seguido del nombre de la función y entre paréntesis los argumentos.</p>
 <p>Se debe especificar la paabra clave <code>return</code>, de otro modo retornaría el último valor calculado.</p>
 <p>La función termina con un <code>end</code> e inmediatamente se compila.</p>
-<div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="n">signo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">function</span> <span class="n">signo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="n">resp</span> <span class="o">=</span> <span class="s">&quot;Negativo&quot;</span>
     <span class="k">elseif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">resp</span> <span class="o">=</span> <span class="s">&quot;Positivo&quot;</span>
         <span class="k">else</span> <span class="n">resp</span> <span class="o">=</span> <span class="s">&quot;Es Cero&quot;</span>
@@ -738,10 +762,12 @@
     <span class="k">return</span> <span class="n">resp</span>
 <span class="k">end</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>una vez compilada, se puede usar.</p>
-<div class="highlight"><pre><span></span><code><span class="n">signo</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">signo</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El resultado sería el siguiente</p>
 <blockquote>
@@ -750,17 +776,21 @@
 <h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2>
 <p>Julia tiene un gestor de paquetes en el cual se pueden descargar miles de ellos.</p>
 <p>Para acceder a ellos basta con entrar al modo paquete y escribir en la consola. Por ejemplo, para instalar el paquete <em>DataFrames</em> usaremos el siguiente comando</p>
-<div class="highlight"><pre><span></span><code><span class="n">add</span> <span class="n">DataFrames</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">add</span> <span class="n">DataFrames</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>alternativamente, desde la consola REPL podemos escribir</p>
-<div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="n">Pkg</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">import</span> <span class="n">Pkg</span>
 <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;DataFrames&quot;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para comenzar a usarlo, escribimos desde la consola</p>
-<div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">DataFrames</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">DataFrames</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                 
@@ -818,7 +848,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021. Creado por Francisco Vázquez
+            Copyright &copy; 2021. Creado por Francisco Vázquez.
           </div>
         
         Made with

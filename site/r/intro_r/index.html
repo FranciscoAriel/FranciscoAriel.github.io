@@ -748,8 +748,9 @@
 <p>Cuando se inicia una sesión, se asigna un espacio de trabajo (workspace) en memoria y un directorio de trabajo (working directory).</p>
 <p>El espacio de trabajo sirve para almacenar objetos creados, tales como vectores, funciones entre otros.</p>
 <p>Para conocer el directorio de trabajo puede escribir en consola:</p>
-<div class="highlight"><pre><span></span><code><span class="nf">getwd</span><span class="p">()</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">getwd</span><span class="p">()</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para cambiar use la función <code>setwd("dir")</code>, donde <em>dir</em> es el nuevo directorio.</p>
 <div class="admonition caution">
@@ -759,14 +760,18 @@
 <h3 id="vectores">Vectores<a class="headerlink" href="#vectores" title="Permanent link">&para;</a></h3>
 <p>Un vector es un objeto con uno o más elementos. Puede contener elementos numéricos o caracteres.</p>
 <p>Se pueden crear vectores con la función <code>c()</code>, por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;ABC&quot;</span><span class="p">,</span><span class="s">&quot;AEI&quot;</span><span class="p">,</span><span class="s">&quot;XYZ&quot;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Los vectores permiten algunas operaciones, las más comunes son la suma <code>+</code>, resta <code>-</code>,  multiplicación <code>*</code>, división. <code>/</code> y potencia <code>^</code>, así como valores booleanos.</p>
-<div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">n</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">n</span>
 <span class="n">xy</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span>
 </code></pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Operación entre vectores</p>
@@ -797,8 +802,9 @@
 <p>Para crear secuencias más complejas se puede usar la función <code>seq()</code>.</p>
 <p>Por ejemplo con <code>seq(from = 1,to = 10,by = 1)</code> se crea una secuencia del 1 al 10 incrementando el valor en 1 y se obtiene el mismo resultado que con <code>1:10</code>.</p>
 <p>Otra forma de crear un vector es mediante la función <code>rep()</code>. Por ejemplo la siguiente expresion:</p>
-<div class="highlight"><pre><span></span><code><span class="n">u</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span><span class="n">each</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span><span class="n">times</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">u</span> <span class="o">=</span> <span class="nf">rep</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span><span class="n">each</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span><span class="n">times</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Crea un el vector <em>u</em> que contiene cada elemento del vector <em>x</em> 2 veces y esta secuencia se recrea 3 veces.</p>
 <blockquote>
@@ -807,18 +813,23 @@
 <h4 id="nombres-de-vector">Nombres de vector<a class="headerlink" href="#nombres-de-vector" title="Permanent link">&para;</a></h4>
 <p>Una propiedad de los vectores es que sus elementos pueden tener un nombre.</p>
 <p>Se puede usar la función <code>names()</code> para consultar o asignar nombres a un vector. El siguiente código asignará nombres a los elementos del vector <code>a1</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">nombres</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;uno&quot;</span><span class="p">,</span><span class="s">&quot;dos&quot;</span><span class="p">,</span><span class="s">&quot;tres&quot;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">nombres</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;uno&quot;</span><span class="p">,</span><span class="s">&quot;dos&quot;</span><span class="p">,</span><span class="s">&quot;tres&quot;</span><span class="p">)</span>
 <span class="nf">names</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span><span class="o">&lt;-</span><span class="n">nombres</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Los nombres también pueden ser usados para acceder a los elementos de un vector, por ejemplo para acceder al segundo elemento, se puede usar su nombre correspondiente, es decir <code>a1["dos"]</code>.</p>
 <h4 id="escalares">Escalares<a class="headerlink" href="#escalares" title="Permanent link">&para;</a></h4>
 <p>Un escalar es un vector con un solo elemento.</p>
 <p>Se pueden crear escalares con el símbolo de asignación <code>&lt;-</code> o <code>=</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">5</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">5</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="m">1</span>
 <span class="n">a</span> <span class="o">=</span> <span class="s">&quot;Hola mundo!&quot;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Los escalares son útiles para guardar algún valor. Pueden ser considerados como una variable.</p>
 <p>También puede haber escalares lógicos o booleanos, por ejemplo si se construye <code>nm = n&gt;m</code> su valor sería:</p>
@@ -833,54 +844,68 @@
 </blockquote>
 <p>donde <strong>data</strong> representa un vector o una expresión, <strong>nrow</strong> el número de renglones que se desean, <strong>ncol</strong> el número de columnas y el argumento opcional <strong>byrow</strong> indica si se deberían llenar por columnas.</p>
 <p>Si se ejecuta el siguiente comando:</p>
-<div class="highlight"><pre><span></span><code><span class="n">A1</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">u</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A1</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">u</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>el resultado sería una matriz de 18 renglones y una columna.</p>
 <p>Si se desea una matriz de otra dimensión se puede usar este código.</p>
-<div class="highlight"><pre><span></span><code><span class="n">A1</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span><span class="n">nrow</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span><span class="n">byrow</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A1</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span><span class="n">nrow</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span><span class="n">byrow</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>También pueden crearse matrices a partir de vectores, mediante las funciones <code>cbind()</code> y <code>rbind()</code>. La primera permite concatenar columas y la segunda concatena renglones, por ejemplo</p>
-<div class="highlight"><pre><span></span><code><span class="n">a1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">a1</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
 <span class="n">a2</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">)</span>
 <span class="n">a3</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">)</span>
 <span class="n">A</span> <span class="o">=</span> <span class="nf">rbind</span><span class="p">(</span><span class="nf">cbind</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">),</span><span class="n">a3</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El resultado es el siguiente:</p>
 <p><img alt="Resultado de la matriz A" src="../img/matriz.png" /></p>
 <h4 id="dimensiones">Dimensiones<a class="headerlink" href="#dimensiones" title="Permanent link">&para;</a></h4>
 <p>Para conocer el tamaño o dimensiones de una matriz se puede usar la función <code>dim()</code></p>
-<div class="highlight"><pre><span></span><code><span class="nf">dim</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">dim</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Note que se desplegará en la consola el resultado mostrando la dimensión.</p>
 <blockquote>
 <p>2 4</p>
 </blockquote>
 <p>Para conocer el número de renglones y columnas por separado se pueden usar las funciones <code>nrow()</code> y <code>ncol()</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="nf">nrow</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">nrow</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="nf">ncol</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Esto es importante ya que como se verá más adelante, nos permitirá hacer operaciones entre matrices.</p>
 <h4 id="elementos-de-una-matriz">Elementos de una matriz<a class="headerlink" href="#elementos-de-una-matriz" title="Permanent link">&para;</a></h4>
 <p>Para acceder a los elementos de una matriz, podemos referirnos por medio de su posición <code>[row,column]</code>, por ejemplo para acceder al elemento ubicado en el renglón 1 de la columna 1 se usa:</p>
-<div class="highlight"><pre><span></span><code><span class="n">A[1</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A[1</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>También se puede usar el número de elemento, empezando de izquierda a derecha por columna, en este caso <code>A[1]</code>.</p>
 <p>Para obtener todo el renglón o toda la columna, únicamente se escribe el elemento que se quiere obtener, pero se debe dejar la coma, por ejemplo</p>
-<div class="highlight"><pre><span></span><code><span class="n">A[1</span><span class="p">,</span><span class="n">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A[1</span><span class="p">,</span><span class="n">]</span>
 <span class="n">A[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Traerían el primer renglón y la segunda columna respectivamente.</p>
 <p>Al igual que en el caso de los vectores para trae un rango específico se puede usar el operador <code>:</code> o un vector indicando los elemento deseados.</p>
-<div class="highlight"><pre><span></span><code><span class="n">A[1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A[1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
 <span class="n">A</span><span class="nf">[c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">),</span><span class="m">1</span><span class="n">]</span>
 </code></pre></div>
+</td></tr></table>
 
 <h4 id="nombres-de-una-matriz">Nombres de una matriz<a class="headerlink" href="#nombres-de-una-matriz" title="Permanent link">&para;</a></h4>
 <p>De la misma forma que los vectores, las matrices pueden tener nombres en sus elementos.</p>
@@ -936,69 +961,88 @@
 <h3 id="data-frames">Data Frames<a class="headerlink" href="#data-frames" title="Permanent link">&para;</a></h3>
 <p>Los data fames son objetos usados para almacenar datos. PAra conocer todas sus propiedades, vea la ayuda de R usando el comando <code>help("data.frame")</code>.</p>
 <p>Una manera fácil de crear conjunto de datos es mediante la función <code>data.frame()</code>, pasándole vectores como argumentos. Por ejemplo, el siguiente código muestra cómo construir un conjunto de datos.</p>
-<div class="highlight"><pre><span></span><code><span class="n">datos</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span>
     <span class="n">nombre</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;ANGELICA&quot;</span><span class="p">,</span><span class="s">&quot;BRENDA&quot;</span><span class="p">,</span><span class="s">&quot;LILIANA&quot;</span><span class="p">,</span><span class="s">&quot;MARCO&quot;</span><span class="p">,</span><span class="s">&quot;FABIAN&quot;</span><span class="p">,</span><span class="s">&quot;MAURICIO&quot;</span><span class="p">),</span> 
     <span class="n">grupo</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">),</span>
     <span class="n">puntaje</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">9</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">9</span><span class="p">,</span><span class="m">7</span><span class="p">))</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El resultado es el siguiente.</p>
 <p><img alt="Resultado del dataframe" src="../img/dataframe1.png" /></p>
 <p>Un dataset comparte propiedades similares a las listas y vectores. Para acceder a sus valores, se puede usar los corchetes <code>[renglón,columna]</code> para seleccionar ya sea renglones, columnas o ambas.</p>
-<div class="highlight"><pre><span></span><code><span class="n">datos[3</span><span class="p">,</span><span class="n">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos[3</span><span class="p">,</span><span class="n">]</span>
 <span class="n">datos[</span><span class="p">,</span><span class="m">2</span><span class="n">]</span>
 <span class="n">datos[1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="n">]</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>También es posible acceder a las variables mediante <code>$</code>, seguido del nombre de la variable. Note que el resultado es un vector.</p>
-<div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">$</span><span class="n">nombre</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">$</span><span class="n">nombre</span>
 <span class="n">datos</span><span class="o">$</span><span class="n">nombre[1</span><span class="o">:</span><span class="m">3</span><span class="n">]</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Se pueden agregar nuevas variables usando el operador <code>$</code> seguido del nuevo nombre, por ejemplo</p>
-<div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">$</span><span class="n">sexo</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">,</span><span class="s">&quot;F&quot;</span><span class="p">,</span><span class="s">&quot;F&quot;</span><span class="p">,</span><span class="s">&quot;M&quot;</span><span class="p">,</span><span class="s">&quot;M&quot;</span><span class="p">,</span><span class="s">&quot;M&quot;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">$</span><span class="n">sexo</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;F&quot;</span><span class="p">,</span><span class="s">&quot;F&quot;</span><span class="p">,</span><span class="s">&quot;F&quot;</span><span class="p">,</span><span class="s">&quot;M&quot;</span><span class="p">,</span><span class="s">&quot;M&quot;</span><span class="p">,</span><span class="s">&quot;M&quot;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p><img alt="Resultado del dataframe" src="../img/dataframe3.png" /></p>
 <p>Es posible pasar de una matriz a un datafreme mediante la función <code>as.data.frame()</code>, pasándole como argumento una matriz.</p>
-<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">9</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">9</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
 <span class="n">Adato</span> <span class="o">=</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <h3 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h3>
 <h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2>
 <p>R dispone de miles de paquetes que pueden descargarse libremente para enriquecerse son nuevas características. Estos paquetes están almacenados en el <a href="https://cran.r-project.org/">CRAN</a> y pueden instalarse fácilmente desde la consola con el siguiente comando</p>
-<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">()</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">()</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Por ejemplo, si se desea instalar el paquete <em>ggplot2</em> se puede usar el siguiente comando.</p>
-<div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;ggplot2&quot;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;ggplot2&quot;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>R almacenará los archivos en la carpeta personal llamada biblioteca del usuario o <em>User library</em>. Frecuentemente al instalar un paquete R descarga otros paquetes relacionados llamados dependencias que sirven para que las funciones del paquete trabajen adecuadamente.</p>
 <p>Sin embargo, aún no podrá usarse debido a que es necesario cargarla mediante el comando <code>library()</code>, por ejemplo, para cargar el paquete <em>ggplot2</em> se debe ejecutar</p>
-<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Con esto, todas las funciones y objetos del paquete estarán definidos y listos para usarse.</p>
 <h2 id="ayuda">Ayuda<a class="headerlink" href="#ayuda" title="Permanent link">&para;</a></h2>
 <p>R dispone de un comando especial para obtener ayuda desde la consola. Por ejemplo para buscar ayuda sobre matrices, se puede escribir desde la consola el comando</p>
-<div class="highlight"><pre><span></span><code><span class="o">?</span><span class="n">matrix</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">?</span><span class="n">matrix</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>o bien con</p>
-<div class="highlight"><pre><span></span><code><span class="nf">help</span><span class="p">(</span><span class="n">topic</span> <span class="o">=</span> <span class="s">&quot;matrix&quot;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">help</span><span class="p">(</span><span class="n">topic</span> <span class="o">=</span> <span class="s">&quot;matrix&quot;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>y con eso se abrirá un documento de ayuda.</p>
 <p>Para realizar una búsqueda más general simplemente se deben escribir doble signo de interrogación.</p>
-<div class="highlight"><pre><span></span><code><span class="o">??</span><span class="n">matrix</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">??</span><span class="n">matrix</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El sistema de ayuda nos mostrará los términos relacionados en todos los paquetes que encuentre.</p>
 <p>También se puede obtener ayuda acerca de una paquete en específico, por ejemplo</p>
-<div class="highlight"><pre><span></span><code><span class="nf">help</span><span class="p">(</span><span class="n">package</span> <span class="o">=</span> <span class="s">&quot;ggplot2&quot;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">help</span><span class="p">(</span><span class="n">package</span> <span class="o">=</span> <span class="s">&quot;ggplot2&quot;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>y con ello se obtendrá la documentación del paquete en específico.</p>
                 
@@ -1058,7 +1102,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021. Creado por Francisco Vázquez
+            Copyright &copy; 2021. Creado por Francisco Vázquez.
           </div>
         
         Made with

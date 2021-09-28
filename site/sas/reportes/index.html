@@ -600,16 +600,31 @@
 <p>Sin embargo, para datasets muy grandes, esto no sería una buena opción debido a que SAS gastaría muchos recursos en imprimir toda la tabla. Se pueden usar ciertas configuraciones para que SAS solo procece cierta cantidad de observaciones de un dataset.</p>
 <p>La primera de ellas es mediante las <em>opciones generales</em>, la cual afectaría a todos los procedimientos durante la sesión o mediante las <em>opciones de dataset</em> la cual solo aplica durante ese procedimiento. Para una referencia completa sobre las opciones generales, visite el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/lesysoptsref/p1tmgku1vq7pwqn1iqioeflxgec1.htm">diccionario de opciones del sistema</a> y para las opciones de dataset vea el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/ledsoptsref/p1pczmnhbq4axpn1l15s9mk6mobp.htm">diccionario de opciones de datasets</a>.</p>
 <p>El siguiente ejemplo muestra las primeras diez observaciones del conjunto de datos de baseball, pero solo pedimos que muestre ciertas variables.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">PROC PRINT </span>DATA = SASHELP<span class="m">.</span>BASEBALL(OBS=<span class="m">10</span>);
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC PRINT </span>DATA = SASHELP<span class="m">.</span>BASEBALL(OBS=<span class="m">10</span>);
     VAR NAME TEAM NHOME SALARY<span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Produce el siguiente resultado</p>
 <p><img alt="Mostrando 10 observaciones" src="../img/print1.png" /></p>
 <h3 id="un-reporte-con-seleccionando-casos-con-total">Un reporte con seleccionando casos con total<a class="headerlink" href="#un-reporte-con-seleccionando-casos-con-total" title="Permanent link">&para;</a></h3>
 <p><strong>PROC PRINT</strong> tambien tiene diversas sentencias para hacer reportes más completos o específicos.</p>
-<div class="highlight"><pre><span></span><code><span class="k">TITLE</span> <span class="s">&quot;Reporte del equipo San Francisco&quot;</span><span class="kr">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">TITLE</span> <span class="s">&quot;Reporte del equipo San Francisco&quot;</span><span class="kr">;</span>
 <span class="kr">PROC PRINT </span>DATA = SASHELP<span class="m">.</span>BASEBALL NOOBS;
     VAR NAME NHOME SALARY;
     <span class="k">WHERE</span> TEAM EQ <span class="s">&quot;San Francisco&quot;</span>;
@@ -623,6 +638,7 @@
 <span class="kr">RUN;</span>
 <span class="k">TITLE</span>;
 </code></pre></div>
+</td></tr></table>
 
 <p>El anterior ejemplo muestra un reporte que incluye el nombre de todos los jugadores del equipo <em>San Francisco</em>, número de home run ysu salario; al final del reporte se presenta el gran total de estas variables. En este ejemplo se modificaron las etiquetas y los formatos, pero sólo para el reporte mediante las sentencias <code>LABEL</code> y <code>FORMAT</code> y se seleccionaron las observaciones que cumplieran cierto criterio.</p>
 <p>La opción <code>NOOBS</code> en la sentencia <code>DATA</code> pide no imprimir el número de observación del dataset y con la opción <code>LABEL</code> se mostrarán las etiquetas de las variables.</p>
@@ -639,7 +655,23 @@
 <p>Los datos se deberían ordenar por la variables que se desee hacer el agrupamiento para evitar posibles errores en los cálculos. SAS considera valores iguales de la variable de agrupamiento como un bloque. Si SAS encontrara una observación con un valor que ya procesó, se generará un error.</p>
 </div>
 <p>Se puede usar el procedimiento SORT para ordenar una dataset por las variables que se deseen y posteriormente realizar el reporte.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">PROC SORT </span>DATA = SASHELP<span class="m">.</span>BASEBALL <span class="k">OUT</span> = BASEBALL;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC SORT </span>DATA = SASHELP<span class="m">.</span>BASEBALL <span class="k">OUT</span> = BASEBALL;
     <span class="k">BY</span> DIVISION TEAM<span class="kr">;</span>
 <span class="kr">RUN;</span>
 
@@ -657,6 +689,7 @@
     <span class="k">BY</span> DIVISION TEAM<span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El procedimiento SORT especifica que se ordene por las variables <em>division</em> y luego por <em>team</em> y se pide que se guarde una copia temporal, con el fin de no modificar el dataset original.</p>
 <p>En el procedimiento <strong>PRINT</strong> se usa la sentencia <code>BY</code> para que crear el reporte por combinaciones de valores de <em>division</em> y <em>team</em>.</p>
@@ -727,7 +760,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021. Creado por Francisco Vázquez
+            Copyright &copy; 2021. Creado por Francisco Vázquez.
           </div>
         
         Made with

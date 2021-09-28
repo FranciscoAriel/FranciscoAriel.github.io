@@ -630,16 +630,22 @@
 <h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
 <p>Las variables son objetos que permiten almacenar un valor.</p>
 <p>Se pueden declarar usando el operador  <code>=</code>, por ejemplo</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mf">2.15</span>
 <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;hola&quot;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para conocer el tipo de variable, se usa la función <code>type</code>, por ejemplo</p>
-<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>La siguiente tabla muestra algunos de los tipos de datos que existen.</p>
 <table>
@@ -673,15 +679,18 @@
 </tbody>
 </table>
 <p>Los objetos tienen métodos, por ejemplo, los objetos tipo <em>str</em> tienen métodos que los convierten en mayúsculas, por ejemplo</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </code></pre></div>
+</td></tr></table>
 
 <h3 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h3>
 <p>Uno de los principales objetos en python son las listas. Las listas permiten guardar varios valores en una sola variable, además sus elementos están ordenados y pueden ser intercambiables. Una lista puede ser vista como un arreglo que permite valores duplicados.</p>
 <p>Por ejemplo para crear una lista se puede declarar de la siguiente forma:</p>
-<div class="highlight"><pre><span></span><code><span class="n">mi_lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;manzana&quot;</span><span class="p">,</span><span class="s2">&quot;naranja&quot;</span><span class="p">,</span><span class="s2">&quot;pera&quot;</span><span class="p">,</span><span class="s2">&quot;uva&quot;</span><span class="p">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">mi_lista</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;manzana&quot;</span><span class="p">,</span><span class="s2">&quot;naranja&quot;</span><span class="p">,</span><span class="s2">&quot;pera&quot;</span><span class="p">,</span><span class="s2">&quot;uva&quot;</span><span class="p">]</span>
 <span class="k">print</span><span class="p">(</span><span class="n">mi_lista</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El resultado que se obtiene es el siguiente:</p>
 <blockquote>
@@ -692,24 +701,38 @@
 <p>A diferencia de otros lenguajes de programación, el primer elemento de un objeto es el 0 y no el 1.</p>
 </div>
 <p>Para acceder a un elemento de una lista, se puede usar <code>[]</code> con el índice del elemento, también se puede definir un rango con <code>:</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">mi_lista</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">mi_lista</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">mi_lista</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">mi_lista</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para una referencia completa acerca de las lista consulte <a href="https://www.w3schools.com/python/python_lists.asp">Listas de Python</a>.</p>
 <h3 id="diccionarios">Diccionarios<a class="headerlink" href="#diccionarios" title="Permanent link">&para;</a></h3>
 <p>Otro tipo de arreglo que existe en python son los diccionarios.</p>
 <p>Los diccionarios son un arreglo conformado por pares de <strong>claves</strong> y <strong>valores</strong>. Los elementos de un diccionario están dentro de llaves separados por comas, y se usa dos puntos para asignar el valor a la clave. El siguiente ejemplo muestra un diccionario.</p>
-<div class="highlight"><pre><span></span><code><span class="n">dic</span> <span class="o">=</span> <span class="p">{</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">dic</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Juan&quot;</span><span class="p">,</span>
   <span class="s2">&quot;apellido&quot;</span><span class="p">:</span> <span class="s2">&quot;Pérez&quot;</span><span class="p">,</span>
   <span class="s2">&quot;edad&quot;</span><span class="p">:</span> <span class="mi">30</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Los valores pueden ser una lista, por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="n">sexo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;M&quot;</span><span class="p">,</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="s2">&quot;M&quot;</span><span class="p">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">sexo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;M&quot;</span><span class="p">,</span><span class="s2">&quot;F&quot;</span><span class="p">,</span><span class="s2">&quot;M&quot;</span><span class="p">]</span>
 <span class="n">dic</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Juan&quot;</span><span class="p">,</span><span class="s2">&quot;María&quot;</span><span class="p">,</span><span class="s2">&quot;José&quot;</span><span class="p">],</span>
   <span class="s2">&quot;apellido&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Pérez&quot;</span><span class="p">,</span><span class="s2">&quot;Martínez&quot;</span><span class="p">,</span><span class="s2">&quot;Pérez&quot;</span><span class="p">],</span>
@@ -717,23 +740,28 @@
   <span class="s2">&quot;genero&quot;</span><span class="p">:</span><span class="n">sexo</span>
 <span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 
 <div class="admonition danger">
 <p class="admonition-title">Claves únicas</p>
 <p>Los diccionarios no permiten tener claves duplicadas, si se agrega una clave ya existente, se mantendrá la más reciente.</p>
 </div>
 <p>Es posible acceder a los elementos de un diccionario mediante sus claves, por ejemplo, para saber el nombre, se puede escribir</p>
-<div class="highlight"><pre><span></span><code><span class="n">dic</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">dic</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">]</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para una referencia completa acerca de los diccionarios consulte <a href="https://www.w3schools.com/python/python_dictionaries.asp">Diccionario de Python</a>.</p>
 <h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2>
 <p>La mayoría de los paquetes usados en ciencia de datos, son instalados mediante uando se instala Anaconda, por lo que solo es necesario llamar los paquetes necesarios.</p>
 <p>Por ejemplo, para usar las librerías <strong>pandas</strong> y <strong>numpy</strong> y otra librería adicional llamada <strong>os</strong> se puede ejecutar el siguiente código.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
 </code></pre></div>
+</td></tr></table>
 
 <div class="admonition nota">
 <p class="admonition-title">Nota</p>
@@ -741,12 +769,14 @@
 los nombres de las librerías. Por ejemplo, a <code>pandas</code> le llamaremos <code>pd</code> y <code>np</code> para referirnos a <code>numpy</code>.</p>
 </div>
 <p>si solo se desea llamar una función , se puede ejecutar el siguiente código.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">read_csv</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">read_csv</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Sin embargo, se puede instalar paquetes adicionales desde la consola con los siguientes comandos:</p>
-<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">paquete</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">paquete</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                 
@@ -804,7 +834,7 @@ los nombres de las librerías. Por ejemplo, a <code>pandas</code> le llamaremos 
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021. Creado por Francisco Vázquez
+            Copyright &copy; 2021. Creado por Francisco Vázquez.
           </div>
         
         Made with

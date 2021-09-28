@@ -98,7 +98,7 @@ Considere la siguiente tabla donde se representan la información de los emplead
 
 El siguiente código muestra la forma de crear el acumulador y el contador de forma muy básica.
 
-````sas
+````sas hl_lines="3 4"
 DATA ventas_au2;
     SET ventas_au;
     contador = _N_;

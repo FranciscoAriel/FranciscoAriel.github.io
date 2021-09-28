@@ -773,7 +773,28 @@
 <h3 id="introduccion-de-valores-de-forma-manual">Introducción de valores de forma manual<a class="headerlink" href="#introduccion-de-valores-de-forma-manual" title="Permanent link">&para;</a></h3>
 <p>La forma más fácil de crear un dataset, es con el uso de la sentencia <code>INPUT</code> y <code>DATALINES</code> con el fin de introducir valores manualmente. Estos datos fueron copiados y pegados directamente de una hoja de excel.</p>
 <p>El siguiente ejemplo muestra como introducir datos manualmente.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>EMPLEADOS(<span class="k">LABEL</span> = <span class="s">&quot;Registro de empleados nuevos&quot;</span>);
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>EMPLEADOS(<span class="k">LABEL</span> = <span class="s">&quot;Registro de empleados nuevos&quot;</span>);
     <span class="k">ATTRIB</span>
         NOMBRE <span class="k">LENGTH</span> = $<span class="m">16</span> <span class="k">LABEL</span> = <span class="s">&quot;Nombre&quot;</span>
         APELLIDO <span class="k">LENGTH</span> = $<span class="m">12</span> <span class="k">LABEL</span> = <span class="s">&quot;Apellido&quot;</span>
@@ -796,6 +817,7 @@
 <span class="x">    ;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>La sentencia <code>DATA</code> especifica el nombre del dataset y entre parentesis están las opciones del dataset, en este caso el dataset <em>empleados</em> tendrá una etiqueta para identificarlo.</p>
 <p>Es recomendable especificar las propiedades de las variables a crear mediante la sentencia <code>ATTRIB</code> en donde se especifican sus propiedades.</p>
@@ -808,11 +830,15 @@
 <p>La sentencia <code>DATALINES</code> indica el inicio de los datos y finaliza con un punto y coma.</p>
 <p>Con la sentencia <code>RUN</code> se cierra el bloque de instrucciones y comienza a ejecutar el proceso.</p>
 <p>Si los datos estuvieran acomodados secuencialmente, es posible leerlos usando <code>@@</code> al final de la sentencia <code>input</code>, este doble signo arroba es útil cuando un registro tiene más de una observación, por ejemplo si los datos estuvieran acomodados en esta forma</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">INPUT</span> NOMBRE -- FNAC @@;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">INPUT</span> NOMBRE -- FNAC @@;
 <span class="k">    DATALINES;</span>
 Ezio Vanegas <span class="m">1</span> m <span class="m">04</span>/<span class="m">06</span>/<span class="m">1942</span> Katharina Reséndez <span class="m">2</span> f <span class="m">12</span>/<span class="m">08</span>/<span class="m">1967</span> Tamara Monroy <span class="m">3</span> f <span class="m">02</span>/<span class="m">01</span>/<span class="m">1948</span> Dunstano Armendáriz <span class="m">4</span> m <span class="m">05</span>/<span class="m">07</span>/<span class="m">1985</span> Baldo Ayala <span class="m">5</span> m <span class="m">04</span>/<span class="m">10</span>/<span class="m">1952</span>
 Adrián Rosales <span class="m">6</span> m <span class="m">8</span>/<span class="m">28</span>/<span class="m">1992</span> Helvia Viera <span class="m">7</span> f <span class="m">12</span>/<span class="m">16</span>/<span class="m">1994</span> Astor Cortez <span class="m">8</span> m <span class="m">12</span>/<span class="m">04</span>/<span class="m">1965</span> Giusto Carvajal <span class="m">9</span> m <span class="m">5</span>/<span class="m">27</span>/<span class="m">1986</span> Baal Alcalá <span class="m">10</span> m <span class="m">1</span>/<span class="m">15</span>/<span class="m">1961</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>la información podría ser leída sin ningún problema.</p>
 <h3 id="lectura-de-datos-desde-un-archivo-externo">Lectura de datos desde un archivo externo<a class="headerlink" href="#lectura-de-datos-desde-un-archivo-externo" title="Permanent link">&para;</a></h3>
@@ -823,8 +849,9 @@ Adrián Rosales <span class="m">6</span> m <span class="m">8</span>/<span class=
 </blockquote>
 <p>donde <em>fileref</em> es un nombre sas que hará referencia a un archivo y <em>nombre-archivo</em> es el nombre de un archivo físico externo que incluye tanto la ruta como el nombre con su extensión.</p>
 <p>Por ejemplo la siguiente sentencia asigna con el nombre <em>archivo</em> al archivo &ldquo;datos&rdquo; almacenados en formato .dat que están en la carpeta proyectos.</p>
-<div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\Documents\Proyectos\datos.dat&quot;</span>;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\Documents\Proyectos\datos.dat&quot;</span>;
 </code></pre></div>
+</td></tr></table>
 
 <p>También será necesario usar la sentencia <code>INFILE</code>. Esta sentencia le da las espeficicaciones a SAS sobre cómo leer archivos externos. Para una mayor referencia consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1rill4udj0tfun1fvce3j401plo.htm">sentencia INPUT</a>.</p>
 <h4 id="lectura-de-un-archivo-de-ancho-fijo">Lectura de un archivo de ancho fijo<a class="headerlink" href="#lectura-de-un-archivo-de-ancho-fijo" title="Permanent link">&para;</a></h4>
@@ -832,11 +859,15 @@ Adrián Rosales <span class="m">6</span> m <span class="m">8</span>/<span class=
 <p><img alt="Ejemplo de un archivo en formato de texto de ancho fijo" src="../img/fijo.png" /></p>
 <p>El ejemplo anterior muestra un ejemplo de un archivo de texto de ancho fijo, obsérvese que el id comienza en la columna 1 mientras que el nombre inicia en la columna 8.</p>
 <p>El siguiente código muestra cómo leer datos de un archivo de ancho fijo.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS;
     <span class="k">INFILE</span> ARCHIVO;
     <span class="k">INPUT</span> ID <span class="m">1</span> - <span class="m">7</span> NOMBRE $ <span class="m">8</span> - <span class="m">18</span> APELLIDO $ <span class="m">19-33</span> POSICION $ <span class="m">34</span> - <span class="m">53</span> VOLUMEN <span class="m">54</span> - <span class="m">60</span> PAIS $ <span class="m">61-62</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>La diferencia con ejemplos anteriores es la sentencia <code>INFILE</code>. Esta sentencia especifica que se va leer un archivo externo y se usa junto con la sentencia <code>INPUT</code>.</p>
 <p>En la sentencia <code>INPUT</code> se declaran las variables que va a contener el dataset <strong>VENTAS</strong>. SAS leerá el archivo línea por línea y almacenará los valores que encuentre en la variable declarada según la posición indicada, por ejemplo los valores que encuentre de la línea 1 a la 7 se guardarán en la variable <em>ID</em>, mientras que los valores de la columna 8 a la 18 se almacenarán en la variable <em>NOMBRE</em>, nótese que después de <em>NOMBRE</em> hay un signo de pesos, esto es para indicar que la variable es de tipo caracter.</p>
@@ -848,11 +879,15 @@ En el ejemplo anterior, si se hubiera declarado <code>VOLUMEN 54 - 61</code>, SA
 Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una cadena en una variable numérica, por lo que lo que nos mostraría el error y finalmente le asignaría un valor missing a <em>volumen</em>.</p>
 </div>
 <p>Una forma alternativa de declarar las variables en la sentencia sería usar el siguiente código:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS;
     <span class="k">INFILE</span> ARCHIVO;
     <span class="k">INPUT</span> ID NOMBRE $<span class="m">10</span>. APELLIDO $ <span class="m">19-33</span> POSICION $ <span class="m">34</span> - <span class="m">53</span> VOLUMEN PAIS $<span class="m">3</span>.<span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Note que en la sentencia <code>INPUT</code> se declaran a las variables de tipo caracter de dos formas: por posición (ejemplo <code>APELLIDO $ 19-33</code>) y por formato (ejemplo <code>NOMBRE $10.</code>).</p>
 <p>Para una mayor referencia consulte <a href="https://support.sas.com/documentation/cdl/en/lrcon/62955/HTML/default/viewer.htm#a003209907.htm#:~:text=The%20INPUT%20statement%20reads%20raw%20data%20from%20instream,styles%20of%20input%20in%20a%20single%20INPUT%20statement.">leyendo datos en bruto</a> en la documentación de SAS.</p>
@@ -861,7 +896,21 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <p>Considere el siguiente archivo de texto. Puede notarse que está delimitado por el caracter &ldquo;/&rdquo; y además tiene datos perdidos (resaltados en amarillo). De hecho, los valores perdidos al final de la línea podrían hacer que SAS terminara antes de leer los datos.</p>
 <p><img alt="Archivo de texto delimitado" src="../img/dat1.png" /></p>
 <p>El siguiente código puede ser usado para leer esos datos.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>gerentes;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>gerentes;
     <span class="k">INFILE</span> ARCHIVO DLM = <span class="s">&quot;/&quot;</span> DSD TRUNCOVER;
     <span class="k">ATTRIB</span>
         id <span class="k">label</span> = <span class="s">&quot;ID gerente&quot;</span>
@@ -877,6 +926,7 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
     <span class="k">INPUT</span> id -- fingreso<span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>La opción <code>DSD</code> es útil cuando hay un valor faltante en datos delimitados, de otra forma SAS no reconocería dos delimitadores juntos y no leería los datos correctamente.</p>
 <p>La opción <code>MISSOVER</code> evita que SAS salte a una nueva linea cuando no encuentra valores válidos y asigna valores faltantes a las variables que no encuentre. <code>TRUNCOVER</code> funciona de manera similar a <code>MISSOVER</code> pero la diferencia radica en que asignaría los valores que encuentre pasando el fin de línea.</p>
@@ -958,20 +1008,30 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 </tbody>
 </table>
 <p>Por ejemplo el siguiente código solo contendría a empleados de Australia.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS_AU;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS_AU;
     <span class="k">INFILE</span> ARCHIVO;
     <span class="k">IF</span> PAIS EQ <span class="s">&quot;AU&quot;</span>;
     <span class="k">INPUT</span> ID <span class="m">1</span> - <span class="m">7</span> NOMBRE $ <span class="m">8</span> - <span class="m">18</span> APELLIDO $ <span class="m">19-33</span> POSICION $ <span class="m">34</span> - <span class="m">53</span> VOLUMEN <span class="m">54</span> - <span class="m">60</span> PAIS $ <span class="m">61-62</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para elegir observaciones que no sean nulas, se puede usar la siguiente sentencia.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS_AU;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>VENTAS_AU;
     <span class="k">INFILE</span> ARCHIVO;
     <span class="k">IF</span> VOLUMEN;
     <span class="k">INPUT</span> ID <span class="m">1</span> - <span class="m">7</span> NOMBRE $ <span class="m">8</span> - <span class="m">18</span> APELLIDO $ <span class="m">19-33</span> POSICION $ <span class="m">34</span> - <span class="m">53</span> VOLUMEN <span class="m">54</span> - <span class="m">60</span> PAIS $ <span class="m">61-62</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <h3 id="usando-un-procedimiento-para-leer-datos-externos">Usando un procedimiento para leer datos externos<a class="headerlink" href="#usando-un-procedimiento-para-leer-datos-externos" title="Permanent link">&para;</a></h3>
 <p>La forma más fácil de leer archivos externos es mediante el procedimiento <strong>IMPORT</strong>.</p>
@@ -980,34 +1040,50 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 </blockquote>
 <p>Este procedimiento no solo lee archivos de texto, sino tambien de Excel, SPSS, Stata e incluso tablas de Access. Para una mayor referencia vea el <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/n1qn5sclnu2l9dn1w61ifw8wqhts.htm">procedimiento IMPORT</a>.</p>
 <p>El siguiente código leerá un archivo en formato excel.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">PROC IMPORT </span><span class="k">OUT</span> = WORK<span class="m">.</span>censo 
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC IMPORT </span><span class="k">OUT</span> = WORK<span class="m">.</span>censo 
             DATAFILE = <span class="s">&quot;C:\Users\Usuario\census.xlsx&quot;</span> 
             DBMS = XLSX <span class="k">REPLACE</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Nótese que se ha especificado la opción <code>DBMS = XLSX</code> para que sas utilice los parámetros correspondientes para leer un archivo de excel. La opción <code>REPLACE</code> reemplazaría el dataset que tuviera el mismo nombre, de otro modo SAS mostraría un error y no crearía el dataset.</p>
 <p>El siguiente código muestra cómo leer un archivo en formato csv.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">PROC IMPORT </span><span class="k">OUT</span> = WORK<span class="m">.</span>census 
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC IMPORT </span><span class="k">OUT</span> = WORK<span class="m">.</span>census 
             DATAFILE = <span class="s">&quot;C:\Users\Usuario\census.csv&quot;</span> 
             DBMS = CSV <span class="k">REPLACE</span>;
      GETNAMES = YES;
      DATAROW = <span class="m">2</span><span class="kr">; </span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>En el caso de archivos csv, hay dos sentencias adicionales, la sentencia <code>GETNAMES = YES</code> indica si los nombres de las variables se encuentran al inicio del archivo de texto, mientras que la sentencia <code>DATAROW = 2</code> indica que los valores incian en el renglón 2.</p>
 <h2 id="escritura-a-un-archivo-externo">Escritura a un archivo externo<a class="headerlink" href="#escritura-a-un-archivo-externo" title="Permanent link">&para;</a></h2>
 <p>SAS tambien puede ser utlizado para escribir archivos externos. En esta sección se mostrará como crear archivos de texto, asi como escribir mensaje del log a archivos externos.</p>
 <h3 id="escritura-de-un-archivo-delimitado">Escritura de un archivo delimitado<a class="headerlink" href="#escritura-de-un-archivo-delimitado" title="Permanent link">&para;</a></h3>
 <p>El siguiente código muestra como crear un archivo de texto.</p>
-<div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.dat&quot;</span><span class="kr">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.dat&quot;</span><span class="kr">;</span>
 <span class="kr">DATA </span><span class="kc">_NULL_</span>;
     <span class="k">FILE</span> archivo;
     <span class="k">SET</span> sashelp<span class="m">.</span>class;<span class="k"></span>
 <span class="k">    PUT </span><span class="err">name age sex;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Como se puede ver, se ha referenciado con la sentencia <code>FILENAME</code> el archivo con el nombre que en el que se desea escribir.</p>
 <p>Nótese que en la sentencia <code>DATA</code> se ha especificado <code>_NULL_</code>, una palabra reservada para pedir que no cree ningún dataset.</p>
@@ -1021,19 +1097,31 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <p><img alt="Ejemplo de un archivo de texto delimitado por espacios en blanco" src="../img/dat2.png" /></p>
 <h3 id="escritura-de-un-archivo-de-texto-de-ancho-fijo">Escritura de un archivo de texto de ancho fijo<a class="headerlink" href="#escritura-de-un-archivo-de-texto-de-ancho-fijo" title="Permanent link">&para;</a></h3>
 <p>Para crear un archivo de texto de ancho fijo, se puede especificar las posiciones en las que se escribiran las observaciones.</p>
-<div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
 <span class="kr">DATA </span><span class="kc">_NULL_</span>;
     <span class="k">FILE</span> archivo;
     <span class="k">SET</span> sashelp<span class="m">.</span>class;<span class="k"></span>
 <span class="k">    PUT </span><span class="err">name $</span><span class="m">8</span><span class="err">. sex </span><span class="m">10-12</span><span class="err"> age </span><span class="m">2</span><span class="err">. height </span><span class="m">16-20</span><span class="err"> weight </span><span class="m">22-25</span><span class="err">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Nótese que se han especificado los formatos de las variables y las columnas en las que se desea escribir el archivo, es algo muy similar cuando se leían los archivos con la sentencia <code>INPUT</code>.</p>
 <h4 id="crear-archivos-con-encabezados">Crear archivos con encabezados<a class="headerlink" href="#crear-archivos-con-encabezados" title="Permanent link">&para;</a></h4>
 <p>Debido a que sas escribe directamente al archivo, es un poco complicado especificarle que en el renglón 1 escriba el nombre de las variables.</p>
 <p>Sin embargo, el siguiente código logra especificar el nombre de los archivos en la primer línea.</p>
-<div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> archivo <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
 <span class="kr">DATA </span><span class="kc">_NULL_</span>;
     <span class="k">FILE</span> archivo;
     <span class="k">IF</span> <span class="kc">_n_</span> EQ <span class="m">1</span> <span class="k">THEN</span> <span class="k">PUT</span> <span class="s">&quot;name &quot;</span> <span class="s">&quot;sex &quot;</span> <span class="s">&quot;age &quot;</span> <span class="s">&quot;height &quot;</span> <span class="s">&quot;weight &quot;</span>;
@@ -1041,6 +1129,7 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <span class="k">    PUT </span><span class="err">name -- weight;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Esto se logra escribiendo la sentencia <code>PUT</code> justo al inicio e inmediatamente despues se carga el dataset que se quiere escribir.</p>
 <p>Las sentencias de la línea 4 se estudiarán en la sección <a href="site/sas/manejo_variables/index.html#filtrado-de-datos">filtrado de datos</a></p>
@@ -1048,7 +1137,18 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <p>Es posible manipular archivos de texto mediante SAS. para ellos es necesario leerlos y volver a escribir sobre ellos.</p>
 <p><img alt="Arcivo de ancho fijo" src="../img/txt1.png" /></p>
 <p>El siguiente código muestra como actualizar ciertas variables.</p>
-<div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> ARCHIVO <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> ARCHIVO <span class="s">&quot;C:\Users\Usuario\alumnos.txt&quot;</span><span class="kr">;</span>
 <span class="kr">DATA </span><span class="kc">_NULL_</span>;
    <span class="k">INFILE</span> archivo SHAREBUFFERS  FIRSTOBS = <span class="m">2</span> TRUNCOVER;
    <span class="k">ATTRIB</span>
@@ -1061,6 +1161,7 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <span class="k">   PUT </span><span class="err">sex2 </span><span class="m">9</span><span class="err"> ;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Note que se la sentencia <code>LIBNAME</code> apunta al mismo archivo que se está usando en las sentencias <code>INFILE</code> y <code>FILE</code>.</p>
 <p>La opción <code>SHAREBUFFERS</code> es útil para actualizar un archivo externo y solo actualiza ciertos campos. Esta opción se usa junto con las sentencias <code>INFILE</code>, <code>FILE</code> y <code>PUT</code>.</p>
@@ -1077,11 +1178,15 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
 <p><strong>PROC EXPORT</strong> OUTFILE = “filename” DATA = dataset;</p>
 </blockquote>
 <p>El siguiente código muestra la forma de escribir un dataset a un archivo csv.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">PROC EXPORT </span>DATA= SASHELP<span class="m">.</span>Class 
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC EXPORT </span>DATA= SASHELP<span class="m">.</span>Class 
             OUTFILE= <span class="s">&quot;C:\Users\Usuario\alumnos.csv&quot;</span> 
             DBMS = CSV <span class="k">REPLACE</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para mayores referencias consulte el <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/proc/n045uxf7ll2p5on1ly4at3vpd47e.htm">procedimiento EXPORT</a>.</p>
                 
@@ -1141,7 +1246,7 @@ Debido a que la columna 61 contiene a la letra A, SAS estaría almacenando una c
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021. Creado por Francisco Vázquez
+            Copyright &copy; 2021. Creado por Francisco Vázquez.
           </div>
         
         Made with

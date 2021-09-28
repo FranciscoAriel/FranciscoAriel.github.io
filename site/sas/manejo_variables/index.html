@@ -819,12 +819,17 @@ Se explorarán distintas formas de manejar bases mediante uso de variables, sele
 </tbody>
 </table>
 <p>Considere las siguientes sentencias:</p>
-<div class="highlight"><pre><span></span><code>fecha = <span class="s">&#39;10Jun20&#39;</span>d;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>fecha = <span class="s">&#39;10Jun20&#39;</span>d;
 version = <span class="m">1</span>;
 status = <span class="s">&quot;ok&quot;</span>;
 altura = height * <span class="m">2.54</span>;
 nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span class="m">3</span>);
 </code></pre></div>
+</td></tr></table>
 
 <p>En esas sentencias se han creado las variables simplemente asignando un valor o una expresión SAS.</p>
 <p>Las primeras tres sentencias crearían variables de tipo numérico; la expresión <code>'10Jun20'd</code> es interpretada por sas como un valor numérico.</p>
@@ -836,12 +841,17 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 <p>Considere la siguiente tabla donde se representan la información de los empleados de una compañía. Se desea obtener un acumulado de las ventas de los empleados y un contador para tener en cuenta el número de empleados.</p>
 <p><img alt="Datos del ejemplo" src="../img/ejemplo1.png" /></p>
 <p>El siguiente código muestra la forma de crear el acumulador y el contador de forma muy básica.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>ventas_au2;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>ventas_au2;
     <span class="k">SET</span> ventas_au;
-    contador = <span class="kc">_N_</span>;
-    salario_acum + salary<span class="kr">;</span>
-<span class="kr">RUN;</span>
+<span class="hll">    contador = <span class="kc">_N_</span>;
+</span><span class="hll">    salario_acum + salary<span class="kr">;</span>
+</span><span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>La tercer línea guarda el número de veces que se ha iterado, es decir el número de registros leídos. Debido a que la variable <code>_N_</code> es temporal y no se escribe en el dataset, se guarda en la variable <em>contador</em>.</p>
 <p>En la cuarta se muestra cómo acumular en la variable <em>salario_acum</em>, en cada iteración se le suma la variable <em>salary</em> a la variable <em>salario_acum</em>. Esta sentencia es conocida como <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n1dfiqj146yi2cn1maeju9wo7ijs.htm">sentencia SUM</a>.</p>
@@ -851,12 +861,17 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 </div>
 <p>Si se hubiese definido <code>salario_acum = salario_acum + salary</code>en la línea 4, el resultado en cada observacion nos resultaría un valor <em>missing</em>. Como se mencionó previamente, durante la fase de compilación los valores en el VDP se reinician a valor <em>missing</em> causando que el resultado en dicha expresión sea <em>missing</em>.</p>
 <p>Para evitar que eso ocurra, se puede usar la sentencia <code>RETAIN</code> con el fin de que SAS conserve el valor en cada iteración.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>ventas_au2;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>ventas_au2;
     <span class="k">SET</span> ventas_au;
     <span class="k">RETAIN</span> salario_acum2 <span class="m">0</span>;
     salario_acum2 = salario_acum2 + salary<span class="kr">; </span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>En la línea 3 se pide que SAS retenga la variable <em>salario_acum2</em> en cada iteración y que su valor inicial sea 0. De esta manera se podría sumar de manera normal. Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p0t2ac0tfzcgbjn112mu96hkgg9o.htm">sentencia RETAIN</a> para más información.</p>
 <h3 id="funciones-y-llamadas-a-rutinas">Funciones y llamadas a rutinas<a class="headerlink" href="#funciones-y-llamadas-a-rutinas" title="Permanent link">&para;</a></h3>
@@ -923,11 +938,15 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 </tbody>
 </table>
 <p>En el siguiente ejemplo se muestra el filtrado usando la sentencia <code>WHERE</code> usando los datos de <a href="../src/datos_covid_web.sas">covid</a> para tener sólo la información de México.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>mexico;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>mexico;
     <span class="k">SET</span> covid;
     <span class="k">WHERE</span> iso_code EQ <span class="s">&quot;MEX&quot;</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El log muestra el siguiente mensaje:</p>
 <blockquote>
@@ -951,16 +970,30 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 <p>IF <em>expresión</em> THEN <em>acción1</em>; ELSE <em>acción2</em>;</p>
 </blockquote>
 <p>El siguiente ejemplo muestra cómo crear una variable a partir de ciertos valores.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>clase;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>clase;
     <span class="k">SET</span> SASHELP<span class="m">.</span>CLASS;
     <span class="k">LENGTH</span> sexo $<span class="m">8</span>;
     <span class="k">IF</span> sex = <span class="s">&quot;F&quot;</span> <span class="k">THEN</span> sexo = <span class="s">&quot;Mujer&quot;</span>;
     <span class="k">ELSE</span> sexo = <span class="s">&quot;Hombre&quot;</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Note que la sentencia <code>IF-ELSE</code> solo permite una acción a la vez. Para realizar más de una acción se debe usar el bloque <code>DO</code>. Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n0el0y2a02ab1ln1pks3gbac1en3.htm">documentación</a> para más información.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>clase;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>clase;
     <span class="k">SET</span> SASHELP<span class="m">.</span>CLASS;
     sexo = <span class="s">&quot;Hombre&quot;</span>;
     genero = <span class="s">&quot;Masculino&quot;</span>;
@@ -970,9 +1003,16 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
     <span class="k">END</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Estas sentencias pueden anidarse para formar sentencias más complejas, por ejemplo.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>clase;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>clase;
    <span class="k">SET</span> SASHELP<span class="m">.</span>CLASS;
    <span class="k">LENGTH</span> escuela $<span class="m">12</span>.;
    <span class="k">IF</span> age LE <span class="m">12</span> <span class="k">THEN</span> escuela = <span class="s">&quot;Primaria&quot;</span>;
@@ -980,13 +1020,22 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
    <span class="k">ELSE</span> escuela = <span class="s">&quot;Secundaria&quot;</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <div class="admonition caution">
 <p class="admonition-title">Cuidado con las estructuras anidadas</p>
 <p>Se debe tener cuidado al usar sentencias anidadas ya que deben ser cerradas correctamente. De no ser así, se pueden cometer errores.</p>
 </div>
 <p>Otra forma de crear sentencias condicionales es mediante el uso de la sentencia <code>SELECT</code>. Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p09213s9jc2t99n1vx0omk2rh9ps.htm">ayuda</a> para más información.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>clase;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>clase;
    <span class="k">SET</span> SASHELP<span class="m">.</span>CLASS;
    <span class="k">LENGTH</span> escuela $<span class="m">12</span>.;
    <span class="k">SELECT</span>;
@@ -996,6 +1045,7 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
    <span class="k">END</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">No confundirse</p>
@@ -1013,7 +1063,19 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 </blockquote>
 <p>donde <em>lista</em> puede ser un rango de valores consecutivos (indicando inicio, fin e incremento) o una lista de valores. Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1cydk5fq0u4bfn1xfbjt7w1c7lu.htm">documentación</a> para una mayor referencia.</p>
 <p>El siguiente ejemplo muestra su uso</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>ejemplo;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>ejemplo;
     <span class="k">INPUT</span> color :$<span class="m">8</span>.;
     <span class="k">DO</span> i = <span class="m">1</span>,<span class="m">3</span>,<span class="m">5</span>;
         j = <span class="kc">_N_</span>;
@@ -1027,11 +1089,24 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 <span class="x">    ;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El dataset anterior lee los datos señalados por la sentencia <code>INPUT</code>. En la primer iteración (es decir,cuando lee &ldquo;azul&rdquo;) entra al ciclo DO y se escribe en el VDP el primer valor de la secuencia (i). La instrucción <code>OUTPUT</code> indica que se debe escribir ese valor al DATASET. Esto se repite para los valores restantes (3 y 5). Note que aún estamos en la primer iteración (es decir <code>_N_ = 1</code>).</p>
 <p>Cuando se terminan los valores del ciclo DO, se lee la segunda observación del DATALINES y se repite lo mismo.</p>
 <p>Esta estructura también es útil para leer datos consecutivos y hacer secuencias, por ejemplo</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>colores;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>colores;
     <span class="k">DO</span> i = <span class="m">1</span> to <span class="m">4</span>;
         <span class="k">INPUT</span> color :$<span class="m">8</span>. @@;
         j = <span class="kc">_N_</span>;
@@ -1045,12 +1120,28 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 <span class="x">    ;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Note que derante la primer iteración (<code>_N_ = 1</code>) se inicia el ciclo <code>DO</code> con valores del 1 al 4. Una vez dentro del ciclo, SAS empezará a leer los 4 primeros valores del <code>DATALINES</code> y los escribirá al dataset. Esto se repetirá hasta que ya no haya observaciones por leer.</p>
 <h4 id="do-continue">DO CONTINUE<a class="headerlink" href="#do-continue" title="Permanent link">&para;</a></h4>
 <p>SAS tiene una sentencia especial que permite, dentro de un ciclo, saltar al siguiente valor de la variable índice. Esto puede ser útil para prevenir que otras sentencias se ejecuten.</p>
 <p>El siguiente ejemplo muestra su uso.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>colores;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>colores;
     <span class="k">DO</span> i = <span class="m">1</span> to <span class="m">4</span>;
         <span class="k">INPUT</span> color :$<span class="m">8</span>. @@;
         j = <span class="kc">_N_</span>;
@@ -1067,13 +1158,31 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 <span class="x">    ;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El código anterior evita que en el dataset se ingresen los colores blanco o negro, ya que al cumplirse la condición no se ejecuta la sentencia <code>OUTPUT;</code>.</p>
 <p>Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n0vupy1vhs8gosn1tjd3zg8dtf76.htm">ayuda de SAS</a> para más información acerca de la sentencia <code>CONTINUE</code>.</p>
 <h4 id="do-leave">DO LEAVE<a class="headerlink" href="#do-leave" title="Permanent link">&para;</a></h4>
 <p>A diferencia de la sentencia <code>CONTINUE</code>, la sentencia <code>LEAVE</code> permite salir del ciclo <code>DO</code>.</p>
 <p>El siguiente ejemplo muestra el uso de la sentencia <code>LEAVE</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>colores;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>colores;
     <span class="k">DO</span> i = <span class="m">1</span> to <span class="m">4</span>;
         <span class="k">INPUT</span> color :$<span class="m">8</span>. @@;
         j = <span class="kc">_N_</span>;
@@ -1092,6 +1201,7 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 <span class="x">    ;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>En este caso, cuando se cumple la condición, sale del ciclo DO y esto implica que se lea la siguiente línea por lo que no se toma en cuenta los valores que hay en las líneas 3 y 6.</p>
 <p>Consulte la sentencia <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ds2ref/p1irdset32xggmn1c7dwqmthxvnd.htm">LEAVE</a> para más información.</p>
@@ -1156,7 +1266,7 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021. Creado por Francisco Vázquez
+            Copyright &copy; 2021. Creado por Francisco Vázquez.
           </div>
         
         Made with

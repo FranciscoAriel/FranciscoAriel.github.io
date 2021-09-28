@@ -674,12 +674,17 @@
 </tbody>
 </table>
 <p>se puede escribir en la consola el siguiente comando:</p>
-<div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">DataFrames</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">DataFrames</span>
 <span class="n">datos</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">nombre</span> <span class="o">=</span><span class="p">[</span><span class="s">&quot;ANGELICA&quot;</span><span class="p">,</span><span class="s">&quot;BRENDA&quot;</span><span class="p">,</span><span class="s">&quot;LILIANA&quot;</span><span class="p">,</span><span class="s">&quot;MARCO&quot;</span><span class="p">,</span><span class="s">&quot;FABIAN&quot;</span><span class="p">,</span><span class="s">&quot;MAURICIO&quot;</span><span class="p">],</span>
     <span class="n">grupo</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">],</span>
     <span class="n">puntaje</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">]);</span>
 <span class="n">print</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Este código crea un objeto llamado <em>datos</em> que es de tipo <em>DataFrame</em>. La forma de definir su contenido es mediante <em>constructores</em> que en este caso son las columnas, aunque pueden ser vectores definidos previamente.</p>
 <p>Para visualizar el objeto, se puede usar el comando <code>print()</code>. El resultado se muestra a continuación.</p>
@@ -687,10 +692,13 @@
 <h3 id="leyendo-un-archivo-csv">Leyendo un archivo CSV<a class="headerlink" href="#leyendo-un-archivo-csv" title="Permanent link">&para;</a></h3>
 <p>Para leer un archivo csv, recomienda el uso de los paquetes <em>CSV</em> y <em>DataFrames</em>.</p>
 <p>El siguiente código muestra cómo importar un archivo csv a un objeto <code>DataFrame</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">CSV</span><span class="p">,</span> <span class="n">DataFrames</span>
-<span class="n">mi_csv</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&quot;C:</span><span class="se">\\</span><span class="s">Users</span><span class="se">\\</span><span class="s">Francisco</span><span class="se">\\</span><span class="s">census.csv&quot;</span><span class="p">,</span><span class="n">DataFrame</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">CSV</span><span class="p">,</span> <span class="n">DataFrames</span>
+<span class="n">mi_csv</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&quot;C:</span><span class="se">\\</span><span class="s">Users</span><span class="se">\\</span><span class="s">Usuario</span><span class="se">\\</span><span class="s">census.csv&quot;</span><span class="p">,</span><span class="n">DataFrame</span><span class="p">)</span>
 <span class="n">summary</span><span class="p">(</span><span class="n">mi_csv</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>La primer línea carga los paquetes instalados previamente, para poder usar todas sus funciones y métodos. En la segunda, se usa la función <code>CSV.read()</code> especificándole el nombre de archivo y la función <em>sink</em>, en este caso será <code>DataFrame</code>, asignándolo al objeto <em>mi_csv</em>. Debido a que el archivo es grande se sugiere ver las dimensiones del dataframe usando la función <code>summary()</code>.</p>
 <h2 id="manejo-de-datos">Manejo de datos<a class="headerlink" href="#manejo-de-datos" title="Permanent link">&para;</a></h2>
@@ -698,26 +706,33 @@
 <h2 id="explorando-la-base">Explorando la base<a class="headerlink" href="#explorando-la-base" title="Permanent link">&para;</a></h2>
 <p>Para saber la dimensión de un objeto <strong>DataFrame</strong> se puede usar la función <code>summary()</code>.</p>
 <p>También es posible conocer los primeros y últimos renglones de una base con la función <code>first()</code> y <code>last()</code>. Por ejemplo, para obtener los primeros 3 y últimos 3 se puede usar este código.</p>
-<div class="highlight"><pre><span></span><code><span class="n">first</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">first</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">last</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <h3 id="accediendo-a-los-datos">Accediendo a los datos<a class="headerlink" href="#accediendo-a-los-datos" title="Permanent link">&para;</a></h3>
 <p>Como ya vimos anteriormente, las bases en Julia se guardan en un objeto <strong>DataFrame</strong>.</p>
 <p>Para poder acceder a las variables, se pueden usar los corchetes cuadrados de la forma `[renglon,columna], por ejemplo</p>
-<div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="s">&quot;grupo&quot;</span><span class="p">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="s">&quot;grupo&quot;</span><span class="p">]</span>
 <span class="n">datos</span><span class="p">[</span><span class="o">!</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">datos</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span><span class="o">:</span><span class="p">]</span>
 <span class="n">datos</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
 </code></pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Seleccionar todos los renglones</p>
 <p>Se puede usar <code>!</code> en lugar de  <code>:</code> para indicar que se deben seleccionar todos los elementos. No puede ir vacío.</p>
 </div>
 <p>Para elegir un elemento se puede usar la función <code>getindex()</code>, por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="n">getindex</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;nombre&quot;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">getindex</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;nombre&quot;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                 
@@ -761,7 +776,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021. Creado por Francisco Vázquez
+            Copyright &copy; 2021. Creado por Francisco Vázquez.
           </div>
         
         Made with

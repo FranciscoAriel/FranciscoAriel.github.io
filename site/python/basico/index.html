@@ -572,15 +572,27 @@
 <h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
 <p>Para manejar datos en python se usan librerías especiales</p>
 <p>El primer paso es llamar las librerías que se utilizarán en la sesión.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>La librería <strong>pandas</strong> es la que nos permite manejar objetos de tipo <em>dataframe</em>.</p>
 <h3 id="ingreso-de-datos-de-forma-manual">Ingreso de datos de forma manual<a class="headerlink" href="#ingreso-de-datos-de-forma-manual" title="Permanent link">&para;</a></h3>
 <p>Para introducir datos de manera manual, se puede usar la siguiente sintaxis:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="n">nombres</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ANGELICA&quot;</span><span class="p">,</span><span class="s2">&quot;BRENDA&quot;</span><span class="p">,</span><span class="s2">&quot;LILIANA&quot;</span><span class="p">,</span><span class="s2">&quot;MARCO&quot;</span><span class="p">,</span><span class="s2">&quot;FABIAN&quot;</span><span class="p">,</span><span class="s2">&quot;MAURICIO&quot;</span><span class="p">]</span>
 <span class="n">gpo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">]</span>
@@ -591,30 +603,37 @@
 <span class="n">mi_base</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dic</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">mi_base</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>La forma más sencilla de crear un dataframe es mediante la definición de un diccionario con las listas definidas y posteriormente se usa la función <code>DataFrame</code> del paquete <em>pandas</em> y se crea el objeto <code>datos</code>. El objeto <code>datos</code> hereda las claves del diccionario y los valores se escriben en el dataset.</p>
 <p>La siguiente imagen muestra el dataframe definido.</p>
 <p><img alt="Resultado del dataset" src="../img/dataframe.png" /></p>
 <h3 id="lectura-de-archivos-externos">Lectura de archivos externos<a class="headerlink" href="#lectura-de-archivos-externos" title="Permanent link">&para;</a></h3>
 <p>Para leer archivos externos, se usa la función <code>read_csv</code> de la librería <em>pandas</em> para leer los datos.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 
 <span class="n">datos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;census.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Como puede observarse, <code>datos</code> es un objeto <strong>DataFrame</strong> que se define gracias a la función <code>read_csv()</code> de pandas. Se puede obtener información del objeto usando el siguiente comando.</p>
-<div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para ver un resumen de los datos se puede usar</p>
-<div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>La siguiente imagen muestra el resultado obtenido de la consola.</p>
 <p><img alt="Salida del objeto dataframe" src="../img/info.png" /></p>
 <p>Para visualizar los primeros 5 datos se puede usar este código</p>
-<div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
                 
                   
                 
@@ -672,7 +691,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021. Creado por Francisco Vázquez
+            Copyright &copy; 2021. Creado por Francisco Vázquez.
           </div>
         
         Made with

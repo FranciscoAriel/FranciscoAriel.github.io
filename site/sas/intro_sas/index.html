@@ -648,7 +648,17 @@ Visite <a href="https://www.sas.com/en_us/software/on-demand-for-academics.html"
 <p>SAS se compone de dos grandes bloques: el paso DATA y el paso PROC.</p>
 <p>El bloque DATA sirve para leer o generar datos, mientras que el bloque PROC generalmente sirve para analizar dichos datos, aunque hay muchos procedimientos.</p>
 <p>Este sencillo ejemplo muestra el flujo general de los programas de sas. Primero se creará un dataset con el bloque de instrucciones DATA.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>calificaciones;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>calificaciones;
     <span class="k">INPUT</span> nombre $ Grupo $ puntaje;
 <span class="k">    DATALINES;</span><span class="x"></span>
 <span class="x">    ANGELICA A 10</span>
@@ -660,13 +670,16 @@ Visite <a href="https://www.sas.com/en_us/software/on-demand-for-academics.html"
 <span class="x">    ;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>SAS no muestra directamente los resultados, en su lugar, se escribe un mensaje en la ventana de log.</p>
 <p><img alt="Log del DATA STEP" src="../img/log1.png" /></p>
 <p>Para visualizar el dataset creado, se debe ejecutar el siguiente código, que constituye el paso PROC:</p>
-<div class="highlight"><pre><span></span><code><span class="kr">PROC PRINT </span>DATA = calificaciones<span class="kr">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC PRINT </span>DATA = calificaciones<span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El resultado se muestra a continuación</p>
 <p><img alt="Ejemplo 1" src="../img/ds1.png" /></p>
@@ -679,7 +692,14 @@ Visite <a href="https://www.sas.com/en_us/software/on-demand-for-academics.html"
 <p>SAS maneja dos tipos de datos: numéricos y caracter. Los dataset permiten almacenar un tipo de dato en cada variable.</p>
 <p>Para crear un dataset, se utiliza el bloque de instrucciones conocido como paso DATA. El paso DATA inicia con la sentencia DATA seguido del nombre del dataset y termina con la palabra clave RUN.</p>
 <p>Por ejemplo el siguiente código crea un dataset con 1 observación y tres variables (2 numéricas y otra caracter).</p>
-<div class="highlight"><pre><span></span><code><span class="kr">DATA </span>EJEMPLO;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>EJEMPLO;
     <span class="k">FORMAT</span> FECHA DATE.;
     FECHA = <span class="nb">TODAY(</span>);
     <span class="k">INPUT</span> <span class="k">X</span> GRUPO $;
@@ -688,6 +708,7 @@ Visite <a href="https://www.sas.com/en_us/software/on-demand-for-academics.html"
 <span class="x">    ;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>La primer sentencia define el nombre del dataset.</p>
 <p>La segunda le asigna un formato de fecha a la variable fecha. Esto a se debe a que internamente SAS almacena el resultado como un valor numérico, pero quisieramos visualizarlo como una fecha.</p>
@@ -761,9 +782,11 @@ Visite <a href="https://www.sas.com/en_us/software/on-demand-for-academics.html"
 </table>
 <p>Es posible conocer las propiedades de un dataset usando el PROCEDIMIENTO CONTENTS para conocer la porción descriptora de un dataset.</p>
 <p>El siguiente código nos muestra cómo saber las propiedades de un dataset almacenado en sas.</p>
-<div class="highlight"><pre><span></span><code><span class="kr">PROC CONTENTS </span>DATA = SASHELP<span class="m">.</span>HEART VARNUM<span class="kr">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC CONTENTS </span>DATA = SASHELP<span class="m">.</span>HEART VARNUM<span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El resultado se muestra a continuación</p>
 <p><img alt="Contenido 1" src="../img/contents1.png" /></p>
@@ -781,8 +804,9 @@ En el sistema operativo Windows o UNIX, una librería es típicamente un grupo d
 <p><strong>LIBNAME</strong> <em>libref</em> &lsquo;<em>sas-library</em>&rsquo;;</p>
 </blockquote>
 <p>donde <em>libref</em> es el nombre de la librería (un nombre de sas de 1 a 8 caracteres que inicia con una letra o guión bajo y contiene solo letras, números o guión bajo) y <em>sas-library</em> es la ruta donde se almacenarán los dataset, por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="k">LIBNAME</span> TAREAS <span class="s">&quot;C:\Users\Default\Documents&quot;</span>;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">LIBNAME</span> TAREAS <span class="s">&quot;C:\Users\Default\Documents&quot;</span>;
 </code></pre></div>
+</td></tr></table>
 
 <p>asignaría dicho directorio a la librería <em>TAREAS</em>.</p>
 <p>Para referirse a un dataset almacenado en dicha librería, se utiliza el siguiente nombre <code>LIBRARY.DATASET</code>, por ejemplo <code>TAREAS.TABLA</code>.</p>
@@ -798,16 +822,22 @@ En el sistema operativo Windows o UNIX, una librería es típicamente un grupo d
 </ul>
 <p>Se usa la sentencia <code>%let macro-variable = &lt;value&gt;;</code> y para mandar llamar el valor de dicha variable maro se usa <code>&amp;macro-variable</code>.</p>
 <p>Por ejemplo si se desea definir ciertas variables a analizar, se puede crear la siguiente sentencia;</p>
-<div class="highlight"><pre><span></span><code><span class="nb">%let</span> <span class="k">x</span> = age weight height<span class="kr">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">%let</span> <span class="k">x</span> = age weight height<span class="kr">;</span>
 
 <span class="kr">PROC MEANS </span>DATA = SASHELP<span class="m">.</span>CLASS;
     VAR <span class="nv">&amp;X</span><span class="kr">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para ver el valor de la variable macro, se puede usar la sentencia macro <code>%PUT &lt;&amp;macro-variable&gt;</code>, por ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="k">%PUT </span><span class="nv">&amp;x</span><span class="err">;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">%PUT </span><span class="nv">&amp;x</span><span class="err">;</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>y el resultado será</p>
 <blockquote>
@@ -875,7 +905,7 @@ En el sistema operativo Windows o UNIX, una librería es típicamente un grupo d
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021. Creado por Francisco Vázquez
+            Copyright &copy; 2021. Creado por Francisco Vázquez.
           </div>
         
         Made with

@@ -393,9 +393,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#manipulacion-de-datos" class="md-nav__link">
+    Manipulación de datos
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulación de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#exploracion-de-datos" class="md-nav__link">
     Exploración de datos
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtrado-de-datos" class="md-nav__link">
+    Filtrado de datos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -569,9 +589,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#manipulacion-de-datos" class="md-nav__link">
+    Manipulación de datos
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulación de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#exploracion-de-datos" class="md-nav__link">
     Exploración de datos
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtrado-de-datos" class="md-nav__link">
+    Filtrado de datos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -596,15 +636,16 @@
                 
                 
                 <h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
-<p>En esta sección se aprenderá la forma de leer y manejar datos en R, ya sea usando las funciones</p>
+<p>En esta sección se aprenderá la forma de leer y manejar datos en R, ya sea usando las funciones o usando filtros para obtener la información deseada.</p>
 <h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
 <p>R tiene objetos dedicados al manejo de datos, por ejemplo el objeto <code>data.frame</code>, aunque tambien pueden usarse otros paquetes para el mismo fin.</p>
 <p>En esta sección se mostrará la forma de crear datasets y leer archivos externos en R.</p>
 <h3 id="lectura-de-datos-externos-en-r">Lectura de datos externos en R<a class="headerlink" href="#lectura-de-datos-externos-en-r" title="Permanent link">&para;</a></h3>
 <p>R tiene muchos paquetes que permiten leer una gran cantidad de tipos de archivos externos. El tipo de archivos más común es el archivo delimitado por comas o CSV.</p>
 <p>El siguiente código muestra como leer un archivo externo.</p>
-<div class="highlight"><pre><span></span><code><span class="n">census</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;C:/Users/Usuario/census.csv&quot;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">census</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;C:/Users/Usuario/census.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>El resultado se muestra a continuación.</p>
 <p><img alt="Resultado de la importación" src="../img/dataframe2.png" /></p>
@@ -615,20 +656,59 @@
 <h3 id="leer-archivos-de-excel">Leer archivos de excel<a class="headerlink" href="#leer-archivos-de-excel" title="Permanent link">&para;</a></h3>
 <p>Para leer archivos es formato de Excel, se puede hacer uso de la librería <code>readxl</code> y la función <code>read_excel</code>.</p>
 <p>El siguiente código muestra su uso:</p>
-<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span>
 <span class="n">census</span> <span class="o">&lt;-</span> <span class="nf">read_excel</span><span class="p">(</span><span class="s">&quot;census.xlsx&quot;</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para más información visite <a href="https://readxl.tidyverse.org/">readxl</a>.</p>
 <h3 id="importar-datos-otros-softwares">Importar datos otros softwares<a class="headerlink" href="#importar-datos-otros-softwares" title="Permanent link">&para;</a></h3>
 <p>El paquete <em>haven</em> permite leer y escribir bases de diversos archivos.</p>
 <p>El siguiente código muestra como importar un archivo de <strong>SAS &reg; software</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">haven</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">haven</span><span class="p">)</span>
 <span class="n">customer</span> <span class="o">&lt;-</span> <span class="nf">read_sas</span><span class="p">(</span><span class="s">&quot;customer.sas7bdat&quot;</span><span class="p">,</span> <span class="kc">NULL</span><span class="p">)</span>
 </code></pre></div>
+</td></tr></table>
 
 <p>Para más información visite <a href="https://haven.tidyverse.org/">haven</a>.</p>
-<h2 id="exploracion-de-datos">Exploración de datos<a class="headerlink" href="#exploracion-de-datos" title="Permanent link">&para;</a></h2>
+<h2 id="manipulacion-de-datos">Manipulación de datos<a class="headerlink" href="#manipulacion-de-datos" title="Permanent link">&para;</a></h2>
+<p>En esta sección se abordará el tema de manejo y manipulación de bases en R.</p>
+<p>Para ello es necesario conocer un poco acerca de la base con la que se estará trabajando.</p>
+<p>Posteriormente se conocerán las distintas formas de filtrar datos y realizar otro tipo de operaciones.</p>
+<h3 id="exploracion-de-datos">Exploración de datos<a class="headerlink" href="#exploracion-de-datos" title="Permanent link">&para;</a></h3>
+<p>Una forma de saber el tipo de datos que se ha importado es mediante el comando <code>class()</code>, este comando nos devolverá el nombre de la estructura correspondiente en R.</p>
+<p>Para conocer la dimensión del objeto, se puede usar el comando <code>dim()</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Dimensiones</p>
+<p>Otra forma de saber las dimensiones de una base es mediante los comandos <code>nrow()</code> y <code>ncol()</code>.</p>
+</div>
+<p>Si se desea conocer un resumen con estadísticas descriptivas, se puede usar el comando <code>summary</code>.</p>
+<p>Los siguientes códigos ilustran los comandos previos:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">class</span><span class="p">(</span><span class="n">census</span><span class="p">)</span>
+<span class="nf">dim</span><span class="p">(</span><span class="n">census</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">census</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<h3 id="filtrado-de-datos">Filtrado de datos<a class="headerlink" href="#filtrado-de-datos" title="Permanent link">&para;</a></h3>
+<p>Para realizar un filtrado de datos en R, se pueden usar los vectores lógicos, de esta forma, aquellas observaciones que cumplan con la condición, serán las observaciones elegidas.</p>
+<p>Por ejemplo, el siguiente código muestra cómo elegir a los alumnos que pertenecen al grupo A</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">filtro</span> <span class="o">=</span> <span class="n">datos</span><span class="o">$</span><span class="n">grupo</span><span class="o">==</span><span class="s">&quot;A&quot;</span>
+<span class="n">grupo_A</span> <span class="o">=</span> <span class="n">datos[filtro</span><span class="p">,</span><span class="n">]</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Esto también se puede hacer en una sola operación, pasándole directamente la expresión.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">grupo_A</span> <span class="o">=</span> <span class="n">datos[datos</span><span class="o">$</span><span class="n">grupo</span><span class="o">==</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="n">]</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El siguiente cuadro muestra los operadores lógicos que existen en R</p>
                 
                   
                 
@@ -686,7 +766,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2021. Creado por Francisco Vázquez
+            Copyright &copy; 2021. Creado por Francisco Vázquez.
           </div>
         
         Made with
