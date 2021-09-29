@@ -414,6 +414,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#recodificacion-de-variables" class="md-nav__link">
+    Recodificación de variables
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -610,6 +617,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#recodificacion-de-variables" class="md-nav__link">
+    Recodificación de variables
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -694,6 +708,20 @@
 </code></pre></div>
 </td></tr></table>
 
+<p>Para conocer el nombre de las variables de un dataset, se puede usar el comando <code>names()</code>, por ejemplo</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">names</span><span class="p">(</span><span class="n">census</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Es posible referirse a los nombres de las variables usando el comando <code>attach</code>, es decir</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">attach</span><span class="p">(</span><span class="n">census</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition caution">
+<p class="admonition-title">Cuidado con los nombres iguales</p>
+<p>Si dos o más variables tienen el mismo nombre, se usará la variable de la nueva base.</p>
+</div>
 <h3 id="filtrado-de-datos">Filtrado de datos<a class="headerlink" href="#filtrado-de-datos" title="Permanent link">&para;</a></h3>
 <p>Para realizar un filtrado de datos en R, se pueden usar los vectores lógicos, de esta forma, aquellas observaciones que cumplan con la condición, serán las observaciones elegidas.</p>
 <p>Por ejemplo, el siguiente código muestra cómo elegir a los alumnos que pertenecen al grupo A</p>
@@ -709,6 +737,63 @@
 </td></tr></table>
 
 <p>El siguiente cuadro muestra los operadores lógicos que existen en R</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Nombre</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Igual a</td>
+<td><code>x == "A"</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Menor que</td>
+<td><code>x &lt; 5</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Mayor que</td>
+<td><code>x &gt; 5</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Menor o igual a</td>
+<td><code>x &lt;= 5</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Mayor o igual a</td>
+<td><code>x &gt;= 5</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>No es igual a</td>
+<td><code>x != "A"</code></td>
+</tr>
+</tbody>
+</table>
+<p>Adicionalmente existe el operador <code>%in%</code> que nos ayuda a seleccionar varios valores que estén en un vector, por ejemplo para seleccionar alumnos que pertenezcan al grupo &ldquo;A&rdquo; o &ldquo;C&rdquo;, se puede usar el siguiente código:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">filtro</span> <span class="o">=</span> <span class="n">datos</span><span class="o">$</span><span class="n">grupo</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">datos[filtro</span><span class="p">,</span><span class="n">]</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Para más información consulte la ayuda con el comando <code>?match</code>.</p>
+<h3 id="recodificacion-de-variables">Recodificación de variables<a class="headerlink" href="#recodificacion-de-variables" title="Permanent link">&para;</a></h3>
+<p>Si se desea recodificar variables, se puede usar la función <code>ifelse()</code> para crear una nueva variable en un dataframe.</p>
+<p>Por ejemplo, supóngase que la base <em>datos</em> contiene la variable <em>sexo</em> con el valor 1 para mujeres y el 2 para hombre, se puede crear la variable <em>genero</em> que tenga el valor &ldquo;F&rdquo; para mujeres y &ldquo;M&rdquo; para hombres, como se muestra en el siguiente código.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">$</span><span class="n">genero</span><span class="o">=</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">sexo</span><span class="o">==</span><span class="m">1</span><span class="p">,</span><span class="s">&quot;F&quot;</span><span class="p">,</span><span class="s">&quot;M&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Para más información, vea la ayuda con el comando <code>?ifelse</code>.</p>
                 
                   
                 

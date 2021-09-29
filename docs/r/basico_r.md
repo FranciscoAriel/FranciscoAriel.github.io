@@ -85,6 +85,21 @@ dim(census)
 summary(census)
 ````
 
+Para conocer el nombre de las variables de un dataset, se puede usar el comando `names()`, por ejemplo
+
+````r
+names(census)
+````
+
+Es posible referirse a los nombres de las variables usando el comando `attach`, es decir
+
+````r
+attach(census)
+````
+
+!!! caution "Cuidado con los nombres iguales"
+    Si dos o más variables tienen el mismo nombre, se usará la variable de la nueva base.
+
 ### Filtrado de datos
 
 Para realizar un filtrado de datos en R, se pueden usar los vectores lógicos, de esta forma, aquellas observaciones que cumplan con la condición, serán las observaciones elegidas.
@@ -103,3 +118,33 @@ grupo_A = datos[datos$grupo=="A",]
 ````
 
 El siguiente cuadro muestra los operadores lógicos que existen en R
+
+Operador|Nombre|Ejemplo
+--------|------|-------
+`==`    |Igual a|`x == "A"`
+`<`     |Menor que|`x < 5`
+`>`     |Mayor que|`x > 5`
+`<=`     |Menor o igual a|`x <= 5`
+`>=`     |Mayor o igual a|`x >= 5`
+`!=`    |No es igual a|`x != "A"`
+
+Adicionalmente existe el operador `%in%` que nos ayuda a seleccionar varios valores que estén en un vector, por ejemplo para seleccionar alumnos que pertenezcan al grupo "A" o "C", se puede usar el siguiente código:
+
+````r
+filtro = datos$grupo %in% c("A","C")
+datos[filtro,]
+````
+
+Para más información consulte la ayuda con el comando `?match`.
+
+### Recodificación de variables
+
+Si se desea recodificar variables, se puede usar la función `ifelse()` para crear una nueva variable en un dataframe.
+
+Por ejemplo, supóngase que la base *datos* contiene la variable *sexo* con el valor 1 para mujeres y el 2 para hombre, se puede crear la variable *genero* que tenga el valor "F" para mujeres y "M" para hombres, como se muestra en el siguiente código.
+
+````r
+datos$genero= ifelse(datos$sexo==1,"F","M")
+````
+
+Para más información, vea la ayuda con el comando `?ifelse`.
