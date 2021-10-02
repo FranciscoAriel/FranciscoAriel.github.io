@@ -1107,12 +1107,12 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 11
 12
 13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>colores;
-    <span class="k">DO</span> i = <span class="m">1</span> to <span class="m">4</span>;
-        <span class="k">INPUT</span> color :$<span class="m">8</span>. @@;
+<span class="hll">    <span class="k">DO</span> i = <span class="m">1</span> to <span class="m">4</span>;
+</span>        <span class="k">INPUT</span> color :$<span class="m">8</span>. @@;
         j = <span class="kc">_N_</span>;
         <span class="k">OUTPUT</span>;
-    <span class="k">END</span>;
-<span class="k">    DATALINES;</span><span class="x"></span>
+<span class="hll">    <span class="k">END</span>;
+</span><span class="k">    DATALINES;</span><span class="x"></span>
 <span class="x">    azul verde rojo amarillo</span>
 <span class="x">    verde rojo amarillo azul</span>
 <span class="x">    rojo amarillo azul verde</span>
@@ -1145,9 +1145,9 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
     <span class="k">DO</span> i = <span class="m">1</span> to <span class="m">4</span>;
         <span class="k">INPUT</span> color :$<span class="m">8</span>. @@;
         j = <span class="kc">_N_</span>;
-        <span class="k">IF</span> color <span class="k">IN</span> (<span class="s">&quot;blanco&quot;</span> <span class="s">&quot;negro&quot;</span>) <span class="k">THEN</span> <span class="k">CONTINUE</span>;
-        <span class="k">OUTPUT</span>;
-    <span class="k">END</span>;
+<span class="hll">        <span class="k">IF</span> color <span class="k">IN</span> (<span class="s">&quot;blanco&quot;</span> <span class="s">&quot;negro&quot;</span>) <span class="k">THEN</span> <span class="k">CONTINUE</span>;
+</span><span class="hll">        <span class="k">OUTPUT</span>;
+</span>    <span class="k">END</span>;
 <span class="k">    DATALINES;</span><span class="x"></span>
 <span class="x">    negro azul rojo amarillo</span>
 <span class="x">    azul verde rojo amarillo</span>
@@ -1192,11 +1192,11 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 <span class="k">    DATALINES;</span><span class="x"></span>
 <span class="x">    azul verde rojo amarillo</span>
 <span class="x">    verde rojo amarillo azul</span>
-<span class="x">    negro color1 color2 color3</span>
-<span class="x">    azul rojo amarillo verde</span>
+<span class="hll"><span class="x">    negro color1 color2 color3</span>
+</span><span class="x">    azul rojo amarillo verde</span>
 <span class="x">    rojo amarillo azul verde</span>
-<span class="x">    blanco color1 color2 color3</span>
-<span class="x">    azul rojo amarillo verde</span>
+<span class="hll"><span class="x">    blanco color1 color2 color3</span>
+</span><span class="x">    azul rojo amarillo verde</span>
 <span class="x">    amarillo azul verde rojo</span>
 <span class="x">    ;</span>
 <span class="kr">RUN;</span>
@@ -1206,6 +1206,57 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 <p>En este caso, cuando se cumple la condición, sale del ciclo DO y esto implica que se lea la siguiente línea por lo que no se toma en cuenta los valores que hay en las líneas 3 y 6.</p>
 <p>Consulte la sentencia <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ds2ref/p1irdset32xggmn1c7dwqmthxvnd.htm">LEAVE</a> para más información.</p>
 <h3 id="do-while">DO WHILE<a class="headerlink" href="#do-while" title="Permanent link">&para;</a></h3>
+<p>La sentencia <code>DO WHILE</code> es un bloque de instrucciones que se ejecuta siempre que se esté cumpliendo la condición, dicha condición debe cumplirse <strong>forzosamente</strong> antes de entrar al ciclo, de otra forma no se ejecutará.</p>
+<p>El siguiente ejemplo muestra el uso de la estructura <em>DO WHILE</em></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>colores;
+<span class="hll">    contador = <span class="m">1</span>;
+</span><span class="hll">    alto = <span class="m">100</span>;
+</span><span class="hll">    <span class="k">DO</span> <span class="k">WHILE</span> (contador &lt; alto);
+</span>        <span class="k">INPUT</span> color :$<span class="m">8</span>. @@;
+        j = <span class="kc">_N_</span>;
+        <span class="k">IF</span> color <span class="k">IN</span> (<span class="s">&quot;blanco&quot;</span> <span class="s">&quot;negro&quot;</span>) <span class="k">THEN</span> alto = contador;
+        <span class="k">OUTPUT</span>;
+<span class="hll">        contador + <span class="m">1</span>;
+</span><span class="hll">    <span class="k">END</span>;
+</span><span class="k">    DATALINES;</span><span class="x"></span>
+<span class="x">    azul negro rojo amarillo</span>
+<span class="x">    verde rojo amarillo azul</span>
+<span class="x">    negro azul rojo amarillo</span>
+<span class="x">    azul verde rojo amarillo</span>
+<span class="x">    verde rojo amarillo azul</span>
+<span class="x">    rojo amarillo azul verde</span>
+<span class="x">    blanco azul rojo amarillo</span>
+<span class="x">    amarillo azul verde rojo</span>
+<span class="x">    ;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>En el código anterior, se define un contador con el valor de 1 y una variable de paro con el valor de 100. al entrar al ciclo, se leen las líneas con la sentencia <code>INPUT</code>. Cuando el color es blanco o negro, se modifica el criterio de alto con el fin de salir del ciclo y con ello se pasa a la segunda iteración, reiniciándose tanto el contador (1) como el criterio de alto (100).</p>
+<div class="admonition danger">
+<p class="admonition-title">Condición de alto</p>
+<p>Siempre es importante definir una variable o condición de alto, de otra forma el se entraría en un ciclo infinito.</p>
+</div>
 <h3 id="do-until">DO UNTIL<a class="headerlink" href="#do-until" title="Permanent link">&para;</a></h3>
 <h2 id="arreglos">Arreglos<a class="headerlink" href="#arreglos" title="Permanent link">&para;</a></h2>
 <h2 id="manipulacion-y-transformacion-de-bases">Manipulación y transformación de bases<a class="headerlink" href="#manipulacion-y-transformacion-de-bases" title="Permanent link">&para;</a></h2>

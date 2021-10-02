@@ -793,6 +793,13 @@
 </code></pre></div>
 </td></tr></table>
 
+<p>Si se tienen más de 2 categorías, se pueden anexar dentro de la función otra función <code>ifelse()</code> en el tercer argumento, por ejemplo:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">$</span><span class="n">Calificacion</span> <span class="o">=</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">puntaje</span><span class="o">&gt;=</span><span class="m">9</span><span class="p">,</span><span class="s">&quot;Excelente&quot;</span><span class="p">,</span>
+    <span class="nf">ifelse</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">puntaje</span><span class="o">==</span><span class="m">8</span><span class="p">,</span><span class="s">&quot;Bueno&quot;</span><span class="p">,</span><span class="s">&quot;Suficiente&quot;</span><span class="p">))</span>
+</code></pre></div>
+</td></tr></table>
+
 <p>Para más información, vea la ayuda con el comando <code>?ifelse</code>.</p>
                 
                   

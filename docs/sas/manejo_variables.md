@@ -296,7 +296,7 @@ Cuando se terminan los valores del ciclo DO, se lee la segunda observación del 
 
 Esta estructura también es útil para leer datos consecutivos y hacer secuencias, por ejemplo
 
-````sas
+````sas hl_lines="2 6"
 DATA colores;
     DO i = 1 to 4;
         INPUT color :$8. @@;
@@ -320,7 +320,7 @@ SAS tiene una sentencia especial que permite, dentro de un ciclo, saltar al sigu
 
 El siguiente ejemplo muestra su uso.
 
-````sas
+````sas hl_lines="5 6"
 DATA colores;
     DO i = 1 to 4;
         INPUT color :$8. @@;
@@ -349,7 +349,7 @@ A diferencia de la sentencia `CONTINUE`, la sentencia `LEAVE` permite salir del 
 
 El siguiente ejemplo muestra el uso de la sentencia `LEAVE`.
 
-````sas
+````sas hl_lines="11 14"
 DATA colores;
     DO i = 1 to 4;
         INPUT color :$8. @@;
@@ -375,6 +375,39 @@ En este caso, cuando se cumple la condición, sale del ciclo DO y esto implica q
 Consulte la sentencia [LEAVE](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ds2ref/p1irdset32xggmn1c7dwqmthxvnd.htm) para más información.
 
 ### DO WHILE
+
+La sentencia `DO WHILE` es un bloque de instrucciones que se ejecuta siempre que se esté cumpliendo la condición, dicha condición debe cumplirse **forzosamente** antes de entrar al ciclo, de otra forma no se ejecutará.
+
+El siguiente ejemplo muestra el uso de la estructura *DO WHILE*
+
+````sas hl_lines="2 3 4 9 10"
+DATA colores;
+    contador = 1;
+    alto = 100;
+    DO WHILE (contador < alto);
+        INPUT color :$8. @@;
+        j = _N_;
+        IF color IN ("blanco" "negro") THEN alto = contador;
+        OUTPUT;
+        contador + 1;
+    END;
+    DATALINES;
+    azul negro rojo amarillo
+    verde rojo amarillo azul
+    negro azul rojo amarillo
+    azul verde rojo amarillo
+    verde rojo amarillo azul
+    rojo amarillo azul verde
+    blanco azul rojo amarillo
+    amarillo azul verde rojo
+    ;
+RUN;
+````
+
+En el código anterior, se define un contador con el valor de 1 y una variable de paro con el valor de 100. al entrar al ciclo, se leen las líneas con la sentencia `INPUT`. Cuando el color es blanco o negro, se modifica el criterio de alto con el fin de salir del ciclo y con ello se pasa a la segunda iteración, reiniciándose tanto el contador (1) como el criterio de alto (100).
+
+!!! danger "Condición de alto"
+    Siempre es importante definir una variable o condición de alto, de otra forma el se entraría en un ciclo infinito.
 
 ### DO UNTIL
 

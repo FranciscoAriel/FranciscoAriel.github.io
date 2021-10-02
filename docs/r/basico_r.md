@@ -147,4 +147,11 @@ Por ejemplo, supóngase que la base *datos* contiene la variable *sexo* con el v
 datos$genero= ifelse(datos$sexo==1,"F","M")
 ````
 
+Si se tienen más de 2 categorías, se pueden anexar dentro de la función otra función `ifelse()` en el tercer argumento, por ejemplo:
+
+````r
+datos$Calificacion = ifelse(datos$puntaje>=9,"Excelente",
+    ifelse(datos$puntaje==8,"Bueno","Suficiente"))
+````
+
 Para más información, vea la ayuda con el comando `?ifelse`.
