@@ -1122,6 +1122,7 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 </code></pre></div>
 </td></tr></table>
 
+<p><img alt="Resultado del código" src="../img/ciclo_do.png" /></p>
 <p>Note que derante la primer iteración (<code>_N_ = 1</code>) se inicia el ciclo <code>DO</code> con valores del 1 al 4. Una vez dentro del ciclo, SAS empezará a leer los 4 primeros valores del <code>DATALINES</code> y los escribirá al dataset. Esto se repetirá hasta que ya no haya observaciones por leer.</p>
 <h4 id="do-continue">DO CONTINUE<a class="headerlink" href="#do-continue" title="Permanent link">&para;</a></h4>
 <p>SAS tiene una sentencia especial que permite, dentro de un ciclo, saltar al siguiente valor de la variable índice. Esto puede ser útil para prevenir que otras sentencias se ejecuten.</p>
@@ -1161,6 +1162,7 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 </td></tr></table>
 
 <p>El código anterior evita que en el dataset se ingresen los colores blanco o negro, ya que al cumplirse la condición no se ejecuta la sentencia <code>OUTPUT;</code>.</p>
+<p><img alt="Resultado Do Continue" src="../img/do_continue.png" /></p>
 <p>Consulte la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n0vupy1vhs8gosn1tjd3zg8dtf76.htm">ayuda de SAS</a> para más información acerca de la sentencia <code>CONTINUE</code>.</p>
 <h4 id="do-leave">DO LEAVE<a class="headerlink" href="#do-leave" title="Permanent link">&para;</a></h4>
 <p>A diferencia de la sentencia <code>CONTINUE</code>, la sentencia <code>LEAVE</code> permite salir del ciclo <code>DO</code>.</p>
@@ -1203,7 +1205,8 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 </code></pre></div>
 </td></tr></table>
 
-<p>En este caso, cuando se cumple la condición, sale del ciclo DO y esto implica que se lea la siguiente línea por lo que no se toma en cuenta los valores que hay en las líneas 3 y 6.</p>
+<p>En este caso, cuando se cumple la condición, sale del ciclo DO y esto implica que se lea la siguiente línea por lo que no se toma en cuenta los valores que hay en las líneas 11 y 14.</p>
+<p><img alt="Resultado Do Leave" src="../img/do_leave.png" /></p>
 <p>Consulte la sentencia <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ds2ref/p1irdset32xggmn1c7dwqmthxvnd.htm">LEAVE</a> para más información.</p>
 <h3 id="do-while">DO WHILE<a class="headerlink" href="#do-while" title="Permanent link">&para;</a></h3>
 <p>La sentencia <code>DO WHILE</code> es un bloque de instrucciones que se ejecuta siempre que se esté cumpliendo la condición, dicha condición debe cumplirse <strong>forzosamente</strong> antes de entrar al ciclo, de otra forma no se ejecutará.</p>
@@ -1252,12 +1255,64 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 </code></pre></div>
 </td></tr></table>
 
-<p>En el código anterior, se define un contador con el valor de 1 y una variable de paro con el valor de 100. al entrar al ciclo, se leen las líneas con la sentencia <code>INPUT</code>. Cuando el color es blanco o negro, se modifica el criterio de alto con el fin de salir del ciclo y con ello se pasa a la segunda iteración, reiniciándose tanto el contador (1) como el criterio de alto (100).</p>
+<p>En el código anterior, se define un contador con el valor de 1 y una variable de paro con el valor de 100. Al entrar al ciclo, se leen las líneas con la sentencia <code>INPUT</code>. Cuando el color es blanco o negro, se modifica el criterio de alto con el fin de salir del ciclo y con ello se pasa a la segunda iteración, reiniciándose tanto el contador (1) como el criterio de alto (100).</p>
+<p><img alt="Resultado Do While" src="../img/do_while.png" /></p>
 <div class="admonition danger">
 <p class="admonition-title">Condición de alto</p>
-<p>Siempre es importante definir una variable o condición de alto, de otra forma el se entraría en un ciclo infinito.</p>
+<p>Siempre es importante definir una expresión o condición de alto, de otra forma, se entraría en un ciclo infinito.</p>
 </div>
+<p>Para conocer más vea la <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1awxgleif5wlen1pja0nrn6yi6i.htm">ayuda de SAS</a> sobre esta sentencia.</p>
 <h3 id="do-until">DO UNTIL<a class="headerlink" href="#do-until" title="Permanent link">&para;</a></h3>
+<p>A diferencia de las instrucciones anteriores, la sentencia <code>DO UNTIL</code> asegura que al menos se ejecuta una vez.</p>
+<p>La expresión se evalúa al final de las sentencias del bloque. Si la expresión es verdadera, el ciclo ya no itera.</p>
+<p>Usando el mismo código que en la sección anterior, se muestran los resultados:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>colores;
+<span class="hll">    contador = <span class="m">1</span>;
+</span><span class="hll">    alto = <span class="m">100</span>;
+</span><span class="hll">    <span class="k">DO</span> <span class="k">UNTIL</span> (contador &lt; alto);
+</span>        <span class="k">INPUT</span> color :$<span class="m">8</span>. @@;
+        j = <span class="kc">_N_</span>;
+        <span class="k">IF</span> color <span class="k">IN</span> (<span class="s">&quot;blanco&quot;</span> <span class="s">&quot;negro&quot;</span>) <span class="k">THEN</span> alto = contador;
+        <span class="k">OUTPUT</span>;
+<span class="hll">        contador + <span class="m">1</span>;
+</span><span class="hll">    <span class="k">END</span>;
+</span><span class="k">    DATALINES;</span><span class="x"></span>
+<span class="x">    azul negro rojo amarillo</span>
+<span class="x">    verde rojo amarillo azul</span>
+<span class="x">    negro azul rojo amarillo</span>
+<span class="x">    azul verde rojo amarillo</span>
+<span class="x">    verde rojo amarillo azul</span>
+<span class="x">    rojo amarillo azul verde</span>
+<span class="x">    blanco azul rojo amarillo</span>
+<span class="x">    amarillo azul verde rojo</span>
+<span class="x">    ;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p><img alt="" src="../img/do_until.png" /></p>
+<p>Note que en la primer iteración se entra al ciclo y se escriben los valores al dataset. En la segunda iteración se cumple la condición y se queda atrapado hasta que se vuelva a cumplir la condición.</p>
+<p><a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1021qt3a3n8m2n1vh11ggzhu57n.htm"></a>.</p>
 <h2 id="arreglos">Arreglos<a class="headerlink" href="#arreglos" title="Permanent link">&para;</a></h2>
 <h2 id="manipulacion-y-transformacion-de-bases">Manipulación y transformación de bases<a class="headerlink" href="#manipulacion-y-transformacion-de-bases" title="Permanent link">&para;</a></h2>
                 

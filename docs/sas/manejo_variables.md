@@ -312,6 +312,8 @@ DATA colores;
 RUN;
 ````
 
+![Resultado del código](img/ciclo_do.png)
+
 Note que derante la primer iteración (`_N_ = 1`) se inicia el ciclo `DO` con valores del 1 al 4. Una vez dentro del ciclo, SAS empezará a leer los 4 primeros valores del `DATALINES` y los escribirá al dataset. Esto se repetirá hasta que ya no haya observaciones por leer.
 
 #### DO CONTINUE
@@ -340,6 +342,8 @@ RUN;
 ````
 
 El código anterior evita que en el dataset se ingresen los colores blanco o negro, ya que al cumplirse la condición no se ejecuta la sentencia `OUTPUT;`.
+
+![Resultado Do Continue](img/do_continue.png)
 
 Consulte la [ayuda de SAS](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/n0vupy1vhs8gosn1tjd3zg8dtf76.htm) para más información acerca de la sentencia `CONTINUE`.
 
@@ -370,7 +374,9 @@ DATA colores;
 RUN;
 ````
 
-En este caso, cuando se cumple la condición, sale del ciclo DO y esto implica que se lea la siguiente línea por lo que no se toma en cuenta los valores que hay en las líneas 3 y 6.
+En este caso, cuando se cumple la condición, sale del ciclo DO y esto implica que se lea la siguiente línea por lo que no se toma en cuenta los valores que hay en las líneas 11 y 14.
+
+![Resultado Do Leave](img/do_leave.png)
 
 Consulte la sentencia [LEAVE](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/ds2ref/p1irdset32xggmn1c7dwqmthxvnd.htm) para más información.
 
@@ -404,12 +410,52 @@ DATA colores;
 RUN;
 ````
 
-En el código anterior, se define un contador con el valor de 1 y una variable de paro con el valor de 100. al entrar al ciclo, se leen las líneas con la sentencia `INPUT`. Cuando el color es blanco o negro, se modifica el criterio de alto con el fin de salir del ciclo y con ello se pasa a la segunda iteración, reiniciándose tanto el contador (1) como el criterio de alto (100).
+En el código anterior, se define un contador con el valor de 1 y una variable de paro con el valor de 100. Al entrar al ciclo, se leen las líneas con la sentencia `INPUT`. Cuando el color es blanco o negro, se modifica el criterio de alto con el fin de salir del ciclo y con ello se pasa a la segunda iteración, reiniciándose tanto el contador (1) como el criterio de alto (100).
+
+![Resultado Do While](img/do_while.png)
 
 !!! danger "Condición de alto"
-    Siempre es importante definir una variable o condición de alto, de otra forma el se entraría en un ciclo infinito.
+    Siempre es importante definir una expresión o condición de alto, de otra forma, se entraría en un ciclo infinito.
+
+Para conocer más vea la [ayuda de SAS](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1awxgleif5wlen1pja0nrn6yi6i.htm) sobre esta sentencia.
 
 ### DO UNTIL
+
+A diferencia de las instrucciones anteriores, la sentencia `DO UNTIL` asegura que al menos se ejecuta una vez.
+
+La expresión se evalúa al final de las sentencias del bloque. Si la expresión es verdadera, el ciclo ya no itera.
+
+Usando el mismo código que en la sección anterior, se muestran los resultados:
+
+````sas hl_lines="2 3 4 9 10"
+DATA colores;
+    contador = 1;
+    alto = 100;
+    DO UNTIL (contador < alto);
+        INPUT color :$8. @@;
+        j = _N_;
+        IF color IN ("blanco" "negro") THEN alto = contador;
+        OUTPUT;
+        contador + 1;
+    END;
+    DATALINES;
+    azul negro rojo amarillo
+    verde rojo amarillo azul
+    negro azul rojo amarillo
+    azul verde rojo amarillo
+    verde rojo amarillo azul
+    rojo amarillo azul verde
+    blanco azul rojo amarillo
+    amarillo azul verde rojo
+    ;
+RUN;
+````
+
+![](img/do_until.png)
+
+Note que en la primer iteración se entra al ciclo y se escriben los valores al dataset. En la segunda iteración se cumple la condición y se queda atrapado hasta que se vuelva a cumplir la condición.
+
+[](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1021qt3a3n8m2n1vh11ggzhu57n.htm).
 
 ## Arreglos
 
