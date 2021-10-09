@@ -429,20 +429,23 @@ Usando el mismo código que en la sección anterior, se muestran los resultados:
 
 ````sas hl_lines="2 3 4 9 10"
 DATA colores;
-    contador = 1;
+    contador = 0;
     alto = 100;
-    DO UNTIL (contador < alto);
+    DO UNTIL (contador >= alto);
+        contador + 1;
         INPUT color :$8. @@;
         j = _N_;
-        IF color IN ("blanco" "negro") THEN alto = contador;
+        IF color IN ("blanco" "negro") THEN DO;
+            contador = 0;
+            alto = contador;
+        END;
         OUTPUT;
-        contador + 1;
     END;
     DATALINES;
     azul negro rojo amarillo
-    verde rojo amarillo azul
+    blanco rojo amarillo azul
     negro azul rojo amarillo
-    azul verde rojo amarillo
+    azul verde rojo blanco
     verde rojo amarillo azul
     rojo amarillo azul verde
     blanco azul rojo amarillo
@@ -453,10 +456,19 @@ RUN;
 
 ![](img/do_until.png)
 
-Note que en la primer iteración se entra al ciclo y se escriben los valores al dataset. En la segunda iteración se cumple la condición y se queda atrapado hasta que se vuelva a cumplir la condición.
+Note que en la primer iteración se entra al ciclo y se escriben los valores al dataset. En el segundo valor leído (_negro_) se cumple la condición pero ya ha cambiado el valor de las variables _contador_ y _alto_ a cero y se salta a la siguiente iteración.
 
-[](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1021qt3a3n8m2n1vh11ggzhu57n.htm).
+Con la nueva iteración se reinician los valores iniciales hasta que se cumpla la condición.
+
+Para más información vea la sección [DO UNTIL](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1021qt3a3n8m2n1vh11ggzhu57n.htm).
 
 ## Arreglos
+
+Supóngase que se desea tener información de ventas acomodada en columnas, donde cada una represente un trimestre.
+
+Una forma de introducir esta información es mediante el uso de arreglos o _arrays_. Los arreglos son una forma de crear variables de forma iterativa y pueden ser usadas dentro de un ciclo.
+
+!!! danger "No confundir con otros lenguajes"
+    A pesar de que tienen un nombre idéntico, los arreglos no son iguales a los objetos de otros lenguajes de programación.
 
 ## Manipulación y transformación de bases
