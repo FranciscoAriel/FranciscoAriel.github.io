@@ -421,6 +421,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#transformacion-de-bases" class="md-nav__link">
+    Transformación de bases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uniones-de-bases" class="md-nav__link">
+    Uniones de bases
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -624,6 +638,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#transformacion-de-bases" class="md-nav__link">
+    Transformación de bases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uniones-de-bases" class="md-nav__link">
+    Uniones de bases
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -801,6 +829,109 @@
 </td></tr></table>
 
 <p>Para más información, vea la ayuda con el comando <code>?ifelse</code>.</p>
+<h3 id="transformacion-de-bases">Transformación de bases<a class="headerlink" href="#transformacion-de-bases" title="Permanent link">&para;</a></h3>
+<p>En ocasiones es necesario ordenar los datos que están agrupados en <em>formato largo</em> o en <em>formato amplio</em>. Estos datos se usan usualmente cuando se tiene información de individuos a lo largo del tiempo.</p>
+<h3 id="uniones-de-bases">Uniones de bases<a class="headerlink" href="#uniones-de-bases" title="Permanent link">&para;</a></h3>
+<p>Cuando se tiene información en 2 o más bases, es posible unirlas mediante una variable llave.</p>
+<p>datos:</p>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th>sex</th>
+<th>grupo</th>
+<th>puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANGELICA</td>
+<td>1</td>
+<td>A</td>
+<td>10</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>1</td>
+<td>A</td>
+<td>9</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>1</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>MARCO</td>
+<td>2</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>FABIAN</td>
+<td>2</td>
+<td>C</td>
+<td>9</td>
+</tr>
+<tr>
+<td>MAURICIO</td>
+<td>2</td>
+<td>C</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>info:</p>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th>apellido</th>
+<th>edad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANGELICA</td>
+<td>Álvarez</td>
+<td>20</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>Aguilar</td>
+<td>19</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>Sánchez</td>
+<td>18</td>
+</tr>
+<tr>
+<td>MARCO</td>
+<td>Zúñiga</td>
+<td>18</td>
+</tr>
+<tr>
+<td>FABIAN</td>
+<td>Castillo</td>
+<td>29</td>
+</tr>
+<tr>
+<td>MAURICIO</td>
+<td>Pérez</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+<p>Para ejecutar esto en R, se puede usar la función <code>merge()</code>. Esta función requiere como argumentos, las base a unir así como especificar el nombre de la llave. El siguiente ejemplo muestra cómo unir las 2 tablas usando la variable <em>nombre</em> como llave.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos2</span> <span class="o">=</span> <span class="nf">merge</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span><span class="n">info</span><span class="p">,</span><span class="n">by</span> <span class="o">=</span> <span class="s">&quot;nombre&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El resultado se muestra a continuación.</p>
+<p><img alt="Resultado de la unión" src="../img/merge.png" /></p>
+<p>Para más información use el comando <code>?merge</code> para conocer cómo realizar otro tipo de uniones.</p>
                 
                   
                 

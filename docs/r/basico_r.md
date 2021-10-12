@@ -155,3 +155,45 @@ datos$Calificacion = ifelse(datos$puntaje>=9,"Excelente",
 ````
 
 Para más información, vea la ayuda con el comando `?ifelse`.
+
+### Transformación de bases
+
+En ocasiones es necesario ordenar los datos que están agrupados en _formato largo_ o en _formato amplio_. Estos datos se usan usualmente cuando se tiene información de individuos a lo largo del tiempo.
+
+### Uniones de bases
+
+Cuando se tiene información en 2 o más bases, es posible unirlas mediante una variable llave.
+
+datos:
+
+nombre| sex| grupo| puntaje|
+------|----|------|--------|
+ANGELICA|   1|     A|      10
+BRENDA|   1|     A|       9
+LILIANA|   1|     B|       8
+MARCO|   2|     B|       8
+FABIAN|   2|     C|       9
+MAURICIO|   2|     C|       7
+
+info:
+
+nombre| apellido| edad
+------|---------|----
+ANGELICA|  Álvarez|   20
+BRENDA|  Aguilar|   19
+LILIANA|  Sánchez|   18
+MARCO|   Zúñiga|   18
+FABIAN| Castillo|   29
+MAURICIO|    Pérez|   27
+
+Para ejecutar esto en R, se puede usar la función `merge()`. Esta función requiere como argumentos, las base a unir así como especificar el nombre de la llave. El siguiente ejemplo muestra cómo unir las 2 tablas usando la variable *nombre* como llave.
+
+````r
+datos2 = merge(datos,info,by = "nombre")
+````
+
+El resultado se muestra a continuación.
+
+![Resultado de la unión](img/merge.png)
+
+Para más información use el comando `?merge` para conocer cómo realizar otro tipo de uniones.

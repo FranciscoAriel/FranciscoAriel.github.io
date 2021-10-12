@@ -246,7 +246,7 @@ Para poder realizar esta operación, las matrices deben ser **comformables**, es
 
 ### Data Frames
 
-Los data fames son objetos usados para almacenar datos. PAra conocer todas sus propiedades, vea la ayuda de R usando el comando `help("data.frame")`.
+Los data fames son objetos usados para almacenar datos. Para conocer todas sus propiedades, vea la ayuda de R usando el comando `help("data.frame")`.
 
 Una manera fácil de crear conjunto de datos es mediante la función `data.frame()`, pasándole vectores como argumentos. Por ejemplo, el siguiente código muestra cómo construir un conjunto de datos.
 
