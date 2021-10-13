@@ -160,6 +160,34 @@ Para más información, vea la ayuda con el comando `?ifelse`.
 
 En ocasiones es necesario ordenar los datos que están agrupados en _formato largo_ o en _formato amplio_. Estos datos se usan usualmente cuando se tiene información de individuos a lo largo del tiempo.
 
+Considere la siguiente tabla que está en formato largo.
+
+nombre|materia|puntaje
+------|-------|-------|
+ANGELICA|     Español|      10
+ANGELICA| Matemáticas|       9
+ANGELICA|    Biología|       8
+BRENDA|     Español|       8
+BRENDA| Matemáticas|       9
+BRENDA|    Biología|       7
+LILIANA|     Español|      10
+LILIANA| Matemáticas|       8
+LILIANA|    Biología|       9
+
+Si se desea transformar esta base en formato amplio, se puede usar el siguiente código.
+
+````r
+datost = reshape(datos,direction = "wide",idvar = "nombre",timevar = "materia")
+````
+
+La función `reshape()` transforma el dataset *datos* a un formato amplio, esto se logra con la instrucción `direction = "wide"`. El individuo que se considerado es `idvar = "nombre"`. Finalmente la variable que será convertida a variable será `timevar = "materia"`.
+
+El resultado se muestra a continuación.
+
+![Resultados de los datos en formato amplio](img/datos_wide.png)
+
+Para conocer más sobre la función escriba el comando `?reshape`.
+
 ### Uniones de bases
 
 Cuando se tiene información en 2 o más bases, es posible unirlas mediante una variable llave.
