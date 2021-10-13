@@ -832,17 +832,62 @@
 <h3 id="transformacion-de-bases">Transformación de bases<a class="headerlink" href="#transformacion-de-bases" title="Permanent link">&para;</a></h3>
 <p>En ocasiones es necesario ordenar los datos que están agrupados en <em>formato largo</em> o en <em>formato amplio</em>. Estos datos se usan usualmente cuando se tiene información de individuos a lo largo del tiempo.</p>
 <p>Considere la siguiente tabla que está en formato largo.</p>
-<p>nombre|materia|puntaje
-------|-------|-------|
-ANGELICA|     Español|      10
-ANGELICA| Matemáticas|       9
-ANGELICA|    Biología|       8
-BRENDA|     Español|       8
-BRENDA| Matemáticas|       9
-BRENDA|    Biología|       7
-LILIANA|     Español|      10
-LILIANA| Matemáticas|       8
-LILIANA|    Biología|       9</p>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th>materia</th>
+<th>puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANGELICA</td>
+<td>Español</td>
+<td>10</td>
+</tr>
+<tr>
+<td>ANGELICA</td>
+<td>Matemáticas</td>
+<td>9</td>
+</tr>
+<tr>
+<td>ANGELICA</td>
+<td>Biología</td>
+<td>8</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>Español</td>
+<td>8</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>Matemáticas</td>
+<td>9</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>Biología</td>
+<td>7</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>Español</td>
+<td>10</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>Matemáticas</td>
+<td>8</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>Biología</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
 <p>Si se desea transformar esta base en formato amplio, se puede usar el siguiente código.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datost</span> <span class="o">=</span> <span class="nf">reshape</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span><span class="n">direction</span> <span class="o">=</span> <span class="s">&quot;wide&quot;</span><span class="p">,</span><span class="n">idvar</span> <span class="o">=</span> <span class="s">&quot;nombre&quot;</span><span class="p">,</span><span class="n">timevar</span> <span class="o">=</span> <span class="s">&quot;materia&quot;</span><span class="p">)</span>
 </code></pre></div>

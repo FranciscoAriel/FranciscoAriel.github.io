@@ -162,17 +162,17 @@ En ocasiones es necesario ordenar los datos que están agrupados en _formato lar
 
 Considere la siguiente tabla que está en formato largo.
 
-nombre|materia|puntaje
+nombre|materia|puntaje|
 ------|-------|-------|
-ANGELICA|     Español|      10
-ANGELICA| Matemáticas|       9
-ANGELICA|    Biología|       8
-BRENDA|     Español|       8
-BRENDA| Matemáticas|       9
-BRENDA|    Biología|       7
-LILIANA|     Español|      10
-LILIANA| Matemáticas|       8
-LILIANA|    Biología|       9
+ANGELICA|Español|10
+ANGELICA|Matemáticas|9
+ANGELICA|Biología|8
+BRENDA|Español|8
+BRENDA|Matemáticas|9
+BRENDA|Biología|7
+LILIANA|Español|10
+LILIANA|Matemáticas|8
+LILIANA|Biología|9
 
 Si se desea transformar esta base en formato amplio, se puede usar el siguiente código.
 
