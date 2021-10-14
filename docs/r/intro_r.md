@@ -8,9 +8,11 @@ date: 2020-02-05
 
 # Introducción a R
 
+![Logo de R](img/R_logo.png)
+
 Este es un tutorial básico sobre el programa. Visite la página de [R](https://www.r-project.org/) para más información.
 
-R es un lenguaje de programación para cómputo estadístico. Tiene una gran cantidad de funciones que permiten ejecutar análisis estadísticos tradicionales, tales como regresión y modelos lineales, prebas estadísticas, clasificación análisis de series de tiempo, entre otros.
+R es un lenguaje de programación para cómputo estadístico. Tiene una gran cantidad de funciones que permiten ejecutar análisis estadísticos tradicionales, tales como regresión y modelos lineales, pruebas estadísticas, clasificación, análisis de series de tiempo, entre otros.
 
 Una ventaja de R es que es altamente extensible a traves de paquetes que cualquier persona puede crear y aportar.
 
@@ -291,35 +293,19 @@ A = matrix(1:9,3,3)
 Adato = as.data.frame(A)
 ````
 
-### Listas
+## Otros elementos
 
-## Paquetes
+![Programador](img/programador.jpg)
+Imagen de [Innova Labs](https://pixabay.com/es/users/innovalabs-22783312/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6521720) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6521720)
 
-R dispone de miles de paquetes que pueden descargarse libremente para enriquecerse son nuevas características. Estos paquetes están almacenados en el [CRAN](https://cran.r-project.org/) y pueden instalarse fácilmente desde la consola con el siguiente comando
 
-````r
-install.packages()
-````
+Debido a que R es un lenguaje muy amplio, posee diversas utilidades que permiten ampliar su uso.
 
-Por ejemplo, si se desea instalar el paquete _ggplot2_ se puede usar el siguiente comando.
+En esta sección se presentan otros elementos importantes del lenguaje R.
 
-````r
-install.packages("ggplot2")
-````
+### Ayuda
 
-R almacenará los archivos en la carpeta personal llamada biblioteca del usuario o _User library_. Frecuentemente al instalar un paquete R descarga otros paquetes relacionados llamados dependencias que sirven para que las funciones del paquete trabajen adecuadamente.
-
-Sin embargo, aún no podrá usarse debido a que es necesario cargarla mediante el comando `library()`, por ejemplo, para cargar el paquete _ggplot2_ se debe ejecutar
-
-````r
-library(ggplot2)
-````
-
-Con esto, todas las funciones y objetos del paquete estarán definidos y listos para usarse.
-
-## Ayuda
-
-R dispone de un comando especial para obtener ayuda desde la consola. Por ejemplo para buscar ayuda sobre matrices, se puede escribir desde la consola el comando
+R dispone de un comando especial `?` para obtener ayuda desde la consola. Por ejemplo para buscar ayuda sobre matrices, se puede escribir desde la consola el comando
 
 ````r
 ?matrix
@@ -348,3 +334,54 @@ help(package = "ggplot2")
 ````
 
 y con ello se obtendrá la documentación del paquete en específico.
+
+### Funciones
+
+En R es posible definir funciones por el usuario. Estas funciones quedan almacenadas en el espacio de trabajo y estárán disponibles durante toda la sesión una vez definidas.
+
+La forma de definir una función es la siguiente
+
+> function( arglist ) expr
+
+donde _arglist_ es una lista de argumentos de nombres o argumentos, puede ser vacío y _expr_ es una expresión.
+
+El siguiente ejemplo muestra cómo definir una función simple. Al ingresar un número, la función nos devolverá un mensaje con su signo.
+
+````r
+mi_fun = function(x) ifelse(x < 0,"Negativo",ifelse(x>0,"Positivo","Cero"))
+# uso de la función
+mi_fun(0)
+mi_fun(2)
+mi_fun(-3)
+````
+
+El resultado es el siguiente.
+
+![](img/funcion.png)
+
+Para más ayuda vea la documentación con el comando `help("function")`.
+
+### Paquetes
+
+R dispone de miles de paquetes que pueden descargarse libremente para enriquecerse son nuevas características. Estos paquetes están almacenados en el [CRAN](https://cran.r-project.org/) y pueden instalarse fácilmente desde la consola con el siguiente comando
+
+````r
+install.packages()
+````
+
+Por ejemplo, si se desea instalar el paquete _ggplot2_ se puede usar el siguiente comando.
+
+````r
+install.packages("ggplot2")
+````
+
+R almacenará los archivos en la carpeta personal llamada biblioteca del usuario o _User library_. Frecuentemente al instalar un paquete R descarga otros paquetes relacionados llamados dependencias que sirven para que las funciones del paquete trabajen adecuadamente.
+
+Sin embargo, aún no podrá usarse debido a que es necesario cargarla mediante el comando `library()`, por ejemplo, para cargar el paquete _ggplot2_ se debe ejecutar
+
+````r
+library(ggplot2)
+````
+
+Con esto, todas las funciones y objetos del paquete estarán definidos y listos para usarse.
+

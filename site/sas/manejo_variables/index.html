@@ -1322,11 +1322,60 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 <p>Para más información vea la sección <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1021qt3a3n8m2n1vh11ggzhu57n.htm">DO UNTIL</a>.</p>
 <h2 id="arreglos">Arreglos<a class="headerlink" href="#arreglos" title="Permanent link">&para;</a></h2>
 <p>Supóngase que se desea tener información de ventas acomodada en columnas, donde cada una represente un trimestre.</p>
-<p>Una forma de introducir esta información es mediante el uso de arreglos o <em>arrays</em>. Los arreglos son una forma de crear variables de forma iterativa y pueden ser usadas dentro de un ciclo.</p>
+<p>Una forma de introducir esta información es mediante el uso de arreglos o <em>arrays</em>, los arreglos nos ayudan a crear variables de forma fácil ya que sus elementos serán usados como nombres de variables. El siguiente ejemplo muestra cómo definir un arreglo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>ventas;
+<span class="hll">    <span class="k">ARRAY</span> Tri{<span class="m">4</span>} T1 - T4;
+</span>    <span class="k">INFILE</span> <span class="k">datalines</span>;
+<span class="hll">    <span class="k">INPUT</span> periodo T1--T4;
+</span><span class="k">    DATALINES;</span><span class="x"></span>
+<span class="x">    2018 1718 1755 1777 2100</span>
+<span class="x">    2019 1760 1769 1799 2195</span>
+<span class="x">    2020 1790 1230 1300 1685</span>
+<span class="x">    2021 1375 1420 1498 1965</span>
+<span class="x">    ;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>En la línea 2 se define un arreglo de nombre <strong>Tri</strong> cuyos elementos son <strong>T1</strong>, <strong>T2</strong>, <strong>T3</strong> y <strong>T4</strong>, estos elementos son usados en la línea 4 en la sentencia <code>INPUT</code>.</p>
 <div class="admonition danger">
 <p class="admonition-title">No confundir con otros lenguajes</p>
 <p>A pesar de que tienen un nombre idéntico, los arreglos no son iguales a los objetos de otros lenguajes de programación.</p>
 </div>
+<p>Los arreglos tambien son útiles para crear variables de forma iterativa y pueden ser usadas dentro de un ciclo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">DATA </span>DATOS;
+<span class="hll">    <span class="k">ARRAY</span> vector{<span class="m">3</span>} x1 - x3 (<span class="m">0</span> <span class="m">0</span> <span class="m">0</span>);
+</span>    <span class="k">DO</span> i = <span class="m">1</span> TO <span class="m">5</span>;
+        <span class="k">DO</span> j = <span class="m">1</span> TO <span class="m">3</span>;
+<span class="hll">            vector{j} = j*i;
+</span>            <span class="k">OUTPUT</span>;
+        <span class="k">END</span>;
+    <span class="k">END</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>En el ejemplo anterior,en la línea 2 se define un vector con 3 elementos y sus valores iniciales son cero. Se ha usado un doble ciclo y el valor calculado en la línea 5 se guarda en la variable correspondiente de acuerdo a los índices <code>i</code> y <code>j</code>.</p>
+<p>El resultado se muestra a continuación</p>
+<p><img alt="Resultado del arreglo" src="../img/arreglo.png" /></p>
 <h2 id="manipulacion-y-transformacion-de-bases">Manipulación y transformación de bases<a class="headerlink" href="#manipulacion-y-transformacion-de-bases" title="Permanent link">&para;</a></h2>
                 
                   

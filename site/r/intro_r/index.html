@@ -429,29 +429,42 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#listas" class="md-nav__link">
-    Listas
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#otros-elementos" class="md-nav__link">
+    Otros elementos
+  </a>
+  
+    <nav class="md-nav" aria-label="Otros elementos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ayuda" class="md-nav__link">
+    Ayuda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funciones" class="md-nav__link">
+    Funciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#paquetes" class="md-nav__link">
     Paquetes
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#ayuda" class="md-nav__link">
-    Ayuda
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -685,29 +698,42 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#listas" class="md-nav__link">
-    Listas
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#otros-elementos" class="md-nav__link">
+    Otros elementos
+  </a>
+  
+    <nav class="md-nav" aria-label="Otros elementos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ayuda" class="md-nav__link">
+    Ayuda
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funciones" class="md-nav__link">
+    Funciones
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#paquetes" class="md-nav__link">
     Paquetes
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#ayuda" class="md-nav__link">
-    Ayuda
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -732,8 +758,9 @@
                 
                 
                 <h1 id="introduccion-a-r">Introducción a R<a class="headerlink" href="#introduccion-a-r" title="Permanent link">&para;</a></h1>
+<p><img alt="Logo de R" src="../img/R_logo.png" /></p>
 <p>Este es un tutorial básico sobre el programa. Visite la página de <a href="https://www.r-project.org/">R</a> para más información.</p>
-<p>R es un lenguaje de programación para cómputo estadístico. Tiene una gran cantidad de funciones que permiten ejecutar análisis estadísticos tradicionales, tales como regresión y modelos lineales, prebas estadísticas, clasificación análisis de series de tiempo, entre otros.</p>
+<p>R es un lenguaje de programación para cómputo estadístico. Tiene una gran cantidad de funciones que permiten ejecutar análisis estadísticos tradicionales, tales como regresión y modelos lineales, pruebas estadísticas, clasificación, análisis de series de tiempo, entre otros.</p>
 <p>Una ventaja de R es que es altamente extensible a traves de paquetes que cualquier persona puede crear y aportar.</p>
 <p>R es un software libre y es ampliamente usado en el ámbito académico e incluso en algunas empresas.</p>
 <h2 id="objetos-de-r">Objetos de R<a class="headerlink" href="#objetos-de-r" title="Permanent link">&para;</a></h2>
@@ -1002,27 +1029,13 @@
 </code></pre></div>
 </td></tr></table>
 
-<h3 id="listas">Listas<a class="headerlink" href="#listas" title="Permanent link">&para;</a></h3>
-<h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2>
-<p>R dispone de miles de paquetes que pueden descargarse libremente para enriquecerse son nuevas características. Estos paquetes están almacenados en el <a href="https://cran.r-project.org/">CRAN</a> y pueden instalarse fácilmente desde la consola con el siguiente comando</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
-
-<p>Por ejemplo, si se desea instalar el paquete <em>ggplot2</em> se puede usar el siguiente comando.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;ggplot2&quot;</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-
-<p>R almacenará los archivos en la carpeta personal llamada biblioteca del usuario o <em>User library</em>. Frecuentemente al instalar un paquete R descarga otros paquetes relacionados llamados dependencias que sirven para que las funciones del paquete trabajen adecuadamente.</p>
-<p>Sin embargo, aún no podrá usarse debido a que es necesario cargarla mediante el comando <code>library()</code>, por ejemplo, para cargar el paquete <em>ggplot2</em> se debe ejecutar</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-
-<p>Con esto, todas las funciones y objetos del paquete estarán definidos y listos para usarse.</p>
-<h2 id="ayuda">Ayuda<a class="headerlink" href="#ayuda" title="Permanent link">&para;</a></h2>
-<p>R dispone de un comando especial para obtener ayuda desde la consola. Por ejemplo para buscar ayuda sobre matrices, se puede escribir desde la consola el comando</p>
+<h2 id="otros-elementos">Otros elementos<a class="headerlink" href="#otros-elementos" title="Permanent link">&para;</a></h2>
+<p><img alt="Programador" src="../img/programador.jpg" />
+Imagen de <a href="https://pixabay.com/es/users/innovalabs-22783312/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6521720">Innova Labs</a> en <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=6521720">Pixabay</a></p>
+<p>Debido a que R es un lenguaje muy amplio, posee diversas utilidades que permiten ampliar su uso.</p>
+<p>En esta sección se presentan otros elementos importantes del lenguaje R.</p>
+<h3 id="ayuda">Ayuda<a class="headerlink" href="#ayuda" title="Permanent link">&para;</a></h3>
+<p>R dispone de un comando especial <code>?</code> para obtener ayuda desde la consola. Por ejemplo para buscar ayuda sobre matrices, se puede escribir desde la consola el comando</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="o">?</span><span class="n">matrix</span>
 </code></pre></div>
 </td></tr></table>
@@ -1045,6 +1058,47 @@
 </td></tr></table>
 
 <p>y con ello se obtendrá la documentación del paquete en específico.</p>
+<h3 id="funciones">Funciones<a class="headerlink" href="#funciones" title="Permanent link">&para;</a></h3>
+<p>En R es posible definir funciones por el usuario. Estas funciones quedan almacenadas en el espacio de trabajo y estárán disponibles durante toda la sesión una vez definidas.</p>
+<p>La forma de definir una función es la siguiente</p>
+<blockquote>
+<p>function( arglist ) expr</p>
+</blockquote>
+<p>donde <em>arglist</em> es una lista de argumentos de nombres o argumentos, puede ser vacío y <em>expr</em> es una expresión.</p>
+<p>El siguiente ejemplo muestra cómo definir una función simple. Al ingresar un número, la función nos devolverá un mensaje con su signo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">mi_fun</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="m">0</span><span class="p">,</span><span class="s">&quot;Negativo&quot;</span><span class="p">,</span><span class="nf">ifelse</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="m">0</span><span class="p">,</span><span class="s">&quot;Positivo&quot;</span><span class="p">,</span><span class="s">&quot;Cero&quot;</span><span class="p">))</span>
+<span class="c1"># uso de la función</span>
+<span class="nf">mi_fun</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+<span class="nf">mi_fun</span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">mi_fun</span><span class="p">(</span><span class="m">-3</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El resultado es el siguiente.</p>
+<p><img alt="" src="../img/funcion.png" /></p>
+<p>Para más ayuda vea la documentación con el comando <code>help("function")</code>.</p>
+<h3 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h3>
+<p>R dispone de miles de paquetes que pueden descargarse libremente para enriquecerse son nuevas características. Estos paquetes están almacenados en el <a href="https://cran.r-project.org/">CRAN</a> y pueden instalarse fácilmente desde la consola con el siguiente comando</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Por ejemplo, si se desea instalar el paquete <em>ggplot2</em> se puede usar el siguiente comando.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">install.packages</span><span class="p">(</span><span class="s">&quot;ggplot2&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>R almacenará los archivos en la carpeta personal llamada biblioteca del usuario o <em>User library</em>. Frecuentemente al instalar un paquete R descarga otros paquetes relacionados llamados dependencias que sirven para que las funciones del paquete trabajen adecuadamente.</p>
+<p>Sin embargo, aún no podrá usarse debido a que es necesario cargarla mediante el comando <code>library()</code>, por ejemplo, para cargar el paquete <em>ggplot2</em> se debe ejecutar</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Con esto, todas las funciones y objetos del paquete estarán definidos y listos para usarse.</p>
                 
                   
                 

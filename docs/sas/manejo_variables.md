@@ -466,9 +466,45 @@ Para más información vea la sección [DO UNTIL](https://documentation.sas.com/
 
 Supóngase que se desea tener información de ventas acomodada en columnas, donde cada una represente un trimestre.
 
-Una forma de introducir esta información es mediante el uso de arreglos o _arrays_. Los arreglos son una forma de crear variables de forma iterativa y pueden ser usadas dentro de un ciclo.
+Una forma de introducir esta información es mediante el uso de arreglos o _arrays_, los arreglos nos ayudan a crear variables de forma fácil ya que sus elementos serán usados como nombres de variables. El siguiente ejemplo muestra cómo definir un arreglo.
+
+````sas hl_lines="2 4"
+DATA ventas;
+    ARRAY Tri{4} T1 - T4;
+    INFILE datalines;
+    INPUT periodo T1--T4;
+    DATALINES;
+    2018 1718 1755 1777 2100
+    2019 1760 1769 1799 2195
+    2020 1790 1230 1300 1685
+    2021 1375 1420 1498 1965
+    ;
+RUN;
+````
+
+En la línea 2 se define un arreglo de nombre **Tri** cuyos elementos son **T1**, **T2**, **T3** y **T4**, estos elementos son usados en la línea 4 en la sentencia `INPUT`.
 
 !!! danger "No confundir con otros lenguajes"
     A pesar de que tienen un nombre idéntico, los arreglos no son iguales a los objetos de otros lenguajes de programación.
+
+Los arreglos tambien son útiles para crear variables de forma iterativa y pueden ser usadas dentro de un ciclo.
+
+````sas  hl_lines="2 5"
+DATA DATOS;
+    ARRAY vector{3} x1 - x3 (0 0 0);
+    DO i = 1 TO 5;
+        DO j = 1 TO 3;
+            vector{j} = j*i;
+            OUTPUT;
+        END;
+    END;
+RUN;
+````
+
+En el ejemplo anterior,en la línea 2 se define un vector con 3 elementos y sus valores iniciales son cero. Se ha usado un doble ciclo y el valor calculado en la línea 5 se guarda en la variable correspondiente de acuerdo a los índices `i` y `j`.
+
+El resultado se muestra a continuación
+
+![Resultado del arreglo](img/arreglo.png)
 
 ## Manipulación y transformación de bases
