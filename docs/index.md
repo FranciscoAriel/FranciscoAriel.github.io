@@ -9,6 +9,8 @@ Imagen de [Sara Torda](https://pixabay.com/es/users/sara_torda-888816/?utm_sourc
 
 En esta sección encontrarás una breve introducción a la estadística, abarcando desde los conceptos y definiciones básicos hasta modelos más complejos.
 
+Haz click [aquí](estadistica/inferencia/index.html) para ir al blog de Estadística.
+
 ![Interfaz gráfica](img/interface.png)
 Imagen de [janjf93](https://pixabay.com/es/users/janjf93-3084263/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3614766) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3614766)
 
@@ -60,6 +62,8 @@ Aquí encontrarás todo lo relacionado con librerías que se usan en ciencia de 
 
 ### Julia *¡NUEVO!*
 
+Julia es un nuevo lenguaje de programación enfocado en la velocidad y está optimizado para trabajar con todos los recursos de la computadora.
+
 [Click aquí](julia/intro_julia/index.html) para ir a mi blog de Julia.
 
 ### Jupyter Notebooks
@@ -81,8 +85,16 @@ Los programas son mostrados con fines educativos.
 
 Síguenos en nuestras redes sociales
 
-* [Github](https://github.com/FranciscoAriel)
-* [LinkedIn](https://www.linkedin.com/in/fcoavc/)
-* [Telegram](https://t.me/estad_camp_0)
+[Github](https://github.com/FranciscoAriel)
+
+[LinkedIn](https://www.linkedin.com/in/fcoavc/)
+
+No te pierdas las últimas noticias en nuestro canal de [Telegram](https://t.me/estad_camp_0)
+
+<div>
+<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="estad_camp_0/8" data-width="100%"></script>
+</div>
+
+----
 
 > SAS and all other SAS Institute Inc. product or service names are registered trademarks or trademarks of SAS Institute Inc. in the USA and other countries. &reg; indicates USA registration.
