@@ -522,6 +522,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tu-puedes-contribuir" class="md-nav__link">
+    Tú puedes contribuir
+  </a>
+  
+    <nav class="md-nav" aria-label="Tú puedes contribuir">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organizacion-del-sitio" class="md-nav__link">
+    Organización del sitio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archivos-markdown" class="md-nav__link">
+    Archivos markdown
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extras" class="md-nav__link">
+    Extras
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -605,6 +639,54 @@ Imagen de <a href="https://pixabay.com/es/users/200degrees-2051452/?utm_source=l
 <script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="estad_camp_0/8" data-width="100%"></script>
 </div>
 
+<h2 id="tu-puedes-contribuir">Tú puedes contribuir<a class="headerlink" href="#tu-puedes-contribuir" title="Permanent link">&para;</a></h2>
+<p>¡Todos aprendemos de todos!</p>
+<p>Si deseas aportar nuevos conocimientos puedes apoyarnos con sugerencias o comentarios.</p>
+<p>También puedes hacer aportaciones a mi código fuente, es muy fácil todo está escrito en formato markdown.</p>
+<p>Puedes clonar este repositorio.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git clone https://github.com/FranciscoAriel/FranciscoAriel.github.io.git
+</code></pre></div>
+</td></tr></table>
+
+<p>o simplemente descarga el zip en tu computadora.</p>
+<h3 id="organizacion-del-sitio">Organización del sitio<a class="headerlink" href="#organizacion-del-sitio" title="Permanent link">&para;</a></h3>
+<p>El archivo <em>mkdoc.yml</em> es el archivo principal que contiene la configuración para construir el sitio web con MKDOCS.</p>
+<p>Este archivo contiene el menú de navegación para organizar por los distntos lenguajes de programación. Dentro de cada menú se despliegan temas según su nivel de dificultad. Cada tema está ligado a un archivo markdown.</p>
+<p>La carpeta <strong>docs</strong> contiene de forma organizada los diversos archivos markdown por lenguaje y una carpeta llamada <strong>src</strong> donde se contienen archivos auxiliares, como ejemplos de códigos, dataset u otros recursos.
+Finalmente la carpeta <strong>img</strong> contiene contiene imágenes para ilustrar algunos resultados.</p>
+<h3 id="archivos-markdown">Archivos markdown<a class="headerlink" href="#archivos-markdown" title="Permanent link">&para;</a></h3>
+<p>Los archivos markdown están en formato <code>utf-8</code>. </p>
+<p>Cada archivo inicia con un encabezado en donde se especifica los metadatos.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Título</span>
+<span class="nt">summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Resumen</span>
+<span class="nt">authors</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Nombre del autor</span>
+<span class="nt">date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">yyyy-mm-dd</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Se pueden usar encabezados de nivel dos para temas principales y de nivel 3 para subtemas</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="gu">##</span> Tema
+
+Párrafo
+
+<span class="gu">###</span> Subtema
+
+Párrafo
+</code></pre></div>
+</td></tr></table>
+
+<h2 id="extras">Extras<a class="headerlink" href="#extras" title="Permanent link">&para;</a></h2>
+<p>Para agregar fragmentos de código, consulte la sección <a href="https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-blocks">code blocks</a> para conocer sobre como resaltar los códigos o lenguajes soportados.</p>
+<p>Se pueden agregar cuadros que resaltan la información consulte <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#admonitions">Admonitions</a> para una referencia completa.</p>
 <hr />
 <blockquote>
 <p>SAS and all other SAS Institute Inc. product or service names are registered trademarks or trademarks of SAS Institute Inc. in the USA and other countries. &reg; indicates USA registration.</p>

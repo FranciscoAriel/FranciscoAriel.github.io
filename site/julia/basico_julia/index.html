@@ -714,7 +714,7 @@
 
 <h3 id="accediendo-a-los-datos">Accediendo a los datos<a class="headerlink" href="#accediendo-a-los-datos" title="Permanent link">&para;</a></h3>
 <p>Como ya vimos anteriormente, las bases en Julia se guardan en un objeto <strong>DataFrame</strong>.</p>
-<p>Para poder acceder a las variables, se pueden usar los corchetes cuadrados de la forma `[renglon,columna], por ejemplo</p>
+<p>Para poder acceder a las variables, se pueden usar los corchetes cuadrados de la forma <code>[renglon,columna]</code>, por ejemplo</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -729,7 +729,7 @@
 <p class="admonition-title">Seleccionar todos los renglones</p>
 <p>Se puede usar <code>!</code> en lugar de  <code>:</code> para indicar que se deben seleccionar todos los elementos. No puede ir vacío.</p>
 </div>
-<p>Para elegir un elemento se puede usar la función <code>getindex()</code>, por ejemplo:</p>
+<p>Para elegir un elemento de un dataframe se puede usar la función <code>getindex()</code>, por ejemplo el siguiente código obtendrá del dataframe <em>datos</em> el tercer registro de la columna <em>nombre</em>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">getindex</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;nombre&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>

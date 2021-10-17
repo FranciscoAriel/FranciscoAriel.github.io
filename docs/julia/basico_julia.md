@@ -80,7 +80,7 @@ last(datos,3)
 
 Como ya vimos anteriormente, las bases en Julia se guardan en un objeto **DataFrame**.
 
-Para poder acceder a las variables, se pueden usar los corchetes cuadrados de la forma `[renglon,columna], por ejemplo
+Para poder acceder a las variables, se pueden usar los corchetes cuadrados de la forma `[renglon,columna]`, por ejemplo
 
 ````julia
 datos[:,"grupo"]
@@ -93,7 +93,7 @@ datos[[1,3,5],[1,3]]
 !!! note "Seleccionar todos los renglones"
     Se puede usar `!` en lugar de  `:` para indicar que se deben seleccionar todos los elementos. No puede ir vacío.
 
-Para elegir un elemento se puede usar la función `getindex()`, por ejemplo:
+Para elegir un elemento de un dataframe se puede usar la función `getindex()`, por ejemplo el siguiente código obtendrá del dataframe _datos_ el tercer registro de la columna _nombre_.
 
 ````julia
 getindex(datos,3,"nombre")

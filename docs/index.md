@@ -95,6 +95,62 @@ No te pierdas las últimas noticias en nuestro canal de [Telegram](https://t.me/
 <script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="estad_camp_0/8" data-width="100%"></script>
 </div>
 
+## Tú puedes contribuir
+
+¡Todos aprendemos de todos!
+
+Si deseas aportar nuevos conocimientos puedes apoyarnos con sugerencias o comentarios.
+
+También puedes hacer aportaciones a mi código fuente, es muy fácil todo está escrito en formato markdown.
+
+Puedes clonar este repositorio.
+
+````bash
+git clone https://github.com/FranciscoAriel/FranciscoAriel.github.io.git
+````
+
+o simplemente descarga el zip en tu computadora.
+
+### Organización del sitio
+
+El archivo *mkdoc.yml* es el archivo principal que contiene la configuración para construir el sitio web con MKDOCS.
+
+Este archivo contiene el menú de navegación para organizar por los distntos lenguajes de programación. Dentro de cada menú se despliegan temas según su nivel de dificultad. Cada tema está ligado a un archivo markdown.
+
+La carpeta **docs** contiene de forma organizada los diversos archivos markdown por lenguaje y una carpeta llamada **src** donde se contienen archivos auxiliares, como ejemplos de códigos, dataset u otros recursos.
+Finalmente la carpeta **img** contiene contiene imágenes para ilustrar algunos resultados.
+
+### Archivos markdown
+
+Los archivos markdown están en formato `utf-8`. 
+
+Cada archivo inicia con un encabezado en donde se especifica los metadatos.
+
+````yaml
+title: Título
+summary: Resumen
+authors: Nombre del autor
+date: yyyy-mm-dd
+````
+
+Se pueden usar encabezados de nivel dos para temas principales y de nivel 3 para subtemas
+
+````md
+## Tema
+
+Párrafo
+
+### Subtema
+
+Párrafo
+````
+
+## Extras
+
+Para agregar fragmentos de código, consulte la sección [code blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-blocks) para conocer sobre como resaltar los códigos o lenguajes soportados.
+
+Se pueden agregar cuadros que resaltan la información consulte [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#admonitions) para una referencia completa.
+
 ----
 
 > SAS and all other SAS Institute Inc. product or service names are registered trademarks or trademarks of SAS Institute Inc. in the USA and other countries. &reg; indicates USA registration.
