@@ -409,6 +409,19 @@
     Manipulación y transformación de bases
   </a>
   
+    <nav class="md-nav" aria-label="Manipulación y transformación de bases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ordenando-una-base" class="md-nav__link">
+    Ordenando una base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -720,6 +733,19 @@
   <a href="#manipulacion-y-transformacion-de-bases" class="md-nav__link">
     Manipulación y transformación de bases
   </a>
+  
+    <nav class="md-nav" aria-label="Manipulación y transformación de bases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ordenando-una-base" class="md-nav__link">
+    Ordenando una base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1376,7 +1402,84 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 <p>En el ejemplo anterior,en la línea 2 se define un vector con 3 elementos y sus valores iniciales son cero. Se ha usado un doble ciclo y el valor calculado en la línea 5 se guarda en la variable correspondiente de acuerdo a los índices <code>i</code> y <code>j</code>.</p>
 <p>El resultado se muestra a continuación</p>
 <p><img alt="Resultado del arreglo" src="../img/arreglo.png" /></p>
+<p>Para conocer más acerca del uso de arreglos visite la ayuda de SAS sobre <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p08do6szetrxe2n136ush727sbuo.htm">arreglos</a>.</p>
 <h2 id="manipulacion-y-transformacion-de-bases">Manipulación y transformación de bases<a class="headerlink" href="#manipulacion-y-transformacion-de-bases" title="Permanent link">&para;</a></h2>
+<p>Cuando se tiene la información almacenada, en ocasiones es necesario modificarla según las necesidades, por ejemplo para segmentarla, agruparla o realizar ciertas operaciones para análisis posteriores.</p>
+<p>En esta sección se estudiarán las formas de transformar las bases de datos, tales como ordenar una base, transponerla, unir una base a otras y modificar una base.</p>
+<h3 id="ordenando-una-base">Ordenando una base<a class="headerlink" href="#ordenando-una-base" title="Permanent link">&para;</a></h3>
+<p>SAS posee un procedimiento especializado en ordenar bases por una o más variables. El procedimiento SORT, permite entre otras cosas, ordenar una base por una o más variables ya sea numérica o de tipo caracter.</p>
+<p>La sintaxis básica es la siguiente:</p>
+<blockquote>
+<p>PROC SORT &lt;<em>collating-sequence-option</em>&gt; &lt;<em>other options</em>&gt;;</p>
+<p>BY &lt;<em>DESCENDING</em>&gt; variable-1 &lt;&lt;<em>DESCENDING</em>&gt; variable-2 &hellip;&gt;;</p>
+</blockquote>
+<p>Consulte <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/proc/p02bhn81rn4u64n1b6l00ftdnxge.htm#p0o1lj0p3exoifn1rmqvmdcb82i7">secuencia de cotejado</a> para conocer más acerca de cómo SAS ordena las variables.</p>
+<p>Por ejemplo, supóngase que se tiene la tabla <strong>calificaciones</strong> y se desea ordenar la base por el nombre y grupo del estudiante.</p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Grupo</th>
+<th>Puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANGÉLICA</td>
+<td>A</td>
+<td>10</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>A</td>
+<td>9</td>
+</tr>
+<tr>
+<td>MARCO</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>FABIÁN</td>
+<td>C</td>
+<td>9</td>
+</tr>
+<tr>
+<td>MAURICIO</td>
+<td>C</td>
+<td>7</td>
+</tr>
+<tr>
+<td>ÁLVARO</td>
+<td>A</td>
+<td>8</td>
+</tr>
+<tr>
+<td>ÓSCAR</td>
+<td>B</td>
+<td>9</td>
+</tr>
+<tr>
+<td>BELÉN</td>
+<td>C</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC SORT </span>data=calificaciones;
+    <span class="k">BY</span> nombre grupo<span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p><img alt="Resultado del ordenamiento" src="../img/sort1.png" /></p>
                 
                   
                 

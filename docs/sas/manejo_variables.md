@@ -507,4 +507,44 @@ El resultado se muestra a continuación
 
 ![Resultado del arreglo](img/arreglo.png)
 
+Para conocer más acerca del uso de arreglos visite la ayuda de SAS sobre [arreglos](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p08do6szetrxe2n136ush727sbuo.htm).
+
 ## Manipulación y transformación de bases
+
+Cuando se tiene la información almacenada, en ocasiones es necesario modificarla según las necesidades, por ejemplo para segmentarla, agruparla o realizar ciertas operaciones para análisis posteriores.
+
+En esta sección se estudiarán las formas de transformar las bases de datos, tales como ordenar una base, transponerla, unir una base a otras y modificar una base.
+
+### Ordenando una base
+
+SAS posee un procedimiento especializado en ordenar bases por una o más variables. El procedimiento SORT, permite entre otras cosas, ordenar una base por una o más variables ya sea numérica o de tipo caracter.
+
+La sintaxis básica es la siguiente:
+
+> PROC SORT <*collating-sequence-option*> <*other options*>;
+> 
+> BY <*DESCENDING*> variable-1 <<*DESCENDING*> variable-2 ...>;
+
+Consulte [secuencia de cotejado](https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/proc/p02bhn81rn4u64n1b6l00ftdnxge.htm#p0o1lj0p3exoifn1rmqvmdcb82i7) para conocer más acerca de cómo SAS ordena las variables.
+
+Por ejemplo, supóngase que se tiene la tabla **calificaciones** y se desea ordenar la base por el nombre y grupo del estudiante.
+
+Nombre|Grupo|Puntaje
+------|-----|-------
+ANGÉLICA  |A |10
+BRENDA    |A |9
+MARCO     |B |8
+LILIANA   |B |8
+FABIÁN    |C |9
+MAURICIO  |C |7
+ÁLVARO    |A |8
+ÓSCAR     |B |9
+BELÉN     |C |10
+
+````sas
+PROC SORT data=calificaciones;
+    BY nombre grupo;
+RUN;
+````
+
+![Resultado del ordenamiento](img/sort1.png)
