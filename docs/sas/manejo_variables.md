@@ -454,7 +454,7 @@ DATA colores;
 RUN;
 ````
 
-![](img/do_until.png)
+![Resultado](img/do_until.png)
 
 Note que en la primer iteración se entra al ciclo y se escriben los valores al dataset. En el segundo valor leído (_negro_) se cumple la condición pero ya ha cambiado el valor de las variables _contador_ y _alto_ a cero y se salta a la siguiente iteración.
 
@@ -547,4 +547,23 @@ PROC SORT data=calificaciones;
 RUN;
 ````
 
+El resultado del código anterior se presenta a continucación.
+
 ![Resultado del ordenamiento](img/sort1.png)
+
+Sin embargo se puede observar que los nombres no están ordenados correctamente, debido a que los nombres acentuados están al final.
+
+Para solucionar eso, se puede usar otra opción de secuencia de cotejado para que se ordene de manera correcta, en este caso se usará la opción `SORTSEQ = LINGUISTIC` para que SAS ordene los nombres correctamente.
+
+````sas  hl_lines="1"
+PROC SORT SORTSEQ = LINGUISTIC data=calificaciones;
+    BY nombre grupo;
+RUN;
+````
+
+!!! caution "Ordenamiento en español"
+    Al usar la opción de secuencia de cotejado `SORTSEQ = SPANISH`, las letras con acento se ordenarían primero y no seguirían un órden lógico.
+
+El resultado se presenta a continuación.
+
+![Resultado del segundo ordenamiento](img/sort2.png)

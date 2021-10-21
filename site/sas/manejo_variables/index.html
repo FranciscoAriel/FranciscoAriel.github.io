@@ -1342,7 +1342,7 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 </code></pre></div>
 </td></tr></table>
 
-<p><img alt="" src="../img/do_until.png" /></p>
+<p><img alt="Resultado" src="../img/do_until.png" /></p>
 <p>Note que en la primer iteración se entra al ciclo y se escriben los valores al dataset. En el segundo valor leído (<em>negro</em>) se cumple la condición pero ya ha cambiado el valor de las variables <em>contador</em> y <em>alto</em> a cero y se salta a la siguiente iteración.</p>
 <p>Con la nueva iteración se reinician los valores iniciales hasta que se cumpla la condición.</p>
 <p>Para más información vea la sección <a href="https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmtsref/p1021qt3a3n8m2n1vh11ggzhu57n.htm">DO UNTIL</a>.</p>
@@ -1479,7 +1479,24 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 </code></pre></div>
 </td></tr></table>
 
+<p>El resultado del código anterior se presenta a continucación.</p>
 <p><img alt="Resultado del ordenamiento" src="../img/sort1.png" /></p>
+<p>Sin embargo se puede observar que los nombres no están ordenados correctamente, debido a que los nombres acentuados están al final.</p>
+<p>Para solucionar eso, se puede usar otra opción de secuencia de cotejado para que se ordene de manera correcta, en este caso se usará la opción <code>SORTSEQ = LINGUISTIC</code> para que SAS ordene los nombres correctamente.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kr">PROC SORT </span>SORTSEQ = LINGUISTIC data=calificaciones;
+</span>    <span class="k">BY</span> nombre grupo<span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<div class="admonition caution">
+<p class="admonition-title">Ordenamiento en español</p>
+<p>Al usar la opción de secuencia de cotejado <code>SORTSEQ = SPANISH</code>, las letras con acento se ordenarían primero y no seguirían un órden lógico.</p>
+</div>
+<p>El resultado se presenta a continuación.</p>
+<p><img alt="Resultado del segundo ordenamiento" src="../img/sort2.png" /></p>
                 
                   
                 
