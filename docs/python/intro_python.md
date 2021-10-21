@@ -99,13 +99,24 @@ mi_lista[:1]
 mi_lista[2:]
 ````
 
+Para agregar un nuevo elemento a una lista, se puede usar el método *append*.
+
+````python
+mi_lista.append("fresa")
+mi_lista
+````
+
+El resultado es el siguiente:
+
+> ['manzana', 'naranja', 'pera', 'uva', 'fresa']
+
 Para una referencia completa acerca de las lista consulte [Listas de Python](https://www.w3schools.com/python/python_lists.asp).
 
 ### Diccionarios
 
 Otro tipo de arreglo que existe en python son los diccionarios.
 
-Los diccionarios son un arreglo conformado por pares de **claves** y **valores**. Los elementos de un diccionario están dentro de llaves separados por comas, y se usa dos puntos para asignar el valor a la clave. El siguiente ejemplo muestra un diccionario.
+Los diccionarios son un arreglo conformado por pares de **claves** y **valores**. Los elementos de un diccionario están dentro de llaves `{}` separados por comas, y se usa dos puntos para asignar el valor a la clave. El siguiente ejemplo muestra un diccionario.
 
 ````python
 dic = {
@@ -128,7 +139,7 @@ dic = {
 ````
 
 !!! danger "Claves únicas"
-     Los diccionarios no permiten tener claves duplicadas, si se agrega una clave ya existente, se mantendrá la más reciente.
+     Los diccionarios no permiten tener claves duplicadas, si se agrega una clave ya existente, se mantendrá la más reciente. Las claves funcionan como el nombre de variable en una tabla.
 
 Es posible acceder a los elementos de un diccionario mediante sus claves, por ejemplo, para saber el nombre, se puede escribir
 
@@ -136,8 +147,13 @@ Es posible acceder a los elementos de un diccionario mediante sus claves, por ej
 dic["nombre"]
 ````
 
-Para una referencia completa acerca de los diccionarios consulte [Diccionario de Python](https://www.w3schools.com/python/python_dictionaries.asp).
+Para agregar nuevas claves, simplemente se agrega la nueva clave al diccionario, por ejemplo
 
+````python
+dic["ocupacion"]
+````
+
+Para una referencia completa acerca de los diccionarios consulte [Diccionario de Python](https://www.w3schools.com/python/python_dictionaries.asp).
 
 ## Paquetes
 

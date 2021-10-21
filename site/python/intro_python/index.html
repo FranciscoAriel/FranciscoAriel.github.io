@@ -709,10 +709,21 @@
 </code></pre></div>
 </td></tr></table>
 
+<p>Para agregar un nuevo elemento a una lista, se puede usar el método <em>append</em>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">mi_lista</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;fresa&quot;</span><span class="p">)</span>
+<span class="n">mi_lista</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El resultado es el siguiente:</p>
+<blockquote>
+<p>[&lsquo;manzana&rsquo;, &lsquo;naranja&rsquo;, &lsquo;pera&rsquo;, &lsquo;uva&rsquo;, &lsquo;fresa&rsquo;]</p>
+</blockquote>
 <p>Para una referencia completa acerca de las lista consulte <a href="https://www.w3schools.com/python/python_lists.asp">Listas de Python</a>.</p>
 <h3 id="diccionarios">Diccionarios<a class="headerlink" href="#diccionarios" title="Permanent link">&para;</a></h3>
 <p>Otro tipo de arreglo que existe en python son los diccionarios.</p>
-<p>Los diccionarios son un arreglo conformado por pares de <strong>claves</strong> y <strong>valores</strong>. Los elementos de un diccionario están dentro de llaves separados por comas, y se usa dos puntos para asignar el valor a la clave. El siguiente ejemplo muestra un diccionario.</p>
+<p>Los diccionarios son un arreglo conformado por pares de <strong>claves</strong> y <strong>valores</strong>. Los elementos de un diccionario están dentro de llaves <code>{}</code> separados por comas, y se usa dos puntos para asignar el valor a la clave. El siguiente ejemplo muestra un diccionario.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -744,10 +755,15 @@
 
 <div class="admonition danger">
 <p class="admonition-title">Claves únicas</p>
-<p>Los diccionarios no permiten tener claves duplicadas, si se agrega una clave ya existente, se mantendrá la más reciente.</p>
+<p>Los diccionarios no permiten tener claves duplicadas, si se agrega una clave ya existente, se mantendrá la más reciente. Las claves funcionan como el nombre de variable en una tabla.</p>
 </div>
 <p>Es posible acceder a los elementos de un diccionario mediante sus claves, por ejemplo, para saber el nombre, se puede escribir</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">dic</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Para agregar nuevas claves, simplemente se agrega la nueva clave al diccionario, por ejemplo</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">dic</span><span class="p">[</span><span class="s2">&quot;ocupacion&quot;</span><span class="p">]</span>
 </code></pre></div>
 </td></tr></table>
 
