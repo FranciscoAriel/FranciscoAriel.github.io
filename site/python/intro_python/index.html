@@ -438,6 +438,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ciclos" class="md-nav__link">
+    Ciclos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#paquetes" class="md-nav__link">
     Paquetes
   </a>
@@ -583,6 +590,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ciclos" class="md-nav__link">
+    Ciclos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#paquetes" class="md-nav__link">
     Paquetes
   </a>
@@ -623,8 +637,8 @@
 </div>
 <p>Python corre desde la consola de windows (cmd o powershell), aunque puede ser llamada desde <strong>Anaconda Prompt</strong> o <strong>Anaconda Powershell Prompt</strong>.</p>
 <p><strong>Spyder</strong> es otra interfaz gráfica destinada a desarrollar código eficientemente, ya que cuenta con varias opciones de configuración y ventanas con varias funciones. Esta interfaz gráfica ya viene incluida en Anaconda.</p>
-<p>También es posible usar python en Visual Studio Code, usando la extensión de Python. Cuando un código de es ejecutado, se abre una consola que ejecuta el código directamente en VSC. El uso del depurador también es una característica importante que se puede usar.</p>
 <p>Python tiene unos cuadernos interactivos para correr código al instante llamados <strong>Jupyter Notebooks</strong>, este software se instala junto con Anaconda y permite ejecutar no sólo código de python, sino que tiene plugins llamados <em>kernel</em> que permiten ejecutar código de otros lenguajes.</p>
+<p>También es posible usar python en <a href="https://code.visualstudio.com/">Visual Studio Code</a>, usando la <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">extensión de Python</a>. Cuando un código de es ejecutado, se abre una consola que ejecuta el código directamente en VSC. El uso del depurador también es una característica importante que se puede usar. También es posible crear, editar y ejecutar los cuadernos de Python desde VSC.</p>
 <h2 id="objetos">Objetos<a class="headerlink" href="#objetos" title="Permanent link">&para;</a></h2>
 <p>Al ser Python un lenguaje orientado a objetos, es necesario conocer sus objetos y algunas de sus propiedades.</p>
 <h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
@@ -753,6 +767,8 @@
 </code></pre></div>
 </td></tr></table>
 
+<p>El resultado se muestra a continuación.</p>
+<p><img alt="Resultado del diccionario" src="../img/diccionario.png" /></p>
 <div class="admonition danger">
 <p class="admonition-title">Claves únicas</p>
 <p>Los diccionarios no permiten tener claves duplicadas, si se agrega una clave ya existente, se mantendrá la más reciente. Las claves funcionan como el nombre de variable en una tabla.</p>
@@ -762,12 +778,29 @@
 </code></pre></div>
 </td></tr></table>
 
-<p>Para agregar nuevas claves, simplemente se agrega la nueva clave al diccionario, por ejemplo</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">dic</span><span class="p">[</span><span class="s2">&quot;ocupacion&quot;</span><span class="p">]</span>
+<p>Para agregar nuevas claves, simplemente se agrega la nueva clave al diccionario con los valores deseados, por ejemplo</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">dic</span><span class="p">[</span><span class="s2">&quot;ocupacion&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Contador&quot;</span><span class="p">,</span><span class="s2">&quot;Gerente&quot;</span><span class="p">,</span><span class="s2">&quot;Profesor&quot;</span><span class="p">]</span>
+<span class="n">dic</span>
 </code></pre></div>
 </td></tr></table>
 
+<p><img alt="Diccionario con una nueva clave" src="../img/diccionario2.png" /></p>
 <p>Para una referencia completa acerca de los diccionarios consulte <a href="https://www.w3schools.com/python/python_dictionaries.asp">Diccionario de Python</a>.</p>
+<h2 id="ciclos">Ciclos<a class="headerlink" href="#ciclos" title="Permanent link">&para;</a></h2>
+<p>Los ciclos en python permiten iterar en cualquier secuencia, por ejemplo una cadena, una lista o un diccionario.</p>
+<p>El siguiente ejemplo muestra el funcionamiento de un ciclo sobre una lista.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">frutas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;manzana&quot;</span><span class="p">,</span><span class="s2">&quot;naranja&quot;</span><span class="p">,</span><span class="s2">&quot;pera&quot;</span><span class="p">,</span><span class="s2">&quot;uva&quot;</span><span class="p">,</span><span class="s2">&quot;papaya&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">frutas</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Note que <code>x</code> toma el valor de cada elemento de la lista y en cada iteración se imprime su valor. El ciclo termina cuando ya no hay elementos en la lista. El resultado de muestra a continuación:</p>
+<p><img alt="Resultado del ciclo" src="../img/ciclo.png" /></p>
+<p>Visite <a href="https://www.w3schools.com/python/python_for_loops.asp">ciclos en python</a> para saber más acerca de cómo funcionan los ciclos.</p>
 <h2 id="paquetes">Paquetes<a class="headerlink" href="#paquetes" title="Permanent link">&para;</a></h2>
 <p>La mayoría de los paquetes usados en ciencia de datos, son instalados mediante uando se instala Anaconda, por lo que solo es necesario llamar los paquetes necesarios.</p>
 <p>Por ejemplo, para usar las librerías <strong>pandas</strong> y <strong>numpy</strong> y otra librería adicional llamada <strong>os</strong> se puede ejecutar el siguiente código.</p>

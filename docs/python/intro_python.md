@@ -29,9 +29,9 @@ Python corre desde la consola de windows (cmd o powershell), aunque puede ser ll
 
 **Spyder** es otra interfaz gráfica destinada a desarrollar código eficientemente, ya que cuenta con varias opciones de configuración y ventanas con varias funciones. Esta interfaz gráfica ya viene incluida en Anaconda.
 
-También es posible usar python en Visual Studio Code, usando la extensión de Python. Cuando un código de es ejecutado, se abre una consola que ejecuta el código directamente en VSC. El uso del depurador también es una característica importante que se puede usar.
-
 Python tiene unos cuadernos interactivos para correr código al instante llamados **Jupyter Notebooks**, este software se instala junto con Anaconda y permite ejecutar no sólo código de python, sino que tiene plugins llamados _kernel_ que permiten ejecutar código de otros lenguajes.
+
+También es posible usar python en [Visual Studio Code](https://code.visualstudio.com/), usando la [extensión de Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python). Cuando un código de es ejecutado, se abre una consola que ejecuta el código directamente en VSC. El uso del depurador también es una característica importante que se puede usar. También es posible crear, editar y ejecutar los cuadernos de Python desde VSC.
 
 ## Objetos
 
@@ -138,6 +138,10 @@ dic = {
 }
 ````
 
+El resultado se muestra a continuación.
+
+![Resultado del diccionario](img/diccionario.png)
+
 !!! danger "Claves únicas"
      Los diccionarios no permiten tener claves duplicadas, si se agrega una clave ya existente, se mantendrá la más reciente. Las claves funcionan como el nombre de variable en una tabla.
 
@@ -147,13 +151,34 @@ Es posible acceder a los elementos de un diccionario mediante sus claves, por ej
 dic["nombre"]
 ````
 
-Para agregar nuevas claves, simplemente se agrega la nueva clave al diccionario, por ejemplo
+Para agregar nuevas claves, simplemente se agrega la nueva clave al diccionario con los valores deseados, por ejemplo
 
 ````python
-dic["ocupacion"]
+dic["ocupacion"] = ["Contador","Gerente","Profesor"]
+dic
 ````
 
+![Diccionario con una nueva clave](img/diccionario2.png)
+
 Para una referencia completa acerca de los diccionarios consulte [Diccionario de Python](https://www.w3schools.com/python/python_dictionaries.asp).
+
+## Ciclos
+
+Los ciclos en python permiten iterar en cualquier secuencia, por ejemplo una cadena, una lista o un diccionario.
+
+El siguiente ejemplo muestra el funcionamiento de un ciclo sobre una lista.
+
+````python
+frutas = ["manzana","naranja","pera","uva","papaya"]
+for x in frutas:
+  print(x)
+````
+
+Note que `x` toma el valor de cada elemento de la lista y en cada iteración se imprime su valor. El ciclo termina cuando ya no hay elementos en la lista. El resultado de muestra a continuación:
+
+![Resultado del ciclo](img/ciclo.png)
+
+Visite [ciclos en python](https://www.w3schools.com/python/python_for_loops.asp) para saber más acerca de cómo funcionan los ciclos.
 
 ## Paquetes
 
