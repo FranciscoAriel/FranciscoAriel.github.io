@@ -419,6 +419,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#eliminacion-de-datos-duplicados" class="md-nav__link">
+    Eliminación de datos duplicados
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -740,6 +747,13 @@
           <li class="md-nav__item">
   <a href="#ordenando-una-base" class="md-nav__link">
     Ordenando una base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminacion-de-datos-duplicados" class="md-nav__link">
+    Eliminación de datos duplicados
   </a>
   
 </li>
@@ -1497,6 +1511,157 @@ nombre2 = <span class="nb">SUBSTR(</span>name,<span class="m">1</span>,<span cla
 </div>
 <p>El resultado se presenta a continuación.</p>
 <p><img alt="Resultado del segundo ordenamiento" src="../img/sort2.png" /></p>
+<h3 id="eliminacion-de-datos-duplicados">Eliminación de datos duplicados<a class="headerlink" href="#eliminacion-de-datos-duplicados" title="Permanent link">&para;</a></h3>
+<p>Cuando se tiene información en donde cada individuo posee un identificador o clave única, es importante quitar duplicados con el fin de evitar información redundate.</p>
+<p>El procedimiento <strong>SORT</strong>, no solo ordena, sino que también permite eliminar datos duplicados.</p>
+<p>Considere esta tabla con información de clientes de una compañia</p>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>GivenName</th>
+<th>Surname</th>
+<th>Birthday</th>
+<th>Age</th>
+<th>Occupation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ezio</td>
+<td>Vanegas</td>
+<td>04/06/1942</td>
+<td>79</td>
+<td>Labor economist</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Katharina</td>
+<td>Reséndez</td>
+<td>12/08/1967</td>
+<td>53</td>
+<td>Support clerk</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Tamara</td>
+<td>Monroy</td>
+<td>02/01/1948</td>
+<td>73</td>
+<td>Analytical chemist</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dunstano</td>
+<td>Armendáriz</td>
+<td>05/07/1985</td>
+<td>36</td>
+<td>Specification inspector</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Baldo</td>
+<td>Ayala</td>
+<td>04/10/1952</td>
+<td>69</td>
+<td>Sportscaster</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Adrián</td>
+<td>Rosales</td>
+<td>8/28/1992</td>
+<td>29</td>
+<td>Gas appliance repairer</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Helvia</td>
+<td>Viera</td>
+<td>12/16/1994</td>
+<td>26</td>
+<td>Hostler</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Astor</td>
+<td>Cortez</td>
+<td>12/04/1965</td>
+<td>55</td>
+<td>Adult secondary education teacher</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Giusto</td>
+<td>Carvajal</td>
+<td>5/27/1986</td>
+<td>35</td>
+<td>Fish and game warden</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Baal</td>
+<td>Alcalá</td>
+<td>1/15/1961</td>
+<td>60</td>
+<td>Conciliator</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Ezio</td>
+<td>Vanegas</td>
+<td>04/06/1942</td>
+<td>79</td>
+<td>Labor economist</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dunstano</td>
+<td>Armendáriz</td>
+<td>05/07/1985</td>
+<td>36</td>
+<td>Specification inspector</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Baldo</td>
+<td>Ayala</td>
+<td>04/10/1952</td>
+<td>69</td>
+<td>Sportscaster</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Baal</td>
+<td>Alcalá</td>
+<td>1/15/1961</td>
+<td>60</td>
+<td>Conciliator</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Baal</td>
+<td>Alcalá</td>
+<td>1/15/1961</td>
+<td>60</td>
+<td>Conciliator</td>
+</tr>
+</tbody>
+</table>
+<p>El siguiente ejemplo muestra como desduplicar los clientes de la tabla anterior y la información de los clientes duplicados se guardará en un tabla para un análisis posterior.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC SORT </span>data=clientes dupout=repetidos NODUPKEY;
+<span class="k">BY</span> number<span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>La tabla ordenada y sin duplicados se muestra a continuación.</p>
+<p><img alt="Datos ordenados" src="../img/sort3.png" /></p>
+<p>Por otro lado, la tabla con los clientes duplicados se ha guardo y podría servir para un otro análisis del por qué hay información duplicada.</p>
+<p><img alt="Datos duplicados" src="../img/duplicados.png" /></p>
                 
                   
                 

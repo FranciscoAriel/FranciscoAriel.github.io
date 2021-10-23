@@ -567,3 +567,45 @@ RUN;
 El resultado se presenta a continuación.
 
 ![Resultado del segundo ordenamiento](img/sort2.png)
+
+### Eliminación de datos duplicados
+
+Cuando se tiene información en donde cada individuo posee un identificador o clave única, es importante quitar duplicados con el fin de evitar información redundate.
+
+El procedimiento __SORT__, no solo ordena, sino que también permite eliminar datos duplicados.
+
+Considere esta tabla con información de clientes de una compañia
+
+Number|GivenName|Surname|Birthday|Age|Occupation
+------|---------|-------|--------|---|----------
+1|Ezio|Vanegas|04/06/1942|79|Labor economist
+2|Katharina|Reséndez|12/08/1967|53|Support clerk
+3|Tamara|Monroy|02/01/1948|73|Analytical chemist
+4|Dunstano|Armendáriz|05/07/1985|36|Specification inspector
+5|Baldo|Ayala|04/10/1952|69|Sportscaster
+6|Adrián|Rosales|8/28/1992|29|Gas appliance repairer
+7|Helvia|Viera|12/16/1994|26|Hostler
+8|Astor|Cortez|12/04/1965|55|Adult secondary education teacher
+9|Giusto|Carvajal|5/27/1986|35|Fish and game warden
+10|Baal|Alcalá|1/15/1961|60|Conciliator
+1|Ezio|Vanegas|04/06/1942|79|Labor economist
+4|Dunstano|Armendáriz|05/07/1985|36|Specification inspector
+5|Baldo|Ayala|04/10/1952|69|Sportscaster
+10|Baal|Alcalá|1/15/1961|60|Conciliator
+10|Baal|Alcalá|1/15/1961|60|Conciliator
+
+El siguiente ejemplo muestra como desduplicar los clientes de la tabla anterior y la información de los clientes duplicados se guardará en un tabla para un análisis posterior.
+
+````sas
+PROC SORT data=clientes dupout=repetidos NODUPKEY;
+BY number;
+RUN;
+````
+
+La tabla ordenada y sin duplicados se muestra a continuación.
+
+![Datos ordenados](img/sort3.png)
+
+Por otro lado, la tabla con los clientes duplicados se ha guardo y podría servir para un otro análisis del por qué hay información duplicada.
+
+![Datos duplicados](img/duplicados.png)
