@@ -75,7 +75,7 @@ Expresión|Nombre|Descripción
 `x ^ y`|potencia|eleva `x` a la potencia `y`
 `x % y`|resto|equivalente to `rem(x,y)`
 
-Para una mayor referencia visita la sección[operadores aritméticos](https://docs.julialang.org/en/v1/manual/mathematical-operations/#Arithmetic-Operators).
+Para una mayor referencia visita la sección [operadores aritméticos](https://docs.julialang.org/en/v1/manual/mathematical-operations/#Arithmetic-Operators).
 
 ## Control de flujo
 

@@ -100,6 +100,10 @@ attach(census)
 !!! caution "Cuidado con los nombres iguales"
     Si dos o más variables tienen el mismo nombre, se usará la variable de la nueva base.
 
+Otra forma de visualizar los datos es mediante el uso de las funciones `head()` y `tail()`. Estas nos permiten ver el contenido de un dataset sin saturar la ventana de resultados.
+
+Las funciones solo requieren que se le pase el nombre del dataframe y opcionalmente el número de registros a visualizar.
+
 ### Filtrado de datos
 
 Para realizar un filtrado de datos en R, se pueden usar los vectores lógicos, de esta forma, aquellas observaciones que cumplan con la condición, serán las observaciones elegidas.

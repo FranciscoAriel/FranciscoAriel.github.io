@@ -9,6 +9,8 @@ date: 2021-09-13
 
 En esta página se aprenderá a importar archivos en Julia y trabajar con ellos.
 
+También se conocerá cómo hacer filtros y otro tipo de operacione sobre las bases.
+
 ## Lectura de datos
 
 En Julia existen diversos paquetes que nos permiten importar y leer datos de archivos externos. En esta sección nos enfocaremos a la creación de conjuntos de datos.
@@ -98,3 +100,32 @@ Para elegir un elemento de un dataframe se puede usar la función `getindex()`, 
 ````julia
 getindex(datos,3,"nombre")
 ````
+
+## Filtrado de datos
+
+Para realizar un filtrado, se puede usar la notación `.` para acceder a las propiedades de un dataframe y usar los nombres de variables.
+
+El siguiente código muestra cómo obtener una filtro del dataframe _datos_, eligiendo a los alumnos que pertenecen al grupo _A_.
+
+````julia
+datos2 = datos[datos.grupo .== "A",:]
+print(datos2)
+````
+
+!!! caution "Comparación"
+    Note que se usa un punto antes de los operadores de comparación.
+
+El resultado se muestra a continuación:
+
+![Resultado del filtro](img/filtro.png)
+
+Tambien se puede usar la función `in` para elegir más de un valor.
+
+````julia
+datos2 = datos[in(["A","C"]).(datos.grupo) ,:]
+print(datos2)
+````
+
+![Resultado](img/filtro2.png)
+
+Para saber más del filtrado de datos, vea la [documentación](https://dataframes.juliadata.org/stable/man/working_with_dataframes/#Taking-a-Subset).
