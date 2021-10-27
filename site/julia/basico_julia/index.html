@@ -519,6 +519,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creando-nuevas-variables" class="md-nav__link">
+    Creando nuevas variables
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -611,6 +618,13 @@
         <li class="md-nav__item">
   <a href="#filtrado-de-datos" class="md-nav__link">
     Filtrado de datos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creando-nuevas-variables" class="md-nav__link">
+    Creando nuevas variables
   </a>
   
 </li>
@@ -773,6 +787,17 @@
 
 <p><img alt="Resultado" src="../img/filtro2.png" /></p>
 <p>Para saber más del filtrado de datos, vea la <a href="https://dataframes.juliadata.org/stable/man/working_with_dataframes/#Taking-a-Subset">documentación</a>.</p>
+<h2 id="creando-nuevas-variables">Creando nuevas variables<a class="headerlink" href="#creando-nuevas-variables" title="Permanent link">&para;</a></h2>
+<p>Para crear nuevas variable, se puede usar la notación <code>.</code> para crear en un dataframe el nuevo nombre de la variable.</p>
+<p>El siguiente código muestra como crear una nueva variable llamada <em>nota</em> usando una función condicional.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">nota</span> <span class="o">=</span> <span class="n">ifelse</span><span class="o">.</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">puntaje</span> <span class="o">.&lt;</span> <span class="mi">9</span><span class="p">,</span> <span class="s">&quot;Suficiente&quot;</span><span class="p">,</span> <span class="s">&quot;Excelente&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Note que se usa la notación <code>.&lt;</code> para expresar que se quiere hacer la comparación por elemento. El resultado se muestra a continuación.</p>
+<p><img alt="Nueva variable" src="../img/variable.png" /></p>
                 
                   
                 

@@ -129,3 +129,18 @@ print(datos2)
 ![Resultado](img/filtro2.png)
 
 Para saber más del filtrado de datos, vea la [documentación](https://dataframes.juliadata.org/stable/man/working_with_dataframes/#Taking-a-Subset).
+
+## Creando nuevas variables
+
+Para crear nuevas variable, se puede usar la notación `.` para crear en un dataframe el nuevo nombre de la variable.
+
+El siguiente código muestra como crear una nueva variable llamada _nota_ usando una función condicional.
+
+````julia
+datos.nota = ifelse.(datos.puntaje .< 9, "Suficiente", "Excelente")
+print(datos)
+````
+
+Note que se usa la notación `.<` para expresar que se quiere hacer la comparación por elemento. El resultado se muestra a continuación.
+
+![Nueva variable](img/variable.png)
