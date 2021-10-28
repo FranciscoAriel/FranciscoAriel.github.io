@@ -486,19 +486,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manejo-de-datos" class="md-nav__link">
-    Manejo de datos
+  <a href="#manipulacion-de-bases" class="md-nav__link">
+    Manipulación de bases
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Manipulación de bases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#explorando-la-base" class="md-nav__link">
     Explorando la base
   </a>
   
-    <nav class="md-nav" aria-label="Explorando la base">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#accediendo-a-los-datos" class="md-nav__link">
@@ -507,22 +507,29 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#filtrado-de-datos" class="md-nav__link">
     Filtrado de datos
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#creando-nuevas-variables" class="md-nav__link">
     Creando nuevas variables
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordenando-una-base" class="md-nav__link">
+    Ordenando una base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -589,19 +596,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manejo-de-datos" class="md-nav__link">
-    Manejo de datos
+  <a href="#manipulacion-de-bases" class="md-nav__link">
+    Manipulación de bases
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Manipulación de bases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#explorando-la-base" class="md-nav__link">
     Explorando la base
   </a>
   
-    <nav class="md-nav" aria-label="Explorando la base">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#accediendo-a-los-datos" class="md-nav__link">
@@ -610,22 +617,29 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#filtrado-de-datos" class="md-nav__link">
     Filtrado de datos
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#creando-nuevas-variables" class="md-nav__link">
     Creando nuevas variables
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordenando-una-base" class="md-nav__link">
+    Ordenando una base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -730,10 +744,17 @@
 </td></tr></table>
 
 <p>La primer línea carga los paquetes instalados previamente, para poder usar todas sus funciones y métodos. En la segunda, se usa la función <code>CSV.read()</code> especificándole el nombre de archivo y la función <em>sink</em>, en este caso será <code>DataFrame</code>, asignándolo al objeto <em>mi_csv</em>. Debido a que el archivo es grande se sugiere ver las dimensiones del dataframe usando la función <code>summary()</code>.</p>
-<h2 id="manejo-de-datos">Manejo de datos<a class="headerlink" href="#manejo-de-datos" title="Permanent link">&para;</a></h2>
-<p>En esta sección nos enfocaremos en el manejo de bases, tales como conocer las propiedades de las bases, acceder a los elementos de la base, entre otros.</p>
-<h2 id="explorando-la-base">Explorando la base<a class="headerlink" href="#explorando-la-base" title="Permanent link">&para;</a></h2>
-<p>Para saber la dimensión de un objeto <strong>DataFrame</strong> se puede usar la función <code>summary()</code>.</p>
+<h2 id="manipulacion-de-bases">Manipulación de bases<a class="headerlink" href="#manipulacion-de-bases" title="Permanent link">&para;</a></h2>
+<p>En esta sección se muestra cómo manipular bases con el fin de trabajar directamente con ellas o realizar algunas operaciones, tales como ordenar una base, segmentarla o realizar uniones.</p>
+<p>Tambien, en esta sección nos enfocaremos en conocer las propiedades de las bases, acceder a los elementos de la base, entre otros.</p>
+<h3 id="explorando-la-base">Explorando la base<a class="headerlink" href="#explorando-la-base" title="Permanent link">&para;</a></h3>
+<p>Para saber la dimensión de un objeto <strong>DataFrame</strong> se puede usar la función <code>summary()</code>. Por ejemplo:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">summary</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El siguiente mensaje se muestra en la pantalla o ventana de resultados.</p>
+<p><img alt="Resumen" src="../img/resumen.png" /></p>
 <p>También es posible conocer los primeros y últimos renglones de una base con la función <code>first()</code> y <code>last()</code>. Por ejemplo, para obtener los primeros 3 y últimos 3 se puede usar este código.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">first</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -741,6 +762,8 @@
 </code></pre></div>
 </td></tr></table>
 
+<p>El siguiente mensaje se mostrará en pantalla.</p>
+<p><img alt="Resumen" src="../img/resumen2.png" /></p>
 <h3 id="accediendo-a-los-datos">Accediendo a los datos<a class="headerlink" href="#accediendo-a-los-datos" title="Permanent link">&para;</a></h3>
 <p>Como ya vimos anteriormente, las bases en Julia se guardan en un objeto <strong>DataFrame</strong>.</p>
 <p>Para poder acceder a las variables, se pueden usar los corchetes cuadrados de la forma <code>[renglon,columna]</code>, por ejemplo</p>
@@ -763,7 +786,7 @@
 </code></pre></div>
 </td></tr></table>
 
-<h2 id="filtrado-de-datos">Filtrado de datos<a class="headerlink" href="#filtrado-de-datos" title="Permanent link">&para;</a></h2>
+<h3 id="filtrado-de-datos">Filtrado de datos<a class="headerlink" href="#filtrado-de-datos" title="Permanent link">&para;</a></h3>
 <p>Para realizar un filtrado, se puede usar la notación <code>.</code> para acceder a las propiedades de un dataframe y usar los nombres de variables.</p>
 <p>El siguiente código muestra cómo obtener una filtro del dataframe <em>datos</em>, eligiendo a los alumnos que pertenecen al grupo <em>A</em>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -787,7 +810,7 @@
 
 <p><img alt="Resultado" src="../img/filtro2.png" /></p>
 <p>Para saber más del filtrado de datos, vea la <a href="https://dataframes.juliadata.org/stable/man/working_with_dataframes/#Taking-a-Subset">documentación</a>.</p>
-<h2 id="creando-nuevas-variables">Creando nuevas variables<a class="headerlink" href="#creando-nuevas-variables" title="Permanent link">&para;</a></h2>
+<h3 id="creando-nuevas-variables">Creando nuevas variables<a class="headerlink" href="#creando-nuevas-variables" title="Permanent link">&para;</a></h3>
 <p>Para crear nuevas variable, se puede usar la notación <code>.</code> para crear en un dataframe el nuevo nombre de la variable.</p>
 <p>El siguiente código muestra como crear una nueva variable llamada <em>nota</em> usando una función condicional.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -798,6 +821,22 @@
 
 <p>Note que se usa la notación <code>.&lt;</code> para expresar que se quiere hacer la comparación por elemento. El resultado se muestra a continuación.</p>
 <p><img alt="Nueva variable" src="../img/variable.png" /></p>
+<h3 id="ordenando-una-base">Ordenando una base<a class="headerlink" href="#ordenando-una-base" title="Permanent link">&para;</a></h3>
+<p>Para ordenar una base, se requiere especificar una variable por la cual se deba ordenar. El siguiente ejemplo muestra cómo guardar un dataframe en un nuevo objeto ordenado por la variable <em>nombre</em>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">DataFrames</span>
+<span class="n">datos_ord</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="o">:</span><span class="n">nombre</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">datos_ord</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El resultado se muestra a continuación</p>
+<p><img alt="Datos ordenados" src="../img/orden.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Cálculo en el dataframe</p>
+<p>Se puede colocar un signo de admiración <code>!</code> despues de la función <code>sort</code> para indicar que la operación se haga en el mismo dataframe. No se requiere guardar la base en un nuevo dataframe.</p>
+</div>
                 
                   
                 

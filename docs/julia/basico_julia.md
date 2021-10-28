@@ -63,13 +63,23 @@ summary(mi_csv)
 
 La primer línea carga los paquetes instalados previamente, para poder usar todas sus funciones y métodos. En la segunda, se usa la función `CSV.read()` especificándole el nombre de archivo y la función _sink_, en este caso será `DataFrame`, asignándolo al objeto _mi_csv_. Debido a que el archivo es grande se sugiere ver las dimensiones del dataframe usando la función `summary()`.
 
-## Manejo de datos
+## Manipulación de bases
 
-En esta sección nos enfocaremos en el manejo de bases, tales como conocer las propiedades de las bases, acceder a los elementos de la base, entre otros.
+En esta sección se muestra cómo manipular bases con el fin de trabajar directamente con ellas o realizar algunas operaciones, tales como ordenar una base, segmentarla o realizar uniones.
 
-## Explorando la base
+Tambien, en esta sección nos enfocaremos en conocer las propiedades de las bases, acceder a los elementos de la base, entre otros.
 
-Para saber la dimensión de un objeto **DataFrame** se puede usar la función `summary()`.
+### Explorando la base
+
+Para saber la dimensión de un objeto **DataFrame** se puede usar la función `summary()`. Por ejemplo:
+
+````julia
+summary(datos)
+````
+
+El siguiente mensaje se muestra en la pantalla o ventana de resultados.
+
+![Resumen](img/resumen.png)
 
 También es posible conocer los primeros y últimos renglones de una base con la función `first()` y `last()`. Por ejemplo, para obtener los primeros 3 y últimos 3 se puede usar este código.
 
@@ -77,6 +87,10 @@ También es posible conocer los primeros y últimos renglones de una base con la
 first(datos,3)
 last(datos,3)
 ````
+
+El siguiente mensaje se mostrará en pantalla.
+
+![Resumen](img/resumen2.png)
 
 ### Accediendo a los datos
 
@@ -101,7 +115,7 @@ Para elegir un elemento de un dataframe se puede usar la función `getindex()`, 
 getindex(datos,3,"nombre")
 ````
 
-## Filtrado de datos
+### Filtrado de datos
 
 Para realizar un filtrado, se puede usar la notación `.` para acceder a las propiedades de un dataframe y usar los nombres de variables.
 
@@ -130,7 +144,7 @@ print(datos2)
 
 Para saber más del filtrado de datos, vea la [documentación](https://dataframes.juliadata.org/stable/man/working_with_dataframes/#Taking-a-Subset).
 
-## Creando nuevas variables
+### Creando nuevas variables
 
 Para crear nuevas variable, se puede usar la notación `.` para crear en un dataframe el nuevo nombre de la variable.
 
@@ -144,3 +158,20 @@ print(datos)
 Note que se usa la notación `.<` para expresar que se quiere hacer la comparación por elemento. El resultado se muestra a continuación.
 
 ![Nueva variable](img/variable.png)
+
+### Ordenando una base
+
+Para ordenar una base, se requiere especificar una variable por la cual se deba ordenar. El siguiente ejemplo muestra cómo guardar un dataframe en un nuevo objeto ordenado por la variable _nombre_.
+
+````julia
+using DataFrames
+datos_ord = sort(datos, :nombre)
+print(datos_ord)
+````
+
+El resultado se muestra a continuación
+
+![Datos ordenados](img/orden.png)
+
+!!! tip "Cálculo en el dataframe"
+    Se puede colocar un signo de admiración `!` despues de la función `sort` para indicar que la operación se haga en el mismo dataframe. No se requiere guardar la base en un nuevo dataframe.
