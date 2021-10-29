@@ -73,6 +73,8 @@ Los objetos tienen métodos, por ejemplo, los objetos tipo _str_ tienen métodos
 a.upper()
 ````
 
+Consulte los [métodos de las cadenas](https://www.w3schools.com/python/python_strings_methods.asp) para saber más acerca de sus propiedades.
+
 ### Listas
 
 Uno de los principales objetos en python son las listas. Las listas permiten guardar varios valores en una sola variable, además sus elementos están ordenados y pueden ser intercambiables. Una lista puede ser vista como un arreglo que permite valores duplicados.

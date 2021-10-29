@@ -409,29 +409,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lectura-de-datos" class="md-nav__link">
-    Lectura de datos
-  </a>
-  
-    <nav class="md-nav" aria-label="Lectura de datos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ingreso-de-datos-de-forma-manual" class="md-nav__link">
-    Ingreso de datos de forma manual
+  <a href="#creando-un-objeto-dataframe" class="md-nav__link">
+    Creando un objeto DataFrame
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#lectura-de-archivos-externos" class="md-nav__link">
     Lectura de archivos externos
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#exploracion-de-la-base" class="md-nav__link">
+    Exploración de la base
+  </a>
   
 </li>
       
@@ -521,29 +515,23 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#lectura-de-datos" class="md-nav__link">
-    Lectura de datos
-  </a>
-  
-    <nav class="md-nav" aria-label="Lectura de datos">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ingreso-de-datos-de-forma-manual" class="md-nav__link">
-    Ingreso de datos de forma manual
+  <a href="#creando-un-objeto-dataframe" class="md-nav__link">
+    Creando un objeto DataFrame
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#lectura-de-archivos-externos" class="md-nav__link">
     Lectura de archivos externos
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#exploracion-de-la-base" class="md-nav__link">
+    Exploración de la base
+  </a>
   
 </li>
       
@@ -569,8 +557,7 @@
                 
                 <h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
 <p>En esta sección aprenderemos acerca de cómo leer datos en python, así como el manejo de datos con python.</p>
-<h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
-<p>Para manejar datos en python se usan librerías especiales</p>
+<p>Para manejar datos en python se usan librerías especiales. En particular se usará la librería <em>pandas</em> para realizar estas operaciones.</p>
 <p>El primer paso es llamar las librerías que se utilizarán en la sesión.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -580,8 +567,10 @@
 </code></pre></div>
 </td></tr></table>
 
-<p>La librería <strong>pandas</strong> es la que nos permite manejar objetos de tipo <em>dataframe</em>.</p>
-<h3 id="ingreso-de-datos-de-forma-manual">Ingreso de datos de forma manual<a class="headerlink" href="#ingreso-de-datos-de-forma-manual" title="Permanent link">&para;</a></h3>
+<p>La librería <strong>pandas</strong> es la que nos permite manejar objetos de tipo <em>dataframe</em> que es la estructura de datos usada en python para almacenar la información. La librería <strong>numpy</strong> nos permitirá crear arreglos y manipularlos de forma más fácil. La librería <strong>os</strong> nos ayudará a usar funciones y otras utilidades del sistema operativo.</p>
+<p>Los códigos mostrados se realizaron en un cuaderno interactivo de python (archivo ipynb) usando Visual Studio Code.</p>
+<h2 id="creando-un-objeto-dataframe">Creando un objeto DataFrame<a class="headerlink" href="#creando-un-objeto-dataframe" title="Permanent link">&para;</a></h2>
+<p>La forma más sencilla de crear un <em>dataframe</em> es mediante la definición de un diccionario con las listas definidas y posteriormente se usa la función <code>DataFrame</code> del paquete <em>pandas</em> para crear un objeto <code>DataFrame</code> en donde se almacenará la información. El objeto creado hereda las claves del diccionario y los valores se escriben en el dataset.</p>
 <p>Para introducir datos de manera manual, se puede usar la siguiente sintaxis:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -605,11 +594,16 @@
 </code></pre></div>
 </td></tr></table>
 
-<p>La forma más sencilla de crear un dataframe es mediante la definición de un diccionario con las listas definidas y posteriormente se usa la función <code>DataFrame</code> del paquete <em>pandas</em> y se crea el objeto <code>datos</code>. El objeto <code>datos</code> hereda las claves del diccionario y los valores se escriben en el dataset.</p>
 <p>La siguiente imagen muestra el dataframe definido.</p>
 <p><img alt="Resultado del dataset" src="../img/dataframe.png" /></p>
-<h3 id="lectura-de-archivos-externos">Lectura de archivos externos<a class="headerlink" href="#lectura-de-archivos-externos" title="Permanent link">&para;</a></h3>
-<p>Para leer archivos externos, se usa la función <code>read_csv</code> de la librería <em>pandas</em> para leer los datos.</p>
+<p>Note que el objeto creado es un objeto especial. Si escribimos en la consola el comando <code>type(mi_base)</code>, obtenemos la siguiente información.</p>
+<blockquote>
+<p>pandas.core.frame.DataFrame</p>
+</blockquote>
+<p>Como tal, este objeto va a tener diversos métodos para manipularlo o conocer sus propiedades. Consulte la <a href="https://www.w3schools.com/python/pandas/pandas_ref_dataframe.asp">referencia de DataFrame</a> para saber más de sus propiedades.</p>
+<h2 id="lectura-de-archivos-externos">Lectura de archivos externos<a class="headerlink" href="#lectura-de-archivos-externos" title="Permanent link">&para;</a></h2>
+<p>Para leer archivos externos, por ejemplo de tipo csv, se usa la función <code>read_csv</code> de la librería <em>pandas</em> para leer los datos.</p>
+<p>El siguiente código muestra cómo leer un archivo que está almacenado en la misma carpeta del directorio de trabajo.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
@@ -618,22 +612,73 @@
 </code></pre></div>
 </td></tr></table>
 
-<p>Como puede observarse, <code>datos</code> es un objeto <strong>DataFrame</strong> que se define gracias a la función <code>read_csv()</code> de pandas. Se puede obtener información del objeto usando el siguiente comando.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<p>Como puede observarse, <code>datos</code> es un objeto <strong>DataFrame</strong> que se define gracias a la función <code>read_csv()</code> de pandas. En este caso, el archivo estaba en la misma carpeta que el directorio de trabajo.</p>
+<p>Para conocer cual es el directorio de trabajo, se puede usar el siguiente comando:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>root=os.getcwd()
+print(root)
 </code></pre></div>
 </td></tr></table>
 
-<p>Para ver un resumen de los datos se puede usar</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<p>El resultado devolverá la ruta del directorio de trabajo, por ejemplo:</p>
+<blockquote>
+<p>&lsquo;c:\Users\Usuario\Documents\proyectos\python\src&rsquo;</p>
+</blockquote>
+<p>Para modificar el directorio de trabajo, se puede usar el siguiente código:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">Usuario</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">proyectos</span><span class="se">\\</span><span class="s2">python</span><span class="se">\\</span><span class="s2">datos&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Por lo que solo basta copiar los archivos a esta carpeta para poder importarlos sin problema.</p>
+<h2 id="exploracion-de-la-base">Exploración de la base<a class="headerlink" href="#exploracion-de-la-base" title="Permanent link">&para;</a></h2>
+<p>Se puede obtener información de un objeto <strong>DataFrame</strong> usando el siguiente comando.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
 
 <p>La siguiente imagen muestra el resultado obtenido de la consola.</p>
 <p><img alt="Salida del objeto dataframe" src="../img/info.png" /></p>
+<p>Para ver un análisis descriptivo de las variables numéricas datos se puede usar el método <code>describe</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El resultado se muestra a continuación</p>
+<p><img alt="Análisis descriptivo" src="../img/descriptivo.png" /></p>
+<div class="admonition caution">
+<p class="admonition-title">Métodos sin argumentos</p>
+<p>Note que los métodos anteriores no requieren ningún argumento, porlo que solo se ponen los paréntesis vacíos.</p>
+</div>
 <p>Para visualizar los primeros 5 datos se puede usar este código</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+
+<p>La siguiente imagen muestra las primeras 5 observaciones</p>
+<p><img alt="Primeros 5 datos" src="../img/primeros.png" /></p>
+<p>De manera similar, los últimos 5 registros se pueden ver con este código</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>La siguiente imagen muestra las últimas 5 observaciones</p>
+<p><img alt="Últimos 5 datos" src="../img/ultimos.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Argumentos opcionales</p>
+<p>Algunos métodos no requieren argumentos, mientras que en otros son opcionales. Los métodos <code>head()</code> y <code>tail()</code> tienen un valor predeterminado de 5.</p>
+</div>
+<p>Al igual que otros lenguajes de programación, es posible acceder a los elementos de un dataframe. Para ello se puede hacer uso del método <code>iloc</code>.</p>
+<p>El siguiente código muestra cómo acceder al segundo renglón de un dataframe.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">mi_base</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,]</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>El resultado se muestra a continuación</p>
+<p><img alt="Segundo elemento" src="../img/elemento.png" /></p>
+<div class="admonition caution">
+<p class="admonition-title">Método sin paréntesis</p>
+<p>Note que el método <code>iloc</code> <strong>no</strong> usa paréntesis.</p>
+</div>
                 
                   
                 
