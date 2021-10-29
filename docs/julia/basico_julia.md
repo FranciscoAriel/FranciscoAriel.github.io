@@ -45,6 +45,14 @@ print(datos)
 
 Este código crea un objeto llamado _datos_ que es de tipo _DataFrame_. La forma de definir su contenido es mediante _constructores_ que en este caso son las columnas, aunque pueden ser vectores definidos previamente.
 
+Para saber el tipo del objeto _datos_ podemos escribir en la consola el siguiente comando:
+
+````julia
+typeof(datos)
+````
+
+> DataFrame
+
 Para visualizar el objeto, se puede usar el comando `print()`. El resultado se muestra a continuación.
 
 ![Resultado de los datos](img/datos.png)
@@ -92,6 +100,14 @@ El siguiente mensaje se mostrará en pantalla.
 
 ![Resumen](img/resumen2.png)
 
+Finalmente tambien es posible obtener estadísticas descriptivas del dataframe usando la siguiente instrucción.
+
+````julia
+describe(datos)
+````
+
+![Descriptivo](img/descriptivo.png)
+
 ### Accediendo a los datos
 
 Como ya vimos anteriormente, las bases en Julia se guardan en un objeto **DataFrame**.
@@ -103,7 +119,6 @@ datos[:,"grupo"]
 datos[!,2]
 datos[1:3,:]
 datos[[1,3,5],[1,3]]
-
 ````
 
 !!! note "Seleccionar todos los renglones"
@@ -175,3 +190,26 @@ El resultado se muestra a continuación
 
 !!! tip "Cálculo en el dataframe"
     Se puede colocar un signo de admiración `!` despues de la función `sort` para indicar que la operación se haga en el mismo dataframe. No se requiere guardar la base en un nuevo dataframe.
+
+### Datos agrupados
+
+En julia es posible crear dataframes agrupados por alguna variable, en donde cada valor distinto corresponda a un grupo. Esto es relativamente útil cuando se desea segmentar una base formando grupos excluyentes entre sí.
+
+El siguiente ejemplo muestra cómo crear una base agrupada.
+
+````julia
+using DataFrames
+datosg = groupby(datos, :grupo)
+````
+
+La función `groupby` crea una Dataframe agrupado del dataframe _datos_ y lo almacena en el objeto _datosg_. La variable de agrupamiento es _grupo_.
+
+![Datos agrupados](img/agrupado.png)
+
+Note que el tipo de dato es el siguiente:
+
+````julia
+typeof(datosg)
+````
+
+> GroupedDataFrame{DataFrame}

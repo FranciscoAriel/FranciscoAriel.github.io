@@ -92,7 +92,7 @@ Síguenos en nuestras redes sociales
 No te pierdas las últimas noticias en nuestro canal de [Telegram](https://t.me/estad_camp_0)
 
 <div>
-<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="estad_camp_0/8" data-width="100%"></script>
+<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="estad_camp_0/9" data-width="100%"></script>
 </div>
 
 ## Tú puedes contribuir
@@ -117,12 +117,13 @@ El archivo *mkdoc.yml* es el archivo principal que contiene la configuración pa
 
 Este archivo contiene el menú de navegación para organizar por los distntos lenguajes de programación. Dentro de cada menú se despliegan temas según su nivel de dificultad. Cada tema está ligado a un archivo markdown.
 
-La carpeta **docs** contiene de forma organizada los diversos archivos markdown por lenguaje y una carpeta llamada **src** donde se contienen archivos auxiliares, como ejemplos de códigos, dataset u otros recursos.
-Finalmente la carpeta **img** contiene contiene imágenes para ilustrar algunos resultados.
+La carpeta **docs** contiene de forma organizada los diversos archivos markdown por lenguaje y una carpeta llamada **src** donde se contienen archivos auxiliares, como ejemplos de códigos, dataset u otros recursos. Finalmente la carpeta **img** contiene contiene imágenes para ilustrar algunos resultados.
+
+El proyecto está basado en el tema [material](https://squidfunk.github.io/mkdocs-material).
 
 ### Archivos markdown
 
-Los archivos markdown están en formato `utf-8`. 
+Los archivos markdown están en formato `utf-8`.
 
 Cada archivo inicia con un encabezado en donde se especifica los metadatos.
 
@@ -145,7 +146,7 @@ Párrafo
 Párrafo
 ````
 
-## Extras
+### Extras
 
 Para agregar fragmentos de código, consulte la sección [code blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-blocks) para conocer sobre como resaltar los códigos o lenguajes soportados.
 
