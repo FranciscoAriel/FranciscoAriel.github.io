@@ -184,7 +184,7 @@ Si se desea transformar esta base en formato amplio, se puede usar el siguiente 
 datost = reshape(datos,direction = "wide",idvar = "nombre",timevar = "materia")
 ````
 
-La función `reshape()` transforma el dataset *datos* a un formato amplio, esto se logra con la instrucción `direction = "wide"`. El individuo que se considerado es `idvar = "nombre"`. Finalmente la variable que será convertida a variable será `timevar = "materia"`.
+La función `reshape()` transforma el dataset *datos* a un formato amplio, esto se logra con la instrucción `direction = "wide"`. El individuo considerado se especifica con `idvar = "nombre"`. Finalmente la variable que será convertida a columna será `timevar = "materia"`. Note que los valores de puntaje serán los que serán movidos en el orden correspondiente.
 
 El resultado se muestra a continuación.
 
@@ -229,3 +229,20 @@ El resultado se muestra a continuación.
 ![Resultado de la unión](img/merge.png)
 
 Para más información use el comando `?merge` para conocer cómo realizar otro tipo de uniones.
+
+### Ordenando una base
+
+La forma de ordenar una base en R,es un poco distinta a otros lenguajes de programación, debido a que R no tiene una función para ordenar un dataframe, sin embargo se puede lograr con la instrucción `order()` y posteriormente pasarle el resultado como un ídice de renglones, por lo que la base estará ordenada.
+
+El siguiente ejemplo muestra cómo ordenar la base de alumnos por el nombre.
+
+````r
+by_nombre = order(datos$nombre)
+datos_ord = datos[by_nombre,]
+````
+
+Primero se construye un vector que contiene los índices de las observaciones ya ordenadas. En la siguiente línea se crea una copia del dataframe con dichos índices, por lo que el nuevo dataframe ya estará ordenado.
+
+![Datos ordenados](img/ordenar.png)
+
+Para saber más acerca del ordenamiento de variables, consulte la ayuda escribiendo `?order` en la consola.

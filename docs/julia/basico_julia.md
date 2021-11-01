@@ -213,3 +213,5 @@ typeof(datosg)
 ````
 
 > GroupedDataFrame{DataFrame}
+
+Los datos agrupados son de gran ayuda ya que posteriormente nos permitirán realizar cálculos por grupos de variables.

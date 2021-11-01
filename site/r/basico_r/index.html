@@ -435,6 +435,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ordenando-una-base" class="md-nav__link">
+    Ordenando una base
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -648,6 +655,13 @@
           <li class="md-nav__item">
   <a href="#uniones-de-bases" class="md-nav__link">
     Uniones de bases
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordenando-una-base" class="md-nav__link">
+    Ordenando una base
   </a>
   
 </li>
@@ -895,7 +909,7 @@
 </code></pre></div>
 </td></tr></table>
 
-<p>La función <code>reshape()</code> transforma el dataset <em>datos</em> a un formato amplio, esto se logra con la instrucción <code>direction = "wide"</code>. El individuo que se considerado es <code>idvar = "nombre"</code>. Finalmente la variable que será convertida a variable será <code>timevar = "materia"</code>.</p>
+<p>La función <code>reshape()</code> transforma el dataset <em>datos</em> a un formato amplio, esto se logra con la instrucción <code>direction = "wide"</code>. El individuo considerado se especifica con <code>idvar = "nombre"</code>. Finalmente la variable que será convertida a columna será <code>timevar = "materia"</code>. Note que los valores de puntaje serán los que serán movidos en el orden correspondiente.</p>
 <p>El resultado se muestra a continuación.</p>
 <p><img alt="Resultados de los datos en formato amplio" src="../img/datos_wide.png" /></p>
 <p>Para conocer más sobre la función escriba el comando <code>?reshape</code>.</p>
@@ -1000,6 +1014,18 @@
 <p>El resultado se muestra a continuación.</p>
 <p><img alt="Resultado de la unión" src="../img/merge.png" /></p>
 <p>Para más información use el comando <code>?merge</code> para conocer cómo realizar otro tipo de uniones.</p>
+<h3 id="ordenando-una-base">Ordenando una base<a class="headerlink" href="#ordenando-una-base" title="Permanent link">&para;</a></h3>
+<p>La forma de ordenar una base en R,es un poco distinta a otros lenguajes de programación, debido a que R no tiene una función para ordenar un dataframe, sin embargo se puede lograr con la instrucción <code>order()</code> y posteriormente pasarle el resultado como un ídice de renglones, por lo que la base estará ordenada.</p>
+<p>El siguiente ejemplo muestra cómo ordenar la base de alumnos por el nombre.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">by_nombre</span> <span class="o">=</span> <span class="nf">order</span><span class="p">(</span><span class="n">datos</span><span class="o">$</span><span class="n">nombre</span><span class="p">)</span>
+<span class="n">datos_ord</span> <span class="o">=</span> <span class="n">datos[by_nombre</span><span class="p">,</span><span class="n">]</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>Primero se construye un vector que contiene los índices de las observaciones ya ordenadas. En la siguiente línea se crea una copia del dataframe con dichos índices, por lo que el nuevo dataframe ya estará ordenado.</p>
+<p><img alt="Datos ordenados" src="../img/ordenar.png" /></p>
+<p>Para saber más acerca del ordenamiento de variables, consulte la ayuda escribiendo <code>?order</code> en la consola.</p>
                 
                   
                 
