@@ -32,6 +32,7 @@ nav:
         - "Lectura y escritura de datos": sas/basico_sas.md
         - "Manipulación de bases": sas/manejo_variables.md
         - "Elaboración de reportes": sas/reportes.md
+        - "Conexión con otros programas": sas/conexion.md
     - "R":
         - "Introducción a R": r/intro_r.md
         - "R nivel básico": r/basico_r.md
@@ -48,7 +49,6 @@ markdown_extensions:
     - admonition
     - toc:
         permalink: True
-    - mdx_math
     - footnotes
     - pymdownx.emoji:
         emoji_index: !!python/name:materialx.emoji.twemoji

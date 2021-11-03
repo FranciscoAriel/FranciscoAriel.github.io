@@ -18,7 +18,7 @@ Finalmente se muestran algunas pinceladas de lo que se puede hacer con SAS media
 Consulte el sitio web de [sas](https://www.sas.com) para más detalles.
 
 !!! info "SAS &reg; OnDemand for Academics"
-    SAS &reg; software no es libre ni es gratuito, sin embargo usted puede usarlo gratuitamente con fines de aprendizaje.
+    SAS &reg; software no es libre ni de código abierto, sin embargo usted puede usarlo gratuitamente con fines de aprendizaje.
     Visite [SAS &reg; OnDemand for Academics](https://www.sas.com/en_us/software/on-demand-for-academics.html) para más información.
 
 **SAS &reg; BASE** es la interfaz gráfica clásica de SAS. Contiene una verntana lateral con una lista de librerías, mientras que hay una ventana principal de mensajes (log) y otra para escribir código.

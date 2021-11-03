@@ -9,7 +9,7 @@ Imagen de [Sara Torda](https://pixabay.com/es/users/sara_torda-888816/?utm_sourc
 
 En esta sección encontrarás una breve introducción a la estadística, abarcando desde los conceptos y definiciones básicos hasta modelos más complejos.
 
-Haz click [aquí](estadistica/inferencia/index.html) para ir al blog de Estadística.
+Haz click [aquí](estadistica/inferencia.md) para ir al blog de Estadística.
 
 ![Interfaz gráfica](img/interface.png)
 Imagen de [janjf93](https://pixabay.com/es/users/janjf93-3084263/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3614766) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3614766)
@@ -28,7 +28,7 @@ En este blog conoceras todo lo relacionado a:
 * **SAS &reg; software** - Contiene todo lo esencial para leer, manipular datos así como otras funciones básicas de SAS.
 * **SAS/STAT &reg; software** - Tiene muchos métodos estadísticos y otros análisis de datos.
 * **SAS/IML &reg; software** - Es un lenguaje específico para trabajar con vectores, matrices, funciones matemáticas y estadísticas avanzadas.
-* **OTROS** - Conexión de SAS con otros lenguajes de programación y sus configuraciones.
+* **OTROS** - Conexión de SAS &reg; software con otros lenguajes de programación y sus configuraciones.
 
 Para ir al blog de SAS haz click [aquí](sas/intro_sas/index.html).
 
