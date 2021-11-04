@@ -11,7 +11,7 @@ Existen muchas formas de conectar SAS con otros lenguajes de programación.
 
 En esta sección se mostrarán algunas maneras de conectarse a con otros programas, ya sea de manera local o remota.
 
-## Conexión con Jupyter Notebooks
+## Conexión con Python y Jupyter Notebooks
 
 Es posible usar [SAS &reg; OnDemand for Academics](https://www.sas.com/en_us/software/on-demand-for-academics.html) y conectarlo con los cuadernos de Jupyter. Para ello se requiere lo siguiente:
 
@@ -22,13 +22,16 @@ Es posible usar [SAS &reg; OnDemand for Academics](https://www.sas.com/en_us/sof
 
 Consulte la [ayuda de SAS OnDemand](https://support.sas.com/ondemand/saspy.html) para una referencia completa y detallada.
 
-### Configuración
+### Configuración de saspy
 
 Se puede instalar el paquete `saspy` desde la consola (cmd o powershell) escribiendo el siguiente comando:
 
 ````cmd
 pip install saspy
 ````
+
+!!! tip "Incluye pip"
+    La distribución de Anaconda ya incluye pip, por lo que solo basta escribir el nombre del paquete en la consola.
 
 Para comprobar que se ha instalado correctamente, se debe escribir en la consola
 
@@ -86,11 +89,11 @@ oda = {'java' : 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath\\
 Posteriormente se debe crear en la carpeta personal (usualmente `C:\Users\Usuario`) el archivo `_authinfo` que contenga la información de las credenciales de SAS &reg; OnDemand de la siguiente forma, sustituyendo por los valores que correspondan:
 
 ````txt
-oda user "usuario" password "contraseña"
+oda user usuario password contraseña
 ````
 
 !!! caution "Archivo sin extensión"
-    El archivo `_authinfo` no tiene extensión y debe ser guardado en formato `UTF-8`.
+    El archivo `_authinfo` no tiene extensión y debe ser guardado en formato `UTF-8`. Si la contraseña contiene espacios, se debe poner entre comillas.
 
 Una vez realizados estos pasos, puede escribir nuevamente en la consola esta instrucción para comprobar que se puede acceder a SAS OnDemand:
 
@@ -118,5 +121,21 @@ Para comprobar que se ha instalado exitoamente, se puede ejecutar el siguiente c
 jupyter kernelspec list
 ````
 
+### Usando SAS en un cuaderno Jupyter
+
+En esta sección se muestra cómo usar un cuaderno de Jupyter y conectarlo con SAS. Se usará [Visual Studio Code](https://code.visualstudio.com) versión 1.61.2 usando la [extensión Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) para la generación del archivo _ipynb_.
+
+!!! tip "Nuevo archivo"
+    Puede crearse un nuevo cuaderno de jupyter desde el menu *Archivo*, Seleccionar la opción *Nuevo Archivo ...*, aparecerá la opción de crear opción de crear un nuevo archivo de jupyter.
+
+Para pode usarlo, se debe elegir el kernel de SAS y se puede escribir tanto código de SAS como Markdown. Los resultados estarán dentro del cuaderno de Jupyter.
+
 La siguiente imagen muestra el funcionamiento de SAS en un cuaderno de Jupyter.
 
+![SAS notebook](img/sas_nb.png)
+
+### Usando el paquete saspy en un cuaderno Jupyter
+
+Las librería y datasets de SAS pueden usarse dentro de Python a través del paquete saspy.
+
+Para hacer uso de la librería, se debe crear un cuaderno de jupyter con un kernel de python.

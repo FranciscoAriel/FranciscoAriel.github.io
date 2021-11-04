@@ -400,16 +400,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#conexion-con-jupyter-notebooks" class="md-nav__link">
-    Conexión con Jupyter Notebooks
+  <a href="#conexion-con-python-y-jupyter-notebooks" class="md-nav__link">
+    Conexión con Python y Jupyter Notebooks
   </a>
   
-    <nav class="md-nav" aria-label="Conexión con Jupyter Notebooks">
+    <nav class="md-nav" aria-label="Conexión con Python y Jupyter Notebooks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuracion" class="md-nav__link">
-    Configuración
+  <a href="#configuracion-de-saspy" class="md-nav__link">
+    Configuración de saspy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usando-sas-en-un-cuaderno-jupyter" class="md-nav__link">
+    Usando SAS en un cuaderno Jupyter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usando-el-paquete-saspy-en-un-cuaderno-jupyter" class="md-nav__link">
+    Usando el paquete saspy en un cuaderno Jupyter
   </a>
   
 </li>
@@ -648,16 +662,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#conexion-con-jupyter-notebooks" class="md-nav__link">
-    Conexión con Jupyter Notebooks
+  <a href="#conexion-con-python-y-jupyter-notebooks" class="md-nav__link">
+    Conexión con Python y Jupyter Notebooks
   </a>
   
-    <nav class="md-nav" aria-label="Conexión con Jupyter Notebooks">
+    <nav class="md-nav" aria-label="Conexión con Python y Jupyter Notebooks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuracion" class="md-nav__link">
-    Configuración
+  <a href="#configuracion-de-saspy" class="md-nav__link">
+    Configuración de saspy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usando-sas-en-un-cuaderno-jupyter" class="md-nav__link">
+    Usando SAS en un cuaderno Jupyter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usando-el-paquete-saspy-en-un-cuaderno-jupyter" class="md-nav__link">
+    Usando el paquete saspy en un cuaderno Jupyter
   </a>
   
 </li>
@@ -687,7 +715,7 @@
                 <h1 id="conexion-con-sas">Conexión con SAS<a class="headerlink" href="#conexion-con-sas" title="Permanent link">&para;</a></h1>
 <p>Existen muchas formas de conectar SAS con otros lenguajes de programación.</p>
 <p>En esta sección se mostrarán algunas maneras de conectarse a con otros programas, ya sea de manera local o remota.</p>
-<h2 id="conexion-con-jupyter-notebooks">Conexión con Jupyter Notebooks<a class="headerlink" href="#conexion-con-jupyter-notebooks" title="Permanent link">&para;</a></h2>
+<h2 id="conexion-con-python-y-jupyter-notebooks">Conexión con Python y Jupyter Notebooks<a class="headerlink" href="#conexion-con-python-y-jupyter-notebooks" title="Permanent link">&para;</a></h2>
 <p>Es posible usar <a href="https://www.sas.com/en_us/software/on-demand-for-academics.html">SAS &reg; OnDemand for Academics</a> y conectarlo con los cuadernos de Jupyter. Para ello se requiere lo siguiente:</p>
 <ol>
 <li>Crear una cuenta en <a href="https://www.sas.com/en_us/software/on-demand-for-academics.html">SAS &reg; OnDemand for Academics</a> para obtener un nombre de usuario y establecer una contraseña.</li>
@@ -696,11 +724,15 @@
 <li>Realizar las <a href="https://support.sas.com/ondemand/saspy.html#one">configuraciones necesarias</a>.</li>
 </ol>
 <p>Consulte la <a href="https://support.sas.com/ondemand/saspy.html">ayuda de SAS OnDemand</a> para una referencia completa y detallada.</p>
-<h3 id="configuracion">Configuración<a class="headerlink" href="#configuracion" title="Permanent link">&para;</a></h3>
+<h3 id="configuracion-de-saspy">Configuración de saspy<a class="headerlink" href="#configuracion-de-saspy" title="Permanent link">&para;</a></h3>
 <p>Se puede instalar el paquete <code>saspy</code> desde la consola (cmd o powershell) escribiendo el siguiente comando:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip install saspy
 </code></pre></div>
 </td></tr></table>
+<div class="admonition tip">
+<p class="admonition-title">Incluye pip</p>
+<p>La distribución de Anaconda ya incluye pip, por lo que solo basta escribir el nombre del paquete en la consola.</p>
+</div>
 <p>Para comprobar que se ha instalado correctamente, se debe escribir en la consola</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>python
 </code></pre></div>
@@ -766,12 +798,12 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 <p>Verifique que el directorio de Java realmente existe, de otra forma no funcionará correctamente.</p>
 </div>
 <p>Posteriormente se debe crear en la carpeta personal (usualmente <code>C:\Users\Usuario</code>) el archivo <code>_authinfo</code> que contenga la información de las credenciales de SAS &reg; OnDemand de la siguiente forma, sustituyendo por los valores que correspondan:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>oda user &quot;usuario&quot; password &quot;contraseña&quot;
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>oda user usuario password contraseña
 </code></pre></div>
 </td></tr></table>
 <div class="admonition caution">
 <p class="admonition-title">Archivo sin extensión</p>
-<p>El archivo <code>_authinfo</code> no tiene extensión y debe ser guardado en formato <code>UTF-8</code>.</p>
+<p>El archivo <code>_authinfo</code> no tiene extensión y debe ser guardado en formato <code>UTF-8</code>. Si la contraseña contiene espacios, se debe poner entre comillas.</p>
 </div>
 <p>Una vez realizados estos pasos, puede escribir nuevamente en la consola esta instrucción para comprobar que se puede acceder a SAS OnDemand:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -793,7 +825,18 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>jupyter kernelspec list
 </code></pre></div>
 </td></tr></table>
+<h3 id="usando-sas-en-un-cuaderno-jupyter">Usando SAS en un cuaderno Jupyter<a class="headerlink" href="#usando-sas-en-un-cuaderno-jupyter" title="Permanent link">&para;</a></h3>
+<p>En esta sección se muestra cómo usar un cuaderno de Jupyter y conectarlo con SAS. Se usará <a href="https://code.visualstudio.com">Visual Studio Code</a> versión 1.61.2 usando la <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">extensión Jupyter</a> para la generación del archivo <em>ipynb</em>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Nuevo archivo</p>
+<p>Puede crearse un nuevo cuaderno de jupyter desde el menu <em>Archivo</em>, Seleccionar la opción <em>Nuevo Archivo &hellip;</em>, aparecerá la opción de crear opción de crear un nuevo archivo de jupyter.</p>
+</div>
+<p>Para pode usarlo, se debe elegir el kernel de SAS y se puede escribir tanto código de SAS como Markdown. Los resultados estarán dentro del cuaderno de Jupyter.</p>
 <p>La siguiente imagen muestra el funcionamiento de SAS en un cuaderno de Jupyter.</p>
+<p><img alt="SAS notebook" src="../img/sas_nb.png" /></p>
+<h3 id="usando-el-paquete-saspy-en-un-cuaderno-jupyter">Usando el paquete saspy en un cuaderno Jupyter<a class="headerlink" href="#usando-el-paquete-saspy-en-un-cuaderno-jupyter" title="Permanent link">&para;</a></h3>
+<p>Las librería y datasets de SAS pueden usarse dentro de Python a través del paquete saspy.</p>
+<p>Para hacer uso de la librería, se debe crear un cuaderno de jupyter con un kernel de python.</p>
                 
                   
                 
