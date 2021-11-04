@@ -836,7 +836,49 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 <p><img alt="SAS notebook" src="../img/sas_nb.png" /></p>
 <h3 id="usando-el-paquete-saspy-en-un-cuaderno-jupyter">Usando el paquete saspy en un cuaderno Jupyter<a class="headerlink" href="#usando-el-paquete-saspy-en-un-cuaderno-jupyter" title="Permanent link">&para;</a></h3>
 <p>Las librería y datasets de SAS pueden usarse dentro de Python a través del paquete saspy.</p>
-<p>Para hacer uso de la librería, se debe crear un cuaderno de jupyter con un kernel de python.</p>
+<p>Para hacer uso de la librería, se debe crear un cuaderno de jupyter con un kernel de python. Revise la <a href="./#configuracion-de-saspy">configuración de saspy</a> para tener todo listo y evitar algún error.</p>
+<p>El primer paso es usar cargar el paquete saspy escribiendo el siguiente código en una celda de código python:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">saspy</span>
+<span class="n">sas</span> <span class="o">=</span> <span class="n">saspy</span><span class="o">.</span><span class="n">SASsession</span><span class="p">()</span>
+<span class="n">sas</span>
+</code></pre></div>
+</td></tr></table>
+<p>Se desplegará información acerca de la conexión a SAS &reg; OnDemand y sus configuraciones.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">Using</span> <span class="n">SAS</span> <span class="n">Config</span> <span class="n">named</span><span class="p">:</span> <span class="n">oda</span>
+<span class="n">SAS</span> <span class="n">Connection</span> <span class="n">established</span><span class="o">.</span> <span class="n">Subprocess</span> <span class="nb">id</span> <span class="ow">is</span> <span class="mi">2816</span>
+
+<span class="n">Access</span> <span class="n">Method</span>         <span class="o">=</span> <span class="n">IOM</span>
+<span class="n">SAS</span> <span class="n">Config</span> <span class="n">name</span>       <span class="o">=</span> <span class="n">oda</span>
+<span class="n">SAS</span> <span class="n">Config</span> <span class="n">file</span>       <span class="o">=</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">Usuario</span>\<span class="n">anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">saspy</span>\<span class="n">sascfg_personal</span><span class="o">.</span><span class="n">py</span>
+<span class="n">WORK</span> <span class="n">Path</span>             <span class="o">=</span> <span class="o">/</span><span class="n">saswork</span><span class="o">/</span><span class="n">SAS_work32430000E59D_odaws01</span><span class="o">-</span><span class="n">usw2</span><span class="o">.</span><span class="n">oda</span><span class="o">.</span><span class="n">sas</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">SAS_work6D2A0000E59D_odaws01</span><span class="o">-</span><span class="n">usw2</span><span class="o">.</span><span class="n">oda</span><span class="o">.</span><span class="n">sas</span><span class="o">.</span><span class="n">com</span><span class="o">/</span>
+<span class="n">SAS</span> <span class="n">Version</span>           <span class="o">=</span> <span class="mf">9.04.01</span><span class="n">M6P11072018</span>
+<span class="n">SASPy</span> <span class="n">Version</span>         <span class="o">=</span> <span class="mf">3.7.5</span>
+<span class="n">Teach</span> <span class="n">me</span> <span class="n">SAS</span>          <span class="o">=</span> <span class="kc">False</span>
+<span class="n">Batch</span>                 <span class="o">=</span> <span class="kc">False</span>
+<span class="n">Results</span>               <span class="o">=</span> <span class="n">Pandas</span>
+<span class="n">SAS</span> <span class="n">Session</span> <span class="n">Encoding</span>  <span class="o">=</span> <span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+<span class="n">Python</span> <span class="n">Encoding</span> <span class="n">value</span> <span class="o">=</span> <span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+<span class="n">SAS</span> <span class="n">process</span> <span class="n">Pid</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">58781</span>
+</code></pre></div>
+</td></tr></table>
+<p>La siguiente imagen muestra algunas funcionalidades del paquete saspy. Consulte la <a href="https://sassoftware.github.io/saspy/api.html">documentación de saspy</a> para una referencia completa de los métodos del paquete.</p>
+<p><img alt="Usando saspy" src="../img/sas_nb2.png" /></p>
                 
                   
                 

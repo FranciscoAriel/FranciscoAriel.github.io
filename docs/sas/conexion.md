@@ -138,4 +138,36 @@ La siguiente imagen muestra el funcionamiento de SAS en un cuaderno de Jupyter.
 
 Las librería y datasets de SAS pueden usarse dentro de Python a través del paquete saspy.
 
-Para hacer uso de la librería, se debe crear un cuaderno de jupyter con un kernel de python.
+Para hacer uso de la librería, se debe crear un cuaderno de jupyter con un kernel de python. Revise la [configuración de saspy](conexion.md#configuracion-de-saspy) para tener todo listo y evitar algún error.
+
+El primer paso es usar cargar el paquete saspy escribiendo el siguiente código en una celda de código python:
+
+````python
+import saspy
+sas = saspy.SASsession()
+sas
+````
+
+Se desplegará información acerca de la conexión a SAS &reg; OnDemand y sus configuraciones.
+
+````python
+Using SAS Config named: oda
+SAS Connection established. Subprocess id is 2816
+
+Access Method         = IOM
+SAS Config name       = oda
+SAS Config file       = C:\Users\Usuario\anaconda3\lib\site-packages\saspy\sascfg_personal.py
+WORK Path             = /saswork/SAS_work32430000E59D_odaws01-usw2.oda.sas.com/SAS_work6D2A0000E59D_odaws01-usw2.oda.sas.com/
+SAS Version           = 9.04.01M6P11072018
+SASPy Version         = 3.7.5
+Teach me SAS          = False
+Batch                 = False
+Results               = Pandas
+SAS Session Encoding  = utf-8
+Python Encoding value = utf-8
+SAS process Pid value = 58781
+````
+
+La siguiente imagen muestra algunas funcionalidades del paquete saspy. Consulte la [documentación de saspy](https://sassoftware.github.io/saspy/api.html) para una referencia completa de los métodos del paquete.
+
+![Usando saspy](img/sas_nb2.png)
