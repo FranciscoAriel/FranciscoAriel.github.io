@@ -115,7 +115,7 @@ Adicionalmente se puede instalar el  [sas kernel](https://sassoftware.github.io/
 pip install sas_kernel
 ````
 
-Para comprobar que se ha instalado exitoamente, se puede ejecutar el siguiente comando:
+Para comprobar que se ha instalado exitosamente, se puede ejecutar el siguiente comando:
 
 ````cmd
 jupyter kernelspec list
@@ -140,7 +140,7 @@ Las librería y datasets de SAS pueden usarse dentro de Python a través del paq
 
 Para hacer uso de la librería, se debe crear un cuaderno de jupyter con un kernel de python. Revise la [configuración de saspy](conexion.md#configuracion-de-saspy) para tener todo listo y evitar algún error.
 
-El primer paso es usar cargar el paquete saspy escribiendo el siguiente código en una celda de código python:
+El primer paso es cargar el paquete saspy escribiendo el siguiente código en una celda de código python:
 
 ````python
 import saspy
@@ -183,3 +183,6 @@ La siguiente muestra su uso.
 ![SAS magic](img/sas_magic.png)
 
 Nótese que a pesar de estar en un cuaderno con kernel python, se ha realizado una conexión con SAS y se ha ejecutado el código de la celda.
+
+!!! caution "Activar el paquete"
+    No olvide activar el paquete saspy antes de usar el _sas magic_ para evitar errores.

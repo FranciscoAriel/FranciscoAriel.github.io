@@ -835,7 +835,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>pip install sas_kernel
 </code></pre></div>
 </td></tr></table>
-<p>Para comprobar que se ha instalado exitoamente, se puede ejecutar el siguiente comando:</p>
+<p>Para comprobar que se ha instalado exitosamente, se puede ejecutar el siguiente comando:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>jupyter kernelspec list
 </code></pre></div>
 </td></tr></table>
@@ -851,7 +851,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 <h3 id="usando-el-paquete-saspy-en-un-cuaderno-jupyter">Usando el paquete saspy en un cuaderno Jupyter<a class="headerlink" href="#usando-el-paquete-saspy-en-un-cuaderno-jupyter" title="Permanent link">&para;</a></h3>
 <p>Las librería y datasets de SAS pueden usarse dentro de Python a través del paquete saspy.</p>
 <p>Para hacer uso de la librería, se debe crear un cuaderno de jupyter con un kernel de python. Revise la <a href="./#configuracion-de-saspy">configuración de saspy</a> para tener todo listo y evitar algún error.</p>
-<p>El primer paso es usar cargar el paquete saspy escribiendo el siguiente código en una celda de código python:</p>
+<p>El primer paso es cargar el paquete saspy escribiendo el siguiente código en una celda de código python:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">saspy</span>
@@ -899,6 +899,10 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 <p>La siguiente muestra su uso.</p>
 <p><img alt="SAS magic" src="../img/sas_magic.png" /></p>
 <p>Nótese que a pesar de estar en un cuaderno con kernel python, se ha realizado una conexión con SAS y se ha ejecutado el código de la celda.</p>
+<div class="admonition caution">
+<p class="admonition-title">Activar el paquete</p>
+<p>No olvide activar el paquete saspy antes de usar el <em>sas magic</em> para evitar errores.</p>
+</div>
                 
                   
                 
