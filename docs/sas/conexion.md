@@ -171,3 +171,15 @@ SAS process Pid value = 58781
 La siguiente imagen muestra algunas funcionalidades del paquete saspy. Consulte la [documentación de saspy](https://sassoftware.github.io/saspy/api.html) para una referencia completa de los métodos del paquete.
 
 ![Usando saspy](img/sas_nb2.png)
+
+### Usando código SAS en un cuaderno de Jupyter
+
+Es posible usar código SAS en un cuaderno de Jupyter directamente, aunque el kernel no sea de SAS.
+
+Para hacer esto, se hace uso de los _SAS MAGICS_, que son trozos de código de otro lenguaje que se ejecutan. Simplemente en una celda nueva se debe colocar al inicio `%%SAS` y debajo el código SAS que se desea realizar.
+
+La siguiente muestra su uso.
+
+![SAS magic](img/sas_magic.png)
+
+Nótese que a pesar de estar en un cuaderno con kernel python, se ha reaizado una conexión con SAS y se ha ejecutado el código de la celda.
