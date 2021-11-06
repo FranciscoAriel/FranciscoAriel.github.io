@@ -172,7 +172,7 @@ La siguiente imagen muestra algunas funcionalidades del paquete saspy. Consulte 
 
 ![Usando saspy](img/sas_nb2.png)
 
-### Usando código SAS en un cuaderno de Jupyter
+### Usando código SAS usando cualquier kernel de Jupyter
 
 Es posible usar código SAS en un cuaderno de Jupyter directamente, aunque el kernel no sea de SAS.
 
@@ -182,4 +182,4 @@ La siguiente muestra su uso.
 
 ![SAS magic](img/sas_magic.png)
 
-Nótese que a pesar de estar en un cuaderno con kernel python, se ha reaizado una conexión con SAS y se ha ejecutado el código de la celda.
+Nótese que a pesar de estar en un cuaderno con kernel python, se ha realizado una conexión con SAS y se ha ejecutado el código de la celda.
