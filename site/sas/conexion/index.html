@@ -840,14 +840,16 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 </code></pre></div>
 </td></tr></table>
 <h3 id="usando-sas-en-un-cuaderno-jupyter">Usando SAS en un cuaderno Jupyter<a class="headerlink" href="#usando-sas-en-un-cuaderno-jupyter" title="Permanent link">&para;</a></h3>
-<p>En esta sección se muestra cómo usar un cuaderno de Jupyter y conectarlo con SAS. Se usará <a href="https://code.visualstudio.com">Visual Studio Code</a> versión 1.61.2 usando la <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">extensión Jupyter</a> para la generación del archivo <em>ipynb</em>.</p>
+<p>En esta sección se muestra cómo usar un cuaderno de Jupyter y conectarlo con SAS. Se usará <a href="https://code.visualstudio.com">Visual Studio Code</a> versión 1.62 usando la <a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter">extensión Jupyter</a> para la generación del archivo <em>ipynb</em>.</p>
+<p>Para hacer uso de esta funcionalidad, se debe crear un cuaderno de jupyter con un kernel de SAS. Revise la <a href="./#configuracion-de-saspy">configuración de saspy</a> para tener lsito tanto el kernel como el paquete saspy.</p>
 <div class="admonition tip">
 <p class="admonition-title">Nuevo archivo</p>
 <p>Puede crearse un nuevo cuaderno de jupyter desde el menu <em>Archivo</em>, Seleccionar la opción <em>Nuevo Archivo &hellip;</em>, aparecerá la opción de crear opción de crear un nuevo archivo de jupyter.</p>
 </div>
-<p>Para pode usarlo, se debe elegir el kernel de SAS y se puede escribir tanto código de SAS como Markdown. Los resultados estarán dentro del cuaderno de Jupyter.</p>
+<p>Para pode usarlo, se debe elegir el kernel de SAS y se puede escribir tanto código de SAS como Markdown el el cuaderno. Los resultados estarán dentro del cuaderno de Jupyter y dependiendo de los procedimientos, los resultados serán mostrados en formato HTML.</p>
 <p>La siguiente imagen muestra el funcionamiento de SAS en un cuaderno de Jupyter.</p>
 <p><img alt="SAS notebook" src="../img/sas_nb.png" /></p>
+<p>Consulte la <a href="https://sassoftware.github.io/sas_kernel/overview.html">documentación de sas kernel</a> para más información.</p>
 <h3 id="usando-el-paquete-saspy-en-un-cuaderno-jupyter">Usando el paquete saspy en un cuaderno Jupyter<a class="headerlink" href="#usando-el-paquete-saspy-en-un-cuaderno-jupyter" title="Permanent link">&para;</a></h3>
 <p>Las librería y datasets de SAS pueden usarse dentro de Python a través del paquete saspy.</p>
 <p>Para hacer uso de la librería, se debe crear un cuaderno de jupyter con un kernel de python. Revise la <a href="./#configuracion-de-saspy">configuración de saspy</a> para tener todo listo y evitar algún error.</p>
@@ -892,7 +894,7 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 </code></pre></div>
 </td></tr></table>
 <p>La siguiente imagen muestra algunas funcionalidades del paquete saspy. Consulte la <a href="https://sassoftware.github.io/saspy/api.html">documentación de saspy</a> para una referencia completa de los métodos del paquete.</p>
-<p><img alt="Usando saspy" src="../img/sas_nb2.png" /></p>
+<p><img alt="Usando saspy" src="../img/sas_nb2.png" />            </p>
 <h3 id="usando-codigo-sas-usando-cualquier-kernel-de-jupyter">Usando código SAS usando cualquier kernel de Jupyter<a class="headerlink" href="#usando-codigo-sas-usando-cualquier-kernel-de-jupyter" title="Permanent link">&para;</a></h3>
 <p>Es posible usar código SAS en un cuaderno de Jupyter directamente, aunque el kernel no sea de SAS.</p>
 <p>Para hacer esto, se hace uso de los <em>SAS MAGICS</em>, que son trozos de código de otro lenguaje que se ejecutan. Simplemente en una celda nueva se debe colocar al inicio <code>%%SAS</code> y debajo el código SAS que se desea realizar.</p>

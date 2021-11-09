@@ -123,16 +123,20 @@ jupyter kernelspec list
 
 ### Usando SAS en un cuaderno Jupyter
 
-En esta sección se muestra cómo usar un cuaderno de Jupyter y conectarlo con SAS. Se usará [Visual Studio Code](https://code.visualstudio.com) versión 1.61.2 usando la [extensión Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) para la generación del archivo _ipynb_.
+En esta sección se muestra cómo usar un cuaderno de Jupyter y conectarlo con SAS. Se usará [Visual Studio Code](https://code.visualstudio.com) versión 1.62 usando la [extensión Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) para la generación del archivo _ipynb_.
+
+Para hacer uso de esta funcionalidad, se debe crear un cuaderno de jupyter con un kernel de SAS. Revise la [configuración de saspy](conexion.md#configuracion-de-saspy) para tener lsito tanto el kernel como el paquete saspy.
 
 !!! tip "Nuevo archivo"
     Puede crearse un nuevo cuaderno de jupyter desde el menu *Archivo*, Seleccionar la opción *Nuevo Archivo ...*, aparecerá la opción de crear opción de crear un nuevo archivo de jupyter.
 
-Para pode usarlo, se debe elegir el kernel de SAS y se puede escribir tanto código de SAS como Markdown. Los resultados estarán dentro del cuaderno de Jupyter.
+Para pode usarlo, se debe elegir el kernel de SAS y se puede escribir tanto código de SAS como Markdown el el cuaderno. Los resultados estarán dentro del cuaderno de Jupyter y dependiendo de los procedimientos, los resultados serán mostrados en formato HTML.
 
 La siguiente imagen muestra el funcionamiento de SAS en un cuaderno de Jupyter.
 
 ![SAS notebook](img/sas_nb.png)
+
+Consulte la [documentación de sas kernel](https://sassoftware.github.io/sas_kernel/overview.html) para más información.
 
 ### Usando el paquete saspy en un cuaderno Jupyter
 
@@ -170,7 +174,7 @@ SAS process Pid value = 58781
 
 La siguiente imagen muestra algunas funcionalidades del paquete saspy. Consulte la [documentación de saspy](https://sassoftware.github.io/saspy/api.html) para una referencia completa de los métodos del paquete.
 
-![Usando saspy](img/sas_nb2.png)
+![Usando saspy](img/sas_nb2.png)            
 
 ### Usando código SAS usando cualquier kernel de Jupyter
 
