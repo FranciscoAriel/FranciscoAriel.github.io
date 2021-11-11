@@ -147,3 +147,7 @@ El resultado se muestra a continuación
 
 !!! caution "Método sin paréntesis"
     Note que el método `iloc` __no__ usa paréntesis.
+
+## Transformación y manipulación de un dataframe
+
+Al igual que en otros lenguajes de programación, es posible modifcar las bases en python a través de los métodos del objeto dataframe.
