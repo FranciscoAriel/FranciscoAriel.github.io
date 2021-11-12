@@ -549,6 +549,19 @@
     Transformación y manipulación de un dataframe
   </a>
   
+    <nav class="md-nav" aria-label="Transformación y manipulación de un dataframe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ordenando-una-base" class="md-nav__link">
+    Ordenando una base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -681,6 +694,19 @@
     Transformación y manipulación de un dataframe
   </a>
   
+    <nav class="md-nav" aria-label="Transformación y manipulación de un dataframe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ordenando-una-base" class="md-nav__link">
+    Ordenando una base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -804,7 +830,7 @@ print(root)
 <p>Algunos métodos no requieren argumentos, mientras que en otros son opcionales. Los métodos <code>head()</code> y <code>tail()</code> tienen un valor predeterminado de 5.</p>
 </div>
 <p>Al igual que otros lenguajes de programación, es posible acceder a los elementos de un dataframe. Para ello se puede hacer uso del método <code>iloc</code>.</p>
-<p>El siguiente código muestra cómo acceder al segundo renglón de un dataframe.</p>
+<p>El siguiente código muestra cómo acceder al segundo renglón de un dataframe y el resultado que se obtiene.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">mi_base</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,]</span>
 </code></pre></div>
 </td></tr></table>
@@ -816,6 +842,16 @@ print(root)
 </div>
 <h2 id="transformacion-y-manipulacion-de-un-dataframe">Transformación y manipulación de un dataframe<a class="headerlink" href="#transformacion-y-manipulacion-de-un-dataframe" title="Permanent link">&para;</a></h2>
 <p>Al igual que en otros lenguajes de programación, es posible modifcar las bases en python a través de los métodos del objeto dataframe.</p>
+<h3 id="ordenando-una-base">Ordenando una base<a class="headerlink" href="#ordenando-una-base" title="Permanent link">&para;</a></h3>
+<p>Para ordenar una base, se usa el método <code>sort.values()</code> en donde se le pasa una lista con los nombres de las variables a ordenar.</p>
+<p>El siguiente código muestra su uso.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">base_ord</span> <span class="o">=</span> <span class="n">mi_base</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datos_ord</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>La siguiente imagen muestra el resultado, note que la base se ha guardado en un nuevo objeto.</p>
+<p><img alt="Base ordenada" src="../img/sort.png" /></p>
                 
                   
                 

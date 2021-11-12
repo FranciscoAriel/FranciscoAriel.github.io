@@ -135,7 +135,7 @@ La siguiente imagen muestra las últimas 5 observaciones
 
 Al igual que otros lenguajes de programación, es posible acceder a los elementos de un dataframe. Para ello se puede hacer uso del método `iloc`.
 
-El siguiente código muestra cómo acceder al segundo renglón de un dataframe.
+El siguiente código muestra cómo acceder al segundo renglón de un dataframe y el resultado que se obtiene.
 
 ````python
 mi_base.iloc[1,]
@@ -151,3 +151,18 @@ El resultado se muestra a continuación
 ## Transformación y manipulación de un dataframe
 
 Al igual que en otros lenguajes de programación, es posible modifcar las bases en python a través de los métodos del objeto dataframe.
+
+### Ordenando una base
+
+Para ordenar una base, se usa el método `sort.values()` en donde se le pasa una lista con los nombres de las variables a ordenar.
+
+El siguiente código muestra su uso.
+
+````python
+base_ord = mi_base.sort_values(by=["nombre"])
+print(datos_ord)
+````
+
+La siguiente imagen muestra el resultado, note que la base se ha guardado en un nuevo objeto.
+
+![Base ordenada](img/sort.png)
