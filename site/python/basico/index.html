@@ -559,6 +559,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#datos-agrupados" class="md-nav__link">
+    Datos agrupados
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -704,6 +711,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#datos-agrupados" class="md-nav__link">
+    Datos agrupados
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -844,7 +858,7 @@ print(root)
 <p>Al igual que en otros lenguajes de programación, es posible modifcar las bases en python a través de los métodos del objeto dataframe.</p>
 <h3 id="ordenando-una-base">Ordenando una base<a class="headerlink" href="#ordenando-una-base" title="Permanent link">&para;</a></h3>
 <p>Para ordenar una base, se usa el método <code>sort.values()</code> en donde se le pasa una lista con los nombres de las variables a ordenar.</p>
-<p>El siguiente código muestra su uso.</p>
+<p>El siguiente código muestra su uso. Note que el método requiere al menos el argumento <code>by</code> y se pide que guarde la base ordenada en un nuevo objeto <code>dataframe</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">base_ord</span> <span class="o">=</span> <span class="n">mi_base</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">datos_ord</span><span class="p">)</span>
@@ -852,6 +866,23 @@ print(root)
 </td></tr></table>
 <p>La siguiente imagen muestra el resultado, note que la base se ha guardado en un nuevo objeto.</p>
 <p><img alt="Base ordenada" src="../img/sort.png" /></p>
+<p>Para más información acerca del método <code>sort.values()</code> consulte la <a href="https://pandas.pydata.org/pandas-docs/stable/sort_values.html">documentación</a> del método <code>sort_values</code>.</p>
+<h3 id="datos-agrupados">Datos agrupados<a class="headerlink" href="#datos-agrupados" title="Permanent link">&para;</a></h3>
+<p>En el paquete <code>pandas</code> también se incluye un método para crear datos agrupados por una o más variables.</p>
+<p>El siguiente código muestra su uso</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">mi_base_agrupada</span> <span class="o">=</span> <span class="n">mi_base</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;grupo&quot;</span><span class="p">])</span>
+</code></pre></div>
+</td></tr></table>
+<div class="admonition caution">
+<p class="admonition-title">objeto retornado</p>
+<p>El método <code>groupby</code> regresa un objeto <code>DataFrameGroupBy</code>, por lo que no podría ser visualizado.</p>
+</div>
+<p>Los datos agrupados son útiles para obtener estadísticas descriptivas por grupos. El siguiente ejemplo ejemplifica su uso mediante el método <code>aggregate()</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">mi_base_agrupada</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="s2">&quot;mean&quot;</span><span class="p">])</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="Datos agregados" src="../img/agregado.png" /></p>
+<p>Para más información visite la <a href="https://pandas.pydata.org/pandas-docs/stable/groupby.html">documentación</a> del método <code>groupby</code>.</p>
                 
                   
                 

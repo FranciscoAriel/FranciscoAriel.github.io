@@ -156,7 +156,7 @@ Al igual que en otros lenguajes de programación, es posible modifcar las bases 
 
 Para ordenar una base, se usa el método `sort.values()` en donde se le pasa una lista con los nombres de las variables a ordenar.
 
-El siguiente código muestra su uso.
+El siguiente código muestra su uso. Note que el método requiere al menos el argumento `by` y se pide que guarde la base ordenada en un nuevo objeto `dataframe`.
 
 ````python
 base_ord = mi_base.sort_values(by=["nombre"])
@@ -166,3 +166,28 @@ print(datos_ord)
 La siguiente imagen muestra el resultado, note que la base se ha guardado en un nuevo objeto.
 
 ![Base ordenada](img/sort.png)
+
+Para más información acerca del método `sort.values()` consulte la [documentación](https://pandas.pydata.org/pandas-docs/stable/sort_values.html) del método `sort_values`.
+
+### Datos agrupados
+
+En el paquete `pandas` también se incluye un método para crear datos agrupados por una o más variables.
+
+El siguiente código muestra su uso
+
+````python
+mi_base_agrupada = mi_base.groupby(by=["grupo"])
+````
+
+!!! caution "objeto retornado"
+    El método `groupby` regresa un objeto `DataFrameGroupBy`, por lo que no podría ser visualizado.
+
+Los datos agrupados son útiles para obtener estadísticas descriptivas por grupos. El siguiente ejemplo ejemplifica su uso mediante el método `aggregate()`.
+
+````python
+mi_base_agrupada.aggregate(["mean"])
+````
+
+![Datos agregados](img/agregado.png)
+
+Para más información visite la [documentación](https://pandas.pydata.org/pandas-docs/stable/groupby.html) del método `groupby`.
