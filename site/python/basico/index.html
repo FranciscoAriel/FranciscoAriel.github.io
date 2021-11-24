@@ -553,6 +553,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#filtrado-de-base" class="md-nav__link">
+    Filtrado de base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ordenando-una-base" class="md-nav__link">
     Ordenando una base
   </a>
@@ -705,6 +712,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#filtrado-de-base" class="md-nav__link">
+    Filtrado de base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ordenando-una-base" class="md-nav__link">
     Ordenando una base
   </a>
@@ -753,6 +767,7 @@
 </td></tr></table>
 <p>La librería <strong>pandas</strong> es la que nos permite manejar objetos de tipo <em>dataframe</em> que es la estructura de datos usada en python para almacenar la información. La librería <strong>numpy</strong> nos permitirá crear arreglos y manipularlos de forma más fácil. La librería <strong>os</strong> nos ayudará a usar funciones y otras utilidades del sistema operativo.</p>
 <p>Los códigos mostrados se realizaron en un cuaderno interactivo de python (archivo ipynb) usando Visual Studio Code.</p>
+<p>Para una referencia completa, visite la <a href="https://pandas.pydata.org/pandas-docs/stable/index.html">documentación de pandas</a>.</p>
 <h2 id="creando-un-objeto-dataframe">Creando un objeto DataFrame<a class="headerlink" href="#creando-un-objeto-dataframe" title="Permanent link">&para;</a></h2>
 <p>La forma más sencilla de crear un <em>dataframe</em> es mediante la definición de un diccionario con las listas definidas y posteriormente se usa la función <code>DataFrame</code> del paquete <em>pandas</em> para crear un objeto <code>DataFrame</code> en donde se almacenará la información. El objeto creado hereda las claves del diccionario y los valores se escriben en el dataset.</p>
 <p>Para introducir datos de manera manual, se puede usar la siguiente sintaxis:</p>
@@ -855,7 +870,10 @@ print(root)
 <p>Note que el método <code>iloc</code> <strong>no</strong> usa paréntesis.</p>
 </div>
 <h2 id="transformacion-y-manipulacion-de-un-dataframe">Transformación y manipulación de un dataframe<a class="headerlink" href="#transformacion-y-manipulacion-de-un-dataframe" title="Permanent link">&para;</a></h2>
-<p>Al igual que en otros lenguajes de programación, es posible modifcar las bases en python a través de los métodos del objeto dataframe.</p>
+<p>Al igual que en otros lenguajes de programación, es posible modifcar las tablas en python a través de los métodos de los objetos <em>dataframe</em> proporcionados por el paquete <strong>pandas</strong>.</p>
+<p>En esta sección se abordarán temas acerca de como manipular y transformar bases que estén almacenadas en un objeto <em>dataframe</em>, tales como realizar filtros, unir tablas, agrupar datos, entre otras operaciones.</p>
+<h3 id="filtrado-de-base">Filtrado de base<a class="headerlink" href="#filtrado-de-base" title="Permanent link">&para;</a></h3>
+<p>Para filtrar una base, se puede usar el método <code>where()</code>.</p>
 <h3 id="ordenando-una-base">Ordenando una base<a class="headerlink" href="#ordenando-una-base" title="Permanent link">&para;</a></h3>
 <p>Para ordenar una base, se usa el método <code>sort.values()</code> en donde se le pasa una lista con los nombres de las variables a ordenar.</p>
 <p>El siguiente código muestra su uso. Note que el método requiere al menos el argumento <code>by</code> y se pide que guarde la base ordenada en un nuevo objeto <code>dataframe</code>.</p>
@@ -866,7 +884,7 @@ print(root)
 </td></tr></table>
 <p>La siguiente imagen muestra el resultado, note que la base se ha guardado en un nuevo objeto.</p>
 <p><img alt="Base ordenada" src="../img/sort.png" /></p>
-<p>Para más información acerca del método <code>sort.values()</code> consulte la <a href="https://pandas.pydata.org/pandas-docs/stable/sort_values.html">documentación</a> del método <code>sort_values</code>.</p>
+<p>Para más información acerca del método <code>sort.values()</code> consulte la <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#by-values">documentación</a> del método <code>sort_values</code>.</p>
 <h3 id="datos-agrupados">Datos agrupados<a class="headerlink" href="#datos-agrupados" title="Permanent link">&para;</a></h3>
 <p>En el paquete <code>pandas</code> también se incluye un método para crear datos agrupados por una o más variables.</p>
 <p>El siguiente código muestra su uso</p>
@@ -875,14 +893,14 @@ print(root)
 </td></tr></table>
 <div class="admonition caution">
 <p class="admonition-title">objeto retornado</p>
-<p>El método <code>groupby</code> regresa un objeto <code>DataFrameGroupBy</code>, por lo que no podría ser visualizado.</p>
+<p>El método <code>groupby</code> regresa un objeto <code>DataFrameGroupBy</code>, por lo que no podría ser visualizado. Este objeto se suele utilizar para realizar agregados por cada grupo.</p>
 </div>
 <p>Los datos agrupados son útiles para obtener estadísticas descriptivas por grupos. El siguiente ejemplo ejemplifica su uso mediante el método <code>aggregate()</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">mi_base_agrupada</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="s2">&quot;mean&quot;</span><span class="p">])</span>
 </code></pre></div>
 </td></tr></table>
 <p><img alt="Datos agregados" src="../img/agregado.png" /></p>
-<p>Para más información visite la <a href="https://pandas.pydata.org/pandas-docs/stable/groupby.html">documentación</a> del método <code>groupby</code>.</p>
+<p>Para más información visite la <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">documentación</a> del método <code>groupby</code> y cómo realizar agregados.</p>
                 
                   
                 

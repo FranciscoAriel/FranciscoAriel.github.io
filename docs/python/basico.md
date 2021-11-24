@@ -23,6 +23,8 @@ La librería __pandas__ es la que nos permite manejar objetos de tipo _dataframe
 
 Los códigos mostrados se realizaron en un cuaderno interactivo de python (archivo ipynb) usando Visual Studio Code.
 
+Para una referencia completa, visite la [documentación de pandas](https://pandas.pydata.org/pandas-docs/stable/index.html).
+
 ## Creando un objeto DataFrame
 
 La forma más sencilla de crear un *dataframe* es mediante la definición de un diccionario con las listas definidas y posteriormente se usa la función `DataFrame` del paquete _pandas_ para crear un objeto `DataFrame` en donde se almacenará la información. El objeto creado hereda las claves del diccionario y los valores se escriben en el dataset.
@@ -150,7 +152,13 @@ El resultado se muestra a continuación
 
 ## Transformación y manipulación de un dataframe
 
-Al igual que en otros lenguajes de programación, es posible modifcar las bases en python a través de los métodos del objeto dataframe.
+Al igual que en otros lenguajes de programación, es posible modifcar las tablas en python a través de los métodos de los objetos *dataframe* proporcionados por el paquete **pandas**.
+
+En esta sección se abordarán temas acerca de como manipular y transformar bases que estén almacenadas en un objeto *dataframe*, tales como realizar filtros, unir tablas, agrupar datos, entre otras operaciones.
+
+### Filtrado de base
+
+Para filtrar una base, se puede usar el método `where()`.
 
 ### Ordenando una base
 
@@ -167,7 +175,7 @@ La siguiente imagen muestra el resultado, note que la base se ha guardado en un 
 
 ![Base ordenada](img/sort.png)
 
-Para más información acerca del método `sort.values()` consulte la [documentación](https://pandas.pydata.org/pandas-docs/stable/sort_values.html) del método `sort_values`.
+Para más información acerca del método `sort.values()` consulte la [documentación](https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#by-values) del método `sort_values`.
 
 ### Datos agrupados
 
@@ -180,7 +188,7 @@ mi_base_agrupada = mi_base.groupby(by=["grupo"])
 ````
 
 !!! caution "objeto retornado"
-    El método `groupby` regresa un objeto `DataFrameGroupBy`, por lo que no podría ser visualizado.
+    El método `groupby` regresa un objeto `DataFrameGroupBy`, por lo que no podría ser visualizado. Este objeto se suele utilizar para realizar agregados por cada grupo.
 
 Los datos agrupados son útiles para obtener estadísticas descriptivas por grupos. El siguiente ejemplo ejemplifica su uso mediante el método `aggregate()`.
 
@@ -190,4 +198,4 @@ mi_base_agrupada.aggregate(["mean"])
 
 ![Datos agregados](img/agregado.png)
 
-Para más información visite la [documentación](https://pandas.pydata.org/pandas-docs/stable/groupby.html) del método `groupby`.
+Para más información visite la [documentación](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html) del método `groupby` y cómo realizar agregados.
