@@ -158,7 +158,20 @@ En esta sección se abordarán temas acerca de como manipular y transformar base
 
 ### Filtrado de base
 
-Para filtrar una base, se puede usar el método `where()`.
+Para filtrar una base, se puede usar el método `query()` para filtrar una base usando condicionales. A diferencia de otros métodos, se requiere de una expresión entrecomillada con una expresión lógica a evaluarse.
+
+El siguiente ejemplo muestra cómo seleccionar a alumnos del grupo A.
+
+````python
+filtro = mi_base.query('grupo == "A"')
+print(filtro)
+````
+
+El resultado se muestra a continuación
+
+![Resultado del filtro](img/filtro.png)
+
+Para saber más, consulte la [documentación del método](https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#the-query-method) `query()`.
 
 ### Ordenando una base
 

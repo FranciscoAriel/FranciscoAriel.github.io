@@ -873,7 +873,16 @@ print(root)
 <p>Al igual que en otros lenguajes de programación, es posible modifcar las tablas en python a través de los métodos de los objetos <em>dataframe</em> proporcionados por el paquete <strong>pandas</strong>.</p>
 <p>En esta sección se abordarán temas acerca de como manipular y transformar bases que estén almacenadas en un objeto <em>dataframe</em>, tales como realizar filtros, unir tablas, agrupar datos, entre otras operaciones.</p>
 <h3 id="filtrado-de-base">Filtrado de base<a class="headerlink" href="#filtrado-de-base" title="Permanent link">&para;</a></h3>
-<p>Para filtrar una base, se puede usar el método <code>where()</code>.</p>
+<p>Para filtrar una base, se puede usar el método <code>query()</code> para filtrar una base usando condicionales. A diferencia de otros métodos, se requiere de una expresión entrecomillada con una expresión lógica a evaluarse.</p>
+<p>El siguiente ejemplo muestra cómo seleccionar a alumnos del grupo A.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">filtro</span> <span class="o">=</span> <span class="n">mi_base</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;grupo == &quot;A&quot;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtro</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>El resultado se muestra a continuación</p>
+<p><img alt="Resultado del filtro" src="../img/filtro.png" /></p>
+<p>Para saber más, consulte la <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#the-query-method">documentación del método</a> <code>query()</code>.</p>
 <h3 id="ordenando-una-base">Ordenando una base<a class="headerlink" href="#ordenando-una-base" title="Permanent link">&para;</a></h3>
 <p>Para ordenar una base, se usa el método <code>sort.values()</code> en donde se le pasa una lista con los nombres de las variables a ordenar.</p>
 <p>El siguiente código muestra su uso. Note que el método requiere al menos el argumento <code>by</code> y se pide que guarde la base ordenada en un nuevo objeto <code>dataframe</code>.</p>
