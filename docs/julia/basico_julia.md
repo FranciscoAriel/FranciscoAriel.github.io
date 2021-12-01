@@ -7,20 +7,24 @@ date: 2021-09-13
 
 # Manejo de bases con Julia
 
-En esta página se aprenderá a importar archivos en Julia y trabajar con ellos.
+En esta página se aprenderá a crear e importar archivos en Julia usando diversas fuentes.
 
-También se conocerá cómo hacer filtros y otro tipo de operacione sobre las bases.
+También se conocerá cómo hacer filtros y otro tipo de operacione sobre las bases con el fin de poder manipularlas.
+
+Debido a que las tablas de datos no están implementadas de forma nativa, se debe usar un paquete que nos permita su creación y manipulación, por esta razón se usará el paquete `DataFrames`.
 
 ## Lectura de datos
 
 En Julia existen diversos paquetes que nos permiten importar y leer datos de archivos externos. En esta sección nos enfocaremos a la creación de conjuntos de datos.
 
-### Creación de datos
-
-Para manipular conjuntos de datos, se puede usar el paquete [DataFrames](https://dataframes.juliadata.org/stable/).
+Como se mencionó anteriormente, es necesario usar el paquete [DataFrames](https://dataframes.juliadata.org/stable/).
 
 !!! caution "Instalar el paquete"
     No olvide instalar el paquete `DataFrames`, de otro modo se obtendrá un error.
+
+### Creación de datos
+
+Para crear conjuntos de datos de forma manual, se pueden usar las funciones definidas en el paquete `DataFrames`.
 
 Por ejemplo, para crear el siguiente conjunto de datos
 
@@ -215,3 +219,43 @@ typeof(datosg)
 > GroupedDataFrame{DataFrame}
 
 Los datos agrupados son de gran ayuda ya que posteriormente nos permitirán realizar cálculos por grupos de variables.
+
+### Uniones de bases
+
+En Julia, es posible realizar uniones de tablas mediante uniones.
+
+Supongase que se tienen las siguientes tablas, una de alumnos con sus grupos y calificacionesy otra de información de cada alumno.
+
+Alumnos:
+
+ nombre|    grupo|   puntaje|
+ ------|---------|----------|
+ ANGELICA  |A            |10
+ BRENDA    |A             |9
+ LILIANA   |B             |8
+ MARCO     |B             |8
+ FABIAN    |C             |9
+ MAURICIO  |C             |7
+
+Informacion:
+
+nombre|    apellidos|  edad
+------|-------------|------
+ANGELICA|  SANTIAGO|      20
+BRENDA  |  CAMACHO |      19
+LILIANA |  BUENO   |      18
+MARCO   |  BALDERAS|      18
+FABIAN  |  CASTILLO|      19
+MAURICIO|  ZEPEDA  |      27
+
+El siguiente código muestra la unión de dos tablas mostradas anteriormente. Se usa la función `innerjoin()` cuyos argumentos son el nombre de las tablas que serán unidas, así como el nombre de la llave, en este caso común en ambas tablas.
+
+````julia
+tabla=innerjoin(alumnos,informacion,on=:nombre)
+````
+
+En este caso, el objeto generado es un `DataFrame`. El siguiente resultado se muestra al correr la función, en este caso el resultado se mostró directamente en el cuaderno de Jupyter.
+
+![Resultado de la unión](img/join.png)
+
+Para mayor información sobre cómo realizar otro tipo de uniones, visite la [documentación](https://dataframes.juliadata.org/stable/man/joins/).

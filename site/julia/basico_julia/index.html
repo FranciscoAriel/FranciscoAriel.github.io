@@ -662,6 +662,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#uniones-de-bases" class="md-nav__link">
+    Uniones de bases
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -786,6 +793,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#uniones-de-bases" class="md-nav__link">
+    Uniones de bases
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -809,16 +823,18 @@
                 
                 
                 <h1 id="manejo-de-bases-con-julia">Manejo de bases con Julia<a class="headerlink" href="#manejo-de-bases-con-julia" title="Permanent link">&para;</a></h1>
-<p>En esta página se aprenderá a importar archivos en Julia y trabajar con ellos.</p>
-<p>También se conocerá cómo hacer filtros y otro tipo de operacione sobre las bases.</p>
+<p>En esta página se aprenderá a crear e importar archivos en Julia usando diversas fuentes.</p>
+<p>También se conocerá cómo hacer filtros y otro tipo de operacione sobre las bases con el fin de poder manipularlas.</p>
+<p>Debido a que las tablas de datos no están implementadas de forma nativa, se debe usar un paquete que nos permita su creación y manipulación, por esta razón se usará el paquete <code>DataFrames</code>.</p>
 <h2 id="lectura-de-datos">Lectura de datos<a class="headerlink" href="#lectura-de-datos" title="Permanent link">&para;</a></h2>
 <p>En Julia existen diversos paquetes que nos permiten importar y leer datos de archivos externos. En esta sección nos enfocaremos a la creación de conjuntos de datos.</p>
-<h3 id="creacion-de-datos">Creación de datos<a class="headerlink" href="#creacion-de-datos" title="Permanent link">&para;</a></h3>
-<p>Para manipular conjuntos de datos, se puede usar el paquete <a href="https://dataframes.juliadata.org/stable/">DataFrames</a>.</p>
+<p>Como se mencionó anteriormente, es necesario usar el paquete <a href="https://dataframes.juliadata.org/stable/">DataFrames</a>.</p>
 <div class="admonition caution">
 <p class="admonition-title">Instalar el paquete</p>
 <p>No olvide instalar el paquete <code>DataFrames</code>, de otro modo se obtendrá un error.</p>
 </div>
+<h3 id="creacion-de-datos">Creación de datos<a class="headerlink" href="#creacion-de-datos" title="Permanent link">&para;</a></h3>
+<p>Para crear conjuntos de datos de forma manual, se pueden usar las funciones definidas en el paquete <code>DataFrames</code>.</p>
 <p>Por ejemplo, para crear el siguiente conjunto de datos</p>
 <table>
 <thead>
@@ -1002,6 +1018,100 @@
 <p>GroupedDataFrame{DataFrame}</p>
 </blockquote>
 <p>Los datos agrupados son de gran ayuda ya que posteriormente nos permitirán realizar cálculos por grupos de variables.</p>
+<h3 id="uniones-de-bases">Uniones de bases<a class="headerlink" href="#uniones-de-bases" title="Permanent link">&para;</a></h3>
+<p>En Julia, es posible realizar uniones de tablas mediante uniones.</p>
+<p>Supongase que se tienen las siguientes tablas, una de alumnos con sus grupos y calificacionesy otra de información de cada alumno.</p>
+<p>Alumnos:</p>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th>grupo</th>
+<th>puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANGELICA</td>
+<td>A</td>
+<td>10</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>A</td>
+<td>9</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>MARCO</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>FABIAN</td>
+<td>C</td>
+<td>9</td>
+</tr>
+<tr>
+<td>MAURICIO</td>
+<td>C</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>Informacion:</p>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th>apellidos</th>
+<th>edad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANGELICA</td>
+<td>SANTIAGO</td>
+<td>20</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>CAMACHO</td>
+<td>19</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>BUENO</td>
+<td>18</td>
+</tr>
+<tr>
+<td>MARCO</td>
+<td>BALDERAS</td>
+<td>18</td>
+</tr>
+<tr>
+<td>FABIAN</td>
+<td>CASTILLO</td>
+<td>19</td>
+</tr>
+<tr>
+<td>MAURICIO</td>
+<td>ZEPEDA</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+<p>El siguiente código muestra la unión de dos tablas mostradas anteriormente. Se usa la función <code>innerjoin()</code> cuyos argumentos son el nombre de las tablas que serán unidas, así como el nombre de la llave, en este caso común en ambas tablas.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">tabla</span><span class="o">=</span><span class="n">innerjoin</span><span class="p">(</span><span class="n">alumnos</span><span class="p">,</span><span class="n">informacion</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="ss">:nombre</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>En este caso, el objeto generado es un <code>DataFrame</code>. El siguiente resultado se muestra al correr la función, en este caso el resultado se mostró directamente en el cuaderno de Jupyter.</p>
+<p><img alt="Resultado de la unión" src="../img/join.png" /></p>
+<p>Para mayor información sobre cómo realizar otro tipo de uniones, visite la <a href="https://dataframes.juliadata.org/stable/man/joins/">documentación</a>.</p>
                 
                   
                 
