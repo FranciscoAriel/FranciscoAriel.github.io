@@ -75,6 +75,21 @@ summary(mi_csv)
 
 La primer línea carga los paquetes instalados previamente, para poder usar todas sus funciones y métodos. En la segunda, se usa la función `CSV.read()` especificándole el nombre de archivo y la función _sink_, en este caso será `DataFrame`, asignándolo al objeto _mi_csv_. Debido a que el archivo es grande se sugiere ver las dimensiones del dataframe usando la función `summary()`.
 
+### Leyendo un archivo desde la web
+
+Para leer archivos desde internet, se puede usar la función `download()` del paquete CSV.
+
+El siguiente código muestra el uso de la función así como la forma de almacenarlo en un objeto `DataFrame`.
+
+````julia
+using CSV, DataFrames
+
+datos = CSV.read(download("https://covid.ourworldindata.org/data/owid-covid-data.csv"),DataFrame)
+````
+
+Note que la función `download()` funciona como la referencia al nombre de archivo, y su argumento es una dirección web que apunte a un archivo CSV.
+
+
 ## Manipulación de bases
 
 En esta sección se muestra cómo manipular bases con el fin de trabajar directamente con ellas o realizar algunas operaciones, tales como ordenar una base, segmentarla o realizar uniones.
@@ -218,13 +233,13 @@ typeof(datosg)
 
 > GroupedDataFrame{DataFrame}
 
-Los datos agrupados son de gran ayuda ya que posteriormente nos permitirán realizar cálculos por grupos de variables.
+Los datos agrupados son de gran ayuda ya que posteriormente nos permitirán realizar cálculos por grupos de variables, por ejemplo usando la función `combine()`.
 
 ### Uniones de bases
 
 En Julia, es posible realizar uniones de tablas mediante uniones.
 
-Supongase que se tienen las siguientes tablas, una de alumnos con sus grupos y calificacionesy otra de información de cada alumno.
+Supongase que se tienen las siguientes tablas, una de alumnos con sus grupos y calificaciones y otra de información de cada alumno.
 
 Alumnos:
 

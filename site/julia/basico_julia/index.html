@@ -607,6 +607,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#leyendo-un-archivo-desde-la-web" class="md-nav__link">
+    Leyendo un archivo desde la web
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -734,6 +741,13 @@
           <li class="md-nav__item">
   <a href="#leyendo-un-archivo-csv" class="md-nav__link">
     Leyendo un archivo CSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leyendo-un-archivo-desde-la-web" class="md-nav__link">
+    Leyendo un archivo desde la web
   </a>
   
 </li>
@@ -910,6 +924,17 @@
 </code></pre></div>
 </td></tr></table>
 <p>La primer línea carga los paquetes instalados previamente, para poder usar todas sus funciones y métodos. En la segunda, se usa la función <code>CSV.read()</code> especificándole el nombre de archivo y la función <em>sink</em>, en este caso será <code>DataFrame</code>, asignándolo al objeto <em>mi_csv</em>. Debido a que el archivo es grande se sugiere ver las dimensiones del dataframe usando la función <code>summary()</code>.</p>
+<h3 id="leyendo-un-archivo-desde-la-web">Leyendo un archivo desde la web<a class="headerlink" href="#leyendo-un-archivo-desde-la-web" title="Permanent link">&para;</a></h3>
+<p>Para leer archivos desde internet, se puede usar la función <code>download()</code> del paquete CSV.</p>
+<p>El siguiente código muestra el uso de la función así como la forma de almacenarlo en un objeto <code>DataFrame</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">CSV</span><span class="p">,</span> <span class="n">DataFrames</span>
+
+<span class="n">datos</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">download</span><span class="p">(</span><span class="s">&quot;https://covid.ourworldindata.org/data/owid-covid-data.csv&quot;</span><span class="p">),</span><span class="n">DataFrame</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>Note que la función <code>download()</code> funciona como la referencia al nombre de archivo, y su argumento es una dirección web que apunte a un archivo CSV.</p>
 <h2 id="manipulacion-de-bases">Manipulación de bases<a class="headerlink" href="#manipulacion-de-bases" title="Permanent link">&para;</a></h2>
 <p>En esta sección se muestra cómo manipular bases con el fin de trabajar directamente con ellas o realizar algunas operaciones, tales como ordenar una base, segmentarla o realizar uniones.</p>
 <p>Tambien, en esta sección nos enfocaremos en conocer las propiedades de las bases, acceder a los elementos de la base, entre otros.</p>
@@ -1017,10 +1042,10 @@
 <blockquote>
 <p>GroupedDataFrame{DataFrame}</p>
 </blockquote>
-<p>Los datos agrupados son de gran ayuda ya que posteriormente nos permitirán realizar cálculos por grupos de variables.</p>
+<p>Los datos agrupados son de gran ayuda ya que posteriormente nos permitirán realizar cálculos por grupos de variables, por ejemplo usando la función <code>combine()</code>.</p>
 <h3 id="uniones-de-bases">Uniones de bases<a class="headerlink" href="#uniones-de-bases" title="Permanent link">&para;</a></h3>
 <p>En Julia, es posible realizar uniones de tablas mediante uniones.</p>
-<p>Supongase que se tienen las siguientes tablas, una de alumnos con sus grupos y calificacionesy otra de información de cada alumno.</p>
+<p>Supongase que se tienen las siguientes tablas, una de alumnos con sus grupos y calificaciones y otra de información de cada alumno.</p>
 <p>Alumnos:</p>
 <table>
 <thead>

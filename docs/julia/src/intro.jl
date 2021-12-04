@@ -18,3 +18,9 @@ mini_bd =bd[[2,4,6],[2,5]]
 # buscar elementos
 
 getindex(bd,3,"GivenName")
+
+# Leer datos 
+
+using CSV, DataFrames
+
+datos = CSV.read(download("https://covid.ourworldindata.org/data/owid-covid-data.csv"),DataFrame)
