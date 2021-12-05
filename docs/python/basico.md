@@ -87,6 +87,18 @@ os.chdir("C:\\Users\\Usuario\\Documents\\proyectos\\python\\datos")
 
 Por lo que solo basta copiar los archivos a esta carpeta para poder importarlos sin problema.
 
+Si el archivo se encuentra almacenado en la web, únicamente se debe escribir la dirección entre comillas dentro de la función `read_csv()` y automáticamente será leido y almacenado en un objeto **DataFrame**.
+
+El siguiente código ejemplifica su uso:
+
+````python
+import pandas as pa
+
+covid = pa.read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
+
+covid.info()
+````
+
 ## Exploración de la base
 
 Se puede obtener información de un objeto **DataFrame** usando el siguiente comando.

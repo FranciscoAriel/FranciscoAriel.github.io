@@ -58,6 +58,16 @@ customer <- read_sas("customer.sas7bdat", NULL)
 
 Para más información visite [haven](https://haven.tidyverse.org/).
 
+### Lectura de datos desde la web
+
+Para leer datos de internet, se puede usar la función `read.csv()` y pasarle la dirección web donde se encuentra el archivo.
+
+El siguiente ejemplo muestra cómo descargar datos de covid desde una dirección web.
+
+````r
+datos = read.csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
+````
+
 ## Manipulación de datos
 
 En esta sección se abordará el tema de manejo y manipulación de bases en R.

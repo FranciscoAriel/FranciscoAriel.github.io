@@ -825,6 +825,19 @@ print(root)
 </code></pre></div>
 </td></tr></table>
 <p>Por lo que solo basta copiar los archivos a esta carpeta para poder importarlos sin problema.</p>
+<p>Si el archivo se encuentra almacenado en la web, únicamente se debe escribir la dirección entre comillas dentro de la función <code>read_csv()</code> y automáticamente será leido y almacenado en un objeto <strong>DataFrame</strong>.</p>
+<p>El siguiente código ejemplifica su uso:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pa</span>
+
+<span class="n">covid</span> <span class="o">=</span> <span class="n">pa</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://covid.ourworldindata.org/data/owid-covid-data.csv&quot;</span><span class="p">)</span>
+
+<span class="n">covid</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="exploracion-de-la-base">Exploración de la base<a class="headerlink" href="#exploracion-de-la-base" title="Permanent link">&para;</a></h2>
 <p>Se puede obtener información de un objeto <strong>DataFrame</strong> usando el siguiente comando.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
