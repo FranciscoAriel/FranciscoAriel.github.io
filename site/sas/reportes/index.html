@@ -725,7 +725,21 @@
                 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
 <h2 id="formatos">Formatos<a class="headerlink" href="#formatos" title="Permanent link">&para;</a></h2>
-<p>Anteriormente ya habíamos hablado de los formatos.</p>
+<p>Anteriormente ya habíamos hablado de los formatos que están precargados en SAS. En esta ocasión se hablará de cómo hacer formatos personalizados para incluirlos en los reportes.</p>
+<p>El procedimiento <strong>FORMAT</strong> permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta. El siguiente ejemplo muestra cómo crear un formato que represente el sexo de una persona</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC FORMAT;</span>
+<span class="k">FORMAT</span> sexo
+<span class="m">1</span> = <span class="s">&quot;Femenino&quot;</span>
+<span class="m">2</span> = <span class="s">&quot;Masculino&quot;</span>
+<span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h2>
 <p>El reporte más simple que se puede crear, es mostrar el conjunto de datos usando el procedimiento <code>PROC PRINT</code>.</p>
 <p>Sin embargo, para datasets muy grandes, esto no sería una buena opción debido a que SAS gastaría muchos recursos en imprimir toda la tabla. Se pueden usar ciertas configuraciones para que SAS solo procece cierta cantidad de observaciones de un dataset.</p>

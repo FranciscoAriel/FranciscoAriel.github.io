@@ -5,14 +5,24 @@ authors: Francisco Vázquez
 date: 2021-09-03
 ---
 
-
 ## Creación de reportes
 
 SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.
 
 ## Formatos
 
-Anteriormente ya habíamos hablado de los formatos.
+Anteriormente ya habíamos hablado de los formatos que están precargados en SAS. En esta ocasión se hablará de cómo hacer formatos personalizados para incluirlos en los reportes.
+
+El procedimiento **FORMAT** permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta. El siguiente ejemplo muestra cómo crear un formato que represente el sexo de una persona
+
+````sas
+PROC FORMAT;
+FORMAT sexo
+1 = "Femenino"
+2 = "Masculino"
+;
+RUN;
+````
 
 ## Reportes básicos
 
