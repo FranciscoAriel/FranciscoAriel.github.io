@@ -717,20 +717,65 @@
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
 <h2 id="formatos">Formatos<a class="headerlink" href="#formatos" title="Permanent link">&para;</a></h2>
 <p>Anteriormente ya habíamos hablado de los formatos que están precargados en SAS. En esta ocasión se hablará de cómo hacer formatos personalizados para incluirlos en los reportes.</p>
-<p>El procedimiento <strong>FORMAT</strong> permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta. El siguiente ejemplo muestra cómo crear un formato que represente el sexo de una persona</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC FORMAT;</span>
-<span class="k">FORMAT</span> sexo
-<span class="m">1</span> = <span class="s">&quot;Femenino&quot;</span>
-<span class="m">2</span> = <span class="s">&quot;Masculino&quot;</span>
-<span class="kr">;</span>
+<p>El procedimiento <strong>FORMAT</strong> permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta. </p>
+<p>El siguiente ejemplo muestra cómo crear un formato numérico que represente el sexo de una persona y un formato de tipo caractér para la variable grupo y su aplicación a un dataset existente.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">PROC FORMAT;</span>
+    VALUE sexo
+    <span class="m">1</span> = <span class="s">&quot;Femenino&quot;</span>
+    <span class="m">2</span> = <span class="s">&quot;Masculino&quot;</span>
+    ;
+    VALUE $ grupo
+    <span class="s">&quot;A&quot;</span> = <span class="s">&quot;Sobresaliente&quot;</span>
+    <span class="s">&quot;B&quot;</span> = <span class="s">&quot;Excelente&quot;</span>
+    <span class="s">&quot;C&quot;</span> = <span class="s">&quot;Regular&quot;</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+
+<span class="kr">DATA </span>alumnos;
+<span class="k">ATTRIB</span>
+nombre <span class="k">length</span> = $<span class="m">8</span> 
+grupo <span class="k">length</span> = $<span class="m">1</span> <span class="k">format</span> = $grupo.
+sexo <span class="k">format</span> = sexo.
+puntaje <span class="k">label</span> = <span class="s">&quot;Calificación final&quot;</span>;
+<span class="k">INPUT</span> nombre -- puntaje;
+<span class="k">DATALINES;</span><span class="x"></span>
+<span class="x">ANGELICA A 1 10</span>
+<span class="x">BRENDA   B 1 9</span>
+<span class="x">LILIANA  C 1 8</span>
+<span class="x">MARCO    B 2 8</span>
+<span class="x">FABIAN   A 2 9</span>
+<span class="x">MAURICIO C 2 7</span>
+<span class="x">;</span>
 <span class="kr">RUN;</span>
 </code></pre></div>
 </td></tr></table>
+<p>La siguiente imagen muestra cómo se ve el dataset resultante.</p>
+<p><img alt="Formato" src="../img/formato.png" /></p>
 <h2 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h2>
 <p>El reporte más simple que se puede crear, es mostrar el conjunto de datos usando el procedimiento <code>PROC PRINT</code>.</p>
 <p>Sin embargo, para datasets muy grandes, esto no sería una buena opción debido a que SAS gastaría muchos recursos en imprimir toda la tabla. Se pueden usar ciertas configuraciones para que SAS solo procece cierta cantidad de observaciones de un dataset.</p>

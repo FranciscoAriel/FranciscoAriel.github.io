@@ -13,16 +13,43 @@ SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos 
 
 Anteriormente ya habíamos hablado de los formatos que están precargados en SAS. En esta ocasión se hablará de cómo hacer formatos personalizados para incluirlos en los reportes.
 
-El procedimiento **FORMAT** permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta. El siguiente ejemplo muestra cómo crear un formato que represente el sexo de una persona
+El procedimiento **FORMAT** permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta. 
+
+El siguiente ejemplo muestra cómo crear un formato numérico que represente el sexo de una persona y un formato de tipo caractér para la variable grupo y su aplicación a un dataset existente.
 
 ````sas
 PROC FORMAT;
-FORMAT sexo
-1 = "Femenino"
-2 = "Masculino"
+    VALUE sexo
+    1 = "Femenino"
+    2 = "Masculino"
+    ;
+    VALUE $ grupo
+    "A" = "Sobresaliente"
+    "B" = "Excelente"
+    "C" = "Regular";
+RUN;
+
+DATA alumnos;
+ATTRIB
+nombre length = $8 
+grupo length = $1 format = $grupo.
+sexo format = sexo.
+puntaje label = "Calificación final";
+INPUT nombre -- puntaje;
+DATALINES;
+ANGELICA A 1 10
+BRENDA   B 1 9
+LILIANA  C 1 8
+MARCO    B 2 8
+FABIAN   A 2 9
+MAURICIO C 2 7
 ;
 RUN;
 ````
+
+La siguiente imagen muestra cómo se ve el dataset resultante.
+
+![Formato](img/formato.png)
 
 ## Reportes básicos
 

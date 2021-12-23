@@ -865,7 +865,7 @@
 <h3 id="lectura-de-datos-desde-la-web">Lectura de datos desde la web<a class="headerlink" href="#lectura-de-datos-desde-la-web" title="Permanent link">&para;</a></h3>
 <p>Para leer datos de internet, se puede usar la función <code>read.csv()</code> y pasarle la dirección web donde se encuentra el archivo.</p>
 <p>El siguiente ejemplo muestra cómo descargar datos de covid desde una dirección web.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span> <span class="o">=</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;https://covid.ourworldindata.org/data/owid-covid-data.csv&quot;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">covid</span> <span class="o">=</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;https://covid.ourworldindata.org/data/owid-covid-data.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 <h2 id="manipulacion-de-datos">Manipulación de datos<a class="headerlink" href="#manipulacion-de-datos" title="Permanent link">&para;</a></h2>
@@ -904,7 +904,64 @@
 <p>Las funciones solo requieren que se le pase el nombre del dataframe y opcionalmente el número de registros a visualizar.</p>
 <h3 id="filtrado-de-datos">Filtrado de datos<a class="headerlink" href="#filtrado-de-datos" title="Permanent link">&para;</a></h3>
 <p>Para realizar un filtrado de datos en R, se pueden usar los vectores lógicos, de esta forma, aquellas observaciones que cumplan con la condición, serán las observaciones elegidas.</p>
-<p>Por ejemplo, el siguiente código muestra cómo elegir a los alumnos que pertenecen al grupo A</p>
+<p>Por ejemplo, el siguiente código muestra cómo elegir a los alumnos que pertenecen al grupo A.</p>
+<p>datos:</p>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th>grupo</th>
+<th>puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANGELICA</td>
+<td>A</td>
+<td>10</td>
+</tr>
+<tr>
+<td>ANGEL</td>
+<td>B</td>
+<td>9</td>
+</tr>
+<tr>
+<td>ANGELES</td>
+<td>C</td>
+<td>8</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>A</td>
+<td>8</td>
+</tr>
+<tr>
+<td>BRUNO</td>
+<td>D</td>
+<td>9</td>
+</tr>
+<tr>
+<td>BEN</td>
+<td>B</td>
+<td>7</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>A</td>
+<td>10</td>
+</tr>
+<tr>
+<td>CARLOS</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>LUIS</td>
+<td>C</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">filtro</span> <span class="o">=</span> <span class="n">datos</span><span class="o">$</span><span class="n">grupo</span><span class="o">==</span><span class="s">&quot;A&quot;</span>
 <span class="n">grupo_A</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="n">filtro</span><span class="p">,]</span>

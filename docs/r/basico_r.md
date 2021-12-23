@@ -65,7 +65,7 @@ Para leer datos de internet, se puede usar la función `read.csv()` y pasarle la
 El siguiente ejemplo muestra cómo descargar datos de covid desde una dirección web.
 
 ````r
-datos = read.csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
+covid = read.csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
 ````
 
 ## Manipulación de datos
@@ -118,7 +118,21 @@ Las funciones solo requieren que se le pase el nombre del dataframe y opcionalme
 
 Para realizar un filtrado de datos en R, se pueden usar los vectores lógicos, de esta forma, aquellas observaciones que cumplan con la condición, serán las observaciones elegidas.
 
-Por ejemplo, el siguiente código muestra cómo elegir a los alumnos que pertenecen al grupo A
+Por ejemplo, el siguiente código muestra cómo elegir a los alumnos que pertenecen al grupo A.
+
+datos:
+
+nombre|grupo|puntaje|
+------|-------|-------|
+ANGELICA|A|10
+ANGEL|B|9
+ANGELES|C|8
+BRENDA|A|8
+BRUNO|D|9
+BEN|B|7
+LILIANA|A|10
+CARLOS|B|8
+LUIS|C|9
 
 ````r
 filtro = datos$grupo=="A"
