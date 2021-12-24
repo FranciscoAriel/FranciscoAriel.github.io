@@ -15,7 +15,7 @@ Anteriormente ya habíamos hablado de los formatos que están precargados en SAS
 
 El procedimiento **FORMAT** permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta. 
 
-El siguiente ejemplo muestra cómo crear un formato numérico que represente el sexo de una persona y un formato de tipo caractér para la variable grupo y su aplicación a un dataset existente.
+El siguiente ejemplo muestra cómo crear un formato numérico que represente el sexo de una persona y un formato de tipo caractér para la variable grupo y su aplicación a un dataset existente. Note que el formato para variables de tipo caracter requiere del símbolo `$`.
 
 ````sas
 PROC FORMAT;
@@ -50,6 +50,12 @@ RUN;
 La siguiente imagen muestra cómo se ve el dataset resultante.
 
 ![Formato](img/formato.png)
+
+Los formatos se almacenan en la librería temporal **WORK** y estarán disponibles durante toda la sesión.
+
+Para guardar los formatos en una librería permanente, se puede utilizar la opción `LIBRARY =` en la sentencia `PROC FORMAT`. Los formatos estarán almacenados en un catálogo llamado *FORMATS*. Para acceder a ellos, se debe especificar la opción `options fmtsearch=()` con el nombre de la librería dentro del paréntesis.
+
+Se puede saber más detalles del [procedimiento FORMAT aquí](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/p1xidhqypi0fnwn1if8opjpqpbmn.htm).
 
 ## Reportes básicos
 

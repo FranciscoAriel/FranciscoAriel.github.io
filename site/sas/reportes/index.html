@@ -718,7 +718,7 @@
 <h2 id="formatos">Formatos<a class="headerlink" href="#formatos" title="Permanent link">&para;</a></h2>
 <p>Anteriormente ya habíamos hablado de los formatos que están precargados en SAS. En esta ocasión se hablará de cómo hacer formatos personalizados para incluirlos en los reportes.</p>
 <p>El procedimiento <strong>FORMAT</strong> permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta. </p>
-<p>El siguiente ejemplo muestra cómo crear un formato numérico que represente el sexo de una persona y un formato de tipo caractér para la variable grupo y su aplicación a un dataset existente.</p>
+<p>El siguiente ejemplo muestra cómo crear un formato numérico que represente el sexo de una persona y un formato de tipo caractér para la variable grupo y su aplicación a un dataset existente. Note que el formato para variables de tipo caracter requiere del símbolo <code>$</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -776,6 +776,9 @@ puntaje <span class="k">label</span> = <span class="s">&quot;Calificación final
 </td></tr></table>
 <p>La siguiente imagen muestra cómo se ve el dataset resultante.</p>
 <p><img alt="Formato" src="../img/formato.png" /></p>
+<p>Los formatos se almacenan en la librería temporal <strong>WORK</strong> y estarán disponibles durante toda la sesión.</p>
+<p>Para guardar los formatos en una librería permanente, se puede utilizar la opción <code>LIBRARY =</code> en la sentencia <code>PROC FORMAT</code>. Los formatos estarán almacenados en un catálogo llamado <em>FORMATS</em>. Para acceder a ellos, se debe especificar la opción <code>options fmtsearch=()</code> con el nombre de la librería dentro del paréntesis.</p>
+<p>Se puede saber más detalles del <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/p1xidhqypi0fnwn1if8opjpqpbmn.htm">procedimiento FORMAT aquí</a>.</p>
 <h2 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h2>
 <p>El reporte más simple que se puede crear, es mostrar el conjunto de datos usando el procedimiento <code>PROC PRINT</code>.</p>
 <p>Sin embargo, para datasets muy grandes, esto no sería una buena opción debido a que SAS gastaría muchos recursos en imprimir toda la tabla. Se pueden usar ciertas configuraciones para que SAS solo procece cierta cantidad de observaciones de un dataset.</p>

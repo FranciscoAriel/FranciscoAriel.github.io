@@ -89,7 +89,6 @@ datos = CSV.read(download("https://covid.ourworldindata.org/data/owid-covid-data
 
 Note que la función `download()` funciona como la referencia al nombre de archivo, y su argumento es una dirección web que apunte a un archivo CSV.
 
-
 ## Manipulación de bases
 
 En esta sección se muestra cómo manipular bases con el fin de trabajar directamente con ellas o realizar algunas operaciones, tales como ordenar una base, segmentarla o realizar uniones.
@@ -189,7 +188,7 @@ datos.nota = ifelse.(datos.puntaje .< 9, "Suficiente", "Excelente")
 print(datos)
 ````
 
-Note que se usa la notación `.<` para expresar que se quiere hacer la comparación por elemento. El resultado se muestra a continuación.
+Note que se usa la notación `.<` para expresar que se quiere hacer la comparación por elemento y también la función `ifelse.` lo usa. El resultado se muestra a continuación.
 
 ![Nueva variable](img/variable.png)
 
