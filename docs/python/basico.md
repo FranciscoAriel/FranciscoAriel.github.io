@@ -224,3 +224,44 @@ mi_base_agrupada.aggregate(["mean"])
 ![Datos agregados](img/agregado.png)
 
 Para más información visite la [documentación](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html) del método `groupby` y cómo realizar agregados.
+
+### Uniones de bases
+
+Para realizar una unión de dos o más bases, se usar el método `merge()` de un dataframe para unirlo con otro. Se puede guardar el nuevo objeto en un nuevo dataframe.
+
+El siguiente ejemplo muestra cómo unir 2 bases que tienen la misma llave.
+
+Alumnos:
+
+nombre|grupo|puntaje
+------|------|-------
+ANGELICA|A|10
+BRENDA|A|9
+FABIAN|C|9
+LILIANA|B|8
+MARCO|B|8
+MAURICIO|C|7
+
+Información:
+
+nombre|sexo|edad
+------|----|------
+ANGELICA|F|19
+BRENDA|F|29
+LILIANA|F|28
+MARCO|M|30
+FABIAN|M|29
+MAURICIO|M|30
+
+El siguiente código muestra la unión de las dos bases.
+
+````python
+base = alumnos.merge(informacion,on=["nombre"])
+print(base)
+````
+
+En la siguiente imagen se ilustra el resultado.
+
+![Resultado del merge](img/merge.png)
+
+Para saber más sobre cómo unir 2 o más bases o realizar otro tipo de uniones, visite la [documentación del método merge](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html).

@@ -564,6 +564,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#uniones-de-bases" class="md-nav__link">
+    Uniones de bases
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -719,6 +726,13 @@
           <li class="md-nav__item">
   <a href="#datos-agrupados" class="md-nav__link">
     Datos agrupados
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uniones-de-bases" class="md-nav__link">
+    Uniones de bases
   </a>
   
 </li>
@@ -914,6 +928,102 @@ print(root)
 </td></tr></table>
 <p><img alt="Datos agregados" src="../img/agregado.png" /></p>
 <p>Para más información visite la <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">documentación</a> del método <code>groupby</code> y cómo realizar agregados.</p>
+<h3 id="uniones-de-bases">Uniones de bases<a class="headerlink" href="#uniones-de-bases" title="Permanent link">&para;</a></h3>
+<p>Para realizar una unión de dos o más bases, se usar el método <code>merge()</code> de un dataframe para unirlo con otro. Se puede guardar el nuevo objeto en un nuevo dataframe.</p>
+<p>El siguiente ejemplo muestra cómo unir 2 bases que tienen la misma llave.</p>
+<p>Alumnos:</p>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th>grupo</th>
+<th>puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANGELICA</td>
+<td>A</td>
+<td>10</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>A</td>
+<td>9</td>
+</tr>
+<tr>
+<td>FABIAN</td>
+<td>C</td>
+<td>9</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>MARCO</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>MAURICIO</td>
+<td>C</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>Información:</p>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th>sexo</th>
+<th>edad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANGELICA</td>
+<td>F</td>
+<td>19</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>F</td>
+<td>29</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>F</td>
+<td>28</td>
+</tr>
+<tr>
+<td>MARCO</td>
+<td>M</td>
+<td>30</td>
+</tr>
+<tr>
+<td>FABIAN</td>
+<td>M</td>
+<td>29</td>
+</tr>
+<tr>
+<td>MAURICIO</td>
+<td>M</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p>El siguiente código muestra la unión de las dos bases.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">base</span> <span class="o">=</span> <span class="n">alumnos</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">informacion</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;nombre&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p>En la siguiente imagen se ilustra el resultado.</p>
+<p><img alt="Resultado del merge" src="../img/merge.png" /></p>
+<p>Para saber más sobre cómo unir 2 o más bases o realizar otro tipo de uniones, visite la <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">documentación del método merge</a>.</p>
                 
                   
                 

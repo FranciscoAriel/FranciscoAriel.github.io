@@ -256,7 +256,7 @@ Para más información use el comando `?merge` para conocer cómo realizar otro 
 
 ### Ordenando una base
 
-La forma de ordenar una base en R,es un poco distinta a otros lenguajes de programación, debido a que R no tiene una función para ordenar un dataframe, sin embargo se puede lograr con la instrucción `order()` y posteriormente pasarle el resultado como un ídice de renglones, por lo que la base estará ordenada.
+La forma de ordenar una base en R, es un poco distinta a otros lenguajes de programación, debido a que R no tiene una función para ordenar un dataframe, sin embargo se puede lograr con la instrucción `order()` y posteriormente pasarle el resultado como un índice de renglones, por lo que la base estará ordenada.
 
 El siguiente ejemplo muestra cómo ordenar la base de alumnos por el nombre.
 
