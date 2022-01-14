@@ -387,6 +387,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#estadisticas-descriptivas-con-proc-means" class="md-nav__link">
+    Estadísticas descriptivas con PROC MEANS
+  </a>
+  
+    <nav class="md-nav" aria-label="Estadísticas descriptivas con PROC MEANS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#especificando-estadisticas-a-calcular" class="md-nav__link">
+    Especificando estadísticas a calcular
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analisis-por-subgrupos" class="md-nav__link">
+    Análisis por subgrupos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reportes-basicos" class="md-nav__link">
     Reportes básicos
   </a>
@@ -668,6 +695,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#estadisticas-descriptivas-con-proc-means" class="md-nav__link">
+    Estadísticas descriptivas con PROC MEANS
+  </a>
+  
+    <nav class="md-nav" aria-label="Estadísticas descriptivas con PROC MEANS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#especificando-estadisticas-a-calcular" class="md-nav__link">
+    Especificando estadísticas a calcular
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analisis-por-subgrupos" class="md-nav__link">
+    Análisis por subgrupos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reportes-basicos" class="md-nav__link">
     Reportes básicos
   </a>
@@ -715,10 +769,13 @@
                 
                 <h2 id="creacion-de-reportes">Creación de reportes<a class="headerlink" href="#creacion-de-reportes" title="Permanent link">&para;</a></h2>
 <p>SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.</p>
+<p>SAS puede realizar reportes muy simples, hasta tabulados muy complejos y personalizados, incluso puede exportarlos a otros formatos como Excel.</p>
+<p>En esta sección se mostrarán cómo realizar reportes simples usando algunos procedimientos y después se explorará cómo realizar reportes más generales.</p>
+<p>Para realizar agregados en formato SQL, puede visitar este <a href="https://vazquez-chavez-francisco-ariel.gitbook.io/notas/consultas-basicas#agregados">sitio</a> en donde se muestran algunos ejemplos de agregados.</p>
 <h2 id="formatos">Formatos<a class="headerlink" href="#formatos" title="Permanent link">&para;</a></h2>
 <p>Anteriormente ya habíamos hablado de los formatos que están precargados en SAS. En esta ocasión se hablará de cómo hacer formatos personalizados para incluirlos en los reportes.</p>
-<p>El procedimiento <strong>FORMAT</strong> permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta. </p>
-<p>El siguiente ejemplo muestra cómo crear un formato numérico que represente el sexo de una persona y un formato de tipo caractér para la variable grupo y su aplicación a un dataset existente. Note que el formato para variables de tipo caracter requiere del símbolo <code>$</code>.</p>
+<p>El procedimiento <strong>FORMAT</strong> permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta.</p>
+<p>El siguiente ejemplo muestra cómo crear un formato numérico que represente el sexo de una persona y un formato de tipo caracter para la variable grupo y su aplicación a un dataset existente. Note que el formato para variables de tipo caracter requiere del símbolo <code>$</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -778,7 +835,116 @@ puntaje <span class="k">label</span> = <span class="s">&quot;Calificación final
 <p><img alt="Formato" src="../img/formato.png" /></p>
 <p>Los formatos se almacenan en la librería temporal <strong>WORK</strong> y estarán disponibles durante toda la sesión.</p>
 <p>Para guardar los formatos en una librería permanente, se puede utilizar la opción <code>LIBRARY =</code> en la sentencia <code>PROC FORMAT</code>. Los formatos estarán almacenados en un catálogo llamado <em>FORMATS</em>. Para acceder a ellos, se debe especificar la opción <code>options fmtsearch=()</code> con el nombre de la librería dentro del paréntesis.</p>
+<div class="admonition danger">
+<p class="admonition-title">Formato no encontrado</p>
+<p>Tenga cuidado en asignar un formato a un dataset y no almacenarlo. SAS podría no reconocerlo y no podría leer la tabla.</p>
+</div>
 <p>Se puede saber más detalles del <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/p1xidhqypi0fnwn1if8opjpqpbmn.htm">procedimiento FORMAT aquí</a>.</p>
+<h2 id="estadisticas-descriptivas-con-proc-means">Estadísticas descriptivas con PROC MEANS<a class="headerlink" href="#estadisticas-descriptivas-con-proc-means" title="Permanent link">&para;</a></h2>
+<p>Para realizar un análisis descriptivo de las variables de un dataset, se puede usar el procedimiento <strong>MEANS</strong>, el cual calcula algunos estadísticos comunmente usados y que nos permitirá darnos una idea de cómo son los datos. </p>
+<div class="admonition tip">
+<p class="admonition-title">Análisis más detallados</p>
+<p>Para realizar análisis más completos de una variable, se puede usar el procedimiento <strong>UNIVARIATE</strong>, el cual permitirá realizar histogramas, estadísticas de orden y algunas pruebas estadísticas.</p>
+</div>
+<p>La sintaxis más simple es la siguiente:</p>
+<blockquote>
+<p><strong>PROC MEANS</strong> <em>DATA =</em> dataset;</p>
+<p><strong>VAR</strong> variables;</p>
+<p><strong>RUN</strong>;</p>
+</blockquote>
+<p>Considere la siguiente tabla:</p>
+<table>
+<thead>
+<tr>
+<th>nombre</th>
+<th>Grupo</th>
+<th>puntaje</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ANGÉLICA</td>
+<td>A</td>
+<td>10</td>
+</tr>
+<tr>
+<td>BRENDA</td>
+<td>A</td>
+<td>9</td>
+</tr>
+<tr>
+<td>MARCO</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>LILIANA</td>
+<td>B</td>
+<td>8</td>
+</tr>
+<tr>
+<td>FABIÁN</td>
+<td>C</td>
+<td>9</td>
+</tr>
+<tr>
+<td>MAURICIO</td>
+<td>C</td>
+<td>7</td>
+</tr>
+<tr>
+<td>ÁLVARO</td>
+<td>A</td>
+<td>8</td>
+</tr>
+<tr>
+<td>ÓSCAR</td>
+<td>B</td>
+<td>9</td>
+</tr>
+<tr>
+<td>BELÉN</td>
+<td>C</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>El siguiente ejemplo muestra cómo realizar un análisis simple de la variable <em>puntaje</em>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">proc means </span>data= calificaciones;
+var puntaje<span class="kr">;</span>
+<span class="kr">run;</span>
+</code></pre></div>
+</td></tr></table>
+<p>El resultado obtenido es el siguiente:</p>
+<p><img alt="Resultado de PRC MEANS" src="../img/means1.png" /></p>
+<h3 id="especificando-estadisticas-a-calcular">Especificando estadísticas a calcular<a class="headerlink" href="#especificando-estadisticas-a-calcular" title="Permanent link">&para;</a></h3>
+<p>Como se vio en el ejemplo anterior, si no se especifican las estadísticas a calcular, SAS automáticamente calcula el número de observaciones (<code>N</code>), la media (<code>MEAN</code>), desviación estándar (<code>STD</code>), el mínimo (<code>MIN</code>) y el máximo (<code>MAX</code>).</p>
+<p>Usando los mismos datos, en el siguiente ejemplo se pedirá que calcule la suma (<code>SUM</code>), el número de observaciones faltantes (<code>NMISS</code>), la media (<code>MEAN</code>), la mediana (<code>MEDIAN</code>) y los cuartiles (<code>Q1</code> y <code>Q3</code>).</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">proc means </span>data= calificaciones SUM NMISS MEAN MEDIAN Q1 Q3;
+var puntaje<span class="kr">;</span>
+<span class="kr">run;</span>
+</code></pre></div>
+</td></tr></table>
+<p>El resultado obtenido es el siguiente:</p>
+<p><img alt="Resultado de PRC MEANS" src="../img/means2.png" /></p>
+<h3 id="analisis-por-subgrupos">Análisis por subgrupos<a class="headerlink" href="#analisis-por-subgrupos" title="Permanent link">&para;</a></h3>
+<p>Cuando se tiene una variable categórica, se puede usar para definir subgrupos y realizar los cálculos por cada grupo. Se puede usar la sentencia <code>CLASS</code> para definir una variable que agrupe las observaciones a calcular. El siguiente ejemplo nos muestra cómo calcular la media de calificaciones por grupo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">proc means </span>data= calificaciones MEAN;
+CLASS grupo;
+var puntaje<span class="kr">;</span>
+<span class="kr">run;</span>
+</code></pre></div>
+</td></tr></table>
+<p>El resultado se muestra a continuación:</p>
+<p><img alt="Resultado de PRC MEANS" src="../img/means3.png" /></p>
+<p>Para conocer más a cerca del procedimiento <strong>MEANS</strong> visite la <a href="https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/p0f0fjpjeuco4gn1ri963f683mi4.htm">documentación</a>.</p>
 <h2 id="reportes-basicos">Reportes básicos<a class="headerlink" href="#reportes-basicos" title="Permanent link">&para;</a></h2>
 <p>El reporte más simple que se puede crear, es mostrar el conjunto de datos usando el procedimiento <code>PROC PRINT</code>.</p>
 <p>Sin embargo, para datasets muy grandes, esto no sería una buena opción debido a que SAS gastaría muchos recursos en imprimir toda la tabla. Se pueden usar ciertas configuraciones para que SAS solo procece cierta cantidad de observaciones de un dataset.</p>

@@ -9,13 +9,19 @@ date: 2021-09-03
 
 SAS es una herramienta muy útil para crear reportes de datos, algunos de ellos se pueden personalizar o adaptarlos a distintas necesidades.
 
+SAS puede realizar reportes muy simples, hasta tabulados muy complejos y personalizados, incluso puede exportarlos a otros formatos como Excel.
+
+En esta sección se mostrarán cómo realizar reportes simples usando algunos procedimientos y después se explorará cómo realizar reportes más generales.
+
+Para realizar agregados en formato SQL, puede visitar este [sitio](https://vazquez-chavez-francisco-ariel.gitbook.io/notas/consultas-basicas#agregados) en donde se muestran algunos ejemplos de agregados.
+
 ## Formatos
 
 Anteriormente ya habíamos hablado de los formatos que están precargados en SAS. En esta ocasión se hablará de cómo hacer formatos personalizados para incluirlos en los reportes.
 
-El procedimiento **FORMAT** permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta. 
+El procedimiento **FORMAT** permite crear formatos personalizados y usarlos en cualquier dataset o procedimiento. Los formatos son útiles, por ejemplo, cuando se tienen encuestas que están codificadas con valores numéricos, pero tienen una etiqueta.
 
-El siguiente ejemplo muestra cómo crear un formato numérico que represente el sexo de una persona y un formato de tipo caractér para la variable grupo y su aplicación a un dataset existente. Note que el formato para variables de tipo caracter requiere del símbolo `$`.
+El siguiente ejemplo muestra cómo crear un formato numérico que represente el sexo de una persona y un formato de tipo caracter para la variable grupo y su aplicación a un dataset existente. Note que el formato para variables de tipo caracter requiere del símbolo `$`.
 
 ````sas
 PROC FORMAT;
@@ -55,7 +61,84 @@ Los formatos se almacenan en la librería temporal **WORK** y estarán disponibl
 
 Para guardar los formatos en una librería permanente, se puede utilizar la opción `LIBRARY =` en la sentencia `PROC FORMAT`. Los formatos estarán almacenados en un catálogo llamado *FORMATS*. Para acceder a ellos, se debe especificar la opción `options fmtsearch=()` con el nombre de la librería dentro del paréntesis.
 
+!!! danger "Formato no encontrado"
+    Tenga cuidado en asignar un formato a un dataset y no almacenarlo. SAS podría no reconocerlo y no podría leer la tabla.
+
 Se puede saber más detalles del [procedimiento FORMAT aquí](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/p1xidhqypi0fnwn1if8opjpqpbmn.htm).
+
+## Estadísticas descriptivas con PROC MEANS
+
+Para realizar un análisis descriptivo de las variables de un dataset, se puede usar el procedimiento **MEANS**, el cual calcula algunos estadísticos comunmente usados y que nos permitirá darnos una idea de cómo son los datos. 
+
+!!! tip "Análisis más detallados"
+    Para realizar análisis más completos de una variable, se puede usar el procedimiento **UNIVARIATE**, el cual permitirá realizar histogramas, estadísticas de orden y algunas pruebas estadísticas.
+
+La sintaxis más simple es la siguiente:
+
+> **PROC MEANS** *DATA =* dataset;
+
+> **VAR** variables;
+
+> **RUN**;
+
+Considere la siguiente tabla:
+
+nombre|Grupo|puntaje
+------|-----|-------
+ANGÉLICA|A|10
+BRENDA|A|9
+MARCO|B|8
+LILIANA|B|8
+FABIÁN|C|9
+MAURICIO|C|7
+ÁLVARO|A|8
+ÓSCAR|B|9
+BELÉN|C|10
+
+El siguiente ejemplo muestra cómo realizar un análisis simple de la variable *puntaje*.
+
+````sas
+proc means data= calificaciones;
+var puntaje;
+run;
+````
+
+El resultado obtenido es el siguiente:
+
+![Resultado de PRC MEANS](img/means1.png)
+
+### Especificando estadísticas a calcular
+
+Como se vio en el ejemplo anterior, si no se especifican las estadísticas a calcular, SAS automáticamente calcula el número de observaciones (`N`), la media (`MEAN`), desviación estándar (`STD`), el mínimo (`MIN`) y el máximo (`MAX`).
+
+Usando los mismos datos, en el siguiente ejemplo se pedirá que calcule la suma (`SUM`), el número de observaciones faltantes (`NMISS`), la media (`MEAN`), la mediana (`MEDIAN`) y los cuartiles (`Q1` y `Q3`).
+
+````sas
+proc means data= calificaciones SUM NMISS MEAN MEDIAN Q1 Q3;
+var puntaje;
+run;
+````
+
+El resultado obtenido es el siguiente:
+
+![Resultado de PRC MEANS](img/means2.png)
+
+### Análisis por subgrupos
+
+Cuando se tiene una variable categórica, se puede usar para definir subgrupos y realizar los cálculos por cada grupo. Se puede usar la sentencia `CLASS` para definir una variable que agrupe las observaciones a calcular. El siguiente ejemplo nos muestra cómo calcular la media de calificaciones por grupo.
+
+````sas
+proc means data= calificaciones MEAN;
+CLASS grupo;
+var puntaje;
+run;
+````
+
+El resultado se muestra a continuación:
+
+![Resultado de PRC MEANS](img/means3.png)
+
+Para conocer más a cerca del procedimiento **MEANS** visite la [documentación](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/p0f0fjpjeuco4gn1ri963f683mi4.htm).
 
 ## Reportes básicos
 
