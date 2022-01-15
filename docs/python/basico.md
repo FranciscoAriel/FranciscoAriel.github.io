@@ -101,7 +101,13 @@ covid.info()
 
 ## Exploración de la base
 
-Se puede obtener información de un objeto **DataFrame** usando el siguiente comando.
+Para conocer la dimensión de un objeto **DataFrame**, se puede usar el método `shape()`.
+
+````python
+datos.shape()
+````
+
+Se puede obtener información más detallada de un objeto **DataFrame** usando el siguiente comando.
 
 ````python
 datos.info()

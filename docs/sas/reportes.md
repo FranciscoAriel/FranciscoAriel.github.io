@@ -136,7 +136,7 @@ run;
 
 El resultado se muestra a continuación:
 
-![Resultado de PRC MEANS](img/means3.png)
+![Resultado de PROC MEANS](img/means3.png)
 
 Para conocer más a cerca del procedimiento **MEANS** visite la [documentación](https://documentation.sas.com/doc/es/pgmsascdc/9.4_3.5/proc/p0f0fjpjeuco4gn1ri963f683mi4.htm).
 
