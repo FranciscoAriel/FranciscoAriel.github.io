@@ -30,7 +30,7 @@ En este blog conoceras todo lo relacionado a:
 * **SAS/IML &reg; software** - Es un lenguaje específico para trabajar con vectores, matrices, funciones matemáticas y estadísticas avanzadas.
 * **OTROS** - Conexión de SAS &reg; software con otros lenguajes de programación y sus configuraciones.
 
-Para ir al blog de SAS haz click [aquí](sas/intro_sas/index.html).
+Para ir al blog de SAS haz click [aquí](sas/intro_sas.md).
 
 ![Mujer joven trabajando](img/young-woman.jpg)
 
@@ -38,7 +38,7 @@ Imagen de [Karolina Grabowska](https://pixabay.com/es/users/kaboompics-1013994/?
 
 ### R
 
-Visita mi [blog sobre R](r/intro_r/index.html).
+Visita mi [blog sobre R](r/intro_r.md).
 
 En este blog encontrarás todo lo relacionada al lenguaje R.
 
@@ -56,7 +56,7 @@ Imagen de [Free-Photos](https://pixabay.com/photos/?utm_source=link-attribution&
 
 ### Python
 
-[Click aquí](python/intro_python/index.html) para ir a mi blog de Python.
+[Click aquí](python/intro_python.md) para ir a mi blog de Python.
 
 Aquí encontrarás todo lo relacionado con librerías que se usan en ciencia de datos.
 
@@ -64,7 +64,7 @@ Aquí encontrarás todo lo relacionado con librerías que se usan en ciencia de 
 
 Julia es un nuevo lenguaje de programación enfocado en la velocidad y está optimizado para trabajar con todos los recursos de la computadora.
 
-[Click aquí](julia/intro_julia/index.html) para ir a mi blog de Julia.
+[Click aquí](julia/intro_julia.md) para ir a mi blog de Julia.
 
 ### Jupyter Notebooks
 

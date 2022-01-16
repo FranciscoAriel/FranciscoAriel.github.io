@@ -326,7 +326,7 @@ RUN;
 
 Esto se logra escribiendo la sentencia `PUT` justo al inicio e inmediatamente despues se carga el dataset que se quiere escribir.
 
-Las sentencias de la línea 4 se estudiarán en la sección [filtrado de datos](site/sas/manejo_variables/index.html#filtrado-de-datos)
+Las sentencias de la línea 4 se estudiarán en la sección [filtrado de datos](manejo_variables.md#filtrado-de-datos)
 
 #### Leer y modificar archivos de texto
 

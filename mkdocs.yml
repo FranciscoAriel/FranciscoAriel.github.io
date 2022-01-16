@@ -22,6 +22,7 @@ theme:
 
  
 nav:
+    - "Inicio": index.md
     - "Estadística":
         - "Introducción a la probabilidad": estadistica/probabilidad.md
         - "Inferencia estadística": estadistica/inferencia.md
@@ -30,6 +31,7 @@ nav:
         - "Lectura y escritura de datos": sas/basico_sas.md
         - "Manipulación de bases": sas/manejo_variables.md
         - "Elaboración de reportes": sas/reportes.md
+        - "SAS nivel avanzado": sas/avanzado_sas.md
         - "Conexión con otros programas": sas/conexion.md
     - "R":
         - "Introducción a R": r/intro_r.md
