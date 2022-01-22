@@ -754,7 +754,7 @@ Imagen de <a href="https://pixabay.com/es/users/tonic-pics-3001971/">ToNic-Pics<
 </div>
 <div class="admonition note">
 <p class="admonition-title">Evento</p>
-<p>Un evento <span class="arithmatex">\(A\)</span> es un subconjunto del espacio muestral <span class="arithmatex">\(S\)</span>. Es un conjunto de resultados.</p>
+<p>Un evento <span class="arithmatex">\(A\)</span> es un subconjunto del espacio muestral <span class="arithmatex">\(S\)</span>. Es un conjunto de resultados. Cualquier colección de eventos y cada uno es un subconjunto de <span class="arithmatex">\(S\)</span> se denominará con <span class="arithmatex">\(\mathbb{A}\)</span>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Evento particular</p>
@@ -769,16 +769,23 @@ Imagen de <a href="https://pixabay.com/es/users/anncapictures-1564471/?utm_sourc
 <p>Entonces se tiene que </p>
 <div class="arithmatex">\[A=\lbrace 2,4,6 \rbrace \\
 B=\lbrace 1,3,5 \rbrace \\
-C=\lbrace 4,,5,6 \rbrace
+C=\lbrace 4,5,6 \rbrace
 \]</div>
+<p>Observe que el evento <span class="arithmatex">\(B \cup C = \lbrace 1,3,4,5,6\rbrace\)</span> también es un evento en el espacio muestral <span class="arithmatex">\(S\)</span>.</p>
 <h3 id="axiomas-de-probabilidad">Axiomas de probabilidad<a class="headerlink" href="#axiomas-de-probabilidad" title="Permanent link">&para;</a></h3>
-<p>Como se mencionó anteriormente, actualmente la probabilidad se estudia de manera formal partiendo de 3 axiomas. Sea <span class="arithmatex">\(A\)</span> un evento del espacio muestral <span class="arithmatex">\(S\)</span>.</p>
+<p>Como se mencionó anteriormente, actualmente la probabilidad se estudia de manera formal partiendo de 3 axiomas.</p>
+<div class="admonition caution">
+<p class="admonition-title">Conocimiento avanzado</p>
+<p>El estudio de la probabilidad requiere conocimientos avanzados de <em>Matemáticas</em> y <em>Teoría de Conjuntos</em> los cuales están fuera del alcance de esta página.</p>
+</div>
+<p>Sea <span class="arithmatex">\(A\)</span> un evento del espacio muestral <span class="arithmatex">\(S\)</span>. Una función <span class="arithmatex">\(P: \mathbb{A} \rightarrow [0,1]\)</span> es llamada <em>función de probabilidad</em> si satisface estas 3 condiciones.</p>
 <ul>
-<li>Axioma 1 <span class="arithmatex">\(0\le P(A) \le 1\)</span></li>
-<li>Axioma 2 <span class="arithmatex">\(P(S) = 1\)</span></li>
-<li>Axioma 3 Para cualquier secuencia de eventos <span class="arithmatex">\(A_1,A_2,\dots\)</span> mutuamente excluyentes, entonces
+<li><strong>Axioma 1</strong>: <span class="arithmatex">\(0\le P(A) \le 1\)</span> para <span class="arithmatex">\(A \in \mathbb{A}\)</span></li>
+<li><strong>Axioma 2</strong>: <span class="arithmatex">\(P(S) = 1\)</span></li>
+<li><strong>Axioma 3</strong>: Para cualquier secuencia de eventos <span class="arithmatex">\(A_1,A_2,\dots\)</span> mutuamente excluyentes, entonces
 <span class="arithmatex">\(<span class="arithmatex">\(P\left( \bigcup_{i=1}^{\infty} A_i\right)=\sum_{i=1}^{\infty}A_i\)</span>\)</span></li>
 </ul>
+<p>Se dice que <span class="arithmatex">\(P(A)\)</span> es la <em>probabilidad de que ocurra el evento A</em>.</p>
 <p>A partir de esos axiomas, se derivan otras propiedades.</p>
 
               
