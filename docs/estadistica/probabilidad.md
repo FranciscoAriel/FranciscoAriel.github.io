@@ -72,8 +72,15 @@ Sea $A$ un evento del espacio muestral $S$. Una función $P: \mathbb{A} \rightar
 - **Axioma 1**: $0\le P(A) \le 1$ para $A \in \mathbb{A}$
 - **Axioma 2**: $P(S) = 1$
 - **Axioma 3**: Para cualquier secuencia de eventos $A_1,A_2,\dots$ mutuamente excluyentes, entonces
+
 $$P\left( \bigcup_{i=1}^{\infty} A_i\right)=\sum_{i=1}^{\infty}A_i$$
 
 Se dice que $P(A)$ es la *probabilidad de que ocurra el evento A*.
 
 A partir de esos axiomas, se derivan otras propiedades.
+
+* $P(\empty)=0$.
+* Si $A_1,\dots,A_n$ son eventos mutuamente excluyentes, entonces $P\left( \bigcup_{i=1}^{n} A_i\right)=\sum_{i=1}^{n}A_i$.
+* $P(A^c)=1-P(A)$.
+* Para cualesquiera 2 eventos: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+* Si $A \subset B$, entonces $P(A) < P(B)$.
