@@ -26,6 +26,7 @@ nav:
     - "Estadística":
         - "Introducción a la probabilidad": estadistica/probabilidad.md
         - "Inferencia estadística": estadistica/inferencia.md
+        - "Series de tiempo": estadistica/series_tiempo.md
     - "SAS":
         - "Introducción a SAS": sas/intro_sas.md
         - "Lectura y escritura de datos": sas/basico_sas.md

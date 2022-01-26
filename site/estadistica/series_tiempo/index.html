@@ -12,14 +12,14 @@
         <meta name="author" content="Francisco Ariel Vázquez Chávez">
       
       
-        <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/inferencia/">
+        <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/series_tiempo/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
     
     
       
-        <title>Inferencia estadística - Estadística desde Cero</title>
+        <title>Introducción a las Series de Tiempo - Estadística desde Cero</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduccion" class="md-skip">
+        <a href="#introduccion-y-definicion" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inferencia estadística
+              Introducción a las Series de Tiempo
             
           </span>
         </div>
@@ -266,52 +266,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Inferencia estadística
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../inferencia/" class="md-nav__link">
         Inferencia estadística
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#propiedades-deseables-de-los-estimadores" class="md-nav__link">
-    Propiedades deseables de los estimadores
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -321,11 +280,48 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../series_tiempo/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Series de tiempo
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Series de tiempo
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-y-definicion" class="md-nav__link">
+    Introducción y definición
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -672,8 +668,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -682,8 +676,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#propiedades-deseables-de-los-estimadores" class="md-nav__link">
-    Propiedades deseables de los estimadores
+  <a href="#introduccion-y-definicion" class="md-nav__link">
+    Introducción y definición
   </a>
   
 </li>
@@ -700,53 +694,24 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/estadistica/inferencia.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/estadistica/series_tiempo.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
-<p>En la vida real quisiéramos estimar valores aproximados de características de interés de una población, por ejemplo la temperatura promedio de cierto lugar.</p>
-<p><img alt="lluvia" src="../img/rain.jpg" />
-Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5960262">Bianca van Dijk</a> en <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5960262">Pixabay</a></p>
-<p>Sería conveniente tener <em>fórmulas generales</em> para poder estimar algo desconocido únicamente utilizando información obtenida a partir de la observación de fenómenos; quisiéramos que esas <em>fórmulas generales</em> sean buenas y que se pudieran utilizar con otros datos. Por ello en este documento se detalla la forma en obtener estimadores de los parámetros poblacionales que son de interés.</p>
-<h2 id="propiedades-deseables-de-los-estimadores">Propiedades deseables de los estimadores<a class="headerlink" href="#propiedades-deseables-de-los-estimadores" title="Permanent link">&para;</a></h2>
-<p>Supóngase que <span class="arithmatex">\(\mathbf{X}=( X_1,X_2,\ldots,X_n )\)</span> es una muestra aleatoria de una densidad <span class="arithmatex">\(f_X(x;\theta)\)</span> conocida, la cual depende de un parámetro desconocido<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <span class="arithmatex">\(\theta\)</span>, aunque sabemos que <span class="arithmatex">\(\theta\)</span> pertenece a un espacio de parámetros <span class="arithmatex">\(\Theta\)</span>. Si únicamente conocemos la muestra aleatoria (observaciones), <span class="arithmatex">\(\mathbf{x}\)</span> que representan una realización de <span class="arithmatex">\(\mathbf{X}\)</span>, ¿Cuál es el valor aproximado de <span class="arithmatex">\(\theta\)</span>?.</p>
+  <h1>Series de tiempo</h1>
+
+<p>En esta sección se abarcará el tema de series de tiempo.</p>
+<p><img alt="Representación de una serie en los negocios" src="../img/stock.jpg" />
+Imagen de <a href="https://pixabay.com/es/users/geralt-9301/">geralt</a> en <a href="pixabay.com">pixabay</a>.</p>
+<p>Las series de tiempo se usan en diversos campos del conocimiento, por ejemplo en economía. Sin embargo actualmente es común encontrar aplicaciones en prácticamente cualquier área.</p>
+<p>Uno de los principales usos de las series de tiempo, es hacer <em>pronósticos de valores futuros</em> de la variable de interés, usando la información disponible.</p>
+<h2 id="introduccion-y-definicion">Introducción y definición<a class="headerlink" href="#introduccion-y-definicion" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
-<p class="admonition-title">Definición Estadística</p>
-<p>Una estadística es una <em>función de la muestra aleatoria</em> solamente. Note que es una <em>variable aleatoria</em>.</p>
+<p class="admonition-title">Definición</p>
+<p>Una serie de tiempo <span class="arithmatex">\(X_t\)</span>, es una secuencia de valores numéricos indexados por una variable, generalmente tiempo <span class="arithmatex">\(t\)</span>.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Definición Estimador</p>
-<p>Un estimador del parámetro <span class="arithmatex">\(\theta\)</span> es una estadística <span class="arithmatex">\(T=v(\mathbf{X})\)</span>, función de la muestra aleatoria, tal que la estimación <span class="arithmatex">\(t=v(\mathbf{x}) \in \Theta\)</span>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Definición Estimación</p>
-<p>Una estimación es una <em>realización de un estimador</em>, es decir, es un número real.</p>
-</div>
-<p>En otras palabras, para que <span class="arithmatex">\(T\)</span> sea un estimador<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>, es necesario que al evaluar el estimador en cualquier muestra, <span class="arithmatex">\(T\)</span> caiga dentro del espacio de parámetros <span class="arithmatex">\(\Theta\)</span>. Se desea que los estimadores tengan ciertas propiedades deseables:</p>
-<div class="admonition note">
-<p class="admonition-title">Principio de suficiencia</p>
-<p>Si <span class="arithmatex">\(Y_1=u( X_1,X_2,\ldots,X_n )\)</span> es una estadística suficiente para <span class="arithmatex">\(\theta\)</span>, entonces cualquier inferencia sobre <span class="arithmatex">\(\theta\)</span> va a depender de la muestra <span class="arithmatex">\(X_1,X_2,\ldots,X_n\)</span> <em>únicamente a través de la estadística suficiente</em> <span class="arithmatex">\(Y_1\)</span>.</p>
-<p>Es decir si tenemos dos muestras observadas <span class="arithmatex">\(x_1,x_2,\ldots,x_n\)</span> y <span class="arithmatex">\(y_1,y_2,\ldots,y_n\)</span>, entonces la inferencia sobre <span class="arithmatex">\(\theta\)</span> será la misma sin importar que se use la muestra uno <span class="arithmatex">\(\mathbf{x}=x_1,x_2,\ldots,x_n\)</span> o la muestra dos <span class="arithmatex">\(\mathbf{y}=y_1,y_2,\ldots,y_n\)</span>; en otras palabras <span class="arithmatex">\(u( x_1,\ldots,x_n ) =u( y_1,\ldots,y_n ) \)</span>.</p>
-</div>
-<p>La propiedad de suficiencia se refiere a que una estadística <span class="arithmatex">\(Y_1\)</span> <em>concentra</em> toda la información acerca del parámetro de la muestra aleatoria en <em>una sola variable aleatoria</em>. Es decir debe tomar en cuenta a <em>toda la muestra</em>.</p>
-<p>La estadística suficiente es un tipo especial de estadística, ya que condensa la información de la muestra de tal forma que no se pierda ninguna información acerca del parámetro <span class="arithmatex">\(\theta\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">Definición Estadística suficiente</p>
-<p>Sea <span class="arithmatex">\(\mathbf{X}\)</span> una muestra aleatoria con densidad conjunta <span class="arithmatex">\(f_{\mathbf{X}}(\mathbf{x} ;\theta)\)</span>. Una estadística <span class="arithmatex">\(Y_1=u(\mathbf{X}) \)</span> es suficiente si y sólo si <span class="arithmatex">\(f_{\mathbf{X}|Y_1 } (\mathbf{x}|y_1)\)</span> no depende de <span class="arithmatex">\(\theta\)</span>.</p>
-</div>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Por ahora se considerará que <span class="arithmatex">\(\theta\)</span> es de dimensión uno, aunque podría ser un vector de parámetros.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Note que podrían existir infinidad de estimadores con esta característica.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p>Las series de tiempo pueden ser continuas o discretas. Comunmente en ciencias sociales o economía, las series de tiempo estan medidas en intervalos de tiempo regulares, ya sea de manera anual, trimestral, mensual o diaria.</p>
 
               
             </article>
@@ -760,7 +725,7 @@ Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_sourc
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../probabilidad/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introducción a la probabilidad" rel="prev">
+        <a href="../inferencia/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Inferencia estadística" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -769,20 +734,20 @@ Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_sourc
               <span class="md-footer__direction">
                 Previous
               </span>
-              Introducción a la probabilidad
+              Inferencia estadística
             </div>
           </div>
         </a>
       
       
         
-        <a href="../series_tiempo/" class="md-footer__link md-footer__link--next" aria-label="Next: Series de tiempo" rel="next">
+        <a href="../../sas/intro_sas/" class="md-footer__link md-footer__link--next" aria-label="Next: Introducción a SAS" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Series de tiempo
+              Introducción a SAS
             </div>
           </div>
           <div class="md-footer__button md-icon">

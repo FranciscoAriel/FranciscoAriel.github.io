@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://FranciscoAriel.github.io/site/estadistica/series_tiempo/</loc>
+         <lastmod>2022-01-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://FranciscoAriel.github.io/site/julia/basico_julia/</loc>
          <lastmod>2022-01-26</lastmod>
          <changefreq>daily</changefreq>
