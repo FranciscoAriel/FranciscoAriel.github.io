@@ -5,7 +5,7 @@ authors: Francisco Vázquez
 date: 2021-12-20
 ---
 
-## Introducción
+## Definición de probabilidad
 
 ![Juegos de azar](img/poker.jpg)
 Imagen de [ToNic-Pics](https://pixabay.com/es/users/tonic-pics-3001971/) en [Pixabay](https://pixabay.com/images/id-1564042/)
@@ -69,7 +69,7 @@ Como se mencionó anteriormente, actualmente la probabilidad se estudia de maner
 !!! caution "Conocimiento avanzado"
     El estudio de la probabilidad requiere conocimientos avanzados de *Matemáticas* y *Teoría de Conjuntos* los cuales están fuera del alcance de esta página.
 
-Sea $A$ un evento del espacio muestral $S$. Una función $P: \mathbb{s} \rightarrow [0,1]$ es llamada *función de probabilidad* si satisface estas 3 condiciones.
+Sea $A$ un evento del espacio muestral $\Omega$. Una función $P: \mathbb{s} \rightarrow [0,1]$ es llamada *función de probabilidad* si satisface estas 3 condiciones.
 
 - **Axioma 1**: $0\le P(A) \le 1$ para $A \in \mathbb{s}$
 - **Axioma 2**: $P(\Omega) = 1$
@@ -87,9 +87,13 @@ A partir de esos axiomas, se derivan otras propiedades.
 - Para cualesquiera 2 eventos: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
 - Si $A \subset B$, entonces $P(A) < P(B)$.
 
-En ciertos problemas con espacios muestrales finitos $N$, es posible asignarle a cada uno de los puntos una probabilidad igual a $1/n$.
+En ciertos problemas con espacios muestrales finitos $\Omega = \lbrace \omega_1,\dots,\omega_n\rbrace$, es posible asignarle a cada uno de los puntos una probabilidad igual a $1/n$. A esta función de probabilidad se le conoce como la **funcion de probabilidad con probabilidades iguales** y se define como:
 
-En el ejemplo de los dados, se puede asumir que la probabilidad de que se obtenga un resultado en particular es $1/6$, por lo que P(A) = 1/2.
+$$P^*(A)=\frac{\#(A)}{n}$$
+
+donde $\#(A)$ es el número de elementos en $A$ y $n$ el número de elementos del espacio muestral $\Omega$.
+
+En el ejemplo de los dados, se puede asumir que la probabilidad de que se obtenga un resultado en particular es $1/6$, por lo que la probabilidad de que caiga un número par es $P^*(A) = 1/2$.
 
 ### Probabilidad condicional e independencia
 
@@ -138,3 +142,22 @@ De la definición anterior, se desprenden las siguientes propiedades:
 !!! danger "Independencia y eventos disjuntos"
     No debe confundirse los términos **eventos independientes** y **eventos disjuntos**. De hecho, los eventos disjuntos suelen ser muy dependientes por que la ocurrencia de uno implica la no ocurrencia del otro. El único evento que es independiente y ajeno es el vacío $\emptyset$.
 
+## Variables aleatorias
+
+Hasta el momento conocemos cómo asignar probabilidades a eventos del espacio muestral, sin embargo en la práctica esto no siempre es posible ya que sería complicado mencionar o enumerar todos los elementos del espacio muestral.
+
+Por esta razón es necesario "traducir" dichos eventos a números reales.
+
+!!! note "Variable aleatoria"
+    Se dice que $X$ es una variable aleatoria si
+    
+    \(X:\Omega \rightarrow \mathbb{R}\).
+
+    Si $\omega \in \Omega$ entonces $X(\omega) \in \mathbb{R}$. Si $B \subset \mathbb{R}$ entonces $X^{-1}(B) \in \mathbb{s}$, donde $X^{-1}(B)=\lbrace \omega \in \Omega |X(\omega) \in B\rbrace$. 
+
+Una **variable aleatoria** asigna números reales a los eventos que ocurren en $\Omega$.
+
+## Función de distribución
+
+!!! note "Función de distribución"
+    La función de distribución de una variable aleatoria $X$ se define como

@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduccion" class="md-skip">
+        <a href="#definicion-de-probabilidad" class="md-skip">
           Skip to content
         </a>
       
@@ -284,11 +284,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduccion" class="md-nav__link">
-    Introducción
+  <a href="#definicion-de-probabilidad" class="md-nav__link">
+    Definición de probabilidad
   </a>
   
-    <nav class="md-nav" aria-label="Introducción">
+    <nav class="md-nav" aria-label="Definición de probabilidad">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -321,6 +321,20 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-aleatorias" class="md-nav__link">
+    Variables aleatorias
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcion-de-distribucion" class="md-nav__link">
+    Función de distribución
+  </a>
   
 </li>
       
@@ -696,11 +710,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduccion" class="md-nav__link">
-    Introducción
+  <a href="#definicion-de-probabilidad" class="md-nav__link">
+    Definición de probabilidad
   </a>
   
-    <nav class="md-nav" aria-label="Introducción">
+    <nav class="md-nav" aria-label="Definición de probabilidad">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -736,6 +750,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#variables-aleatorias" class="md-nav__link">
+    Variables aleatorias
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcion-de-distribucion" class="md-nav__link">
+    Función de distribución
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -755,7 +783,7 @@
 
   <h1>Introducción a la probabilidad</h1>
 
-<h2 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h2>
+<h2 id="definicion-de-probabilidad">Definición de probabilidad<a class="headerlink" href="#definicion-de-probabilidad" title="Permanent link">&para;</a></h2>
 <p><img alt="Juegos de azar" src="../img/poker.jpg" />
 Imagen de <a href="https://pixabay.com/es/users/tonic-pics-3001971/">ToNic-Pics</a> en <a href="https://pixabay.com/images/id-1564042/">Pixabay</a></p>
 <p>La probabilidad es una rama de las matemáticas que estudia el <strong>azar o aleatoriedad</strong>. En palabras simples, trata de medir la incertidumbre de que ocurra un suceso o evento <span class="arithmatex">\(E\)</span>. El resultado de dicho experimento  <span class="arithmatex">\(E\)</span> <strong>no</strong> puede ser determinado con antelación.</p>
@@ -807,7 +835,7 @@ C=\lbrace 4,5,6 \rbrace
 <p class="admonition-title">Conocimiento avanzado</p>
 <p>El estudio de la probabilidad requiere conocimientos avanzados de <em>Matemáticas</em> y <em>Teoría de Conjuntos</em> los cuales están fuera del alcance de esta página.</p>
 </div>
-<p>Sea <span class="arithmatex">\(A\)</span> un evento del espacio muestral <span class="arithmatex">\(S\)</span>. Una función <span class="arithmatex">\(P: \mathbb{s} \rightarrow [0,1]\)</span> es llamada <em>función de probabilidad</em> si satisface estas 3 condiciones.</p>
+<p>Sea <span class="arithmatex">\(A\)</span> un evento del espacio muestral <span class="arithmatex">\(\Omega\)</span>. Una función <span class="arithmatex">\(P: \mathbb{s} \rightarrow [0,1]\)</span> es llamada <em>función de probabilidad</em> si satisface estas 3 condiciones.</p>
 <ul>
 <li><strong>Axioma 1</strong>: <span class="arithmatex">\(0\le P(A) \le 1\)</span> para <span class="arithmatex">\(A \in \mathbb{s}\)</span></li>
 <li><strong>Axioma 2</strong>: <span class="arithmatex">\(P(\Omega) = 1\)</span></li>
@@ -823,8 +851,10 @@ C=\lbrace 4,5,6 \rbrace
 <li>Para cualesquiera 2 eventos: <span class="arithmatex">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span>.</li>
 <li>Si <span class="arithmatex">\(A \subset B\)</span>, entonces <span class="arithmatex">\(P(A) &lt; P(B)\)</span>.</li>
 </ul>
-<p>En ciertos problemas con espacios muestrales finitos <span class="arithmatex">\(N\)</span>, es posible asignarle a cada uno de los puntos una probabilidad igual a <span class="arithmatex">\(1/n\)</span>.</p>
-<p>En el ejemplo de los dados, se puede asumir que la probabilidad de que se obtenga un resultado en particular es <span class="arithmatex">\(1/6\)</span>, por lo que P(A) = 1/2.</p>
+<p>En ciertos problemas con espacios muestrales finitos <span class="arithmatex">\(\Omega = \lbrace \omega_1,\dots,\omega_n\rbrace\)</span>, es posible asignarle a cada uno de los puntos una probabilidad igual a <span class="arithmatex">\(1/n\)</span>. A esta función de probabilidad se le conoce como la <strong>funcion de probabilidad con probabilidades iguales</strong> y se define como:</p>
+<div class="arithmatex">\[P^*(A)=\frac{\#(A)}{n}\]</div>
+<p>donde <span class="arithmatex">\(\#(A)\)</span> es el número de elementos en <span class="arithmatex">\(A\)</span> y <span class="arithmatex">\(n\)</span> el número de elementos del espacio muestral <span class="arithmatex">\(\Omega\)</span>.</p>
+<p>En el ejemplo de los dados, se puede asumir que la probabilidad de que se obtenga un resultado en particular es <span class="arithmatex">\(1/6\)</span>, por lo que la probabilidad de que caiga un número par es <span class="arithmatex">\(P^*(A) = 1/2\)</span>.</p>
 <h3 id="probabilidad-condicional-e-independencia">Probabilidad condicional e independencia<a class="headerlink" href="#probabilidad-condicional-e-independencia" title="Permanent link">&para;</a></h3>
 <p>En ocasiones, es de interés conocer la probabilidad de un evento, dado que haya ocurrido otro. En este sentido, se define la probabilidad condicional.</p>
 <div class="admonition note">
@@ -871,6 +901,21 @@ C=\lbrace 4,5,6 \rbrace
 <div class="admonition danger">
 <p class="admonition-title">Independencia y eventos disjuntos</p>
 <p>No debe confundirse los términos <strong>eventos independientes</strong> y <strong>eventos disjuntos</strong>. De hecho, los eventos disjuntos suelen ser muy dependientes por que la ocurrencia de uno implica la no ocurrencia del otro. El único evento que es independiente y ajeno es el vacío <span class="arithmatex">\(\emptyset\)</span>.</p>
+</div>
+<h2 id="variables-aleatorias">Variables aleatorias<a class="headerlink" href="#variables-aleatorias" title="Permanent link">&para;</a></h2>
+<p>Hasta el momento conocemos cómo asignar probabilidades a eventos del espacio muestral, sin embargo en la práctica esto no siempre es posible ya que sería complicado mencionar o enumerar todos los elementos del espacio muestral.</p>
+<p>Por esta razón es necesario &ldquo;traducir&rdquo; dichos eventos a números reales.</p>
+<div class="admonition note">
+<p class="admonition-title">Variable aleatoria</p>
+<p>Se dice que <span class="arithmatex">\(X\)</span> es una variable aleatoria si</p>
+<p><span class="arithmatex">\(X:\Omega \rightarrow \mathbb{R}\)</span>.</p>
+<p>Si <span class="arithmatex">\(\omega \in \Omega\)</span> entonces <span class="arithmatex">\(X(\omega) \in \mathbb{R}\)</span>. Si <span class="arithmatex">\(B \subset \mathbb{R}\)</span> entonces <span class="arithmatex">\(X^{-1}(B) \in \mathbb{s}\)</span>, donde <span class="arithmatex">\(X^{-1}(B)=\lbrace \omega \in \Omega |X(\omega) \in B\rbrace\)</span>. </p>
+</div>
+<p>Una <strong>variable aleatoria</strong> asigna números reales a los eventos que ocurren en <span class="arithmatex">\(\Omega\)</span>.</p>
+<h2 id="funcion-de-distribucion">Función de distribución<a class="headerlink" href="#funcion-de-distribucion" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Función de distribución</p>
+<p>La función de distribución de una variable aleatoria <span class="arithmatex">\(X\)</span> se define como</p>
 </div>
 
               
