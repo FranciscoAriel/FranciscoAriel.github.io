@@ -11,14 +11,15 @@ theme:
     palette:
           scheme: default
     logo: img/favicon.png
-    locale: es
     highlightjs: true
     hljs_languages:
         - julia
         - sas
         - r
         - python
-    navigation_depth: 3
+    navigation_depth: 2
+    features:
+    - header.autohide
 
  
 nav:
@@ -46,6 +47,8 @@ nav:
         - "Julia nivel básico": julia/basico_julia.md
 
 markdown_extensions:
+    - pymdownx.superfences
+    - pymdownx.tabbed
     - smarty
     - sane_lists
     - admonition
@@ -55,13 +58,12 @@ markdown_extensions:
     - pymdownx.emoji:
         emoji_index: !!python/name:materialx.emoji.twemoji
         emoji_generator: !!python/name:materialx.emoji.to_svg
-    - pymdownx.tabbed
-    - pymdownx.superfences
     - pymdownx.highlight:
         linenums: True
     - pymdownx.keys
     - pymdownx.arithmatex:
         generic: true
+    - tables
 
 plugins:
     - search

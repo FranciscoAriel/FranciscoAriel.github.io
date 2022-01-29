@@ -306,8 +306,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#probabilidad-condicional-e-independencia" class="md-nav__link">
-    Probabilidad condicional e independencia
+  <a href="#probabilidad-condicional" class="md-nav__link">
+    Probabilidad condicional
   </a>
   
 </li>
@@ -329,12 +329,32 @@
     Variables aleatorias
   </a>
   
+    <nav class="md-nav" aria-label="Variables aleatorias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicion" class="md-nav__link">
+    Definición
+  </a>
+  
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#funcion-de-distribucion" class="md-nav__link">
     Función de distribución
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-de-densidad" class="md-nav__link">
+    Función de densidad
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -746,8 +766,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#probabilidad-condicional-e-independencia" class="md-nav__link">
-    Probabilidad condicional e independencia
+  <a href="#probabilidad-condicional" class="md-nav__link">
+    Probabilidad condicional
   </a>
   
 </li>
@@ -769,12 +789,32 @@
     Variables aleatorias
   </a>
   
+    <nav class="md-nav" aria-label="Variables aleatorias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicion" class="md-nav__link">
+    Definición
+  </a>
+  
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#funcion-de-distribucion" class="md-nav__link">
     Función de distribución
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-de-densidad" class="md-nav__link">
+    Función de densidad
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -812,15 +852,11 @@ Imagen de <a href="https://pixabay.com/es/users/tonic-pics-3001971/">ToNic-Pics<
 </div>
 <p>Estas definiciones a pesar de ser muy intuitivas, tienen grandes fallos. Por ejemplo, la primer definición es una definición circular, por que la frase <em>igualmente posible</em> es un sinónimo de <em>igualmente probable</em>, justo lo que se quiere definir. En la segunda definición no se especifican los valores de <span class="arithmatex">\(n\)</span>. Estas definiciones son muy antiguas, pero pueden ayudar a entender de forma muy general el concepto de <strong>probabilidad</strong>.</p>
 <p>Actualmente el estudio de la probabilidad se realiza mediante el uso de la teoría de conjuntos, a partir de ciertos axiomas.</p>
-<p>A continuación se presentarán algunas definiciones que serán de gran utilidad para conocer más de la probabilidad.</p>
 <h3 id="espacio-muestral-y-eventos">Espacio muestral y eventos<a class="headerlink" href="#espacio-muestral-y-eventos" title="Permanent link">&para;</a></h3>
+<p>A continuación se presentarán algunas definiciones que serán de gran utilidad para conocer más de la probabilidad.</p>
 <div class="admonition note">
 <p class="admonition-title">Espacio muestral</p>
 <p>El conjunto <span class="arithmatex">\(\Omega\)</span> de todos los resultados posibles de un experimento se denomina <strong>espacio muestral</strong>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Punto muestral</p>
-<p>Un elemento del espacio muestral <span class="arithmatex">\(\Omega\)</span> se denomina <strong>punto muestral</strong>. Es un resultado particular.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Evento</p>
@@ -828,20 +864,23 @@ Imagen de <a href="https://pixabay.com/es/users/tonic-pics-3001971/">ToNic-Pics<
 </div>
 <div class="admonition note">
 <p class="admonition-title">Evento particular</p>
-<p>El evento <span class="arithmatex">\(\lbrace a \rbrace\)</span> constituido por un solo punto <span class="arithmatex">\(a \in \Omega\)</span> se denomina <strong>evento muestral</strong>.</p>
+<p>El evento <span class="arithmatex">\(\lbrace \omega \rbrace\)</span> constituido por un solo punto <span class="arithmatex">\(\omega \in \Omega\)</span> se denomina <strong>evento muestral</strong> o <strong>punto muestral</strong>.</p>
 </div>
+<p>Los conceptos presentados se ilustran con un experimento muy simple.</p>
+<div class="admonition example">
+<p class="admonition-title">Lanzamiento de un dado</p>
 <p>Considere el experimento de lanzar un dado de 6 caras.</p>
+</div>
 <p><img alt="Representación espacio muestral dados" src="../img/dados.jpg" />
 Imagen de <a href="https://pixabay.com/es/users/anncapictures-1564471/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2031512">anncapictures</a> en <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2031512">Pixabay</a>.</p>
-<p>El espacio muestral estaría formado por los seis números posibles, es decir:</p>
+<p>El espacio muestral estaría formado por los seis resultados posibles del dado, es decir:</p>
 <div class="arithmatex">\[ \Omega = \lbrace 1,2,3,4,5,6 \rbrace \]</div>
-<p>Un <em>evento particular</em> podría ser un resultado en específico, por ejemplo <span class="arithmatex">\(\lbrace 1 \rbrace\)</span>. Todos los subconjuntos posibles de resultados consitituirían <span class="arithmatex">\(\mathbb{s}\)</span>.</p>
+<p>Un <em>punto muestral</em> podría ser un resultado en específico, por ejemplo <span class="arithmatex">\(\lbrace 1 \rbrace\)</span>. Todos los subconjuntos posibles de resultados consitituirían <span class="arithmatex">\(\mathbb{s}\)</span>.</p>
 <p>Sean el evento <span class="arithmatex">\(A\)</span> que el resultado sea par, el evento <span class="arithmatex">\(B\)</span> que el resultado sea impar y el evento <span class="arithmatex">\(C\)</span> que el resultado sea mayor a 3.</p>
-<p>Entonces se tiene que </p>
-<div class="arithmatex">\[A=\lbrace 2,4,6 \rbrace, \\
+<p>Entonces se tiene que</p>
+<p><span class="arithmatex">\(A=\lbrace 2,4,6 \rbrace, \\
 B=\lbrace 1,3,5 \rbrace, \\
-C=\lbrace 4,5,6 \rbrace
-\]</div>
+C=\lbrace 4,5,6 \rbrace\)</span></p>
 <p>Observe que el evento <span class="arithmatex">\(B \cup C = \lbrace 1,3,4,5,6\rbrace\)</span> también es un evento en el espacio muestral <span class="arithmatex">\(S\)</span>.</p>
 <h3 id="axiomas-de-probabilidad">Axiomas de probabilidad<a class="headerlink" href="#axiomas-de-probabilidad" title="Permanent link">&para;</a></h3>
 <p>Como se mencionó anteriormente, actualmente la probabilidad se estudia de manera formal partiendo de 3 axiomas.</p>
@@ -865,11 +904,16 @@ C=\lbrace 4,5,6 \rbrace
 <li>Para cualesquiera 2 eventos: <span class="arithmatex">\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)</span>.</li>
 <li>Si <span class="arithmatex">\(A \subset B\)</span>, entonces <span class="arithmatex">\(P(A) &lt; P(B)\)</span>.</li>
 </ul>
+<p>Para ilustrar estas ideas, considere el siguiente ejemplo.</p>
+<div class="admonition example">
+<p class="admonition-title">Función de probabilidad con probabilidades iguales</p>
 <p>En ciertos problemas con espacios muestrales finitos <span class="arithmatex">\(\Omega = \lbrace \omega_1,\dots,\omega_n\rbrace\)</span>, es posible asignarle a cada uno de los puntos una probabilidad igual a <span class="arithmatex">\(1/n\)</span>. A esta función de probabilidad se le conoce como la <strong>funcion de probabilidad con probabilidades iguales</strong> y se define como:</p>
-<div class="arithmatex">\[P^*(A)=\frac{\#(A)}{n}\]</div>
+<p><span class="arithmatex">\(P^*(A)=\frac{\#(A)}{n}\)</span></p>
 <p>donde <span class="arithmatex">\(\#(A)\)</span> es el número de elementos en <span class="arithmatex">\(A\)</span> y <span class="arithmatex">\(n\)</span> el número de elementos del espacio muestral <span class="arithmatex">\(\Omega\)</span>.</p>
+</div>
+<p>Se puede ver que la función de probabilidad cumple con todas las propiedades antes mencionadas, por lo que es posible calcular todas las probabilidades de varios eventos.</p>
 <p>En el ejemplo de los dados, se puede asumir que la probabilidad de que se obtenga un resultado en particular es <span class="arithmatex">\(1/6\)</span>, por lo que la probabilidad de que caiga un número par es <span class="arithmatex">\(P^*(A) = 1/2\)</span>.</p>
-<h3 id="probabilidad-condicional-e-independencia">Probabilidad condicional e independencia<a class="headerlink" href="#probabilidad-condicional-e-independencia" title="Permanent link">&para;</a></h3>
+<h3 id="probabilidad-condicional">Probabilidad condicional<a class="headerlink" href="#probabilidad-condicional" title="Permanent link">&para;</a></h3>
 <p>En ocasiones, es de interés conocer la probabilidad de un evento, dado que haya ocurrido otro. En este sentido, se define la probabilidad condicional.</p>
 <div class="admonition note">
 <p class="admonition-title">Probabilidad condicional</p>
@@ -887,16 +931,31 @@ C=\lbrace 4,5,6 \rbrace
 <li>Si <span class="arithmatex">\(A_1\)</span> y <span class="arithmatex">\(A_2 \in \mathbb{s}\)</span> y <span class="arithmatex">\(A_1 \subset A_2\)</span>, entonces <span class="arithmatex">\(P(A_1|B) \le P(A_2|B)\)</span>.</li>
 <li>Si <span class="arithmatex">\(A_1,A_2,\dots,A_n \in \mathbb{s}\)</span>, entonces <span class="arithmatex">\(P(A_1 \cup A_2 \cup \dots \cup A_n|B) \le \sum_{i=1}^{n}P(A_i|B)\)</span>.</li>
 </ul>
-<p>A continuación se mencionan unos teoremas de gran importancia</p>
+<p>A continuación se mencionan unos teoremas de gran importancia. La aplicación de dichos teoremas se ilustran con unos ejemplos</p>
 <div class="admonition note">
 <p class="admonition-title">Teorema de probabilidades totales</p>
 <p>Si <span class="arithmatex">\(B_1, B_2, \dots,B_n\)</span> es una colección de eventos mutuamente disjuntos en <span class="arithmatex">\(\mathbb{s}\)</span> y satisfacen <span class="arithmatex">\(\Omega = \cup^{n}_{j=1} B_j\)</span> y <span class="arithmatex">\(P(B_j)&gt;0\)</span> para <span class="arithmatex">\(j = 1,\dots,n\)</span>, entonces para toda <span class="arithmatex">\(A \in \mathbb{s}\)</span> se tiene <span class="arithmatex">\(P\left(A\right)=\sum^{n}_{j=1}P(A|B_j)P(B_j)\)</span>.</p>
 </div>
 <p><img alt="Probabilidad total" src="../img/prob_total.png" /></p>
+<div class="admonition example">
+<p class="admonition-title">Seleccionar una pelota de varias urnas</p>
+<p>Suponga que se tienen 2 urnas con pelotas de distintos colores todas del mismo tamaño. La primera tiene 3 pelotas rojas, 3 blancas y 4 negras; la segunda tiene 4 pelotas rojas, 3 blancas y 1 negra.</p>
+<p>Se selecciona una urna al azar y se extrae una pelota. ¿Cúal es la probabilidad de que la pelota extraída sea blanca?</p>
+</div>
+<p>Observe que la elección de las urnas constituyen 2 eventos mutuamente disjuntos ya que la unión de ambos eventos constituye el espacio muestral (Todas las pelotas están en la urna 1 o en la urna 2). Llamemos <span class="arithmatex">\(B_1\)</span> al evento de seleccionar la urna 1 y <span class="arithmatex">\(B_2\)</span> al evento de seleccionar la urna 2.</p>
+<p>El evento <em>extraer una pelota blanca</em> puede ocurrir cuando se elige la urna 1 o la urna 2, por lo que se puede aplicar la fórmula del teorema de probabilidades totales. Llamemos <span class="arithmatex">\(A\)</span> al evento de seleccionar una pelota blanca.</p>
+<p>Por lo tanto</p>
+<p><span class="arithmatex">\(P\left(A\right)=\sum^{2}_{j=1}P(A|B_j)P(B_j)=P(A|B_1)P(B_1)+P(A|B_2)P(B_2)\)</span></p>
+<p>Asumiendo probabilidades iguales, se tiene que <span class="arithmatex">\(P(B_1)=P(B_2)=1/2\)</span>, <span class="arithmatex">\(P(A|B_1)=3/10\)</span> y <span class="arithmatex">\(P(A|B_2)=3/8\)</span>, por lo que la probabilidad de elegir una pelota blanca es <strong>0.3375</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Teorema de Bayes</p>
 <p>Si <span class="arithmatex">\(B_1, B_2, \dots,B_n\)</span> es una colección de eventos mutuamente disjuntos en <span class="arithmatex">\(\mathbb{s}\)</span> y satisfacen <span class="arithmatex">\(\Omega = \cup^{n}_{j=1} B_j\)</span> y <span class="arithmatex">\(P(B_j)&gt;0\)</span> para <span class="arithmatex">\(j = 1,\dots,n\)</span>, entonces para toda <span class="arithmatex">\(A \in \mathbb{s}\)</span> con <span class="arithmatex">\(P(A)&gt;0\)</span> se tiene <span class="arithmatex">\(P\left(B_k|A\right)=\frac{P(A|B_k)P(B_k)}{\sum^{n}_{j=1}P(A|B_j)P(B_j)}\)</span>.</p>
 </div>
+<div class="admonition example">
+<p class="admonition-title">Seleccionar una pelota de varias urnas</p>
+<p>Considérese el problema de las urnas. Sabiendo que la pelota extraída fue blanca, ¿cuál es la probabilidad de que fuera de la primera urna?</p>
+</div>
+<p>Se debe calcular la probabilidad <span class="arithmatex">\(P(B_1|A)\)</span>. Usando el teorema de Bayes, simplemente se susituye en la fórmula y se obtiene la probabilidad resultante es <strong> 0.4444</strong>.</p>
 <h3 id="independencia-de-eventos">Independencia de eventos<a class="headerlink" href="#independencia-de-eventos" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Eventos independientes</p>
@@ -916,9 +975,25 @@ C=\lbrace 4,5,6 \rbrace
 <p class="admonition-title">Independencia y eventos disjuntos</p>
 <p>No debe confundirse los términos <strong>eventos independientes</strong> y <strong>eventos disjuntos</strong>. De hecho, los eventos disjuntos suelen ser muy dependientes por que la ocurrencia de uno implica la no ocurrencia del otro. El único evento que es independiente y ajeno es el vacío <span class="arithmatex">\(\emptyset\)</span>.</p>
 </div>
+<p>Estos conceptos se ilustran con el siguiente ejemplo.</p>
+<div class="admonition example">
+<p class="admonition-title">Lanzar dos dados</p>
+<p>Considere el experimento de lanzar 2 dados balanceados. El evento <span class="arithmatex">\(A\)</span> sería el resultado de lanzar el primer dado y el evento <span class="arithmatex">\(B\)</span> el resultado de lanzar el segundo dado. <strong>¿Los eventos</strong> <span class="arithmatex">\(A\)</span> <strong>y</strong> <span class="arithmatex">\(B\)</span> <strong>son independientes?</strong>.</p>
+</div>
+<p>El espacio muestral estaría constituido por 36 pares de resultados posibles.</p>
+<p><span class="arithmatex">\(\Omega = \lbrace (1,1),(1,2),\dots,(6,6) \rbrace\)</span></p>
+<p>Cada uno con una probabilidad de 1/36.</p>
+<p>Para comprobar si son eventos independientes, se comprobará si se cumple al menos una de las 3 condiciones mencionadas en la definición, en este caso <span class="arithmatex">\(P(A|B) = P(A)\)</span>.</p>
+<p>Consideremos el caso cuando el resultado del primer dado es 3. Note que <span class="arithmatex">\(A=  \lbrace (3,1),(3,2),\dots,(3,6) \rbrace\)</span> y su probabilidad es <span class="arithmatex">\(6/36 = 1/6\)</span>.</p>
+<p>Ahora consideremos el caso cuando el resultado del segundo dado es 3. Note que <span class="arithmatex">\(B=  \lbrace (1,3),(2,3),\dots,(6,3) \rbrace\)</span> y su probabilidad es <span class="arithmatex">\(6/36 = 1/6\)</span>.</p>
+<p>Para calcular la probabilidad condicional, primero se debe calcular la probabilidad de que ocurran ambos eventos, es decir, el caso cuando el resultado del primer dado es 3 <em>y</em> el caso cuando el resultado del segundo dado es 3, el único caso en que ocurre esto es en el par <span class="arithmatex">\(\lbrace (3,3) \rbrace\)</span>, por lo que <span class="arithmatex">\(P(A \cap B) = 1/36\)</span>.</p>
+<p>Por lo tanto,</p>
+<p><span class="arithmatex">\(P(A|B)=\frac{P(A \cap B)}{P(B)}=\frac{1/36}{1/6}=1/6\)</span></p>
+<p>Se comprueba que ambos eventos son independientes.</p>
 <h2 id="variables-aleatorias">Variables aleatorias<a class="headerlink" href="#variables-aleatorias" title="Permanent link">&para;</a></h2>
 <p>Hasta el momento conocemos cómo asignar probabilidades a eventos del espacio muestral, sin embargo en la práctica esto no siempre es posible ya que sería complicado mencionar o enumerar todos los elementos del espacio muestral.</p>
-<p>Por esta razón es necesario &ldquo;traducir&rdquo; dichos eventos a números reales.</p>
+<p>Por esta razón es necesario &ldquo;traducir&rdquo; dichos eventos a números reales. Esto es posible mediante el uso de <em>variables aleatorias</em>.</p>
+<h3 id="definicion">Definición<a class="headerlink" href="#definicion" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Variable aleatoria</p>
 <p>Se dice que <span class="arithmatex">\(X\)</span> es una variable aleatoria si</p>
@@ -926,11 +1001,143 @@ C=\lbrace 4,5,6 \rbrace
 <p>Si <span class="arithmatex">\(\omega \in \Omega\)</span> entonces <span class="arithmatex">\(X(\omega) \in \mathbb{R}\)</span>. Si <span class="arithmatex">\(B \subset \mathbb{R}\)</span> entonces <span class="arithmatex">\(X^{-1}(B) \in \mathbb{s}\)</span>, donde <span class="arithmatex">\(X^{-1}(B)=\lbrace \omega \in \Omega |X(\omega) \in B\rbrace\)</span>. </p>
 </div>
 <p>Una <strong>variable aleatoria</strong> asigna números reales a los eventos que ocurren en <span class="arithmatex">\(\Omega\)</span>.</p>
-<h2 id="funcion-de-distribucion">Función de distribución<a class="headerlink" href="#funcion-de-distribucion" title="Permanent link">&para;</a></h2>
+<p>Existen dos tipos de variables aleatorias: <em>discretas</em> y <em>continuas</em>.</p>
+<p>Las variables aleatorias discretas toman sus valores en un conjunto finito o numerable, por ejemplo, el conjunto de los números naturales <span class="arithmatex">\(\mathbb{N}\)</span>. A este conjunto de valores se le conoce como <em>conjunto de valores posibles</em> o <span class="arithmatex">\(D_X\)</span>.</p>
+<p>Las variables aleatorias continuas, por el contrario, toman sus valores en el conjunto de los números reales <span class="arithmatex">\(\mathbb{R}\)</span>.</p>
+<div class="admonition example">
+<p class="admonition-title">Lanzar una moneda 3 veces</p>
+<p>Supóngase que se lanza una moneda 3 veces y se quiere saber la probabilidad del evento &ldquo;que caiga águila&rdquo;, es decir, es de nuestro interés conocer el número de águilas.</p>
+</div>
+<p>Se puede ver que el espacio muestral del experimento es <span class="arithmatex">\(\Omega = \lbrace (A,A,A),\dots,(S,S,S) \rbrace\)</span>. Por lo que se le puede asignar la siguiente variable aleatoria.</p>
+<p>La función o regla de asignación de nuestra variable aleatoria, será <strong>el número de águilas que cayeron en 3 lanzamientos de moneda</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Evento muestral <span class="arithmatex">\(\omega\)</span></th>
+<th>Variable aleatoria <span class="arithmatex">\(X(\omega)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\((S,S,S)\)</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((A,S,S)\)</span></td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((S,A,S)\)</span></td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((S,S,A)\)</span></td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((S,A,A)\)</span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((A,S,A)\)</span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((A,A,S)\)</span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\((A,A,A)\)</span></td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Además si se supone que la moneda es <em>honesta</em>, se le puede asignar la siguiente función de probabilidad.</p>
+<table>
+<thead>
+<tr>
+<th>Evento (<span class="arithmatex">\(A\)</span>)</th>
+<th><span class="arithmatex">\(X\)</span></th>
+<th>Probabilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ningún águila</td>
+<td>0</td>
+<td>1/8</td>
+</tr>
+<tr>
+<td>Un águila</td>
+<td>1</td>
+<td>3/8</td>
+</tr>
+<tr>
+<td>Dos águilas</td>
+<td>2</td>
+<td>3/8</td>
+</tr>
+<tr>
+<td>Tres águilas</td>
+<td>3</td>
+<td>1/8</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Duración de una llamada telefónica</p>
+<p>Hasta el momento únicamente se han considerado espacios muestrales finitos, con el fin de enumerarlos. Sin embargo existen casos en los que es imposible numerarlos a todos, pero si es posible mencionarlos.</p>
+<p>Considere una llamada telefónica medida en minutos y segundos. ¿Cuanto tiempo podría durar una llamada telefónica? Podria tardar desde un segundo hasta horas, por lo que no es posible enumerar el espacio muestral.</p>
+</div>
+<p>El tiempo de la llamada podría ser medido en minutos y podría ser considerado una variable aleatoria continua.</p>
+<p>Posteriormente se conocerá un modelo que describa el comportamiento que suelen tener este tipo de eventos y se podrá usar para calcular probabilidades del tipo <span class="arithmatex">\(P(X \le 5)\)</span>.</p>
+<h3 id="funcion-de-distribucion">Función de distribución<a class="headerlink" href="#funcion-de-distribucion" title="Permanent link">&para;</a></h3>
+<p>Para describir el comportamiento de una variable aleatoria, se debe conocer cómo se comportan sus probabilidades, esto puede realizarse mediante la <strong>función de distribución</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Función de distribución</p>
-<p>La función de distribución de una variable aleatoria <span class="arithmatex">\(X\)</span> se define como</p>
+<p>La función de distribución de una variable aleatoria <span class="arithmatex">\(X\)</span> se define como <span class="arithmatex">\(F_x:\mathbb{R} \rightarrow [0,1]\)</span> tal que</p>
+<p><span class="arithmatex">\( F_X(x) = P(X \le x) = P(\lbrace \omega : X(\omega) \le x \rbrace) \)</span></p>
 </div>
+<p>Una función de distribución definida es única para cada variable aleatoria y siempre existirá, es importante conocerla porque con ella se pueden calcular probabilidades de la variable aleatoria.</p>
+<p>A continuación se enuncian sus propiedades:</p>
+<ol>
+<li><span class="arithmatex">\(F_X(-\infty) = \lim_{x \to -\infty} F_X(x) = 0\)</span> y <span class="arithmatex">\(F_X(\infty) = \lim_{x \to \infty} F_X(x) = 1\)</span></li>
+<li>Es monótona creciente, es decir, para toda <span class="arithmatex">\(a &lt; b\)</span> entonces <span class="arithmatex">\(F_X(a) \le F_X(b)\)</span>.</li>
+<li>Es continua por la derecha, esto es <span class="arithmatex">\(\lim_{0&lt; h \to 0} F_X(x+h) = F_X(x)\)</span></li>
+</ol>
+<p>Algunos autores también se refieren a esta función como <strong>Función de distribución acumulada</strong>.</p>
+<div class="admonition example">
+<p class="admonition-title">Lanzar 3 monedas</p>
+<p>Considérese el ejemplo del lanzamiento de las 3 monedas. Sea <span class="arithmatex">\(X\)</span> el número de águilas en 3 lanzamientos.</p>
+</div>
+<p>La función de distribución es la siguiente:</p>
+<p><span class="arithmatex">\(F_X(x)=\begin{cases}
+0 &amp; \text{ si } x &lt; 0\\
+1/8 &amp; \text{ si } 0 \le x &lt; 1 \\ 
+1/2 &amp; \text{ si } 1  \le x &lt; 2 \\
+7/8 &amp; \text{ si } 2  \le x &lt; 3 \\
+1 &amp; \text{ si }  3 \le x
+\end{cases}\)</span></p>
+<p>A continuación se muestra una representación gráfica de la función.</p>
+<p><img alt="Distribución de X" src="../img/F_X.png" /></p>
+<div class="admonition example">
+<p class="admonition-title">Función de distribución continua</p>
+<p>Para las variables aleatorias continuas, la forma de la función de distribución es un poco distinta, pero sigue cumpliendo las mismas propiedades.</p>
+</div>
+<p>A continuación se representa una función de distribución acumulada de la variable aleatoria <span class="arithmatex">\(X\)</span>.</p>
+<p><span class="arithmatex">\(F_X(x)=\begin{cases}
+0 &amp; \text{ si } x \le 0\\
+1-e^{-x} &amp; \text{ si } 0 &lt; x
+\end{cases}\)</span></p>
+<p><img alt="Función de distribución continua" src="../img/F_X2.png" /></p>
+<p>En este caso, se puede ver que la probabilidad de que la variable aleatoria sea <span class="arithmatex">\(X\)</span> menor a cero es 0, ya que el soporte de la distribución son los números reales positivos.</p>
+<p>Como puede apreciarse, conociendo la función de distribución es posible obtener las probabilidades de cualquier evento, simplemente evaluando los valores en la función, por ejemplo:</p>
+<ul>
+<li><span class="arithmatex">\(P(X &lt; 2) = 1-e^{-2}=0.8646\)</span></li>
+<li><span class="arithmatex">\(P(X &gt; 5) = 1-(1-e^{-5})=0.0067\)</span></li>
+<li><span class="arithmatex">\(P(1&lt;X&lt;3)=P(X&lt;3)-P(X&lt;1)=0.3180\)</span></li>
+</ul>
+<h3 id="funcion-de-densidad">Función de densidad<a class="headerlink" href="#funcion-de-densidad" title="Permanent link">&para;</a></h3>
 
               
             </article>
@@ -1040,7 +1247,7 @@ C=\lbrace 4,5,6 \rbrace
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js", "version": 0.5}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js", "version": 0.5}</script>
     
     
       <script src="../../assets/javascripts/bundle.01de222e.min.js"></script>

@@ -9,7 +9,7 @@ date: 2022-01-26
 En esta sección se abarcará el tema de series de tiempo.
 
 ![Representación de una serie en los negocios](img/stock.jpg)
-Imagen de [geralt](https://pixabay.com/es/users/geralt-9301/) en [pixabay](pixabay.com).
+Imagen de [geralt](https://pixabay.com/es/users/geralt-9301/) en [pixabay](https://pixabay.com/).
 
 Las series de tiempo se usan en diversos campos del conocimiento, por ejemplo en economía. Sin embargo actualmente es común encontrar aplicaciones en prácticamente cualquier área.
 
