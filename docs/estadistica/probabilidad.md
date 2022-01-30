@@ -307,3 +307,35 @@ Como puede apreciarse, conociendo la función de distribución es posible obtene
 - $P(1<X<3)=P(X<3)-P(X<1)=0.3180$
 
 ### Función de densidad
+
+Otra función relacionada con las variables aleatorias es la función de densidad.
+
+A diferencia de la función de distribución, esta función es distinta según si la variable aleatoria es discreta o continua.
+
+!!! note "Función de densidad de una variable aleatoria discreta"
+    Si $X$ es una variable aleatoria discreta con $D_x = x_1,x_2,\dots$ entonces
+
+    \(f_X(x)=\begin{cases}
+    P(X=x_j) & \text{ si } x \in D_x\\
+    0 & \text{ cualquier otro caso.}  
+    \end{cases}\)
+
+    es la *función de densidad discreta* de $X$.
+
+!!! tip "Otros nombres"
+    Algunos autores tambien conocen a esta función como *función de masa de probabilidad* o *función de probabilidad* y en ocasiones la denotan como $p_X(x)$.
+
+Una propiedad interesante de esta función es que $F_X(x)$ se puede obtener a partir de $f_X(x)$ y viceversa.
+
+!!! example "Lanzar 3 monedas"
+    Considere el ejemplo de las 3 monedas. Conociendo $F_X(x)$, se puede conocer $f_X(x)$.
+
+La función de densidad $f_X(x)$, puede obtenerse mediante
+
+\(f_X(x_j)=F_X(x_j)-\lim_{0 < h \to 0} F_X(x-h)\)
+
+para cada valor posible $x_j \in D_x$. Note que $f_X(x) = 0$ cuando $x \ne x_j$.
+
+Por otro lado
+
+\(F_X(x)=\sum_{\lbrace j: x_j < x \rbrace} f_X(x_j)\)

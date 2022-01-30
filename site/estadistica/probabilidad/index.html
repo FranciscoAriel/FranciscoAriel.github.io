@@ -1138,6 +1138,31 @@ C=\lbrace 4,5,6 \rbrace\)</span></p>
 <li><span class="arithmatex">\(P(1&lt;X&lt;3)=P(X&lt;3)-P(X&lt;1)=0.3180\)</span></li>
 </ul>
 <h3 id="funcion-de-densidad">Función de densidad<a class="headerlink" href="#funcion-de-densidad" title="Permanent link">&para;</a></h3>
+<p>Otra función relacionada con las variables aleatorias es la función de densidad.</p>
+<p>A diferencia de la función de distribución, esta función es distinta según si la variable aleatoria es discreta o continua.</p>
+<div class="admonition note">
+<p class="admonition-title">Función de densidad de una variable aleatoria discreta</p>
+<p>Si <span class="arithmatex">\(X\)</span> es una variable aleatoria discreta con <span class="arithmatex">\(D_x = x_1,x_2,\dots\)</span> entonces</p>
+<p><span class="arithmatex">\(f_X(x)=\begin{cases}
+P(X=x_j) &amp; \text{ si } x \in D_x\\
+0 &amp; \text{ cualquier otro caso.}  
+\end{cases}\)</span></p>
+<p>es la <em>función de densidad discreta</em> de <span class="arithmatex">\(X\)</span>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Otros nombres</p>
+<p>Algunos autores tambien conocen a esta función como <em>función de masa de probabilidad</em> o <em>función de probabilidad</em> y en ocasiones la denotan como <span class="arithmatex">\(p_X(x)\)</span>.</p>
+</div>
+<p>Una propiedad interesante de esta función es que <span class="arithmatex">\(F_X(x)\)</span> se puede obtener a partir de <span class="arithmatex">\(f_X(x)\)</span> y viceversa.</p>
+<div class="admonition example">
+<p class="admonition-title">Lanzar 3 monedas</p>
+<p>Considere el ejemplo de las 3 monedas. Conociendo <span class="arithmatex">\(F_X(x)\)</span>, se puede conocer <span class="arithmatex">\(f_X(x)\)</span>.</p>
+</div>
+<p>La función de densidad <span class="arithmatex">\(f_X(x)\)</span>, puede obtenerse mediante</p>
+<p><span class="arithmatex">\(f_X(x_j)=F_X(x_j)-\lim_{0 &lt; h \to 0} F_X(x-h)\)</span></p>
+<p>para cada valor posible <span class="arithmatex">\(x_j \in D_x\)</span>. Note que <span class="arithmatex">\(f_X(x) = 0\)</span> cuando <span class="arithmatex">\(x \ne x_j\)</span>.</p>
+<p>Por otro lado</p>
+<p><span class="arithmatex">\(F_X(x)=\sum_{\lbrace j: x_j &lt; x \rbrace} f_X(x_j)\)</span></p>
 
               
             </article>
