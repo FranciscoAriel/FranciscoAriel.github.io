@@ -283,13 +283,15 @@ Para describir el comportamiento de una variable aleatoria, se debe conocer cóm
 
 Una función de distribución definida es única para cada variable aleatoria y siempre existirá, es importante conocerla porque con ella se pueden calcular probabilidades de la variable aleatoria.
 
-A continuación se enuncian sus propiedades:
+A continuación se enuncian sus propiedades en general:
 
 1. $F_X(-\infty) = \lim_{x \to -\infty} F_X(x) = 0$ y $F_X(\infty) = \lim_{x \to \infty} F_X(x) = 1$
 2. Es monótona creciente, es decir, para toda $a < b$ entonces $F_X(a) \le F_X(b)$.
 3. Es continua por la derecha, esto es $\lim_{0< h \to 0} F_X(x+h) = F_X(x)$
 
-Algunos autores también se refieren a esta función como **Función de distribución acumulada** (Mood et al., 1974).
+Algunos autores también se refieren a esta función como **Función de distribución acumulada** (Mood et al., 1974).
+
+Note que la definición no menciona nada acerca de la forma que podría tener la función de distribución. En los siguientes ejemplos se indagará un poco en el comportamiento para algunos casos.
 
 ??? example "Lanzar 3 monedas"
     Considérese el ejemplo del lanzamiento de las 3 monedas. Sea $X$ el número de águilas en 3 lanzamientos.
@@ -309,10 +311,10 @@ Algunos autores también se refieren a esta función como **Función de distribu
     ![Distribución de X](img/F_X.png)
     Representación gráfica de la distribución de $X$.
 
-??? example "Función de distribución continua"
+??? example "Duración de una llamada telefónica"
     Para las variables aleatorias continuas, la forma de la función de distribución es un poco distinta, pero sigue cumpliendo las mismas propiedades.
 
-    A continuación se representa una función de distribución acumulada de la variable aleatoria $X$.
+    A continuación se representa una función de distribución acumulada de la variable aleatoria $X$ que podría ser usada para modelar la duración de las llamadas telefónicas.
     
     \(F_X(x)=\begin{cases}
     0 & \text{ si } x \le 0\\
@@ -334,7 +336,9 @@ Algunos autores también se refieren a esta función como **Función de distribu
 
 Otra función relacionada con las variables aleatorias es la función de densidad.
 
-A diferencia de la función de distribución, esta función es distinta según si la variable aleatoria es discreta o continua.
+A diferencia de la función de distribución, esta función es distinta según si la variable aleatoria es discreta o continua. Primero se definirá para el caso discreto y posteriermente para el caso continuo.
+
+#### Función de densidad de variables aleatorias discretas
 
 !!! note "Función de densidad de una variable aleatoria discreta"
     Si $X$ es una variable aleatoria discreta con $D_x = x_1,x_2,\dots$ entonces
@@ -346,8 +350,11 @@ A diferencia de la función de distribución, esta función es distinta según s
 
     es la *función de densidad discreta* de $X$.
 
+!!! tip "Función indicadora"
+    En ocasiones se usa la función indicadora $I_{\lbrace D_x \rbrace}(x)=1 \text{ si } x \in D_x \text{ y } I_{\lbrace D_x \rbrace}(x)=0 \text{ si } x \notin D_x$ para expresar la función de densidad en una sola línea.
+
 !!! tip "Otros nombres"
-    Algunos autores tambien conocen a esta función como *función de masa de probabilidad* o *función de probabilidad* y en ocasiones la denotan como $p_X(x)$ (Mood et al., 1974).
+    Algunos autores tambien conocen a esta función como _función de masa de probabilidad_ o _función de probabilidad_ y en ocasiones la denotan como $p_X(x)$ (Mood et al., 1974).
 
 Una propiedad interesante de esta función es que $F_X(x)$ se puede obtener a partir de $f_X(x)$ y viceversa.
 
@@ -360,11 +367,76 @@ Una propiedad interesante de esta función es que $F_X(x)$ se puede obtener a pa
 
     para cada valor posible $x_j \in D_x$. Note que $f_X(x) = 0$ cuando $x \ne x_j$.
 
+    Por ejemplo, si $x_j=0$ y $h = 0.0001$, al usar la fórmula anterior se tiene que
+
+     \(f_X(0)=F_X(0)- F_X(-0.0001)= 1/8-0= 1/8\)
+
+     y se hace lo mismo para los demás puntos en $D_x$.
+
     Por otro lado:
 
-    \(F_X(x)=\sum_{\lbrace j: x_j < x \rbrace} f_X(x_j)\)
+    \(F_X(x)=\sum_{\lbrace j: x_j < x \rbrace} f_X(x_j)\).
+
+    En este caso si $x=1.5$, entonces
+
+    \(F_X(1.5)=\sum_{\lbrace j: x_j < 1.5 \rbrace} f_X(x_j)=f_X(0)+f_X(0)=1/8+3/8=1/2\).
 
     Con esto se comprueba la propiedad para el caso de variables aleatorias discretas.
+
+Las propiedades de la función de densidad son las siguientes.
+
+!!! note "Propiedades de la función de densidad de una variabla aleatoria discreta"
+    Cualquier función $f(x)$ con dominio en $\mathbb{R}$ y contradominio en $[0,1]$ es una _función de densidad_ si para algún conjunto contable $D = \lbrace x_1,x_2,\dots \rbrace$
+
+    1. $f(x_j) > 0$ para $j = 1,2,\dots$
+    2. $f(x) = 0$ para $x \ne x_j$ con $j = 1,2,\dots$
+    3. $\sum_{D}f(x_j) = 1$
+
+#### Función de densidad de variables aleatorias continuas
+
+!!! note "Función de densidad de una variable aleatoria continua"
+    Si $X$ es una variable aleatoria continua, entonces _si existe_ una función $f_X(x)$ tal que
+
+    \(F_X(x)=\int_{-\infty}^{x}f_X(u)du\)
+
+    es llamada la _función de densidad_ de $X$.
+
+!!! tip "Función indicadora"
+    En ocasiones se usa la función indicadora $I_{(a,b)}(x)=1 \text{ si } x \in (a,b) \text{ y } I_{(a,b)}(x)=0 \text{ si } x \notin (a,b)$ para expresar la función de densidad en una sola línea.
+
+!!! tip "Otros nombres"
+    Algunos autores tambien conocen a esta función como _función de densidad coninua_ o _función de densidad integrada_ (Mood et al., 1974).
+
+Una propiedad interesante de la función de densidad $f_X(x)$ es que, si existe la función, es posible obtenerla a partir de $F_X(x)$ y viceversa.
+
+??? example "Duración de una llamada telefónica"
+    Usando el teorema fundamental del cálculo, se puede probar la propiedad anterior. Se ilustrará para el ejemplo de la duración de las llamadas telefónicas.
+
+    Supóngase que la función de distribución para modelar la duración de las llamadas telefónicas es
+
+    \(F_X(x)=\begin{cases}
+    0 & \text{ si } x \le 0\\
+    1-e^{-x} & \text{ si } 0 < x
+    \end{cases}\)
+
+    Note que $F_X(x)$ está definida en dos partes, por lo que la función no es _absolutamente continua_ en cero, por lo que solo será diferenciable en el intervalo de los reales positivos.
+
+    \(f_X(x)=\frac{d F_X(x)}{dx} = \frac{d 1-e^{-x}}{dx}=-\frac{d e^{-x}}{dx}=e^{-x}\)
+
+    es decir
+
+    \( f_X(x)=e^{-x}I_{(0,\infty)}(x)\).
+
+    Por otro lado, note que
+
+    \( F_X(x)=\int_{-\infty}^{x}e^{-u}du=\int_{0}^{x}e^{-u}du=1-e^{-x}\),
+
+    es decir
+
+    \( F_X(x)=1-e^{-x}I_{(0,\infty)}(x)\).
+
+    Comprobandose así la propiedad.
+
 
 ## Referencias
 

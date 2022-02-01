@@ -351,6 +351,26 @@
     Función de densidad
   </a>
   
+    <nav class="md-nav" aria-label="Función de densidad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-de-densidad-de-variables-aleatorias-discretas" class="md-nav__link">
+    Función de densidad de variables aleatorias discretas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-de-densidad-de-variables-aleatorias-continuas" class="md-nav__link">
+    Función de densidad de variables aleatorias continuas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -818,6 +838,26 @@
     Función de densidad
   </a>
   
+    <nav class="md-nav" aria-label="Función de densidad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-de-densidad-de-variables-aleatorias-discretas" class="md-nav__link">
+    Función de densidad de variables aleatorias discretas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-de-densidad-de-variables-aleatorias-continuas" class="md-nav__link">
+    Función de densidad de variables aleatorias continuas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1129,13 +1169,14 @@ Representación gráfica del concepto de probabilidad total</p>
 <p><span class="arithmatex">\( F_X(x) = P(X \le x) = P(\lbrace \omega : X(\omega) \le x \rbrace) \)</span></p>
 </div>
 <p>Una función de distribución definida es única para cada variable aleatoria y siempre existirá, es importante conocerla porque con ella se pueden calcular probabilidades de la variable aleatoria.</p>
-<p>A continuación se enuncian sus propiedades:</p>
+<p>A continuación se enuncian sus propiedades en general:</p>
 <ol>
 <li><span class="arithmatex">\(F_X(-\infty) = \lim_{x \to -\infty} F_X(x) = 0\)</span> y <span class="arithmatex">\(F_X(\infty) = \lim_{x \to \infty} F_X(x) = 1\)</span></li>
 <li>Es monótona creciente, es decir, para toda <span class="arithmatex">\(a &lt; b\)</span> entonces <span class="arithmatex">\(F_X(a) \le F_X(b)\)</span>.</li>
 <li>Es continua por la derecha, esto es <span class="arithmatex">\(\lim_{0&lt; h \to 0} F_X(x+h) = F_X(x)\)</span></li>
 </ol>
-<p>Algunos autores también se refieren a esta función como <strong>Función de distribución acumulada</strong> (Mood et al., 1974).</p>
+<p>Algunos autores también se refieren a esta función como <strong>Función de distribución acumulada</strong> (Mood et al., 1974).</p>
+<p>Note que la definición no menciona nada acerca de la forma que podría tener la función de distribución. En los siguientes ejemplos se indagará un poco en el comportamiento para algunos casos.</p>
 <details class="example">
 <summary>Lanzar 3 monedas</summary>
 <p>Considérese el ejemplo del lanzamiento de las 3 monedas. Sea <span class="arithmatex">\(X\)</span> el número de águilas en 3 lanzamientos.</p>
@@ -1152,9 +1193,9 @@ Representación gráfica del concepto de probabilidad total</p>
 Representación gráfica de la distribución de <span class="arithmatex">\(X\)</span>.</p>
 </details>
 <details class="example">
-<summary>Función de distribución continua</summary>
+<summary>Duración de una llamada telefónica</summary>
 <p>Para las variables aleatorias continuas, la forma de la función de distribución es un poco distinta, pero sigue cumpliendo las mismas propiedades.</p>
-<p>A continuación se representa una función de distribución acumulada de la variable aleatoria <span class="arithmatex">\(X\)</span>.</p>
+<p>A continuación se representa una función de distribución acumulada de la variable aleatoria <span class="arithmatex">\(X\)</span> que podría ser usada para modelar la duración de las llamadas telefónicas.</p>
 <p><span class="arithmatex">\(F_X(x)=\begin{cases}
 0 &amp; \text{ si } x \le 0\\
 1-e^{-x} &amp; \text{ si } 0 &lt; x
@@ -1171,7 +1212,8 @@ Representación de la función de distribución <span class="arithmatex">\(F_X(x
 </details>
 <h3 id="funcion-de-densidad">Función de densidad<a class="headerlink" href="#funcion-de-densidad" title="Permanent link">&para;</a></h3>
 <p>Otra función relacionada con las variables aleatorias es la función de densidad.</p>
-<p>A diferencia de la función de distribución, esta función es distinta según si la variable aleatoria es discreta o continua.</p>
+<p>A diferencia de la función de distribución, esta función es distinta según si la variable aleatoria es discreta o continua. Primero se definirá para el caso discreto y posteriermente para el caso continuo.</p>
+<h4 id="funcion-de-densidad-de-variables-aleatorias-discretas">Función de densidad de variables aleatorias discretas<a class="headerlink" href="#funcion-de-densidad-de-variables-aleatorias-discretas" title="Permanent link">&para;</a></h4>
 <div class="admonition note">
 <p class="admonition-title">Función de densidad de una variable aleatoria discreta</p>
 <p>Si <span class="arithmatex">\(X\)</span> es una variable aleatoria discreta con <span class="arithmatex">\(D_x = x_1,x_2,\dots\)</span> entonces</p>
@@ -1182,8 +1224,12 @@ P(X=x_j) &amp; \text{ si } x \in D_x\\
 <p>es la <em>función de densidad discreta</em> de <span class="arithmatex">\(X\)</span>.</p>
 </div>
 <div class="admonition tip">
+<p class="admonition-title">Función indicadora</p>
+<p>En ocasiones se usa la función indicadora <span class="arithmatex">\(I_{\lbrace D_x \rbrace}(x)=1 \text{ si } x \in D_x \text{ y } I_{\lbrace D_x \rbrace}(x)=0 \text{ si } x \notin D_x\)</span> para expresar la función de densidad en una sola línea.</p>
+</div>
+<div class="admonition tip">
 <p class="admonition-title">Otros nombres</p>
-<p>Algunos autores tambien conocen a esta función como <em>función de masa de probabilidad</em> o <em>función de probabilidad</em> y en ocasiones la denotan como <span class="arithmatex">\(p_X(x)\)</span> (Mood et al., 1974).</p>
+<p>Algunos autores tambien conocen a esta función como <em>función de masa de probabilidad</em> o <em>función de probabilidad</em> y en ocasiones la denotan como <span class="arithmatex">\(p_X(x)\)</span> (Mood et al., 1974).</p>
 </div>
 <p>Una propiedad interesante de esta función es que <span class="arithmatex">\(F_X(x)\)</span> se puede obtener a partir de <span class="arithmatex">\(f_X(x)\)</span> y viceversa.</p>
 <details class="example">
@@ -1192,9 +1238,58 @@ P(X=x_j) &amp; \text{ si } x \in D_x\\
 <p>La función de densidad <span class="arithmatex">\(f_X(x)\)</span>, puede obtenerse mediante</p>
 <p><span class="arithmatex">\(f_X(x_j)=F_X(x_j)-\lim_{0 &lt; h \to 0} F_X(x-h)\)</span></p>
 <p>para cada valor posible <span class="arithmatex">\(x_j \in D_x\)</span>. Note que <span class="arithmatex">\(f_X(x) = 0\)</span> cuando <span class="arithmatex">\(x \ne x_j\)</span>.</p>
+<p>Por ejemplo, si <span class="arithmatex">\(x_j=0\)</span> y <span class="arithmatex">\(h = 0.0001\)</span>, al usar la fórmula anterior se tiene que</p>
+<p><span class="arithmatex">\(f_X(0)=F_X(0)- F_X(-0.0001)= 1/8-0= 1/8\)</span></p>
+<p>y se hace lo mismo para los demás puntos en <span class="arithmatex">\(D_x\)</span>.</p>
 <p>Por otro lado:</p>
-<p><span class="arithmatex">\(F_X(x)=\sum_{\lbrace j: x_j &lt; x \rbrace} f_X(x_j)\)</span></p>
+<p><span class="arithmatex">\(F_X(x)=\sum_{\lbrace j: x_j &lt; x \rbrace} f_X(x_j)\)</span>.</p>
+<p>En este caso si <span class="arithmatex">\(x=1.5\)</span>, entonces</p>
+<p><span class="arithmatex">\(F_X(1.5)=\sum_{\lbrace j: x_j &lt; 1.5 \rbrace} f_X(x_j)=f_X(0)+f_X(0)=1/8+3/8=1/2\)</span>.</p>
 <p>Con esto se comprueba la propiedad para el caso de variables aleatorias discretas.</p>
+</details>
+<p>Las propiedades de la función de densidad son las siguientes.</p>
+<div class="admonition note">
+<p class="admonition-title">Propiedades de la función de densidad de una variabla aleatoria discreta</p>
+<p>Cualquier función <span class="arithmatex">\(f(x)\)</span> con dominio en <span class="arithmatex">\(\mathbb{R}\)</span> y contradominio en <span class="arithmatex">\([0,1]\)</span> es una <em>función de densidad</em> si para algún conjunto contable <span class="arithmatex">\(D = \lbrace x_1,x_2,\dots \rbrace\)</span></p>
+<ol>
+<li><span class="arithmatex">\(f(x_j) &gt; 0\)</span> para <span class="arithmatex">\(j = 1,2,\dots\)</span></li>
+<li><span class="arithmatex">\(f(x) = 0\)</span> para <span class="arithmatex">\(x \ne x_j\)</span> con <span class="arithmatex">\(j = 1,2,\dots\)</span></li>
+<li><span class="arithmatex">\(\sum_{D}f(x_j) = 1\)</span></li>
+</ol>
+</div>
+<h4 id="funcion-de-densidad-de-variables-aleatorias-continuas">Función de densidad de variables aleatorias continuas<a class="headerlink" href="#funcion-de-densidad-de-variables-aleatorias-continuas" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Función de densidad de una variable aleatoria continua</p>
+<p>Si <span class="arithmatex">\(X\)</span> es una variable aleatoria continua, entonces <em>si existe</em> una función <span class="arithmatex">\(f_X(x)\)</span> tal que</p>
+<p><span class="arithmatex">\(F_X(x)=\int_{-\infty}^{x}f_X(u)du\)</span></p>
+<p>es llamada la <em>función de densidad</em> de <span class="arithmatex">\(X\)</span>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Función indicadora</p>
+<p>En ocasiones se usa la función indicadora <span class="arithmatex">\(I_{(a,b)}(x)=1 \text{ si } x \in (a,b) \text{ y } I_{(a,b)}(x)=0 \text{ si } x \notin (a,b)\)</span> para expresar la función de densidad en una sola línea.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Otros nombres</p>
+<p>Algunos autores tambien conocen a esta función como <em>función de densidad coninua</em> o <em>función de densidad integrada</em> (Mood et al., 1974).</p>
+</div>
+<p>Una propiedad interesante de la función de densidad <span class="arithmatex">\(f_X(x)\)</span> es que, si existe la función, es posible obtenerla a partir de <span class="arithmatex">\(F_X(x)\)</span> y viceversa.</p>
+<details class="example">
+<summary>Duración de una llamada telefónica</summary>
+<p>Usando el teorema fundamental del cálculo, se puede probar la propiedad anterior. Se ilustrará para el ejemplo de la duración de las llamadas telefónicas.</p>
+<p>Supóngase que la función de distribución para modelar la duración de las llamadas telefónicas es</p>
+<p><span class="arithmatex">\(F_X(x)=\begin{cases}
+0 &amp; \text{ si } x \le 0\\
+1-e^{-x} &amp; \text{ si } 0 &lt; x
+\end{cases}\)</span></p>
+<p>Note que <span class="arithmatex">\(F_X(x)\)</span> está definida en dos partes, por lo que la función no es <em>absolutamente continua</em> en cero, por lo que solo será diferenciable en el intervalo de los reales positivos.</p>
+<p><span class="arithmatex">\(f_X(x)=\frac{d F_X(x)}{dx} = \frac{d 1-e^{-x}}{dx}=-\frac{d e^{-x}}{dx}=e^{-x}\)</span></p>
+<p>es decir</p>
+<p><span class="arithmatex">\( f_X(x)=e^{-x}I_{(0,\infty)}(x)\)</span>.</p>
+<p>Por otro lado, note que</p>
+<p><span class="arithmatex">\( F_X(x)=\int_{-\infty}^{x}e^{-u}du=\int_{0}^{x}e^{-u}du=1-e^{-x}\)</span>,</p>
+<p>es decir</p>
+<p><span class="arithmatex">\( F_X(x)=1-e^{-x}I_{(0,\infty)}(x)\)</span>.</p>
+<p>Comprobandose así la propiedad.</p>
 </details>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <p>Lipschutz, S., &amp; Lipson, M. L. (2001). <em>Teoría y Problemas de Probabilidad</em> (Segunda edición). McGraw-Hill.</p>

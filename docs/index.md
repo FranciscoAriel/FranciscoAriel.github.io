@@ -53,12 +53,11 @@ En este blog encontrarás todo lo relacionada al lenguaje R.
 Entre otras cosas más.
 
 ![Trabajo en computadora](img/work.jpg)
-
-Imagen de [Free-Photos](https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=731198) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=731198)
+Imagen de [Free-Photos](https://pixabay.com/photos/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=731198) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=731198).
 
 ### Python
 
-[Click aquí](python/intro_python.md) para ir a mi blog de Python.
+Haz [Click aquí](python/intro_python.md) para ir a mi blog de Python.
 
 Aquí encontrarás todo lo relacionado con librerías que se usan en ciencia de datos.
 
@@ -72,25 +71,25 @@ Julia es un nuevo lenguaje de programación enfocado en la velocidad y está opt
 
 En ocasiones se requieren herramientas adicionales para realizar el trabajo.
 
-### Jupyter Notebooks
-
 PROXIMAMENTE ... :clock1:
 
-### Markdown
+- Jupyter Notebooks
 
-### LaTeX
+- Markdown
 
-### Visual Studio Code
+- LaTeX
 
-### Git
+- Visual Studio Code
+
+- Git
 
 ## Sobre el sitio
 
-Este sitio es una guía para iniciarse en el mundo de la programación en diversos lengajes estadísticos y bajo ningún motivo el autor es responsable de los daños ocasionados por resultados inesperados.
+Este sitio es una guía para iniciarse en el mundo de la programación en diversos lenguajes estadísticos y bajo ningún motivo el autor es responsable de los daños ocasionados por resultados inesperados.
 
 Los softwares usados son
 
-* SAS
+* SAS &reg; Software
 * R
 * Python
 * Julia
@@ -99,72 +98,15 @@ Los programas son mostrados con fines educativos.
 
 Síguenos en nuestras redes sociales
 
-[Github](https://github.com/FranciscoAriel)
+:fontawesome-brands-github: [Github](https://github.com/FranciscoAriel)
 
-[LinkedIn](https://www.linkedin.com/in/fcoavc/)
+:fontawesome-brands-linkedin: [LinkedIn](https://www.linkedin.com/in/fcoavc/)
 
-No te pierdas las últimas noticias en nuestro canal de [Telegram](https://t.me/estad_camp_0)
+No te pierdas las últimas noticias en nuestro canal de :fontawesome-brands-telegram-plane: [Telegram](https://t.me/estad_camp_0)
 
 <div>
-<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="estad_camp_0/10" data-width="100%"></script>
+<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="estad_camp_0/11" data-width="100%"></script>
 </div>
-
-## Tú puedes contribuir
-
-¡Todos aprendemos de todos!
-
-Si deseas aportar nuevos conocimientos puedes apoyarnos con sugerencias o comentarios.
-
-También puedes hacer aportaciones a mi código fuente, es muy fácil todo está escrito en formato markdown.
-
-Puedes clonar este repositorio.
-
-````bash
-git clone https://github.com/FranciscoAriel/FranciscoAriel.github.io.git
-````
-
-o simplemente descarga el zip en tu computadora.
-
-### Organización del sitio
-
-El archivo *mkdoc.yml* es el archivo principal que contiene la configuración para construir el sitio web con MKDOCS.
-
-Este archivo contiene el menú de navegación para organizar por los distntos lenguajes de programación. Dentro de cada menú se despliegan temas según su nivel de dificultad. Cada tema está ligado a un archivo markdown.
-
-La carpeta **docs** contiene de forma organizada los diversos archivos markdown por lenguaje y una carpeta llamada **src** donde se contienen archivos auxiliares, como ejemplos de códigos, dataset u otros recursos. Finalmente la carpeta **img** contiene contiene imágenes para ilustrar algunos resultados.
-
-El proyecto está basado en el tema [material](https://squidfunk.github.io/mkdocs-material).
-
-### Archivos markdown
-
-Los archivos markdown están en formato `utf-8`.
-
-Cada archivo inicia con un encabezado en donde se especifica los metadatos.
-
-````yaml
-title: Título
-summary: Resumen
-authors: Nombre del autor
-date: yyyy-mm-dd
-````
-
-Se pueden usar encabezados de nivel dos para temas principales y de nivel 3 para subtemas
-
-````md
-## Tema
-
-Párrafo
-
-### Subtema
-
-Párrafo
-````
-
-### Extras
-
-Para agregar fragmentos de código, consulte la sección [code blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-blocks) para conocer sobre como resaltar los códigos o lenguajes soportados.
-
-Se pueden agregar cuadros que resaltan la información consulte [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/#admonitions) para una referencia completa.
 
 ----
 
