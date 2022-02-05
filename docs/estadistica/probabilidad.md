@@ -90,6 +90,8 @@ Como se mencionó anteriormente, actualmente la probabilidad se estudia de maner
 !!! caution "Conocimiento avanzado"
     El estudio de la probabilidad requiere conocimientos avanzados de *Matemáticas* y *Teoría de Conjuntos* los cuales están fuera del alcance de esta página. Únicamente se mencionarán los temas más relevantes que sirvan como una guía para el estudio de la estadística.
 
+    Para un estudio más formal se puede revisar [Apuntes de Estadística Matemática](estadistica_matematica.md).
+
 Sea $A$ un evento del espacio muestral $\Omega$. Una función $P: \mathbb{s} \rightarrow [0,1]$ es llamada *función de probabilidad* si satisface estas 3 condiciones.
 
 - **Axioma 1**: $0\le P(A) \le 1$ para $A \in \mathbb{s}$
