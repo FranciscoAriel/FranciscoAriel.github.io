@@ -74,7 +74,6 @@ A continuación se definirá un concepto de medida de especial interés.
 !!! note "Medida de probabilidad"
     Si $v(\Omega)=1$ entonces $v$ es llamada una _medida de probabilidad_ y usualmente se denota por $P$ en vez de $v$ y la tripleta $(\Omega,\mathcal{F},P)$ es llamada _espacio de probabilidad_.
 
-
 ## Referencias
 
 Shao, J. (1999). _Mathematical statistics_. Springer-Verlag.

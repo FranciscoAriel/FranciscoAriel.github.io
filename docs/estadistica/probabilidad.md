@@ -88,11 +88,11 @@ Los conceptos presentados se ilustran con unos ejemplos muy simples.
 Como se mencionó anteriormente, actualmente la probabilidad se estudia de manera formal partiendo de 3 axiomas. Se usará como referencia a Mood et al., (1974).
 
 !!! caution "Conocimiento avanzado"
-    El estudio de la probabilidad requiere conocimientos avanzados de *Matemáticas* y *Teoría de Conjuntos* los cuales están fuera del alcance de esta página. Únicamente se mencionarán los temas más relevantes que sirvan como una guía para el estudio de la estadística.
+    El estudio de la probabilidad requiere conocimientos avanzados de _Matemáticas_ y _Teoría de Conjuntos_ los cuales están fuera del alcance de esta página. Únicamente se mencionarán los temas más relevantes que sirvan como una guía para el estudio de la estadística.
 
     Para un estudio más formal se puede revisar [Apuntes de Estadística Matemática](estadistica_matematica.md).
 
-Sea $A$ un evento del espacio muestral $\Omega$. Una función $P: \mathbb{s} \rightarrow [0,1]$ es llamada *función de probabilidad* si satisface estas 3 condiciones.
+Sea $A$ un evento del espacio muestral $\Omega$. Una función $P: \mathbb{s} \rightarrow [0,1]$ es llamada _función de probabilidad_ si satisface estas 3 condiciones.
 
 - **Axioma 1**: $0\le P(A) \le 1$ para $A \in \mathbb{s}$
 - **Axioma 2**: $P(\Omega) = 1$
@@ -100,7 +100,7 @@ Sea $A$ un evento del espacio muestral $\Omega$. Una función $P: \mathbb{s} \ri
 
 $$P\left( \bigcup_{i=1}^{\infty} A_i\right)=\sum_{i=1}^{\infty}A_i$$
 
-Se dice que $P(A)$ es la *probabilidad de que ocurra el evento A*.
+Se dice que $P(A)$ es la _probabilidad de que ocurra el evento A_.
 
 Para ilustrar estas ideas, considere la siguiente función de probabilidad.
 
@@ -133,7 +133,7 @@ A partir de los axiomas, se derivan otras propiedades que nos ayudarán a posibl
 En ocasiones, es de interés conocer la probabilidad de un evento, dado que haya ocurrido otro. En este sentido, se define la probabilidad condicional.
 
 !!! note "Probabilidad condicional"
-     Sean $A$ y $B$ dos eventos en $\mathbb{s}$. La *probabilidad condicional* del evento $A$ dado el evento $B$, denotada por $P\left( A|B \right)$, se define como 
+     Sean $A$ y $B$ dos eventos en $\mathbb{s}$. La _probabilidad condicional_ del evento $A$ dado el evento $B$, denotada por $P\left( A|B \right)$, se define como
      $P \left( A|B\right) =\frac{P\left(A\cap B\right)}{P\left( B\right)}$ con $P(B) \ne 0$.
 
 Note que la probabilidad anterior no está definida cuando $P(B) = 0$. También se desprende la fórmula $P(A \cap B )= P(A|B)P(B) = P(B|A)P(A)$ si $P(A) \ne 0$.
@@ -157,7 +157,7 @@ A continuación se mencionan unos teoremas de gran importancia. La aplicación d
 Representación gráfica del concepto de probabilidad total
 
 ??? example "Seleccionar una pelota de varias urnas"
-    Suponga que se tienen 2 urnas con pelotas de distintos colores todas del mismo tamaño. La primera tiene 3 pelotas rojas, 3 blancas y 4 negras; la segunda tiene 4 pelotas rojas, 3 blancas y 1 negra. Se selecciona una urna al azar y se extrae una pelota. *¿Cúal es la probabilidad de que la pelota extraída sea blanca?*
+    Suponga que se tienen 2 urnas con pelotas de distintos colores todas del mismo tamaño. La primera tiene 3 pelotas rojas, 3 blancas y 4 negras; la segunda tiene 4 pelotas rojas, 3 blancas y 1 negra. Se selecciona una urna al azar y se extrae una pelota. _¿Cúal es la probabilidad de que la pelota extraída sea blanca?_
 
     Observe que la elección de las urnas constituyen 2 eventos mutuamente disjuntos ya que la unión de ambos eventos constituye el espacio muestral (Todas las pelotas están en la urna 1 o en la urna 2). Llamemos $B_1$ al evento de seleccionar la urna 1 y $B_2$ al evento de seleccionar la urna 2.
 
@@ -219,7 +219,7 @@ Estos conceptos se ilustran con el siguiente ejemplo.
 
 Hasta el momento conocemos cómo asignar probabilidades a eventos del espacio muestral, sin embargo en la práctica esto no siempre es posible ya que sería complicado mencionar o enumerar todos los elementos del espacio muestral.
 
-Por esta razón es necesario "traducir" dichos eventos a números reales. Esto es posible mediante el uso de *variables aleatorias*.
+Por esta razón es necesario "traducir" dichos eventos a números reales. Esto es posible mediante el uso de _variables aleatorias_.
 
 ### Definición
 
@@ -232,9 +232,9 @@ Por esta razón es necesario "traducir" dichos eventos a números reales. Esto e
 
 Una **variable aleatoria** asigna números reales a los eventos que ocurren en $\Omega$.
 
-Existen dos tipos de variables aleatorias: *discretas* y *continuas*.
+Existen dos tipos de variables aleatorias: _discretas_ y _continuas_.
 
-Las variables aleatorias discretas toman sus valores en un conjunto finito o numerable, por ejemplo, el conjunto de los números naturales $\mathbb{N}$. A este conjunto de valores se le conoce como *conjunto de valores posibles* o $D_X$.
+Las variables aleatorias discretas toman sus valores en un conjunto finito o numerable, por ejemplo, el conjunto de los números naturales $\mathbb{N}$. A este conjunto de valores se le conoce como _conjunto de valores posibles_ o $D_X$.
 
 Las variables aleatorias continuas, por el contrario, toman sus valores en el conjunto de los números reales $\mathbb{R}$.
 
@@ -439,6 +439,20 @@ Una propiedad interesante de la función de densidad $f_X(x)$ es que, si existe 
 
     Comprobandose así la propiedad.
 
+### Media
+
+Ahora se definirá una de las principales características de una variable aleatoria, la media o valor esperado.
+
+!!! note "Media"
+    Sea $X$ una variable aleatoria. La media de $X$, denotada por $\mathbb{E}(X)$ o $\mu_X$ se define como:
+
+    \(\mathbb{E}(X)=\begin{cases}
+    \sum_{D_x}xf_X(x) \text{ si $X$ es discreta}\\
+    \int_{-\infty}^{\infty} xf_X{x}dx \text{ si $X$ es continua}
+    \end{cases}\)
+
+!!! caution "Existencia de la media"
+    Obsérvese que la media de una variable aleatoria $X$ podría no existir.
 
 ## Referencias
 

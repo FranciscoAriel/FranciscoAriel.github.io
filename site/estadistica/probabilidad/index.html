@@ -373,6 +373,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#media" class="md-nav__link">
+    Media
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -874,6 +881,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#media" class="md-nav__link">
+    Media
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1004,7 +1018,7 @@ C=\lbrace 4,5,6 \rbrace\)</span></p>
 <p>En ocasiones, es de interés conocer la probabilidad de un evento, dado que haya ocurrido otro. En este sentido, se define la probabilidad condicional.</p>
 <div class="admonition note">
 <p class="admonition-title">Probabilidad condicional</p>
-<p>Sean <span class="arithmatex">\(A\)</span> y <span class="arithmatex">\(B\)</span> dos eventos en <span class="arithmatex">\(\mathbb{s}\)</span>. La <em>probabilidad condicional</em> del evento <span class="arithmatex">\(A\)</span> dado el evento <span class="arithmatex">\(B\)</span>, denotada por <span class="arithmatex">\(P\left( A|B \right)\)</span>, se define como 
+<p>Sean <span class="arithmatex">\(A\)</span> y <span class="arithmatex">\(B\)</span> dos eventos en <span class="arithmatex">\(\mathbb{s}\)</span>. La <em>probabilidad condicional</em> del evento <span class="arithmatex">\(A\)</span> dado el evento <span class="arithmatex">\(B\)</span>, denotada por <span class="arithmatex">\(P\left( A|B \right)\)</span>, se define como
  <span class="arithmatex">\(P \left( A|B\right) =\frac{P\left(A\cap B\right)}{P\left( B\right)}\)</span> con <span class="arithmatex">\(P(B) \ne 0\)</span>.</p>
 </div>
 <p>Note que la probabilidad anterior no está definida cuando <span class="arithmatex">\(P(B) = 0\)</span>. También se desprende la fórmula <span class="arithmatex">\(P(A \cap B )= P(A|B)P(B) = P(B|A)P(A)\)</span> si <span class="arithmatex">\(P(A) \ne 0\)</span>.</p>
@@ -1306,6 +1320,20 @@ P(X=x_j) &amp; \text{ si } x \in D_x\\
 <p><span class="arithmatex">\( F_X(x)=1-e^{-x}I_{(0,\infty)}(x)\)</span>.</p>
 <p>Comprobandose así la propiedad.</p>
 </details>
+<h3 id="media">Media<a class="headerlink" href="#media" title="Permanent link">&para;</a></h3>
+<p>Ahora se definirá una de las principales características de una variable aleatoria, la media o valor esperado.</p>
+<div class="admonition note">
+<p class="admonition-title">Media</p>
+<p>Sea <span class="arithmatex">\(X\)</span> una variable aleatoria. La media de <span class="arithmatex">\(X\)</span>, denotada por <span class="arithmatex">\(\mathbb{E}(X)\)</span> o <span class="arithmatex">\(\mu_X\)</span> se define como:</p>
+<p><span class="arithmatex">\(\mathbb{E}(X)=\begin{cases}
+\sum_{D_x}xf_X(x) \text{ si $X$ es discreta}\\
+\int_{-\infty}^{\infty} xf_X{x}dx \text{ si $X$ es continua}
+\end{cases}\)</span></p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Existencia de la media</p>
+<p>Obsérvese que la media de una variable aleatoria <span class="arithmatex">\(X\)</span> podría no existir.</p>
+</div>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <p>Lipschutz, S., &amp; Lipson, M. L. (2001). <em>Teoría y Problemas de Probabilidad</em> (Segunda edición). McGraw-Hill.</p>
 <p>Mood, A., Graybill, F., &amp; Boes, D. (1974). <em>Introduction to the Theory of Statistics</em>. McGraw-Hill.</p>
