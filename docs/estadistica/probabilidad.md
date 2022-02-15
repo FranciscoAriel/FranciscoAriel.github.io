@@ -5,7 +5,7 @@ authors: Francisco Vázquez
 date: 2021-12-20
 ---
 
-La probabilidad es una rama de las matemáticas que estudia el **azar o aleatoriedad**. En palabras simples, trata de medir la incertidumbre de que ocurra un suceso o evento $E$. El resultado de dicho experimento  **no** puede ser determinado con antelación.
+La probabilidad es una rama de las matemáticas que estudia el **azar o aleatoriedad**. En palabras simples, trata de medir la incertidumbre de que ocurra un suceso o evento. El resultado de dicho experimento  **no** puede ser determinado con antelación.
 
 ![Juegos de azar](img/poker.jpg)
 Imagen de [ToNic-Pics](https://pixabay.com/es/users/tonic-pics-3001971/) en [Pixabay](https://pixabay.com/images/id-1564042/)
@@ -285,6 +285,9 @@ Para describir el comportamiento de una variable aleatoria, se debe conocer cóm
 
 Una función de distribución definida es única para cada variable aleatoria y siempre existirá, es importante conocerla porque con ella se pueden calcular probabilidades de la variable aleatoria.
 
+!!! caution "Conocimiento de cálculo"
+    Algunas funciones de distribución requieren conocimiento de _cálculo_, incluyendo temas de límites, derivadas, integrales y series. En esta página sólo se usarán las herramientas más indispensables.
+
 A continuación se enuncian sus propiedades en general:
 
 1. $F_X(-\infty) = \lim_{x \to -\infty} F_X(x) = 0$ y $F_X(\infty) = \lim_{x \to \infty} F_X(x) = 1$
@@ -447,12 +450,118 @@ Ahora se definirá una de las principales características de una variable aleat
     Sea $X$ una variable aleatoria. La media de $X$, denotada por $\mathbb{E}(X)$ o $\mu_X$ se define como:
 
     \(\mathbb{E}(X)=\begin{cases}
-    \sum_{D_x}xf_X(x) \text{ si $X$ es discreta}\\
-    \int_{-\infty}^{\infty} xf_X{x}dx \text{ si $X$ es continua}
+    \sum_{D_x}x_j f_X(x) ; x_j \in D_x \text{ si $X$ es discreta}\\
+    \int_{-\infty}^{\infty} xf_X(x)dx \text{ si $X$ es continua}
     \end{cases}\)
 
 !!! caution "Existencia de la media"
-    Obsérvese que la media de una variable aleatoria $X$ podría no existir.
+    Obsérvese que la media de una variable aleatoria $X$ podría no existir, en el sentido de que no es un número. En este contexto, el infinito ($\infty$) carece de sentido.
+
+La media es una _medida de localización central_ de una variable aleatoria $X$ y puede ser considerada como "el centro" de una densidad o "el valor más probable",
+
+En variables aleatorias discretas, sería el valor que "más se espera" que tome una realización de $X$. Tambien puede pensarse como una suma ponderada,en la cual se le da más peso a valores con mayor probabilidad.
+
+En variables aleatorias continuas, un intervalo alrededor de $\mu_X$ es el "más probable" en el sentido de que sería el intervalo con mayor probabilidad que cualquier otro de igual tamaño.
+
+??? example "Número esperado de águilas"
+    Considere el ejemplo del lanzamiento de una moneda 3 veces.
+
+    El valor esperado del número de águilas puede obtenerse con
+
+    \(
+    \begin{align*}
+    \mathbb{E}(X) &= \sum_{i=0}^{3}x_iP(X = x_i)\\
+    & = 0*1/8+1*3/8+2*3/8+3*1/8\\
+    & = 1.5
+    \end{align*}  
+    \)
+
+    Obsérvese que en este caso 1.5 __no es un valor posible__ de $X$, aunque denota el centro de la distribución. Se entendería que observar 1 y 2 águilas (por igual) es lo más esperado.
+
+??? example "Duración de las llamadas"
+    ¿Cual sería la duración promedio de las llamadas telefónicas?
+
+    Se procederá a calcular la media de las llamadas telefónicas del ejemplo anterior.
+
+    \(
+    \begin{align*}
+    \mathbb{E}(X) &= \int_{0}^{\infty}xe^{-x}dx\\
+    & = \Gamma(2)\\
+    & = 1
+    \end{align*}
+    \)
+
+    donde la expresión $\Gamma(n)$ representa la [función gamma](https://es.wikipedia.org/wiki/Funci%C3%B3n_gamma).
+
+    Por lo que la duración media de las llamadas telefónicas es de 1 minuto.
+
+??? example "La media no siempre existe"
+    Suponga que se tiene la siguiente función de densidad.
+
+    \(f_X(x)=\frac{1}{(x-1)^2}I_{(2,\infty)}(x)\)
+
+    Al intentar calcular la esperanza de de esta variable aleatoria, se tiene que:
+
+    \(
+    \begin{align*}
+    \mathbb{E}(X) &= \int_{2}^{\infty}x\frac{1}{(x-1)^2}dx\\
+    & = \int_{2}^{\infty}\left( \frac{1}{x-1} \right) + \left( \frac{1}{(x-1)^2} \right) dx\\
+    & = \int_{2}^{\infty} \frac{1}{x-1} dx + \int_{2}^{\infty} \frac{1}{(x-1)^2} dx\\
+    & = \ln (x-1)|_{2}^{\infty}+\frac{1}{x-1}|_{\infty}^{2}
+    \end{align*}
+    \)
+
+    Sin embargo al evaluar $\infty$ en la función logaritmo, no se obtiene un número real, por lo que la media $\mu_X$ no existe para esta variable aleatoria.
+
+### Varianza
+
+Otra característica importante en las variables aleatorias, es el grado de dispersión o variabilidad. Una importante medida se define a continuación.
+
+!!! note "Varianza"
+    Sea $X$ una variable aleatoria y sea $\mathbb{E}(X)=\mu_X$. La _varianza_ de $X$ denotada por $\mathbb{V}(X)$ o $\sigma_{X}^{2}$ se define como:
+
+    \(
+    \mathbb{V}(X)=\begin{cases}
+    \sum_{D_x}(x_j-\mu_X)^2 f_X(x); x_j \in D_x \text{ si $X$ es discreta}\\
+    \int_{-\infty}^{\infty} (x-\mu_X)^2 f_X(x)dx \text{ si $X$ es continua}
+    \end{cases}    
+    \)
+
+De la definición anterior, se deduce que la varianza es una cantidad no negativa, debido a que la densidad está multiplicada por un valor positivo (cuadrado). Puede considerarse como una suma ponderada, de la distancia con respecto a la media al cuadrado por la densidad.
+
+!!! caution "Existencia de la varianza"
+    Al igual que la media, la varianza de una variable aleatoria $X$ podría no existir, en el sentido de que no es un número. En este contexto, el infinito ($\infty$) carece de sentido.
+
+!!! danger "Varianza positiva"
+    Los valores de $\sigma_{X}^{2}$ son positivos. Una varianza igual a cero implicaría que la variable aleatoria no varía, lo cual carece de sentido.
+
+Existe otra de medida de dispersión que es bastante útil y se puede obtener a partir de la varianza.
+
+!!! note "Desviación estándar"
+    Sea $X$ una variable aleatoria con varianza $\sigma_{X}^{2}$. La _desviación estándar_ de $X$, denotada como $\sigma_{X}$, se define como: $\sigma_{X} = +\sqrt{\sigma_{X}^{2}}$
+
+Note que, al igual que la varianza, la desviación estándar es una cantidad no negativa. La ventaja de usar esta medida de dispersión es que dicha cantidad estará expresada en las mismas unidades de la variable aleatoria.
+
+### Esperanza
+
+En esta sección se define el concepto de _esperanza_ de una variable aleatoria. Ya se había mencionado el concepto de valor esperado, ahora esta idea se generalizará.
+
+!!! note "Esperanza"
+    Sea $X$ una variable aleatoria y $g(X)$ una función con dominio y contradominio en $\mathbb{R}$. La _esperanza_ o _valor esperado_ de la función $g(X)$, denotado por $\mathbb{E}\left(g(X)\right)$, se define como:
+
+    \(
+    \mathbb{E}(g(X))=\begin{cases}
+    \sum_{D_x}g(x_j) f_X(x) ; x_j \in D_x \text{ si $X$ es discreta}\\
+    \int_{-\infty}^{\infty} g(x) f_X(x)dx \text{ si $X$ es continua}
+    \end{cases}    
+    \)
+
+!!! tip "Casos particulares"
+    Si $g(X)=X$ se obtiene la media de $X$ ($\mu_X$). Si $g(X)=(X-\mu_X)^2$ se obtiene la varianza de $X$ ($\sigma_{X}^{2}$).
+
+### Momentos
+
+### Otras medidas
 
 ## Referencias
 
