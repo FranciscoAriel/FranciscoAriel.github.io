@@ -561,6 +561,25 @@ En esta sección se define el concepto de _esperanza_ de una variable aleatoria.
 
 ### Momentos
 
+A continuación se introduce el concepto de _momento_ de una variable aleatoria, que son la esperanza de las potencias.
+
+!!! note "Momentos"
+    Si $X$ es una variable aleatoria, _el r-ésimo momento_ de $X$, denotado por $\mu_r$, es definido como $\mu_r=\mathbb{E}(X^r)$, si la esperanza existe.
+
+Note que el primer momento $\mu_1$ es la media de $X$. El segundo momento $\mu_2$ está relacionado con la dispersión de una distribución. El tercer momento está relacionado con la asimetría de la distribución, una distribución con $\mu_3 = 0$ es simétrica. El cuarto momento $\mu_4$ está conectado con la curtosis o que tan plana o puntiaguda es la densidad.
+
+A continuación se presenta una función que nos ayudará a encontrar los momentos.
+
+!!! note "Función generadora de momentos"
+    Sea $X$ una variable aleatoria con densidad $f_X(x)$. La esperanza de $e^{tX}$ es definida la _función generadora de momentos_ de $X$, denotada por $m_X(t)$, si el valor esperado existe para cada valor de $t$ en un intervalo alrededor de 0.
+
+Puede verse que si la esperanza no existe, la función generadora de momentos no existe. Para obtener los momentos, se debe diferenciar $m_X(t)$ $r$ veces y evaluar en 0 para obtener el r-ésimo momento.
+
+La función generadora de momentos es muy útil y a continuación se presenta una propiedad importante.
+
+!!! note "Función generadora de momentos única"
+    Sean $X$ y $Y$ dos variables aleatorias con densidades $f_X(x)$ y $f_Y(y)$ respectivamente. Suponga que $m_X(t)$ y $m_Y(t)$ existen y son iguales para toda $t$ en un intervalo cercano al 0. Entonces las distribuciones de $F_X(t)$ y $F_Y(t)$ son iguales.
+
 ### Otras medidas
 
 ## Referencias

@@ -1443,6 +1443,23 @@ P(X=x_j) &amp; \text{ si } x \in D_x\\
 <p>Si <span class="arithmatex">\(g(X)=X\)</span> se obtiene la media de <span class="arithmatex">\(X\)</span> (<span class="arithmatex">\(\mu_X\)</span>). Si <span class="arithmatex">\(g(X)=(X-\mu_X)^2\)</span> se obtiene la varianza de <span class="arithmatex">\(X\)</span> (<span class="arithmatex">\(\sigma_{X}^{2}\)</span>).</p>
 </div>
 <h3 id="momentos">Momentos<a class="headerlink" href="#momentos" title="Permanent link">&para;</a></h3>
+<p>A continuación se introduce el concepto de <em>momento</em> de una variable aleatoria, que son la esperanza de las potencias.</p>
+<div class="admonition note">
+<p class="admonition-title">Momentos</p>
+<p>Si <span class="arithmatex">\(X\)</span> es una variable aleatoria, <em>el r-ésimo momento</em> de <span class="arithmatex">\(X\)</span>, denotado por <span class="arithmatex">\(\mu_r\)</span>, es definido como <span class="arithmatex">\(\mu_r=\mathbb{E}(X^r)\)</span>, si la esperanza existe.</p>
+</div>
+<p>Note que el primer momento <span class="arithmatex">\(\mu_1\)</span> es la media de <span class="arithmatex">\(X\)</span>. El segundo momento <span class="arithmatex">\(\mu_2\)</span> está relacionado con la dispersión de una distribución. El tercer momento está relacionado con la asimetría de la distribución, una distribución con <span class="arithmatex">\(\mu_3 = 0\)</span> es simétrica. El cuarto momento <span class="arithmatex">\(\mu_4\)</span> está conectado con la curtosis o que tan plana o puntiaguda es la densidad.</p>
+<p>A continuación se presenta una función que nos ayudará a encontrar los momentos.</p>
+<div class="admonition note">
+<p class="admonition-title">Función generadora de momentos</p>
+<p>Sea <span class="arithmatex">\(X\)</span> una variable aleatoria con densidad <span class="arithmatex">\(f_X(x)\)</span>. La esperanza de <span class="arithmatex">\(e^{tX}\)</span> es definida la <em>función generadora de momentos</em> de <span class="arithmatex">\(X\)</span>, denotada por <span class="arithmatex">\(m_X(t)\)</span>, si el valor esperado existe para cada valor de <span class="arithmatex">\(t\)</span> en un intervalo alrededor de 0.</p>
+</div>
+<p>Puede verse que si la esperanza no existe, la función generadora de momentos no existe. Para obtener los momentos, se debe diferenciar <span class="arithmatex">\(m_X(t)\)</span> <span class="arithmatex">\(r\)</span> veces y evaluar en 0 para obtener el r-ésimo momento.</p>
+<p>La función generadora de momentos es muy útil y a continuación se presenta una propiedad importante.</p>
+<div class="admonition note">
+<p class="admonition-title">Función generadora de momentos única</p>
+<p>Sean <span class="arithmatex">\(X\)</span> y <span class="arithmatex">\(Y\)</span> dos variables aleatorias con densidades <span class="arithmatex">\(f_X(x)\)</span> y <span class="arithmatex">\(f_Y(y)\)</span> respectivamente. Suponga que <span class="arithmatex">\(m_X(t)\)</span> y <span class="arithmatex">\(m_Y(t)\)</span> existen y son iguales para toda <span class="arithmatex">\(t\)</span> en un intervalo cercano al 0. Entonces las distribuciones de <span class="arithmatex">\(F_X(t)\)</span> y <span class="arithmatex">\(F_Y(t)\)</span> son iguales.</p>
+</div>
 <h3 id="otras-medidas">Otras medidas<a class="headerlink" href="#otras-medidas" title="Permanent link">&para;</a></h3>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <p>Lipschutz, S., &amp; Lipson, M. L. (2001). <em>Teoría y Problemas de Probabilidad</em> (Segunda edición). McGraw-Hill.</p>
