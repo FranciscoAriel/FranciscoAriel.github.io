@@ -1,11 +1,11 @@
 # Bienvenido a Estadística desde Cero
 
-En este sitio web conocerás conceptos básicos de estadística así como fundamentos de diversos programas de software estadístico con el fin de iniciarse en el mundo de la estadística y  ciencia de datos.
+En este sitio web conocerás los fundamentos y conceptos básicos de estadística,  así como una introducción a diversos programas de software estadístico con el fin de iniciarse en el mundo de la estadística y ciencia de datos.
 
 ![Ilustración de una laptop](img/laptop.png)
 Imagen de [Sara Torda](https://pixabay.com/es/users/sara_torda-888816/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286)
 
-## Conceptos básicos
+## Conceptos básicos de Estadística
 
 En esta sección encontrarás una breve introducción a la teoría estadística, abarcando desde los conceptos y definiciones básicos hasta modelos más complejos.
 

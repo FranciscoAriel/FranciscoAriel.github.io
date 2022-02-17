@@ -12,14 +12,14 @@
         <meta name="author" content="Francisco Ariel Vázquez Chávez">
       
       
-        <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/estadistica_matematica/">
+        <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/procesos_estocasticos/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
     
     
       
-        <title>Apuntes de Estadística Matemática - Estadística desde Cero</title>
+        <title>Introducción a Procesos Estocásticos - Estadística desde Cero</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#conceptos-basicos" class="md-skip">
+        <a href="#introduccion" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Apuntes de Estadística Matemática
+              Introducción a Procesos Estocásticos
             
           </span>
         </div>
@@ -294,20 +294,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../procesos_estocasticos/" class="md-nav__link">
-        Procesos estocásticos
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -318,12 +304,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Estadística matemática
+          Procesos estocásticos
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Estadística matemática
+        Procesos estocásticos
       </a>
       
         
@@ -340,15 +326,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#conceptos-basicos" class="md-nav__link">
-    Conceptos básicos
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#referencias" class="md-nav__link">
-    Referencias
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografía
   </a>
   
 </li>
@@ -357,6 +343,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estadistica_matematica/" class="md-nav__link">
+        Estadística matemática
+      </a>
     </li>
   
 
@@ -711,15 +711,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#conceptos-basicos" class="md-nav__link">
-    Conceptos básicos
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#referencias" class="md-nav__link">
-    Referencias
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografía
   </a>
   
 </li>
@@ -736,78 +736,26 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/estadistica/estadistica_matematica.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/estadistica/procesos_estocasticos.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-  <h1>Estadística matemática</h1>
+  <h1>Procesos estocásticos</h1>
 
-<p>La <strong>Estadística Matemática</strong> estudia de forma más profunda y formal a la Teoría de la Probabilidad, que a la vez está basada en Teoría de la Medida. Este curso sirve como base para Teoría Estadística para un doctorado en Estadística.</p>
-<p>En ocasiones se requiere una fuerte formación en <em>Teoría de la Medida</em>, pero en esta página se usarán los conceptos más indispensables para abordar su estudio.</p>
-<h2 id="conceptos-basicos">Conceptos básicos<a class="headerlink" href="#conceptos-basicos" title="Permanent link">&para;</a></h2>
-<p>Para el estudio de la estadística matemática, se requieren ciertas definiciones que nos permitirán abordar su estudio.</p>
-<p>Una definición muy general es el espacio muestral <span class="arithmatex">\(\Omega\)</span>.</p>
+<p>En esta sección se estudiará a los procesos estocásticos, los cuales pueden ser considerados una generalización de una muestra aleatoria.</p>
+<p>El estudio de procesos estocásticos requiere el uso de varios conceptos de probabilidad, por que se recomienda leer la página de <a href="../probabilidad/">Introducción a la probabilidad</a>.</p>
+<h2 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h2>
+<p>Un proceso estocástico (o probabilístico) puede considerarse una generalización de una muestra aleatoria, en el sentido de que las variables aleatorias <strong>no son necesariamente independientes</strong> y su distrbución podría cambiar.</p>
 <div class="admonition note">
-<p class="admonition-title">Espacio muestral</p>
-<p>Sea <span class="arithmatex">\(\Omega\)</span> un conjunto de elementos de interés. <span class="arithmatex">\(\Omega\)</span> es llamado <em>Espacio Muestral</em>.</p>
+<p class="admonition-title">Proceso estocástico</p>
+<p>Un <em>proceso estocástico</em> <span class="arithmatex">\(\lbrace X(t) : t \in T \rbrace\)</span> es una colección de variables aleatorias <em>indizadas</em> con valores en un conjunto <span class="arithmatex">\(T\)</span>, en donde <span class="arithmatex">\(T\)</span> es un conjunto a lo más numerable o un intervalo de números reales en <span class="arithmatex">\([0,\infty)\)</span>.</p>
 </div>
-<p>Usualmente nos referimos a <span class="arithmatex">\(\Omega\)</span> como el conjunto de todos los resultados posibles de un experimento, aunque de acuerdo con Shao (1999) tambíen podría ser un conjunto de números, un intervalo de la recta real, entre otros.</p>
-<div class="admonition note">
-<p class="admonition-title">Medida</p>
-<p>Una <em>medida</em> es una extensión matamética natural de longitud, área o volumen de subconjuntos en espacios Euclideanos de dimensión 1 2 o 3.</p>
-</div>
-<p>Cuando se trabaja con un espacio muestral, una medida será una función definida para <em>ciertos</em> subconjuntos de <span class="arithmatex">\(\Omega\)</span> que satisfagan ciertas propiedades.</p>
-<div class="admonition note">
-<p class="admonition-title"><span class="arithmatex">\(\sigma\)</span>-álgrebra</p>
-<p>Sea <span class="arithmatex">\(\mathcal{F}\)</span> una colección de subconjuntos de un espacio muestral <span class="arithmatex">\(\Omega\)</span>. <span class="arithmatex">\(\mathcal{F}\)</span> es llamado una <span class="arithmatex">\(\sigma\)</span><strong>-álgebra</strong> o <span class="arithmatex">\(\sigma\)</span><strong>-campo</strong> si y solo si tiene las siguientes propiedades:</p>
-<ol>
-<li><span class="arithmatex">\(\emptyset \in \mathcal{F}\)</span> (El conjunto vacío pertenece a la colección).</li>
-<li><span class="arithmatex">\(A \in \mathcal{F} \rightarrow A^C \in \mathcal{F}\)</span> (Si el conjunto A pertenece a la colección, también su complemento).</li>
-<li><span class="arithmatex">\(A_i \in \mathcal{F},i=1,2,\dots, \rightarrow \cup A_i \in \mathcal{F}\)</span> (La unión también pertenece a la colección).</li>
-</ol>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Espacio medible</p>
-<p>Un par <span class="arithmatex">\((\Omega,\mathcal{F})\)</span> es llamado <em>espacio medible</em>. Los elementos de <span class="arithmatex">\(\mathcal{F}\)</span> son llamados <em>eventos</em> en probabilidad y estadística.</p>
-</div>
-<p>El concepto de <span class="arithmatex">\(\sigma\)</span>-campo se ilustra con los siguientes ejemplos.</p>
-<details class="example">
-<summary>El <span class="arithmatex">\(\sigma\)</span>-campo más pequeño</summary>
-<p>Sea A un conjunto propio no vacío de <span class="arithmatex">\(\Omega\)</span>, es decir <span class="arithmatex">\(A \in \Omega, A \ne \Omega\)</span>. ¿Será <span class="arithmatex">\(\lbrace \emptyset,A,A^C,\Omega \rbrace\)</span> un <span class="arithmatex">\(\sigma\)</span>-campo?</p>
-<p>Considere la siguiente imagen</p>
-<p><img alt="Ilustración de un sigma-campo" src="../img/conjuntos.png" /></p>
-<p>Observese que este conjunto <span class="arithmatex">\(\lbrace \emptyset,A,A^C,\Omega \rbrace\)</span> cumple con las 3 propiedades (está el conjunto vacío <span class="arithmatex">\(\emptyset\)</span>,está su complemento <span class="arithmatex">\(A^C\)</span>). De hecho este <span class="arithmatex">\(\sigma\)</span>-campo es el más pequeño que contiene a <span class="arithmatex">\(A\)</span>, ya que cualquier <span class="arithmatex">\(\mathcal{F}\)</span> podría contener a <span class="arithmatex">\(A\)</span>.</p>
-<p>Este <span class="arithmatex">\(\sigma\)</span>-campo se denota como <span class="arithmatex">\(\sigma(\lbrace A \rbrace)\)</span>.</p>
-</details>
-<details class="example">
-<summary><span class="arithmatex">\(\sigma\)</span>-campo Borel</summary>
-<p>Sea <span class="arithmatex">\(\mathcal{C}\)</span> el conjunto de todos los intervalos abiertos en los números reales <span class="arithmatex">\(\mathbb{R}\)</span>. Entonces <span class="arithmatex">\(\mathcal{B}=\sigma(\mathcal{C})\)</span> es llamado <span class="arithmatex">\(\sigma\)</span><strong>-campo Borel</strong> y los elementos de <span class="arithmatex">\(\mathcal{B}\)</span> son llamados <em>conjuntos Borel</em>.</p>
-<p>Considere un intervalo abierto arbitrario, por ejemplo el intervalo <span class="arithmatex">\(A=(5,9)\)</span>, este intervalo pertenece a <span class="arithmatex">\(\mathcal{C}\)</span> y también su complemento, en este caso los intervalos abiertos <span class="arithmatex">\((-\infty,5) \cup (9,\infty)\)</span>.</p>
-<p>Finalmente <span class="arithmatex">\(\cup A_i=(-\infty,\infty)\)</span> también está en <span class="arithmatex">\(\mathcal{C}\)</span>.</p>
-</details>
-<p>Aunque ya se había mencionado anteriorment una idea de <em>medida</em>, continuación se definirá el concepto de manera formal.</p>
-<div class="admonition note">
-<p class="admonition-title">Medida</p>
-<p>Sea <span class="arithmatex">\((\Omega,\mathcal{F})\)</span> un espacio medible. Una función <span class="arithmatex">\(v\)</span> definida sobre <span class="arithmatex">\(\mathcal{F}\)</span> es llamada <em>medida</em> si y solo si tiene las siguientes propiedades.</p>
-<ol>
-<li><span class="arithmatex">\(0 \le v(A) \le \infty, A \in \mathcal{F}\)</span>.</li>
-<li><span class="arithmatex">\(v(\emptyset) = 0\)</span>.</li>
-<li>Si <span class="arithmatex">\(A_i \in \mathcal{F}\)</span> y son disjuntos, entonces</li>
-</ol>
-<p><span class="arithmatex">\(v \left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} v(A_i)\)</span>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Espacio de medida</p>
-<p>A la tripleta <span class="arithmatex">\((\Omega,\mathcal{F},v)\)</span> se le conoce como <em>espacio de medida</em>.</p>
-</div>
-<p>A continuación se definirá un concepto de medida de especial interés.</p>
-<div class="admonition note">
-<p class="admonition-title">Medida de probabilidad</p>
-<p>Si <span class="arithmatex">\(v(\Omega)=1\)</span> entonces <span class="arithmatex">\(v\)</span> es llamada una <em>medida de probabilidad</em> y usualmente se denota por <span class="arithmatex">\(P\)</span> en vez de <span class="arithmatex">\(v\)</span> y la tripleta <span class="arithmatex">\((\Omega,\mathcal{F},P)\)</span> es llamada <em>espacio de probabilidad</em>.</p>
-</div>
-<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
-<p>Shao, J. (1999). <em>Mathematical statistics</em>. Springer-Verlag.</p>
+<p>De la definición anterior se entiende que las variables <em>dependerán</em> del parámetro <span class="arithmatex">\(t\)</span> (usualmente el tiempo) y están ordenadas. Además el conjunto <span class="arithmatex">\(T\)</span> puede ser discreto o continuo.</p>
+<p>Si el conjunto de índices <span class="arithmatex">\(T\)</span> es discreto,se le conoce como <em>proceso estocástico de tiempo discreto</em> mientras que si <span class="arithmatex">\(T\)</span> es continuo, se le conoce como <em>proceso estocástico de tiempo coninuo</em>. </p>
+<p>Una realización de realización del proceso <span class="arithmatex">\(X(t)\)</span> se le conoce como <em>camino muestral</em> y se entiende como el estado del proceso en el tiempo <span class="arithmatex">\(t\)</span> (Ross, 1996).</p>
+<h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
+<p>Ross, S. M. (1996). Stochastic Processes (Second Edition). John Wiley &amp; Sons.</p>
 
               
             </article>
@@ -826,7 +774,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../procesos_estocasticos/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Procesos estocásticos" rel="prev">
+        <a href="../series_tiempo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Series de tiempo" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -835,20 +783,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Procesos estocásticos
+              Series de tiempo
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../sas/intro_sas/" class="md-footer__link md-footer__link--next" aria-label="Next: Introducción a SAS" rel="next">
+        <a href="../estadistica_matematica/" class="md-footer__link md-footer__link--next" aria-label="Next: Estadística matemática" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Introducción a SAS
+              Estadística matemática
             </div>
           </div>
           <div class="md-footer__button md-icon">
