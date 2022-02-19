@@ -1,8 +1,11 @@
 ---
 title: Introducción a la probabilidad
 summary: Introducción a la teoría de la probabilidad, definiciones y ejemplos.
-authors: Francisco Vázquez
+author: Francisco Vázquez
 date: 2021-12-20
+author_gh_user: FranciscoAriel
+publish_date: 2021-12-20
+read_time: 45 minutos
 ---
 
 La probabilidad es una rama de las matemáticas que estudia el **azar o aleatoriedad**. En palabras simples, trata de medir la incertidumbre de que ocurra un suceso o evento. El resultado de dicho experimento  **no** puede ser determinado con antelación.

@@ -8,8 +8,7 @@ edit_uri: blob/master/docs/
 
 theme:
     name: material
-    palette:
-          scheme: default
+    custom_dir: overrides
     logo: img/favicon.png
     highlightjs: true
     hljs_languages:
@@ -73,7 +72,7 @@ plugins:
     - search
 
 extra:
-    version: 0.5
+    version: 1.0
     logo: img/favicon.png
     social:
         - icon: fontawesome/brands/github
@@ -92,3 +91,6 @@ extra_javascript:
     - javascripts/mathjax.js
     - https://polyfill.io/v3/polyfill.min.js?features=es6
     - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css

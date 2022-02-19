@@ -9,7 +9,7 @@
         <meta name="description" content="Un sitio donde aprenderás desde lo básico hasta lo mas avanzado acerca de estadística y probabilidad, así como los mejores lenguajes de programación que se usan en estadística.">
       
       
-        <meta name="author" content="Francisco Ariel Vázquez Chávez">
+        <meta name="author" content="Francisco Vázquez">
       
       
         <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/procesos_estocasticos/">
@@ -40,6 +40,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -54,7 +56,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
     
@@ -735,15 +737,54 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-<a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/estadistica/procesos_estocasticos.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
 
+    <!-- Edit button -->
+    
+       <a
+           href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/estadistica/procesos_estocasticos.md"
+           title="Edit this page"
+           class="md-content__button md-icon"
+       >
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+       </a>
+    
+   
+    <!--
+    Hack: check whether the content contains a h1 headline. If it
+    doesn't, the page title (or respectively site name) is used
+    as the main headline.
+    -->
+    
+       <h1>Procesos estocásticos</h1>
+    
+   
+    <!-- Markdown content -->
+    <!-- Markdown content -->
+    
+    <aside class="mdx-author">
+        <p>
+        <img src="https://avatars.githubusercontent.com/FranciscoAriel" alt="@FranciscoAriel">
+        </p>
+        <p>
+        <span> 
+        <b>Francisco Vázquez</b> · <a href="https://github.com/FranciscoAriel">@FranciscoAriel</a>
+        </span>
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+            </svg> 2022-02-16 ·
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+            </svg> lectura: 5 minutos
+        </span>
+        </p>
+    </aside>
+    
+    
 
-  <h1>Procesos estocásticos</h1>
-
-<p>En esta sección se estudiará a los procesos estocásticos, los cuales pueden ser considerados una generalización de una muestra aleatoria.</p>
+       <p>En esta sección se estudiará a los procesos estocásticos, los cuales pueden ser considerados una generalización de una muestra aleatoria.</p>
 <p>El estudio de procesos estocásticos requiere el uso de varios conceptos de probabilidad, por que se recomienda leer la página de <a href="../probabilidad/">Introducción a la probabilidad</a>.</p>
 <h2 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h2>
 <p>Un proceso estocástico (o probabilístico) puede considerarse una generalización de una muestra aleatoria, en el sentido de que las variables aleatorias <strong>no son necesariamente independientes</strong> y su distrbución podría cambiar.</p>
@@ -751,13 +792,25 @@
 <p class="admonition-title">Proceso estocástico</p>
 <p>Un <em>proceso estocástico</em> <span class="arithmatex">\(\lbrace X(t) : t \in T \rbrace\)</span> es una colección de variables aleatorias <em>indizadas</em> con valores en un conjunto <span class="arithmatex">\(T\)</span>, en donde <span class="arithmatex">\(T\)</span> es un conjunto a lo más numerable o un intervalo de números reales en <span class="arithmatex">\([0,\infty)\)</span>.</p>
 </div>
-<p>De la definición anterior se entiende que las variables <em>dependerán</em> del parámetro <span class="arithmatex">\(t\)</span> (usualmente el tiempo) y están ordenadas. Además el conjunto <span class="arithmatex">\(T\)</span> puede ser discreto o continuo.</p>
-<p>Si el conjunto de índices <span class="arithmatex">\(T\)</span> es discreto,se le conoce como <em>proceso estocástico de tiempo discreto</em> mientras que si <span class="arithmatex">\(T\)</span> es continuo, se le conoce como <em>proceso estocástico de tiempo coninuo</em>. </p>
-<p>Una realización de realización del proceso <span class="arithmatex">\(X(t)\)</span> se le conoce como <em>camino muestral</em> y se entiende como el estado del proceso en el tiempo <span class="arithmatex">\(t\)</span> (Ross, 1996).</p>
+<p>De la definición anterior se entiende que las variables <em>dependerán</em> del parámetro <span class="arithmatex">\(t\)</span> (usualmente el tiempo) y están ordenadas. Además el conjunto <span class="arithmatex">\(T\)</span> puede ser discreto o continuo. Si el conjunto de índices <span class="arithmatex">\(T\)</span> es discreto,se le conoce como <em>proceso estocástico de tiempo discreto</em> mientras que si <span class="arithmatex">\(T\)</span> es continuo, se le conoce como <em>proceso estocástico de tiempo coninuo</em>.</p>
+<p>Note que si se fija un punto <span class="arithmatex">\(t\)</span>, se tiene <span class="arithmatex">\(X_t\)</span> una variable aleatoria. Una <em>realización</em> del proceso <span class="arithmatex">\(X(t)\)</span>, es decir si se observa la variable aleatoria, se le conoce como <em>camino muestral</em> y se entiende como el estado del proceso en el tiempo <span class="arithmatex">\(t\)</span> (Ross, 1996).</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso completamente especificado</p>
+<p>S dice que un proceso estocástico está completamente especificado si para cualquier valor del tiempo <span class="arithmatex">\(t_1&lt;t_2&lt;\dots&lt;t_n\)</span> con <span class="arithmatex">\(n \in \mathbb{N}\)</span>,la distribución conjunta de <span class="arithmatex">\((X_{t_1},X_{t_2},\cdots,X_{t_n})\)</span> es conocida.</p>
+</div>
+<p>De la definición anterior se entiende que es difícil conocer el comportamiento de un proceso estocástico, por lo que en ocasiones se deben imponer ciertas condiciones para su estudio.</p>
+<div class="admonition note">
+<p class="admonition-title">Procesos con incrementos independientes</p>
+<p>Se dice que un proceso estocástico tiene <em>incrementos independientes</em> si dados <span class="arithmatex">\(t_0,t_1,t2,\dots,t_n\)</span> las variables aleatorias <span class="arithmatex">\(X_{t_1}-X_{t_0},X_{t_2}-X_{t_1},\dots,X_{t_n}-X_{t_{n-1}}\)</span> son independientes.</p>
+</div>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
 <p>Ross, S. M. (1996). Stochastic Processes (Second Edition). John Wiley &amp; Sons.</p>
-
-              
+   
+       <!-- Last update of source file -->
+       
+           
+       
+   
             </article>
           </div>
         </div>
@@ -870,7 +923,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js", "version": 0.5}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js", "version": 1.0}</script>
     
     
       <script src="../../assets/javascripts/bundle.01de222e.min.js"></script>

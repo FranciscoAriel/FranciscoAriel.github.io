@@ -40,6 +40,8 @@
       
     
     
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
     <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -54,7 +56,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
     
@@ -835,13 +837,31 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-                
-<a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/index.md" title="Edit this page" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
 
+    <!-- Edit button -->
+    
+       <a
+           href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/index.md"
+           title="Edit this page"
+           class="md-content__button md-icon"
+       >
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+       </a>
+    
+   
+    <!--
+    Hack: check whether the content contains a h1 headline. If it
+    doesn't, the page title (or respectively site name) is used
+    as the main headline.
+    -->
+    
+   
+    <!-- Markdown content -->
+    <!-- Markdown content -->
+    
+    
 
-<h1 id="bienvenido-a-estadistica-desde-cero">Bienvenido a Estadística desde Cero<a class="headerlink" href="#bienvenido-a-estadistica-desde-cero" title="Permanent link">&para;</a></h1>
+       <h1 id="bienvenido-a-estadistica-desde-cero">Bienvenido a Estadística desde Cero<a class="headerlink" href="#bienvenido-a-estadistica-desde-cero" title="Permanent link">&para;</a></h1>
 <p>En este sitio web conocerás los fundamentos y conceptos básicos de estadística,  así como una introducción a diversos programas de software estadístico con el fin de iniciarse en el mundo de la estadística y ciencia de datos.</p>
 <p><img alt="Ilustración de una laptop" src="img/laptop.png" />
 Imagen de <a href="https://pixabay.com/es/users/sara_torda-888816/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286">Sara Torda</a> en <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286">Pixabay</a></p>
@@ -927,8 +947,10 @@ Imagen de <a href="https://pixabay.com/photos/?utm_source=link-attribution&amp;u
 <blockquote>
 <p>SAS and all other SAS Institute Inc. product or service names are registered trademarks or trademarks of SAS Institute Inc. in the USA and other countries. &reg; indicates USA registration.</p>
 </blockquote>
-
-              
+   
+       <!-- Last update of source file -->
+       
+   
             </article>
           </div>
         </div>
@@ -1026,7 +1048,7 @@ Imagen de <a href="https://pixabay.com/photos/?utm_source=link-attribution&amp;u
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.22074ed6.min.js", "version": 0.5}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.22074ed6.min.js", "version": 1.0}</script>
     
     
       <script src="assets/javascripts/bundle.01de222e.min.js"></script>
