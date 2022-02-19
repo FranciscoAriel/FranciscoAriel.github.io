@@ -5,6 +5,8 @@ En este sitio web conocerás los fundamentos y conceptos básicos de estadístic
 ![Ilustración de una laptop](img/laptop.png)
 Imagen de [Sara Torda](https://pixabay.com/es/users/sara_torda-888816/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286)
 
+Proximamente estaremos estrenando un blog. Te mantendremos informado, :wink:.
+
 ## Conceptos básicos de Estadística
 
 En esta sección encontrarás una breve introducción a la teoría estadística, abarcando desde los conceptos y definiciones básicos hasta modelos más complejos.
