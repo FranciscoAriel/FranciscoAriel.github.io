@@ -75,15 +75,15 @@ En ocasiones se requieren herramientas adicionales para realizar el trabajo.
 
 PROXIMAMENTE ... :clock1:
 
-- Jupyter Notebooks
+* Jupyter Notebooks
 
-- Markdown
+* Markdown
 
-- LaTeX
+* LaTeX
 
-- Visual Studio Code
+* Visual Studio Code
 
-- Git
+* Git
 
 ## Sobre el sitio
 
