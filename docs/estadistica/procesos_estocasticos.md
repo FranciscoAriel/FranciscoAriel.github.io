@@ -43,7 +43,7 @@ El siguiente ejemplo muestra un proceso con incrementos independientes.
     c)    $W_t-W_s \sim N(0,C)$ para $0<s<t$.
 
 !!! note "Movimiento Browniano"
-    Este proceso también recibe el nombre de _movimiento browniano_ debido a que el biólogo R. Brown en 1827 observó que algunas partículas en el agua exhibían movimiento irregulares (Karlin & Taylor, 1975).
+    Este proceso también recibe el nombre de _movimiento browniano_ debido a que el biólogo R. Brown en 1827 observó que algunas partículas en el agua exhibían movimientos irregulares (Karlin & Taylor, 1975).
 
 Un resultado interesante de este proceso es que los incrementos son independientes y estacionarios y su varianza depende de $t$. Es decir:
 
@@ -85,6 +85,10 @@ es igual es distribución que $W_t-W_s$, donde $\sigma^2$ es la varianza del pro
     \)
 
     Ahora supóngase que $s=1$ y $t>1$ y $\mathbb{V}(W_1)=\sigma^2$. Entonces necesariamente la varianza en el tiempo será $t-1$ será la constante $\sigma^2$ por la diferencia de $t-1$. Por lo tanto $\mathbb{V}(W_t-W_s)=\sigma^2(t-s)$ es una función lineal que depende de $t$ y $s$.
+
+La siguiente figura muestra como sería un proceso Wienier con $\sigma^2=1$. Note que cada línea representaría una variable aleatoria $W_t$.
+
+![Representación de un proceso Weinier](img/weiner.png)
 
 ## Bibliografía
 
