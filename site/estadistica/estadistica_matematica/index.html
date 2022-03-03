@@ -346,6 +346,19 @@
     Conceptos básicos
   </a>
   
+    <nav class="md-nav" aria-label="Conceptos básicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-de-probabilidad" class="md-nav__link">
+    Función de probabilidad
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -717,6 +730,19 @@
     Conceptos básicos
   </a>
   
+    <nav class="md-nav" aria-label="Conceptos básicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-de-probabilidad" class="md-nav__link">
+    Función de probabilidad
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -806,7 +832,7 @@
 <p>Considere un intervalo abierto arbitrario, por ejemplo el intervalo <span class="arithmatex">\(A=(5,9)\)</span>, este intervalo pertenece a <span class="arithmatex">\(\mathcal{C}\)</span> y también su complemento, en este caso los intervalos abiertos <span class="arithmatex">\((-\infty,5) \cup (9,\infty)\)</span>.</p>
 <p>Finalmente <span class="arithmatex">\(\cup A_i=(-\infty,\infty)\)</span> también está en <span class="arithmatex">\(\mathcal{C}\)</span>.</p>
 </details>
-<p>Aunque ya se había mencionado anteriorment una idea de <em>medida</em>, continuación se definirá el concepto de manera formal.</p>
+<p>Aunque ya se había mencionado anteriormente una idea de <em>medida</em>, a continuación se definirá el concepto de manera formal.</p>
 <div class="admonition note">
 <p class="admonition-title">Medida</p>
 <p>Sea <span class="arithmatex">\((\Omega,\mathcal{F})\)</span> un espacio medible. Una función <span class="arithmatex">\(v\)</span> definida sobre <span class="arithmatex">\(\mathcal{F}\)</span> es llamada <em>medida</em> si y solo si tiene las siguientes propiedades.</p>
@@ -817,15 +843,28 @@
 </ol>
 <p><span class="arithmatex">\(v \left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} v(A_i)\)</span>.</p>
 </div>
+<p>En otras palabras, una medida nos permite asignar un número real a los elementos o subconjuntos del espacio muestral.</p>
 <div class="admonition note">
 <p class="admonition-title">Espacio de medida</p>
 <p>A la tripleta <span class="arithmatex">\((\Omega,\mathcal{F},v)\)</span> se le conoce como <em>espacio de medida</em>.</p>
 </div>
-<p>A continuación se definirá un concepto de medida de especial interés.</p>
-<div class="admonition note">
+<p>A continuación se definirán algunos ejemplos de medida de especial interés que son usados en estadística.</p>
+<div class="admonition example">
 <p class="admonition-title">Medida de probabilidad</p>
-<p>Si <span class="arithmatex">\(v(\Omega)=1\)</span> entonces <span class="arithmatex">\(v\)</span> es llamada una <em>medida de probabilidad</em> y usualmente se denota por <span class="arithmatex">\(P\)</span> en vez de <span class="arithmatex">\(v\)</span> y la tripleta <span class="arithmatex">\((\Omega,\mathcal{F},P)\)</span> es llamada <em>espacio de probabilidad</em>.</p>
+<p>Si <span class="arithmatex">\(v(\Omega)=1\)</span> entonces <span class="arithmatex">\(v\)</span> es llamada una <em>medida de probabilidad</em> y usualmente se denota por <span class="arithmatex">\(P\)</span> en vez de <span class="arithmatex">\(v\)</span> y la tripleta <span class="arithmatex">\((\Omega,\mathcal{F},P)\)</span> es llamada <em>espacio de probabilidad</em>. Note la similitud en la definición que se dió en la sección <a href="../probabilidad/#axiomas-de-probabilidad">axiomas de probabilidad</a> (a <span class="arithmatex">\(\mathcal{F}\)</span> se le llamó <span class="arithmatex">\(\mathbb{s}\)</span>).</p>
 </div>
+<details class="example">
+<summary>Medida de conteo</summary>
+<p>Sea <span class="arithmatex">\(\mathcal{F}\)</span> una colección de subconjuntos de un espacio muestral <span class="arithmatex">\(\Omega\)</span>. Sea <span class="arithmatex">\(v(A)\)</span> el número de elementos en el conjunto <span class="arithmatex">\(A \in \mathcal{F}\)</span>. Entonces <span class="arithmatex">\(v\)</span> es una medida sobre <span class="arithmatex">\(\mathcal{F}\)</span> y es llamada <strong>medida de conteo</strong>.</p>
+<p>Esta medida es de utilidad en probabilidad cuando se usa la <a href="../probabilidad/#axiomas-de-probabilidad">función de propabilidad con probabilidades iguales</a>.</p>
+</details>
+<details class="example">
+<summary>Medida de Lebesgue</summary>
+<p>Sea <span class="arithmatex">\((\mathbb{R},\mathcal{B})\)</span> un espacio medible (El conjunto de todos los números reales sería el espacio muestral y <span class="arithmatex">\(\mathcal{B}\)</span> serían el conjunto de todos los intervalos abiertos en los reales). Se define</p>
+<p><span class="arithmatex">\(m([a,b])=b-a\)</span></p>
+<p>para cada intervalo finito <span class="arithmatex">\([a,b] \in \mathcal{B},-\infty &lt; a &lt; b &lt; \infty\)</span>. A esta medida se le conoce como <strong>medida de Lebesgue</strong>. Básicamente nos da la longitud del intervalo o distancia ente dos números reales. Note que si <span class="arithmatex">\(m\)</span> se restringe al intervalo <span class="arithmatex">\([0,1]\)</span>, se obtiene una <em>medida de probabilidad</em>.</p>
+</details>
+<h3 id="funcion-de-probabilidad">Función de probabilidad<a class="headerlink" href="#funcion-de-probabilidad" title="Permanent link">&para;</a></h3>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <p>Shao, J. (1999). <em>Mathematical statistics</em>. Springer-Verlag.</p>
    

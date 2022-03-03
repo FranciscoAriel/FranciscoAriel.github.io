@@ -55,7 +55,7 @@ El concepto de $\sigma$-campo se ilustra con los siguientes ejemplos.
 
     Finalmente $\cup A_i=(-\infty,\infty)$ también está en $\mathcal{C}$.
 
-Aunque ya se había mencionado anteriorment una idea de _medida_, continuación se definirá el concepto de manera formal.
+Aunque ya se había mencionado anteriormente una idea de _medida_, a continuación se definirá el concepto de manera formal.
 
 !!! note "Medida"
     Sea $(\Omega,\mathcal{F})$ un espacio medible. Una función $v$ definida sobre $\mathcal{F}$ es llamada _medida_ si y solo si tiene las siguientes propiedades.
@@ -66,13 +66,30 @@ Aunque ya se había mencionado anteriorment una idea de _medida_, continuación 
 
     \(v \left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} v(A_i)\).
 
+En otras palabras, una medida nos permite asignar un número real a los elementos o subconjuntos del espacio muestral.
+
 !!! note "Espacio de medida"
     A la tripleta $(\Omega,\mathcal{F},v)$ se le conoce como _espacio de medida_.
 
-A continuación se definirá un concepto de medida de especial interés.
+A continuación se definirán algunos ejemplos de medida de especial interés que son usados en estadística.
 
-!!! note "Medida de probabilidad"
-    Si $v(\Omega)=1$ entonces $v$ es llamada una _medida de probabilidad_ y usualmente se denota por $P$ en vez de $v$ y la tripleta $(\Omega,\mathcal{F},P)$ es llamada _espacio de probabilidad_.
+!!! example "Medida de probabilidad"
+    Si $v(\Omega)=1$ entonces $v$ es llamada una _medida de probabilidad_ y usualmente se denota por $P$ en vez de $v$ y la tripleta $(\Omega,\mathcal{F},P)$ es llamada _espacio de probabilidad_. Note la similitud en la definición que se dió en la sección [axiomas de probabilidad](probabilidad.md#axiomas-de-probabilidad) (a $\mathcal{F}$ se le llamó $\mathbb{s}$).
+
+??? example "Medida de conteo"
+    Sea $\mathcal{F}$ una colección de subconjuntos de un espacio muestral $\Omega$. Sea $v(A)$ el número de elementos en el conjunto $A \in \mathcal{F}$. Entonces $v$ es una medida sobre $\mathcal{F}$ y es llamada __medida de conteo__.
+
+    Esta medida es de utilidad en probabilidad cuando se usa la [función de propabilidad con probabilidades iguales](probabilidad.md#axiomas-de-probabilidad).
+
+??? example "Medida de Lebesgue"
+    Sea $(\mathbb{R},\mathcal{B})$ un espacio medible (El conjunto de todos los números reales sería el espacio muestral y $\mathcal{B}$ serían el conjunto de todos los intervalos abiertos en los reales). Se define
+
+    \(m([a,b])=b-a\)
+
+    para cada intervalo finito $[a,b] \in \mathcal{B},-\infty < a < b < \infty$. A esta medida se le conoce como __medida de Lebesgue__. Básicamente nos da la longitud del intervalo o distancia ente dos números reales. Note que si $m$ se restringe al intervalo $[0,1]$, se obtiene una _medida de probabilidad_.
+
+
+### Función de probabilidad
 
 ## Referencias
 
