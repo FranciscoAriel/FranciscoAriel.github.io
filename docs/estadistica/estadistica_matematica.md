@@ -21,7 +21,7 @@ Una definición muy general es el espacio muestral $\Omega$.
 Usualmente nos referimos a $\Omega$ como el conjunto de todos los resultados posibles de un experimento, aunque de acuerdo con Shao (1999) tambíen podría ser un conjunto de números, un intervalo de la recta real, entre otros.
 
 !!! note "Medida"
-    Una _medida_ es una extensión matamética natural de longitud, área o volumen de subconjuntos en espacios Euclideanos de dimensión 1 2 o 3.
+    Una _medida_ es una extensión matemática natural de longitud, área o volumen de subconjuntos en espacios Euclideanos de dimensión 1 2 o 3.
 
 Cuando se trabaja con un espacio muestral, una medida será una función definida para _ciertos_ subconjuntos de $\Omega$ que satisfagan ciertas propiedades.
 
@@ -86,8 +86,7 @@ A continuación se definirán algunos ejemplos de medida de especial interés qu
 
     \(m([a,b])=b-a\)
 
-    para cada intervalo finito $[a,b] \in \mathcal{B},-\infty < a < b < \infty$. A esta medida se le conoce como __medida de Lebesgue__. Básicamente nos da la longitud del intervalo o distancia ente dos números reales. Note que si $m$ se restringe al intervalo $[0,1]$, se obtiene una _medida de probabilidad_.
-
+    para cada intervalo finito $[a,b] \in \mathcal{B},-\infty < a < b < \infty$. A esta medida se le conoce como __medida de Lebesgue__. Básicamente nos da la longitud del intervalo o distancia ente dos números reales. Note que si $m$ se restringe al espacio medible $([0,1],\mathcal{B}_{[0,1]})$, se obtiene una _medida de probabilidad_.
 
 ### Función de probabilidad
 
