@@ -147,6 +147,8 @@ Si $P$ es una medida de probabilidad y $X$ es una variable aleatoria, entonces a
 
 ## Integración
 
+El concepto de integración es muy utilizado en Estadística y Probabilidad, aquí se definirá de manera muy general.
+
 !!! note "Integral"
     La integral de una función no negativa de una función $\varphi$ con respectoa $v$ se define como
 
@@ -227,6 +229,34 @@ Este teorema es una generalización de lo que usualmente se realiza en cálculo 
     \(\int_{\Omega_1 \times \Omega_2} f(x,y) d P_X \times P_Y = \int_{\Omega_2} \left[ \int_{\Omega_1} f(x,y) d P_X \right] d P_Y = \int_{\Omega_1} \left[ \int_{\Omega_2} f(x,y) d P_Y \right] d P_X\)
 
     En secciones posteriores se dará más detalles.
+
+??? example "Suma de dos variable aleatorias"
+    Sean $X_1$ y $X_2$ variables aleatorias independientes y $Y = X_1 + X_2$. Muestra que $F_Y(y) = \int F_{X_2}(y-x)d F_{X_1}(x)$.
+
+    Usando la técnica de la función de distribución acumulada (véase Mood et al. (1974)), la función de distribución de $Y$ puede expresarse como:
+
+    \begin{align*}
+        F_Y(y)&=P(Y< y)\\
+        &=P(X_1+X_2<y)\\
+        &=\int \int_{x_1+x_2<y} f_{X_1,X_2}(x_1,x_2) dx_1 dx_2\\
+        &= \int_{-\infty}^{\infty} \left[ \int_{-\infty}^{y-x_1} f_{X_1,X_2}(x_1,x_2)  dx_2 \right] dx_1
+    \end{align*}
+
+    Haciendo $u = y-x_1$
+
+    \begin{align*}
+        F_Y(y)&= \int_{-\infty}^{\infty} \left[ \int_{-\infty}^{y-x_1} f_{X_1,X_2}(x_1,u)  du \right] dx_1
+    \end{align*}
+
+    Aplicando el teorema de Fubini y por independencia
+
+    \begin{align*}
+        F_Y(y)&= \int_{-\infty}^{y-x_1} \left[ \int_{-\infty}^{\infty} f_{X_1,X_2}(x_1,u) dx_1 \right] du \\
+        &= \int_{-\infty}^{y-x_1} \left[ \int_{-\infty}^{\infty} f_{X_1}(x_1) dx_1 \right]f_{X_2}(u) du\\
+        &= \int_{-\infty}^{y-x_1} \left[ \int_{-\infty}^{\infty} dF_{X_1}(x_1) dx_1 \right]f_{X_2}(u) du\\
+        &= \int_{-\infty}^{\infty} \left[ \int_{-\infty}^{y-x_1} f_{X_2}(u) du \right]  dF_{X_1}(x_1) \\
+        &= \int_{-\infty}^{\infty} F_{X_2}(y-x_1)   dF_{X_1}(x_1)
+    \end{align*}
 
 !!! note "Teorema Radon-Nikodym"
     Sea $v$ y $\lambda$ dos medidas sobre $(\Omega,\mathcal{F})$ y $v(A) < \infty$. Si $\lambda$ es _absolutamente continua_ con respecto a $v$, es decir $v(A)=0$ implica $\lambda(A) = 0$, entonces existe una función Borel no negativa $f$ sobre $\Omega$ tal que

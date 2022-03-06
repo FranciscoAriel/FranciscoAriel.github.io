@@ -991,6 +991,7 @@
 <p>Para saber un poco más de las variables aleatorias vea la sección <a href="../probabilidad/#variables-aleatorias">variable aleatoria</a>.</p>
 <p>Si <span class="arithmatex">\(P\)</span> es una medida de probabilidad y <span class="arithmatex">\(X\)</span> es una variable aleatoria, entonces a <span class="arithmatex">\(P_X=P(X^{-1})\)</span> se le conoce como <em>distribución de X</em>.</p>
 <h2 id="integracion">Integración<a class="headerlink" href="#integracion" title="Permanent link">&para;</a></h2>
+<p>El concepto de integración es muy utilizado en Estadística y Probabilidad, aquí se definirá de manera muy general.</p>
 <div class="admonition note">
 <p class="admonition-title">Integral</p>
 <p>La integral de una función no negativa de una función <span class="arithmatex">\(\varphi\)</span> con respectoa <span class="arithmatex">\(v\)</span> se define como</p>
@@ -1053,6 +1054,29 @@
 <p>En Probabilidad y Estadística se usa la integral doble para hacer el cálculo de probabilidades de una variable aleatoria bivariada. Por ejemplo</p>
 <p><span class="arithmatex">\(\int_{\Omega_1 \times \Omega_2} f(x,y) d P_X \times P_Y = \int_{\Omega_2} \left[ \int_{\Omega_1} f(x,y) d P_X \right] d P_Y = \int_{\Omega_1} \left[ \int_{\Omega_2} f(x,y) d P_Y \right] d P_X\)</span></p>
 <p>En secciones posteriores se dará más detalles.</p>
+</details>
+<details class="example">
+<summary>Suma de dos variable aleatorias</summary>
+<p>Sean <span class="arithmatex">\(X_1\)</span> y <span class="arithmatex">\(X_2\)</span> variables aleatorias independientes y <span class="arithmatex">\(Y = X_1 + X_2\)</span>. Muestra que <span class="arithmatex">\(F_Y(y) = \int F_{X_2}(y-x)d F_{X_1}(x)\)</span>.</p>
+<p>Usando la técnica de la función de distribución acumulada (véase Mood et al. (1974)), la función de distribución de <span class="arithmatex">\(Y\)</span> puede expresarse como:</p>
+<div class="arithmatex">\[\begin{align*}
+    F_Y(y)&amp;=P(Y&lt; y)\\
+    &amp;=P(X_1+X_2&lt;y)\\
+    &amp;=\int \int_{x_1+x_2&lt;y} f_{X_1,X_2}(x_1,x_2) dx_1 dx_2\\
+    &amp;= \int_{-\infty}^{\infty} \left[ \int_{-\infty}^{y-x_1} f_{X_1,X_2}(x_1,x_2)  dx_2 \right] dx_1
+\end{align*}\]</div>
+<p>Haciendo <span class="arithmatex">\(u = y-x_1\)</span></p>
+<div class="arithmatex">\[\begin{align*}
+    F_Y(y)&amp;= \int_{-\infty}^{\infty} \left[ \int_{-\infty}^{y-x_1} f_{X_1,X_2}(x_1,u)  du \right] dx_1
+\end{align*}\]</div>
+<p>Aplicando el teorema de Fubini y por independencia</p>
+<div class="arithmatex">\[\begin{align*}
+    F_Y(y)&amp;= \int_{-\infty}^{y-x_1} \left[ \int_{-\infty}^{\infty} f_{X_1,X_2}(x_1,u) dx_1 \right] du \\
+    &amp;= \int_{-\infty}^{y-x_1} \left[ \int_{-\infty}^{\infty} f_{X_1}(x_1) dx_1 \right]f_{X_2}(u) du\\
+    &amp;= \int_{-\infty}^{y-x_1} \left[ \int_{-\infty}^{\infty} dF_{X_1}(x_1) dx_1 \right]f_{X_2}(u) du\\
+    &amp;= \int_{-\infty}^{\infty} \left[ \int_{-\infty}^{y-x_1} f_{X_2}(u) du \right]  dF_{X_1}(x_1) \\
+    &amp;= \int_{-\infty}^{\infty} F_{X_2}(y-x_1)   dF_{X_1}(x_1)
+\end{align*}\]</div>
 </details>
 <div class="admonition note">
 <p class="admonition-title">Teorema Radon-Nikodym</p>
