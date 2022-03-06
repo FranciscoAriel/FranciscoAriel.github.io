@@ -319,6 +319,8 @@ Note que la definición no menciona nada acerca de la forma que podría tener la
     ![Distribución de X](img/F_X.png)
     Representación gráfica de la distribución de $X$.
 
+    Por ejemplo, la probabilidad de que se obtenga 0 o 1 águilas es 1/8.
+
 ??? example "Duración de una llamada telefónica"
     Para las variables aleatorias continuas, la forma de la función de distribución es un poco distinta, pero sigue cumpliendo las mismas propiedades.
 
@@ -339,6 +341,9 @@ Note que la definición no menciona nada acerca de la forma que podría tener la
     - $P(X < 2) = 1-e^{-2}=0.8646$
     - $P(X > 5) = 1-(1-e^{-5})=0.0067$
     - $P(1<X<3)=P(X<3)-P(X<1)=0.3180$
+
+!!! caution "Cálculo de probabilidades"
+    Se debe tener cuidado cuando se calcula probabilidades de variables aleatorias discretas ya que en general no es lo mismo $P(X < x)$ que $P(X \le x)$.
 
 ### Función de densidad
 

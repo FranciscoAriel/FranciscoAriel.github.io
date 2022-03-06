@@ -350,8 +350,42 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#epacios-medibles" class="md-nav__link">
+    Epacios medibles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#funcion-de-probabilidad" class="md-nav__link">
     Función de probabilidad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-medible-y-variable-aleatoria" class="md-nav__link">
+    Función medible y variable aleatoria
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integracion" class="md-nav__link">
+    Integración
+  </a>
+  
+    <nav class="md-nav" aria-label="Integración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#propiedades-de-la-integral" class="md-nav__link">
+    Propiedades de la integral
   </a>
   
 </li>
@@ -734,8 +768,42 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#epacios-medibles" class="md-nav__link">
+    Epacios medibles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#funcion-de-probabilidad" class="md-nav__link">
     Función de probabilidad
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-medible-y-variable-aleatoria" class="md-nav__link">
+    Función medible y variable aleatoria
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integracion" class="md-nav__link">
+    Integración
+  </a>
+  
+    <nav class="md-nav" aria-label="Integración">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#propiedades-de-la-integral" class="md-nav__link">
+    Propiedades de la integral
   </a>
   
 </li>
@@ -803,6 +871,7 @@
 <p class="admonition-title">Medida</p>
 <p>Una <em>medida</em> es una extensión matemática natural de longitud, área o volumen de subconjuntos en espacios Euclideanos de dimensión 1 2 o 3.</p>
 </div>
+<h3 id="epacios-medibles">Epacios medibles<a class="headerlink" href="#epacios-medibles" title="Permanent link">&para;</a></h3>
 <p>Cuando se trabaja con un espacio muestral, una medida será una función definida para <em>ciertos</em> subconjuntos de <span class="arithmatex">\(\Omega\)</span> que satisfagan ciertas propiedades.</p>
 <div class="admonition note">
 <p class="admonition-title"><span class="arithmatex">\(\sigma\)</span>-álgrebra</p>
@@ -864,7 +933,97 @@
 <p><span class="arithmatex">\(m([a,b])=b-a\)</span></p>
 <p>para cada intervalo finito <span class="arithmatex">\([a,b] \in \mathcal{B},-\infty &lt; a &lt; b &lt; \infty\)</span>. A esta medida se le conoce como <strong>medida de Lebesgue</strong>. Básicamente nos da la longitud del intervalo o distancia ente dos números reales. Note que si <span class="arithmatex">\(m\)</span> se restringe al espacio medible <span class="arithmatex">\(([0,1],\mathcal{B}_{[0,1]})\)</span>, se obtiene una <em>medida de probabilidad</em>.</p>
 </details>
+<p>A continuación se definen algunas propiedades de las medidas.</p>
+<div class="admonition note">
+<p class="admonition-title">Propiedades de la medida</p>
+<p>Sea <span class="arithmatex">\((\Omega,\mathcal{F},v)\)</span> un espacio medible con <span class="arithmatex">\(A \in \mathcal{F}\)</span>.</p>
+<p>a) Si <span class="arithmatex">\(A \subset B\)</span> entonces <span class="arithmatex">\(v(A) \le v(B)\)</span> (La medida es monótona).</p>
+<p>b) (Subaditividad) Para cualquier secuencia <span class="arithmatex">\(A_1, A_2,\dots,\)</span> se cumple</p>
+<p><span class="arithmatex">\(v \left( \bigcup_{i=1}^{\infty}A_i\right) = \bigcup_{i=1}^{\infty}v(A_i)\)</span></p>
+<p>c) (Continuidad) Si <span class="arithmatex">\(A_1 \supset A_2 \supset \dots\)</span> y <span class="arithmatex">\(v(A_1) \le \infty\)</span>, entonces </p>
+<p><span class="arithmatex">\(v\left( \lim_{n \to \infty} A_n \right) = \lim_{n \to \infty} v \left( A_n \right)\)</span></p>
+</div>
+<p>Estas propiedades se aplican en las propiedades de la probabilidad, vea la sección <a href="../probabilidad/#axiomas-de-probabilidad">axiomas de probabilidad</a>.</p>
 <h3 id="funcion-de-probabilidad">Función de probabilidad<a class="headerlink" href="#funcion-de-probabilidad" title="Permanent link">&para;</a></h3>
+<p>Ahora se puede definir la función de distribución acumulada a partir de la medida de probabilidad.</p>
+<div class="admonition note">
+<p class="admonition-title">Función de distribución acumulada</p>
+<p>Sea <span class="arithmatex">\(P\)</span> una medida de probabilidad. La <em>función de distribución acumulada</em> de <span class="arithmatex">\(P\)</span> se define como</p>
+<p><span class="arithmatex">\( F(x) = P(-\infty,x), x \in \mathbb(R) \)</span></p>
+</div>
+<p>Note que esta definición está en términos de una medida de probabilidad, y no en términos de una variable aleatoria (no lleva el subíndice <span class="arithmatex">\(X\)</span>) como en la sección <a href="../probabilidad/#función-de-distribución">Función de distribución</a>.</p>
+<p>Las propiedeades de la función de distribución son las siguientes:</p>
+<p>a) <span class="arithmatex">\(F(-\infty) = \lim_{x \to -\infty} F(x) = 0\)</span></p>
+<p>b) <span class="arithmatex">\(F(\infty) = \lim_{x \to \infty} F(x) = 1\)</span></p>
+<p>c) <span class="arithmatex">\(F\)</span> es no decreciente, es decir, para toda <span class="arithmatex">\(x &lt; y\)</span> entonces <span class="arithmatex">\(F(x) \le F(y)\)</span>.</p>
+<p>d) Es continua por la derecha, esto es <span class="arithmatex">\(\lim_{x &lt; y \to x} F(y) = F(x)\)</span></p>
+<h3 id="funcion-medible-y-variable-aleatoria">Función medible y variable aleatoria<a class="headerlink" href="#funcion-medible-y-variable-aleatoria" title="Permanent link">&para;</a></h3>
+<p>Hasta ahora se ha trabajado sobre el espacio muestral <span class="arithmatex">\(\Omega\)</span>, pero este suele ser algo muy general. Ahora se definirá una forma para trabajar con números reales en lugar de conjuntos.</p>
+<div class="admonition note">
+<p class="admonition-title">Función medible</p>
+<p>Sean <span class="arithmatex">\((\Omega,\mathcal{F})\)</span> y <span class="arithmatex">\((\Lambda,\mathcal{G})\)</span> espacios medibles y <span class="arithmatex">\(f\)</span> una función de <span class="arithmatex">\(\Omega\)</span> a <span class="arithmatex">\(\Lambda\)</span>. La función <span class="arithmatex">\(f\)</span> es llamada <em>función medible</em> de <span class="arithmatex">\((\Omega,\mathcal{F})\)</span> a <span class="arithmatex">\((\Lambda,\mathcal{G})\)</span> si y solo si <span class="arithmatex">\(f^{-1}(\mathcal{G}) \subset \mathcal{F}\)</span>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Variable aleatoria</p>
+<p>Si <span class="arithmatex">\((\Lambda,\mathcal{G})\)</span> es un espacio Borel, es decir <span class="arithmatex">\((\mathbb{R},\mathcal{B})\)</span>, a <span class="arithmatex">\(f\)</span> se le conoce como <em>función Borel</em> o <em>Borel medible</em>. En probabilidad se le conoce como <em>variable aleatoria</em>.</p>
+</div>
+<p>Para saber un poco más de las variables aleatorias vea la sección <a href="../probabilidad/#variables-aleatorias">variable aleatoria</a>.</p>
+<p>Si <span class="arithmatex">\(P\)</span> es una medida de probabilidad y <span class="arithmatex">\(X\)</span> es una variable aleatoria, entonces a <span class="arithmatex">\(P_X=P(X^{-1})\)</span> se le conoce como <em>distribución de X</em>.</p>
+<h2 id="integracion">Integración<a class="headerlink" href="#integracion" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Integral</p>
+<p>La integral de una función no negativa de una función <span class="arithmatex">\(\varphi\)</span> con respectoa <span class="arithmatex">\(v\)</span> se define como</p>
+<p><span class="arithmatex">\(\int \varphi dv = \sum_{i=1}^{k}a_i v(A_i)\)</span></p>
+</div>
+<p>Note que este concepto de integración es complejo, ya que involucra funciones Borel <span class="arithmatex">\(f\)</span> con respecto a una medida <span class="arithmatex">\(v\)</span> y podría considerarse una especie de promedio ponderado de las medidas por unos pesos <span class="arithmatex">\(a_i\)</span>. A continuación se tratará de ilustrar este concepto mediante unos ejemplos.</p>
+<details class="example">
+<summary>Integral de un conjunto contable</summary>
+<p>Sea <span class="arithmatex">\(\Omega\)</span> un conjunto contable, <span class="arithmatex">\(\mathcal{F}\)</span> todos los subconjuntos de <span class="arithmatex">\(\Omega\)</span> y <span class="arithmatex">\(v\)</span> la medida de conteo. Para cualquier función Borel <span class="arithmatex">\(f\)</span> la integral con respecto a <span class="arithmatex">\(v\)</span> es</p>
+<p><span class="arithmatex">\(\int f d v = \sum_{\omega \in \Omega} f(\omega)\)</span></p>
+<p>Básicamente esta integral sumará el número de elementos en el conjunto <span class="arithmatex">\(\omega\)</span>.</p>
+</details>
+<details class="example">
+<summary>Integral de Riemann</summary>
+<p>Si <span class="arithmatex">\(\Omega = \mathbb{R}\)</span> y <span class="arithmatex">\(v\)</span> es la medida de Lebesgue, entonces la integral de <span class="arithmatex">\(f\)</span> sobre el intervalo <span class="arithmatex">\([a,b]\)</span> coincide con la integral de Riemann de cálculo (la de los rectángulos) y usualmente se denota como</p>
+<p><span class="arithmatex">\(\int_{a}^{b}f(x) d x= \int_{a}^{b} f(x) dx\)</span></p>
+<p>Esta integral de Riemman es muy utilizada en Probabilidad y Estadística y es con la que comunmente se trabaja.</p>
+</details>
+<p>La notación de la integral de <span class="arithmatex">\(f\)</span> puede ser escrita de varias forma, dependiendo si se requiere indicar los límites de integración o las variables de integración. De hecho en Probabilidad y Estadística, la función de distribución acumulada <span class="arithmatex">\(F\)</span> de <span class="arithmatex">\(P\)</span> puede expresarse como <span class="arithmatex">\(\int f(x) d P\)</span> o <span class="arithmatex">\(\int f(x) d F(x)\)</span> o simplemente <span class="arithmatex">\(\int f dF\)</span>; tambien la esperanza de una variable aleatoria <span class="arithmatex">\(X\)</span> podría expresarse como <span class="arithmatex">\(E(X)=\int X d P\)</span>.</p>
+<h3 id="propiedades-de-la-integral">Propiedades de la integral<a class="headerlink" href="#propiedades-de-la-integral" title="Permanent link">&para;</a></h3>
+<p>A continuación se presentan las propiedades de la integral, estas propiedades resultarán muy familiares a las que se estudian en Cálculo.</p>
+<div class="admonition note">
+<p class="admonition-title">Propiedades de la integral</p>
+<p>Sea <span class="arithmatex">\((\Omega,\mathcal{F},v)\)</span> un espacio de medida y <span class="arithmatex">\(f\)</span> y <span class="arithmatex">\(g\)</span> funciones Borel.</p>
+<p>i) <span class="arithmatex">\(\int a f d v = a \int f d v, a \in \mathbb(R)\)</span> (Linealidad de la integral)</p>
+<p>ii) <span class="arithmatex">\(\int (f + g) d v =  \int f d v + \int g d v\)</span> (Linealidad de la integral)</p>
+<p>iii) Si <span class="arithmatex">\(f \le g\)</span> entonces <span class="arithmatex">\(\int f d v \le \int g d v\)</span></p>
+<p>iv) Si <span class="arithmatex">\(f \ge 0\)</span> y <span class="arithmatex">\(\int f d v = 0\)</span> entonces <span class="arithmatex">\(f = 0\)</span>.</p>
+</div>
+<p>A continuación se enuncian algunos teoremas que se ocupan mucho en Estadística y Probabilidad.</p>
+<div class="admonition note">
+<p class="admonition-title">Cambio de variable</p>
+<p>Sea <span class="arithmatex">\(f\)</span> una función medible de <span class="arithmatex">\((\Omega,\mathcal{F},v)\)</span> a <span class="arithmatex">\((\Lambda,\mathcal{G})\)</span> y <span class="arithmatex">\(g\)</span> una función Borel en <span class="arithmatex">\((\Lambda,\mathcal{G})\)</span>. Entonces</p>
+<p><span class="arithmatex">\(\int_{\Omega}g(f)dv=\int_{\Lambda}g d(v(f^{-1}))\)</span></p>
+<p>Esta definición es una generalización del cambio de variable de la integral de Riemann <span class="arithmatex">\(\int g(y) dy = \int g(f(x))f´(x) dx,y=f(x)\)</span></p>
+</div>
+<details class="example">
+<summary>Una propiedad de la esperanza de X</summary>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Teorema de Fubini</p>
+</div>
+<details class="example">
+<summary>Intercambio de límites de integración</summary>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Derivada Radon-Nikodym</p>
+</div>
+<details class="example">
+<summary>Función de densidad</summary>
+</details>
+<details class="example">
+<summary>Otra forma de definir la esperanza de X</summary>
+</details>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
 <p>Shao, J. (1999). <em>Mathematical statistics</em>. Springer-Verlag.</p>
    
