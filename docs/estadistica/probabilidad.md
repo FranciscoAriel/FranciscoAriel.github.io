@@ -595,3 +595,5 @@ La función generadora de momentos es muy útil y a continuación se presenta un
 Lipschutz, S., & Lipson, M. L. (2001). _Teoría y Problemas de Probabilidad_ (Segunda edición). McGraw-Hill.
 
 Mood, A., Graybill, F., & Boes, D. (1974). _Introduction to the Theory of Statistics_. McGraw-Hill.
+
+> Muchas de las ideas fueron tomadas de los cursos _Introducción a la probabilidad 1 y 2_ impartidos por el Dr. José Villaseñor en los cuatrimestres Primavera 2014 y Verano 2014 en el Colegio de Postgraduados, Campus Montecillo.

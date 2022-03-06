@@ -1,8 +1,11 @@
 ---
 title: Apuntes de Estadística Matemática
-summary: Estudio formal de la estadística.
-authors: Francisco Vázquez
+summary: Estudio formal de la estadística a través de definiciones más rigurosas.
+author: Francisco Vázquez
 date: 2022-02-04
+author_gh_user: FranciscoAriel
+publish_date: 2022-02-04
+read_time: 25 minutos
 ---
 
 La __Estadística Matemática__ estudia de forma más profunda y formal a la Teoría de la Probabilidad, que a la vez está basada en Teoría de la Medida. Este curso sirve como base para Teoría Estadística para un doctorado en Estadística.
@@ -93,7 +96,7 @@ A continuación se definirán algunos ejemplos de medida de especial interés qu
 A continuación se definen algunas propiedades de las medidas.
 
 !!! note "Propiedades de la medida"
-    Sea $(\Omega,\mathcal{F},v)$ un espacio medible con $A \in \mathcal{F}$.
+    Sea $(\Omega,\mathcal{F},v)$ un espacio de medida con $A \in \mathcal{F}$.
 
     a) Si $A \subset B$ entonces $v(A) \le v(B)$ (La medida es monótona).
 
@@ -189,20 +192,119 @@ A continuación se enuncian algunos teoremas que se ocupan mucho en Estadística
 
     \(\int_{\Omega}g(f)dv=\int_{\Lambda}g d(v(f^{-1}))\)
 
-    Esta definición es una generalización del cambio de variable de la integral de Riemann $\int g(y) dy = \int g(f(x))f´(x) dx,y=f(x)$
+Note que esta definición es una generalización del cambio de variable de la integral de Riemann $\int g(y) dy = \int g(f(x))f´(x) dx$, con $y=f(x)$. A continuación se dará un ejemplo del uso de este teorema.
 
 ??? example "Una propiedad de la esperanza de X"
+    Esta propiedad es muy usada en Probabilidad y estadística. Sea $X$ una variable aleatoria en el espacio de probabilidad $(\Omega,\mathcal{F},P)$. Si se define el _valor esperado de X_ como $E(X)=\int_{\Omega} X dP$, uno puede expresarla en términos de la __distribución de X__, es decir
+
+    \(E(X)=\int_{\mathbb{R}} x d P_X,\)
+    
+    donde $P_X=P(X^{-1})$ (integral con respecto a la _distribución de X_). Usualmente la segunda expresión es la que se encuentra más en los libros de probabilidad, vea por ejemplo la definición de esperanza en la sección [Esperanza](probabilidad.md#esperanza).
+
+    El teorema de cambio de variable también nos permite encontrar la esperanza de una función de $X$. Sea $Y$ una variable aleatoria en $(\Omega,\mathcal{F},P)$ y $g$ una función Borel. La esperanza de $Z =g(Y)$ puede ser calculada ya sea usando la distribución de $Y$, es decir, $E(g(Y))=\int_{\mathbb{R}} g(Y) dP_Y$ o con la distribución de $g(Y)$, esto es, $E(g(Y))=\int_{\mathbb{R}} z dP_{g(y)}$. Este resultado tambien puede extenderse al caso de transformaciones de variables aleatorias, por ejemplo la suma de dos variables aleatorias, el cual se estudiará más adelante.
 
 !!! note "Teorema de Fubini"
+    Sea $v_1, v_2$ una medida en $(\Omega_1,\mathcal{F}_1)$ y $(\Omega_2,\mathcal{F}_2)$ respectivamente y sea $f$ una función Borel en $(\Omega_1,\mathcal{F}_1) \times (\Omega_2,\mathcal{F}_2)$ cuya integral con respecto a $v_1 \times v_2$ existe. Entonces la integral
+
+    \(\int_{\Omega_1} f(\omega_1,\omega_2) d v_1\)
+
+    existe para $v_2$ y define una función Borel sobre $\Omega_2$ cuya integral con respecto a $v_2$ existe, entonces
+
+    \(\int_{\Omega_1 \times \Omega_2} f(\omega_1,\omega_2) d v_1 \times v_2 = \int_{\Omega_2} \left[ \int_{\Omega_1} f(\omega_1,\omega_2) d v_1 \right] d v_2\)
+
+Este teorema es una generalización de lo que usualmente se realiza en cálculo cuando se intercambian los límites de integración.
+
+??? example "Intercambio del orden de una suma"
+    Suponga que $\Omega_1 = \Omega_2 = \lbrace 0,1,2,\dots \rbrace$ y sea $v_1 = v_2$ la medida de conteo. Sea $f$ una función sobre $\Omega_1 \times \Omega_2$ que define una doble secuencia. Entonces
+
+    \( \int_{\Omega_1 \times \Omega_2} f d v_1 \times v_2 = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} f(i,j) = \sum_{j=1}^{\infty} \sum_{i=1}^{\infty} f(i,j)\)
+
+    si la integral existe.
 
 ??? example "Intercambio de límites de integración"
+    En Probabilidad y Estadística se usa la integral doble para hacer el cálculo de probabilidades de una variable aleatoria bivariada. Por ejemplo
 
-!!! note "Derivada Radon-Nikodym"
+    \(\int_{\Omega_1 \times \Omega_2} f(x,y) d P_X \times P_Y = \int_{\Omega_2} \left[ \int_{\Omega_1} f(x,y) d P_X \right] d P_Y = \int_{\Omega_1} \left[ \int_{\Omega_2} f(x,y) d P_Y \right] d P_X\)
+
+    En secciones posteriores se dará más detalles.
+
+!!! note "Teorema Radon-Nikodym"
+    Sea $v$ y $\lambda$ dos medidas sobre $(\Omega,\mathcal{F})$ y $v(A) < \infty$. Si $\lambda$ es _absolutamente continua_ con respecto a $v$, es decir $v(A)=0$ implica $\lambda(A) = 0$, entonces existe una función Borel no negativa $f$ sobre $\Omega$ tal que
+
+    \(\lambda(A)=\int_{A} f d v, A \in \mathcal{F} \)
+
+    es una medida sobre $(\Omega,\mathcal{F})$.
+
+Este resultado puede considerarse como una generalización del teorema fundamental del cálculo ya que $f$ es llamada la _derivada_ de Radon-Nikodym con respecto a $v$ y se denota como $d \lambda / d v$.
+
+A continuación se mencionan algunas propiedades interesantes del Teorema Radon-Nikodym.
+
+!!! note "Propiedades de la derivada Radon-Nikodym"
+    Sea $(\Omega,\mathcal{F})$ un espacio medible y $v$ una medida finita en el espacio medible.
+
+    i) Si $\lambda$ es una medida _absolutamente continua_ con respecto a $v$ y $f \ge 0$, entonces
+
+    \(\int f d \lambda = \int f \frac{d \lambda}{dv}dv\)
+
+    ii) Si $\lambda_1, \lambda_2$ son medidas _absolutamente continuas_ con respecto a $v$, entonces
+
+    \( \frac{d(\lambda_1 + \lambda_2)}{dv} = \frac{d \lambda_1 }{dv} + \frac{d \lambda_2}{dv} \)
+
+    iii) (Regla de la cadena) Si $\tau$ es una medida, $\lambda$ una medida finita y $\tau,\lambda$ son medidas _absolutamente continuas_ con respecto a $v$, entonces
+
+    \(\frac{d \tau}{d v}=\frac{d \tau}{d \lambda}\frac{d \lambda}{d v}\)
+
+    iv) Sean $(\Omega_1,\mathcal{F}_1,v_1)$ y $(\Omega_2,\mathcal{F}_2,v_2)$ espacios de medida con $v_1,v_2$ finitas. Sean $\lambda_1,\lambda_2$ medidas en $(\Omega_1,\mathcal{F}_1,v_1)$ y $(\Omega_2,\mathcal{F}_2,v_2)$ y _absolutamente continuas_ con respecto a $v_1$ y $v_2$. Entonces
+
+    \(\frac{d(\lambda_1 \times \lambda_2)}{d(v_1 \times v_2)}(\omega_1,\omega_2)=\frac{d\lambda_1}{dv_1}(\omega_1) \frac{d\lambda_2}{dv_2}(\omega_2)\)
 
 ??? example "Función de densidad"
+    Si $\int f d v=1$ para una $f \ge 0$, entonces $\lambda$ (la función obtenida al realizar la integral) es una __medida de probabilidad__ y $f$ es llamada su _función de densidad_ o _función de densidad de probabilidad_ con respecto a $v$.
+
+    Sea $F$ es una función de distribución diferenciable y $P$ su correspondiente medida de probabilidad. Entonces $P(A) = \int_{A} f d m, A \in \mathcal{B}$ con $m$ una medida de Lebesgue en $\mathbb{R}$. Por lo tanto $f$ es la función de densidad de $P$ o $F$ con respecto a la medida de Lebesgue $m$; es por eso que en probabilidad y estadística se usen las integrales de cálculo y los cálculo de las probabilidades se expresen de la forma: 
+    
+    \(F(x)=\int_{-\infty}^{x}f(y)dy, x \in \mathbb{R}\)
+
+    Para una explicación dede el punto de vista de la probabilidad y ejemplos más detallados, vea la sección [función de densidad](probabilidad.md#función-de-densidad).
 
 ??? example "Otra forma de definir la esperanza de X"
+    En (Mood et al., 1974) se define la esperanza o media de $X$ como
+
+    \(E(X)=\int_{0}^{\infty} \left[ 1- F(x) \right] dx - \int_{-\infty}^{0} \left[ F(x) \right] dx\)
+
+    Sea $X$ una variable aleatoria que tiene una función de distribución acumulada $F$. Se mostrará que si $X \ge 0$ entonces $E(X) = \int [1- F(x)] dx$. Se usarán los teoremas vistos hasta ahora para mostrar que se cumple para el caso de una variable aleatoria positiva. El procedimiento para una variable aleatoria que tome valores negativos, es similar.
+
+    Considerando que $X$ es una variable aleatoria positiva, únicamente se toma en cuenta el intervalo de $0<x<\infty$:
+
+    \(
+        E(X) = \int_{0}^{\infty} [1- F(x)] dx
+    \)
+
+    Note que $1-F(x)=1-P(X \le x)=P(X>x)=\int_{x}^{\infty}f(y)dy$, (en este caso $y$ desaparecerá cuando se evalúen los límites de integración, ya que no es posible poner a $x$).
+
+    Usando el teorema de Radon-Nikodym la esperanza de $X$ puede expresarse como:
+
+    \begin{align*}
+        E(X) &= \int_{0}^{\infty} \left[ \int_{x}^{\infty}f(y)dy\right] dx\\
+        &= \int_{0}^{\infty} \left[ \int_{x}^{\infty}dF(y) \right] dx
+    \end{align*}
+
+    Ahora, aplicando cambio de variable y el teorema de Fubini, se pueden intercambiar los límites de integración considerando que $0<x<y<\infty$:
+
+    \begin{align*}
+        E(X) &= \int_{0}^{\infty} \left[ \int_{x}^{\infty}dF(y) \right] dx\\
+        &= \int_{0}^{\infty} \left[ \int_{0}^{y} dx\right] dF(y)\\
+        &= \int_{0}^{\infty} \left[ x|_{0}^{y}\right] dF(y)\\
+        &= \int_{0}^{\infty} y dF(y)\\
+        &= \int_{0}^{\infty} x f(x) d x
+    \end{align*}
+
+    Lo cual prueba el resultado ya que es la definición usual de media de $X$.
 
 ## Referencias
 
+Mood, A., Graybill, F., & Boes, D. (1974). _Introduction to the Theory of Statistics_. McGraw-Hill.
+
 Shao, J. (1999). _Mathematical statistics_. Springer-Verlag.
+
+> Muchas de las ideas fueron tomadas del curso _Estadísitca Matemática_ impartido por el Dr. Juan Manuel Romero en Primavera del 2022 en el Colegio de Postgraduados, Campus Montecillo.

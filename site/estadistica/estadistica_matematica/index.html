@@ -9,7 +9,7 @@
         <meta name="description" content="Un sitio donde aprenderás desde lo básico hasta lo mas avanzado acerca de estadística y probabilidad, así como los mejores lenguajes de programación que se usan en estadística.">
       
       
-        <meta name="author" content="Francisco Ariel Vázquez Chávez">
+        <meta name="author" content="Francisco Vázquez">
       
       
         <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/estadistica_matematica/">
@@ -855,6 +855,27 @@
     <!-- Markdown content -->
     <!-- Markdown content -->
     
+    <aside class="mdx-author">
+        <p>
+        <img src="https://avatars.githubusercontent.com/FranciscoAriel" alt="@FranciscoAriel">
+        </p>
+        <p>
+        <span> 
+        <b>Francisco Vázquez</b> · <a href="https://github.com/FranciscoAriel">@FranciscoAriel</a>
+        </span>
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+            </svg> 2022-02-04 ·
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+            </svg> lectura: 25 minutos
+        </span>
+        </p>
+    </aside>
+    
     
 
        <p>La <strong>Estadística Matemática</strong> estudia de forma más profunda y formal a la Teoría de la Probabilidad, que a la vez está basada en Teoría de la Medida. Este curso sirve como base para Teoría Estadística para un doctorado en Estadística.</p>
@@ -936,7 +957,7 @@
 <p>A continuación se definen algunas propiedades de las medidas.</p>
 <div class="admonition note">
 <p class="admonition-title">Propiedades de la medida</p>
-<p>Sea <span class="arithmatex">\((\Omega,\mathcal{F},v)\)</span> un espacio medible con <span class="arithmatex">\(A \in \mathcal{F}\)</span>.</p>
+<p>Sea <span class="arithmatex">\((\Omega,\mathcal{F},v)\)</span> un espacio de medida con <span class="arithmatex">\(A \in \mathcal{F}\)</span>.</p>
 <p>a) Si <span class="arithmatex">\(A \subset B\)</span> entonces <span class="arithmatex">\(v(A) \le v(B)\)</span> (La medida es monótona).</p>
 <p>b) (Subaditividad) Para cualquier secuencia <span class="arithmatex">\(A_1, A_2,\dots,\)</span> se cumple</p>
 <p><span class="arithmatex">\(v \left( \bigcup_{i=1}^{\infty}A_i\right) = \bigcup_{i=1}^{\infty}v(A_i)\)</span></p>
@@ -1004,28 +1025,93 @@
 <p class="admonition-title">Cambio de variable</p>
 <p>Sea <span class="arithmatex">\(f\)</span> una función medible de <span class="arithmatex">\((\Omega,\mathcal{F},v)\)</span> a <span class="arithmatex">\((\Lambda,\mathcal{G})\)</span> y <span class="arithmatex">\(g\)</span> una función Borel en <span class="arithmatex">\((\Lambda,\mathcal{G})\)</span>. Entonces</p>
 <p><span class="arithmatex">\(\int_{\Omega}g(f)dv=\int_{\Lambda}g d(v(f^{-1}))\)</span></p>
-<p>Esta definición es una generalización del cambio de variable de la integral de Riemann <span class="arithmatex">\(\int g(y) dy = \int g(f(x))f´(x) dx,y=f(x)\)</span></p>
 </div>
+<p>Note que esta definición es una generalización del cambio de variable de la integral de Riemann <span class="arithmatex">\(\int g(y) dy = \int g(f(x))f´(x) dx\)</span>, con <span class="arithmatex">\(y=f(x)\)</span>. A continuación se dará un ejemplo del uso de este teorema.</p>
 <details class="example">
 <summary>Una propiedad de la esperanza de X</summary>
+<p>Esta propiedad es muy usada en Probabilidad y estadística. Sea <span class="arithmatex">\(X\)</span> una variable aleatoria en el espacio de probabilidad <span class="arithmatex">\((\Omega,\mathcal{F},P)\)</span>. Si se define el <em>valor esperado de X</em> como <span class="arithmatex">\(E(X)=\int_{\Omega} X dP\)</span>, uno puede expresarla en términos de la <strong>distribución de X</strong>, es decir</p>
+<p><span class="arithmatex">\(E(X)=\int_{\mathbb{R}} x d P_X,\)</span></p>
+<p>donde <span class="arithmatex">\(P_X=P(X^{-1})\)</span> (integral con respecto a la <em>distribución de X</em>). Usualmente la segunda expresión es la que se encuentra más en los libros de probabilidad, vea por ejemplo la definición de esperanza en la sección <a href="../probabilidad/#esperanza">Esperanza</a>.</p>
+<p>El teorema de cambio de variable también nos permite encontrar la esperanza de una función de <span class="arithmatex">\(X\)</span>. Sea <span class="arithmatex">\(Y\)</span> una variable aleatoria en <span class="arithmatex">\((\Omega,\mathcal{F},P)\)</span> y <span class="arithmatex">\(g\)</span> una función Borel. La esperanza de <span class="arithmatex">\(Z =g(Y)\)</span> puede ser calculada ya sea usando la distribución de <span class="arithmatex">\(Y\)</span>, es decir, <span class="arithmatex">\(E(g(Y))=\int_{\mathbb{R}} g(Y) dP_Y\)</span> o con la distribución de <span class="arithmatex">\(g(Y)\)</span>, esto es, <span class="arithmatex">\(E(g(Y))=\int_{\mathbb{R}} z dP_{g(y)}\)</span>. Este resultado tambien puede extenderse al caso de transformaciones de variables aleatorias, por ejemplo la suma de dos variables aleatorias, el cual se estudiará más adelante.</p>
 </details>
 <div class="admonition note">
 <p class="admonition-title">Teorema de Fubini</p>
+<p>Sea <span class="arithmatex">\(v_1, v_2\)</span> una medida en <span class="arithmatex">\((\Omega_1,\mathcal{F}_1)\)</span> y <span class="arithmatex">\((\Omega_2,\mathcal{F}_2)\)</span> respectivamente y sea <span class="arithmatex">\(f\)</span> una función Borel en <span class="arithmatex">\((\Omega_1,\mathcal{F}_1) \times (\Omega_2,\mathcal{F}_2)\)</span> cuya integral con respecto a <span class="arithmatex">\(v_1 \times v_2\)</span> existe. Entonces la integral</p>
+<p><span class="arithmatex">\(\int_{\Omega_1} f(\omega_1,\omega_2) d v_1\)</span></p>
+<p>existe para <span class="arithmatex">\(v_2\)</span> y define una función Borel sobre <span class="arithmatex">\(\Omega_2\)</span> cuya integral con respecto a <span class="arithmatex">\(v_2\)</span> existe, entonces</p>
+<p><span class="arithmatex">\(\int_{\Omega_1 \times \Omega_2} f(\omega_1,\omega_2) d v_1 \times v_2 = \int_{\Omega_2} \left[ \int_{\Omega_1} f(\omega_1,\omega_2) d v_1 \right] d v_2\)</span></p>
 </div>
+<p>Este teorema es una generalización de lo que usualmente se realiza en cálculo cuando se intercambian los límites de integración.</p>
+<details class="example">
+<summary>Intercambio del orden de una suma</summary>
+<p>Suponga que <span class="arithmatex">\(\Omega_1 = \Omega_2 = \lbrace 0,1,2,\dots \rbrace\)</span> y sea <span class="arithmatex">\(v_1 = v_2\)</span> la medida de conteo. Sea <span class="arithmatex">\(f\)</span> una función sobre <span class="arithmatex">\(\Omega_1 \times \Omega_2\)</span> que define una doble secuencia. Entonces</p>
+<p><span class="arithmatex">\( \int_{\Omega_1 \times \Omega_2} f d v_1 \times v_2 = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} f(i,j) = \sum_{j=1}^{\infty} \sum_{i=1}^{\infty} f(i,j)\)</span></p>
+<p>si la integral existe.</p>
+</details>
 <details class="example">
 <summary>Intercambio de límites de integración</summary>
+<p>En Probabilidad y Estadística se usa la integral doble para hacer el cálculo de probabilidades de una variable aleatoria bivariada. Por ejemplo</p>
+<p><span class="arithmatex">\(\int_{\Omega_1 \times \Omega_2} f(x,y) d P_X \times P_Y = \int_{\Omega_2} \left[ \int_{\Omega_1} f(x,y) d P_X \right] d P_Y = \int_{\Omega_1} \left[ \int_{\Omega_2} f(x,y) d P_Y \right] d P_X\)</span></p>
+<p>En secciones posteriores se dará más detalles.</p>
 </details>
 <div class="admonition note">
-<p class="admonition-title">Derivada Radon-Nikodym</p>
+<p class="admonition-title">Teorema Radon-Nikodym</p>
+<p>Sea <span class="arithmatex">\(v\)</span> y <span class="arithmatex">\(\lambda\)</span> dos medidas sobre <span class="arithmatex">\((\Omega,\mathcal{F})\)</span> y <span class="arithmatex">\(v(A) &lt; \infty\)</span>. Si <span class="arithmatex">\(\lambda\)</span> es <em>absolutamente continua</em> con respecto a <span class="arithmatex">\(v\)</span>, es decir <span class="arithmatex">\(v(A)=0\)</span> implica <span class="arithmatex">\(\lambda(A) = 0\)</span>, entonces existe una función Borel no negativa <span class="arithmatex">\(f\)</span> sobre <span class="arithmatex">\(\Omega\)</span> tal que</p>
+<p><span class="arithmatex">\(\lambda(A)=\int_{A} f d v, A \in \mathcal{F} \)</span></p>
+<p>es una medida sobre <span class="arithmatex">\((\Omega,\mathcal{F})\)</span>.</p>
+</div>
+<p>Este resultado puede considerarse como una generalización del teorema fundamental del cálculo ya que <span class="arithmatex">\(f\)</span> es llamada la <em>derivada</em> de Radon-Nikodym con respecto a <span class="arithmatex">\(v\)</span> y se denota como <span class="arithmatex">\(d \lambda / d v\)</span>.</p>
+<p>A continuación se mencionan algunas propiedades interesantes del Teorema Radon-Nikodym.</p>
+<div class="admonition note">
+<p class="admonition-title">Propiedades de la derivada Radon-Nikodym</p>
+<p>Sea <span class="arithmatex">\((\Omega,\mathcal{F})\)</span> un espacio medible y <span class="arithmatex">\(v\)</span> una medida finita en el espacio medible.</p>
+<p>i) Si <span class="arithmatex">\(\lambda\)</span> es una medida <em>absolutamente continua</em> con respecto a <span class="arithmatex">\(v\)</span> y <span class="arithmatex">\(f \ge 0\)</span>, entonces</p>
+<p><span class="arithmatex">\(\int f d \lambda = \int f \frac{d \lambda}{dv}dv\)</span></p>
+<p>ii) Si <span class="arithmatex">\(\lambda_1, \lambda_2\)</span> son medidas <em>absolutamente continuas</em> con respecto a <span class="arithmatex">\(v\)</span>, entonces</p>
+<p><span class="arithmatex">\( \frac{d(\lambda_1 + \lambda_2)}{dv} = \frac{d \lambda_1 }{dv} + \frac{d \lambda_2}{dv} \)</span></p>
+<p>iii) (Regla de la cadena) Si <span class="arithmatex">\(\tau\)</span> es una medida, <span class="arithmatex">\(\lambda\)</span> una medida finita y <span class="arithmatex">\(\tau,\lambda\)</span> son medidas <em>absolutamente continuas</em> con respecto a <span class="arithmatex">\(v\)</span>, entonces</p>
+<p><span class="arithmatex">\(\frac{d \tau}{d v}=\frac{d \tau}{d \lambda}\frac{d \lambda}{d v}\)</span></p>
+<p>iv) Sean <span class="arithmatex">\((\Omega_1,\mathcal{F}_1,v_1)\)</span> y <span class="arithmatex">\((\Omega_2,\mathcal{F}_2,v_2)\)</span> espacios de medida con <span class="arithmatex">\(v_1,v_2\)</span> finitas. Sean <span class="arithmatex">\(\lambda_1,\lambda_2\)</span> medidas en <span class="arithmatex">\((\Omega_1,\mathcal{F}_1,v_1)\)</span> y <span class="arithmatex">\((\Omega_2,\mathcal{F}_2,v_2)\)</span> y <em>absolutamente continuas</em> con respecto a <span class="arithmatex">\(v_1\)</span> y <span class="arithmatex">\(v_2\)</span>. Entonces</p>
+<p><span class="arithmatex">\(\frac{d(\lambda_1 \times \lambda_2)}{d(v_1 \times v_2)}(\omega_1,\omega_2)=\frac{d\lambda_1}{dv_1}(\omega_1) \frac{d\lambda_2}{dv_2}(\omega_2)\)</span></p>
 </div>
 <details class="example">
 <summary>Función de densidad</summary>
+<p>Si <span class="arithmatex">\(\int f d v=1\)</span> para una <span class="arithmatex">\(f \ge 0\)</span>, entonces <span class="arithmatex">\(\lambda\)</span> (la función obtenida al realizar la integral) es una <strong>medida de probabilidad</strong> y <span class="arithmatex">\(f\)</span> es llamada su <em>función de densidad</em> o <em>función de densidad de probabilidad</em> con respecto a <span class="arithmatex">\(v\)</span>.</p>
+<p>Sea <span class="arithmatex">\(F\)</span> es una función de distribución diferenciable y <span class="arithmatex">\(P\)</span> su correspondiente medida de probabilidad. Entonces <span class="arithmatex">\(P(A) = \int_{A} f d m, A \in \mathcal{B}\)</span> con <span class="arithmatex">\(m\)</span> una medida de Lebesgue en <span class="arithmatex">\(\mathbb{R}\)</span>. Por lo tanto <span class="arithmatex">\(f\)</span> es la función de densidad de <span class="arithmatex">\(P\)</span> o <span class="arithmatex">\(F\)</span> con respecto a la medida de Lebesgue <span class="arithmatex">\(m\)</span>; es por eso que en probabilidad y estadística se usen las integrales de cálculo y los cálculo de las probabilidades se expresen de la forma: </p>
+<p><span class="arithmatex">\(F(x)=\int_{-\infty}^{x}f(y)dy, x \in \mathbb{R}\)</span></p>
+<p>Para una explicación dede el punto de vista de la probabilidad y ejemplos más detallados, vea la sección <a href="../probabilidad/#función-de-densidad">función de densidad</a>.</p>
 </details>
 <details class="example">
 <summary>Otra forma de definir la esperanza de X</summary>
+<p>En (Mood et al., 1974) se define la esperanza o media de <span class="arithmatex">\(X\)</span> como</p>
+<p><span class="arithmatex">\(E(X)=\int_{0}^{\infty} \left[ 1- F(x) \right] dx - \int_{-\infty}^{0} \left[ F(x) \right] dx\)</span></p>
+<p>Sea <span class="arithmatex">\(X\)</span> una variable aleatoria que tiene una función de distribución acumulada <span class="arithmatex">\(F\)</span>. Se mostrará que si <span class="arithmatex">\(X \ge 0\)</span> entonces <span class="arithmatex">\(E(X) = \int [1- F(x)] dx\)</span>. Se usarán los teoremas vistos hasta ahora para mostrar que se cumple para el caso de una variable aleatoria positiva. El procedimiento para una variable aleatoria que tome valores negativos, es similar.</p>
+<p>Considerando que <span class="arithmatex">\(X\)</span> es una variable aleatoria positiva, únicamente se toma en cuenta el intervalo de <span class="arithmatex">\(0&lt;x&lt;\infty\)</span>:</p>
+<p><span class="arithmatex">\(
+    E(X) = \int_{0}^{\infty} [1- F(x)] dx
+\)</span></p>
+<p>Note que <span class="arithmatex">\(1-F(x)=1-P(X \le x)=P(X&gt;x)=\int_{x}^{\infty}f(y)dy\)</span>, (en este caso <span class="arithmatex">\(y\)</span> desaparecerá cuando se evalúen los límites de integración, ya que no es posible poner a <span class="arithmatex">\(x\)</span>).</p>
+<p>Usando el teorema de Radon-Nikodym la esperanza de <span class="arithmatex">\(X\)</span> puede expresarse como:</p>
+<div class="arithmatex">\[\begin{align*}
+    E(X) &amp;= \int_{0}^{\infty} \left[ \int_{x}^{\infty}f(y)dy\right] dx\\
+    &amp;= \int_{0}^{\infty} \left[ \int_{x}^{\infty}dF(y) \right] dx
+\end{align*}\]</div>
+<p>Ahora, aplicando cambio de variable y el teorema de Fubini, se pueden intercambiar los límites de integración considerando que <span class="arithmatex">\(0&lt;x&lt;y&lt;\infty\)</span>:</p>
+<div class="arithmatex">\[\begin{align*}
+    E(X) &amp;= \int_{0}^{\infty} \left[ \int_{x}^{\infty}dF(y) \right] dx\\
+    &amp;= \int_{0}^{\infty} \left[ \int_{0}^{y} dx\right] dF(y)\\
+    &amp;= \int_{0}^{\infty} \left[ x|_{0}^{y}\right] dF(y)\\
+    &amp;= \int_{0}^{\infty} y dF(y)\\
+    &amp;= \int_{0}^{\infty} x f(x) d x
+\end{align*}\]</div>
+<p>Lo cual prueba el resultado ya que es la definición usual de media de <span class="arithmatex">\(X\)</span>.</p>
 </details>
 <h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<p>Mood, A., Graybill, F., &amp; Boes, D. (1974). <em>Introduction to the Theory of Statistics</em>. McGraw-Hill.</p>
 <p>Shao, J. (1999). <em>Mathematical statistics</em>. Springer-Verlag.</p>
+<blockquote>
+<p>Muchas de las ideas fueron tomadas del curso <em>Estadísitca Matemática</em> impartido por el Dr. Juan Manuel Romero en Primavera del 2022 en el Colegio de Postgraduados, Campus Montecillo.</p>
+</blockquote>
    
        <!-- Last update of source file -->
        
