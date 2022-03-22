@@ -28,7 +28,7 @@ Note que si se fija un punto $t$, se tiene $X_t$ una variable aleatoria. Una _re
 !!! note "Proceso completamente especificado"
     Se dice que un proceso estocástico $\lbrace X(t) : t \in T \rbrace$ está completamente especificado si para cualquier valor del tiempo $t_1<t_2<\dots<t_n$ con $n \in \mathbb{N}$, la distribución conjunta de $(X_{t_1},X_{t_2},\cdots,X_{t_n})$ es conocida.
 
-De la definición anterior se entiende que es difícil conocer el comportamiento de un proceso estocástico, ya que en general es complicado hallar las distribuciones conjuntas, por lo que en ocasiones se deben imponer ciertas condiciones para su estudio.
+De la definición anterior se entiende que es difícil conocer el comportamiento de un proceso estocástico o ley de probabilidad, ya que en general es complicado hallar las distribuciones conjuntas, por lo que en ocasiones se deben imponer ciertas condiciones para su estudio.
 
 !!! note "Procesos con incrementos independientes"
     Se dice que un proceso estocástico $\lbrace X_t : t \ge 0 \rbrace$ tiene _incrementos independientes_ si dados $t_0,t_1,t2,\dots,t_n$ las variables aleatorias $X_{t_1}-X_{t_0},X_{t_2}-X_{t_1},\dots,X_{t_n}-X_{t_{n-1}}$ son independientes.
@@ -40,7 +40,7 @@ La definición anterior nos asegura que _la diferencia de 2 variables aleatorias
 !!! note "Procesos con incrementos estacionarios"
     Se dice que el proceso $\lbrace X_t : t \in T \rbrace$ tiene _incrementos estacionarios_ si para $s<t$ la distribución de $X_t-X_s$ es la misma que $X_{t+h}-X_{s+h}$, para toda $h > 0$ y $s+h,t+h \in T$.
 
-La definición anterior nos indica que la distribución de la diferencia entre cualesquiera 2 diferencias de variables aleatorias de igual longitud es la misma, no importa en qué parte del proceso hayan sido tomadas, sin embargo, esto __no necesariamente implica que sean independiantes__.
+La definición anterior nos indica que la distribución de la diferencia entre cualesquiera 2 diferencias de variables aleatorias de igual longitud es la misma, no importa en qué parte del proceso hayan sido tomadas, sin embargo, esto __no necesariamente implica que sean independientes__.
 
 ![Ilustración de incrementos estacionarios](img/inc_est.png)
 
@@ -60,9 +60,12 @@ El siguiente ejemplo muestra un proceso con incrementos independientes.
 
 Un resultado interesante de este proceso es que los incrementos son independientes y estacionarios y su varianza depende de $t$. Es decir:
 
-\(W_{t-s}=W_{t-s}-W_0 \sim N(0,\sigma^2(t-s))\)
+\(W_{t}=W_{t}-W_0 \sim N(0,\sigma^2t)\)
 
-es igual es distribución que $W_t-W_s$, donde $\sigma^2$ es la varianza del proceso en el tiempo 1.
+La siguiente figura muestra como sería un proceso Wienier con $\sigma^2=1$. Note que cada línea representaría una variable aleatoria $W_t$.
+
+![Representación de un proceso Weinier](img/weiner.png)
+Elaboración propia usando SAS &reg; OnDemand for Academics.
 
 ??? example "Varianza del incremento del proceso de Weiner"
     Para calcular la varianza de los incrementos, se puede proceder con la fórmula de la varianza, teniendo en cuenta que la esperanza de las diferencias es cero.
@@ -99,10 +102,51 @@ es igual es distribución que $W_t-W_s$, donde $\sigma^2$ es la varianza del pro
 
     Ahora supóngase que $s=1$ y $t>1$ y $\mathbb{V}(W_1)=\sigma^2$. Entonces necesariamente la varianza en el tiempo será $t-1$ será la constante $\sigma^2$ por la diferencia de $t-1$. Por lo tanto $\mathbb{V}(W_t-W_s)=\sigma^2(t-s)$ es una función lineal que depende de $t$ y $s$.
 
-La siguiente figura muestra como sería un proceso Wienier con $\sigma^2=1$. Note que cada línea representaría una variable aleatoria $W_t$.
+!!! note "Proceso de Poisson"
+    Se dice que el proceso $\lbrace N_t:t \ge 0 \rbrace$ es un _Proceso de Poisson_ si satisface las siguientes condiciones:
 
-![Representación de un proceso Weinier](img/weiner.png)
+    a)    $N_0 = 0$ (El proceso comienza en cero).
+
+    b)    Tiene incrementos independientes.
+
+    c)    $N_t-N_s \sim Poi(\lambda(t-s))$ para $0<s<t$.
+
+Al igual que el proceso de Weinier, los incrementos de este proceso son independientes y estacionarios y su varianza depende de $t$. Es decir:
+
+\(N_{t}=N_{t}-N_0 \sim Poi(0,\lambda(t-s))\)
+
+La siguiente figura muestra como sería un proceso Poisson con $\lambda=1$. Note que cada línea representaría una variable aleatoria $N_t$.
+
+![Representación de un proceso Weinier](img/poisson.png)
 Elaboración propia usando SAS &reg; OnDemand for Academics.
+
+??? example "Covarianza de los incremento del proceso de Poisson"
+    De las propiedades de la distribución poisson, se sabe que su media es igual a su varianza, por lo que $\mathbb{E}( N_t - N_s) = \mathbb{V}( N_t - N_s) = \lambda(t-s)$.
+    
+    Para calcular la covarianza de los incrementos, se debe obtener sus momentos mixtos, es decir
+
+    \(
+    \begin{align}
+    \mathbb{E}( N_s N_t) &=\mathbb{E}(N_s(N_t-N_s)+N_s^2)\\
+    &=\mathbb{E}(N_s(N_t-N_s))+ {E}(N_s^2)\\
+    &=\mathbb{E}((N_s-N_0)(N_t-N_s))+ {E}(N_s^2)\\
+    &=\mathbb{E}(N_s-N_0)\mathbb{E}(N_t-N_s)+ {E}(N_s^2)\\
+    &=\lambda s \lambda (t-s) + (\lambda s + (\lambda s)^2)\\
+    &=\lambda^2 st+\lambda s
+    \end{align}
+    \)
+
+    Por lo que la covarianza entre $N_t$ y $N_s$ se expresa como
+
+    \(
+    \begin{align}
+    Cov( N_s, N_t) &=\mathbb{E}( N_s N_t)-\mathbb{E}( N_s)\mathbb{E}( N_t)\\
+    &=\lambda^2 st+\lambda s-(\lambda s)(\lambda t)\\
+    &=\lambda s
+    \end{align}
+    \)
+
+    Note que se obtiene un resultado muy similar a la covarianza de proceso Weinier.
 
 Finalmente se presenta una definición que nos ayudará a comprender la complejidad de los procesos estocásticos.
 
