@@ -9,7 +9,7 @@
         <meta name="description" content="Un sitio donde aprenderás desde lo básico hasta lo mas avanzado acerca de estadística y probabilidad, así como los mejores lenguajes de programación que se usan en estadística.">
       
       
-        <meta name="author" content="Francisco Ariel Vázquez Chávez">
+        <meta name="author" content="Francisco Vázquez">
       
       
         <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/series_tiempo/">
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduccion-y-definicion" class="md-skip">
+        <a href="#herramientas-de-exploracion-de-series-de-tiempo" class="md-skip">
           Skip to content
         </a>
       
@@ -314,18 +314,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduccion-y-definicion" class="md-nav__link">
-    Introducción y definición
+  <a href="#herramientas-de-exploracion-de-series-de-tiempo" class="md-nav__link">
+    Herramientas de exploración de series de tiempo
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#herramientas-de-exploracion" class="md-nav__link">
-    Herramientas de exploración
-  </a>
-  
-    <nav class="md-nav" aria-label="Herramientas de exploración">
+    <nav class="md-nav" aria-label="Herramientas de exploración de series de tiempo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -365,6 +358,20 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion-y-definicion" class="md-nav__link">
+    Introducción y definición
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografía
+  </a>
   
 </li>
       
@@ -754,18 +761,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduccion-y-definicion" class="md-nav__link">
-    Introducción y definición
+  <a href="#herramientas-de-exploracion-de-series-de-tiempo" class="md-nav__link">
+    Herramientas de exploración de series de tiempo
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#herramientas-de-exploracion" class="md-nav__link">
-    Herramientas de exploración
-  </a>
-  
-    <nav class="md-nav" aria-label="Herramientas de exploración">
+    <nav class="md-nav" aria-label="Herramientas de exploración de series de tiempo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -808,6 +808,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#introduccion-y-definicion" class="md-nav__link">
+    Introducción y definición
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografía
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -843,20 +857,34 @@
     <!-- Markdown content -->
     <!-- Markdown content -->
     
+    <aside class="mdx-author">
+        <p>
+        <img src="https://avatars.githubusercontent.com/FranciscoAriel" alt="@FranciscoAriel">
+        </p>
+        <p>
+        <span> 
+        <b>Francisco Vázquez</b> · <a href="https://github.com/FranciscoAriel">@FranciscoAriel</a>
+        </span>
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+            </svg> 2022-01-26 ·
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+            </svg> lectura: 15 minutos
+        </span>
+        </p>
+    </aside>
+    
     
 
        <p>Las series de tiempo es una de la metodologías estadísticas más aplicada debido a que usualmente se tiene información histórica que se desea estudiar y se usan en diversos campos del conocimiento, por ejemplo en economía. Sin embargo actualmente es común encontrar aplicaciones en prácticamente cualquier área.</p>
 <p>Uno de los principales usos de las series de tiempo, es hacer <em>pronósticos de valores futuros</em> de la variable de interés, usando la información disponible.</p>
 <p><img alt="Representación de una serie en los negocios" src="../img/stock.jpg" />
 Imagen de <a href="https://pixabay.com/es/users/geralt-9301/">geralt</a> en <a href="https://pixabay.com/">pixabay</a>.</p>
-<h2 id="introduccion-y-definicion">Introducción y definición<a class="headerlink" href="#introduccion-y-definicion" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Definición</p>
-<p>Una serie de tiempo <span class="arithmatex">\(X_t\)</span>, es una secuencia de valores numéricos indexados por una variable, generalmente tiempo <span class="arithmatex">\(t\)</span>.</p>
-</div>
-<p>Las series de tiempo pueden ser continuas o discretas. Comunmente en ciencias sociales o economía, las series de tiempo estan medidas en intervalos de tiempo regulares, ya sea de manera anual, trimestral, mensual o diaria.</p>
-<p>Las series de tiempo pueden ser consideradas un caso particular de los procesos estocásticos en donde el parámetro o índice <span class="arithmatex">\(t\)</span> es discreto. Para una revisión más completa de las series de tiempo visite la sección <a href="../procesos_estocasticos/">Procesos estocásticos</a>.</p>
-<h2 id="herramientas-de-exploracion">Herramientas de exploración<a class="headerlink" href="#herramientas-de-exploracion" title="Permanent link">&para;</a></h2>
+<h2 id="herramientas-de-exploracion-de-series-de-tiempo">Herramientas de exploración de series de tiempo<a class="headerlink" href="#herramientas-de-exploracion-de-series-de-tiempo" title="Permanent link">&para;</a></h2>
 <p>En series de tiempo, es muy importante conocer el tipo de información que se está utilizando, debido a que los datos suelen tener comportamientos complejos, por lo que conviene tener la mayor información del fenómeno que se está estudiando.</p>
 <p>A continucación se describirán algunos métodos que describen el problema.</p>
 <h3 id="grafica-de-series-de-tiempo">Gráfica de series de tiempo<a class="headerlink" href="#grafica-de-series-de-tiempo" title="Permanent link">&para;</a></h3>
@@ -869,6 +897,36 @@ Imagen de <a href="https://pixabay.com/es/users/geralt-9301/">geralt</a> en <a h
 <h3 id="descomposicion-de-una-serie-de-tiempo">Descomposición de una serie de tiempo<a class="headerlink" href="#descomposicion-de-una-serie-de-tiempo" title="Permanent link">&para;</a></h3>
 <h3 id="metodos-de-suavizamiento">Métodos de suavizamiento<a class="headerlink" href="#metodos-de-suavizamiento" title="Permanent link">&para;</a></h3>
 <h3 id="identificacion-de-puntos-de-quiebre">Identificación de puntos de quiebre<a class="headerlink" href="#identificacion-de-puntos-de-quiebre" title="Permanent link">&para;</a></h3>
+<h2 id="introduccion-y-definicion">Introducción y definición<a class="headerlink" href="#introduccion-y-definicion" title="Permanent link">&para;</a></h2>
+<p>En esta sección se dará una introducción más formal que nos permitirá estudiar más a fondo las series de tiempo.</p>
+<div class="admonition note">
+<p class="admonition-title">Definición</p>
+<p>Una serie de tiempo <span class="arithmatex">\(X_t\)</span>, es una secuencia de valores numéricos indexados por una variable, generalmente tiempo <span class="arithmatex">\(t\)</span>.</p>
+</div>
+<p>Las series de tiempo pueden ser continuas o discretas. Comunmente en ciencias sociales o economía, las series de tiempo estan medidas en intervalos de tiempo regulares, ya sea de manera anual, trimestral, mensual o diaria.</p>
+<p>Las series de tiempo pueden ser consideradas un caso particular de los procesos estocásticos en donde el parámetro o índice <span class="arithmatex">\(t\)</span> es discreto. Para una revisión más completa de estos conceptos, visite la sección <a href="../procesos_estocasticos/">Procesos estocásticos</a>.</p>
+<p>Un concepto muy importante en el estudio de las series de tiempo es la <em>estacionariedad</em> (tambien puede revisarse la sección <a href="../procesos_estocasticos/#definiciones">introducción a los procesos estocásticos</a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Serie de tiempo estacionaria</p>
+<p>Se dice que una serie de tiempo, denotada <span class="arithmatex">\(X_t\)</span> es <em>estrictamente estacionaria</em> si la distribución conjunta de <span class="arithmatex">\((X_{t_1},X_{t_2},\dots,X_{t_k})\)</span> tiene la misma distribución que <span class="arithmatex">\((X_{t_1+h},X_{t_2+h},\dots,X_{t_k+h})\)</span> para <span class="arithmatex">\(t_1,t_2,\dots,t_k,h \in \mathbb{N}\)</span>.</p>
+</div>
+<p>Un ejemplo de una serie de tiempo estacionaria estrictamente estacionaria sería una muestra aleatoria. Obsérvese que esta definición implica que la distribución es invariante en el tiempo. De acuerdo con (Tsay, 2010), esta es una condición muy fuerte y es dificil de verificarla empíricamente, por lo que a menudo se asume una condición más débil.</p>
+<div class="admonition note">
+<p class="admonition-title">Serie de tiempo débilmente estacionaria</p>
+<p>Se dice que una serie de tiempo <span class="arithmatex">\(X_t\)</span> es <em>débilmente estacionaria</em> si sus primeros dos momentos son finitos y la media <span class="arithmatex">\(E{X}_t=\mu\)</span> es constante y <span class="arithmatex">\(Cov(X_t,X_{t+h})=\gamma (h)\)</span> solo depende de <span class="arithmatex">\(h\)</span>, para <span class="arithmatex">\(h \in \mathbb{N}\)</span>.</p>
+</div>
+<p>En términos prácticos, la gráfica de series de tiempo debería fluctuar alrededor de una constante y su variabilidad debería mantenerse más o menos estable a través del tiempo.</p>
+<p>A continuación se presenta un tipo de proceso que cumple con esta característica.</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso de ruido blanco</p>
+<p>Sean <span class="arithmatex">\(\lbrace a_t \rbrace\)</span> una sucesión de variables aleatorias independientes e idénticamente distribuidas con media 0 y varianza <span class="arithmatex">\(\sigma^2\)</span> finita. Si la distribución de <span class="arithmatex">\(\lbrace a_t \rbrace\)</span> es normal, entonces la serie se llama <em>ruido blanco gaussiano</em>.</p>
+</div>
+<h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
+<p>Box, G., Jenkins, G., Reinsel, G., &amp; Ljung, G. (2016). Time Series Analysis: Forecasting and Control. John Wiley &amp; Sons.</p>
+<p>Tsay, R. (2010). Analysis of Financial Time Series (Third Edition). John Wiley &amp; Sons.</p>
+<blockquote>
+<p>Muchas de las ideas fueron tomadas del curso <em>Series de tiempo</em> impartido por la Dra. Martha Elva Ramírez en Primavera del 2022 en el Colegio de Postgraduados, Campus Montecillo.</p>
+</blockquote>
    
        <!-- Last update of source file -->
        
