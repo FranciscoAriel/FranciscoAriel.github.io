@@ -40,11 +40,15 @@ Las estadísticas descriptivas son de gran autilidad para conocer la distribuci�
 
 Tambíen es recomendable realizar algunos gráficos que nos permitan visualizar su distribución tales como histogramas o diagrama de caja y bigotes (boxplot). En algunos casos, estos gráficos incluso podrían identificar si hay o no dos poblaciones.
 
-#### Descomposición de una serie de tiempo
+#### Descomposición y suavizamiento de una serie de tiempo
 
-#### Métodos de suavizamiento
+La series de tiempo pueden exhibir distintos patrones y existen varios métodos para obtener sus componentes (tendecia, ciclo, estacionalidad y componentes irregulares); examinar dichos componentes puede ser útil para enternder la naturaleza del problema y pueden ser de gran ayuda a la hora de elegir un modelo.
 
-#### Identificación de puntos de quiebre
+![Descomposición de una serie de tiempo](img/desc.png)
+
+Ejemplo de la descomposición de la serie de tiempo de C02 de R. Elaboración propia usando la función `decompose()` del software R.
+
+Para más detalles vea el [capítulo 3](https://otexts.com/fpp3/decomposition.html) de Hyndman & Athanasopoulos (2022).
 
 ## Modelos de series de tiempo
 
@@ -153,9 +157,19 @@ Por otro lado, la covarianza entre $Y_t$ y $Y_{t+h}$ con $h \in \mathbb{N}$ pued
 
     Las funciones de autocovarianza y autocorrelación muestrales muestran valores muy cercanos a los esperados, sin embargo a partir de los rezagos 10 se aprecian valores que debieran ser cero; esto se debe a que la FACM es una *estimación de los valores observados*, por lo que se debe tener cuidado al interpretar la FACM.
 
+## Modelos ARIMA
+
+Una forma de modelar series de tiempo es usando los modelos ARIMA o *Autorregresivos Integrados de Medias Móviles* tambien conocidos como modelos Box-Jenkins. Para una referencia completa y detallada vea (Box et al., 2016).
+
+Primero se introducirán los modelos Autorregresivos (AR), Medias móviles (MA) y los Autorregresivos de medias móviles (ARMA). Posteriormente se introducirá el concepto de raíz unitaria y modelos integrados (ARIMA), así como los modelos estacionales (SARIMA).
+
+La estimación de parámetros se discutirá de forma muy general y finalmente se mencionará la validación de supuestos y cómo realizar predicciones.
+
 ## Bibliografía
 
 Box, G., Jenkins, G., Reinsel, G., & Ljung, G. (2016). Time Series Analysis: Forecasting and Control. John Wiley & Sons.
+
+Hyndman, R., & Athanasopoulos, G. (2022). Forecasting: Principles and Practice (3rd ed). OTexts. https://Otexts.com/fpp3/
 
 Tsay, R. (2010). Analysis of Financial Time Series (Third Edition). John Wiley & Sons.
 

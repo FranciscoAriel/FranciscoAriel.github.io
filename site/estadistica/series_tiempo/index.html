@@ -368,6 +368,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#modelos-arima" class="md-nav__link">
+    Modelos ARIMA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bibliografia" class="md-nav__link">
     Bibliografía
   </a>
@@ -814,6 +821,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#modelos-arima" class="md-nav__link">
+    Modelos ARIMA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bibliografia" class="md-nav__link">
     Bibliografía
   </a>
@@ -895,9 +909,11 @@ Ejemplo de una gráfica de serie de tiempo. Elaboración propia usando SAS &reg;
 <h4 id="estadisticas-descriptivas">Estadísticas descriptivas<a class="headerlink" href="#estadisticas-descriptivas" title="Permanent link">&para;</a></h4>
 <p>Las estadísticas descriptivas son de gran autilidad para conocer la distribución de la serie. Valores como la media, mediana, desviación estándar, mínimo o máximo, nos ayudarían a tener una idea del comportamiento de la serie.</p>
 <p>Tambíen es recomendable realizar algunos gráficos que nos permitan visualizar su distribución tales como histogramas o diagrama de caja y bigotes (boxplot). En algunos casos, estos gráficos incluso podrían identificar si hay o no dos poblaciones.</p>
-<h4 id="descomposicion-de-una-serie-de-tiempo">Descomposición de una serie de tiempo<a class="headerlink" href="#descomposicion-de-una-serie-de-tiempo" title="Permanent link">&para;</a></h4>
-<h4 id="metodos-de-suavizamiento">Métodos de suavizamiento<a class="headerlink" href="#metodos-de-suavizamiento" title="Permanent link">&para;</a></h4>
-<h4 id="identificacion-de-puntos-de-quiebre">Identificación de puntos de quiebre<a class="headerlink" href="#identificacion-de-puntos-de-quiebre" title="Permanent link">&para;</a></h4>
+<h4 id="descomposicion-y-suavizamiento-de-una-serie-de-tiempo">Descomposición y suavizamiento de una serie de tiempo<a class="headerlink" href="#descomposicion-y-suavizamiento-de-una-serie-de-tiempo" title="Permanent link">&para;</a></h4>
+<p>La series de tiempo pueden exhibir distintos patrones y existen varios métodos para obtener sus componentes (tendecia, ciclo, estacionalidad y componentes irregulares); examinar dichos componentes puede ser útil para enternder la naturaleza del problema y pueden ser de gran ayuda a la hora de elegir un modelo.</p>
+<p><img alt="Descomposición de una serie de tiempo" src="../img/desc.png" /></p>
+<p>Ejemplo de la descomposición de la serie de tiempo de C02 de R. Elaboración propia usando la función <code>decompose()</code> del software R.</p>
+<p>Para más detalles vea el <a href="https://otexts.com/fpp3/decomposition.html">capítulo 3</a> de Hyndman &amp; Athanasopoulos (2022).</p>
 <h2 id="modelos-de-series-de-tiempo">Modelos de series de tiempo<a class="headerlink" href="#modelos-de-series-de-tiempo" title="Permanent link">&para;</a></h2>
 <p>En esta sección se dará una introducción más formal que nos permitirá estudiar más a fondo las series de tiempo.</p>
 <h3 id="definiciones">Definiciones<a class="headerlink" href="#definiciones" title="Permanent link">&para;</a></h3>
@@ -978,8 +994,13 @@ Y_t &amp; = \mu + \sum_{i=0}^{\infty}\psi_i a_{t-i}\\
 <p>Elaboración propia usando la función <code>acf()</code> del software R.</p>
 <p>Las funciones de autocovarianza y autocorrelación muestrales muestran valores muy cercanos a los esperados, sin embargo a partir de los rezagos 10 se aprecian valores que debieran ser cero; esto se debe a que la FACM es una <em>estimación de los valores observados</em>, por lo que se debe tener cuidado al interpretar la FACM.</p>
 </details>
+<h2 id="modelos-arima">Modelos ARIMA<a class="headerlink" href="#modelos-arima" title="Permanent link">&para;</a></h2>
+<p>Una forma de modelar series de tiempo es usando los modelos ARIMA o <em>Autorregresivos Integrados de Medias Móviles</em> tambien conocidos como modelos Box-Jenkins. Para una referencia completa y detallada vea (Box et al., 2016).</p>
+<p>Primero se introducirán los modelos Autorregresivos (AR), Medias móviles (MA) y los Autorregresivos de medias móviles (ARMA). Posteriormente se introducirá el concepto de raíz unitaria y modelos integrados (ARIMA), así como los modelos estacionales (SARIMA).</p>
+<p>La estimación de parámetros se discutirá de forma muy general y finalmente se mencionará la validación de supuestos y cómo realizar predicciones.</p>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
 <p>Box, G., Jenkins, G., Reinsel, G., &amp; Ljung, G. (2016). Time Series Analysis: Forecasting and Control. John Wiley &amp; Sons.</p>
+<p>Hyndman, R., &amp; Athanasopoulos, G. (2022). Forecasting: Principles and Practice (3rd ed). OTexts. https://Otexts.com/fpp3/</p>
 <p>Tsay, R. (2010). Analysis of Financial Time Series (Third Edition). John Wiley &amp; Sons.</p>
 <blockquote>
 <p>Muchas de las ideas fueron tomadas del curso <em>Series de tiempo</em> impartido por la Dra. Martha Elva Ramírez en Primavera del 2022 en el Colegio de Postgraduados, Campus Montecillo.</p>
