@@ -71,7 +71,7 @@ Un concepto muy importante en el estudio de las series de tiempo es la *estacion
 Un ejemplo de una serie de tiempo estacionaria estrictamente estacionaria sería una muestra aleatoria. Obsérvese que esta definición implica que la distribución es invariante en el tiempo. De acuerdo con (Tsay, 2010), esta es una condición muy fuerte y es dificil de verificarla empíricamente, por lo que a menudo se asume una condición más débil.
 
 !!! note "Serie de tiempo débilmente estacionaria"
-    Se dice que una serie de tiempo $X_t$ es *débilmente estacionaria* si sus primeros dos momentos son finitos y la media $E{X}_t=\mu$ es constante y $Cov(X_t,X_{t+h})=\gamma (h)$ solo depende de $h$, para $h \in \mathbb{N}$.
+    Se dice que una serie de tiempo $X_t$ es *débilmente estacionaria* si sus primeros dos momentos son finitos y la media $E(X)_t=\mu$ es constante y $Cov(X_t,X_{t+h})=\gamma (h)$ solo depende de $h$, para $h \in \mathbb{N}$.
 
 !!! tip "Serie de tiempo estacionaria"
     Nos referiremos a una serie de tiempo *estacionaria* a aquella que sea *débilmente estacionaria*.
@@ -87,7 +87,7 @@ Cov(Y_t,Y_{t+h})=E(Y_t,Y_{t+h})
 La correlación o *función de autocorrelación* (FAC) entre $Y_t$ y $Y_{t+h}$ también mide el grado de dependencia lineal de $Y_t$ con la misma serie pero *rezagada* $h$ periodos pero este valor se encuentra entre -1 y 1 y se expresa como
 
 \(
-\rho_{h}=\frac{Cov(Y_t,Y_{t+h})}{V(Y_t)}=\frac{\gamma_h}{\gamma_0}
+\rho_{h}=\frac{Cov(Y_t,Y_{t+h})}{V(Y_t)}=\frac{\gamma (h)}{\gamma_0}
 \)
 
 Note que $\rho_0=1$. La función de autocorrelación es la más usada debido a que es preferible usar cantidades entre 0 y 1. Si la serie $Y_t$ es estacionaria, entonces la covarianza $\lim_{h \to \infty} \gamma_h = 0$ y la autocorrelación $\lim_{h \to \infty} \rho_h = 0$.
@@ -164,6 +164,23 @@ Una forma de modelar series de tiempo es usando los modelos ARIMA o *Autorregres
 Primero se introducirán los modelos Autorregresivos (AR), Medias móviles (MA) y los Autorregresivos de medias móviles (ARMA). Posteriormente se introducirá el concepto de raíz unitaria y modelos integrados (ARIMA), así como los modelos estacionales (SARIMA).
 
 La estimación de parámetros se discutirá de forma muy general y finalmente se mencionará la validación de supuestos y cómo realizar predicciones.
+
+### Modelos autorregresivos
+
+El modelo autorregresivo es muy util para modelar muchos fenómenos, sobre todo relacionados con economía y finanzas ya que típicamente el valor actual *dependerá* de sus valores anteriores. Este modelo se puede expresar de la siguiente forma:
+
+\(
+Y_t = \phi_0 + \phi_1 Y_{t-1} + a_t
+\)
+
+donde $a_t$ es un término de error de ruido blanco con varianza $\sigma^2 _a$ y $\phi_0$, $\phi_1$ son parámetros del modelo. A este modelo se le conoce como modelo autorregresivo de orden 1 o AR(1).
+
+Note que este modelo es muy parecido a un modelo de regresión lineal simple, con la diferencia de que la variable explicativa es **ella misma pero un periodo anterior**.
+
+Si se asume que el proceso AR(1) es estacionario, entonces $E(Y_t)=E(Y_{t-1})=\mu$, donde $\mu$ es el nivel de la serie, la varianza $Var(Y_t) = Var(Y_{t-1}) = \gamma0$ es constante y
+la covarianza $Cov(Y_t,Y_{t+h}) = \gamma (h)$ no depende de $t$, sino únicamente de la distancia $h$ entre ellas.
+
+Note que $\mu = \frac{\phi_0}{1-\phi_1}$
 
 ## Bibliografía
 
