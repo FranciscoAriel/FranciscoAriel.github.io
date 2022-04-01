@@ -1031,9 +1031,17 @@ Y_t = \phi_0 + \phi_1 Y_{t-1} + a_t
 \)</span></p>
 <p>donde <span class="arithmatex">\(a_t\)</span> es un término de error de ruido blanco con varianza <span class="arithmatex">\(\sigma^2 _a\)</span> y <span class="arithmatex">\(\phi_0\)</span>, <span class="arithmatex">\(\phi_1\)</span> son parámetros del modelo. A este modelo se le conoce como modelo autorregresivo de orden 1 o AR(1).</p>
 <p>Note que este modelo es muy parecido a un modelo de regresión lineal simple, con la diferencia de que la variable explicativa es <strong>ella misma pero un periodo anterior</strong>.</p>
-<p>Si se asume que el proceso AR(1) es estacionario, entonces <span class="arithmatex">\(E(Y_t)=E(Y_{t-1})=\mu\)</span>, donde <span class="arithmatex">\(\mu\)</span> es el nivel de la serie, la varianza <span class="arithmatex">\(Var(Y_t) = Var(Y_{t-1}) = \gamma0\)</span> es constante y
+<p>Si se asume que el proceso AR(1) es estacionario, entonces <span class="arithmatex">\(E(Y_t)=E(Y_{t-1})=\mu\)</span>, donde <span class="arithmatex">\(\mu\)</span> es el nivel de la serie, la varianza <span class="arithmatex">\(Var(Y_t) = Var(Y_{t-1}) = \gamma_0\)</span> es constante y
 la covarianza <span class="arithmatex">\(Cov(Y_t,Y_{t+h}) = \gamma (h)\)</span> no depende de <span class="arithmatex">\(t\)</span>, sino únicamente de la distancia <span class="arithmatex">\(h\)</span> entre ellas.</p>
-<p>Note que <span class="arithmatex">\(\mu = \frac{\phi_0}{1-\phi_1}\)</span></p>
+<p>Note que, bajo el supuesto de estacionriedad el nivel de la serie <span class="arithmatex">\(\mu\)</span> puede representarse como <span class="arithmatex">\(\mu = \frac{\phi_0}{1-\phi_1}\)</span> y por lo tanto <span class="arithmatex">\(\phi_1\)</span> <strong>no puede ser igual a 1</strong>. También puede notarse que <span class="arithmatex">\(\phi_0 =\mu(1-\phi_1)\)</span>, por lo que <span class="arithmatex">\(\phi_0 = 0\)</span> si <span class="arithmatex">\(\mu = 0\)</span>, en otras palabras, el término <span class="arithmatex">\(\phi_0\)</span> no aparecerá en el modelo únicamente si el nivel de la serie es cero.</p>
+<p>La varianza de la serie puede expresarse como <span class="arithmatex">\(Var(Y_t) = \gamma_0 = \frac{\sigma^2 _a}{1-\phi^2_1}\)</span>. Por lo tanto si la serie es estacionaria, necesariamente <span class="arithmatex">\(\phi^2_1 &lt; 1\)</span> ó <span class="arithmatex">\(-1 &lt; \phi_1 &lt; 1\)</span>.</p>
+<p>Es común que trabajar con las series centradas, es decir <span class="arithmatex">\(Z_t = Y_t - \mu\)</span> y por lo tanto únicamente se trabaja con el modelo <span class="arithmatex">\(Z_t = \phi_1 Z_{t-1} + a_t\)</span>. Usando esta expresión, se puede calcular la covarianza de <span class="arithmatex">\(Z_t\)</span> y <span class="arithmatex">\(Z_{t-h}\)</span>.</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+Cov(Z_t,Z_{t-h}) &amp;= E(Z_t Z_{t-h})\\
+&amp;=  E(Z_t ( \phi_1 Z_{t-h-1} + a_{t-h}) )
+\end{align*}
+\)</span></p>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
 <p>Box, G., Jenkins, G., Reinsel, G., &amp; Ljung, G. (2016). Time Series Analysis: Forecasting and Control. John Wiley &amp; Sons.</p>
 <p>Hyndman, R., &amp; Athanasopoulos, G. (2022). Forecasting: Principles and Practice (3rd ed). OTexts. https://Otexts.com/fpp3/</p>
