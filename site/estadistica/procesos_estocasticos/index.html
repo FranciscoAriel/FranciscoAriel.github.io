@@ -1005,6 +1005,8 @@
 <p>La siguiente figura muestra como sería un proceso Wienier con <span class="arithmatex">\(\sigma^2=1\)</span>. Note que cada línea representaría una variable aleatoria <span class="arithmatex">\(W_t\)</span>.</p>
 <p><img alt="Representación de un proceso Weinier" src="../img/weiner.png" />
 Elaboración propia usando SAS &reg; OnDemand for Academics.</p>
+<p><img alt="Representación de una realización de un proceso Weinier" src="../img/path1.png" />
+Elaboración propia usando SAS &reg; OnDemand for Academics.</p>
 <details class="example">
 <summary>Varianza del incremento del proceso de Weiner</summary>
 <p>Para calcular la varianza de los incrementos, se puede proceder con la fórmula de la varianza, teniendo en cuenta que la esperanza de las diferencias es cero.</p>
@@ -1046,6 +1048,8 @@ Elaboración propia usando SAS &reg; OnDemand for Academics.</p>
 <p><span class="arithmatex">\(N_{t}=N_{t}-N_0 \sim Poi(0,\lambda(t-s))\)</span></p>
 <p>La siguiente figura muestra como sería un proceso Poisson con <span class="arithmatex">\(\lambda=1\)</span>. Note que cada línea representaría una variable aleatoria <span class="arithmatex">\(N_t\)</span>.</p>
 <p><img alt="Representación de un proceso Weinier" src="../img/poisson.png" />
+Elaboración propia usando SAS &reg; OnDemand for Academics.</p>
+<p><img alt="Representación de una realización de un proceso Weinier" src="../img/path2.png" />
 Elaboración propia usando SAS &reg; OnDemand for Academics.</p>
 <details class="example">
 <summary>Covarianza de los incremento del proceso de Poisson</summary>
@@ -1127,6 +1131,12 @@ k(s,t)&amp;=Cov(W_s,W_t)\\
 <div class="admonition note">
 <p class="admonition-title">Proceso ergódico discreto</p>
 <p>Supóngase que se tiene un proceso estocástico <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> con parámetro de tiempo <span class="arithmatex">\(n\)</span> discreto. Se dice que <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> es ergódico si las medias muestrales <span class="arithmatex">\(M_n = 1/n \sum_{i=1}^{n} X_i\)</span> pueden ser usadas para aproximar la función del valor medio.</p>
+</div>
+<p>Note que <span class="arithmatex">\(M_n\)</span> es un <em>nuevo</em> proceso estocástico y  <span class="arithmatex">\(\mathbb{E}(M_n) = \mathbb{E}(1/n \sum_{i=1}^{n} X_i) = 1/n \mathbb{E}( \sum_{i=1}^{n} X_i) = 1/n \sum_{i=1}^{n} \mathbb{E} (X_i) = 1/n \sum_{i=1}^{n} m(i)\)</span>. Por ejemplo <span class="arithmatex">\(X_n\)</span> podría ser la temperatura diaria tomada a las 12 del día en cierto lugar y <span class="arithmatex">\(M_n\)</span> el promedio de las temperaturas de esas temperaturas</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso ergódico discreto 2</p>
+<p>El proceso <span class="arithmatex">\(\lbrace X_n: n \in \mathbb{N} \rbrace\)</span> es ergódico si</p>
+<p><span class="arithmatex">\(\lim_{n \to \infty} \mathbb{V}(M_n) = 0\)</span></p>
 </div>
 <h2 id="convergencia-de-variables-aleatorias">Convergencia de variables aleatorias<a class="headerlink" href="#convergencia-de-variables-aleatorias" title="Permanent link">&para;</a></h2>
 <h3 id="la-integral-de-un-proceso-con-tiempo-continuo">La integral de un proceso con tiempo continuo<a class="headerlink" href="#la-integral-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h3>

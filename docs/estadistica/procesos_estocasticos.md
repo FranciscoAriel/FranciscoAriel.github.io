@@ -67,6 +67,9 @@ La siguiente figura muestra como sería un proceso Wienier con $\sigma^2=1$. Not
 ![Representación de un proceso Weinier](img/weiner.png)
 Elaboración propia usando SAS &reg; OnDemand for Academics.
 
+![Representación de una realización de un proceso Weinier](img/path1.png)
+Elaboración propia usando SAS &reg; OnDemand for Academics.
+
 ??? example "Varianza del incremento del proceso de Weiner"
     Para calcular la varianza de los incrementos, se puede proceder con la fórmula de la varianza, teniendo en cuenta que la esperanza de las diferencias es cero.
 
@@ -118,6 +121,9 @@ Al igual que el proceso de Weinier, los incrementos de este proceso son independ
 La siguiente figura muestra como sería un proceso Poisson con $\lambda=1$. Note que cada línea representaría una variable aleatoria $N_t$.
 
 ![Representación de un proceso Weinier](img/poisson.png)
+Elaboración propia usando SAS &reg; OnDemand for Academics.
+
+![Representación de una realización de un proceso Weinier](img/path2.png)
 Elaboración propia usando SAS &reg; OnDemand for Academics.
 
 ??? example "Covarianza de los incremento del proceso de Poisson"
@@ -218,6 +224,13 @@ Debido a la complejidad de las demostraciones de diversos teoremas, estas serán
 
 !!! note "Proceso ergódico discreto"
     Supóngase que se tiene un proceso estocástico $\lbrace X_n:n \in \mathbb{N} \rbrace$ con parámetro de tiempo $n$ discreto. Se dice que $\lbrace X_n:n \in \mathbb{N} \rbrace$ es ergódico si las medias muestrales $M_n = 1/n \sum_{i=1}^{n} X_i$ pueden ser usadas para aproximar la función del valor medio.
+
+Note que $M_n$ es un *nuevo* proceso estocástico y  $\mathbb{E}(M_n) = \mathbb{E}(1/n \sum_{i=1}^{n} X_i) = 1/n \mathbb{E}( \sum_{i=1}^{n} X_i) = 1/n \sum_{i=1}^{n} \mathbb{E} (X_i) = 1/n \sum_{i=1}^{n} m(i)$. Por ejemplo $X_n$ podría ser la temperatura diaria tomada a las 12 del día en cierto lugar y $M_n$ el promedio de las temperaturas de esas temperaturas
+
+!!! note "Proceso ergódico discreto 2"
+    El proceso $\lbrace X_n: n \in \mathbb{N} \rbrace$ es ergódico si
+
+    \(\lim_{n \to \infty} \mathbb{V}(M_n) = 0\)
 
 ## Convergencia de variables aleatorias
 
