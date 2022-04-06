@@ -232,6 +232,39 @@ Note que $M_n$ es un *nuevo* proceso estocástico y  $\mathbb{E}(M_n) = \mathbb{
 
     \(\lim_{n \to \infty} \mathbb{V}(M_n) = 0\)
 
+Obsérvese que el resultado anterior da una idea de convergencia. A continuación se muestra un teorema de gran importancia.
+
+!!! note "Teorema de ergodicidad"
+    Si $\lbrace X_n:n \in \mathbb{N} \rbrace$ es ergódico entonces
+
+    \(
+    \lim_{n \to \infty} P(|M_n - E(M_n)| > \epsilon) = 0; \epsilon > 0
+    \)
+
+Este teorema es una convergencia en probabilidad yes más facil de cumplir ya que solo se requiere que exista la media.
+
+!!! note "Teorema de ergodicidad"
+    Sea $\lbrace X_n:n \in \mathbb{N} \rbrace$ tal que $k(m,n)$ existe y está acotada. El proceso es ergódico si y solo si
+
+    \(
+    \lim_{n \to \infty} Cov(X_n,M_n) = 0
+    \)
+
+Note que
+
+\(
+\begin{align*}
+Cov(X_n,M_n) &= Cov(X_n,1/n \sum_{i=1}^{n} X_i)\\
+&=1/n Cov(X_n, \sum_{i=1}^{n} X_i) \\
+&= 1/n \sum_{i=1}^{n} Cov(X_n,X_i)\\
+&=1/n \sum_{i=1}^{n} k(n,i)
+\end{align*}
+\)
+
+depende únicamente de las variables en el proceso.
+
+La demostración de los teoremas se puede encontar en (Parzen, 1999).
+
 ## Convergencia de variables aleatorias
 
 ### La integral de un proceso con tiempo continuo

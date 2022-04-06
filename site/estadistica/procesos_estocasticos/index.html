@@ -1138,6 +1138,33 @@ k(s,t)&amp;=Cov(W_s,W_t)\\
 <p>El proceso <span class="arithmatex">\(\lbrace X_n: n \in \mathbb{N} \rbrace\)</span> es ergódico si</p>
 <p><span class="arithmatex">\(\lim_{n \to \infty} \mathbb{V}(M_n) = 0\)</span></p>
 </div>
+<p>Obsérvese que el resultado anterior da una idea de convergencia. A continuación se muestra un teorema de gran importancia.</p>
+<div class="admonition note">
+<p class="admonition-title">Teorema de ergodicidad</p>
+<p>Si <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> es ergódico entonces</p>
+<p><span class="arithmatex">\(
+\lim_{n \to \infty} P(|M_n - E(M_n)| &gt; \epsilon) = 0; \epsilon &gt; 0
+\)</span></p>
+</div>
+<p>Este teorema es una convergencia en probabilidad yes más facil de cumplir ya que solo se requiere que exista la media.</p>
+<div class="admonition note">
+<p class="admonition-title">Teorema de ergodicidad</p>
+<p>Sea <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> tal que <span class="arithmatex">\(k(m,n)\)</span> existe y está acotada. El proceso es ergódico si y solo si</p>
+<p><span class="arithmatex">\(
+\lim_{n \to \infty} Cov(X_n,M_n) = 0
+\)</span></p>
+</div>
+<p>Note que</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+Cov(X_n,M_n) &amp;= Cov(X_n,1/n \sum_{i=1}^{n} X_i)\\
+&amp;=1/n Cov(X_n, \sum_{i=1}^{n} X_i) \\
+&amp;= 1/n \sum_{i=1}^{n} Cov(X_n,X_i)\\
+&amp;=1/n \sum_{i=1}^{n} k(n,i)
+\end{align*}
+\)</span></p>
+<p>depende únicamente de las variables en el proceso.</p>
+<p>La demostración de los teoremas se puede encontar en (Parzen, 1999).</p>
 <h2 id="convergencia-de-variables-aleatorias">Convergencia de variables aleatorias<a class="headerlink" href="#convergencia-de-variables-aleatorias" title="Permanent link">&para;</a></h2>
 <h3 id="la-integral-de-un-proceso-con-tiempo-continuo">La integral de un proceso con tiempo continuo<a class="headerlink" href="#la-integral-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h3>
 <h3 id="la-derivada-de-un-proceso-con-tiempo-continuo">La derivada de un proceso con tiempo continuo<a class="headerlink" href="#la-derivada-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h3>
