@@ -243,6 +243,8 @@ Obsérvese que el resultado anterior da una idea de convergencia. A continuació
 
 Este teorema es una convergencia en probabilidad yes más facil de cumplir ya que solo se requiere que exista la media.
 
+El siguiente teorema nos da una idea de covarianza estacionaria.
+
 !!! note "Teorema de ergodicidad"
     Sea $\lbrace X_n:n \in \mathbb{N} \rbrace$ tal que $k(m,n)$ existe y está acotada. El proceso es ergódico si y solo si
 
@@ -262,6 +264,15 @@ Cov(X_n,M_n) &= Cov(X_n,1/n \sum_{i=1}^{n} X_i)\\
 \)
 
 depende únicamente de las variables en el proceso.
+
+Finalmente se muestra un resultado muy importante relacionada con la función de covarianza y ergocidad.
+
+!!! note "Teorema de ergocidad"
+    Sea $\lbrace X_n:n \in \mathbb{N} \rbrace$ un proceso estocástico. El proceso $\lbrace X_n \rbrace$ es un proceso ergódico si $k(m,n)<\varepsilon$ para toda $m,n \in \mathbb{N}, \varepsilon > 0$. En otras palabras, el proceso es ergódico si y solo si
+
+    \(\lim_{n \to \infty}Cov(X_n,M_n)=0\)
+
+    En otras palabras $X_n$ no está correlacionado con $M_n$.
 
 La demostración de los teoremas se puede encontar en (Parzen, 1999).
 
