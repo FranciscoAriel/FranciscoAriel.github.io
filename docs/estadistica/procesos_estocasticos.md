@@ -35,6 +35,9 @@ De la definición anterior se entiende que es difícil conocer el comportamiento
 
 La definición anterior nos asegura que _la diferencia de 2 variables aleatorias_ será independiente de cualquier otra diferencia de 2 variables aleatoria, siempre y cuando sus intervalos no se translapen.
 
+!!! danger "Las variables aleatorias no están ordenadas"
+    No tiene sentido decir que $X_{t_1}$ es menor que $X_{t_2}$ ya que las variables aleatorias **no están ordenadas**.
+
 ![Ilustración de incrementos independientes](img/inc_indep.png)
 
 !!! note "Procesos con incrementos estacionarios"
@@ -214,9 +217,17 @@ Al igual que la función del valor medio, la función del núcleo de covarianzan
 El estudio de la función de núcleo de covarianza también nos ayuda a conocer como será su comportamiento del proceso a través del tiempo, esto es, si la función de núcleo de covarianza cambia a través del tiempo.
 
 !!! note "Procesos de covarianza estacionaria"
-    Se dice que el proceso $\lbrace X_t:t \ge 0 \rbrace$ es de covarianza estacionaria si $K(s,t)=K(t-s)$ para $0<s<t$ es una función que depende de $s$ y $t$.
+    Se dice que el proceso $\lbrace X_t:t \ge 0 \rbrace$ es de covarianza estacionaria si $K(s,t)=R(t-s)$ para $0<s<t$ es una función que depende de $s$ y $t$.
 
-### Procesos ergódicos
+El teorema anterior nos dice que si un proceso es de **covarianza estacionaria**, entonces la covarianza entre $X_t$ y $X_s$ no dependerá de $t$, sino de la distancia $t-s$. En este sentido, la *estacionariedad* se refiere a algo que se mantiene constante a través del tiempo.
+
+## Procesos ergódicos
+
+Hasta ahora se ha hablado de algunas propiedades de los Procesos estocásticos, pero al igual que las variables aleatorias, existe un resultado muy similar a la convergencia conocido como ergocidad.
+
+Primero se abordarán los procesos con parámetro de tiempo discreto y posteriormente con tiempo continuo.
+
+### Procesos ergódicos discretos
 
 La idea de ergocidad de procesos estocásticos es muy parecida a las propiedades de convergencia de la media en muestras aleatorias, pero para ello se requiere desarrollar idea de límites de variables aleatorias.
 
@@ -225,7 +236,7 @@ Debido a la complejidad de las demostraciones de diversos teoremas, estas serán
 !!! note "Proceso ergódico discreto"
     Supóngase que se tiene un proceso estocástico $\lbrace X_n:n \in \mathbb{N} \rbrace$ con parámetro de tiempo $n$ discreto. Se dice que $\lbrace X_n:n \in \mathbb{N} \rbrace$ es ergódico si las medias muestrales $M_n = 1/n \sum_{i=1}^{n} X_i$ pueden ser usadas para aproximar la función del valor medio.
 
-Note que $M_n$ es un *nuevo* proceso estocástico y  $\mathbb{E}(M_n) = \mathbb{E}(1/n \sum_{i=1}^{n} X_i) = 1/n \mathbb{E}( \sum_{i=1}^{n} X_i) = 1/n \sum_{i=1}^{n} \mathbb{E} (X_i) = 1/n \sum_{i=1}^{n} m(i)$. Por ejemplo $X_n$ podría ser la temperatura diaria tomada a las 12 del día en cierto lugar y $M_n$ el promedio de las temperaturas de esas temperaturas
+Note que $M_n$ es un *nuevo* proceso estocástico con parámetro de tiempo discreto y  $\mathbb{E}(M_n) = \mathbb{E}(1/n \sum_{i=1}^{n} X_i) = 1/n \mathbb{E}( \sum_{i=1}^{n} X_i) = 1/n \sum_{i=1}^{n} \mathbb{E} (X_i) = 1/n \sum_{i=1}^{n} m(i)$. Por ejemplo $X_n$ podría ser la temperatura diaria tomada a las 12 del día en cierto lugar y $M_n$ el promedio de las temperaturas de esas temperaturas
 
 !!! note "Proceso ergódico discreto 2"
     El proceso $\lbrace X_n: n \in \mathbb{N} \rbrace$ es ergódico si
@@ -276,11 +287,19 @@ Finalmente se muestra un resultado muy importante relacionada con la función de
 
 La demostración de los teoremas se puede encontar en (Parzen, 1999).
 
-## Convergencia de variables aleatorias
+### Procesos ergódicos continuos
 
-### La integral de un proceso con tiempo continuo
+La idea de ergocidad puede extenderse para procesos estocásticos de tiempo continuo, sin embargo no pueden usarse las fórmulas de procesos estocásticos discretos, por lo que es necesario definir nuevas operaciones las cuales naturalmente generarán nuevos procesos estocásticos.
 
-### La derivada de un proceso con tiempo continuo
+En concreto, se debe de definir la integral y la derivada de un proceso estocástico, sin embargo debido a que se está trabajando con variables aleatorias, se usarán ideas similares a las usadas en cálculo.
+
+Nuevamente debido a la complejidad del tema, se omitirán las pruebas y demostraciones. La demostración de los teoremas se puede encontar en (Parzen, 1999).
+
+#### Convergencia de variables aleatorias
+
+#### La integral de un proceso con tiempo continuo
+
+#### La derivada de un proceso con tiempo continuo
 
 ## Procesos normales
 

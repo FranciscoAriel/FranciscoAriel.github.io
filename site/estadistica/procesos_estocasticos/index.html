@@ -369,36 +369,29 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#procesos-ergodicos" class="md-nav__link">
-    Procesos ergódicos
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#convergencia-de-variables-aleatorias" class="md-nav__link">
-    Convergencia de variables aleatorias
+  <a href="#procesos-ergodicos" class="md-nav__link">
+    Procesos ergódicos
   </a>
   
-    <nav class="md-nav" aria-label="Convergencia de variables aleatorias">
+    <nav class="md-nav" aria-label="Procesos ergódicos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#la-integral-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
-    La integral de un proceso con tiempo continuo
+  <a href="#procesos-ergodicos-discretos" class="md-nav__link">
+    Procesos ergódicos discretos
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-derivada-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
-    La derivada de un proceso con tiempo continuo
+  <a href="#procesos-ergodicos-continuos" class="md-nav__link">
+    Procesos ergódicos continuos
   </a>
   
 </li>
@@ -842,36 +835,29 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#procesos-ergodicos" class="md-nav__link">
-    Procesos ergódicos
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#convergencia-de-variables-aleatorias" class="md-nav__link">
-    Convergencia de variables aleatorias
+  <a href="#procesos-ergodicos" class="md-nav__link">
+    Procesos ergódicos
   </a>
   
-    <nav class="md-nav" aria-label="Convergencia de variables aleatorias">
+    <nav class="md-nav" aria-label="Procesos ergódicos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#la-integral-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
-    La integral de un proceso con tiempo continuo
+  <a href="#procesos-ergodicos-discretos" class="md-nav__link">
+    Procesos ergódicos discretos
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#la-derivada-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
-    La derivada de un proceso con tiempo continuo
+  <a href="#procesos-ergodicos-continuos" class="md-nav__link">
+    Procesos ergódicos continuos
   </a>
   
 </li>
@@ -981,6 +967,10 @@
 <p>Se dice que un proceso estocástico <span class="arithmatex">\(\lbrace X_t : t \ge 0 \rbrace\)</span> tiene <em>incrementos independientes</em> si dados <span class="arithmatex">\(t_0,t_1,t2,\dots,t_n\)</span> las variables aleatorias <span class="arithmatex">\(X_{t_1}-X_{t_0},X_{t_2}-X_{t_1},\dots,X_{t_n}-X_{t_{n-1}}\)</span> son independientes.</p>
 </div>
 <p>La definición anterior nos asegura que <em>la diferencia de 2 variables aleatorias</em> será independiente de cualquier otra diferencia de 2 variables aleatoria, siempre y cuando sus intervalos no se translapen.</p>
+<div class="admonition danger">
+<p class="admonition-title">Las variables aleatorias no están ordenadas</p>
+<p>No tiene sentido decir que <span class="arithmatex">\(X_{t_1}\)</span> es menor que <span class="arithmatex">\(X_{t_2}\)</span> ya que las variables aleatorias <strong>no están ordenadas</strong>.</p>
+</div>
 <p><img alt="Ilustración de incrementos independientes" src="../img/inc_indep.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Procesos con incrementos estacionarios</p>
@@ -1123,16 +1113,20 @@ k(s,t)&amp;=Cov(W_s,W_t)\\
 <p>El estudio de la función de núcleo de covarianza también nos ayuda a conocer como será su comportamiento del proceso a través del tiempo, esto es, si la función de núcleo de covarianza cambia a través del tiempo.</p>
 <div class="admonition note">
 <p class="admonition-title">Procesos de covarianza estacionaria</p>
-<p>Se dice que el proceso <span class="arithmatex">\(\lbrace X_t:t \ge 0 \rbrace\)</span> es de covarianza estacionaria si <span class="arithmatex">\(K(s,t)=K(t-s)\)</span> para <span class="arithmatex">\(0&lt;s&lt;t\)</span> es una función que depende de <span class="arithmatex">\(s\)</span> y <span class="arithmatex">\(t\)</span>.</p>
+<p>Se dice que el proceso <span class="arithmatex">\(\lbrace X_t:t \ge 0 \rbrace\)</span> es de covarianza estacionaria si <span class="arithmatex">\(K(s,t)=R(t-s)\)</span> para <span class="arithmatex">\(0&lt;s&lt;t\)</span> es una función que depende de <span class="arithmatex">\(s\)</span> y <span class="arithmatex">\(t\)</span>.</p>
 </div>
-<h3 id="procesos-ergodicos">Procesos ergódicos<a class="headerlink" href="#procesos-ergodicos" title="Permanent link">&para;</a></h3>
+<p>El teorema anterior nos dice que si un proceso es de <strong>covarianza estacionaria</strong>, entonces la covarianza entre <span class="arithmatex">\(X_t\)</span> y <span class="arithmatex">\(X_s\)</span> no dependerá de <span class="arithmatex">\(t\)</span>, sino de la distancia <span class="arithmatex">\(t-s\)</span>. En este sentido, la <em>estacionariedad</em> se refiere a algo que se mantiene constante a través del tiempo.</p>
+<h2 id="procesos-ergodicos">Procesos ergódicos<a class="headerlink" href="#procesos-ergodicos" title="Permanent link">&para;</a></h2>
+<p>Hasta ahora se ha hablado de algunas propiedades de los Procesos estocásticos, pero al igual que las variables aleatorias, existe un resultado muy similar a la convergencia conocido como ergocidad.</p>
+<p>Primero se abordarán los procesos con parámetro de tiempo discreto y posteriormente con tiempo continuo.</p>
+<h3 id="procesos-ergodicos-discretos">Procesos ergódicos discretos<a class="headerlink" href="#procesos-ergodicos-discretos" title="Permanent link">&para;</a></h3>
 <p>La idea de ergocidad de procesos estocásticos es muy parecida a las propiedades de convergencia de la media en muestras aleatorias, pero para ello se requiere desarrollar idea de límites de variables aleatorias.</p>
 <p>Debido a la complejidad de las demostraciones de diversos teoremas, estas serán omitida pero pueden encontrarse por ejemplo en (Parzen, 1999).</p>
 <div class="admonition note">
 <p class="admonition-title">Proceso ergódico discreto</p>
 <p>Supóngase que se tiene un proceso estocástico <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> con parámetro de tiempo <span class="arithmatex">\(n\)</span> discreto. Se dice que <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> es ergódico si las medias muestrales <span class="arithmatex">\(M_n = 1/n \sum_{i=1}^{n} X_i\)</span> pueden ser usadas para aproximar la función del valor medio.</p>
 </div>
-<p>Note que <span class="arithmatex">\(M_n\)</span> es un <em>nuevo</em> proceso estocástico y  <span class="arithmatex">\(\mathbb{E}(M_n) = \mathbb{E}(1/n \sum_{i=1}^{n} X_i) = 1/n \mathbb{E}( \sum_{i=1}^{n} X_i) = 1/n \sum_{i=1}^{n} \mathbb{E} (X_i) = 1/n \sum_{i=1}^{n} m(i)\)</span>. Por ejemplo <span class="arithmatex">\(X_n\)</span> podría ser la temperatura diaria tomada a las 12 del día en cierto lugar y <span class="arithmatex">\(M_n\)</span> el promedio de las temperaturas de esas temperaturas</p>
+<p>Note que <span class="arithmatex">\(M_n\)</span> es un <em>nuevo</em> proceso estocástico con parámetro de tiempo discreto y  <span class="arithmatex">\(\mathbb{E}(M_n) = \mathbb{E}(1/n \sum_{i=1}^{n} X_i) = 1/n \mathbb{E}( \sum_{i=1}^{n} X_i) = 1/n \sum_{i=1}^{n} \mathbb{E} (X_i) = 1/n \sum_{i=1}^{n} m(i)\)</span>. Por ejemplo <span class="arithmatex">\(X_n\)</span> podría ser la temperatura diaria tomada a las 12 del día en cierto lugar y <span class="arithmatex">\(M_n\)</span> el promedio de las temperaturas de esas temperaturas</p>
 <div class="admonition note">
 <p class="admonition-title">Proceso ergódico discreto 2</p>
 <p>El proceso <span class="arithmatex">\(\lbrace X_n: n \in \mathbb{N} \rbrace\)</span> es ergódico si</p>
@@ -1173,9 +1167,13 @@ Cov(X_n,M_n) &amp;= Cov(X_n,1/n \sum_{i=1}^{n} X_i)\\
 <p>En otras palabras <span class="arithmatex">\(X_n\)</span> no está correlacionado con <span class="arithmatex">\(M_n\)</span>.</p>
 </div>
 <p>La demostración de los teoremas se puede encontar en (Parzen, 1999).</p>
-<h2 id="convergencia-de-variables-aleatorias">Convergencia de variables aleatorias<a class="headerlink" href="#convergencia-de-variables-aleatorias" title="Permanent link">&para;</a></h2>
-<h3 id="la-integral-de-un-proceso-con-tiempo-continuo">La integral de un proceso con tiempo continuo<a class="headerlink" href="#la-integral-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h3>
-<h3 id="la-derivada-de-un-proceso-con-tiempo-continuo">La derivada de un proceso con tiempo continuo<a class="headerlink" href="#la-derivada-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h3>
+<h3 id="procesos-ergodicos-continuos">Procesos ergódicos continuos<a class="headerlink" href="#procesos-ergodicos-continuos" title="Permanent link">&para;</a></h3>
+<p>La idea de ergocidad puede extenderse para procesos estocásticos de tiempo continuo, sin embargo no pueden usarse las fórmulas de procesos estocásticos discretos, por lo que es necesario definir nuevas operaciones las cuales naturalmente generarán nuevos procesos estocásticos.</p>
+<p>En concreto, se debe de definir la integral y la derivada de un proceso estocástico, sin embargo debido a que se está trabajando con variables aleatorias, se usarán ideas similares a las usadas en cálculo.</p>
+<p>Nuevamente debido a la complejidad del tema, se omitirán las pruebas y demostraciones. La demostración de los teoremas se puede encontar en (Parzen, 1999).</p>
+<h4 id="convergencia-de-variables-aleatorias">Convergencia de variables aleatorias<a class="headerlink" href="#convergencia-de-variables-aleatorias" title="Permanent link">&para;</a></h4>
+<h4 id="la-integral-de-un-proceso-con-tiempo-continuo">La integral de un proceso con tiempo continuo<a class="headerlink" href="#la-integral-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h4>
+<h4 id="la-derivada-de-un-proceso-con-tiempo-continuo">La derivada de un proceso con tiempo continuo<a class="headerlink" href="#la-derivada-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h4>
 <h2 id="procesos-normales">Procesos normales<a class="headerlink" href="#procesos-normales" title="Permanent link">&para;</a></h2>
 <h2 id="procesos-contadores">Procesos contadores<a class="headerlink" href="#procesos-contadores" title="Permanent link">&para;</a></h2>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
