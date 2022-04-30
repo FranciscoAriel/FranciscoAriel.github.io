@@ -396,6 +396,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#la-integral-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
+    La integral de un proceso con tiempo continuo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-derivada-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
+    La derivada de un proceso con tiempo continuo
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -411,6 +425,20 @@
         <li class="md-nav__item">
   <a href="#procesos-contadores" class="md-nav__link">
     Procesos contadores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cadenas-de-markov" class="md-nav__link">
+    Cadenas de Markov
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesos-de-nacimiento-y-muerte" class="md-nav__link">
+    Procesos de nacimiento y muerte
   </a>
   
 </li>
@@ -862,6 +890,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#la-integral-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
+    La integral de un proceso con tiempo continuo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-derivada-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
+    La derivada de un proceso con tiempo continuo
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -877,6 +919,20 @@
         <li class="md-nav__item">
   <a href="#procesos-contadores" class="md-nav__link">
     Procesos contadores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cadenas-de-markov" class="md-nav__link">
+    Cadenas de Markov
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesos-de-nacimiento-y-muerte" class="md-nav__link">
+    Procesos de nacimiento y muerte
   </a>
   
 </li>
@@ -1078,7 +1134,7 @@ Cov( N_s, N_t) &amp;=\mathbb{E}( N_s N_t)-\mathbb{E}( N_s)\mathbb{E}( N_t)\\
 <div class="admonition note">
 <p class="admonition-title">Función del valor medio</p>
 <p>La función del valor medio, denotada por <span class="arithmatex">\(m(t)\)</span>, se define como</p>
-<p><span class="arithmatex">\(m(t)=\mathbb{E}(X_t),t \ge 0\)</span></p>
+<p><span class="arithmatex">\(m_X(t)=\mathbb{E}(X_t),t \ge 0\)</span></p>
 <p>si dicha esperanza existe y es una función del tiempo <span class="arithmatex">\(t\)</span>.</p>
 </div>
 <p>La función del valor medio es muy útil para caracterizar un proceso ya que nos da una idea de como se comporta el proceso. Funciona de manera similar a la media de una variable aleatoria.</p>
@@ -1089,8 +1145,8 @@ Cov( N_s, N_t) &amp;=\mathbb{E}( N_s N_t)-\mathbb{E}( N_s)\mathbb{E}( N_t)\\
 <h3 id="funcion-del-nucleo-de-covarianza">Función del núcleo de covarianza<a class="headerlink" href="#funcion-del-nucleo-de-covarianza" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Función del núcleo de covarianza</p>
-<p>La función del núcleo de covarianza, denotada por <span class="arithmatex">\(k(s,t)\)</span>, se define como</p>
-<p><span class="arithmatex">\(k(s,t)=Cov(X_s,X_t),0&lt;s&lt;t\)</span></p>
+<p>La función del núcleo de covarianza, denotada por <span class="arithmatex">\(K_X(s,t)\)</span>, se define como</p>
+<p><span class="arithmatex">\(K_X(s,t)=Cov(X_s,X_t),0&lt;s&lt;t\)</span></p>
 <p>si dicha covarianza existe.</p>
 </div>
 <p>Al igual que la función del valor medio, la función del núcleo de covarianzanos permite conocer el comportamiento del proceso por medio de la covarianza entre <span class="arithmatex">\(X_t\)</span> y <span class="arithmatex">\(X_s\)</span> y nos da idea de cómo cambia la relación de dichas variables aleatorias a través del tiempo.</p>
@@ -1099,7 +1155,7 @@ Cov( N_s, N_t) &amp;=\mathbb{E}( N_s N_t)-\mathbb{E}( N_s)\mathbb{E}( N_t)\\
 <p>Se debe conocer la covarianza entre <span class="arithmatex">\(W_t\)</span> y <span class="arithmatex">\(W_s\)</span> suponiendo <span class="arithmatex">\(0&lt;s&lt;t\)</span>.</p>
 <p><span class="arithmatex">\(
 \begin{align*}
-k(s,t)&amp;=Cov(W_s,W_t)\\
+K_X(s,t)&amp;=Cov(W_s,W_t)\\
 &amp;=Cov(W_s,(W_t-W_s)+W_s)\\
 &amp;=Cov(W_s,(W_t-W_s))+Cov(W_s,W_s)\\
 &amp;=\mathbb{V}(W_s)\\
@@ -1107,7 +1163,7 @@ k(s,t)&amp;=Cov(W_s,W_t)\\
 \end{align*}
 \)</span></p>
 <p>En general, para cualquier <span class="arithmatex">\(s, t \in \mathbb{R}^+\)</span>, la función de núcleo de covarianza de un proceso Weinier puede expresarse como </p>
-<p><span class="arithmatex">\(k(s,t)=\sigma^2 min(s,t)\)</span></p>
+<p><span class="arithmatex">\(K_X(s,t)=\sigma^2 min(s,t)\)</span></p>
 <p>Lo cual implica que no importa la distancia entre <span class="arithmatex">\(s\)</span> y <span class="arithmatex">\(t\)</span>, la covarianza siempre será constante <img alt="😱" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f631.svg" title=":scream:" />.</p>
 </details>
 <p>El estudio de la función de núcleo de covarianza también nos ayuda a conocer como será su comportamiento del proceso a través del tiempo, esto es, si la función de núcleo de covarianza cambia a través del tiempo.</p>
@@ -1172,14 +1228,85 @@ Cov(X_n,M_n) &amp;= Cov(X_n,1/n \sum_{i=1}^{n} X_i)\\
 <p>En concreto, se debe de definir la integral y la derivada de un proceso estocástico, sin embargo debido a que se está trabajando con variables aleatorias, se usarán ideas similares a las usadas en cálculo.</p>
 <p>Nuevamente debido a la complejidad del tema, se omitirán las pruebas y demostraciones. La demostración de los teoremas se puede encontar en (Parzen, 1999).</p>
 <h4 id="convergencia-de-variables-aleatorias">Convergencia de variables aleatorias<a class="headerlink" href="#convergencia-de-variables-aleatorias" title="Permanent link">&para;</a></h4>
-<h4 id="la-integral-de-un-proceso-con-tiempo-continuo">La integral de un proceso con tiempo continuo<a class="headerlink" href="#la-integral-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h4>
-<h4 id="la-derivada-de-un-proceso-con-tiempo-continuo">La derivada de un proceso con tiempo continuo<a class="headerlink" href="#la-derivada-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h4>
+<h3 id="la-integral-de-un-proceso-con-tiempo-continuo">La integral de un proceso con tiempo continuo<a class="headerlink" href="#la-integral-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h3>
+<p>En esta sección se definirá la integral de un proceso estocástico.</p>
+<div class="admonition note">
+<p class="admonition-title">Definición de integral</p>
+<p>La integral de <span class="arithmatex">\(\lbrace X_t\rbrace\)</span> respecto a <span class="arithmatex">\(t\)</span> en el intervalo <span class="arithmatex">\((a,b)\)</span> se define como:</p>
+<p><span class="arithmatex">\(
+\int_a^b X_t dt = \lim_{\max (t_k-t_{k-1}) \to 0} \sum_{k=1}^n X_{t_k}(t_k-t_{k-1})
+\)</span></p>
+</div>
+<p>En otras palabras, si se consideran subdivisiones del intervalo <span class="arithmatex">\(a=t_0&lt;t_1&lt;\dots&lt;t_n=b\)</span>, entonces la integral se define como el límite de esas subdiviciones cuando la longitud máxima de un subintervalo tiende a cero.</p>
+<div class="admonition note">
+<p class="admonition-title">Existencia de la integral</p>
+<p>Una condición necesaria y suficiente para que <span class="arithmatex">\(\int_a^b X_t dt\)</span> exista es que </p>
+<p><span class="arithmatex">\(
+0 \le \int_a^b \int_a^b |E(X_s X_t)| ds dt &lt; \infty
+\)</span></p>
+<p>donde </p>
+<div class="arithmatex">\[\begin{align}
+E(X_s X_t) &amp; = Cov(X_s X_t) + m(s) m(t)\\
+&amp; = k(s,t) + m(s) m(t)
+\end{align}\]</div>
+</div>
+<details class="example">
+<summary>Integral de un proceso Weinier</summary>
+<p>Sea <span class="arithmatex">\(\lbrace W_t: t\ge 0 \rbrace\)</span> un proceso de Weinier. Note que:</p>
+<div class="arithmatex">\[\begin{align}
+m_X(t) &amp;= 0\\
+K_X(s,t) &amp;= \sigma^2 min(s,t)
+\end{align}\]</div>
+<p>Por lo que <span class="arithmatex">\(Z_t = \int_{a}^{b} W_t dt\)</span> existe en el intervalo <span class="arithmatex">\((a,b)\)</span>.</p>
+</details>
+<p>En general, <em>no es fácil encontrar la integral de un proceso estocástico</em>, sin embargo es posible conocer su función de valor medio y su función de núcleo de covarianza que nos permita estudiar su comportamiento.</p>
+<div class="admonition note">
+<p class="admonition-title">Propiedades de la integral de un proceso estocástico</p>
+<p>a) <span class="arithmatex">\(\mathbb{E}\left( \int_{a}^{b} X_t dt \right) =\int_{a}^{b} \mathbb{E}(X_t) dt = \int_{a}^{b} m_X(t) dt\)</span></p>
+<p>b) <span class="arithmatex">\(\mathbb{E}\left( \left[ \int_{a}^{b} X_t dt \right]^2\right) = \mathbb{E}\left( \int_{a}^{b} X_s ds \int_{a}^{b} X_t dt \right) = \mathbb{E}\left( \int_{a}^{b} \int_{a}^{b} X_s X_t ds dt \right) = \int_{a}^{b} \mathbb{E}(X_s X_t) ds dt\)</span></p>
+<p>c) <span class="arithmatex">\(Cov \left(\int_{a}^{b} X_t dt,\int_{c}^{d} X_s ds\right)=\int_{a}^{b}\int_{c}^{d} K_X(s,t) ds dt\)</span></p>
+<p>d) <span class="arithmatex">\(Var \left(\int_{a}^{b} X_t dt\right)=\mathbb{E}\left(\left(\int_{a}^{b} X_t dt \right)^2\right)-\left(\mathbb{E}\left(\int_{a}^{b} X_t dt\right)\right)^2=\int_{a}^{b}\int_{a}^{b}k(s,t)ds dt=2\int_{a}^{b}\int_{a}^{t} K_X(s,t) ds dt\)</span></p>
+</div>
+<h3 id="la-derivada-de-un-proceso-con-tiempo-continuo">La derivada de un proceso con tiempo continuo<a class="headerlink" href="#la-derivada-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h3>
+<p>En esta sección se define la derivada de un proceso continuo.</p>
+<div class="admonition note">
+<p class="admonition-title">Definición</p>
+<p>Se define la derivada de <span class="arithmatex">\(X_t\)</span> respecto a <span class="arithmatex">\(t\)</span> como</p>
+<p><span class="arithmatex">\(
+{X´}_t = \lim_{h \to 0} \frac{X_{t+h}-X_t}{h}
+\)</span></p>
+<p>Siempre y cuando el límite es tomado en ECM, es decir, <span class="arithmatex">\(\lim_{h \to 0} \left( \frac{X_{t+h}-X_t}{h} - {X´}_t\right)^2 = 0\)</span></p>
+</div>
+<p>El siguiente teorema nos indica las condiciones cuando existe la derivada de un proceso.</p>
+<div class="admonition note">
+<p class="admonition-title">Teorema</p>
+<p>El proceso <span class="arithmatex">\(\lbrace X_t: t \ge 0 \rbrace\)</span> es diferenciable si y solo si</p>
+<p>a) La función del valor medio <span class="arithmatex">\(m_X(t)\)</span> es diferenciable.</p>
+<p>b) La función del kernel de covarianza <span class="arithmatex">\(K_X(s,t)\)</span> tiene segundas derivadas mixtas continuas.</p>
+</div>
+<p>Del teorema anterior, se puede deducir que <span class="arithmatex">\(\mathbb{E}({X´}_t)={m´}_X(t)\)</span> y <span class="arithmatex">\(Cov({X´}_s,{X´}_t)=\frac{\partial^2}{\partial s \partial t}K_X(s,t)\)</span>.</p>
 <h2 id="procesos-normales">Procesos normales<a class="headerlink" href="#procesos-normales" title="Permanent link">&para;</a></h2>
 <h2 id="procesos-contadores">Procesos contadores<a class="headerlink" href="#procesos-contadores" title="Permanent link">&para;</a></h2>
+<p>Los procesos contadores, son un tipo de procesos estocásticos que toman valores enteros y modelan el número de eventos que ocurren en un intervalo de tiempo. Las variables aleatorias del proceso son discretas pero <span class="arithmatex">\(t\)</span> sigue siendo continuo.</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso Poisson</p>
+<p>Se dice que el proceso <span class="arithmatex">\(\lbrace N_t:t \ge 0 \rbrace\)</span> es un <em>Proceso de Poisson</em> si satisface las siguientes condiciones:</p>
+<p>a)    <span class="arithmatex">\(N_0 = 0\)</span>.</p>
+<p>b)    <span class="arithmatex">\(N_t\)</span> Tiene incrementos independientes.</p>
+<p>c)    Para <span class="arithmatex">\(t&gt;0\)</span>, <span class="arithmatex">\(0&lt;P(N_t &gt; 0)&lt;1\)</span>. Es decir para cualquier intervalo, hay una probabilidad de que un evento ocurrirá, aunque no hay certeza.</p>
+<p>d)    Para <span class="arithmatex">\(t\ge 0\)</span></p>
+<p><span class="arithmatex">\(
+\lim_{h \to 0} \frac{P(N_{t+h}-N_t \ge 2)}{P(N_{t+h}-N_t=1)}=0
+\)</span></p>
+<p>En otras palabras, en intervalos muy pequeños a lo más un evento puede ocurrir, por lo que no puede ocurrir más de un evento similtaneamente.</p>
+<p>e)    El proceso <span class="arithmatex">\(N_t\)</span> tiene incrementos estacionarios, es decir para <span class="arithmatex">\(0&lt;s&lt;t\)</span> y <span class="arithmatex">\(h&gt;0\)</span>, las variables aleatorias <span class="arithmatex">\(N_t-N_s\)</span> y <span class="arithmatex">\(N_{t+h}-N_{s+h}\)</span> son identicamente distribuidas.</p>
+</div>
+<h2 id="cadenas-de-markov">Cadenas de Markov<a class="headerlink" href="#cadenas-de-markov" title="Permanent link">&para;</a></h2>
+<h2 id="procesos-de-nacimiento-y-muerte">Procesos de nacimiento y muerte<a class="headerlink" href="#procesos-de-nacimiento-y-muerte" title="Permanent link">&para;</a></h2>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
-<p>Parzen, E. (1999). Stochastic processes. SIAM.</p>
-<p>Ross, S. M. (1996). <strong>Stochastic Processes</strong> (Second Edition). John Wiley &amp; Sons.</p>
-<p>Karlin, S., &amp; Taylor, H. (1975). <strong>A first course in stochastic processes</strong> (Second Edition). Academic Press.</p>
+<p>Parzen, E. (1999). <em>Stochastic processes</em>. SIAM.</p>
+<p>Ross, S. M. (1996). <em>Stochastic Processes</em> (Second Edition). John Wiley &amp; Sons.</p>
+<p>Karlin, S., &amp; Taylor, H. (1975). <em>A first course in stochastic processes</em> (Second Edition). Academic Press.</p>
 <blockquote>
 <p>Muchas de las ideas fueron tomadas del curso <em>Procesos estocásticos</em> impartido por el Dr. José Villaseñor en Primavera del 2022 en el Colegio de Postgraduados, Campus Montecillo.</p>
 </blockquote>

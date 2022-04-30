@@ -175,7 +175,7 @@ Para ello se emplearán las funciones del valor medio y de núcleo de covarianza
 !!! note "Función del valor medio"
     La función del valor medio, denotada por $m(t)$, se define como
 
-    \(m(t)=\mathbb{E}(X_t),t \ge 0\)
+    \(m_X(t)=\mathbb{E}(X_t),t \ge 0\)
 
     si dicha esperanza existe y es una función del tiempo $t$.
 
@@ -187,9 +187,9 @@ La función del valor medio es muy útil para caracterizar un proceso ya que nos
 ### Función del núcleo de covarianza
 
 !!! note "Función del núcleo de covarianza"
-    La función del núcleo de covarianza, denotada por $k(s,t)$, se define como
+    La función del núcleo de covarianza, denotada por $K_X(s,t)$, se define como
 
-    \(k(s,t)=Cov(X_s,X_t),0<s<t\)
+    \(K_X(s,t)=Cov(X_s,X_t),0<s<t\)
     
     si dicha covarianza existe.
 
@@ -200,7 +200,7 @@ Al igual que la función del valor medio, la función del núcleo de covarianzan
 
     \(
     \begin{align*}
-    k(s,t)&=Cov(W_s,W_t)\\
+    K_X(s,t)&=Cov(W_s,W_t)\\
     &=Cov(W_s,(W_t-W_s)+W_s)\\
     &=Cov(W_s,(W_t-W_s))+Cov(W_s,W_s)\\
     &=\mathbb{V}(W_s)\\
@@ -210,7 +210,7 @@ Al igual que la función del valor medio, la función del núcleo de covarianzan
 
     En general, para cualquier $s, t \in \mathbb{R}^+$, la función de núcleo de covarianza de un proceso Weinier puede expresarse como 
 
-    \(k(s,t)=\sigma^2 min(s,t)\)
+    \(K_X(s,t)=\sigma^2 min(s,t)\)
 
     Lo cual implica que no importa la distancia entre $s$ y $t$, la covarianza siempre será constante :scream:.
 
@@ -297,20 +297,113 @@ Nuevamente debido a la complejidad del tema, se omitirán las pruebas y demostra
 
 #### Convergencia de variables aleatorias
 
-#### La integral de un proceso con tiempo continuo
+### La integral de un proceso con tiempo continuo
 
-#### La derivada de un proceso con tiempo continuo
+En esta sección se definirá la integral de un proceso estocástico.
+
+!!! note "Definición de integral"
+    La integral de $\lbrace X_t\rbrace$ respecto a $t$ en el intervalo $(a,b)$ se define como:
+
+    \(
+    \int_a^b X_t dt = \lim_{\max (t_k-t_{k-1}) \to 0} \sum_{k=1}^n X_{t_k}(t_k-t_{k-1})
+    \)
+
+En otras palabras, si se consideran subdivisiones del intervalo $a=t_0<t_1<\dots<t_n=b$, entonces la integral se define como el límite de esas subdiviciones cuando la longitud máxima de un subintervalo tiende a cero.
+
+!!! note "Existencia de la integral"
+    Una condición necesaria y suficiente para que $\int_a^b X_t dt$ exista es que 
+
+    \(
+    0 \le \int_a^b \int_a^b |E(X_s X_t)| ds dt < \infty
+    \)
+
+    donde 
+
+    \begin{align}
+    E(X_s X_t) & = Cov(X_s X_t) + m(s) m(t)\\
+    & = k(s,t) + m(s) m(t)
+    \end{align}
+
+??? example "Integral de un proceso Weinier"
+    Sea $\lbrace W_t: t\ge 0 \rbrace$ un proceso de Weinier. Note que:
+
+    \begin{align}
+    m_X(t) &= 0\\
+    K_X(s,t) &= \sigma^2 min(s,t)
+    \end{align}
+
+    Por lo que $Z_t = \int_{a}^{b} W_t dt$ existe en el intervalo $(a,b)$.
+
+En general, *no es fácil encontrar la integral de un proceso estocástico*, sin embargo es posible conocer su función de valor medio y su función de núcleo de covarianza que nos permita estudiar su comportamiento.
+
+!!! note "Propiedades de la integral de un proceso estocástico"
+    a) $\mathbb{E}\left( \int_{a}^{b} X_t dt \right) =\int_{a}^{b} \mathbb{E}(X_t) dt = \int_{a}^{b} m_X(t) dt$
+
+    b) $\mathbb{E}\left( \left[ \int_{a}^{b} X_t dt \right]^2\right) = \mathbb{E}\left( \int_{a}^{b} X_s ds \int_{a}^{b} X_t dt \right) = \mathbb{E}\left( \int_{a}^{b} \int_{a}^{b} X_s X_t ds dt \right) = \int_{a}^{b} \mathbb{E}(X_s X_t) ds dt$
+
+    c) $Cov \left(\int_{a}^{b} X_t dt,\int_{c}^{d} X_s ds\right)=\int_{a}^{b}\int_{c}^{d} K_X(s,t) ds dt$
+
+    d) $Var \left(\int_{a}^{b} X_t dt\right)=\mathbb{E}\left(\left(\int_{a}^{b} X_t dt \right)^2\right)-\left(\mathbb{E}\left(\int_{a}^{b} X_t dt\right)\right)^2=\int_{a}^{b}\int_{a}^{b}k(s,t)ds dt=2\int_{a}^{b}\int_{a}^{t} K_X(s,t) ds dt$
+
+### La derivada de un proceso con tiempo continuo
+
+En esta sección se define la derivada de un proceso continuo.
+
+!!! note "Definición"
+    Se define la derivada de $X_t$ respecto a $t$ como
+
+    \(
+    {X´}_t = \lim_{h \to 0} \frac{X_{t+h}-X_t}{h}
+    \)
+
+    Siempre y cuando el límite es tomado en ECM, es decir, $\lim_{h \to 0} \left( \frac{X_{t+h}-X_t}{h} - {X´}_t\right)^2 = 0$
+
+El siguiente teorema nos indica las condiciones cuando existe la derivada de un proceso.
+
+!!! note "Teorema"
+    El proceso $\lbrace X_t: t \ge 0 \rbrace$ es diferenciable si y solo si
+
+    a) La función del valor medio $m_X(t)$ es diferenciable.
+
+    b) La función del kernel de covarianza $K_X(s,t)$ tiene segundas derivadas mixtas continuas.
+
+Del teorema anterior, se puede deducir que $\mathbb{E}({X´}_t)={m´}_X(t)$ y $Cov({X´}_s,{X´}_t)=\frac{\partial^2}{\partial s \partial t}K_X(s,t)$.
 
 ## Procesos normales
 
 ## Procesos contadores
 
+Los procesos contadores, son un tipo de procesos estocásticos que toman valores enteros y modelan el número de eventos que ocurren en un intervalo de tiempo. Las variables aleatorias del proceso son discretas pero $t$ sigue siendo continuo.
+
+!!! note "Proceso Poisson"
+    Se dice que el proceso $\lbrace N_t:t \ge 0 \rbrace$ es un _Proceso de Poisson_ si satisface las siguientes condiciones:
+
+    a)    $N_0 = 0$.
+
+    b)    $N_t$ Tiene incrementos independientes.
+
+    c)    Para $t>0$, $0<P(N_t > 0)<1$. Es decir para cualquier intervalo, hay una probabilidad de que un evento ocurrirá, aunque no hay certeza.
+
+    d)    Para $t\ge 0$
+
+    \(
+    \lim_{h \to 0} \frac{P(N_{t+h}-N_t \ge 2)}{P(N_{t+h}-N_t=1)}=0
+    \)
+
+    En otras palabras, en intervalos muy pequeños a lo más un evento puede ocurrir, por lo que no puede ocurrir más de un evento similtaneamente.
+
+    e)    El proceso $N_t$ tiene incrementos estacionarios, es decir para $0<s<t$ y $h>0$, las variables aleatorias $N_t-N_s$ y $N_{t+h}-N_{s+h}$ son identicamente distribuidas.
+
+## Cadenas de Markov
+
+## Procesos de nacimiento y muerte
+
 ## Bibliografía
 
-Parzen, E. (1999). Stochastic processes. SIAM.
+Parzen, E. (1999). _Stochastic processes_. SIAM.
 
-Ross, S. M. (1996). __Stochastic Processes__ (Second Edition). John Wiley & Sons.
+Ross, S. M. (1996). _Stochastic Processes_ (Second Edition). John Wiley & Sons.
 
-Karlin, S., & Taylor, H. (1975). __A first course in stochastic processes__ (Second Edition). Academic Press.
+Karlin, S., & Taylor, H. (1975). _A first course in stochastic processes_ (Second Edition). Academic Press.
 
 > Muchas de las ideas fueron tomadas del curso _Procesos estocásticos_ impartido por el Dr. José Villaseñor en Primavera del 2022 en el Colegio de Postgraduados, Campus Montecillo.
