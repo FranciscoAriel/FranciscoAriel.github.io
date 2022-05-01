@@ -427,6 +427,19 @@
     Procesos contadores
   </a>
   
+    <nav class="md-nav" aria-label="Procesos contadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proceso-poisson" class="md-nav__link">
+    Proceso Poisson
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -921,6 +934,19 @@
     Procesos contadores
   </a>
   
+    <nav class="md-nav" aria-label="Procesos contadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proceso-poisson" class="md-nav__link">
+    Proceso Poisson
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -995,7 +1021,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-            </svg> lectura: 15 minutos
+            </svg> lectura: 45 minutos
         </span>
         </p>
     </aside>
@@ -1287,20 +1313,44 @@ K_X(s,t) &amp;= \sigma^2 min(s,t)
 <p>Del teorema anterior, se puede deducir que <span class="arithmatex">\(\mathbb{E}({X´}_t)={m´}_X(t)\)</span> y <span class="arithmatex">\(Cov({X´}_s,{X´}_t)=\frac{\partial^2}{\partial s \partial t}K_X(s,t)\)</span>.</p>
 <h2 id="procesos-normales">Procesos normales<a class="headerlink" href="#procesos-normales" title="Permanent link">&para;</a></h2>
 <h2 id="procesos-contadores">Procesos contadores<a class="headerlink" href="#procesos-contadores" title="Permanent link">&para;</a></h2>
-<p>Los procesos contadores, son un tipo de procesos estocásticos que toman valores enteros y modelan el número de eventos que ocurren en un intervalo de tiempo. Las variables aleatorias del proceso son discretas pero <span class="arithmatex">\(t\)</span> sigue siendo continuo.</p>
+<p>Los procesos contadores, denotados como <span class="arithmatex">\(\lbrace N(t):t \ge 0 \rbrace\)</span> o <span class="arithmatex">\(\lbrace N_t:t \ge 0 \rbrace\)</span>, son un tipo de procesos estocásticos que toman valores enteros y modelan el número de eventos que ocurren en un intervalo de tiempo. Las variables aleatorias del proceso son discretas pero <span class="arithmatex">\(t\)</span> sigue siendo continuo.</p>
+<p>De acuerdo con Ross (1996), un proceso contador tiene las siguientes propiedades.</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso contador</p>
+<p>Un <strong>proceso contador</strong> debe satisfacer las siguientes condiciones:</p>
+<p>i) <span class="arithmatex">\(N(t) \ge 0\)</span>.</p>
+<p>ii) <span class="arithmatex">\(N(t)\)</span> toma valores enteros.</p>
+<p>iii) Si <span class="arithmatex">\(s&lt;t\)</span> entonces <span class="arithmatex">\(N(s) \le N(t)\)</span>.</p>
+<p>iv) <span class="arithmatex">\(N(t) - N(s)\)</span> representa el número de eventos que han ocurrido en el intervalo <span class="arithmatex">\((s,t]\)</span>, donde <span class="arithmatex">\(s &lt; t\)</span>.</p>
+</div>
+<p>Aunque puede haber muchos tipos de procesos contadores, se estudiará uno de los más utilizado en diversas aplicaciones.</p>
+<h3 id="proceso-poisson">Proceso Poisson<a class="headerlink" href="#proceso-poisson" title="Permanent link">&para;</a></h3>
+<p>En la <a href="./#definiciones">intoducción</a> ya se había mencionado el proceso poisson, sin embargo ahora se estudiarán más sus propiedades.</p>
 <div class="admonition note">
 <p class="admonition-title">Proceso Poisson</p>
-<p>Se dice que el proceso <span class="arithmatex">\(\lbrace N_t:t \ge 0 \rbrace\)</span> es un <em>Proceso de Poisson</em> si satisface las siguientes condiciones:</p>
-<p>a)    <span class="arithmatex">\(N_0 = 0\)</span>.</p>
-<p>b)    <span class="arithmatex">\(N_t\)</span> Tiene incrementos independientes.</p>
-<p>c)    Para <span class="arithmatex">\(t&gt;0\)</span>, <span class="arithmatex">\(0&lt;P(N_t &gt; 0)&lt;1\)</span>. Es decir para cualquier intervalo, hay una probabilidad de que un evento ocurrirá, aunque no hay certeza.</p>
-<p>d)    Para <span class="arithmatex">\(t\ge 0\)</span></p>
+<p>Se dice que el proceso contador <span class="arithmatex">\(\lbrace N(t):t \ge 0 \rbrace\)</span> es un <em>Proceso de Poisson</em> si satisface las siguientes condiciones:</p>
+<p>a)    <span class="arithmatex">\(N(0) = 0\)</span>.</p>
+<p>b)    <span class="arithmatex">\(N(t)\)</span> Tiene incrementos independientes.</p>
+<p>c)    Para <span class="arithmatex">\(t&gt;0\)</span>, <span class="arithmatex">\(0&lt;P(N(t) &gt; 0)&lt;1\)</span>.
+d)    Para <span class="arithmatex">\(t\ge 0\)</span></p>
 <p><span class="arithmatex">\(
-\lim_{h \to 0} \frac{P(N_{t+h}-N_t \ge 2)}{P(N_{t+h}-N_t=1)}=0
+\lim_{h \to 0} \frac{P(N(t+h)-N(t) \ge 2)}{P(N(t+h)-N(t)=1)}=0
 \)</span></p>
-<p>En otras palabras, en intervalos muy pequeños a lo más un evento puede ocurrir, por lo que no puede ocurrir más de un evento similtaneamente.</p>
-<p>e)    El proceso <span class="arithmatex">\(N_t\)</span> tiene incrementos estacionarios, es decir para <span class="arithmatex">\(0&lt;s&lt;t\)</span> y <span class="arithmatex">\(h&gt;0\)</span>, las variables aleatorias <span class="arithmatex">\(N_t-N_s\)</span> y <span class="arithmatex">\(N_{t+h}-N_{s+h}\)</span> son identicamente distribuidas.</p>
+<p>e)    El proceso <span class="arithmatex">\(N(t)\)</span> tiene incrementos estacionarios.</p>
 </div>
+<p>El proceso Poisson se llama así debido a que el número de eventos que ocurren en un intervalo de tiempo de longitud <span class="arithmatex">\(t\)</span>, tiene distribución Poisson con parámetro <span class="arithmatex">\(\lambda t\)</span>. La constante <span class="arithmatex">\(\lambda\)</span> se conoce como <em>la intensidad de paso</em> o <em>tasa media de ocurrencias</em> y puede ser interpretada como el número de eventos que ocurren por unidad de tiempo. Vea Parzen (1999) o Ross(1996) para la demostración.</p>
+<p>La propiedad c) implica que para cualquier intervalo, hay una probabilidad de que un evento ocurrirá, aunque no hay certeza de que el evento ocurra.</p>
+<p>La propiedad d) se refiere a que en <em>intervalos muy pequeños</em> a lo más un evento puede ocurrir, por lo que no puede ocurrir más de un evento simultaneamente, es decir <span class="arithmatex">\(P(N(h)=1)=\lambda h +0(h)\)</span> y <span class="arithmatex">\(P(N(h)\ge 2)=0(h)\)</span> para <span class="arithmatex">\(h&gt;0\)</span>.</p>
+<p>Finalmente la propiedad e) indica que para <span class="arithmatex">\(0&lt;s&lt;t\)</span> y <span class="arithmatex">\(h&gt;0\)</span>, las variables aleatorias <span class="arithmatex">\(N(t)-N(s)\)</span> y <span class="arithmatex">\(N(t+h)-N(s+h)\)</span> son identicamente distribuidas <span class="arithmatex">\(Poi(\lambda (t-s))\)</span>.</p>
+<details class="example">
+<summary>Proceso Poisson</summary>
+<p>Supóngase que el número promedio de llamadas recibidas por minuto en una empresa es de 0.5; se desea conocer la probabilidad de que ninguna llamada entre en 5 minutos.</p>
+<p><img alt="Ilustración de los eventos en el intervalo de 0 a \(t_1\)" src="../img/ocurrencias.jpg" /></p>
+<p>Note que en este caso la tasa media de ocurrencia <span class="arithmatex">\(\lambda\)</span> es de 0.5 llamadas por minuto y la longitud del intervalo es de 5 minutos, por lo que el número de llamadas esperadas durante en ese intervalo de tiempo <span class="arithmatex">\(\lambda t\)</span> es de 2.5 llamadas. Por lo que la probabilidad de que no se tengan llamadas en ese periodo es de </p>
+<p><span class="arithmatex">\(
+P(N(5)=0) = \frac{e^{-2.5}(2.5)^0}{0!} = e^{-2.5} = 0.082085
+\)</span></p>
+</details>
 <h2 id="cadenas-de-markov">Cadenas de Markov<a class="headerlink" href="#cadenas-de-markov" title="Permanent link">&para;</a></h2>
 <h2 id="procesos-de-nacimiento-y-muerte">Procesos de nacimiento y muerte<a class="headerlink" href="#procesos-de-nacimiento-y-muerte" title="Permanent link">&para;</a></h2>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>

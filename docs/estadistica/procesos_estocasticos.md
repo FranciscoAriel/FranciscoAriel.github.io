@@ -5,7 +5,7 @@ author: Francisco Vázquez
 date: 2022-02-16
 author_gh_user: FranciscoAriel
 publish_date: 2022-02-16
-read_time: 15 minutos
+read_time: 45 minutos
 ---
 
 En esta sección se estudiará a los procesos estocásticos, los cuales pueden ser considerados una generalización de una muestra aleatoria.
@@ -373,26 +373,61 @@ Del teorema anterior, se puede deducir que $\mathbb{E}({X´}_t)={m´}_X(t)$ y $C
 
 ## Procesos contadores
 
-Los procesos contadores, son un tipo de procesos estocásticos que toman valores enteros y modelan el número de eventos que ocurren en un intervalo de tiempo. Las variables aleatorias del proceso son discretas pero $t$ sigue siendo continuo.
+Los procesos contadores, denotados como $\lbrace N(t):t \ge 0 \rbrace$ o $\lbrace N_t:t \ge 0 \rbrace$, son un tipo de procesos estocásticos que toman valores enteros y modelan el número de eventos que ocurren en un intervalo de tiempo. Las variables aleatorias del proceso son discretas pero $t$ sigue siendo continuo.
+
+De acuerdo con Ross (1996), un proceso contador tiene las siguientes propiedades.
+
+!!! note "Proceso contador"
+    Un **proceso contador** debe satisfacer las siguientes condiciones:
+
+    i) $N(t) \ge 0$.
+
+    ii) $N(t)$ toma valores enteros.
+
+    iii) Si $s<t$ entonces $N(s) \le N(t)$.
+
+    iv) $N(t) - N(s)$ representa el número de eventos que han ocurrido en el intervalo $(s,t]$, donde $s < t$.
+
+Aunque puede haber muchos tipos de procesos contadores, se estudiará uno de los más utilizado en diversas aplicaciones.
+
+### Proceso Poisson
+
+En la [intoducción](procesos_estocasticos.md#definiciones) ya se había mencionado el proceso poisson, sin embargo ahora se estudiarán más sus propiedades.
 
 !!! note "Proceso Poisson"
-    Se dice que el proceso $\lbrace N_t:t \ge 0 \rbrace$ es un _Proceso de Poisson_ si satisface las siguientes condiciones:
+    Se dice que el proceso contador $\lbrace N(t):t \ge 0 \rbrace$ es un _Proceso de Poisson_ si satisface las siguientes condiciones:
 
-    a)    $N_0 = 0$.
+    a)    $N(0) = 0$.
 
-    b)    $N_t$ Tiene incrementos independientes.
+    b)    $N(t)$ Tiene incrementos independientes.
 
-    c)    Para $t>0$, $0<P(N_t > 0)<1$. Es decir para cualquier intervalo, hay una probabilidad de que un evento ocurrirá, aunque no hay certeza.
-
+    c)    Para $t>0$, $0<P(N(t) > 0)<1$.
     d)    Para $t\ge 0$
 
     \(
-    \lim_{h \to 0} \frac{P(N_{t+h}-N_t \ge 2)}{P(N_{t+h}-N_t=1)}=0
+    \lim_{h \to 0} \frac{P(N(t+h)-N(t) \ge 2)}{P(N(t+h)-N(t)=1)}=0
     \)
 
-    En otras palabras, en intervalos muy pequeños a lo más un evento puede ocurrir, por lo que no puede ocurrir más de un evento similtaneamente.
+    e)    El proceso $N(t)$ tiene incrementos estacionarios.
 
-    e)    El proceso $N_t$ tiene incrementos estacionarios, es decir para $0<s<t$ y $h>0$, las variables aleatorias $N_t-N_s$ y $N_{t+h}-N_{s+h}$ son identicamente distribuidas.
+El proceso Poisson se llama así debido a que el número de eventos que ocurren en un intervalo de tiempo de longitud $t$, tiene distribución Poisson con parámetro $\lambda t$. La constante $\lambda$ se conoce como *la intensidad de paso* o *tasa media de ocurrencias* y puede ser interpretada como el número de eventos que ocurren por unidad de tiempo. Vea Parzen (1999) o Ross(1996) para la demostración.
+
+La propiedad c) implica que para cualquier intervalo, hay una probabilidad de que un evento ocurrirá, aunque no hay certeza de que el evento ocurra.
+
+La propiedad d) se refiere a que en *intervalos muy pequeños* a lo más un evento puede ocurrir, por lo que no puede ocurrir más de un evento simultaneamente, es decir $P(N(h)=1)=\lambda h +0(h)$ y $P(N(h)\ge 2)=0(h)$ para $h>0$.
+
+Finalmente la propiedad e) indica que para $0<s<t$ y $h>0$, las variables aleatorias $N(t)-N(s)$ y $N(t+h)-N(s+h)$ son identicamente distribuidas $Poi(\lambda (t-s))$.
+
+??? example "Proceso Poisson"
+    Supóngase que el número promedio de llamadas recibidas por minuto en una empresa es de 0.5; se desea conocer la probabilidad de que ninguna llamada entre en 5 minutos.
+
+    ![Ilustración de los eventos en el intervalo de 0 a $t_1$](img/ocurrencias.jpg)
+
+    Note que en este caso la tasa media de ocurrencia $\lambda$ es de 0.5 llamadas por minuto y la longitud del intervalo es de 5 minutos, por lo que el número de llamadas esperadas durante en ese intervalo de tiempo $\lambda t$ es de 2.5 llamadas. Por lo que la probabilidad de que no se tengan llamadas en ese periodo es de 
+
+    \(
+    P(N(5)=0) = \frac{e^{-2.5}(2.5)^0}{0!} = e^{-2.5} = 0.082085
+    \)
 
 ## Cadenas de Markov
 
