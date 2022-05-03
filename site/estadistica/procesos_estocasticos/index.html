@@ -447,6 +447,19 @@
     Cadenas de Markov
   </a>
   
+    <nav class="md-nav" aria-label="Cadenas de Markov">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cadenas-de-markov-con-parametro-de-tiempo-discreto" class="md-nav__link">
+    Cadenas de Markov con parámetro de tiempo discreto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -954,6 +967,19 @@
     Cadenas de Markov
   </a>
   
+    <nav class="md-nav" aria-label="Cadenas de Markov">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cadenas-de-markov-con-parametro-de-tiempo-discreto" class="md-nav__link">
+    Cadenas de Markov con parámetro de tiempo discreto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1352,6 +1378,21 @@ P(N(5)=0) = \frac{e^{-2.5}(2.5)^0}{0!} = e^{-2.5} = 0.082085
 \)</span></p>
 </details>
 <h2 id="cadenas-de-markov">Cadenas de Markov<a class="headerlink" href="#cadenas-de-markov" title="Permanent link">&para;</a></h2>
+<p>A continuación se estudiará otro tipo de procesos estocásticos, los cuales se caracterizan porque el proceso pasa de un estado a otro con cierta probabilidad.</p>
+<p>El parámetro de tiempo <span class="arithmatex">\(t\)</span> puede ser discreto o continuo, pero primero se estudiará el caso con parámetro de tiempo discreto.</p>
+<h3 id="cadenas-de-markov-con-parametro-de-tiempo-discreto">Cadenas de Markov con parámetro de tiempo discreto<a class="headerlink" href="#cadenas-de-markov-con-parametro-de-tiempo-discreto" title="Permanent link">&para;</a></h3>
+<p>Supóngase que un proceso estocástico <span class="arithmatex">\(\lbrace X_n : n = 0,1,2, \dots \rbrace\)</span> toma valores enteros llamados <em>estados</em>. Se dice que el proceso se encuentra en el estado <span class="arithmatex">\(i\)</span> en el tiempo <span class="arithmatex">\(n\)</span> y se denota como <span class="arithmatex">\(X_n = i\)</span>.</p>
+<p>A continuación se establece una definición que caracteriza a las cadenas de Markov.</p>
+<div class="admonition note">
+<p class="admonition-title">Propiedad de Markov</p>
+<p>Sea <span class="arithmatex">\(\lbrace X_n  \rbrace\)</span> una sucesión de variables aleatorias. Se dice que la distribución condicional de <span class="arithmatex">\(X_n\)</span> dado los valores pasados, <em>sólo depende del valor más reciente</em>, es decir,</p>
+<p><span class="arithmatex">\(P(X_n = x_n|X_{n-1}=x_{n-1},\dots,X_1=x_1 )=P(X_n = x_n|X_{n-1}=x_{n-1})\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Cadena de Markov</p>
+<p>Sea <span class="arithmatex">\(\lbrace X_n : n = 0,1,2, \dots \rbrace\)</span> un proceso estocástico que se encuentra en el estado <span class="arithmatex">\(i\)</span> en el tiempo <span class="arithmatex">\(n\)</span>. Entonces la probabilidad de que se encuentra en el estado <span class="arithmatex">\(j\)</span> en el tiempo <span class="arithmatex">\(n+1\)</span> es <span class="arithmatex">\(P_{ij}\)</span>.</p>
+<p><span class="arithmatex">\(P(X_{n+1}=j|X_{n}=i,X_{n-1}=i_{n-1},\dots,X_1=i_1,X_0=i_0)=P_{ij}\)</span></p>
+</div>
 <h2 id="procesos-de-nacimiento-y-muerte">Procesos de nacimiento y muerte<a class="headerlink" href="#procesos-de-nacimiento-y-muerte" title="Permanent link">&para;</a></h2>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
 <p>Parzen, E. (1999). <em>Stochastic processes</em>. SIAM.</p>
