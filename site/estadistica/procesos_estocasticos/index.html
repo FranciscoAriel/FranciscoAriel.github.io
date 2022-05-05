@@ -1047,7 +1047,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-            </svg> lectura: 45 minutos
+            </svg> lectura: 60 minutos
         </span>
         </p>
     </aside>
@@ -1381,8 +1381,8 @@ P(N(5)=0) = \frac{e^{-2.5}(2.5)^0}{0!} = e^{-2.5} = 0.082085
 <p>A continuación se estudiará otro tipo de procesos estocásticos, los cuales se caracterizan porque el proceso pasa de un estado a otro con cierta probabilidad.</p>
 <p>El parámetro de tiempo <span class="arithmatex">\(t\)</span> puede ser discreto o continuo, pero primero se estudiará el caso con parámetro de tiempo discreto.</p>
 <h3 id="cadenas-de-markov-con-parametro-de-tiempo-discreto">Cadenas de Markov con parámetro de tiempo discreto<a class="headerlink" href="#cadenas-de-markov-con-parametro-de-tiempo-discreto" title="Permanent link">&para;</a></h3>
-<p>Supóngase que un proceso estocástico <span class="arithmatex">\(\lbrace X_n : n = 0,1,2, \dots \rbrace\)</span> toma valores enteros llamados <em>estados</em>. Se dice que el proceso se encuentra en el estado <span class="arithmatex">\(i\)</span> en el tiempo <span class="arithmatex">\(n\)</span> y se denota como <span class="arithmatex">\(X_n = i\)</span>.</p>
-<p>A continuación se establece una definición que caracteriza a las cadenas de Markov.</p>
+<p>Supóngase que un proceso estocástico <span class="arithmatex">\(\lbrace X_n: n = 0,1,2, \dots \rbrace\)</span> toma valores enteros llamados <em>estados</em>. Se dice que el proceso se encuentra en el estado <span class="arithmatex">\(i\)</span> en el tiempo <span class="arithmatex">\(n\)</span> y se denota como <span class="arithmatex">\(X_n = i\)</span>.</p>
+<p>A continuación se establecen unas definiciones que caracterizan a las cadenas de Markov.</p>
 <div class="admonition note">
 <p class="admonition-title">Propiedad de Markov</p>
 <p>Sea <span class="arithmatex">\(\lbrace X_n  \rbrace\)</span> una sucesión de variables aleatorias. Se dice que la distribución condicional de <span class="arithmatex">\(X_n\)</span> dado los valores pasados, <em>sólo depende del valor más reciente</em>, es decir,</p>
@@ -1390,9 +1390,27 @@ P(N(5)=0) = \frac{e^{-2.5}(2.5)^0}{0!} = e^{-2.5} = 0.082085
 </div>
 <div class="admonition note">
 <p class="admonition-title">Cadena de Markov</p>
-<p>Sea <span class="arithmatex">\(\lbrace X_n : n = 0,1,2, \dots \rbrace\)</span> un proceso estocástico que se encuentra en el estado <span class="arithmatex">\(i\)</span> en el tiempo <span class="arithmatex">\(n\)</span>. Entonces la probabilidad de que se encuentra en el estado <span class="arithmatex">\(j\)</span> en el tiempo <span class="arithmatex">\(n+1\)</span> es <span class="arithmatex">\(P_{ij}\)</span>.</p>
-<p><span class="arithmatex">\(P(X_{n+1}=j|X_{n}=i,X_{n-1}=i_{n-1},\dots,X_1=i_1,X_0=i_0)=P_{ij}\)</span></p>
+<p>Sea <span class="arithmatex">\(\lbrace X_n: n = 0,1,2, \dots \rbrace\)</span> un proceso estocástico que se encuentra en el estado <span class="arithmatex">\(i\)</span> en el tiempo <span class="arithmatex">\(n\)</span>. Entonces la probabilidad de que se encuentra en el estado <span class="arithmatex">\(j\)</span> en el tiempo <span class="arithmatex">\(n+1\)</span>, conocida como <strong>probabilidad de transición</strong> del estado <span class="arithmatex">\(i\)</span> al estado <span class="arithmatex">\(j\)</span>, es <span class="arithmatex">\(p^{n,n+1}_{ij}\)</span>.</p>
+<p><span class="arithmatex">\(P(X_{n+1}=j|X_{n}=i,X_{n-1}=i_{n-1},\dots,X_1=i_1,X_0=i_0)=p^{n,n+1}_{ij}\)</span></p>
 </div>
+<p>Note que <em>necesariamente</em> las probabilidades de transición <span class="arithmatex">\(p_{i,j} \ge 0, i,j \ge 0\)</span> y <span class="arithmatex">\(\sum_{j=0}^\infty p_{i,j}\)</span> para <span class="arithmatex">\(i=0,1,\dots\)</span>. Estas probabilidades pueden representarse en una matriz <span class="arithmatex">\(P\)</span> conocida como <em>matriz de transición</em>.</p>
+<p><span class="arithmatex">\(
+P=\left(\begin{matrix}
+p_{0,0} &amp; p_{0,1} &amp; \dots \\
+p_{1,0} &amp; p_{1,1} &amp; \dots \\
+\vdots &amp; \vdots &amp; \ddots
+\end{matrix}
+\right)
+\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Cadena de Markov homogénea</p>
+<p>Se dice que una cadena de Markov es <em>homogénea</em> o que tiene <em>probabilidades de transición estacionarias</em> si las probabilidades de transición <em>no dependen</em> de <span class="arithmatex">\(n\)</span> y se denotan como <span class="arithmatex">\(p_{i,j}\)</span>.</p>
+</div>
+<p>A continuación se ilustra con un ejemplo una cadena de Markov.</p>
+<details class="example">
+<summary>Una cadena de Markov finita</summary>
+<p>Supóngase que una cadena de Markov tiene únicamente 3 estados <span class="arithmatex">\(S=\lbrace 1,2,3 \rbrace\)</span> que denotan el estado de salud de una persona (1 = enfermo, 2 = recuperación, 3 sano).</p>
+</details>
 <h2 id="procesos-de-nacimiento-y-muerte">Procesos de nacimiento y muerte<a class="headerlink" href="#procesos-de-nacimiento-y-muerte" title="Permanent link">&para;</a></h2>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
 <p>Parzen, E. (1999). <em>Stochastic processes</em>. SIAM.</p>

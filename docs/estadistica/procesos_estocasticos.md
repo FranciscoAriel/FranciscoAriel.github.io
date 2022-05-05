@@ -5,7 +5,7 @@ author: Francisco Vázquez
 date: 2022-02-16
 author_gh_user: FranciscoAriel
 publish_date: 2022-02-16
-read_time: 45 minutos
+read_time: 60 minutos
 ---
 
 En esta sección se estudiará a los procesos estocásticos, los cuales pueden ser considerados una generalización de una muestra aleatoria.
@@ -437,9 +437,9 @@ El parámetro de tiempo $t$ puede ser discreto o continuo, pero primero se estud
 
 ### Cadenas de Markov con parámetro de tiempo discreto
 
-Supóngase que un proceso estocástico $\lbrace X_n : n = 0,1,2, \dots \rbrace$ toma valores enteros llamados *estados*. Se dice que el proceso se encuentra en el estado $i$ en el tiempo $n$ y se denota como $X_n = i$.
+Supóngase que un proceso estocástico $\lbrace X_n: n = 0,1,2, \dots \rbrace$ toma valores enteros llamados *estados*. Se dice que el proceso se encuentra en el estado $i$ en el tiempo $n$ y se denota como $X_n = i$.
 
-A continuación se establece una definición que caracteriza a las cadenas de Markov.
+A continuación se establecen unas definiciones que caracterizan a las cadenas de Markov.
 
 !!! note "Propiedad de Markov"
     Sea $\lbrace X_n  \rbrace$ una sucesión de variables aleatorias. Se dice que la distribución condicional de $X_n$ dado los valores pasados, *sólo depende del valor más reciente*, es decir,
@@ -447,9 +447,28 @@ A continuación se establece una definición que caracteriza a las cadenas de Ma
     \(P(X_n = x_n|X_{n-1}=x_{n-1},\dots,X_1=x_1 )=P(X_n = x_n|X_{n-1}=x_{n-1})\)
 
 !!! note "Cadena de Markov"
-    Sea $\lbrace X_n : n = 0,1,2, \dots \rbrace$ un proceso estocástico que se encuentra en el estado $i$ en el tiempo $n$. Entonces la probabilidad de que se encuentra en el estado $j$ en el tiempo $n+1$ es $P_{ij}$.
+    Sea $\lbrace X_n: n = 0,1,2, \dots \rbrace$ un proceso estocástico que se encuentra en el estado $i$ en el tiempo $n$. Entonces la probabilidad de que se encuentra en el estado $j$ en el tiempo $n+1$, conocida como **probabilidad de transición** del estado $i$ al estado $j$, es $p^{n,n+1}_{ij}$.
 
-    \(P(X_{n+1}=j|X_{n}=i,X_{n-1}=i_{n-1},\dots,X_1=i_1,X_0=i_0)=P_{ij}\)
+    \(P(X_{n+1}=j|X_{n}=i,X_{n-1}=i_{n-1},\dots,X_1=i_1,X_0=i_0)=p^{n,n+1}_{ij}\)
+
+Note que *necesariamente* las probabilidades de transición $p_{i,j} \ge 0, i,j \ge 0$ y $\sum_{j=0}^\infty p_{i,j}$ para $i=0,1,\dots$. Estas probabilidades pueden representarse en una matriz $P$ conocida como *matriz de transición*.
+
+\(
+P=\left(\begin{matrix}
+p_{0,0} & p_{0,1} & \dots \\
+p_{1,0} & p_{1,1} & \dots \\
+\vdots & \vdots & \ddots
+\end{matrix}
+\right)
+\)
+
+!!! note "Cadena de Markov homogénea"
+    Se dice que una cadena de Markov es *homogénea* o que tiene *probabilidades de transición estacionarias* si las probabilidades de transición *no dependen* de $n$ y se denotan como $p_{i,j}$.
+
+A continuación se ilustra con un ejemplo una cadena de Markov.
+
+??? example "Una cadena de Markov finita"
+    Supóngase que una cadena de Markov tiene únicamente 3 estados $S=\lbrace 1,2,3 \rbrace$ que denotan el estado de salud de una persona (1 = enfermo, 2 = recuperación, 3 sano).
 
 ## Procesos de nacimiento y muerte
 
