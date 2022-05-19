@@ -23,12 +23,10 @@ theme:
 
 nav:
     - "Inicio": index.md
-    - "Estadística":
-        - "Introducción a la probabilidad": estadistica/probabilidad.md
-        - "Inferencia estadística": estadistica/inferencia.md
-        - "Series de tiempo": estadistica/series_tiempo.md
-        - "Procesos estocásticos": estadistica/procesos_estocasticos.md 
-        - "Estadística matemática": estadistica/estadistica_matematica.md
+    - "R":
+        - "Introducción a R": r/intro_r.md
+        - "R nivel básico": r/basico_r.md
+        - "R nivel avanzado": r/avanzado_r.md
     - "SAS":
         - "Introducción a SAS": sas/intro_sas.md
         - "Lectura y escritura de datos": sas/basico_sas.md
@@ -36,16 +34,18 @@ nav:
         - "Elaboración de reportes": sas/reportes.md
         - "SAS nivel avanzado": sas/avanzado_sas.md
         - "Conexión con otros programas": sas/conexion.md
-    - "R":
-        - "Introducción a R": r/intro_r.md
-        - "R nivel básico": r/basico_r.md
-        - "R nivel avanzado": r/avanzado_r.md
     - "Python":
         - "Introducción a Python": python/intro_python.md
         - "Python nivel básico": python/basico.md
     - "Julia":
         - "Introducción a Julia": julia/intro_julia.md
         - "Julia nivel básico": julia/basico_julia.md
+    - "Estadística":
+        - "Introducción a la probabilidad": estadistica/probabilidad.md
+        - "Inferencia estadística": estadistica/inferencia.md
+        - "Series de tiempo": estadistica/series_tiempo.md
+        - "Procesos estocásticos": estadistica/procesos_estocasticos.md 
+        - "Estadística matemática": estadistica/estadistica_matematica.md
 
 markdown_extensions:
     - pymdownx.superfences

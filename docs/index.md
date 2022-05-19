@@ -7,16 +7,6 @@ Imagen de [Sara Torda](https://pixabay.com/es/users/sara_torda-888816/?utm_sourc
 
 Proximamente estaremos estrenando un blog. Te mantendremos informado, :wink:.
 
-## Conceptos básicos de Estadística
-
-En esta sección encontrarás una breve introducción a la teoría estadística, abarcando desde los conceptos y definiciones básicos hasta modelos más complejos.
-
-Haz click [aquí](estadistica/probabilidad.md) para ir al blog de Probabilidad.
-
-Haz click [aquí](estadistica/inferencia.md) para ir al blog de Estadística.
-
-![Interfaz gráfica](img/interface.png)
-Imagen de [janjf93](https://pixabay.com/es/users/janjf93-3084263/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3614766) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3614766)
 
 ## Software estadístico
 
@@ -68,6 +58,17 @@ Aquí encontrarás todo lo relacionado con librerías que se usan en ciencia de 
 Julia es un nuevo lenguaje de programación enfocado en la velocidad y está optimizado para trabajar con todos los recursos de la computadora.
 
 [Click aquí](julia/intro_julia.md) para ir a mi blog de Julia.
+
+## Conceptos básicos de Estadística
+
+En esta sección encontrarás una breve introducción a la teoría estadística, abarcando desde los conceptos y definiciones básicos hasta modelos más complejos.
+
+Haz click [aquí](estadistica/probabilidad.md) para ir al blog de Probabilidad.
+
+Haz click [aquí](estadistica/inferencia.md) para ir al blog de Estadística.
+
+![Interfaz gráfica](img/interface.png)
+Imagen de [janjf93](https://pixabay.com/es/users/janjf93-3084263/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3614766) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3614766)
 
 ## Otros recursos
 
