@@ -46,6 +46,7 @@ nav:
         - "Series de tiempo": estadistica/series_tiempo.md
         - "Procesos estocásticos": estadistica/procesos_estocasticos.md 
         - "Estadística matemática": estadistica/estadistica_matematica.md
+        - "Estadística Bayesiana": estadistica/bayesiano.md
 
 markdown_extensions:
     - pymdownx.superfences
