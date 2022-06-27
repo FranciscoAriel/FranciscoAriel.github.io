@@ -692,6 +692,33 @@
     Muestras aleatorias
   </a>
   
+    <nav class="md-nav" aria-label="Muestras aleatorias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-de-medias-y-matriz-de-covarianzas-muestrales" class="md-nav__link">
+    Vector de medias y matriz de covarianzas muestrales
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-combinaciones-lineales" class="md-nav__link">
+    Matriz de Combinaciones lineales
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distribucion-normal-multivariada" class="md-nav__link">
+    Distribución normal multivariada
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -743,6 +770,33 @@
         <li class="md-nav__item">
   <a href="#muestras-aleatorias" class="md-nav__link">
     Muestras aleatorias
+  </a>
+  
+    <nav class="md-nav" aria-label="Muestras aleatorias">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-de-medias-y-matriz-de-covarianzas-muestrales" class="md-nav__link">
+    Vector de medias y matriz de covarianzas muestrales
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-combinaciones-lineales" class="md-nav__link">
+    Matriz de Combinaciones lineales
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distribucion-normal-multivariada" class="md-nav__link">
+    Distribución normal multivariada
   </a>
   
 </li>
@@ -822,10 +876,10 @@ X_{2,1} &amp; X_{2,2} &amp; \dots &amp; X_{2,p} \\
 X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 \end{bmatrix}
 \)</span></p>
-<p>Note que cada renglón representa una observación multivariada, mientras que cada columna denota una variable.</p>
+<p>Note que cada renglón representa una observación multivariada, mientras que cada columna denota una variable, se usarán letras minúsculas pára refereirse a <em>observaciones</em> o <em>realizaciones</em>.</p>
 <h2 id="muestras-aleatorias">Muestras aleatorias<a class="headerlink" href="#muestras-aleatorias" title="Permanent link">&para;</a></h2>
 <p>Debido a que en estadística es de interés hacer inferencias sobre el conjunto de datos, se requiere hacer ciertos supuestos sobre la información. En particular se supondrá que la información es una <em>muestra aleatoria multivariada</em> de una población específica.</p>
-<p>En este sentido, la matriz de datos <span class="arithmatex">\(\mathbf{X}\)</span> será considarada como una <em>muestra aleatoria</em> de dimensión <span class="arithmatex">\(n\)</span>.</p>
+<p>En este sentido, la matriz de datos <span class="arithmatex">\(\mathbf{X}\)</span> será considerada como una <em>muestra aleatoria</em> de dimensión <span class="arithmatex">\(n\)</span>.</p>
 <p><span class="arithmatex">\(\mathbf{X} =
 \begin{bmatrix}
 X_{1,1} &amp; X_{1,2} &amp; \dots &amp; X_{1,p} \\
@@ -845,6 +899,134 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 <p>Se dice que los vectores renglón <span class="arithmatex">\(\mathbf{X}_{1}^t,\mathbf{X}_{2}^t,\dots,\mathbf{X}_{n}^t\)</span> son una muestra aleatoria de una función de distribución conjunta <span class="arithmatex">\(f(X)\)</span>. La función de distribución conjunta está dada por <span class="arithmatex">\(f(\mathbf{X}_{1})f(\mathbf{X}_{2})\dots f(\mathbf{X}_{n})\)</span>.</p>
 </div>
 <p>Note que generalmente en cada observación, <span class="arithmatex">\(\mathbf{X}_i=(X_{i,1},X_{i,2},\dots,X_{i,p})\)</span>, las <span class="arithmatex">\(p\)</span> variables pueden estar correlacionadas debido a que se mide a un mismo individuo; sin embargo, se asume que los individuos han de ser independientes unos de otros.</p>
+<p>Debido a que se tiene una muesta aleatoria, es de interés conocer los momentos o características de dicha función de distribución, para ello se usan los estimadores insesgados para estimar el vector de medias. A continuación se mostrará cómo estimar dichos parámetros.</p>
+<h3 id="vector-de-medias-y-matriz-de-covarianzas-muestrales">Vector de medias y matriz de covarianzas muestrales<a class="headerlink" href="#vector-de-medias-y-matriz-de-covarianzas-muestrales" title="Permanent link">&para;</a></h3>
+<p>Para estimar a <span class="arithmatex">\(\mathbf{\mu}\)</span> de la matriz de datos se puede usar el <em>vector de medias muestrales</em> <span class="arithmatex">\(\bar{\mathbf{X}}=\frac{1}{n}\mathbf{X}^t\mathbf{1}\)</span>, donde <span class="arithmatex">\(\mathbf{1}^t=\begin{pmatrix}1&amp;1&amp;\dots&amp;1\end{pmatrix}\)</span> es de <span class="arithmatex">\(1\times n\)</span>.</p>
+<p>De manera similar, para estimar la matriz de covarianzas, se usa la <em>matriz de covarianzas muestrales</em> <span class="arithmatex">\(\mathbf{S}=\frac{1}{n-1}\mathbf{X}^t\left(\mathbf{I}-\frac{1}{n}\mathbf{1}\mathbf{1}^t\right)\mathbf{X}\)</span>.</p>
+<p>Se usará la notación <span class="arithmatex">\(\bar{\mathbf{x}}\)</span> y <span class="arithmatex">\(\mathbf{s}\)</span> para referirse a realizaciones</p>
+<details class="example">
+<summary>Cálculo del vector de medias y matriz de covarianzas muestrales</summary>
+<p>En este ejemplo se mostrará cómo calcular el vector de medias muestrales. Supónga que se tiene la siguiente matriz de datos con <span class="arithmatex">\(n=3\)</span> y <span class="arithmatex">\(p=2\)</span>.</p>
+<p><span class="arithmatex">\(\mathbf{x} =
+\begin{bmatrix}
+9 &amp; 1 \\
+5 &amp; 3 \\
+1 &amp; 2 \\
+\end{bmatrix} 
+\)</span></p>
+<p>Haciendo la sustitución se tiene que el vector de medias es:</p>
+<p><span class="arithmatex">\(
+\bar{\mathbf{x}}= \frac{1}{3}\begin{bmatrix}
+9 &amp; 5 &amp; 1 \\
+1 &amp; 3 &amp; 2\\
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+1 \\
+1 \\
+\end{bmatrix} = \frac{1}{3}\begin{bmatrix}
+15\\
+6\\
+\end{bmatrix} =
+\begin{bmatrix}
+5\\
+2\\
+\end{bmatrix}
+\)</span></p>
+<p>y la matriz de covarianzas:</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+\mathbf{s}&amp;=\frac{1}{2}\begin{bmatrix}
+9 &amp; 5 &amp; 1 \\
+1 &amp; 3 &amp; 2\\
+\end{bmatrix}\left( \begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 1\\
+\end{bmatrix} -\frac{1}{3}    \begin{bmatrix}
+1 \\
+1 \\
+1 \\
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 
+\end{bmatrix}\right)
+\begin{bmatrix}
+9 &amp; 1 \\
+5 &amp; 3 \\
+1 &amp; 2 \\
+\end{bmatrix} \\
+&amp; = \frac{1}{2}
+\begin{bmatrix}
+9 &amp; 5 &amp; 1 \\
+1 &amp; 3 &amp; 2\\
+\end{bmatrix}
+\begin{bmatrix}
+2/3 &amp; -1/3 &amp; -1/3 \\
+-1/3 &amp; 2/3 &amp; -1/3\\
+-1/3 &amp; -1/3 &amp; 2/3\\
+\end{bmatrix}
+\begin{bmatrix}
+9 &amp; 1 \\
+5 &amp; 3 \\
+1 &amp; 2 \\
+\end{bmatrix}\\
+&amp; =\frac{1}{2}
+\begin{bmatrix}
+4 &amp; 0 &amp; -4 \\
+-1 &amp; 1 &amp; 0\\
+\end{bmatrix}
+\begin{bmatrix}
+9 &amp; 1 \\
+5 &amp; 3 \\
+1 &amp; 2 \\
+\end{bmatrix}\\
+&amp; =\frac{1}{2}
+\begin{bmatrix}
+32 &amp; -4 \\
+-4 &amp; 2 \\
+\end{bmatrix}\\
+&amp;=\begin{bmatrix}
+16 &amp; -2 \\
+-2 &amp; 1 \\
+\end{bmatrix}
+\end{align*}
+\)</span></p>
+</details>
+<h3 id="matriz-de-combinaciones-lineales">Matriz de Combinaciones lineales<a class="headerlink" href="#matriz-de-combinaciones-lineales" title="Permanent link">&para;</a></h3>
+<p>En estadística multivariada es posible realizar combinaciones lineales de variables para formar una nueva variable. Las combinaciones lineales estudiadas tienen la forma:</p>
+<p><span class="arithmatex">\(
+\mathbf{a}^t\mathbf{X}=a_1 \mathbf{X}_1 + a_2 \mathbf{X}_2 + \dots + a_p \mathbf{X}_p
+\)</span></p>
+<p>Note que el vector <span class="arithmatex">\(\mathbf{a}^t\)</span> es de dimensión <span class="arithmatex">\(1 \times p\)</span> y la matriz <span class="arithmatex">\(\mathbf{X}=\begin{pmatrix}\mathbf{X}_1&amp;\mathbf{X}_2&amp;\dots&amp;\mathbf{X}_p\end{pmatrix}\)</span> es de dimensión <span class="arithmatex">\(n\times p\)</span>, aunque solo nos interesa trabajar con las <span class="arithmatex">\(p\)</span> variables.</p>
+<p>Es posible calcular la media, la varianza y las covarianzas muestrales de dichas combinaciones lineales sin la necesidad de calcular las nuevas variables.</p>
+<table>
+<thead>
+<tr>
+<th>Estadístico</th>
+<th>Combinación lineal</th>
+<th>Fórmula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Media muestral</td>
+<td><span class="arithmatex">\(\mathbf{a}^t\mathbf{X}\)</span></td>
+<td><span class="arithmatex">\(\mathbf{a}^t\bar{\mathbf{x}}\)</span></td>
+</tr>
+<tr>
+<td>Varianza muestral</td>
+<td><span class="arithmatex">\(\mathbf{a}^t\mathbf{X}\)</span></td>
+<td><span class="arithmatex">\(\mathbf{a}^t\mathbf{s}\mathbf{a}\)</span></td>
+</tr>
+<tr>
+<td>Covarianzas muestrales</td>
+<td><span class="arithmatex">\(\mathbf{a}^t\mathbf{X}\)</span> y <span class="arithmatex">\(\mathbf{b}^t\mathbf{X}\)</span></td>
+<td><span class="arithmatex">\(\mathbf{a}^t\mathbf{s}\mathbf{b}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="distribucion-normal-multivariada">Distribución normal multivariada<a class="headerlink" href="#distribucion-normal-multivariada" title="Permanent link">&para;</a></h2>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
 <p>Johnson, R., &amp; Wichern, D. (2007). <em>Applied Multivariate Statistical Analysis</em> (6th edition). Pearson Education.</p>
    
