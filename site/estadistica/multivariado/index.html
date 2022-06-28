@@ -719,6 +719,47 @@
     Distribución normal multivariada
   </a>
   
+    <nav class="md-nav" aria-label="Distribución normal multivariada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#propiedades-de-la-distribucion-normal-multivariada" class="md-nav__link">
+    Propiedades de la distribución normal multivariada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inferencia-en-la-distribucion-normal-multivariada" class="md-nav__link">
+    Inferencia en la distribución normal multivariada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distribuciones-muestrales-multivariada" class="md-nav__link">
+    Distribuciones muestrales multivariada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distribucion-para-tamanos-de-muestras-grandes-del-vector-de-medias-y-matriz-de-covarianzas-muestrales" class="md-nav__link">
+    Distribución para tamaños de muestras grandes del vector de medias y matriz de covarianzas muestrales
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inferencias-sobre-el-vector-de-medias" class="md-nav__link">
+    Inferencias sobre el vector de medias
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -799,6 +840,47 @@
     Distribución normal multivariada
   </a>
   
+    <nav class="md-nav" aria-label="Distribución normal multivariada">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#propiedades-de-la-distribucion-normal-multivariada" class="md-nav__link">
+    Propiedades de la distribución normal multivariada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inferencia-en-la-distribucion-normal-multivariada" class="md-nav__link">
+    Inferencia en la distribución normal multivariada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distribuciones-muestrales-multivariada" class="md-nav__link">
+    Distribuciones muestrales multivariada
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distribucion-para-tamanos-de-muestras-grandes-del-vector-de-medias-y-matriz-de-covarianzas-muestrales" class="md-nav__link">
+    Distribución para tamaños de muestras grandes del vector de medias y matriz de covarianzas muestrales
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inferencias-sobre-el-vector-de-medias" class="md-nav__link">
+    Inferencias sobre el vector de medias
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -859,7 +941,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-            </svg> lectura: 15 minutos
+            </svg> lectura: 45 minutos
         </span>
         </p>
     </aside>
@@ -896,9 +978,47 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 \)</span></p>
 <div class="admonition note">
 <p class="admonition-title">Muestra aleatoria</p>
-<p>Se dice que los vectores renglón <span class="arithmatex">\(\mathbf{X}_{1}^t,\mathbf{X}_{2}^t,\dots,\mathbf{X}_{n}^t\)</span> son una muestra aleatoria de una función de distribución conjunta <span class="arithmatex">\(f(X)\)</span>. La función de distribución conjunta está dada por <span class="arithmatex">\(f(\mathbf{X}_{1})f(\mathbf{X}_{2})\dots f(\mathbf{X}_{n})\)</span>.</p>
+<p>Se dice que los vectores renglón <span class="arithmatex">\(\mathbf{X}_{1}^t,\mathbf{X}_{2}^t,\dots,\mathbf{X}_{n}^t\)</span> son una muestra aleatoria de una función de distribución conjunta <span class="arithmatex">\(f(X)\)</span> con vector de medias <span class="arithmatex">\(\mathbf{\mu}\)</span> y covarianzas <span class="arithmatex">\(\mathbf{\Sigma}\)</span>. La función de distribución conjunta está dada por <span class="arithmatex">\(f(\mathbf{X}_{1})f(\mathbf{X}_{2})\dots f(\mathbf{X}_{n})\)</span>.</p>
 </div>
-<p>Note que generalmente en cada observación, <span class="arithmatex">\(\mathbf{X}_i=(X_{i,1},X_{i,2},\dots,X_{i,p})\)</span>, las <span class="arithmatex">\(p\)</span> variables pueden estar correlacionadas debido a que se mide a un mismo individuo; sin embargo, se asume que los individuos han de ser independientes unos de otros.</p>
+<p>Note que generalmente en cada observación, <span class="arithmatex">\(\mathbf{X}_i=(X_{i,1},X_{i,2},\dots,X_{i,p})\)</span>, proviene de una distribución <em>multivariada</em> de dimensión <span class="arithmatex">\(p\)</span>, cuyo vector de medias es <span class="arithmatex">\(E(\mathbf{X})=\mathbf{\mu}= \begin{pmatrix}\mu_1&amp;\mu_2&amp;\cdots&amp;\mu_p\end{pmatrix}\)</span> y matriz de covarianzas es <span class="arithmatex">\(Cov(\mathbf{X})=\mathbf{\Sigma}=\lbrace \sigma_{j,j} \rbrace, j=1,2,\dots,p\)</span>. De hecho las <span class="arithmatex">\(p\)</span> variables pueden estar correlacionadas debido a que se mide a un mismo individuo; sin embargo, se asume que los individuos han de ser independientes unos de otros.</p>
+<p>En muchas ocasiones, se prefiere trabajar con la matriz de covarianzas en lugar de la matriz de datos, ya que resume las relaciones que hay entre las variables.</p>
+<p>Un resultado importante es que si la matriz de covarianzas <span class="arithmatex">\(\mathbf{\Sigma}\)</span> es positiva definida, existe su inversa <span class="arithmatex">\(\mathbf{\Sigma}^{-1}\)</span> y:</p>
+<p><span class="arithmatex">\(
+\mathbf{\Sigma}\mathbf{e}=\lambda \mathbf{e} \rightarrow \mathbf{\Sigma}^{-1}\mathbf{e}=\frac{1}{\lambda} \mathbf{e}
+\)</span></p>
+<p>donde <span class="arithmatex">\(\lambda\)</span> es un eigenvalor y <span class="arithmatex">\(\mathbf{e}\)</span> es un eigenvector.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Matriz definda positiva</p>
+<p>Se dice que una matriz <span class="arithmatex">\(\mathbf{A}\)</span> es definida positiva si para todo <span class="arithmatex">\(\mathbf{c}\ne \mathbf{0}\)</span>, entonces <span class="arithmatex">\(\mathbf{c}^t\mathbf{A}\mathbf{c}&gt;0\)</span>. Note que <span class="arithmatex">\(\mathbf{c}^t\mathbf{A}\mathbf{c}\)</span> es un escalar y se le conoce como <em>forma cuadrática</em>.</p>
+</div>
+<p>Una propiedad interesante es que la matriz <span class="arithmatex">\(\mathbf{\Sigma}\)</span> puede descomponerse por medio de sus eigen valores y eigen vectores.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Descomposición espectral</p>
+<p>Sea <span class="arithmatex">\(A\)</span> una matriz de dimensión <span class="arithmatex">\(p \times p\)</span>, entonces</p>
+<p><span class="arithmatex">\(
+A=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t
+\)</span></p>
+</div>
+<p>Los eigenvectores tienen muchas aplicaciones en estadística multivariada ya que son ortonormales. Sea <span class="arithmatex">\(\mathbf{P}=[\mathbf{e}_1,\mathbf{e}_2,\cdots,\mathbf{e}_k]\)</span> de dimensión <span class="arithmatex">\(p \times p\)</span>, entonces <span class="arithmatex">\(\mathbf{P}\mathbf{P}^t = \mathbf{P}^t\mathbf{P}=\mathbf{I}\)</span>.</p>
+<p>Una aplicación es que si se define la matriz:</p>
+<p><span class="arithmatex">\(
+\mathbf{\Lambda}=\begin{bmatrix}
+\lambda_1 &amp; 0 &amp; \dots &amp; 0\\
+0 &amp; \lambda_2 &amp; \dots &amp; 0\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+0 &amp; 0 &amp; \dots &amp; \lambda_p\\
+\end{bmatrix}
+\)</span></p>
+<p>entonces <span class="arithmatex">\(\mathbf{A}=\mathbf{P}\mathbf{\Lambda}\mathbf{P}^t=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t\)</span> y <span class="arithmatex">\(\mathbf{A}^{-1}=\mathbf{P}\mathbf{\Lambda}^{-1}\mathbf{P}^t=\sum_{j=1}^{p}\frac{1}{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t\)</span>. </p>
+<p>Note que es posible definir la raiz de una matriz,denotada por <span class="arithmatex">\(\mathbf{A}^{1/2}\)</span>, que cumple con la propiedad <span class="arithmatex">\(\mathbf{A}^{1/2}\mathbf{A}^{1/2}=\mathbf{A}\)</span> y <span class="arithmatex">\(\mathbf{A}^{-1/2}\mathbf{A}^{-1/2}=\mathbf{A}^{-1}\)</span>, simplemente definiendo <span class="arithmatex">\(\mathbf{A}^{1/2}=\mathbf{P}\mathbf{\Lambda}^{1/2}\mathbf{P}^t=\sum_{j=1}^{p}\sqrt{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t\)</span>. Esta expresión es útil para encontrar la matriz de correlaciones a partir de la matriz de covarianzas o viceversa, es decir <span class="arithmatex">\(\mathbf{R}=\mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2}\)</span> y <span class="arithmatex">\(\mathbf{S}=\mathbf{D}^{1/2}\mathbf{R}\mathbf{D}^{1/2}\)</span> donde</p>
+<p><span class="arithmatex">\(
+\mathbf{D}=\begin{bmatrix}
+\sqrt{s_{1,1}} &amp; 0 &amp; \dots &amp; 0\\
+0 &amp; \sqrt{s_{2,2}} &amp; \dots &amp; 0\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+0 &amp; 0 &amp; \dots &amp; \sqrt{s_{p,p}}\\
+\end{bmatrix}
+\)</span>.</p>
 <p>Debido a que se tiene una muesta aleatoria, es de interés conocer los momentos o características de dicha función de distribución, para ello se usan los estimadores insesgados para estimar el vector de medias. A continuación se mostrará cómo estimar dichos parámetros.</p>
 <h3 id="vector-de-medias-y-matriz-de-covarianzas-muestrales">Vector de medias y matriz de covarianzas muestrales<a class="headerlink" href="#vector-de-medias-y-matriz-de-covarianzas-muestrales" title="Permanent link">&para;</a></h3>
 <p>Para estimar a <span class="arithmatex">\(\mathbf{\mu}\)</span> de la matriz de datos se puede usar el <em>vector de medias muestrales</em> <span class="arithmatex">\(\bar{\mathbf{X}}=\frac{1}{n}\mathbf{X}^t\mathbf{1}\)</span>, donde <span class="arithmatex">\(\mathbf{1}^t=\begin{pmatrix}1&amp;1&amp;\dots&amp;1\end{pmatrix}\)</span> es de <span class="arithmatex">\(1\times n\)</span>.</p>
@@ -1027,6 +1147,178 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 </tbody>
 </table>
 <h2 id="distribucion-normal-multivariada">Distribución normal multivariada<a class="headerlink" href="#distribucion-normal-multivariada" title="Permanent link">&para;</a></h2>
+<p>En estadística multivariada, el modelo de distribución normal juega un papel muy importante, debido a que cuando se tienen muchos datos, muchas estadísticas multivariadas tienen distribución normal, debido al <em>Teorema Central del Límite</em>. También muchos fenómenos se comportan de manera normal.</p>
+<div class="admonition note">
+<p class="admonition-title">Distribución normal multivariada</p>
+<p>La distribución normal multivariada, de dimensión <span class="arithmatex">\(p\)</span> para el vector aleatorio <span class="arithmatex">\(\mathbf{X}^t=\begin{pmatrix}X_1&amp;X_2&amp;\cdots&amp;X_p\end{pmatrix}\)</span> es:</p>
+<p><span class="arithmatex">\(
+f_{\mathbf{X}}(\mathbf{x})=\frac{1}{(2\pi)^{p/2}|\mathbf{\Sigma}|^{1/2}}e^{\frac{-1}{2}(\mathbf{x}-\mathbf{\mu})^t\mathbf{\Sigma}^{-1}(\mathbf{x}-\mathbf{\mu})}
+\)</span></p>
+<p>donde <span class="arithmatex">\(-\infty &lt; x_j &lt; \infty, i=1,2,\dots,p\)</span>; <span class="arithmatex">\(;-\infty &lt; \mu_j &lt; \infty, i=1,2,\dots,p\)</span> y <span class="arithmatex">\(\mathbf{\Sigma}\)</span> es positiva definida.</p>
+</div>
+<p>Es posible calcular contornos en los que la densidad es constante usando <span class="arithmatex">\(\lbrace \mathbf{x} | (\mathbf{x}-\mathbf{\mu})^t\mathbf{\Sigma}^{-1}(\mathbf{x}-\mathbf{\mu}) = c^2 \rbrace\)</span>.</p>
+<p>Note que los elipsoides están centrados en <span class="arithmatex">\(\mathbf{\mu}\)</span> y tiene ejes <span class="arithmatex">\(c\sqrt{\lambda_j}\mathbf{e}_j\)</span>, para <span class="arithmatex">\(j=1,2,\dots,p\)</span>.</p>
+<p>Si se usa <span class="arithmatex">\(c^2=\chi_{p}(\alpha)\)</span>, donde <span class="arithmatex">\(\chi_{p}(\alpha)\)</span> se obtienen contornos que contienen <span class="arithmatex">\((1-\alpha) \times 100 \%\)</span> de la probabilidad, donde <span class="arithmatex">\(\chi_{p}(\alpha)\)</span> es el persentil superior de una distribución chic cuadrada con <span class="arithmatex">\(p\)</span> grados de libertad.</p>
+<h3 id="propiedades-de-la-distribucion-normal-multivariada">Propiedades de la distribución normal multivariada<a class="headerlink" href="#propiedades-de-la-distribucion-normal-multivariada" title="Permanent link">&para;</a></h3>
+<p>La distribución normal multivariada tiene muchas propiedades y resultados análagos a la distribución normal univariada, los cuales se estudiarán a continuación.</p>
+<div class="admonition note">
+<p class="admonition-title">Distribución de una combinación lineal</p>
+<p>Si <span class="arithmatex">\(\mathbf{X}\sim N_p(\mathbf{\mu},\mathbf{\Sigma})\)</span>, entonces cualquier combinación lineal de sus variables <span class="arithmatex">\(\mathbf{a}^t\mathbf{X}=a_1\mathbf{X}_1+a_2\mathbf{X}_2+\dots+a_n\mathbf{X}_n\)</span> se distribuye normal univariada, es decir <span class="arithmatex">\(\mathbf{a}^t\mathbf{X}\sim N(\mathbf{a}^t\mathbf{\mu},\mathbf{a}^t\mathbf{\Sigma}\mathbf{a})\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Distribución de varias combinaciones lineal</p>
+<p>Si <span class="arithmatex">\(\mathbf{X}\sim N_p(\mathbf{\mu},\mathbf{\Sigma})\)</span>, entonces las <span class="arithmatex">\(q\)</span> combinaciones lineales</p>
+<p><span class="arithmatex">\(
+\mathbf{A}\mathbf{X}=
+\begin{pmatrix}
+a_{1,1}\mathbf{X}_1+a_{1,2}\mathbf{X}_2+\dots+a_{1,p}\mathbf{X}_p\\
+\vdots\\
+a_{q,1}\mathbf{X}_1+a_{q,2}\mathbf{X}_2+\dots+a_{q,p}\mathbf{X}_p\\
+\end{pmatrix}
+\)</span></p>
+<p>tiene distribución normal <span class="arithmatex">\(q\)</span> variada, es decir: <span class="arithmatex">\(\mathbf{A}\mathbf{X}\sim N_q(\mathbf{A}\mathbf{\mu},\mathbf{A}\mathbf{\Sigma}\mathbf{A}^{t})\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Distribución de subconjuntos de una normal multivariada</p>
+<p>Si se tiene un vector aleatorio <span class="arithmatex">\(\mathbf{X}\)</span> de dimensión <span class="arithmatex">\(p \times 1\)</span>, se puede partir dicho vector como se muestra a continuación:</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+\mathbf{X} ({p \times 1})&amp;=
+\begin{bmatrix}
+\mathbf{X}_1 ({q \times 1})\\
+\mathbf{X}_2 ({(p-q) \times 1})\\
+\end{bmatrix}\\
+\mathbf{\mu} ({p \times 1})&amp;=
+\begin{bmatrix}
+\mathbf{\mu}_1 ({q \times 1})\\
+\mathbf{\mu}_2 ({(p-q) \times 1})\\
+\end{bmatrix}\\
+\mathbf{\Sigma} ({p \times p})&amp;=
+\begin{bmatrix}
+\mathbf{\Sigma}_{11} ({q \times q}) &amp; \mathbf{\Sigma}_{12} ({q \times (p-q)})\\
+\mathbf{\Sigma}_{21} ({(p-q) \times q}) &amp; \mathbf{\Sigma}_{22} ({(p-q) \times (p-q)})\\
+\end{bmatrix}\\
+\end{align*}
+\)</span></p>
+<p>entonces <span class="arithmatex">\(\mathbf{X}_1 \sim N_q(\mathbf{\mu}_1,\Sigma_{11})\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Variables independientes de una normal multivariada</p>
+<p>a) Si <span class="arithmatex">\(\mathbf{X}_1\)</span> y <span class="arithmatex">\(\mathbf{X}_2\)</span> de dimensión <span class="arithmatex">\(q_1 \times 1\)</span> y <span class="arithmatex">\(q_2 \times 1\)</span> son independientes, entonces <span class="arithmatex">\(Cov(\mathbf{X}_1,\mathbf{X}_2)=\mathbf{0}\)</span>.</p>
+<p>b) Si</p>
+<p><span class="arithmatex">\(
+\begin{bmatrix}
+\mathbf{X}_1 \\
+\mathbf{X}_2 \\
+\end{bmatrix} \sim N_p\left(\begin{bmatrix}
+\mathbf{\mu}_1 \\
+\mathbf{\mu}_2 \\
+\end{bmatrix}, \begin{bmatrix}
+\mathbf{\Sigma}_{11} &amp; \mathbf{\Sigma}_{12}\\
+\mathbf{\Sigma}_{21} &amp; \mathbf{\Sigma}_{22}\\
+\end{bmatrix}\right)
+\)</span></p>
+<p>entonces <span class="arithmatex">\(\mathbf{X}_1\)</span> y <span class="arithmatex">\(\mathbf{X}_2\)</span> son independientes si y solo si <span class="arithmatex">\(\mathbf{\Sigma}_{12}=\mathbf{0}\)</span>.</p>
+<p>c) Si <span class="arithmatex">\(\mathbf{X}_1 \sim N_{q_1}(\mathbf{\mu}_1,\mathbf{\Sigma}_{11})\)</span> y <span class="arithmatex">\(\mathbf{X}_2 \sim N_{q_1}(\mathbf{\mu}_2,\mathbf{\Sigma}_{22})\)</span> son independientes, entonces</p>
+<p><span class="arithmatex">\(
+\begin{bmatrix}
+\mathbf{X}_{q_1}\\
+\mathbf{X}_{q_2}\\
+\end{bmatrix} \sim N_{q_1+q_2}\left( \begin{bmatrix}
+\mathbf{\mu}_1 \\
+\mathbf{\mu}_2 \\
+\end{bmatrix}, \begin{bmatrix}
+\mathbf{\Sigma}_{11} &amp; \mathbf{0}\\
+\mathbf{0}^t &amp; \mathbf{\Sigma}_{22}\\
+\end{bmatrix} \right)
+\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Distribución condicional normal multivariada</p>
+<p>Sea</p>
+<p><span class="arithmatex">\(
+\begin{bmatrix}
+\mathbf{X}_{1}\\
+\mathbf{X}_{2}\\
+\end{bmatrix} \sim N_{p}\left( \begin{bmatrix}
+\mathbf{\mu}_1 \\
+\mathbf{\mu}_2 \\
+\end{bmatrix}, \begin{bmatrix}
+\mathbf{\Sigma}_{11} &amp; \mathbf{\Sigma}_{12}\\
+\mathbf{\Sigma}_{21} &amp; \mathbf{\Sigma}_{22}\\
+\end{bmatrix} \right)
+\)</span></p>
+<p>con <span class="arithmatex">\(|\mathbf{\Sigma}_{22}|&gt;0\)</span>. Entonces la distribución condicional de <span class="arithmatex">\(\mathbf{X}_{1}\)</span> dado que <span class="arithmatex">\(\mathbf{X}_{2}=\mathbf{x}_{2}\)</span>, es normal y tiene media <span class="arithmatex">\(\mathbf{\mu}_1+\mathbf{\Sigma}_{12}\mathbf{\Sigma}_{22}^{-1}(\mathbf{x}_{2}-\mathbf{\mu}_2)\)</span> y covarianza <span class="arithmatex">\(\mathbf{\Sigma}_{11}-\mathbf{\Sigma}_{12}\mathbf{\Sigma}_{22}^{-1}\mathbf{\Sigma}_{21}\)</span>. </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Distribución de una forma cuadrática</p>
+<p>Sea <span class="arithmatex">\(\mathbf{X}\sim N_p(\mathbf{\mu},\mathbf{\Sigma})\)</span> con <span class="arithmatex">\(|\mathbf{\sigma}|&gt; 0\)</span>. Entonces
+<span class="arithmatex">\((\mathbf{X}-\mathbf{\mu})^{t}\mathbf{\Sigma}^{-1}(\mathbf{X}-\mathbf{\mu}) \sim \chi_p^2\)</span>.</p>
+</div>
+<h3 id="inferencia-en-la-distribucion-normal-multivariada">Inferencia en la distribución normal multivariada<a class="headerlink" href="#inferencia-en-la-distribucion-normal-multivariada" title="Permanent link">&para;</a></h3>
+<p>En esta sección se estudiarán la forma de hacer inferencia con una muestra aleatoria multivariada.</p>
+<div class="admonition note">
+<p class="admonition-title">Distribución conjunta multivariada</p>
+<p>Suponga que <span class="arithmatex">\(\mathbf{X}_1,\mathbf{X}_2,\dots,\mathbf{X}_n\)</span>, cada uno es un vector de dimensión <span class="arithmatex">\(1\times p\)</span>, es una <em>muestra aleatroria</em> de tamaño <span class="arithmatex">\(n\)</span> que proviene de una población normal multivariada con vector de medias <span class="arithmatex">\(\mathbf{\mu}\)</span> y matriz de covarianzas <span class="arithmatex">\(\mathbf{\Sigma}\)</span>. La función de densidad conjunta es el producto de todas las densidades marginales:</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+f_{\mathbf{X}_1,\mathbf{X}_2,\dots,\mathbf{X}_n}(\mathbf{x}_1,\mathbf{x}_2,\dots,\mathbf{x}_n) &amp; =\prod_{i=1}^{n}\frac{1}{(2\pi)^{p/2}|\mathbf{\Sigma}|^{1/2}}e^{\frac{-1}{2}(\mathbf{x}_i-\mathbf{\mu})^t\mathbf{\Sigma}^{-1}(\mathbf{x}_i-\mathbf{\mu})}\\
+&amp; = \frac{1}{(2\pi)^{np/2}|\mathbf{\Sigma}|^{n/2}}e^{\frac{-1}{2}\sum_{i=1}^{n}(\mathbf{x}_i-\mathbf{\mu})^t\mathbf{\Sigma}^{-1}(\mathbf{x}_i-\mathbf{\mu})}
+\end{align*}
+\)</span></p>
+</div>
+<p>Note que, una vez observados los datos, dicha función es ahora función de <span class="arithmatex">\(\mathbf{\mu}\)</span> y <span class="arithmatex">\(\mathbf{\Sigma}\)</span>, a esta función se le conoce como <em>función de verosimilitud</em>. Es de interés encontrar los valores <span class="arithmatex">\(\hat{\mathbf{\mu}}\)</span> y <span class="arithmatex">\(\hat{\mathbf{\Sigma}}\)</span> que maximicen dicha verosimilitud dados los datos.</p>
+<div class="admonition note">
+<p class="admonition-title">Estimadores de máxima verosimilitud</p>
+<p>Sea <span class="arithmatex">\(\mathbf{X}_1,\mathbf{X}_2,\dots,\mathbf{X}_n\)</span> una muestra aleatoria de una población normal con media <span class="arithmatex">\(\mathbf{\mu}\)</span> y covarianza <span class="arithmatex">\(\mathbf{\Sigma}\)</span>. Entonces </p>
+<p><span class="arithmatex">\(
+\hat{\mathbf{\mu}} = \bar{\mathbf{X}};
+\hat{\mathbf{\Sigma}} = \frac{n-1}{n}\mathbf{S}
+\)</span></p>
+<p>son los <em>estimadores de máxima verosimilitud</em> de <span class="arithmatex">\(\mathbf{\mu}\)</span> y <span class="arithmatex">\(\mathbf{\Sigma}\)</span>. Las realizaciones <span class="arithmatex">\(\bar{\mathbf{x}}\)</span> y <span class="arithmatex">\(\frac{n-1}{n}\mathbf{s}\)</span> son llamadas <em>estimaciones de máxima verosimilitud</em>.</p>
+</div>
+<p>Note que los estimadores de máxima verosimilitud son <em>aleatorios</em>, mientras que las <em>estimaciones</em> son fijos. Por esta razón, es de interés estudiar las distribuciones de los estimadores de máxima verosimilitud.</p>
+<p>Los estimadores de Máxima Verosimilitud tambien tienen propiedades deseables, por ejemplo son invariantes, es decir si <span class="arithmatex">\(\hat{\mathbf{\theta}}\)</span> es un estimador de máxima verosimilitud, entonces un estimador de <span class="arithmatex">\(h(\mathbf{\theta})\)</span> es <span class="arithmatex">\(h(\hat{\mathbf{\theta}})\)</span>.</p>
+<p>Otra propiedad interesante es la suficiencia, en pocas palabras, toda la información acerca de <span class="arithmatex">\(\mathbf{\mu}\)</span> y <span class="arithmatex">\(\mathbf{\Sigma}\)</span> está contenida en <span class="arithmatex">\(\hat{\mathbf{\mu}}\)</span> y <span class="arithmatex">\(\hat{\mathbf{\Sigma}}\)</span>.</p>
+<h3 id="distribuciones-muestrales-multivariada">Distribuciones muestrales multivariada<a class="headerlink" href="#distribuciones-muestrales-multivariada" title="Permanent link">&para;</a></h3>
+<p>Las distribuciones de <span class="arithmatex">\(\bar{\mathbf{X}}\)</span> y <span class="arithmatex">\(\mathbf{S}\)</span> son análogas al caso univariado, aunque hay ciertas generalizaciones.</p>
+<div class="admonition note">
+<p class="admonition-title">Distribución del vector de medias muestral</p>
+<p>La distribución de <span class="arithmatex">\(\bar{\mathbf{X}}\)</span> es normal con vector de medias <span class="arithmatex">\(\mathbf{\mu}\)</span> y covarianza <span class="arithmatex">\(\frac{1}{n}\mathbf{\Sigma}\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Distribución de la matriz de covarianza muestral</p>
+<p>La distribución de <span class="arithmatex">\((n-1)\mathbf{S}=\sum_{i=1}^{n}\mathbf{V}_i\mathbf{V}_i^t\)</span> es Wishart <span class="arithmatex">\(p\)</span> variada con parámetros <span class="arithmatex">\(n-1\)</span> y <span class="arithmatex">\(\mathbf{\Sigma}\)</span>, donde cada <span class="arithmatex">\(\mathbf{V}_i = (\mathbf{X}-\bar{\mathbf{X}}) \sim N_p(\mathbf{0},\mathbf{\Sigma})\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Independencia del vector de medias y matriz de covarianzas muestrales</p>
+<p><span class="arithmatex">\(\bar{\mathbf{X}}\)</span> y <span class="arithmatex">\(\mathbf{\Sigma}\)</span> son independientes.</p>
+</div>
+<h3 id="distribucion-para-tamanos-de-muestras-grandes-del-vector-de-medias-y-matriz-de-covarianzas-muestrales">Distribución para tamaños de muestras grandes del vector de medias y matriz de covarianzas muestrales<a class="headerlink" href="#distribucion-para-tamanos-de-muestras-grandes-del-vector-de-medias-y-matriz-de-covarianzas-muestrales" title="Permanent link">&para;</a></h3>
+<p>Las distribuciones de <span class="arithmatex">\(\bar{\mathbf{X}}\)</span> y <span class="arithmatex">\(\mathbf{\Sigma}\)</span> son similares al caso univariado cuando el tamaño de muestra aumenta, es decir se cumple la <em>Ley de los grandes números</em> y el <em>Teorema Central del Límite</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Ley de los grandes números</p>
+<p><span class="arithmatex">\(\bar{\mathbf{X}}\)</span> converge en probabilidad a <span class="arithmatex">\(\mathbf{\mu}\)</span> y <span class="arithmatex">\(\mathbf{S}\)</span> converge en probabilidad a <span class="arithmatex">\(\mathbf{\Sigma}\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Teorema central del límite</p>
+<p>Sea <span class="arithmatex">\(\mathbf{X}_1,\mathbf{X}_2,\dots,\mathbf{X}_n\)</span> una muestra aleatoria de una población normal con media <span class="arithmatex">\(\mathbf{\mu}\)</span> y covarianza <span class="arithmatex">\(\mathbf{\Sigma}\)</span> finita. Entonces <span class="arithmatex">\(\sqrt{n}(\mathbf{X}-\mathbf{\mu})\)</span> tiene distribución aproximadamente <span class="arithmatex">\(N_p(\mathbf{0},\mathbf{\Sigma})\)</span> para <span class="arithmatex">\(n - p\)</span> grande.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Distribuciones aproximadas</p>
+<p>Sea <span class="arithmatex">\(\mathbf{X}_1,\mathbf{X}_2,\dots,\mathbf{X}_n\)</span> una muestra aleatoria de una población normal con media <span class="arithmatex">\(\mathbf{\mu}\)</span> y covarianza <span class="arithmatex">\(\mathbf{\Sigma}\)</span> finita. Entonces <span class="arithmatex">\(n(\mathbf{X}-\mathbf{\mu})^t\mathbf{S}^{-1}(\mathbf{X}-\mathbf{\mu})\)</span> es aproximadamente <span class="arithmatex">\(\chi_p^2\)</span> para <span class="arithmatex">\(n-p\)</span> grande.</p>
+</div>
+<h2 id="inferencias-sobre-el-vector-de-medias">Inferencias sobre el vector de medias<a class="headerlink" href="#inferencias-sobre-el-vector-de-medias" title="Permanent link">&para;</a></h2>
+<p>Es de interés hacer inferencias sobre el vector de medias. En particular se requiere saber si el vector de medias es igual a cierto vector de valores.</p>
+<p>Puede establecerse una pruaba de hipótesis de la forma:</p>
+<p><span class="arithmatex">\(
+H_0: \mathbf{\mu} = \mathbf{\mu}_0 \text{ vs } H_a: \mathbf{\mu} \ne \mathbf{\mu}_0
+\)</span></p>
+<p>De manera análoga al caso univariado, se puede realizar un contraste de hipótesis similar a la prueba F llamado T cuadrada de Hotelling, es decir.</p>
+<p><span class="arithmatex">\(
+T^2=n(\bar{\mathbf{X}}-\mathbf{\mu}_0)^t\mathbf{S}^{-1}(\bar{\mathbf{X}}-\mathbf{\mu}_0)
+\)</span></p>
+<p>donde <span class="arithmatex">\(T^2 \sim \frac{(n-1)p}{n-p}F_{p,n-p}\)</span>. Por lo que se rechaza <span class="arithmatex">\(H_0\)</span> si <span class="arithmatex">\(T^2 &gt; \frac{(n-1)p}{n-p}F_{p,n-p}(\aplha)\)</span>.</p>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
 <p>Johnson, R., &amp; Wichern, D. (2007). <em>Applied Multivariate Statistical Analysis</em> (6th edition). Pearson Education.</p>
    
