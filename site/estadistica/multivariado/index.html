@@ -1405,8 +1405,8 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 </div>
 <div class="tabbed-block">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pa</span>
-<span class="n">indicadores</span><span class="o">=</span><span class="n">pa</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://franciscoariel.github.io/site/estadistica/src/indicadores.csv&quot;</span><span class="p">)</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">indicadores</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://franciscoariel.github.io/site/estadistica/src/indicadores.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 </div>
@@ -1459,6 +1459,7 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Julia</label><label for="__tabbed_2_2">Python</label><label for="__tabbed_2_3">R</label><label for="__tabbed_2_4">SAS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p>En julia se puede usar la función <code>cov</code> del paquete <code>Statistics</code>; note que esta función requiere una matriz que contenga únicamente valores numéricos.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">Statistics</span>
 <span class="n">cov</span><span class="p">(</span><span class="kt">Matrix</span><span class="p">(</span><span class="n">indicadores</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="o">:</span><span class="mi">18</span><span class="p">]))</span>
@@ -1466,6 +1467,7 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 </td></tr></table>
 </div>
 <div class="tabbed-block">
+<p>En python se puede hacer aplicando el método <code>cov</code> del paquete <code>pandas</code> a un objeto <code>dataframe</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1475,6 +1477,7 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 </td></tr></table>
 </div>
 <div class="tabbed-block">
+<p>En R se puede hacer con la función <code>cov</code>, sin embargo, esta función requiere un dataframe que contenga únicamente valores numéricos.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">=</span><span class="n">indicadores</span><span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
 <span class="nf">cov</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
@@ -1482,6 +1485,9 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 </td></tr></table>
 </div>
 <div class="tabbed-block">
+<p>En SAS se puede realizar de 2 maneras distintas: con el <code>PROC CORR</code> y <code>PROC IML</code>.</p>
+<p>Con el <code>PROC CORR</code> se debe especificar en la sentecia <code>PROC CORR</code> la opcion <code>COV</code> y opcionalmente la opción de guardar la tabla resultante. SAS Automáticamente realizará el cálculo de las variables numéricas.</p>
+<p>Por otro lado, con el <code>PROC IML</code> primero se debe leer el dataset en una matriz y posteriormente se usa la función <code>cov</code> y se guarda en la matriz <code>S</code>. Para visualizar el resultado se usa la función <code>print</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
