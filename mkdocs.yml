@@ -20,6 +20,7 @@ theme:
     features:
         - header.autohide
         - navigation.top
+        - content.tabs.link
 
 nav:
     - "Inicio": index.md
@@ -51,7 +52,6 @@ nav:
 
 markdown_extensions:
     - pymdownx.superfences
-    - pymdownx.tabbed
     - smarty
     - sane_lists
     - admonition
@@ -69,6 +69,8 @@ markdown_extensions:
         generic: true
     - tables
     - pymdownx.details
+    - pymdownx.tabbed:
+        alternate_style: true 
 
 plugins:
     - search

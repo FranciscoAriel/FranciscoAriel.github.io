@@ -21,35 +21,101 @@ X_{n,1} & X_{n,2} & \dots & X_{n,p} \\
 \end{bmatrix}
 \)
 
-Note que cada renglón representa una observación multivariada, mientras que cada columna denota una variable, se usarán letras minúsculas pára refereirse a *observaciones* o *realizaciones*.
+Note que cada renglón representa una observación multivariada, mientras que cada columna denota una variable, se usarán letras minúsculas para refereirse a *observaciones* o *realizaciones*.
 
-## Muestras aleatorias
+??? example "Datos multivariados"
+    La siguiente base contiene información de 20 países y 17 indicadores. Esta información fue tomada del banco mundial con información de 2020.
 
-Debido a que en estadística es de interés hacer inferencias sobre el conjunto de datos, se requiere hacer ciertos supuestos sobre la información. En particular se supondrá que la información es una *muestra aleatoria multivariada* de una población específica.
+    Country|Agriculture|Exports|Fertility|Forest_area|GDP_growth|GNI_pc|Gross_capital_formation|High_tech_exports|Imports|Industry|Inflation|Life_expectancy|Merchandise_trade|Military_expenditure|Mobile_subs|Mortality_rate|Pop_density
+    -------|---------|------|-----|------|------|------|-------|-------|-----|------|------|------|---------|---------|--------|------|-------
+    ARG|5.93|16.59|2.233|285730|-9.89|9080|14.01|6.90|13.55|23.31|39.89|76.813|24.95|0.76|121.17|8.6|16.581
+    AUS|2.00|23.98|1.581|1340051|-0.003|53680|22.26|21.48|20.05|25.46|1.78|83.2|34.84|2.06|107.65|3.7|3.34
+    BRA|5.89|16.79|1.706|4966196|-3.87|7800|15.93|11.35|16.09|17.70|5.14|76.08|25.92|1.43|96.83|14.7|25.43
+    CHN|7.69|18.54|1.7|2199781.8|2.23|10530|43.36|31.28|16.04|37.84|0.49|77.097|31.69|1.74|119.39|7.3|149.72
+    FRA|1.59|27.87|1.83|172530|-7.85|39500|23.81|23.14|29.89|16.44|2.52|82.17|40.67|2.07|111.45|4.4|123.05
+    DEU|0.73|43.41|1.53|114190|-4.56|47520|21.14|15.49|37.69|26.53|1.59|80.94|66.40|1.39|128.18|3.7|238.02
+    IND|18.22|18.70|2.184|721600|-6.59|1910|27.89|11.03|19.09|24.53|5.60|69.887|24.35|2.88|83.60|32.6|464.14
+    IDN|13.70|17.27|2.266|921332|-2.06|3870|32.35|8.42|15.70|38.25|-0.43|71.908|28.80|0.86|130.01|23|145.68
+    ITA|2.009|29.53|1.24|95661.3|-9.02|32380|17.70|9.04|25.87|21.60|1.37|82.34|48.96|1.56|128.31|2.9|199.67
+    JPN|1.04|15.55|1.34|249350|-4.50|40810|25.41|18.60|15.80|29.01|0.90|84.61|25.33|0.99|154.22|2.5|346.39
+    KOR|1.83|36.44|0.837|62870|-0.85|32930|31.86|35.70|32.76|32.58|1.31|83.42|59.84|2.84|137.53|3|531.54
+    MEX|3.79|39.60|2.079|656920.8|-8.16|8530|19.16|21.50|37.55|29.62|4.01|75.131|74.53|0.57|95.31|13.7|66.32
+    NLD|1.58|77.85|1.55|3695|-3.79|51070|21.74|23.14|67.44|17.77|2.29|81.40|138.93|1.42|124.97|4.2|518.013
+    RUS|4.002|25.53|1.505|8153116|-2.68|10740|23.48|9.20|20.43|29.82|0.60|71.33|38.50|4.26|163.58|5.4|8.79
+    SAU|2.54|26.18|2.238|9770|-4.13|22270|27.62|0.60|25.89|40.10|-8.69|75.28|44.33|8.44|124.13|7|16.19
+    ESP|3.14|30.62|1.23|185721.7|-10.82|27360|20.69|7.76|29.14|20.37|1.10|82.33|49.51|1.40|119.02|3.2|94.80
+    CHE|0.68|62.34|1.46|12691.1|-2.39|82620|28.35|12.84|53.54|25.24|-0.50|83.1|81.26|0.77|127.30|4|218.55
+    TUR|6.68|28.66|2.039|222203.6|1.79|9040|31.88|3.15|32.47|28.01|14.82|77.928|54.05|2.77|97.37|9.5|109.58
+    GBR|0.58|28.36|1.56|31900|-9.27|39970|16.72|22.99|28.06|17.10|5.09|80.90|37.64|2.24|116.38|4.2|277.27
+    USA|1.05|10.16|1.63|3097950|-3.40|64140|21.15|19.48|13.27|18.43|1.20|77.28|18.33|3.74|106.18|6.3|36.23
 
-En este sentido, la matriz de datos $\mathbf{X}$ será considerada como una *muestra aleatoria* de dimensión $n$.
+    Como puede apreciarse, la variable *Country* muestra el nombre de los individuos o paises, mientras que las demás variables miden alguna caraterística de los individuos.
 
-\(\mathbf{X} =
+    Note que el supuesto de que las observaciones es independientes es lógico, mientras que es posible que haya cierta asocicacón o correlación entre las variables para cada individuo.
+
+??? example "Lectura de datos"
+    En este ejemplo se mostrará cómo leer la información en distintos softwares. Los datos se encuentran en la [siguiente liga](src/indicadores.csv).
+    
+    === "Julia"
+
+        ``` julia
+        using CSV, DataFrames
+        indicadores = CSV.read(download("https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv"),DataFrame)
+        ```
+
+    === "Python"
+
+        ``` python
+        import pandas as pa
+        indicadores=pa.read_csv("https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv")
+        ```
+
+    === "R"
+
+        ``` r
+        indicadores=read.csv("https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv")
+        ```
+
+    === "SAS"
+
+        ``` sas
+        FILENAME web URL "https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv";
+
+        PROC IMPORT OUT = indicadores DATAFILE = web DBMS = CSV REPLACE;
+            GETNAMES = YES;
+            DATAROW = 2;
+        RUN;
+        ```
+
+En muchas ocasiones, se prefiere trabajar con la *matriz de covarianzas* $\mathbf{\Sigma}$ en lugar de la matriz de datos, ya que resume las relaciones que hay entre las variables. 
+
+\(\mathbf{\Sigma} =\lbrace \sigma_{i,j}\rbrace = 
 \begin{bmatrix}
-X_{1,1} & X_{1,2} & \dots & X_{1,p} \\
-X_{2,1} & X_{2,2} & \dots & X_{2,p} \\
+\sigma_{1,1} & \sigma_{1,2} & \dots & \sigma_{1,p} \\
+\sigma_{2,1} & \sigma_{2,2} & \dots & \sigma_{2,p} \\
 \vdots & \vdots &\ddots & \vdots \\
-X_{n,1} & X_{n,2} & \dots & X_{n,p} \\
-\end{bmatrix} =
-\begin{bmatrix}
-\mathbf{X}_{1}^t \\
-\mathbf{X}_{2}^t \\
-\vdots \\
-\mathbf{X}_{n}^t \\
+\sigma_{p,1} & \sigma_{p,2} & \dots & \sigma_{p,p} \\
 \end{bmatrix}
 \)
 
-!!! note "Muestra aleatoria"
-    Se dice que los vectores renglón $\mathbf{X}_{1}^t,\mathbf{X}_{2}^t,\dots,\mathbf{X}_{n}^t$ son una muestra aleatoria de una función de distribución conjunta $f(X)$ con vector de medias $\mathbf{\mu}$ y covarianzas $\mathbf{\Sigma}$. La función de distribución conjunta está dada por $f(\mathbf{X}_{1})f(\mathbf{X}_{2})\dots f(\mathbf{X}_{n})$.
+La matriz de covarianzas (llamada en ocasiones *matriz de varianza-covarianza*) resume las relaciones que hay entre las variables de un conjunto de datos. Esta matriz tiene propiedades interesantes que se mencionarán a continuación:
 
-Note que generalmente en cada observación, $\mathbf{X}_i=(X_{i,1},X_{i,2},\dots,X_{i,p})$, proviene de una distribución *multivariada* de dimensión $p$, cuyo vector de medias es $E(\mathbf{X})=\mathbf{\mu}= \begin{pmatrix}\mu_1&\mu_2&\cdots&\mu_p\end{pmatrix}$ y matriz de covarianzas es $Cov(\mathbf{X})=\mathbf{\Sigma}=\lbrace \sigma_{j,j} \rbrace, j=1,2,\dots,p$. De hecho las $p$ variables pueden estar correlacionadas debido a que se mide a un mismo individuo; sin embargo, se asume que los individuos han de ser independientes unos de otros.
+* Es una matriz cuadrada de dimensión $p \times p$, es decir, igual al número de variables numéricas que tengamos en la base.
+* En la diagonal de la matriz, se encuentra la varianza de cada variable (denotada como $\sigma_{i,i}$), mientras que los otros elementos representan la covarianza entre cuales quiera dos variables (se denota por $\sigma_{i,j}$).
+* Es simétrica.
+* Es una matriz definida positiva.
 
-En muchas ocasiones, se prefiere trabajar con la matriz de covarianzas en lugar de la matriz de datos, ya que resume las relaciones que hay entre las variables.
+!!! abstract "Matriz definda positiva"
+    Se dice que una matriz $\mathbf{A}$ es definida positiva si para todo $\mathbf{c}\ne \mathbf{0}$, entonces $\mathbf{c}^t\mathbf{A}\mathbf{c}>0$. Note que $\mathbf{c}^t\mathbf{A}\mathbf{c}$ es un escalar y se le conoce como *forma cuadrática*.
+
+??? example "Cálculo de la matriz de varianza covarianza"
+    Actualmente los softwares ofrecen muchas opciones para realizar estos cálculos. A continuación se mostrará cómo hacerlo en diversos programas estadísticos.
+
+    === "Julia"
+
+    ``` julia
+    
+    ```
 
 Un resultado importante es que si la matriz de covarianzas $\mathbf{\Sigma}$ es positiva definida, existe su inversa $\mathbf{\Sigma}^{-1}$ y:
 
@@ -58,9 +124,6 @@ Un resultado importante es que si la matriz de covarianzas $\mathbf{\Sigma}$ es 
 \)
 
 donde $\lambda$ es un eigenvalor y $\mathbf{e}$ es un eigenvector.
-
-!!! abstract "Matriz definda positiva"
-    Se dice que una matriz $\mathbf{A}$ es definida positiva si para todo $\mathbf{c}\ne \mathbf{0}$, entonces $\mathbf{c}^t\mathbf{A}\mathbf{c}>0$. Note que $\mathbf{c}^t\mathbf{A}\mathbf{c}$ es un escalar y se le conoce como *forma cuadrática*.
 
 Una propiedad interesante es que la matriz $\mathbf{\Sigma}$ puede descomponerse por medio de sus eigen valores y eigen vectores.
 
@@ -97,8 +160,31 @@ Note que es posible definir la raiz de una matriz,denotada por $\mathbf{A}^{1/2}
 \end{bmatrix}
 \).
 
+## Muestras aleatorias
 
+Debido a que en estadística es de interés hacer inferencias sobre el conjunto de datos, se requiere hacer ciertos supuestos sobre la información. En particular se supondrá que la información es una *muestra aleatoria multivariada* de una población específica.
 
+En este sentido, la matriz de datos $\mathbf{X}$ será considerada como una *muestra aleatoria* de dimensión $n$.
+
+\(\mathbf{X} =
+\begin{bmatrix}
+X_{1,1} & X_{1,2} & \dots & X_{1,p} \\
+X_{2,1} & X_{2,2} & \dots & X_{2,p} \\
+\vdots & \vdots &\ddots & \vdots \\
+X_{n,1} & X_{n,2} & \dots & X_{n,p} \\
+\end{bmatrix} =
+\begin{bmatrix}
+\mathbf{X}_{1}^t \\
+\mathbf{X}_{2}^t \\
+\vdots \\
+\mathbf{X}_{n}^t \\
+\end{bmatrix}
+\)
+
+!!! note "Muestra aleatoria"
+    Se dice que los vectores renglón $\mathbf{X}_{1}^t,\mathbf{X}_{2}^t,\dots,\mathbf{X}_{n}^t$ son una muestra aleatoria de una función de distribución conjunta $f(X)$ con vector de medias $\mathbf{\mu}$ y covarianzas $\mathbf{\Sigma}$. La función de distribución conjunta está dada por $f(\mathbf{X}_{1})f(\mathbf{X}_{2})\dots f(\mathbf{X}_{n})$.
+
+Note que generalmente en cada observación, $\mathbf{X}_i=(X_{i,1},X_{i,2},\dots,X_{i,p})$, proviene de una distribución *multivariada* de dimensión $p$, cuyo vector de medias es $E(\mathbf{X})=\mathbf{\mu}= \begin{pmatrix}\mu_1&\mu_2&\cdots&\mu_p\end{pmatrix}$ y matriz de covarianzas es $Cov(\mathbf{X})=\mathbf{\Sigma}=\lbrace \sigma_{j,j} \rbrace, j=1,2,\dots,p$. De hecho las $p$ variables pueden estar correlacionadas debido a que se mide a un mismo individuo; sin embargo, se asume que los individuos han de ser independientes unos de otros.
 
 Debido a que se tiene una muesta aleatoria, es de interés conocer los momentos o características de dicha función de distribución, para ello se usan los estimadores insesgados para estimar el vector de medias. A continuación se mostrará cómo estimar dichos parámetros.
 

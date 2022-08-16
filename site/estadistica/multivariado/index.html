@@ -958,39 +958,518 @@ X_{2,1} &amp; X_{2,2} &amp; \dots &amp; X_{2,p} \\
 X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 \end{bmatrix}
 \)</span></p>
-<p>Note que cada renglón representa una observación multivariada, mientras que cada columna denota una variable, se usarán letras minúsculas pára refereirse a <em>observaciones</em> o <em>realizaciones</em>.</p>
-<h2 id="muestras-aleatorias">Muestras aleatorias<a class="headerlink" href="#muestras-aleatorias" title="Permanent link">&para;</a></h2>
-<p>Debido a que en estadística es de interés hacer inferencias sobre el conjunto de datos, se requiere hacer ciertos supuestos sobre la información. En particular se supondrá que la información es una <em>muestra aleatoria multivariada</em> de una población específica.</p>
-<p>En este sentido, la matriz de datos <span class="arithmatex">\(\mathbf{X}\)</span> será considerada como una <em>muestra aleatoria</em> de dimensión <span class="arithmatex">\(n\)</span>.</p>
-<p><span class="arithmatex">\(\mathbf{X} =
+<p>Note que cada renglón representa una observación multivariada, mientras que cada columna denota una variable, se usarán letras minúsculas para refereirse a <em>observaciones</em> o <em>realizaciones</em>.</p>
+<details class="example">
+<summary>Datos multivariados</summary>
+<p>La siguiente base contiene información de 20 países y 17 indicadores. Esta información fue tomada del banco mundial con información de 2020.</p>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Agriculture</th>
+<th>Exports</th>
+<th>Fertility</th>
+<th>Forest_area</th>
+<th>GDP_growth</th>
+<th>GNI_pc</th>
+<th>Gross_capital_formation</th>
+<th>High_tech_exports</th>
+<th>Imports</th>
+<th>Industry</th>
+<th>Inflation</th>
+<th>Life_expectancy</th>
+<th>Merchandise_trade</th>
+<th>Military_expenditure</th>
+<th>Mobile_subs</th>
+<th>Mortality_rate</th>
+<th>Pop_density</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARG</td>
+<td>5.93</td>
+<td>16.59</td>
+<td>2.233</td>
+<td>285730</td>
+<td>-9.89</td>
+<td>9080</td>
+<td>14.01</td>
+<td>6.90</td>
+<td>13.55</td>
+<td>23.31</td>
+<td>39.89</td>
+<td>76.813</td>
+<td>24.95</td>
+<td>0.76</td>
+<td>121.17</td>
+<td>8.6</td>
+<td>16.581</td>
+</tr>
+<tr>
+<td>AUS</td>
+<td>2.00</td>
+<td>23.98</td>
+<td>1.581</td>
+<td>1340051</td>
+<td>-0.003</td>
+<td>53680</td>
+<td>22.26</td>
+<td>21.48</td>
+<td>20.05</td>
+<td>25.46</td>
+<td>1.78</td>
+<td>83.2</td>
+<td>34.84</td>
+<td>2.06</td>
+<td>107.65</td>
+<td>3.7</td>
+<td>3.34</td>
+</tr>
+<tr>
+<td>BRA</td>
+<td>5.89</td>
+<td>16.79</td>
+<td>1.706</td>
+<td>4966196</td>
+<td>-3.87</td>
+<td>7800</td>
+<td>15.93</td>
+<td>11.35</td>
+<td>16.09</td>
+<td>17.70</td>
+<td>5.14</td>
+<td>76.08</td>
+<td>25.92</td>
+<td>1.43</td>
+<td>96.83</td>
+<td>14.7</td>
+<td>25.43</td>
+</tr>
+<tr>
+<td>CHN</td>
+<td>7.69</td>
+<td>18.54</td>
+<td>1.7</td>
+<td>2199781.8</td>
+<td>2.23</td>
+<td>10530</td>
+<td>43.36</td>
+<td>31.28</td>
+<td>16.04</td>
+<td>37.84</td>
+<td>0.49</td>
+<td>77.097</td>
+<td>31.69</td>
+<td>1.74</td>
+<td>119.39</td>
+<td>7.3</td>
+<td>149.72</td>
+</tr>
+<tr>
+<td>FRA</td>
+<td>1.59</td>
+<td>27.87</td>
+<td>1.83</td>
+<td>172530</td>
+<td>-7.85</td>
+<td>39500</td>
+<td>23.81</td>
+<td>23.14</td>
+<td>29.89</td>
+<td>16.44</td>
+<td>2.52</td>
+<td>82.17</td>
+<td>40.67</td>
+<td>2.07</td>
+<td>111.45</td>
+<td>4.4</td>
+<td>123.05</td>
+</tr>
+<tr>
+<td>DEU</td>
+<td>0.73</td>
+<td>43.41</td>
+<td>1.53</td>
+<td>114190</td>
+<td>-4.56</td>
+<td>47520</td>
+<td>21.14</td>
+<td>15.49</td>
+<td>37.69</td>
+<td>26.53</td>
+<td>1.59</td>
+<td>80.94</td>
+<td>66.40</td>
+<td>1.39</td>
+<td>128.18</td>
+<td>3.7</td>
+<td>238.02</td>
+</tr>
+<tr>
+<td>IND</td>
+<td>18.22</td>
+<td>18.70</td>
+<td>2.184</td>
+<td>721600</td>
+<td>-6.59</td>
+<td>1910</td>
+<td>27.89</td>
+<td>11.03</td>
+<td>19.09</td>
+<td>24.53</td>
+<td>5.60</td>
+<td>69.887</td>
+<td>24.35</td>
+<td>2.88</td>
+<td>83.60</td>
+<td>32.6</td>
+<td>464.14</td>
+</tr>
+<tr>
+<td>IDN</td>
+<td>13.70</td>
+<td>17.27</td>
+<td>2.266</td>
+<td>921332</td>
+<td>-2.06</td>
+<td>3870</td>
+<td>32.35</td>
+<td>8.42</td>
+<td>15.70</td>
+<td>38.25</td>
+<td>-0.43</td>
+<td>71.908</td>
+<td>28.80</td>
+<td>0.86</td>
+<td>130.01</td>
+<td>23</td>
+<td>145.68</td>
+</tr>
+<tr>
+<td>ITA</td>
+<td>2.009</td>
+<td>29.53</td>
+<td>1.24</td>
+<td>95661.3</td>
+<td>-9.02</td>
+<td>32380</td>
+<td>17.70</td>
+<td>9.04</td>
+<td>25.87</td>
+<td>21.60</td>
+<td>1.37</td>
+<td>82.34</td>
+<td>48.96</td>
+<td>1.56</td>
+<td>128.31</td>
+<td>2.9</td>
+<td>199.67</td>
+</tr>
+<tr>
+<td>JPN</td>
+<td>1.04</td>
+<td>15.55</td>
+<td>1.34</td>
+<td>249350</td>
+<td>-4.50</td>
+<td>40810</td>
+<td>25.41</td>
+<td>18.60</td>
+<td>15.80</td>
+<td>29.01</td>
+<td>0.90</td>
+<td>84.61</td>
+<td>25.33</td>
+<td>0.99</td>
+<td>154.22</td>
+<td>2.5</td>
+<td>346.39</td>
+</tr>
+<tr>
+<td>KOR</td>
+<td>1.83</td>
+<td>36.44</td>
+<td>0.837</td>
+<td>62870</td>
+<td>-0.85</td>
+<td>32930</td>
+<td>31.86</td>
+<td>35.70</td>
+<td>32.76</td>
+<td>32.58</td>
+<td>1.31</td>
+<td>83.42</td>
+<td>59.84</td>
+<td>2.84</td>
+<td>137.53</td>
+<td>3</td>
+<td>531.54</td>
+</tr>
+<tr>
+<td>MEX</td>
+<td>3.79</td>
+<td>39.60</td>
+<td>2.079</td>
+<td>656920.8</td>
+<td>-8.16</td>
+<td>8530</td>
+<td>19.16</td>
+<td>21.50</td>
+<td>37.55</td>
+<td>29.62</td>
+<td>4.01</td>
+<td>75.131</td>
+<td>74.53</td>
+<td>0.57</td>
+<td>95.31</td>
+<td>13.7</td>
+<td>66.32</td>
+</tr>
+<tr>
+<td>NLD</td>
+<td>1.58</td>
+<td>77.85</td>
+<td>1.55</td>
+<td>3695</td>
+<td>-3.79</td>
+<td>51070</td>
+<td>21.74</td>
+<td>23.14</td>
+<td>67.44</td>
+<td>17.77</td>
+<td>2.29</td>
+<td>81.40</td>
+<td>138.93</td>
+<td>1.42</td>
+<td>124.97</td>
+<td>4.2</td>
+<td>518.013</td>
+</tr>
+<tr>
+<td>RUS</td>
+<td>4.002</td>
+<td>25.53</td>
+<td>1.505</td>
+<td>8153116</td>
+<td>-2.68</td>
+<td>10740</td>
+<td>23.48</td>
+<td>9.20</td>
+<td>20.43</td>
+<td>29.82</td>
+<td>0.60</td>
+<td>71.33</td>
+<td>38.50</td>
+<td>4.26</td>
+<td>163.58</td>
+<td>5.4</td>
+<td>8.79</td>
+</tr>
+<tr>
+<td>SAU</td>
+<td>2.54</td>
+<td>26.18</td>
+<td>2.238</td>
+<td>9770</td>
+<td>-4.13</td>
+<td>22270</td>
+<td>27.62</td>
+<td>0.60</td>
+<td>25.89</td>
+<td>40.10</td>
+<td>-8.69</td>
+<td>75.28</td>
+<td>44.33</td>
+<td>8.44</td>
+<td>124.13</td>
+<td>7</td>
+<td>16.19</td>
+</tr>
+<tr>
+<td>ESP</td>
+<td>3.14</td>
+<td>30.62</td>
+<td>1.23</td>
+<td>185721.7</td>
+<td>-10.82</td>
+<td>27360</td>
+<td>20.69</td>
+<td>7.76</td>
+<td>29.14</td>
+<td>20.37</td>
+<td>1.10</td>
+<td>82.33</td>
+<td>49.51</td>
+<td>1.40</td>
+<td>119.02</td>
+<td>3.2</td>
+<td>94.80</td>
+</tr>
+<tr>
+<td>CHE</td>
+<td>0.68</td>
+<td>62.34</td>
+<td>1.46</td>
+<td>12691.1</td>
+<td>-2.39</td>
+<td>82620</td>
+<td>28.35</td>
+<td>12.84</td>
+<td>53.54</td>
+<td>25.24</td>
+<td>-0.50</td>
+<td>83.1</td>
+<td>81.26</td>
+<td>0.77</td>
+<td>127.30</td>
+<td>4</td>
+<td>218.55</td>
+</tr>
+<tr>
+<td>TUR</td>
+<td>6.68</td>
+<td>28.66</td>
+<td>2.039</td>
+<td>222203.6</td>
+<td>1.79</td>
+<td>9040</td>
+<td>31.88</td>
+<td>3.15</td>
+<td>32.47</td>
+<td>28.01</td>
+<td>14.82</td>
+<td>77.928</td>
+<td>54.05</td>
+<td>2.77</td>
+<td>97.37</td>
+<td>9.5</td>
+<td>109.58</td>
+</tr>
+<tr>
+<td>GBR</td>
+<td>0.58</td>
+<td>28.36</td>
+<td>1.56</td>
+<td>31900</td>
+<td>-9.27</td>
+<td>39970</td>
+<td>16.72</td>
+<td>22.99</td>
+<td>28.06</td>
+<td>17.10</td>
+<td>5.09</td>
+<td>80.90</td>
+<td>37.64</td>
+<td>2.24</td>
+<td>116.38</td>
+<td>4.2</td>
+<td>277.27</td>
+</tr>
+<tr>
+<td>USA</td>
+<td>1.05</td>
+<td>10.16</td>
+<td>1.63</td>
+<td>3097950</td>
+<td>-3.40</td>
+<td>64140</td>
+<td>21.15</td>
+<td>19.48</td>
+<td>13.27</td>
+<td>18.43</td>
+<td>1.20</td>
+<td>77.28</td>
+<td>18.33</td>
+<td>3.74</td>
+<td>106.18</td>
+<td>6.3</td>
+<td>36.23</td>
+</tr>
+</tbody>
+</table>
+<p>Como puede apreciarse, la variable <em>Country</em> muestra el nombre de los individuos o paises, mientras que las demás variables miden alguna caraterística de los individuos.</p>
+<p>Note que el supuesto de que las observaciones es independientes es lógico, mientras que es posible que haya cierta asocicacón o correlación entre las variables para cada individuo.</p>
+</details>
+<details class="example">
+<summary>Lectura de datos</summary>
+<p>En este ejemplo se mostrará cómo leer la información en distintos softwares. Los datos se encuentran en la <a href="../src/indicadores.csv">siguiente liga</a>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Julia</label><label for="__tabbed_1_2">Python</label><label for="__tabbed_1_3">R</label><label for="__tabbed_1_4">SAS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">CSV</span><span class="p">,</span> <span class="n">DataFrames</span>
+<span class="n">indicadores</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">download</span><span class="p">(</span><span class="s">&quot;https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv&quot;</span><span class="p">),</span><span class="n">DataFrame</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pa</span>
+<span class="n">indicadores</span><span class="o">=</span><span class="n">pa</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">indicadores</span><span class="o">=</span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv&quot;</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> web URL <span class="s">&quot;https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv&quot;</span><span class="kr">;</span>
+
+<span class="kr">PROC IMPORT </span><span class="k">OUT</span> = indicadores DATAFILE = web DBMS = CSV <span class="k">REPLACE</span>;
+    GETNAMES = YES;
+    DATAROW = <span class="m">2</span><span class="kr">;</span>
+<span class="kr">RUN;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</div>
+</details>
+<p>En muchas ocasiones, se prefiere trabajar con la <em>matriz de covarianzas</em> <span class="arithmatex">\(\mathbf{\Sigma}\)</span> en lugar de la matriz de datos, ya que resume las relaciones que hay entre las variables. </p>
+<p><span class="arithmatex">\(\mathbf{\Sigma} =\lbrace \sigma_{i,j}\rbrace = 
 \begin{bmatrix}
-X_{1,1} &amp; X_{1,2} &amp; \dots &amp; X_{1,p} \\
-X_{2,1} &amp; X_{2,2} &amp; \dots &amp; X_{2,p} \\
+\sigma_{1,1} &amp; \sigma_{1,2} &amp; \dots &amp; \sigma_{1,p} \\
+\sigma_{2,1} &amp; \sigma_{2,2} &amp; \dots &amp; \sigma_{2,p} \\
 \vdots &amp; \vdots &amp;\ddots &amp; \vdots \\
-X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
-\end{bmatrix} =
-\begin{bmatrix}
-\mathbf{X}_{1}^t \\
-\mathbf{X}_{2}^t \\
-\vdots \\
-\mathbf{X}_{n}^t \\
+\sigma_{p,1} &amp; \sigma_{p,2} &amp; \dots &amp; \sigma_{p,p} \\
 \end{bmatrix}
 \)</span></p>
-<div class="admonition note">
-<p class="admonition-title">Muestra aleatoria</p>
-<p>Se dice que los vectores renglón <span class="arithmatex">\(\mathbf{X}_{1}^t,\mathbf{X}_{2}^t,\dots,\mathbf{X}_{n}^t\)</span> son una muestra aleatoria de una función de distribución conjunta <span class="arithmatex">\(f(X)\)</span> con vector de medias <span class="arithmatex">\(\mathbf{\mu}\)</span> y covarianzas <span class="arithmatex">\(\mathbf{\Sigma}\)</span>. La función de distribución conjunta está dada por <span class="arithmatex">\(f(\mathbf{X}_{1})f(\mathbf{X}_{2})\dots f(\mathbf{X}_{n})\)</span>.</p>
+<p>La matriz de covarianzas (llamada en ocasiones <em>matriz de varianza-covarianza</em>) resume las relaciones que hay entre las variables de un conjunto de datos. Esta matriz tiene propiedades interesantes que se mencionarán a continuación:</p>
+<ul>
+<li>Es una matriz cuadrada de dimensión <span class="arithmatex">\(p \times p\)</span>, es decir, igual al número de variables numéricas que tengamos en la base.</li>
+<li>En la diagonal de la matriz, se encuentra la varianza de cada variable (denotada como <span class="arithmatex">\(\sigma_{i,i}\)</span>), mientras que los otros elementos representan la covarianza entre cuales quiera dos variables (se denota por <span class="arithmatex">\(\sigma_{i,j}\)</span>).</li>
+<li>Es simétrica.</li>
+<li>Es una matriz definida positiva.</li>
+</ul>
+<div class="admonition abstract">
+<p class="admonition-title">Matriz definda positiva</p>
+<p>Se dice que una matriz <span class="arithmatex">\(\mathbf{A}\)</span> es definida positiva si para todo <span class="arithmatex">\(\mathbf{c}\ne \mathbf{0}\)</span>, entonces <span class="arithmatex">\(\mathbf{c}^t\mathbf{A}\mathbf{c}&gt;0\)</span>. Note que <span class="arithmatex">\(\mathbf{c}^t\mathbf{A}\mathbf{c}\)</span> es un escalar y se le conoce como <em>forma cuadrática</em>.</p>
 </div>
-<p>Note que generalmente en cada observación, <span class="arithmatex">\(\mathbf{X}_i=(X_{i,1},X_{i,2},\dots,X_{i,p})\)</span>, proviene de una distribución <em>multivariada</em> de dimensión <span class="arithmatex">\(p\)</span>, cuyo vector de medias es <span class="arithmatex">\(E(\mathbf{X})=\mathbf{\mu}= \begin{pmatrix}\mu_1&amp;\mu_2&amp;\cdots&amp;\mu_p\end{pmatrix}\)</span> y matriz de covarianzas es <span class="arithmatex">\(Cov(\mathbf{X})=\mathbf{\Sigma}=\lbrace \sigma_{j,j} \rbrace, j=1,2,\dots,p\)</span>. De hecho las <span class="arithmatex">\(p\)</span> variables pueden estar correlacionadas debido a que se mide a un mismo individuo; sin embargo, se asume que los individuos han de ser independientes unos de otros.</p>
-<p>En muchas ocasiones, se prefiere trabajar con la matriz de covarianzas en lugar de la matriz de datos, ya que resume las relaciones que hay entre las variables.</p>
+<details class="example">
+<summary>Cálculo de la matriz de varianza covarianza</summary>
+<p>Actualmente los softwares ofrecen muchas opciones para realizar estos cálculos. A continuación se mostrará cómo hacerlo en diversos programas estadísticos.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Julia</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block"></div>
+</div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
+</code></pre></div>
+</td></tr></table>
+</details>
 <p>Un resultado importante es que si la matriz de covarianzas <span class="arithmatex">\(\mathbf{\Sigma}\)</span> es positiva definida, existe su inversa <span class="arithmatex">\(\mathbf{\Sigma}^{-1}\)</span> y:</p>
 <p><span class="arithmatex">\(
 \mathbf{\Sigma}\mathbf{e}=\lambda \mathbf{e} \rightarrow \mathbf{\Sigma}^{-1}\mathbf{e}=\frac{1}{\lambda} \mathbf{e}
 \)</span></p>
 <p>donde <span class="arithmatex">\(\lambda\)</span> es un eigenvalor y <span class="arithmatex">\(\mathbf{e}\)</span> es un eigenvector.</p>
-<div class="admonition abstract">
-<p class="admonition-title">Matriz definda positiva</p>
-<p>Se dice que una matriz <span class="arithmatex">\(\mathbf{A}\)</span> es definida positiva si para todo <span class="arithmatex">\(\mathbf{c}\ne \mathbf{0}\)</span>, entonces <span class="arithmatex">\(\mathbf{c}^t\mathbf{A}\mathbf{c}&gt;0\)</span>. Note que <span class="arithmatex">\(\mathbf{c}^t\mathbf{A}\mathbf{c}\)</span> es un escalar y se le conoce como <em>forma cuadrática</em>.</p>
-</div>
 <p>Una propiedad interesante es que la matriz <span class="arithmatex">\(\mathbf{\Sigma}\)</span> puede descomponerse por medio de sus eigen valores y eigen vectores.</p>
 <div class="admonition abstract">
 <p class="admonition-title">Descomposición espectral</p>
@@ -1019,6 +1498,28 @@ A=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t
 0 &amp; 0 &amp; \dots &amp; \sqrt{s_{p,p}}\\
 \end{bmatrix}
 \)</span>.</p>
+<h2 id="muestras-aleatorias">Muestras aleatorias<a class="headerlink" href="#muestras-aleatorias" title="Permanent link">&para;</a></h2>
+<p>Debido a que en estadística es de interés hacer inferencias sobre el conjunto de datos, se requiere hacer ciertos supuestos sobre la información. En particular se supondrá que la información es una <em>muestra aleatoria multivariada</em> de una población específica.</p>
+<p>En este sentido, la matriz de datos <span class="arithmatex">\(\mathbf{X}\)</span> será considerada como una <em>muestra aleatoria</em> de dimensión <span class="arithmatex">\(n\)</span>.</p>
+<p><span class="arithmatex">\(\mathbf{X} =
+\begin{bmatrix}
+X_{1,1} &amp; X_{1,2} &amp; \dots &amp; X_{1,p} \\
+X_{2,1} &amp; X_{2,2} &amp; \dots &amp; X_{2,p} \\
+\vdots &amp; \vdots &amp;\ddots &amp; \vdots \\
+X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
+\end{bmatrix} =
+\begin{bmatrix}
+\mathbf{X}_{1}^t \\
+\mathbf{X}_{2}^t \\
+\vdots \\
+\mathbf{X}_{n}^t \\
+\end{bmatrix}
+\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Muestra aleatoria</p>
+<p>Se dice que los vectores renglón <span class="arithmatex">\(\mathbf{X}_{1}^t,\mathbf{X}_{2}^t,\dots,\mathbf{X}_{n}^t\)</span> son una muestra aleatoria de una función de distribución conjunta <span class="arithmatex">\(f(X)\)</span> con vector de medias <span class="arithmatex">\(\mathbf{\mu}\)</span> y covarianzas <span class="arithmatex">\(\mathbf{\Sigma}\)</span>. La función de distribución conjunta está dada por <span class="arithmatex">\(f(\mathbf{X}_{1})f(\mathbf{X}_{2})\dots f(\mathbf{X}_{n})\)</span>.</p>
+</div>
+<p>Note que generalmente en cada observación, <span class="arithmatex">\(\mathbf{X}_i=(X_{i,1},X_{i,2},\dots,X_{i,p})\)</span>, proviene de una distribución <em>multivariada</em> de dimensión <span class="arithmatex">\(p\)</span>, cuyo vector de medias es <span class="arithmatex">\(E(\mathbf{X})=\mathbf{\mu}= \begin{pmatrix}\mu_1&amp;\mu_2&amp;\cdots&amp;\mu_p\end{pmatrix}\)</span> y matriz de covarianzas es <span class="arithmatex">\(Cov(\mathbf{X})=\mathbf{\Sigma}=\lbrace \sigma_{j,j} \rbrace, j=1,2,\dots,p\)</span>. De hecho las <span class="arithmatex">\(p\)</span> variables pueden estar correlacionadas debido a que se mide a un mismo individuo; sin embargo, se asume que los individuos han de ser independientes unos de otros.</p>
 <p>Debido a que se tiene una muesta aleatoria, es de interés conocer los momentos o características de dicha función de distribución, para ello se usan los estimadores insesgados para estimar el vector de medias. A continuación se mostrará cómo estimar dichos parámetros.</p>
 <h3 id="vector-de-medias-y-matriz-de-covarianzas-muestrales">Vector de medias y matriz de covarianzas muestrales<a class="headerlink" href="#vector-de-medias-y-matriz-de-covarianzas-muestrales" title="Permanent link">&para;</a></h3>
 <p>Para estimar a <span class="arithmatex">\(\mathbf{\mu}\)</span> de la matriz de datos se puede usar el <em>vector de medias muestrales</em> <span class="arithmatex">\(\bar{\mathbf{X}}=\frac{1}{n}\mathbf{X}^t\mathbf{1}\)</span>, donde <span class="arithmatex">\(\mathbf{1}^t=\begin{pmatrix}1&amp;1&amp;\dots&amp;1\end{pmatrix}\)</span> es de <span class="arithmatex">\(1\times n\)</span>.</p>
@@ -1424,7 +1925,7 @@ T^2=n(\bar{\mathbf{X}}-\mathbf{\mu}_0)^t\mathbf{S}^{-1}(\bar{\mathbf{X}}-\mathbf
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js", "version": 1.0}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "content.tabs.link"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js", "version": 1.0}</script>
     
     
       <script src="../../assets/javascripts/bundle.01de222e.min.js"></script>
