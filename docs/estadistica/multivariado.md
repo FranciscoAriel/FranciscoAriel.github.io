@@ -60,26 +60,26 @@ Note que cada renglón representa una observación multivariada, mientras que ca
 
         ``` julia
         using CSV, DataFrames
-        indicadores = CSV.read(download("https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv"),DataFrame)
+        indicadores = CSV.read(download("https://franciscoariel.github.io/site/estadistica/src/indicadores.csv"),DataFrame)
         ```
 
     === "Python"
 
         ``` python
         import pandas as pa
-        indicadores=pa.read_csv("https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv")
+        indicadores=pa.read_csv("https://franciscoariel.github.io/site/estadistica/src/indicadores.csv")
         ```
 
     === "R"
 
         ``` r
-        indicadores=read.csv("https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv")
+        indicadores=read.csv("https://franciscoariel.github.io/site/estadistica/src/indicadores.csv")
         ```
 
     === "SAS"
 
         ``` sas
-        FILENAME web URL "https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv";
+        FILENAME web URL "https://franciscoariel.github.io/site/estadistica/src/indicadores.csv";
 
         PROC IMPORT OUT = indicadores DATAFILE = web DBMS = CSV REPLACE;
             GETNAMES = YES;
@@ -113,9 +113,40 @@ La matriz de covarianzas (llamada en ocasiones *matriz de varianza-covarianza*) 
 
     === "Julia"
 
-    ``` julia
+        ``` julia
+        using Statistics
+        cov(Matrix(indicadores[:,2:18]))
+        ```
+
+    === "Python"
+
+        ``` python
+        import pandas as pd
+        import numpy as np
+        indicadores.cov()
+        ```
+
+    === "R"
+
+        ``` r
+        datos=indicadores[,-1]
+        cov(datos)
+        ```
     
-    ```
+    === "SAS"
+
+        ``` sas
+        /*Usando el procedimiento corr*/
+        PROC CORR data= indicadores cov OUT=cv_ind;
+        RUN;
+        /*Usando PROC IML*/
+        PROC IML;
+        USE work.indicadores;
+        READ ALL VAR _NUM_ INTO X[rowname=country];
+        S = COV(X);
+        PRINT S;
+        QUIT;
+        ```
 
 Un resultado importante es que si la matriz de covarianzas $\mathbf{\Sigma}$ es positiva definida, existe su inversa $\mathbf{\Sigma}^{-1}$ y:
 

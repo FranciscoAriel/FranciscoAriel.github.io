@@ -1399,19 +1399,19 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 <div class="tabbed-block">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">CSV</span><span class="p">,</span> <span class="n">DataFrames</span>
-<span class="n">indicadores</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">download</span><span class="p">(</span><span class="s">&quot;https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv&quot;</span><span class="p">),</span><span class="n">DataFrame</span><span class="p">)</span>
+<span class="n">indicadores</span> <span class="o">=</span> <span class="n">CSV</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">download</span><span class="p">(</span><span class="s">&quot;https://franciscoariel.github.io/site/estadistica/src/indicadores.csv&quot;</span><span class="p">),</span><span class="n">DataFrame</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 </div>
 <div class="tabbed-block">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pa</span>
-<span class="n">indicadores</span><span class="o">=</span><span class="n">pa</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv&quot;</span><span class="p">)</span>
+<span class="n">indicadores</span><span class="o">=</span><span class="n">pa</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://franciscoariel.github.io/site/estadistica/src/indicadores.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 </div>
 <div class="tabbed-block">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">indicadores</span><span class="o">=</span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv&quot;</span><span class="p">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">indicadores</span><span class="o">=</span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&quot;https://franciscoariel.github.io/site/estadistica/src/indicadores.csv&quot;</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
 </div>
@@ -1421,7 +1421,7 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> web URL <span class="s">&quot;https://franciscoariel.github.io/site/estadistica/multivariado/src/indicadores.csv&quot;</span><span class="kr">;</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">FILENAME</span> web URL <span class="s">&quot;https://franciscoariel.github.io/site/estadistica/src/indicadores.csv&quot;</span><span class="kr">;</span>
 
 <span class="kr">PROC IMPORT </span><span class="k">OUT</span> = indicadores DATAFILE = web DBMS = CSV <span class="k">REPLACE</span>;
     GETNAMES = YES;
@@ -1456,14 +1456,56 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 <details class="example">
 <summary>Cálculo de la matriz de varianza covarianza</summary>
 <p>Actualmente los softwares ofrecen muchas opciones para realizar estos cálculos. A continuación se mostrará cómo hacerlo en diversos programas estadísticos.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Julia</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Julia</label><label for="__tabbed_2_2">Python</label><label for="__tabbed_2_3">R</label><label for="__tabbed_2_4">SAS</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">Statistics</span>
+<span class="n">cov</span><span class="p">(</span><span class="kt">Matrix</span><span class="p">(</span><span class="n">indicadores</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="o">:</span><span class="mi">18</span><span class="p">]))</span>
 </code></pre></div>
 </td></tr></table>
+</div>
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">indicadores</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">=</span><span class="n">indicadores</span><span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
+<span class="nf">cov</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c">/*Usando el procedimiento corr*/</span>
+<span class="kr">PROC CORR </span>data= indicadores cov <span class="k">OUT</span>=cv_ind<span class="kr">;</span>
+<span class="kr">RUN;</span>
+<span class="c">/*Usando PROC IML*/</span>
+<span class="kr">PROC IML;</span>
+USE work<span class="m">.</span>indicadores;
+READ ALL VAR _NUM_ <span class="k">INTO</span> <span class="k">X</span>[rowname=country];
+S = COV(<span class="k">X</span>);
+PRINT S<span class="kr">;</span>
+<span class="kr">QUIT;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</div>
 </details>
 <p>Un resultado importante es que si la matriz de covarianzas <span class="arithmatex">\(\mathbf{\Sigma}\)</span> es positiva definida, existe su inversa <span class="arithmatex">\(\mathbf{\Sigma}^{-1}\)</span> y:</p>
 <p><span class="arithmatex">\(
