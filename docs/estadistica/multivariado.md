@@ -66,8 +66,8 @@ Note que cada renglón representa una observación multivariada, mientras que ca
     === "Python"
 
         ``` python
-        import pandas as pa
-        indicadores=pa.read_csv("https://franciscoariel.github.io/site/estadistica/src/indicadores.csv")
+        import pandas as pd
+        indicadores=pd.read_csv("https://franciscoariel.github.io/site/estadistica/src/indicadores.csv")
         ```
 
     === "R"
@@ -113,12 +113,16 @@ La matriz de covarianzas (llamada en ocasiones *matriz de varianza-covarianza*) 
 
     === "Julia"
 
+        En julia se puede usar la función `cov` del paquete `Statistics`; note que esta función requiere una matriz que contenga únicamente valores numéricos.
+
         ``` julia
         using Statistics
         cov(Matrix(indicadores[:,2:18]))
         ```
 
     === "Python"
+
+        En python se puede hacer aplicando el método `cov` del paquete `pandas` a un objeto `dataframe`.
 
         ``` python
         import pandas as pd
@@ -128,12 +132,20 @@ La matriz de covarianzas (llamada en ocasiones *matriz de varianza-covarianza*) 
 
     === "R"
 
+        En R se puede hacer con la función `cov`, sin embargo, esta función requiere un dataframe que contenga únicamente valores numéricos.
+
         ``` r
         datos=indicadores[,-1]
         cov(datos)
         ```
     
     === "SAS"
+
+        En SAS se puede realizar de 2 maneras distintas: con el `PROC CORR` y `PROC IML`.
+
+        Con el `PROC CORR` se debe especificar en la sentecia `PROC CORR` la opcion `COV` y opcionalmente la opción de guardar la tabla resultante. SAS Automáticamente realizará el cálculo de las variables numéricas.
+
+        Por otro lado, con el `PROC IML` primero se debe leer el dataset en una matriz y posteriormente se usa la función `cov` y se guarda en la matriz `S`. Para visualizar el resultado se usa la función `print`.
 
         ``` sas
         /*Usando el procedimiento corr*/
