@@ -736,7 +736,22 @@
        <p>La estadística bayesiana es un paradigma completo de inferencia basado en la <em>teoría de la decisión</em> y por lo tanto se basa en los conceptos de probabilidad.</p>
 <p>A diferencia del enfoque frecuentista, la estadística bayesiana se basa en el enfoque de <em>probabilidad subjetiva</em>. Dicha probabilidad subjetiva es una medida o grado de creencia de qué tan verosímil sea un evento.</p>
 <p>Por ejemplo, si le preguntáramos a cada persona sobre la probabilidad de que llueva <span class="arithmatex">\(\theta\)</span>, cada una nos responderá según su creencia o nivel de conocimiento sobre <span class="arithmatex">\(\theta\)</span>. Todo ese conocimiento podría resumirse en una función de distribución que llamaremos <em>distribución a priori</em>, denotada <span class="arithmatex">\(f_\Theta(\theta)\)</span> o <span class="arithmatex">\(p(\theta)\)</span>.</p>
-<p>Esta información <em>a priori</em> se combina con la información de los datos, denotada como <span class="arithmatex">\(f_{X| \Theta}(x|\theta)\)</span> o <span class="arithmatex">\(p(x|\theta)\)</span> con el fin de obtener la <em>distribución a posteriori</em>. denotada como <span class="arithmatex">\(f_{\Theta|X}(\theta|x)\)</span> o <span class="arithmatex">\(p(\theta|x)\)</span> usando la regla de Bayes.</p>
+<p>Esta información <em>a priori</em> se combina con la información de los datos, denotada como <span class="arithmatex">\(f_{X| \Theta}(x|\theta)\)</span> o <span class="arithmatex">\(p(x|\theta)\)</span> con el fin de obtener la <em>distribución a posteriori</em>, denotada como <span class="arithmatex">\(f_{\Theta|X}(\theta|x)\)</span> o <span class="arithmatex">\(p(\theta|x)\)</span> usando la regla de Bayes.</p>
+<p><span class="arithmatex">\(
+    p(\theta|x)=\frac{p(\theta,x)}{p(x)}=\frac{p(x|\theta)p(\theta)}{p(x)}
+\)</span></p>
+<p>Note que <span class="arithmatex">\(p(x)\)</span> es una densidad que no depende de <span class="arithmatex">\(\theta\)</span>, por lo que la distribución a posteriori pude escribirse como:</p>
+<p><span class="arithmatex">\(
+    p(\theta|x)\propto p(x|\theta)p(\theta)
+\)</span></p>
+<details class="example">
+<summary>Lanzamiento de una moneda 1</summary>
+<p>Suponga que se tiene una moneda y se realizan 10 lanzamientos. Sea <span class="arithmatex">\(\theta\)</span> la probabilidad de que caiga águila, mientras que <span class="arithmatex">\(1-\theta\)</span> es la probabilidad de que caiga sol. No se tiene información acerca del comportamiento de la moneda, pero se sospecha es una moneda honesta. Supóngase que se han observado 7 águilas.</p>
+<p>Debido a que no se tiene información sobre <span class="arithmatex">\(\theta\)</span>, se pude asumir una función de distribución uniforme en el intervalo [0,1], esto es: <span class="arithmatex">\(p(\theta)=I_{(0,1)}(\theta)\)</span>.</p>
+<p>Note que los datos pueden ser modelados mediante la verosimilitud, es decir <span class="arithmatex">\(p(\mathbf{x}|\theta)=L(\theta|\mathbf{x})=\prod_{i=1}^{n}\theta^{x_i}\left(1-\theta\right)^{1-x_i}=\theta^{\sum_{i=1}^{n}x_i}\left(1-\theta\right)^{n-\sum_{i=1}^{n}x_i}\)</span>.</p>
+<p>Sustituyendo</p>
+<p><span class="arithmatex">\(p(\theta|x)\propto \theta^{7}\left(1-\theta\right)^{3}I_{(0,1)}(\theta)\)</span></p>
+</details>
    
        <!-- Last update of source file -->
        
