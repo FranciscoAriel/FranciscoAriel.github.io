@@ -14,10 +14,10 @@ A diferencia del enfoque frecuentista, la estadística bayesiana se basa en el e
 
 Por ejemplo, si le preguntáramos a cada persona sobre la probabilidad de que llueva $\theta$, cada una nos responderá según su creencia o nivel de conocimiento sobre $\theta$. Todo ese conocimiento podría resumirse en una función de distribución que llamaremos *distribución a priori*, denotada $f_\Theta(\theta)$ o $p(\theta)$.
 
-Esta información *a priori* se combina con la información de los datos, denotada como $f_{X| \Theta}(x|\theta)$ o $p(x|\theta)$ con el fin de obtener la *distribución a posteriori*, denotada como $f_{\Theta|X}(\theta|x)$ o $p(\theta|x)$ usando la regla de Bayes.
+Esta información *a priori* se combina con la *información de los datos*, denotada como $f_{X| \Theta}(x|\theta)$ o $L(\theta|x)$ con el fin de obtener la *distribución a posteriori*, denotada como $f_{\Theta|X}(\theta|x)$ o $p(\theta|x)$ usando la regla de Bayes.
 
 \(
-    p(\theta|x)=\frac{p(\theta,x)}{p(x)}=\frac{p(x|\theta)p(\theta)}{p(x)}
+    p(\theta|x)=\frac{p(\theta,x)}{p(x)}=\frac{L(\theta|x)p(\theta)}{p(x)}
 \)
 
 Note que $p(x)$ es una densidad que no depende de $\theta$, por lo que la distribución a posteriori pude escribirse como:
@@ -37,4 +37,6 @@ Note que $p(x)$ es una densidad que no depende de $\theta$, por lo que la distri
 
     \(p(\theta|x)\propto \theta^{7}\left(1-\theta\right)^{3}I_{(0,1)}(\theta)\)
 
-    
+    Note que como tal, **no es una función de densidad**, debido a que la integral no es 1, sin embargo, es proporcional a una función de densidad beta con parámetros 8 y 4.
+
+    Por lo tanto, la distribución *a posteriori* es $p(\theta|x)=\frac{\theta^{8-1} \left(1-\theta\right)^{4-1}}{B(8,4)}I_{(0,1)}(\theta)$.

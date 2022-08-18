@@ -54,7 +54,7 @@ Note que cada renglón representa una observación multivariada, mientras que ca
     Note que el supuesto de que las observaciones es independientes es lógico, mientras que es posible que haya cierta asocicacón o correlación entre las variables para cada individuo.
 
 ??? example "Lectura de datos"
-    En este ejemplo se mostrará cómo leer la información en distintos softwares. Los datos se encuentran en la [siguiente liga](src/indicadores.csv).
+    En aplicaciones, es común tener que leer bases con una gran cantidad de datos, para ello es necesario saber cómo importar la información. En este ejemplo se mostrará cómo leer una base en formato csv en distintos softwares. Los datos se encuentran en la [siguiente liga](src/indicadores.csv).
     
     === "Julia"
 
@@ -108,59 +108,88 @@ La matriz de covarianzas (llamada en ocasiones *matriz de varianza-covarianza*) 
 !!! abstract "Matriz definda positiva"
     Se dice que una matriz $\mathbf{A}$ es definida positiva si para todo $\mathbf{c}\ne \mathbf{0}$, entonces $\mathbf{c}^t\mathbf{A}\mathbf{c}>0$. Note que $\mathbf{c}^t\mathbf{A}\mathbf{c}$ es un escalar y se le conoce como *forma cuadrática*.
 
-??? example "Cálculo de la matriz de varianza covarianza"
-    Actualmente los softwares ofrecen muchas opciones para realizar estos cálculos. A continuación se mostrará cómo hacerlo en diversos programas estadísticos.
+!!! abstract "Eigenvalores y eigenvectores de una matriz"
+    Sea $\mathbf{A}$ una matriz cuadrada simétrica de dimensión $p \times p$. Entonces $A$ tendrá las parejas:
+
+    \( \lbrace \lambda_1,\mathbf{e}_1\rbrace,\lbrace \lambda_2,\mathbf{e}_2\rbrace,\dots \lbrace \lambda_p,\mathbf{e}_p\rbrace
+    \)
+
+    donde $\mathbf{A}\mathbf{e}_j=\lambda_j\mathbf{e}_j$, para $j=1,2,\dots,p$ y los eigenvectores son *ortonormales*, decir $\mathbf{e}_i^t\mathbf{e}_j=1$ si $i=j$ y $\mathbf{e}_i^t\mathbf{e}_j=0$ si $i\ne j$.
+
+Para el cálculo de un eigenvalores y eigenvectores, se requiere el uso de sotfware. Para un ejemplo numérico de una matriz de $2 \times 2$, vease Johnson, R., & Wichern, D., (2007) pp. 97.
+
+??? example "Cálculo de eigenvalores y eigenvectores"
+    Sea $\mathbf{A}=\begin{pmatrix}9&-2\\-2&6\end{pmatrix}$. Encontrar los eigenvalores y eigenvectores de $\mathbf{A}$.
 
     === "Julia"
 
-        En julia se puede usar la función `cov` del paquete `Statistics`; note que esta función requiere una matriz que contenga únicamente valores numéricos.
+        Para definir una matriz en julia se usan los corchetes cuadrados  `[]`, pero se pueden definir los renglones de una matriz usando punto y coma `;`.
+        
+        Para obtener los eigenvalores y eigenvectores, se usa la función `eigen` de la librería `LinearAlgebra`. También se pueden usar las funciones `eigvals` y `eigvecs`.
 
         ``` julia
-        using Statistics
-        cov(Matrix(indicadores[:,2:18]))
+        using LinearAlgebra
+        A = [[9,-2] [-2,6]]
+        eigen(A)
+        # opcionalmente 
+        eigvals(A)
+        eigvecs(A)
         ```
+
+        ![Resultado eigenvalores en julia](img/eigen_julia.png)
 
     === "Python"
 
-        En python se puede hacer aplicando el método `cov` del paquete `pandas` a un objeto `dataframe`.
+        En python es necesario usar la librería `numpy` y el módulo `linalg`.
+
+        Para definir una matriz, se usa la función `array` para definir un arreglo (o matriz) y usar la función `eig`.
 
         ``` python
-        import pandas as pd
         import numpy as np
-        indicadores.cov()
+        from numpy.linalg import eig
+
+        A=np.array([[9,-2],[-2,6]])
+        eig(A)
         ```
+
+        ![Resultado eigenvalores en python](img/eigen_python.png)
 
     === "R"
 
-        En R se puede hacer con la función `cov`, sin embargo, esta función requiere un dataframe que contenga únicamente valores numéricos.
+        En R se debe definir una matriz, a partir de un vector, usando la función `matrix` y especificando las dimensiones, opcionalmente se le puede indicar que la matriz se llene por renglones con la opción `byrow=TRUE`.
+
+        Los eigenvalores y eigenvectores se puede obtener con la función `eigen`.
 
         ``` r
-        datos=indicadores[,-1]
-        cov(datos)
+        A = matrix(c(9,-2,-2,6),2,2,byrow=TRUE)
+        eigen(A)
         ```
-    
+
+        ![Resultado eigenvalores en R](img/eigen_r.png)
+
     === "SAS"
 
-        En SAS se puede realizar de 2 maneras distintas: con el `PROC CORR` y `PROC IML`.
+        En SAS se debe usar el procedimiento IML, que es el lenguaje de SAS para manejar matrices.
 
-        Con el `PROC CORR` se debe especificar en la sentecia `PROC CORR` la opcion `COV` y opcionalmente la opción de guardar la tabla resultante. SAS Automáticamente realizará el cálculo de las variables numéricas.
+        La forma de definir una matriz es mediante llaves `{}`.  SAS solo hacepta valores numéricos y cada valor se separa con un espacio y los renglones con una coma.
 
-        Por otro lado, con el `PROC IML` primero se debe leer el dataset en una matriz y posteriormente se usa la función `cov` y se guarda en la matriz `S`. Para visualizar el resultado se usa la función `print`.
+        Para obtener los eigenvalores y eigenvectores se hace uso de la llamda a la rutina `eigen`, especificando en donde se deben guardar los valores obtenidos. Opcionalmente pueden usarse las funciones `eigval` y `eigvec`.
 
         ``` sas
-        /*Usando el procedimiento corr*/
-        PROC CORR data= indicadores cov OUT=cv_ind;
-        RUN;
-        /*Usando PROC IML*/
-        PROC IML;
-        USE work.indicadores;
-        READ ALL VAR _NUM_ INTO X[rowname=country];
-        S = COV(X);
-        PRINT S;
-        QUIT;
+        proc iml;
+            A = {9 -2,-2 6};
+            CALL eigen(L,e,A);
+            PRINT L,e;
+            /* opcionalmente */
+            L2 = eigval(A);
+            e2 = eigvec(A);
+            PRINT L2,e2;
+        quit;
         ```
 
-Un resultado importante es que si la matriz de covarianzas $\mathbf{\Sigma}$ es positiva definida, existe su inversa $\mathbf{\Sigma}^{-1}$ y:
+        ![Resultado eigenvalores en SAS](img/eigen_sas.png)
+
+Un resultado importante es que si la matriz de covarianzas $\mathbf{\Sigma}$ es positiva definida, existe su inversa $\mathbf{\Sigma}^{-1}$, tal que $\mathbf{\Sigma}^{-1}\mathbf{\Sigma}=\mathbf{I}$ y se cumple que:
 
 \(
 \mathbf{\Sigma}\mathbf{e}=\lambda \mathbf{e} \rightarrow \mathbf{\Sigma}^{-1}\mathbf{e}=\frac{1}{\lambda} \mathbf{e}
@@ -168,7 +197,7 @@ Un resultado importante es que si la matriz de covarianzas $\mathbf{\Sigma}$ es 
 
 donde $\lambda$ es un eigenvalor y $\mathbf{e}$ es un eigenvector.
 
-Una propiedad interesante es que la matriz $\mathbf{\Sigma}$ puede descomponerse por medio de sus eigen valores y eigen vectores.
+Una propiedad interesante es que la matriz $\mathbf{\Sigma}$ puede descomponerse por medio de sus eigenvalores y eigen vectores.
 
 !!! abstract "Descomposición espectral"
     Sea $A$ una matriz de dimensión $p \times p$, entonces
@@ -192,16 +221,29 @@ Una aplicación es que si se define la matriz:
 
 entonces $\mathbf{A}=\mathbf{P}\mathbf{\Lambda}\mathbf{P}^t=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t$ y $\mathbf{A}^{-1}=\mathbf{P}\mathbf{\Lambda}^{-1}\mathbf{P}^t=\sum_{j=1}^{p}\frac{1}{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t$. 
 
-Note que es posible definir la raiz de una matriz,denotada por $\mathbf{A}^{1/2}$, que cumple con la propiedad $\mathbf{A}^{1/2}\mathbf{A}^{1/2}=\mathbf{A}$ y $\mathbf{A}^{-1/2}\mathbf{A}^{-1/2}=\mathbf{A}^{-1}$, simplemente definiendo $\mathbf{A}^{1/2}=\mathbf{P}\mathbf{\Lambda}^{1/2}\mathbf{P}^t=\sum_{j=1}^{p}\sqrt{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t$. Esta expresión es útil para encontrar la matriz de correlaciones a partir de la matriz de covarianzas o viceversa, es decir $\mathbf{R}=\mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2}$ y $\mathbf{S}=\mathbf{D}^{1/2}\mathbf{R}\mathbf{D}^{1/2}$ donde
+Note que es posible definir la raiz de una matriz,denotada por $\mathbf{A}^{1/2}$, que cumple con la propiedad $\mathbf{A}^{1/2}\mathbf{A}^{1/2}=\mathbf{A}$ y $\mathbf{A}^{-1/2}\mathbf{A}^{-1/2}=\mathbf{A}^{-1}$, simplemente definiendo $\mathbf{A}^{1/2}=\mathbf{P}\mathbf{\Lambda}^{1/2}\mathbf{P}^t=\sum_{j=1}^{p}\sqrt{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t$.
+
+Debido a que muchas veces las variables están distintas escalas o unidades, las covarianzas podrían tomar valores muy grandes y es complicado de interpreta, por ello se puede definir la matriz de correlaciones $\mathbf{R}=\mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2}$ a partir de la matriz de covarianzas, donde 
 
 \(
-\mathbf{D}=\begin{bmatrix}
-\sqrt{s_{1,1}} & 0 & \dots & 0\\
-0 & \sqrt{s_{2,2}} & \dots & 0\\
+\mathbf{D}^{-1/2}=\begin{bmatrix}
+1/\sqrt{\sigma_{1,1}} & 0 & \dots & 0\\
+0 & 1/\sqrt{\sigma_{2,2}} & \dots & 0\\
 \vdots & \vdots & \ddots & \vdots\\
-0 & 0 & \dots & \sqrt{s_{p,p}}\\
+0 & 0 & \dots & 1/\sqrt{\sigma_{p,p}}\\
 \end{bmatrix}
-\).
+\)
+
+o viceversa, es decir  $\mathbf{S}=\mathbf{D}^{1/2}\mathbf{R}\mathbf{D}^{1/2}$ donde
+
+\(
+\mathbf{D}^{1/2}=\begin{bmatrix}
+\sqrt{\sigma_{1,2}} & 0 & \dots & 0\\
+0 & \sqrt{\sigma_{2,2}} & \dots & 0\\
+\vdots & \vdots & \ddots & \vdots\\
+0 & 0 & \dots & \sqrt{\sigma_{p,p}}\\
+\end{bmatrix}
+\)
 
 ## Muestras aleatorias
 
@@ -331,6 +373,58 @@ Se usará la notación $\bar{\mathbf{x}}$ y $\mathbf{s}$ para referirse a realiz
     \end{bmatrix}
     \end{align*}
     \)
+
+??? example "Cálculo de la matriz de varianza covarianza"
+    Actualmente los softwares ofrecen muchas opciones para realizar estos cálculos. A continuación se mostrará cómo calcular una matriz de covarianzas de una base con muchas observaciones usando diversos programas estadísticos.
+
+    === "Julia"
+
+        En julia se puede usar la función `cov` del paquete `Statistics`; note que esta función requiere una matriz que contenga únicamente valores numéricos.
+
+        ``` julia
+        using Statistics
+        cov(Matrix(indicadores[:,2:18]))
+        ```
+
+    === "Python"
+
+        En python se puede hacer aplicando el método `cov` del paquete `pandas` a un objeto `dataframe`.
+
+        ``` python
+        import pandas as pd
+        import numpy as np
+        indicadores.cov()
+        ```
+
+    === "R"
+
+        En R se puede hacer con la función `cov`, sin embargo, esta función requiere un dataframe que contenga únicamente valores numéricos.
+
+        ``` r
+        datos=indicadores[,-1]
+        cov(datos)
+        ```
+    
+    === "SAS"
+
+        En SAS se puede realizar de 2 maneras distintas: con el `PROC CORR` y `PROC IML`.
+
+        Con el `PROC CORR` se debe especificar en la sentecia `PROC CORR` la opcion `COV` y opcionalmente la opción de guardar la tabla resultante. SAS Automáticamente realizará el cálculo de las variables numéricas.
+
+        Por otro lado, con el `PROC IML` primero se debe leer el dataset en una matriz y posteriormente se usa la función `cov` y se guarda en la matriz `S`. Para visualizar el resultado se usa la función `print`.
+
+        ``` sas
+        /*Usando el procedimiento corr*/
+        PROC CORR data= indicadores cov OUT=cv_ind;
+        RUN;
+        /*Usando PROC IML*/
+        PROC IML;
+        USE work.indicadores;
+        READ ALL VAR _NUM_ INTO X[rowname=country];
+        S = COV(X);
+        PRINT S;
+        QUIT;
+        ```
 
 ### Matriz de Combinaciones lineales
 

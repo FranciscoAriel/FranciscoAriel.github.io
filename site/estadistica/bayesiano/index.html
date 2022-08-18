@@ -736,9 +736,9 @@
        <p>La estadística bayesiana es un paradigma completo de inferencia basado en la <em>teoría de la decisión</em> y por lo tanto se basa en los conceptos de probabilidad.</p>
 <p>A diferencia del enfoque frecuentista, la estadística bayesiana se basa en el enfoque de <em>probabilidad subjetiva</em>. Dicha probabilidad subjetiva es una medida o grado de creencia de qué tan verosímil sea un evento.</p>
 <p>Por ejemplo, si le preguntáramos a cada persona sobre la probabilidad de que llueva <span class="arithmatex">\(\theta\)</span>, cada una nos responderá según su creencia o nivel de conocimiento sobre <span class="arithmatex">\(\theta\)</span>. Todo ese conocimiento podría resumirse en una función de distribución que llamaremos <em>distribución a priori</em>, denotada <span class="arithmatex">\(f_\Theta(\theta)\)</span> o <span class="arithmatex">\(p(\theta)\)</span>.</p>
-<p>Esta información <em>a priori</em> se combina con la información de los datos, denotada como <span class="arithmatex">\(f_{X| \Theta}(x|\theta)\)</span> o <span class="arithmatex">\(p(x|\theta)\)</span> con el fin de obtener la <em>distribución a posteriori</em>, denotada como <span class="arithmatex">\(f_{\Theta|X}(\theta|x)\)</span> o <span class="arithmatex">\(p(\theta|x)\)</span> usando la regla de Bayes.</p>
+<p>Esta información <em>a priori</em> se combina con la <em>información de los datos</em>, denotada como <span class="arithmatex">\(f_{X| \Theta}(x|\theta)\)</span> o <span class="arithmatex">\(L(\theta|x)\)</span> con el fin de obtener la <em>distribución a posteriori</em>, denotada como <span class="arithmatex">\(f_{\Theta|X}(\theta|x)\)</span> o <span class="arithmatex">\(p(\theta|x)\)</span> usando la regla de Bayes.</p>
 <p><span class="arithmatex">\(
-    p(\theta|x)=\frac{p(\theta,x)}{p(x)}=\frac{p(x|\theta)p(\theta)}{p(x)}
+    p(\theta|x)=\frac{p(\theta,x)}{p(x)}=\frac{L(\theta|x)p(\theta)}{p(x)}
 \)</span></p>
 <p>Note que <span class="arithmatex">\(p(x)\)</span> es una densidad que no depende de <span class="arithmatex">\(\theta\)</span>, por lo que la distribución a posteriori pude escribirse como:</p>
 <p><span class="arithmatex">\(
@@ -751,6 +751,8 @@
 <p>Note que los datos pueden ser modelados mediante la verosimilitud, es decir <span class="arithmatex">\(p(\mathbf{x}|\theta)=L(\theta|\mathbf{x})=\prod_{i=1}^{n}\theta^{x_i}\left(1-\theta\right)^{1-x_i}=\theta^{\sum_{i=1}^{n}x_i}\left(1-\theta\right)^{n-\sum_{i=1}^{n}x_i}\)</span>.</p>
 <p>Sustituyendo</p>
 <p><span class="arithmatex">\(p(\theta|x)\propto \theta^{7}\left(1-\theta\right)^{3}I_{(0,1)}(\theta)\)</span></p>
+<p>Note que como tal, <strong>no es una función de densidad</strong>, debido a que la integral no es 1, sin embargo, es proporcional a una función de densidad beta con parámetros 8 y 4.</p>
+<p>Por lo tanto, la distribución <em>a posteriori</em> es <span class="arithmatex">\(p(\theta|x)=\frac{\theta^{8-1} \left(1-\theta\right)^{4-1}}{B(8,4)}I_{(0,1)}(\theta)\)</span>.</p>
 </details>
    
        <!-- Last update of source file -->

@@ -1393,7 +1393,7 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 </details>
 <details class="example">
 <summary>Lectura de datos</summary>
-<p>En este ejemplo se mostrará cómo leer la información en distintos softwares. Los datos se encuentran en la <a href="../src/indicadores.csv">siguiente liga</a>.</p>
+<p>En aplicaciones, es común tener que leer bases con una gran cantidad de datos, para ello es necesario saber cómo importar la información. En este ejemplo se mostrará cómo leer una base en formato csv en distintos softwares. Los datos se encuentran en la <a href="../src/indicadores.csv">siguiente liga</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Julia</label><label for="__tabbed_1_2">Python</label><label for="__tabbed_1_3">R</label><label for="__tabbed_1_4">SAS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1453,72 +1453,97 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 <p class="admonition-title">Matriz definda positiva</p>
 <p>Se dice que una matriz <span class="arithmatex">\(\mathbf{A}\)</span> es definida positiva si para todo <span class="arithmatex">\(\mathbf{c}\ne \mathbf{0}\)</span>, entonces <span class="arithmatex">\(\mathbf{c}^t\mathbf{A}\mathbf{c}&gt;0\)</span>. Note que <span class="arithmatex">\(\mathbf{c}^t\mathbf{A}\mathbf{c}\)</span> es un escalar y se le conoce como <em>forma cuadrática</em>.</p>
 </div>
+<div class="admonition abstract">
+<p class="admonition-title">Eigenvalores y eigenvectores de una matriz</p>
+<p>Sea <span class="arithmatex">\(\mathbf{A}\)</span> una matriz cuadrada simétrica de dimensión <span class="arithmatex">\(p \times p\)</span>. Entonces <span class="arithmatex">\(A\)</span> tendrá las parejas:</p>
+<p><span class="arithmatex">\( \lbrace \lambda_1,\mathbf{e}_1\rbrace,\lbrace \lambda_2,\mathbf{e}_2\rbrace,\dots \lbrace \lambda_p,\mathbf{e}_p\rbrace
+\)</span></p>
+<p>donde <span class="arithmatex">\(\mathbf{A}\mathbf{e}_j=\lambda_j\mathbf{e}_j\)</span>, para <span class="arithmatex">\(j=1,2,\dots,p\)</span> y los eigenvectores son <em>ortonormales</em>, decir <span class="arithmatex">\(\mathbf{e}_i^t\mathbf{e}_j=1\)</span> si <span class="arithmatex">\(i=j\)</span> y <span class="arithmatex">\(\mathbf{e}_i^t\mathbf{e}_j=0\)</span> si <span class="arithmatex">\(i\ne j\)</span>.</p>
+</div>
+<p>Para el cálculo de un eigenvalores y eigenvectores, se requiere el uso de sotfware. Para un ejemplo numérico de una matriz de <span class="arithmatex">\(2 \times 2\)</span>, vease Johnson, R., &amp; Wichern, D., (2007) pp. 97.</p>
 <details class="example">
-<summary>Cálculo de la matriz de varianza covarianza</summary>
-<p>Actualmente los softwares ofrecen muchas opciones para realizar estos cálculos. A continuación se mostrará cómo hacerlo en diversos programas estadísticos.</p>
+<summary>Cálculo de eigenvalores y eigenvectores</summary>
+<p>Sea <span class="arithmatex">\(\mathbf{A}=\begin{pmatrix}9&amp;-2\\-2&amp;6\end{pmatrix}\)</span>. Encontrar los eigenvalores y eigenvectores de <span class="arithmatex">\(\mathbf{A}\)</span>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Julia</label><label for="__tabbed_2_2">Python</label><label for="__tabbed_2_3">R</label><label for="__tabbed_2_4">SAS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>En julia se puede usar la función <code>cov</code> del paquete <code>Statistics</code>; note que esta función requiere una matriz que contenga únicamente valores numéricos.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">Statistics</span>
-<span class="n">cov</span><span class="p">(</span><span class="kt">Matrix</span><span class="p">(</span><span class="n">indicadores</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="o">:</span><span class="mi">18</span><span class="p">]))</span>
-</code></pre></div>
-</td></tr></table>
-</div>
-<div class="tabbed-block">
-<p>En python se puede hacer aplicando el método <code>cov</code> del paquete <code>pandas</code> a un objeto <code>dataframe</code>.</p>
+<p>Para definir una matriz en julia se usan los corchetes cuadrados  <code>[]</code>, pero se pueden definir los renglones de una matriz usando punto y coma <code>;</code>.</p>
+<p>Para obtener los eigenvalores y eigenvectores, se usa la función <code>eigen</code> de la librería <code>LinearAlgebra</code>. También se pueden usar las funciones <code>eigvals</code> y <code>eigvecs</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">indicadores</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">LinearAlgebra</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
+<span class="n">eigen</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="c"># opcionalmente </span>
+<span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">eigvecs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<p><img alt="Resultado eigenvalores en julia" src="../img/eigen_julia.png" /></p>
 </div>
 <div class="tabbed-block">
-<p>En R se puede hacer con la función <code>cov</code>, sin embargo, esta función requiere un dataframe que contenga únicamente valores numéricos.</p>
+<p>En python es necesario usar la librería <code>numpy</code> y el módulo <code>linalg</code>.</p>
+<p>Para definir una matriz, se usa la función <code>array</code> para definir un arreglo (o matriz) y usar la función <code>eig</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">=</span><span class="n">indicadores</span><span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
-<span class="nf">cov</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">eig</span>
+
+<span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<p><img alt="Resultado eigenvalores en python" src="../img/eigen_python.png" /></p>
 </div>
 <div class="tabbed-block">
-<p>En SAS se puede realizar de 2 maneras distintas: con el <code>PROC CORR</code> y <code>PROC IML</code>.</p>
-<p>Con el <code>PROC CORR</code> se debe especificar en la sentecia <code>PROC CORR</code> la opcion <code>COV</code> y opcionalmente la opción de guardar la tabla resultante. SAS Automáticamente realizará el cálculo de las variables numéricas.</p>
-<p>Por otro lado, con el <code>PROC IML</code> primero se debe leer el dataset en una matriz y posteriormente se usa la función <code>cov</code> y se guarda en la matriz <code>S</code>. Para visualizar el resultado se usa la función <code>print</code>.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c">/*Usando el procedimiento corr*/</span>
-<span class="kr">PROC CORR </span>data= indicadores cov <span class="k">OUT</span>=cv_ind<span class="kr">;</span>
-<span class="kr">RUN;</span>
-<span class="c">/*Usando PROC IML*/</span>
-<span class="kr">PROC IML;</span>
-USE work<span class="m">.</span>indicadores;
-READ ALL VAR _NUM_ <span class="k">INTO</span> <span class="k">X</span>[rowname=country];
-S = COV(<span class="k">X</span>);
-PRINT S<span class="kr">;</span>
-<span class="kr">QUIT;</span>
+<p>En R se debe definir una matriz, a partir de un vector, usando la función <code>matrix</code> y especificando las dimensiones, opcionalmente se le puede indicar que la matriz se llene por renglones con la opción <code>byrow=TRUE</code>.</p>
+<p>Los eigenvalores y eigenvectores se puede obtener con la función <code>eigen</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="m">-2</span><span class="p">,</span><span class="m">-2</span><span class="p">,</span><span class="m">6</span><span class="p">),</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">eigen</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
+<p><img alt="Resultado eigenvalores en R" src="../img/eigen_r.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>En SAS se debe usar el procedimiento IML, que es el lenguaje de SAS para manejar matrices.</p>
+<p>La forma de definir una matriz es mediante llaves <code>{}</code>.  SAS solo hacepta valores numéricos y cada valor se separa con un espacio y los renglones con una coma.</p>
+<p>Para obtener los eigenvalores y eigenvectores se hace uso de la llamda a la rutina <code>eigen</code>, especificando en donde se deben guardar los valores obtenidos. Opcionalmente pueden usarse las funciones <code>eigval</code> y <code>eigvec</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">proc iml;</span>
+    A = {<span class="m">9</span> -<span class="m">2</span>,-<span class="m">2</span> <span class="m">6</span>};
+    <span class="k">CALL</span> eigen(L,e,A);
+    PRINT L,e;
+    <span class="c">/* opcionalmente */</span>
+    L2 = eigval(A);
+    e2 = eigvec(A);
+    PRINT L2,e2<span class="kr">;</span>
+<span class="kr">quit;</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="Resultado eigenvalores en SAS" src="../img/eigen_sas.png" /></p>
 </div>
 </div>
 </div>
 </details>
-<p>Un resultado importante es que si la matriz de covarianzas <span class="arithmatex">\(\mathbf{\Sigma}\)</span> es positiva definida, existe su inversa <span class="arithmatex">\(\mathbf{\Sigma}^{-1}\)</span> y:</p>
+<p>Un resultado importante es que si la matriz de covarianzas <span class="arithmatex">\(\mathbf{\Sigma}\)</span> es positiva definida, existe su inversa <span class="arithmatex">\(\mathbf{\Sigma}^{-1}\)</span>, tal que <span class="arithmatex">\(\mathbf{\Sigma}^{-1}\mathbf{\Sigma}=\mathbf{I}\)</span> y se cumple que:</p>
 <p><span class="arithmatex">\(
 \mathbf{\Sigma}\mathbf{e}=\lambda \mathbf{e} \rightarrow \mathbf{\Sigma}^{-1}\mathbf{e}=\frac{1}{\lambda} \mathbf{e}
 \)</span></p>
 <p>donde <span class="arithmatex">\(\lambda\)</span> es un eigenvalor y <span class="arithmatex">\(\mathbf{e}\)</span> es un eigenvector.</p>
-<p>Una propiedad interesante es que la matriz <span class="arithmatex">\(\mathbf{\Sigma}\)</span> puede descomponerse por medio de sus eigen valores y eigen vectores.</p>
+<p>Una propiedad interesante es que la matriz <span class="arithmatex">\(\mathbf{\Sigma}\)</span> puede descomponerse por medio de sus eigenvalores y eigen vectores.</p>
 <div class="admonition abstract">
 <p class="admonition-title">Descomposición espectral</p>
 <p>Sea <span class="arithmatex">\(A\)</span> una matriz de dimensión <span class="arithmatex">\(p \times p\)</span>, entonces</p>
@@ -1537,15 +1562,25 @@ A=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t
 \end{bmatrix}
 \)</span></p>
 <p>entonces <span class="arithmatex">\(\mathbf{A}=\mathbf{P}\mathbf{\Lambda}\mathbf{P}^t=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t\)</span> y <span class="arithmatex">\(\mathbf{A}^{-1}=\mathbf{P}\mathbf{\Lambda}^{-1}\mathbf{P}^t=\sum_{j=1}^{p}\frac{1}{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t\)</span>. </p>
-<p>Note que es posible definir la raiz de una matriz,denotada por <span class="arithmatex">\(\mathbf{A}^{1/2}\)</span>, que cumple con la propiedad <span class="arithmatex">\(\mathbf{A}^{1/2}\mathbf{A}^{1/2}=\mathbf{A}\)</span> y <span class="arithmatex">\(\mathbf{A}^{-1/2}\mathbf{A}^{-1/2}=\mathbf{A}^{-1}\)</span>, simplemente definiendo <span class="arithmatex">\(\mathbf{A}^{1/2}=\mathbf{P}\mathbf{\Lambda}^{1/2}\mathbf{P}^t=\sum_{j=1}^{p}\sqrt{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t\)</span>. Esta expresión es útil para encontrar la matriz de correlaciones a partir de la matriz de covarianzas o viceversa, es decir <span class="arithmatex">\(\mathbf{R}=\mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2}\)</span> y <span class="arithmatex">\(\mathbf{S}=\mathbf{D}^{1/2}\mathbf{R}\mathbf{D}^{1/2}\)</span> donde</p>
+<p>Note que es posible definir la raiz de una matriz,denotada por <span class="arithmatex">\(\mathbf{A}^{1/2}\)</span>, que cumple con la propiedad <span class="arithmatex">\(\mathbf{A}^{1/2}\mathbf{A}^{1/2}=\mathbf{A}\)</span> y <span class="arithmatex">\(\mathbf{A}^{-1/2}\mathbf{A}^{-1/2}=\mathbf{A}^{-1}\)</span>, simplemente definiendo <span class="arithmatex">\(\mathbf{A}^{1/2}=\mathbf{P}\mathbf{\Lambda}^{1/2}\mathbf{P}^t=\sum_{j=1}^{p}\sqrt{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t\)</span>.</p>
+<p>Debido a que muchas veces las variables están distintas escalas o unidades, las covarianzas podrían tomar valores muy grandes y es complicado de interpreta, por ello se puede definir la matriz de correlaciones <span class="arithmatex">\(\mathbf{R}=\mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2}\)</span> a partir de la matriz de covarianzas, donde </p>
 <p><span class="arithmatex">\(
-\mathbf{D}=\begin{bmatrix}
-\sqrt{s_{1,1}} &amp; 0 &amp; \dots &amp; 0\\
-0 &amp; \sqrt{s_{2,2}} &amp; \dots &amp; 0\\
+\mathbf{D}^{-1/2}=\begin{bmatrix}
+1/\sqrt{\sigma_{1,1}} &amp; 0 &amp; \dots &amp; 0\\
+0 &amp; 1/\sqrt{\sigma_{2,2}} &amp; \dots &amp; 0\\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
-0 &amp; 0 &amp; \dots &amp; \sqrt{s_{p,p}}\\
+0 &amp; 0 &amp; \dots &amp; 1/\sqrt{\sigma_{p,p}}\\
 \end{bmatrix}
-\)</span>.</p>
+\)</span></p>
+<p>o viceversa, es decir  <span class="arithmatex">\(\mathbf{S}=\mathbf{D}^{1/2}\mathbf{R}\mathbf{D}^{1/2}\)</span> donde</p>
+<p><span class="arithmatex">\(
+\mathbf{D}^{1/2}=\begin{bmatrix}
+\sqrt{\sigma_{1,2}} &amp; 0 &amp; \dots &amp; 0\\
+0 &amp; \sqrt{\sigma_{2,2}} &amp; \dots &amp; 0\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+0 &amp; 0 &amp; \dots &amp; \sqrt{\sigma_{p,p}}\\
+\end{bmatrix}
+\)</span></p>
 <h2 id="muestras-aleatorias">Muestras aleatorias<a class="headerlink" href="#muestras-aleatorias" title="Permanent link">&para;</a></h2>
 <p>Debido a que en estadística es de interés hacer inferencias sobre el conjunto de datos, se requiere hacer ciertos supuestos sobre la información. En particular se supondrá que la información es una <em>muestra aleatoria multivariada</em> de una población específica.</p>
 <p>En este sentido, la matriz de datos <span class="arithmatex">\(\mathbf{X}\)</span> será considerada como una <em>muestra aleatoria</em> de dimensión <span class="arithmatex">\(n\)</span>.</p>
@@ -1661,6 +1696,66 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 \end{bmatrix}
 \end{align*}
 \)</span></p>
+</details>
+<details class="example">
+<summary>Cálculo de la matriz de varianza covarianza</summary>
+<p>Actualmente los softwares ofrecen muchas opciones para realizar estos cálculos. A continuación se mostrará cómo calcular una matriz de covarianzas de una base con muchas observaciones usando diversos programas estadísticos.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Julia</label><label for="__tabbed_3_2">Python</label><label for="__tabbed_3_3">R</label><label for="__tabbed_3_4">SAS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>En julia se puede usar la función <code>cov</code> del paquete <code>Statistics</code>; note que esta función requiere una matriz que contenga únicamente valores numéricos.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">Statistics</span>
+<span class="n">cov</span><span class="p">(</span><span class="kt">Matrix</span><span class="p">(</span><span class="n">indicadores</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">2</span><span class="o">:</span><span class="mi">18</span><span class="p">]))</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<p>En python se puede hacer aplicando el método <code>cov</code> del paquete <code>pandas</code> a un objeto <code>dataframe</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">indicadores</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<p>En R se puede hacer con la función <code>cov</code>, sin embargo, esta función requiere un dataframe que contenga únicamente valores numéricos.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">datos</span><span class="o">=</span><span class="n">indicadores</span><span class="p">[,</span><span class="m">-1</span><span class="p">]</span>
+<span class="nf">cov</span><span class="p">(</span><span class="n">datos</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+<div class="tabbed-block">
+<p>En SAS se puede realizar de 2 maneras distintas: con el <code>PROC CORR</code> y <code>PROC IML</code>.</p>
+<p>Con el <code>PROC CORR</code> se debe especificar en la sentecia <code>PROC CORR</code> la opcion <code>COV</code> y opcionalmente la opción de guardar la tabla resultante. SAS Automáticamente realizará el cálculo de las variables numéricas.</p>
+<p>Por otro lado, con el <code>PROC IML</code> primero se debe leer el dataset en una matriz y posteriormente se usa la función <code>cov</code> y se guarda en la matriz <code>S</code>. Para visualizar el resultado se usa la función <code>print</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c">/*Usando el procedimiento corr*/</span>
+<span class="kr">PROC CORR </span>data= indicadores cov <span class="k">OUT</span>=cv_ind<span class="kr">;</span>
+<span class="kr">RUN;</span>
+<span class="c">/*Usando PROC IML*/</span>
+<span class="kr">PROC IML;</span>
+USE work<span class="m">.</span>indicadores;
+READ ALL VAR _NUM_ <span class="k">INTO</span> <span class="k">X</span>[rowname=country];
+S = COV(<span class="k">X</span>);
+PRINT S<span class="kr">;</span>
+<span class="kr">QUIT;</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+</div>
 </details>
 <h3 id="matriz-de-combinaciones-lineales">Matriz de Combinaciones lineales<a class="headerlink" href="#matriz-de-combinaciones-lineales" title="Permanent link">&para;</a></h3>
 <p>En estadística multivariada es posible realizar combinaciones lineales de variables para formar una nueva variable. Las combinaciones lineales estudiadas tienen la forma:</p>
