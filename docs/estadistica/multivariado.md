@@ -8,6 +8,8 @@ publish_date: 2022-05-31
 read_time: 45 minutos
 ---
 
+## Introducción
+
 La estadística multivariada es un área que estudia datos recolectados de individuos a los cuales se les mide una o más características.
 
 Usualmente los datos, denotados por $\mathbf{X}$, son registrados en forma rectangular por medio de columnas y renglones. Esta forma permite representar los datos en forma *matricial*.
@@ -123,7 +125,7 @@ Para el cálculo de un eigenvalores y eigenvectores, se requiere el uso de sotfw
 
     === "Julia"
 
-        Para definir una matriz en julia se usan los corchetes cuadrados  `[]`, pero se pueden definir los renglones de una matriz usando punto y coma `;`.
+        Para definir una matriz en julia se usan los corchetes cuadrados  `[]` ys se pueden definir los renglones de la matriz la notación de vectores `[]` separados por un espacio.
         
         Para obtener los eigenvalores y eigenvectores, se usa la función `eigen` de la librería `LinearAlgebra`. También se pueden usar las funciones `eigvals` y `eigvecs`.
 
@@ -171,9 +173,9 @@ Para el cálculo de un eigenvalores y eigenvectores, se requiere el uso de sotfw
 
         En SAS se debe usar el procedimiento IML, que es el lenguaje de SAS para manejar matrices.
 
-        La forma de definir una matriz es mediante llaves `{}`.  SAS solo hacepta valores numéricos y cada valor se separa con un espacio y los renglones con una coma.
+        La forma de definir una matriz es mediante llaves `{}`. SAS solo acepta valores numéricos y cada valor se separa con un espacio y los renglones con una coma.
 
-        Para obtener los eigenvalores y eigenvectores se hace uso de la llamda a la rutina `eigen`, especificando en donde se deben guardar los valores obtenidos. Opcionalmente pueden usarse las funciones `eigval` y `eigvec`.
+        Para obtener los eigenvalores y eigenvectores se hace uso de la llamada a la rutina `eigen`, especificando en donde se deben guardar los valores obtenidos. Opcionalmente pueden usarse las funciones `eigval` y `eigvec`.
 
         ``` sas
         proc iml;
@@ -206,6 +208,92 @@ Una propiedad interesante es que la matriz $\mathbf{\Sigma}$ puede descomponerse
     A=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t
     \)
 
+??? example "Ilustración de la descomposición espectral"
+    Usando la descomposición espectral, se mostrará el resultado anterior usando la matriz $\mathbf{A}=\begin{pmatrix}9&-2\\-2&6\end{pmatrix}$.
+
+    === "Julia"
+
+        Para mostrar que se puede expresar una matriz a partir de sus eigenvalores y eigenvectores, primero se definirá una matriz de ceros de dimensión $2 \times 2$ en donde se almacenará el resultado con la función `zeros`, después se hará uso de la multiplicación de matrices con el operador `*` y el uso del vector transpuesto con la función `transpose`. La suma se hará de manera iterativa mediante el uso de un ciclo.
+
+        ``` julia
+        using LinearAlgebra
+        A = [[9,-2] [-2,6]]
+        lj=eigvals(A)
+        ej=eigvecs(A)
+        A2=zeros(2,2)
+        for j in 1:2
+            A2=A2+lj[j]*ej[:,j]*transpose(ej[:,j])
+        end
+        ```
+
+        ![Resultado de la descomposición espectral en Julia](img/desc_espec_julia.png)
+    
+    === "Python"
+
+        Note que en python, los eigenvectores corresponderían a las columnas del arreglo, por lo que se recomienda transponer la matriz de los eigenvectores que arroja python para que cada renglón corresponda a un eigenvector.
+
+        Debido a esto, el producto punto `@` se debe hacer de forma `\mathbf{e}_j^t \mathbf{e}_j` ya que se accede por renglones a la matriz.
+
+        ``` python
+        import numpy as np
+        from numpy.linalg import eig
+        A=[[9,-2],[-2,6]]
+        dim=(2,2)
+        jj=[0,1]
+        A2=np.zeros(dim)
+        lj,ej=eig(A)
+        lj=np.matrix(lj)
+        ej=np.matrix(ej.transpose())
+        for j in jj:
+            A2=A2+lj[0,j]*ej[j].transpose()@ej[j]
+        
+        print(A2)
+        ```
+
+        ![Resultado de la descomposición espectral en Python](img/desc_espec_python.png)
+
+    === "R"
+
+        En R el resultado se almacena en una lista y de ahí se pueden obtener los eigen valores y eigenvectores de la matriz usando `$`. Se puede definir una matriz de ceros en donde se almacenen los resultados.
+
+        Note que el producto de matrices se realiza con el operador `%*%` mientra que multiplicar un escalar por una matriz se hace con `*`.
+
+        ``` r
+        A = matrix(c(9,-2,-2,6),2,2,byrow=TRUE)
+        EV=eigen(A)
+        lj=EV$values
+        ej=EV$vectors
+        A2=matrix(rep(0,4),2,2)
+        for(j in 1:2)
+        {
+          A2=A2+lj[j]*ej[,j]%*%t(ej[,j])
+        }
+        A2
+        ```
+
+        ![Resultado de la descomposición espectral en R](img/desc_espec_r.png)
+
+    === "SAS"
+
+        En SAS simplemente basta con realizar la suma iterativa mediante un ciclo, de manera similar a los otros softwares, se recomienda definir una matriz de ceros en donde se pueda almacenar el resultado, esto se puede hacer con la función `j`.
+
+        El producto de matrices se realiza con `*` mientras que la multiplicación de un escalar por una matriz se realiza con `#`.
+
+        ```` sas
+        proc iml;
+            A = {9 -2,-2 6};
+            A2 = j(2,2,0);
+            CALL eigen(lj,ej,A);
+            DO j= 1 to 2;
+                A2 = A2 + lj[j] # ej[,j] * t(ej[,j]);
+            END;
+            print A2;
+        quit;
+        ````
+
+        ![Resultado de la descomposición espectral en SAS](img/desc_espec_sas.png)
+
+
 Los eigenvectores tienen muchas aplicaciones en estadística multivariada ya que son ortonormales. Sea $\mathbf{P}=[\mathbf{e}_1,\mathbf{e}_2,\cdots,\mathbf{e}_k]$ de dimensión $p \times p$, entonces $\mathbf{P}\mathbf{P}^t = \mathbf{P}^t\mathbf{P}=\mathbf{I}$.
 
 Una aplicación es que si se define la matriz:
@@ -220,6 +308,10 @@ Una aplicación es que si se define la matriz:
 \)
 
 entonces $\mathbf{A}=\mathbf{P}\mathbf{\Lambda}\mathbf{P}^t=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t$ y $\mathbf{A}^{-1}=\mathbf{P}\mathbf{\Lambda}^{-1}\mathbf{P}^t=\sum_{j=1}^{p}\frac{1}{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t$. 
+
+??? "Calculando la inversa de una matriz con eigenvalores"
+    
+
 
 Note que es posible definir la raiz de una matriz,denotada por $\mathbf{A}^{1/2}$, que cumple con la propiedad $\mathbf{A}^{1/2}\mathbf{A}^{1/2}=\mathbf{A}$ y $\mathbf{A}^{-1/2}\mathbf{A}^{-1/2}=\mathbf{A}^{-1}$, simplemente definiendo $\mathbf{A}^{1/2}=\mathbf{P}\mathbf{\Lambda}^{1/2}\mathbf{P}^t=\sum_{j=1}^{p}\sqrt{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t$.
 
@@ -245,7 +337,7 @@ o viceversa, es decir  $\mathbf{S}=\mathbf{D}^{1/2}\mathbf{R}\mathbf{D}^{1/2}$ d
 \end{bmatrix}
 \)
 
-## Muestras aleatorias
+### Muestras aleatorias
 
 Debido a que en estadística es de interés hacer inferencias sobre el conjunto de datos, se requiere hacer ciertos supuestos sobre la información. En particular se supondrá que la información es una *muestra aleatoria multivariada* de una población específica.
 

@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#muestras-aleatorias" class="md-skip">
+        <a href="#introduccion" class="md-skip">
           Skip to content
         </a>
       
@@ -688,12 +688,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#muestras-aleatorias" class="md-nav__link">
     Muestras aleatorias
   </a>
   
-    <nav class="md-nav" aria-label="Muestras aleatorias">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#vector-de-medias-y-matriz-de-covarianzas-muestrales" class="md-nav__link">
@@ -809,12 +816,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#muestras-aleatorias" class="md-nav__link">
     Muestras aleatorias
   </a>
   
-    <nav class="md-nav" aria-label="Muestras aleatorias">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#vector-de-medias-y-matriz-de-covarianzas-muestrales" class="md-nav__link">
@@ -948,7 +962,8 @@
     
     
 
-       <p>La estadística multivariada es un área que estudia datos recolectados de individuos a los cuales se les mide una o más características.</p>
+       <h2 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h2>
+<p>La estadística multivariada es un área que estudia datos recolectados de individuos a los cuales se les mide una o más características.</p>
 <p>Usualmente los datos, denotados por <span class="arithmatex">\(\mathbf{X}\)</span>, son registrados en forma rectangular por medio de columnas y renglones. Esta forma permite representar los datos en forma <em>matricial</em>.</p>
 <p><span class="arithmatex">\(\mathbf{X} =\lbrace X_{i,j}\rbrace = 
 \begin{bmatrix}
@@ -1467,7 +1482,7 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Julia</label><label for="__tabbed_2_2">Python</label><label for="__tabbed_2_3">R</label><label for="__tabbed_2_4">SAS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Para definir una matriz en julia se usan los corchetes cuadrados  <code>[]</code>, pero se pueden definir los renglones de una matriz usando punto y coma <code>;</code>.</p>
+<p>Para definir una matriz en julia se usan los corchetes cuadrados  <code>[]</code> ys se pueden definir los renglones de la matriz la notación de vectores <code>[]</code> separados por un espacio.</p>
 <p>Para obtener los eigenvalores y eigenvectores, se usa la función <code>eigen</code> de la librería <code>LinearAlgebra</code>. También se pueden usar las funciones <code>eigvals</code> y <code>eigvecs</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1512,8 +1527,8 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 </div>
 <div class="tabbed-block">
 <p>En SAS se debe usar el procedimiento IML, que es el lenguaje de SAS para manejar matrices.</p>
-<p>La forma de definir una matriz es mediante llaves <code>{}</code>.  SAS solo hacepta valores numéricos y cada valor se separa con un espacio y los renglones con una coma.</p>
-<p>Para obtener los eigenvalores y eigenvectores se hace uso de la llamda a la rutina <code>eigen</code>, especificando en donde se deben guardar los valores obtenidos. Opcionalmente pueden usarse las funciones <code>eigval</code> y <code>eigvec</code>.</p>
+<p>La forma de definir una matriz es mediante llaves <code>{}</code>. SAS solo acepta valores numéricos y cada valor se separa con un espacio y los renglones con una coma.</p>
+<p>Para obtener los eigenvalores y eigenvectores se hace uso de la llamada a la rutina <code>eigen</code>, especificando en donde se deben guardar los valores obtenidos. Opcionalmente pueden usarse las funciones <code>eigval</code> y <code>eigvec</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1551,6 +1566,117 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 A=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t
 \)</span></p>
 </div>
+<details class="example">
+<summary>Ilustración de la descomposición espectral</summary>
+<p>Usando la descomposición espectral, se mostrará el resultado anterior usando la matriz <span class="arithmatex">\(\mathbf{A}=\begin{pmatrix}9&amp;-2\\-2&amp;6\end{pmatrix}\)</span>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Julia</label><label for="__tabbed_3_2">Python</label><label for="__tabbed_3_3">R</label><label for="__tabbed_3_4">SAS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Para mostrar que se puede expresar una matriz a partir de sus eigenvalores y eigenvectores, primero se definirá una matriz de ceros de dimensión <span class="arithmatex">\(2 \times 2\)</span> en donde se almacenará el resultado con la función <code>zeros</code>, después se hará uso de la multiplicación de matrices con el operador <code>*</code> y el uso del vector transpuesto con la función <code>transpose</code>. La suma se hará de manera iterativa mediante el uso de un ciclo.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">LinearAlgebra</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
+<span class="n">lj</span><span class="o">=</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">ej</span><span class="o">=</span><span class="n">eigvecs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A2</span><span class="o">=</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">2</span>
+    <span class="n">A2</span><span class="o">=</span><span class="n">A2</span><span class="o">+</span><span class="n">lj</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">ej</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">transpose</span><span class="p">(</span><span class="n">ej</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
+<span class="k">end</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="Resultado de la descomposición espectral en Julia" src="../img/desc_espec_julia.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>Note que en python, los eigenvectores corresponderían a las columnas del arreglo, por lo que se recomienda transponer la matriz de los eigenvectores que arroja python para que cada renglón corresponda a un eigenvector.</p>
+<p>Debido a esto, el producto punto <code>@</code> se debe hacer de forma <code>\mathbf{e}_j^t \mathbf{e}_j</code> ya que se accede por renglones a la matriz.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">eig</span>
+<span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
+<span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">jj</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">A2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<span class="n">lj</span><span class="p">,</span><span class="n">ej</span><span class="o">=</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">lj</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">lj</span><span class="p">)</span>
+<span class="n">ej</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">ej</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jj</span><span class="p">:</span>
+    <span class="n">A2</span><span class="o">=</span><span class="n">A2</span><span class="o">+</span><span class="n">lj</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">ej</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@ej</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A2</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="Resultado de la descomposición espectral en Python" src="../img/desc_espec_python.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>En R el resultado se almacena en una lista y de ahí se pueden obtener los eigen valores y eigenvectores de la matriz usando <code>$</code>. Se puede definir una matriz de ceros en donde se almacenen los resultados.</p>
+<p>Note que el producto de matrices se realiza con el operador <code>%*%</code> mientra que multiplicar un escalar por una matriz se hace con <code>*</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="m">-2</span><span class="p">,</span><span class="m">-2</span><span class="p">,</span><span class="m">6</span><span class="p">),</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">EV</span><span class="o">=</span><span class="nf">eigen</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">lj</span><span class="o">=</span><span class="n">EV</span><span class="o">$</span><span class="n">values</span>
+<span class="n">ej</span><span class="o">=</span><span class="n">EV</span><span class="o">$</span><span class="n">vectors</span>
+<span class="n">A2</span><span class="o">=</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">j</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">A2</span><span class="o">=</span><span class="n">A2</span><span class="o">+</span><span class="n">lj</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">ej</span><span class="p">[,</span><span class="n">j</span><span class="p">]</span><span class="o">%*%</span><span class="nf">t</span><span class="p">(</span><span class="n">ej</span><span class="p">[,</span><span class="n">j</span><span class="p">])</span>
+<span class="p">}</span>
+<span class="n">A2</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="Resultado de la descomposición espectral en R" src="../img/desc_espec_r.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>En SAS simplemente basta con realizar la suma iterativa mediante un ciclo, de manera similar a los otros softwares, se recomienda definir una matriz de ceros en donde se pueda almacenar el resultado, esto se puede hacer con la función <code>j</code>.</p>
+<p>El producto de matrices se realiza con <code>*</code> mientras que la multiplicación de un escalar por una matriz se realiza con <code>#</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">proc iml;</span>
+    A = {<span class="m">9</span> -<span class="m">2</span>,-<span class="m">2</span> <span class="m">6</span>};
+    A2 = j(<span class="m">2</span>,<span class="m">2</span>,<span class="m">0</span>);
+    <span class="k">CALL</span> eigen(lj,ej,A);
+    <span class="k">DO</span> j= <span class="m">1</span> to <span class="m">2</span>;
+        A2 = A2 + lj[j] # ej[,j] * t(ej[,j]);
+    <span class="k">END</span>;
+    print A2<span class="kr">;</span>
+<span class="kr">quit;</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="Resultado de la descomposición espectral en SAS" src="../img/desc_espec_sas.png" /></p>
+</div>
+</div>
+</div>
+</details>
 <p>Los eigenvectores tienen muchas aplicaciones en estadística multivariada ya que son ortonormales. Sea <span class="arithmatex">\(\mathbf{P}=[\mathbf{e}_1,\mathbf{e}_2,\cdots,\mathbf{e}_k]\)</span> de dimensión <span class="arithmatex">\(p \times p\)</span>, entonces <span class="arithmatex">\(\mathbf{P}\mathbf{P}^t = \mathbf{P}^t\mathbf{P}=\mathbf{I}\)</span>.</p>
 <p>Una aplicación es que si se define la matriz:</p>
 <p><span class="arithmatex">\(
@@ -1562,6 +1688,9 @@ A=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t
 \end{bmatrix}
 \)</span></p>
 <p>entonces <span class="arithmatex">\(\mathbf{A}=\mathbf{P}\mathbf{\Lambda}\mathbf{P}^t=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t\)</span> y <span class="arithmatex">\(\mathbf{A}^{-1}=\mathbf{P}\mathbf{\Lambda}^{-1}\mathbf{P}^t=\sum_{j=1}^{p}\frac{1}{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t\)</span>. </p>
+<details>
+<summary>Calculando la inversa de una matriz con eigenvalores</summary>
+</details>
 <p>Note que es posible definir la raiz de una matriz,denotada por <span class="arithmatex">\(\mathbf{A}^{1/2}\)</span>, que cumple con la propiedad <span class="arithmatex">\(\mathbf{A}^{1/2}\mathbf{A}^{1/2}=\mathbf{A}\)</span> y <span class="arithmatex">\(\mathbf{A}^{-1/2}\mathbf{A}^{-1/2}=\mathbf{A}^{-1}\)</span>, simplemente definiendo <span class="arithmatex">\(\mathbf{A}^{1/2}=\mathbf{P}\mathbf{\Lambda}^{1/2}\mathbf{P}^t=\sum_{j=1}^{p}\sqrt{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t\)</span>.</p>
 <p>Debido a que muchas veces las variables están distintas escalas o unidades, las covarianzas podrían tomar valores muy grandes y es complicado de interpreta, por ello se puede definir la matriz de correlaciones <span class="arithmatex">\(\mathbf{R}=\mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2}\)</span> a partir de la matriz de covarianzas, donde </p>
 <p><span class="arithmatex">\(
@@ -1581,7 +1710,7 @@ A=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t
 0 &amp; 0 &amp; \dots &amp; \sqrt{\sigma_{p,p}}\\
 \end{bmatrix}
 \)</span></p>
-<h2 id="muestras-aleatorias">Muestras aleatorias<a class="headerlink" href="#muestras-aleatorias" title="Permanent link">&para;</a></h2>
+<h3 id="muestras-aleatorias">Muestras aleatorias<a class="headerlink" href="#muestras-aleatorias" title="Permanent link">&para;</a></h3>
 <p>Debido a que en estadística es de interés hacer inferencias sobre el conjunto de datos, se requiere hacer ciertos supuestos sobre la información. En particular se supondrá que la información es una <em>muestra aleatoria multivariada</em> de una población específica.</p>
 <p>En este sentido, la matriz de datos <span class="arithmatex">\(\mathbf{X}\)</span> será considerada como una <em>muestra aleatoria</em> de dimensión <span class="arithmatex">\(n\)</span>.</p>
 <p><span class="arithmatex">\(\mathbf{X} =
@@ -1700,7 +1829,7 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 <details class="example">
 <summary>Cálculo de la matriz de varianza covarianza</summary>
 <p>Actualmente los softwares ofrecen muchas opciones para realizar estos cálculos. A continuación se mostrará cómo calcular una matriz de covarianzas de una base con muchas observaciones usando diversos programas estadísticos.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Julia</label><label for="__tabbed_3_2">Python</label><label for="__tabbed_3_3">R</label><label for="__tabbed_3_4">SAS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Julia</label><label for="__tabbed_4_2">Python</label><label for="__tabbed_4_3">R</label><label for="__tabbed_4_4">SAS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>En julia se puede usar la función <code>cov</code> del paquete <code>Statistics</code>; note que esta función requiere una matriz que contenga únicamente valores numéricos.</p>
