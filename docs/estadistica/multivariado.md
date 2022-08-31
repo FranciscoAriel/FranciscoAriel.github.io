@@ -8,9 +8,11 @@ publish_date: 2022-05-31
 read_time: 45 minutos
 ---
 
-## Introducción
-
 La estadística multivariada es un área que estudia datos recolectados de individuos a los cuales se les mide una o más características.
+
+Con el avance de la tecnología, muchas empresas han empezado a analizar bases de datos empleando técnicas multivariadas con el fin de encontrar patrones o crear grupos de individus con el fin de enfocar mejor sus estrategias, por lo que esta área es muy importante en la actualidad.
+
+## Introducción
 
 Usualmente los datos, denotados por $\mathbf{X}$, son registrados en forma rectangular por medio de columnas y renglones. Esta forma permite representar los datos en forma *matricial*.
 

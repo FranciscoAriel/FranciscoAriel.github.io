@@ -1,11 +1,12 @@
 ---
 title: Inferencia estadística
 summary: Introducción a la teoría estadística en donde se abarcan temas de propiedades de los estimadores puntuales y por intervalos.
-authors: Francisco Vázquez
+author: Francisco Vázquez
 date: 2021-09-10
+author_gh_user: FranciscoAriel
+publish_date: 2021-09-10
+read_time: 25 minutos
 ---
-
-# Introducción
 
 En la vida real quisiéramos estimar valores aproximados de características de interés de una población, por ejemplo la temperatura promedio de cierto lugar.
 
@@ -29,6 +30,8 @@ Supóngase que $\mathbf{X}=( X_1,X_2,\ldots,X_n )$ es una muestra aleatoria de u
 
 En otras palabras, para que \(T\) sea un estimador[^2], es necesario que al evaluar el estimador en cualquier muestra, \(T\) caiga dentro del espacio de parámetros \(\Theta\). Se desea que los estimadores tengan ciertas propiedades deseables:
 
+### Suficiencia
+
 !!! note "Principio de suficiencia" 
      Si \(Y_1=u( X_1,X_2,\ldots,X_n )\) es una estadística suficiente para \(\theta\), entonces cualquier inferencia sobre \(\theta\) va a depender de la muestra \(X_1,X_2,\ldots,X_n\) _únicamente a través de la estadística suficiente_ \(Y_1\).
 
@@ -41,5 +44,49 @@ La estadística suficiente es un tipo especial de estadística, ya que condensa 
 !!! note "Definición Estadística suficiente"
      Sea \(\mathbf{X}\) una muestra aleatoria con densidad conjunta \(f_{\mathbf{X}}(\mathbf{x} ;\theta)\). Una estadística \(Y_1=u(\mathbf{X}) \) es suficiente si y sólo si \(f_{\mathbf{X}|Y_1 } (\mathbf{x}|y_1)\) no depende de \(\theta\).
 
+??? example "Ilustración de una estadística suficiente"
+    Sea $X_1, X_2,\dots, X_n$ una muestra aleatoria con densidad $f_X(x; \theta) = \theta e^{−\theta x}I_{(0,\infty)}(x)$, se demostrara que
+
+    \(Y_1 = \sum_{i=1}^{n} Xi\)
+
+    es una estadística suficiente para $\theta$, la cual al ser suma de exponenciales, tiene densidad $Gamma(n, \theta)$, donde $\theta = 1/\beta$.
+
+En la práctica, esta definición no es muy útil ya que implica calcular la densidad condicional y conocer la distribución de la estadística suficiente. Para ello se tiene el siguiente teorema.
+
+!!! note "Teorema de Neyman-Fisher"
+    Sea $X_1, X_2,\dots, X_n$ una muestra aleatoria con densidad $f_X(x; \theta), \theta \in (a, b) \subset \mathbb{R}$. Sea $Y_1 = u(X)$ una estadística con densidad $f_{Y_1}(y_1)$. $Y_1$ es una estadística suficiente para $\theta$ si y solo si 
+    
+    \(f_X(x) = \varphi_1(Y_1, \theta)\varphi_2(x)\)
+
+    la densidad conjunta de las observaciones se puede factorizar de la forma anterior.
+
+### Estimadores insesgados de varianza uniformemente mínima
+
+### Consistencia
+
+### Mejor asintótoticamente normal
+
+### Completez
+
+## Estimación puntual
+
+### Dos teoremas importantes
+
+### Método de momentos
+
+### Estimadores de máxima verosimilitud
+
+Antes de conocer el método, se discutirá que se entiende por verosimilitud. Esta idea fue
+desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usados en estadística.
+
+La idea de verosimilitud se basa en la probabilidad de observar lo más creible dada una muestra, por lo tanto estos estimadores tratarán de maximizar la probabilidad de que haya ocurrido el evento más probable dada cierta información.
+
+Por ejemplo, si en una carrera de caballos participan 8 caballos en igualdad de condiciones,  pero se sabe que hay un caballo favorito (el cual ya ha ganado varias carreras anteriormente) y éste gana la carrera, entonces el caballo ganador seguramente tenía las mejores condiciones sobre los demás y por lógica ganó la carrera. De hecho pudo haber ganado cualquier otro caballo, ya que es un evento posble pero con poca probabilidad.
+
+!!! abstract "Función de distribución"
+    La función de verosimilitud de $n$ variables aleatorias $X_1, X_2,\dots,X_n$, se define como la *densidad conjunta* de $n$ variables aleatorias $f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)$ como *función* de $\theta$. En particular si $X1, X_2,\dots,X_n$ es una muestra aleatoria de $f(x; \theta)$, entonces la función de verosimilitud es $f(x_1; \theta)f(x_2; \theta)\dots f(x_n; \theta)$.
+
 [^1]: Por ahora se considerará que \(\theta\) es de dimensión uno, aunque podría ser un vector de parámetros.
 [^2]: Note que podrían existir infinidad de estimadores con esta característica.
+
+> Muchas de las ideas fueron tomadas del curso _Inferencia Estadística_ impartido por el Dr. José Villaseñor en el cuatrimestre Otoño de 2014 en el Colegio de Postgraduados, Campus Montecillo.

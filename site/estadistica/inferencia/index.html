@@ -9,7 +9,7 @@
         <meta name="description" content="Un sitio donde aprenderás desde lo básico hasta lo mas avanzado acerca de estadística y probabilidad, así como los mejores lenguajes de programación que se usan en estadística.">
       
       
-        <meta name="author" content="Francisco Ariel Vázquez Chávez">
+        <meta name="author" content="Francisco Vázquez">
       
       
         <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/inferencia/">
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduccion" class="md-skip">
+        <a href="#propiedades-deseables-de-los-estimadores" class="md-skip">
           Skip to content
         </a>
       
@@ -594,8 +594,6 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Inferencia estadística
@@ -612,8 +610,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -625,6 +621,81 @@
   <a href="#propiedades-deseables-de-los-estimadores" class="md-nav__link">
     Propiedades deseables de los estimadores
   </a>
+  
+    <nav class="md-nav" aria-label="Propiedades deseables de los estimadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#suficiencia" class="md-nav__link">
+    Suficiencia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimadores-insesgados-de-varianza-uniformemente-minima" class="md-nav__link">
+    Estimadores insesgados de varianza uniformemente mínima
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consistencia" class="md-nav__link">
+    Consistencia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejor-asintototicamente-normal" class="md-nav__link">
+    Mejor asintótoticamente normal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completez" class="md-nav__link">
+    Completez
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimacion-puntual" class="md-nav__link">
+    Estimación puntual
+  </a>
+  
+    <nav class="md-nav" aria-label="Estimación puntual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dos-teoremas-importantes" class="md-nav__link">
+    Dos teoremas importantes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodo-de-momentos" class="md-nav__link">
+    Método de momentos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimadores-de-maxima-verosimilitud" class="md-nav__link">
+    Estimadores de máxima verosimilitud
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -730,8 +801,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -743,6 +812,81 @@
   <a href="#propiedades-deseables-de-los-estimadores" class="md-nav__link">
     Propiedades deseables de los estimadores
   </a>
+  
+    <nav class="md-nav" aria-label="Propiedades deseables de los estimadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#suficiencia" class="md-nav__link">
+    Suficiencia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimadores-insesgados-de-varianza-uniformemente-minima" class="md-nav__link">
+    Estimadores insesgados de varianza uniformemente mínima
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consistencia" class="md-nav__link">
+    Consistencia
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mejor-asintototicamente-normal" class="md-nav__link">
+    Mejor asintótoticamente normal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completez" class="md-nav__link">
+    Completez
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimacion-puntual" class="md-nav__link">
+    Estimación puntual
+  </a>
+  
+    <nav class="md-nav" aria-label="Estimación puntual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dos-teoremas-importantes" class="md-nav__link">
+    Dos teoremas importantes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodo-de-momentos" class="md-nav__link">
+    Método de momentos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimadores-de-maxima-verosimilitud" class="md-nav__link">
+    Estimadores de máxima verosimilitud
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -775,14 +919,36 @@
     as the main headline.
     -->
     
+       <h1>Inferencia estadística</h1>
+    
    
     <!-- Markdown content -->
     <!-- Markdown content -->
     
+    <aside class="mdx-author">
+        <p>
+        <img src="https://avatars.githubusercontent.com/FranciscoAriel" alt="@FranciscoAriel">
+        </p>
+        <p>
+        <span> 
+        <b>Francisco Vázquez</b> · <a href="https://github.com/FranciscoAriel">@FranciscoAriel</a>
+        </span>
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+            </svg> 2021-09-10 ·
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+            </svg> lectura: 25 minutos
+        </span>
+        </p>
+    </aside>
+    
     
 
-       <h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
-<p>En la vida real quisiéramos estimar valores aproximados de características de interés de una población, por ejemplo la temperatura promedio de cierto lugar.</p>
+       <p>En la vida real quisiéramos estimar valores aproximados de características de interés de una población, por ejemplo la temperatura promedio de cierto lugar.</p>
 <p><img alt="lluvia" src="../img/rain.jpg" />
 Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5960262">Bianca van Dijk</a> en <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5960262">Pixabay</a></p>
 <p>Sería conveniente tener <em>fórmulas generales</em> para poder estimar algo desconocido únicamente utilizando información obtenida a partir de la observación de fenómenos; quisiéramos que esas <em>fórmulas generales</em> sean buenas y que se pudieran utilizar con otros datos. Por ello en este documento se detalla la forma en obtener estimadores de los parámetros poblacionales que son de interés.</p>
@@ -801,6 +967,7 @@ Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_sourc
 <p>Una estimación es una <em>realización de un estimador</em>, es decir, es un número real.</p>
 </div>
 <p>En otras palabras, para que <span class="arithmatex">\(T\)</span> sea un estimador<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>, es necesario que al evaluar el estimador en cualquier muestra, <span class="arithmatex">\(T\)</span> caiga dentro del espacio de parámetros <span class="arithmatex">\(\Theta\)</span>. Se desea que los estimadores tengan ciertas propiedades deseables:</p>
+<h3 id="suficiencia">Suficiencia<a class="headerlink" href="#suficiencia" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Principio de suficiencia</p>
 <p>Si <span class="arithmatex">\(Y_1=u( X_1,X_2,\ldots,X_n )\)</span> es una estadística suficiente para <span class="arithmatex">\(\theta\)</span>, entonces cualquier inferencia sobre <span class="arithmatex">\(\theta\)</span> va a depender de la muestra <span class="arithmatex">\(X_1,X_2,\ldots,X_n\)</span> <em>únicamente a través de la estadística suficiente</em> <span class="arithmatex">\(Y_1\)</span>.</p>
@@ -812,6 +979,38 @@ Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_sourc
 <p class="admonition-title">Definición Estadística suficiente</p>
 <p>Sea <span class="arithmatex">\(\mathbf{X}\)</span> una muestra aleatoria con densidad conjunta <span class="arithmatex">\(f_{\mathbf{X}}(\mathbf{x} ;\theta)\)</span>. Una estadística <span class="arithmatex">\(Y_1=u(\mathbf{X}) \)</span> es suficiente si y sólo si <span class="arithmatex">\(f_{\mathbf{X}|Y_1 } (\mathbf{x}|y_1)\)</span> no depende de <span class="arithmatex">\(\theta\)</span>.</p>
 </div>
+<details class="example">
+<summary>Ilustración de una estadística suficiente</summary>
+<p>Sea <span class="arithmatex">\(X_1, X_2,\dots, X_n\)</span> una muestra aleatoria con densidad <span class="arithmatex">\(f_X(x; \theta) = \theta e^{−\theta x}I_{(0,\infty)}(x)\)</span>, se demostrara que</p>
+<p><span class="arithmatex">\(Y_1 = \sum_{i=1}^{n} Xi\)</span></p>
+<p>es una estadística suficiente para <span class="arithmatex">\(\theta\)</span>, la cual al ser suma de exponenciales, tiene densidad <span class="arithmatex">\(Gamma(n, \theta)\)</span>, donde <span class="arithmatex">\(\theta = 1/\beta\)</span>.</p>
+</details>
+<p>En la práctica, esta definición no es muy útil ya que implica calcular la densidad condicional y conocer la distribución de la estadística suficiente. Para ello se tiene el siguiente teorema.</p>
+<div class="admonition note">
+<p class="admonition-title">Teorema de Neyman-Fisher</p>
+<p>Sea <span class="arithmatex">\(X_1, X_2,\dots, X_n\)</span> una muestra aleatoria con densidad <span class="arithmatex">\(f_X(x; \theta), \theta \in (a, b) \subset \mathbb{R}\)</span>. Sea <span class="arithmatex">\(Y_1 = u(X)\)</span> una estadística con densidad <span class="arithmatex">\(f_{Y_1}(y_1)\)</span>. <span class="arithmatex">\(Y_1\)</span> es una estadística suficiente para <span class="arithmatex">\(\theta\)</span> si y solo si </p>
+<p><span class="arithmatex">\(f_X(x) = \varphi_1(Y_1, \theta)\varphi_2(x)\)</span></p>
+<p>la densidad conjunta de las observaciones se puede factorizar de la forma anterior.</p>
+</div>
+<h3 id="estimadores-insesgados-de-varianza-uniformemente-minima">Estimadores insesgados de varianza uniformemente mínima<a class="headerlink" href="#estimadores-insesgados-de-varianza-uniformemente-minima" title="Permanent link">&para;</a></h3>
+<h3 id="consistencia">Consistencia<a class="headerlink" href="#consistencia" title="Permanent link">&para;</a></h3>
+<h3 id="mejor-asintototicamente-normal">Mejor asintótoticamente normal<a class="headerlink" href="#mejor-asintototicamente-normal" title="Permanent link">&para;</a></h3>
+<h3 id="completez">Completez<a class="headerlink" href="#completez" title="Permanent link">&para;</a></h3>
+<h2 id="estimacion-puntual">Estimación puntual<a class="headerlink" href="#estimacion-puntual" title="Permanent link">&para;</a></h2>
+<h3 id="dos-teoremas-importantes">Dos teoremas importantes<a class="headerlink" href="#dos-teoremas-importantes" title="Permanent link">&para;</a></h3>
+<h3 id="metodo-de-momentos">Método de momentos<a class="headerlink" href="#metodo-de-momentos" title="Permanent link">&para;</a></h3>
+<h3 id="estimadores-de-maxima-verosimilitud">Estimadores de máxima verosimilitud<a class="headerlink" href="#estimadores-de-maxima-verosimilitud" title="Permanent link">&para;</a></h3>
+<p>Antes de conocer el método, se discutirá que se entiende por verosimilitud. Esta idea fue
+desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usados en estadística.</p>
+<p>La idea de verosimilitud se basa en la probabilidad de observar lo más creible dada una muestra, por lo tanto estos estimadores tratarán de maximizar la probabilidad de que haya ocurrido el evento más probable dada cierta información.</p>
+<p>Por ejemplo, si en una carrera de caballos participan 8 caballos en igualdad de condiciones,  pero se sabe que hay un caballo favorito (el cual ya ha ganado varias carreras anteriormente) y éste gana la carrera, entonces el caballo ganador seguramente tenía las mejores condiciones sobre los demás y por lógica ganó la carrera. De hecho pudo haber ganado cualquier otro caballo, ya que es un evento posble pero con poca probabilidad.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Función de distribución</p>
+<p>La función de verosimilitud de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(X_1, X_2,\dots,X_n\)</span>, se define como la <em>densidad conjunta</em> de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)\)</span> como <em>función</em> de <span class="arithmatex">\(\theta\)</span>. En particular si <span class="arithmatex">\(X1, X_2,\dots,X_n\)</span> es una muestra aleatoria de <span class="arithmatex">\(f(x; \theta)\)</span>, entonces la función de verosimilitud es <span class="arithmatex">\(f(x_1; \theta)f(x_2; \theta)\dots f(x_n; \theta)\)</span>.</p>
+</div>
+<blockquote>
+<p>Muchas de las ideas fueron tomadas del curso <em>Inferencia Estadística</em> impartido por el Dr. José Villaseñor en el cuatrimestre Otoño de 2014 en el Colegio de Postgraduados, Campus Montecillo.</p>
+</blockquote>
 <div class="footnote">
 <hr />
 <ol>
