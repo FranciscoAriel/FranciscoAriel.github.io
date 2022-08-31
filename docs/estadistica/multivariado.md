@@ -256,7 +256,7 @@ Una propiedad interesante es que la matriz $\mathbf{\Sigma}$ puede descomponerse
 
         En R el resultado se almacena en una lista y de ahí se pueden obtener los eigen valores y eigenvectores de la matriz usando `$`. Se puede definir una matriz de ceros en donde se almacenen los resultados.
 
-        Note que el producto de matrices se realiza con el operador `%*%` mientra que multiplicar un escalar por una matriz se hace con `*`.
+        Note que el producto de matrices se realiza con el operador `%*%` mientras que multiplicar un escalar por una matriz se hace con `*`.
 
         ``` r
         A = matrix(c(9,-2,-2,6),2,2,byrow=TRUE)
@@ -293,7 +293,6 @@ Una propiedad interesante es que la matriz $\mathbf{\Sigma}$ puede descomponerse
 
         ![Resultado de la descomposición espectral en SAS](img/desc_espec_sas.png)
 
-
 Los eigenvectores tienen muchas aplicaciones en estadística multivariada ya que son ortonormales. Sea $\mathbf{P}=[\mathbf{e}_1,\mathbf{e}_2,\cdots,\mathbf{e}_k]$ de dimensión $p \times p$, entonces $\mathbf{P}\mathbf{P}^t = \mathbf{P}^t\mathbf{P}=\mathbf{I}$.
 
 Una aplicación es que si se define la matriz:
@@ -309,9 +308,86 @@ Una aplicación es que si se define la matriz:
 
 entonces $\mathbf{A}=\mathbf{P}\mathbf{\Lambda}\mathbf{P}^t=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t$ y $\mathbf{A}^{-1}=\mathbf{P}\mathbf{\Lambda}^{-1}\mathbf{P}^t=\sum_{j=1}^{p}\frac{1}{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t$. 
 
-??? "Calculando la inversa de una matriz con eigenvalores"
-    
+??? example "Calculando la inversa de una matriz con eigenvalores"
+    En este ejemplo se mostrará cómo hallar la matriz inversa de $\mathbf{A}=\begin{pmatrix}9&-2\\-2&6\end{pmatrix}$ mediante los eigenvalores y eigenvectores.
 
+    === "Julia"
+
+        Para mostrar que se puede expresar la inversa de una matriz a partir de sus eigenvalores y eigenvectores, se hará uso de la multiplicación de matrices con el operador `*` y el uso de la función `transpose`. 
+        
+        Para crear una matriz diagonal cuyos elementos sean el recíproco de los eigenvalores, se puede usar la función `diagm` cuyo argumento sea el recíproco de los eigenvalores. Note que se debe usar el operador *punto-vectorizado* `./` separado por un espacio.
+
+        ``` julia
+        using LinearAlgebra
+        A = [[9,-2] [-2,6]]
+        lj=eigvals(A)
+        P=eigvecs(A)
+        D=diagm(1 ./lj)
+        Ainv=P*D*transpose(P)
+        # función inversa
+        inv(A)
+        ```
+
+        ![Resultado de la inversa con eigenvalores en Julia](img/inv_eigen_julia.png)
+    
+    === "Python"
+
+        Note que en python, se puede usar directamente el resultado generado por la función `eig()` donde la matriz $P$ correspondería a los eigenvectores y la matriz diagonal se puede construir a partir de los recíprocos de los eigenvalores con la función `diag()`.
+
+        ``` python
+        import numpy as np
+        from numpy.linalg import eig
+        A=[[9,-2],[-2,6]]
+        lj,ej=eig(A)
+        D=np.diag(1/lj)
+        Ainv=ej@D@ej.transpose()
+        print(Ainv)
+        # Función inversa
+        np.linalg.inv(A)
+        ```
+
+        ![Resultado de la inversa con eigenvalores en Python](img/inv_eigen_python.png)
+
+    === "R"
+
+        En R, como se mostró en el ejemplo anterior, el resultado se almacena en una lista y de ahí se pueden obtener los eigen valores y eigenvectores de la matriz usando `$`. Se puede definir la matriz diagonal conla función `diag()` usando los recíprocos de los eigenvalores.
+
+        Note que el producto de matrices se realiza con el operador `%*%`.
+
+        ``` r
+        A = matrix(c(9,-2,-2,6),2,2,byrow=TRUE)
+        EV=eigen(A)
+        lj=EV$values
+        ej=EV$vectors
+        D=diag(1/lj)
+        Ainv=ej%*%D%*%t(ej)
+        Ainv
+        # Función inversa
+        solve(A)
+        ```
+
+        ![Resultado de la inversa con eigenvalores en R](img/inv_eigen_r.png)
+
+    === "SAS"
+
+        En SAS se puede definir la matriz diagonal con la función `diag` usando los recíprocos de los eigenvalores.
+
+        El producto de matrices se realiza con `*`.
+
+        ```` sas
+        proc iml;
+            A = {9 -2,-2 6};
+            A2 = j(2,2,0);
+            CALL eigen(lj,ej,A);
+            D=diag(1/lj);
+            Ainv = ej*D*t(ej);
+            print Ainv;
+            /*Función inversa*/
+            print (inv(A));
+        quit;
+        ````
+
+        ![Resultado de la inversa con eigenvalores en SAS](img/inv_eigen_sas.png)
 
 Note que es posible definir la raiz de una matriz,denotada por $\mathbf{A}^{1/2}$, que cumple con la propiedad $\mathbf{A}^{1/2}\mathbf{A}^{1/2}=\mathbf{A}$ y $\mathbf{A}^{-1/2}\mathbf{A}^{-1/2}=\mathbf{A}^{-1}$, simplemente definiendo $\mathbf{A}^{1/2}=\mathbf{P}\mathbf{\Lambda}^{1/2}\mathbf{P}^t=\sum_{j=1}^{p}\sqrt{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t$.
 

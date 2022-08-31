@@ -1626,7 +1626,7 @@ A=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t
 </div>
 <div class="tabbed-block">
 <p>En R el resultado se almacena en una lista y de ahí se pueden obtener los eigen valores y eigenvectores de la matriz usando <code>$</code>. Se puede definir una matriz de ceros en donde se almacenen los resultados.</p>
-<p>Note que el producto de matrices se realiza con el operador <code>%*%</code> mientra que multiplicar un escalar por una matriz se hace con <code>*</code>.</p>
+<p>Note que el producto de matrices se realiza con el operador <code>%*%</code> mientras que multiplicar un escalar por una matriz se hace con <code>*</code>.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1688,8 +1688,108 @@ A=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t
 \end{bmatrix}
 \)</span></p>
 <p>entonces <span class="arithmatex">\(\mathbf{A}=\mathbf{P}\mathbf{\Lambda}\mathbf{P}^t=\sum_{j=1}^{p}\lambda_j\mathbf{e}_j\mathbf{e}_j^t\)</span> y <span class="arithmatex">\(\mathbf{A}^{-1}=\mathbf{P}\mathbf{\Lambda}^{-1}\mathbf{P}^t=\sum_{j=1}^{p}\frac{1}{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t\)</span>. </p>
-<details>
+<details class="example">
 <summary>Calculando la inversa de una matriz con eigenvalores</summary>
+<p>En este ejemplo se mostrará cómo hallar la matriz inversa de <span class="arithmatex">\(\mathbf{A}=\begin{pmatrix}9&amp;-2\\-2&amp;6\end{pmatrix}\)</span> mediante los eigenvalores y eigenvectores.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Julia</label><label for="__tabbed_4_2">Python</label><label for="__tabbed_4_3">R</label><label for="__tabbed_4_4">SAS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Para mostrar que se puede expresar la inversa de una matriz a partir de sus eigenvalores y eigenvectores, se hará uso de la multiplicación de matrices con el operador <code>*</code> y el uso de la función <code>transpose</code>. </p>
+<p>Para crear una matriz diagonal cuyos elementos sean el recíproco de los eigenvalores, se puede usar la función <code>diagm</code> cuyo argumento sea el recíproco de los eigenvalores. Note que se debe usar el operador <em>punto-vectorizado</em> <code>./</code> separado por un espacio.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">using</span> <span class="n">LinearAlgebra</span>
+<span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
+<span class="n">lj</span><span class="o">=</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">P</span><span class="o">=</span><span class="n">eigvecs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">D</span><span class="o">=</span><span class="n">diagm</span><span class="p">(</span><span class="mi">1</span> <span class="o">./</span><span class="n">lj</span><span class="p">)</span>
+<span class="n">Ainv</span><span class="o">=</span><span class="n">P</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">transpose</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="c"># función inversa</span>
+<span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="Resultado de la inversa con eigenvalores en Julia" src="../img/inv_eigen_julia.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>Note que en python, se puede usar directamente el resultado generado por la función <code>eig()</code> donde la matriz <span class="arithmatex">\(P\)</span> correspondería a los eigenvectores y la matriz diagonal se puede construir a partir de los recíprocos de los eigenvalores con la función <code>diag()</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">eig</span>
+<span class="n">A</span><span class="o">=</span><span class="p">[[</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">],[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
+<span class="n">lj</span><span class="p">,</span><span class="n">ej</span><span class="o">=</span><span class="n">eig</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">D</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">lj</span><span class="p">)</span>
+<span class="n">Ainv</span><span class="o">=</span><span class="n">ej</span><span class="nd">@D@ej</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Ainv</span><span class="p">)</span>
+<span class="c1"># Función inversa</span>
+<span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="Resultado de la inversa con eigenvalores en Python" src="../img/inv_eigen_python.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>En R, como se mostró en el ejemplo anterior, el resultado se almacena en una lista y de ahí se pueden obtener los eigen valores y eigenvectores de la matriz usando <code>$</code>. Se puede definir la matriz diagonal conla función <code>diag()</code> usando los recíprocos de los eigenvalores.</p>
+<p>Note que el producto de matrices se realiza con el operador <code>%*%</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="m">-2</span><span class="p">,</span><span class="m">-2</span><span class="p">,</span><span class="m">6</span><span class="p">),</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="n">byrow</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">EV</span><span class="o">=</span><span class="nf">eigen</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">lj</span><span class="o">=</span><span class="n">EV</span><span class="o">$</span><span class="n">values</span>
+<span class="n">ej</span><span class="o">=</span><span class="n">EV</span><span class="o">$</span><span class="n">vectors</span>
+<span class="n">D</span><span class="o">=</span><span class="nf">diag</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="n">lj</span><span class="p">)</span>
+<span class="n">Ainv</span><span class="o">=</span><span class="n">ej</span><span class="o">%*%</span><span class="n">D</span><span class="o">%*%</span><span class="nf">t</span><span class="p">(</span><span class="n">ej</span><span class="p">)</span>
+<span class="n">Ainv</span>
+<span class="c1"># Función inversa</span>
+<span class="nf">solve</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="Resultado de la inversa con eigenvalores en R" src="../img/inv_eigen_r.png" /></p>
+</div>
+<div class="tabbed-block">
+<p>En SAS se puede definir la matriz diagonal con la función <code>diag</code> usando los recíprocos de los eigenvalores.</p>
+<p>El producto de matrices se realiza con <code>*</code>.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">proc iml;</span>
+    A = {<span class="m">9</span> -<span class="m">2</span>,-<span class="m">2</span> <span class="m">6</span>};
+    A2 = j(<span class="m">2</span>,<span class="m">2</span>,<span class="m">0</span>);
+    <span class="k">CALL</span> eigen(lj,ej,A);
+    D=diag(<span class="m">1</span>/lj);
+    Ainv = ej*D*t(ej);
+    print Ainv;
+    <span class="c">/*Función inversa*/</span>
+    print (inv(A))<span class="kr">;</span>
+<span class="kr">quit;</span>
+</code></pre></div>
+</td></tr></table>
+<p><img alt="Resultado de la inversa con eigenvalores en SAS" src="../img/inv_eigen_sas.png" /></p>
+</div>
+</div>
+</div>
 </details>
 <p>Note que es posible definir la raiz de una matriz,denotada por <span class="arithmatex">\(\mathbf{A}^{1/2}\)</span>, que cumple con la propiedad <span class="arithmatex">\(\mathbf{A}^{1/2}\mathbf{A}^{1/2}=\mathbf{A}\)</span> y <span class="arithmatex">\(\mathbf{A}^{-1/2}\mathbf{A}^{-1/2}=\mathbf{A}^{-1}\)</span>, simplemente definiendo <span class="arithmatex">\(\mathbf{A}^{1/2}=\mathbf{P}\mathbf{\Lambda}^{1/2}\mathbf{P}^t=\sum_{j=1}^{p}\sqrt{\lambda_j}\mathbf{e}_j\mathbf{e}_j^t\)</span>.</p>
 <p>Debido a que muchas veces las variables están distintas escalas o unidades, las covarianzas podrían tomar valores muy grandes y es complicado de interpreta, por ello se puede definir la matriz de correlaciones <span class="arithmatex">\(\mathbf{R}=\mathbf{D}^{-1/2}\mathbf{S}\mathbf{D}^{-1/2}\)</span> a partir de la matriz de covarianzas, donde </p>
@@ -1829,7 +1929,7 @@ X_{n,1} &amp; X_{n,2} &amp; \dots &amp; X_{n,p} \\
 <details class="example">
 <summary>Cálculo de la matriz de varianza covarianza</summary>
 <p>Actualmente los softwares ofrecen muchas opciones para realizar estos cálculos. A continuación se mostrará cómo calcular una matriz de covarianzas de una base con muchas observaciones usando diversos programas estadísticos.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:4"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Julia</label><label for="__tabbed_4_2">Python</label><label for="__tabbed_4_3">R</label><label for="__tabbed_4_4">SAS</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:4"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><input id="__tabbed_5_4" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Julia</label><label for="__tabbed_5_2">Python</label><label for="__tabbed_5_3">R</label><label for="__tabbed_5_4">SAS</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>En julia se puede usar la función <code>cov</code> del paquete <code>Statistics</code>; note que esta función requiere una matriz que contenga únicamente valores numéricos.</p>
