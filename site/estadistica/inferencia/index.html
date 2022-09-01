@@ -1006,7 +1006,52 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
 <p>Por ejemplo, si en una carrera de caballos participan 8 caballos en igualdad de condiciones,  pero se sabe que hay un caballo favorito (el cual ya ha ganado varias carreras anteriormente) y éste gana la carrera, entonces el caballo ganador seguramente tenía las mejores condiciones sobre los demás y por lógica ganó la carrera. De hecho pudo haber ganado cualquier otro caballo, ya que es un evento posble pero con poca probabilidad.</p>
 <div class="admonition abstract">
 <p class="admonition-title">Función de distribución</p>
-<p>La función de verosimilitud de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(X_1, X_2,\dots,X_n\)</span>, se define como la <em>densidad conjunta</em> de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)\)</span> como <em>función</em> de <span class="arithmatex">\(\theta\)</span>. En particular si <span class="arithmatex">\(X1, X_2,\dots,X_n\)</span> es una muestra aleatoria de <span class="arithmatex">\(f(x; \theta)\)</span>, entonces la función de verosimilitud es <span class="arithmatex">\(f(x_1; \theta)f(x_2; \theta)\dots f(x_n; \theta)\)</span>.</p>
+<p>La función de verosimilitud de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(X_1, X_2,\dots,X_n\)</span>, denotada como <span class="arithmatex">\(L(\theta|x)\)</span>, se define como la <em>densidad conjunta</em> de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)\)</span> como <em>función</em> de <span class="arithmatex">\(\theta\)</span>. En particular si <span class="arithmatex">\(X1, X_2,\dots,X_n\)</span> es una muestra aleatoria de <span class="arithmatex">\(f(x; \theta)\)</span>, entonces la función de verosimilitud es <span class="arithmatex">\(f(x_1; \theta)f(x_2; \theta)\dots f(x_n; \theta)\)</span>.</p>
+</div>
+<details class="example">
+<summary>Función de verosimilitud de lanzamiento de monedas</summary>
+<p>Suponga que se lanza una moneda 5 veces y resulta que sólo cae un águila. Se sospecha que la moneda está cargada (<span class="arithmatex">\(p = 0.2\)</span>), pero el dueño de la moneda asegura que la moneda es legal (<span class="arithmatex">\(p = 0.5\)</span>). De acuerdo a los datos, ¿cúal de los dos afirmaciones es más plausible?</p>
+<p>Note que la función de distribución conjunta puede expresarse como:</p>
+<p><span class="arithmatex">\(f_{\mathbf{X}}(\mathbf{x},p)=\prod_{i=1}^5 p^{x_i}\left(1-p\right)^{1-x_i}=p^{y}\left(1-p\right)^{5-y}
+ \)</span></p>
+<p>donde <span class="arithmatex">\(y=\sum_{i=1}^5\)</span>. Debido a que se observó sólo un águila, <span class="arithmatex">\(y=1\)</span> y la función de verosimiltud únicamente depende de <span class="arithmatex">\(p\)</span>. Haciendo los cálculos, se tiene que </p>
+<p><span class="arithmatex">\(
+ L(p|y=1) = 
+ \begin{cases}
+ 0.08192 &amp; \text{ si } p = 0.2 \\
+ 0.03125 &amp; \text{ si } p = 0.5
+ \end{cases}
+ \)</span></p>
+<p>Por lo tanto se concluye que, <em>dada la muestra</em> <span class="arithmatex">\(p=0.2\)</span> es más plausible que la moneda esté cargada, ya que la función de verosimiltud es mayor.</p>
+</details>
+<p>A continuación se dará una definición para obtener un estimador de máxima verosimilitud.</p>
+<div class="admonition note">
+<p class="admonition-title">Estimador de máxima verosimilitud</p>
+<p>Sea <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span> la función de verosimilitud para las variables <span class="arithmatex">\(X_1, X_2,\dots, X_n\)</span>. Si <span class="arithmatex">\(\hat{\theta}\)</span> es un valor de <span class="arithmatex">\(\theta \in \Theta\)</span> que <em>maximiza la función de verosimilitud</em> <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span>, entonces <span class="arithmatex">\(\hat{\theta}\)</span> es una <strong>estimación</strong> de <span class="arithmatex">\(\theta\)</span> de la muestra observada <span class="arithmatex">\(x_1, x_2,\dots, x_n\)</span> <strong>específicamente</strong>.</p>
+<p>Si fuera posible encontrar una función que dependa sólo de la muestra aleatoria y que siempre maximizara <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span>, para cualquier muestra <span class="arithmatex">\(X_1, X_2,\dots, X_n\)</span>, entonces <span class="arithmatex">\(\hat{\theta}_X\)</span> es el <strong>estimador de máxima verosimilitud</strong>.</p>
+</div>
+<p>Se mostrarán algunos ejemplos en los cuales es posible encontrar el estimador de máxima verosimilitud.</p>
+<details class="example">
+<summary>Estimador de Máxima Verosimilitud del lanzamiento de una moneda</summary>
+<p>Suponga que se lanza una moneda <span class="arithmatex">\(n\)</span> veces. Encontrar el estimador de máxima verosimilitud para <span class="arithmatex">\(\theta\)</span>.</p>
+<p>Note que <span class="arithmatex">\(n\)</span> lanzamienton de moneda <span class="arithmatex">\(X_1, X_2,\dots, X_n\)</span> pueden considerarse como una muestra aleatoria de la distribución <span class="arithmatex">\(Ber(\theta)\)</span> con <span class="arithmatex">\(\theta \in (0, 1) = \Theta\)</span>. Usando la función de densidad conjunta del ejemplo anterior:</p>
+<p><span class="arithmatex">\(f_{\mathbf{X}}(\theta,\mathbf{x}) = \theta^{\sum_{i=1}^n x_i}\left(1-\theta\right)^{n-\sum_{i=1}^n x_i}\)</span></p>
+<p>Una vez observada la muestra, la función de verosimilitud puede expresarse como únicamente como función de <span class="arithmatex">\(\theta\)</span>, por lo que basta con encontrar <span class="arithmatex">\(\hat{\theta}\)</span> que maximice <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span>. Note que <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span> es continua en el intervalo (0,1), por lo que es posible encontrar la derivada de <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span> y hallar su solución.</p>
+<p><span class="arithmatex">\(
+ \frac{\partial L(\theta|x_1, x_2,\dots, x_n)}{\partial \theta} = \frac{\sum_{i=1}^n x_i}{\theta}-\frac{n-\sum_{i=1}^n x_i}{1-\theta}=0
+ \)</span></p>
+<p>Cuya solución es <span class="arithmatex">\(\hat{\theta} = \frac{\sum_{i=1}^n x_i}{n}\)</span>. Para comprobar que este valor crítico en un punto máximo, se usa el criterio de la segunda derivada.</p>
+<p><span class="arithmatex">\(
+ \frac{\partial ^2 L(\theta|x_1, x_2,\dots, x_n)}{\partial \theta^2} = \frac{-2\sum_{i=1}^n x_i}{\theta}-\frac{n-\sum_{i=1}^n x_i}{1-\theta}&lt;0
+ \)</span></p>
+<p>Lo cual implica que <span class="arithmatex">\(\frac{\sum_{i=1}^n x_i}{n}\)</span> maximiza la función de verosimilitud.</p>
+<p>Por lo tanto <span class="arithmatex">\(\hat{\theta}=\frac{\sum_{i=1}^n x_i}{n}=\bar{x}\)</span> es la <em>estimación de máxima verosimilitud</em> de <span class="arithmatex">\(\theta\)</span> cuando observamos <span class="arithmatex">\(x_1,x_2,\dots,x_n\)</span>.</p>
+<p>Como esto ocurrirá en cada muestra <span class="arithmatex">\(\mathbf{X}\)</span>, entonces el <strong>estimador de máxima verosimilitud</strong> será:</p>
+<p><span class="arithmatex">\(\hat{\theta}=\bar{X}=\frac{\sum_{i=1}^n X_i}{n}\)</span></p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Función Score</p>
+<p>A la derivada de la función de verosimilitud, se le conoce como función Score.</p>
 </div>
 <blockquote>
 <p>Muchas de las ideas fueron tomadas del curso <em>Inferencia Estadística</em> impartido por el Dr. José Villaseñor en el cuatrimestre Otoño de 2014 en el Colegio de Postgraduados, Campus Montecillo.</p>

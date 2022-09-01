@@ -84,7 +84,66 @@ La idea de verosimilitud se basa en la probabilidad de observar lo más creible 
 Por ejemplo, si en una carrera de caballos participan 8 caballos en igualdad de condiciones,  pero se sabe que hay un caballo favorito (el cual ya ha ganado varias carreras anteriormente) y éste gana la carrera, entonces el caballo ganador seguramente tenía las mejores condiciones sobre los demás y por lógica ganó la carrera. De hecho pudo haber ganado cualquier otro caballo, ya que es un evento posble pero con poca probabilidad.
 
 !!! abstract "Función de distribución"
-    La función de verosimilitud de $n$ variables aleatorias $X_1, X_2,\dots,X_n$, se define como la *densidad conjunta* de $n$ variables aleatorias $f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)$ como *función* de $\theta$. En particular si $X1, X_2,\dots,X_n$ es una muestra aleatoria de $f(x; \theta)$, entonces la función de verosimilitud es $f(x_1; \theta)f(x_2; \theta)\dots f(x_n; \theta)$.
+    La función de verosimilitud de $n$ variables aleatorias $X_1, X_2,\dots,X_n$, denotada como $L(\theta|x)$, se define como la *densidad conjunta* de $n$ variables aleatorias $f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)$ como *función* de $\theta$. En particular si $X1, X_2,\dots,X_n$ es una muestra aleatoria de $f(x; \theta)$, entonces la función de verosimilitud es $f(x_1; \theta)f(x_2; \theta)\dots f(x_n; \theta)$.
+
+??? example "Función de verosimilitud de lanzamiento de monedas"
+    Suponga que se lanza una moneda 5 veces y resulta que sólo cae un águila. Se sospecha que la moneda está cargada ($p = 0.2$), pero el dueño de la moneda asegura que la moneda es legal ($p = 0.5$). De acuerdo a los datos, ¿cúal de los dos afirmaciones es más plausible?
+
+    Note que la función de distribución conjunta puede expresarse como:
+
+    \(f_{\mathbf{X}}(\mathbf{x},p)=\prod_{i=1}^5 p^{x_i}\left(1-p\right)^{1-x_i}=p^{y}\left(1-p\right)^{5-y}
+     \)
+
+     donde $y=\sum_{i=1}^5$. Debido a que se observó sólo un águila, $y=1$ y la función de verosimiltud únicamente depende de $p$. Haciendo los cálculos, se tiene que 
+     
+     \(
+     L(p|y=1) = 
+     \begin{cases}
+     0.08192 & \text{ si } p = 0.2 \\
+     0.03125 & \text{ si } p = 0.5
+     \end{cases}
+     \)
+
+     Por lo tanto se concluye que, *dada la muestra* $p=0.2$ es más plausible que la moneda esté cargada, ya que la función de verosimiltud es mayor.
+
+A continuación se dará una definición para obtener un estimador de máxima verosimilitud.
+
+!!! note "Estimador de máxima verosimilitud"
+    Sea $L(\theta|x_1, x_2,\dots, x_n)$ la función de verosimilitud para las variables $X_1, X_2,\dots, X_n$. Si $\hat{\theta}$ es un valor de $\theta \in \Theta$ que *maximiza la función de verosimilitud* $L(\theta|x_1, x_2,\dots, x_n)$, entonces $\hat{\theta}$ es una **estimación** de $\theta$ de la muestra observada $x_1, x_2,\dots, x_n$ **específicamente**.
+    
+    Si fuera posible encontrar una función que dependa sólo de la muestra aleatoria y que siempre maximizara $L(\theta|x_1, x_2,\dots, x_n)$, para cualquier muestra $X_1, X_2,\dots, X_n$, entonces $\hat{\theta}_X$ es el **estimador de máxima verosimilitud**.
+
+Se mostrarán algunos ejemplos en los cuales es posible encontrar el estimador de máxima verosimilitud.
+
+??? example "Estimador de Máxima Verosimilitud del lanzamiento de una moneda"
+    Suponga que se lanza una moneda $n$ veces. Encontrar el estimador de máxima verosimilitud para $\theta$.
+
+    Note que $n$ lanzamienton de moneda $X_1, X_2,\dots, X_n$ pueden considerarse como una muestra aleatoria de la distribución $Ber(\theta)$ con $\theta \in (0, 1) = \Theta$. Usando la función de densidad conjunta del ejemplo anterior:
+
+    \(f_{\mathbf{X}}(\theta,\mathbf{x}) = \theta^{\sum_{i=1}^n x_i}\left(1-\theta\right)^{n-\sum_{i=1}^n x_i}\)
+
+    Una vez observada la muestra, la función de verosimilitud puede expresarse como únicamente como función de $\theta$, por lo que basta con encontrar $\hat{\theta}$ que maximice $L(\theta|x_1, x_2,\dots, x_n)$. Note que $L(\theta|x_1, x_2,\dots, x_n)$ es continua en el intervalo (0,1), por lo que es posible encontrar la derivada de $L(\theta|x_1, x_2,\dots, x_n)$ y hallar su solución.
+
+    \(
+     \frac{\partial L(\theta|x_1, x_2,\dots, x_n)}{\partial \theta} = \frac{\sum_{i=1}^n x_i}{\theta}-\frac{n-\sum_{i=1}^n x_i}{1-\theta}=0
+     \)
+     
+     Cuya solución es $\hat{\theta} = \frac{\sum_{i=1}^n x_i}{n}$. Para comprobar que este valor crítico en un punto máximo, se usa el criterio de la segunda derivada.
+
+     \(
+     \frac{\partial ^2 L(\theta|x_1, x_2,\dots, x_n)}{\partial \theta^2} = \frac{-2\sum_{i=1}^n x_i}{\theta}-\frac{n-\sum_{i=1}^n x_i}{1-\theta}<0
+     \)
+
+     Lo cual implica que $\frac{\sum_{i=1}^n x_i}{n}$ maximiza la función de verosimilitud.
+
+     Por lo tanto $\hat{\theta}=\frac{\sum_{i=1}^n x_i}{n}=\bar{x}$ es la *estimación de máxima verosimilitud* de $\theta$ cuando observamos $x_1,x_2,\dots,x_n$.
+
+     Como esto ocurrirá en cada muestra $\mathbf{X}$, entonces el **estimador de máxima verosimilitud** será:
+
+     \(\hat{\theta}=\bar{X}=\frac{\sum_{i=1}^n X_i}{n}\)
+
+!!! note "Función Score"
+    A la derivada de la función de verosimilitud, se le conoce como función Score.
 
 [^1]: Por ahora se considerará que \(\theta\) es de dimensión uno, aunque podría ser un vector de parámetros.
 [^2]: Note que podrían existir infinidad de estimadores con esta característica.
