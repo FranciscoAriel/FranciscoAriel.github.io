@@ -668,8 +668,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#epacios-medibles" class="md-nav__link">
-    Epacios medibles
+  <a href="#espacios-medibles" class="md-nav__link">
+    Espacios medibles
   </a>
   
 </li>
@@ -796,8 +796,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#epacios-medibles" class="md-nav__link">
-    Epacios medibles
+  <a href="#espacios-medibles" class="md-nav__link">
+    Espacios medibles
   </a>
   
 </li>
@@ -913,14 +913,14 @@
 <p>Una definición muy general es el espacio muestral <span class="arithmatex">\(\Omega\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Espacio muestral</p>
-<p>Sea <span class="arithmatex">\(\Omega\)</span> un conjunto de elementos de interés. <span class="arithmatex">\(\Omega\)</span> es llamado <em>Espacio Muestral</em>.</p>
+<p>Sea <span class="arithmatex">\(\Omega\)</span> un conjunto de elementos de interés. <span class="arithmatex">\(\Omega\)</span> es llamado <em>Espacio Muestral</em> o <em>Universo</em>.</p>
 </div>
 <p>Usualmente nos referimos a <span class="arithmatex">\(\Omega\)</span> como el conjunto de todos los resultados posibles de un experimento, aunque de acuerdo con Shao (1999) tambíen podría ser un conjunto de números, un intervalo de la recta real, entre otros.</p>
 <div class="admonition note">
 <p class="admonition-title">Medida</p>
 <p>Una <em>medida</em> es una extensión matemática natural de longitud, área o volumen de subconjuntos en espacios Euclideanos de dimensión 1 2 o 3.</p>
 </div>
-<h3 id="epacios-medibles">Epacios medibles<a class="headerlink" href="#epacios-medibles" title="Permanent link">&para;</a></h3>
+<h3 id="espacios-medibles">Espacios medibles<a class="headerlink" href="#espacios-medibles" title="Permanent link">&para;</a></h3>
 <p>Cuando se trabaja con un espacio muestral, una medida será una función definida para <em>ciertos</em> subconjuntos de <span class="arithmatex">\(\Omega\)</span> que satisfagan ciertas propiedades.</p>
 <div class="admonition note">
 <p class="admonition-title"><span class="arithmatex">\(\sigma\)</span>-álgrebra</p>
@@ -930,6 +930,10 @@
 <li><span class="arithmatex">\(A \in \mathcal{F} \rightarrow A^C \in \mathcal{F}\)</span> (Si el conjunto A pertenece a la colección, también su complemento).</li>
 <li><span class="arithmatex">\(A_i \in \mathcal{F},i=1,2,\dots, \rightarrow \cup A_i \in \mathcal{F}\)</span> (La unión también pertenece a la colección).</li>
 </ol>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Variantes en la definición</p>
+<p>Algunos autores definen la propiedad 1 como: <span class="arithmatex">\(\Omega \in \mathcal{F}\)</span> (El universo pertenece a la colección).</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Espacio medible</p>
@@ -944,6 +948,15 @@
 <p>Observese que este conjunto <span class="arithmatex">\(\lbrace \emptyset,A,A^C,\Omega \rbrace\)</span> cumple con las 3 propiedades (está el conjunto vacío <span class="arithmatex">\(\emptyset\)</span>,está su complemento <span class="arithmatex">\(A^C\)</span>). De hecho este <span class="arithmatex">\(\sigma\)</span>-campo es el más pequeño que contiene a <span class="arithmatex">\(A\)</span>, ya que cualquier <span class="arithmatex">\(\mathcal{F}\)</span> podría contener a <span class="arithmatex">\(A\)</span>.</p>
 <p>Este <span class="arithmatex">\(\sigma\)</span>-campo se denota como <span class="arithmatex">\(\sigma(\lbrace A \rbrace)\)</span>.</p>
 </details>
+<details class="example">
+<summary>El <span class="arithmatex">\(\sigma\)</span>-campo finito más grande</summary>
+<p>Sea <span class="arithmatex">\(2^\Omega\)</span> el conjunto potencia, definido como el conjunto de todos los subconjuntos, es el <span class="arithmatex">\(\sigma\)</span>-campo más grande para <span class="arithmatex">\(\Omega\)</span>.</p>
+<p>Por ejemplo si se considera <span class="arithmatex">\(\Omega = \lbrace 1,2,3,4,5,6 \rbrace\)</span>, el conjunto de resultados del lanzamiento de un dado, entonces <span class="arithmatex">\(\mathcal{F}=2^\Omega=\lbrace \emptyset,\lbrace 1\rbrace,\lbrace 2\rbrace,\dots,\lbrace 1,2 \rbrace,\dots \lbrace 1,2,3\rbrace,\dots,\lbrace 1,2,3,4,5,6\rbrace \rbrace\)</span> es un <span class="arithmatex">\(\sigma\)</span>-campo. Note que <span class="arithmatex">\(\mathcal{F}\)</span> tiene 64 elementos.</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Conjunto de todos los eventos posibles</p>
+<p>En algunos textos de estadística, al conjunto potencia <span class="arithmatex">\(2^\Omega\)</span> se le conoce como <em>el conjunto de todos los eventos posibles</em> y se suele denotar como <span class="arithmatex">\(\mathbb{s}\)</span>.</p>
+</div>
 <details class="example">
 <summary><span class="arithmatex">\(\sigma\)</span>-campo Borel</summary>
 <p>Sea <span class="arithmatex">\(\mathcal{C}\)</span> el conjunto de todos los intervalos abiertos en los números reales <span class="arithmatex">\(\mathbb{R}\)</span>. Entonces <span class="arithmatex">\(\mathcal{B}=\sigma(\mathcal{C})\)</span> es llamado <span class="arithmatex">\(\sigma\)</span><strong>-campo Borel</strong> y los elementos de <span class="arithmatex">\(\mathcal{B}\)</span> son llamados <em>conjuntos Borel</em>.</p>

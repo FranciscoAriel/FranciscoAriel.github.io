@@ -19,14 +19,14 @@ Para el estudio de la estadística matemática, se requieren ciertas definicione
 Una definición muy general es el espacio muestral $\Omega$.
 
 !!! note "Espacio muestral"
-    Sea $\Omega$ un conjunto de elementos de interés. $\Omega$ es llamado _Espacio Muestral_.
+    Sea $\Omega$ un conjunto de elementos de interés. $\Omega$ es llamado _Espacio Muestral_ o _Universo_.
 
 Usualmente nos referimos a $\Omega$ como el conjunto de todos los resultados posibles de un experimento, aunque de acuerdo con Shao (1999) tambíen podría ser un conjunto de números, un intervalo de la recta real, entre otros.
 
 !!! note "Medida"
     Una _medida_ es una extensión matemática natural de longitud, área o volumen de subconjuntos en espacios Euclideanos de dimensión 1 2 o 3.
 
-### Epacios medibles
+### Espacios medibles
 
 Cuando se trabaja con un espacio muestral, una medida será una función definida para _ciertos_ subconjuntos de $\Omega$ que satisfagan ciertas propiedades.
 
@@ -36,6 +36,9 @@ Cuando se trabaja con un espacio muestral, una medida será una función definid
     1. $\emptyset \in \mathcal{F}$ (El conjunto vacío pertenece a la colección).
     2. $A \in \mathcal{F} \rightarrow A^C \in \mathcal{F}$ (Si el conjunto A pertenece a la colección, también su complemento).
     3. $A_i \in \mathcal{F},i=1,2,\dots, \rightarrow \cup A_i \in \mathcal{F}$ (La unión también pertenece a la colección).
+
+!!! caution "Variantes en la definición"
+    Algunos autores definen la propiedad 1 como: $\Omega \in \mathcal{F}$ (El universo pertenece a la colección).
 
 !!! tip "Espacio medible"
     Un par $(\Omega,\mathcal{F})$ es llamado _espacio medible_. Los elementos de $\mathcal{F}$ son llamados _eventos_ en probabilidad y estadística.
@@ -52,6 +55,14 @@ El concepto de $\sigma$-campo se ilustra con los siguientes ejemplos.
     Observese que este conjunto $\lbrace \emptyset,A,A^C,\Omega \rbrace$ cumple con las 3 propiedades (está el conjunto vacío $\emptyset$,está su complemento $A^C$). De hecho este $\sigma$-campo es el más pequeño que contiene a $A$, ya que cualquier $\mathcal{F}$ podría contener a $A$.
 
     Este $\sigma$-campo se denota como $\sigma(\lbrace A \rbrace)$.
+
+??? example "El $\sigma$-campo finito más grande"
+    Sea $2^\Omega$ el conjunto potencia, definido como el conjunto de todos los subconjuntos, es el $\sigma$-campo más grande para $\Omega$.
+
+    Por ejemplo si se considera $\Omega = \lbrace 1,2,3,4,5,6 \rbrace$, el conjunto de resultados del lanzamiento de un dado, entonces $\mathcal{F}=2^\Omega=\lbrace \emptyset,\lbrace 1\rbrace,\lbrace 2\rbrace,\dots,\lbrace 1,2 \rbrace,\dots \lbrace 1,2,3\rbrace,\dots,\lbrace 1,2,3,4,5,6\rbrace \rbrace$ es un $\sigma$-campo. Note que $\mathcal{F}$ tiene 64 elementos.
+
+!!! note "Conjunto de todos los eventos posibles"
+    En algunos textos de estadística, al conjunto potencia $2^\Omega$ se le conoce como _el conjunto de todos los eventos posibles_ y se suele denotar como $\mathbb{s}$.
 
 ??? example "$\sigma$-campo Borel"
     Sea $\mathcal{C}$ el conjunto de todos los intervalos abiertos en los números reales $\mathbb{R}$. Entonces $\mathcal{B}=\sigma(\mathcal{C})$ es llamado $\sigma$__-campo Borel__ y los elementos de $\mathcal{B}$ son llamados _conjuntos Borel_.
