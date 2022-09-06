@@ -83,7 +83,7 @@ La idea de verosimilitud se basa en la probabilidad de observar lo más creible 
 
 Por ejemplo, si en una carrera de caballos participan 8 caballos en igualdad de condiciones,  pero se sabe que hay un caballo favorito (el cual ya ha ganado varias carreras anteriormente) y éste gana la carrera, entonces el caballo ganador seguramente tenía las mejores condiciones sobre los demás y por lógica ganó la carrera. De hecho pudo haber ganado cualquier otro caballo, ya que es un evento posble pero con poca probabilidad.
 
-!!! abstract "Función de distribución"
+!!! abstract "Función de verosimilitud"
     La función de verosimilitud de $n$ variables aleatorias $X_1, X_2,\dots,X_n$, denotada como $L(\theta|x)$, se define como la *densidad conjunta* de $n$ variables aleatorias $f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)$ como *función* de $\theta$. En particular si $X1, X_2,\dots,X_n$ es una muestra aleatoria de $f(x; \theta)$, entonces la función de verosimilitud es $f(x_1; \theta)f(x_2; \theta)\dots f(x_n; \theta)$.
 
 ??? example "Función de verosimilitud de lanzamiento de monedas"
@@ -144,6 +144,17 @@ Se mostrarán algunos ejemplos en los cuales es posible encontrar el estimador d
 
 !!! note "Función Score"
     A la derivada de la función de verosimilitud, se le conoce como función Score.
+
+A continuación mencionaremos características importantes de los estimadores de máxima verosimilitud.
+
+!!! note "Propiedades de los estimadores de máxima verosimilitud"
+    Bajo ciertas condiciones de regularidad, los estimadores de máxima verosimilitud tienen las siguientes propiedades:
+    
+    - Mejores asintóticamente normales
+    - Consistentes en error cuadrado medio
+    - Son función de estadística suficiente (y minimal)
+    - Son invariantes (si $g$ es una función invertible, entonces $\hat{g(\theta)} = g(\hat{\theta})$)
+    - No necesariamente insesgados
 
 [^1]: Por ahora se considerará que \(\theta\) es de dimensión uno, aunque podría ser un vector de parámetros.
 [^2]: Note que podrían existir infinidad de estimadores con esta característica.
