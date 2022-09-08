@@ -35,7 +35,9 @@ También es posible usar python en [Visual Studio Code](https://code.visualstudi
 
 ## Objetos
 
-Al ser Python un lenguaje orientado a objetos, es necesario conocer sus objetos y algunas de sus propiedades.
+Al ser Python un lenguaje orientado a objetos, es necesario conocer sus métodos y algunas de sus propiedades.
+
+A continuación se muestran algunos de sus objetos.
 
 ### Variables
 
@@ -184,7 +186,7 @@ Visite [ciclos en python](https://www.w3schools.com/python/python_for_loops.asp)
 
 ## Paquetes
 
-La mayoría de los paquetes usados en ciencia de datos, son instalados mediante uando se instala Anaconda, por lo que solo es necesario llamar los paquetes necesarios.
+La mayoría de los paquetes usados en ciencia de datos son instalados cuando se instala Anaconda, por lo que solo es necesario llamar los paquetes necesarios.
 
 Por ejemplo, para usar las librerías __pandas__ y __numpy__ y otra librería adicional llamada __os__ se puede ejecutar el siguiente código.
 

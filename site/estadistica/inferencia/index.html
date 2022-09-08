@@ -1006,7 +1006,13 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
 <p>Por ejemplo, si en una carrera de caballos participan 8 caballos en igualdad de condiciones,  pero se sabe que hay un caballo favorito (el cual ya ha ganado varias carreras anteriormente) y éste gana la carrera, entonces el caballo ganador seguramente tenía las mejores condiciones sobre los demás y por lógica ganó la carrera. De hecho pudo haber ganado cualquier otro caballo, ya que es un evento posble pero con poca probabilidad.</p>
 <div class="admonition abstract">
 <p class="admonition-title">Función de verosimilitud</p>
-<p>La función de verosimilitud de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(X_1, X_2,\dots,X_n\)</span>, denotada como <span class="arithmatex">\(L(\theta|x)\)</span>, se define como la <em>densidad conjunta</em> de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)\)</span> como <em>función</em> de <span class="arithmatex">\(\theta\)</span>. En particular si <span class="arithmatex">\(X1, X_2,\dots,X_n\)</span> es una muestra aleatoria de <span class="arithmatex">\(f(x; \theta)\)</span>, entonces la función de verosimilitud es <span class="arithmatex">\(f(x_1; \theta)f(x_2; \theta)\dots f(x_n; \theta)\)</span>.</p>
+<p>La función de verosimilitud de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(X_1, X_2,\dots,X_n\)</span>, denotada como <span class="arithmatex">\(L(\theta|x)\)</span>, se define como la <em>densidad conjunta</em> de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)\)</span> como <em>función</em> de <span class="arithmatex">\(\theta\)</span>. </p>
+<p>En particular si <span class="arithmatex">\(X1, X_2,\dots,X_n\)</span> es una muestra aleatoria de <span class="arithmatex">\(f(x; \theta)\)</span>, entonces la función de verosimilitud es <span class="arithmatex">\(\prod_{i=1}^{n}f(x_i; \theta)\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Función de log-verosimilitud</p>
+<p>En ocasiones se prefiere trabajar con el logaritmo de la función de verosimilitud, denotado como <span class="arithmatex">\(l(\theta|x)=\log \left(L(\theta|x) \right)\)</span>. </p>
+<p>Note que bajo <em>muestreo aleatorio</em> <span class="arithmatex">\(l(\theta|x)=\sum_{i=1}^{n}\log \left(f(x; \theta) \right)\)</span>.</p>
 </div>
 <details class="example">
 <summary>Función de verosimilitud de lanzamiento de monedas</summary>
@@ -1022,6 +1028,15 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
  0.03125 &amp; \text{ si } p = 0.5
  \end{cases}
  \)</span></p>
+<p>Si se toma la log-verosimilitud <span class="arithmatex">\(l(p|\mathbf{x})=1*\log(p)+4*\log(1-p)\)</span> , se obtiene el siguiente resultado.</p>
+<p><span class="arithmatex">\(
+ l(p|y=1) = 
+ \begin{cases}
+ -2.5020 &amp; \text{ si } p = 0.2 \\
+ -3.4657 &amp; \text{ si } p = 0.5
+ \end{cases}
+ \)</span></p>
+<p>Note que en ambos casos la conclusión es la misma: la verosimilitud (o log-verosimilitud) es más grande en <span class="arithmatex">\(p=0.2\)</span>.</p>
 <p>Por lo tanto se concluye que, <em>dada la muestra</em> <span class="arithmatex">\(p=0.2\)</span> es más plausible que la moneda esté cargada, ya que la función de verosimiltud es mayor.</p>
 </details>
 <p>A continuación se dará una definición para obtener un estimador de máxima verosimilitud.</p>
@@ -1040,7 +1055,8 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
 <p><span class="arithmatex">\(
  \frac{\partial L(\theta|x_1, x_2,\dots, x_n)}{\partial \theta} = \frac{\sum_{i=1}^n x_i}{\theta}-\frac{n-\sum_{i=1}^n x_i}{1-\theta}=0
  \)</span></p>
-<p>Cuya solución es <span class="arithmatex">\(\hat{\theta} = \frac{\sum_{i=1}^n x_i}{n}\)</span>. Para comprobar que este valor crítico en un punto máximo, se usa el criterio de la segunda derivada.</p>
+<p>Cuya solución es <span class="arithmatex">\(\hat{\theta} = \frac{\sum_{i=1}^n x_i}{n}\)</span>. </p>
+<p>Para comprobar que este valor crítico en un punto máximo, se usa el criterio de la segunda derivada.</p>
 <p><span class="arithmatex">\(
  \frac{\partial ^2 L(\theta|x_1, x_2,\dots, x_n)}{\partial \theta^2} = \frac{-2\sum_{i=1}^n x_i}{\theta}-\frac{n-\sum_{i=1}^n x_i}{1-\theta}&lt;0
  \)</span></p>
@@ -1055,14 +1071,23 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
 </div>
 <p>A continuación mencionaremos características importantes de los estimadores de máxima verosimilitud.</p>
 <div class="admonition note">
-<p class="admonition-title">Propiedades de los estimadores de máxima verosimilitud</p>
-<p>Bajo ciertas condiciones de regularidad, los estimadores de máxima verosimilitud tienen las siguientes propiedades:</p>
+<p class="admonition-title">Condiciones de regularidad</p>
+<p>Se dice que una densidad <span class="arithmatex">\(f_X(x;\theta)\)</span> es <em>regular</em> si:</p>
 <ul>
-<li>Mejores asintóticamente normales</li>
-<li>Consistentes en error cuadrado medio</li>
-<li>Son función de estadística suficiente (y minimal)</li>
-<li>Son invariantes (si <span class="arithmatex">\(g\)</span> es una función invertible, entonces <span class="arithmatex">\(\hat{g(\theta)} = g(\hat{\theta})\)</span>)</li>
-<li>No necesariamente insesgados</li>
+<li>El soporte de <span class="arithmatex">\(X\)</span> <strong>no depende</strong> de <span class="arithmatex">\(\theta\)</span>.</li>
+<li><span class="arithmatex">\(f_X(x;\theta)\)</span> <strong>es diferencible</strong>.</li>
+<li><span class="arithmatex">\(\theta\)</span> <strong>no está en la frontera</strong> del espacio paramétrico <span class="arithmatex">\(\Theta\)</span>.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Propiedades de los estimadores de máxima verosimilitud</p>
+<p>Bajo condiciones de regularidad, los estimadores de máxima verosimilitud tienen las siguientes propiedades:</p>
+<ul>
+<li>Mejores asintóticamente normales.</li>
+<li>Consistentes en error cuadrado medio.</li>
+<li>Son función de estadística suficiente (y minimal).</li>
+<li>Son invariantes (si <span class="arithmatex">\(g\)</span> es una función invertible, entonces <span class="arithmatex">\(\hat{g(\theta)} = g(\hat{\theta})\)</span>).</li>
+<li>No necesariamente insesgados.</li>
 </ul>
 </div>
 <blockquote>

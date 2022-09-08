@@ -84,7 +84,14 @@ La idea de verosimilitud se basa en la probabilidad de observar lo más creible 
 Por ejemplo, si en una carrera de caballos participan 8 caballos en igualdad de condiciones,  pero se sabe que hay un caballo favorito (el cual ya ha ganado varias carreras anteriormente) y éste gana la carrera, entonces el caballo ganador seguramente tenía las mejores condiciones sobre los demás y por lógica ganó la carrera. De hecho pudo haber ganado cualquier otro caballo, ya que es un evento posble pero con poca probabilidad.
 
 !!! abstract "Función de verosimilitud"
-    La función de verosimilitud de $n$ variables aleatorias $X_1, X_2,\dots,X_n$, denotada como $L(\theta|x)$, se define como la *densidad conjunta* de $n$ variables aleatorias $f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)$ como *función* de $\theta$. En particular si $X1, X_2,\dots,X_n$ es una muestra aleatoria de $f(x; \theta)$, entonces la función de verosimilitud es $f(x_1; \theta)f(x_2; \theta)\dots f(x_n; \theta)$.
+    La función de verosimilitud de $n$ variables aleatorias $X_1, X_2,\dots,X_n$, denotada como $L(\theta|x)$, se define como la *densidad conjunta* de $n$ variables aleatorias $f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)$ como *función* de $\theta$. 
+    
+    En particular si $X1, X_2,\dots,X_n$ es una muestra aleatoria de $f(x; \theta)$, entonces la función de verosimilitud es $\prod_{i=1}^{n}f(x_i; \theta)$.
+
+!!! note "Función de log-verosimilitud"
+    En ocasiones se prefiere trabajar con el logaritmo de la función de verosimilitud, denotado como $l(\theta|x)=\log \left(L(\theta|x) \right)$. 
+    
+    Note que bajo _muestreo aleatorio_ $l(\theta|x)=\sum_{i=1}^{n}\log \left(f(x; \theta) \right)$.
 
 ??? example "Función de verosimilitud de lanzamiento de monedas"
     Suponga que se lanza una moneda 5 veces y resulta que sólo cae un águila. Se sospecha que la moneda está cargada ($p = 0.2$), pero el dueño de la moneda asegura que la moneda es legal ($p = 0.5$). De acuerdo a los datos, ¿cúal de los dos afirmaciones es más plausible?
@@ -103,6 +110,18 @@ Por ejemplo, si en una carrera de caballos participan 8 caballos en igualdad de 
      0.03125 & \text{ si } p = 0.5
      \end{cases}
      \)
+
+     Si se toma la log-verosimilitud $l(p|\mathbf{x})=1*\log(p)+4*\log(1-p)$ , se obtiene el siguiente resultado.
+
+     \(
+     l(p|y=1) = 
+     \begin{cases}
+     -2.5020 & \text{ si } p = 0.2 \\
+     -3.4657 & \text{ si } p = 0.5
+     \end{cases}
+     \)
+
+     Note que en ambos casos la conclusión es la misma: la verosimilitud (o log-verosimilitud) es más grande en $p=0.2$.
 
      Por lo tanto se concluye que, *dada la muestra* $p=0.2$ es más plausible que la moneda esté cargada, ya que la función de verosimiltud es mayor.
 
@@ -128,7 +147,9 @@ Se mostrarán algunos ejemplos en los cuales es posible encontrar el estimador d
      \frac{\partial L(\theta|x_1, x_2,\dots, x_n)}{\partial \theta} = \frac{\sum_{i=1}^n x_i}{\theta}-\frac{n-\sum_{i=1}^n x_i}{1-\theta}=0
      \)
      
-     Cuya solución es $\hat{\theta} = \frac{\sum_{i=1}^n x_i}{n}$. Para comprobar que este valor crítico en un punto máximo, se usa el criterio de la segunda derivada.
+     Cuya solución es $\hat{\theta} = \frac{\sum_{i=1}^n x_i}{n}$. 
+     
+     Para comprobar que este valor crítico en un punto máximo, se usa el criterio de la segunda derivada.
 
      \(
      \frac{\partial ^2 L(\theta|x_1, x_2,\dots, x_n)}{\partial \theta^2} = \frac{-2\sum_{i=1}^n x_i}{\theta}-\frac{n-\sum_{i=1}^n x_i}{1-\theta}<0
@@ -147,14 +168,23 @@ Se mostrarán algunos ejemplos en los cuales es posible encontrar el estimador d
 
 A continuación mencionaremos características importantes de los estimadores de máxima verosimilitud.
 
+!!! note "Condiciones de regularidad"
+    Se dice que una densidad $f_X(x;\theta)$ es _regular_ si:
+
+    - El soporte de $X$ __no depende__ de $\theta$.
+    - $f_X(x;\theta)$ __es diferencible__.
+    - $\theta$ __no está en la frontera__ del espacio paramétrico $\Theta$.
+
 !!! note "Propiedades de los estimadores de máxima verosimilitud"
-    Bajo ciertas condiciones de regularidad, los estimadores de máxima verosimilitud tienen las siguientes propiedades:
+    Bajo condiciones de regularidad, los estimadores de máxima verosimilitud tienen las siguientes propiedades:
     
-    - Mejores asintóticamente normales
-    - Consistentes en error cuadrado medio
-    - Son función de estadística suficiente (y minimal)
-    - Son invariantes (si $g$ es una función invertible, entonces $\hat{g(\theta)} = g(\hat{\theta})$)
-    - No necesariamente insesgados
+    - Mejores asintóticamente normales.
+    - Consistentes en error cuadrado medio.
+    - Son función de estadística suficiente (y minimal).
+    - Son invariantes (si $g$ es una función invertible, entonces $\hat{g(\theta)} = g(\hat{\theta})$).
+    - No necesariamente insesgados.
+
+
 
 [^1]: Por ahora se considerará que \(\theta\) es de dimensión uno, aunque podría ser un vector de parámetros.
 [^2]: Note que podrían existir infinidad de estimadores con esta característica.
