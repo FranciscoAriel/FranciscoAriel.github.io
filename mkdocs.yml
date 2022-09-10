@@ -44,11 +44,12 @@ nav:
     - "Estadística":
         - "Introducción a la probabilidad": estadistica/probabilidad.md
         - "Inferencia estadística": estadistica/inferencia.md
-        - "Series de tiempo": estadistica/series_tiempo.md
         - "Procesos estocásticos": estadistica/procesos_estocasticos.md 
+        - "Series de tiempo": estadistica/series_tiempo.md
         - "Estadística matemática": estadistica/estadistica_matematica.md
-        - "Estadística Bayesiana": estadistica/bayesiano.md
-        - "Estadística Multivariada": estadistica/multivariado.md
+        - "Estadística bayesiana": estadistica/bayesiano.md
+        - "Estadística multivariada": estadistica/multivariado.md
+        - "Análisis de supervivencia": estadistica/supervivencia.md
 
 markdown_extensions:
     - pymdownx.superfences

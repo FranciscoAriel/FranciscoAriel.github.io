@@ -12,14 +12,14 @@
         <meta name="author" content="Francisco Vázquez">
       
       
-        <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/inferencia/">
+        <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/supervivencia/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
     
     
       
-        <title>Inferencia estadística - Estadística desde Cero</title>
+        <title>Análisis de supervivencia - Estadística desde Cero</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#propiedades-deseables-de-los-estimadores" class="md-skip">
+        <a href="#modelos-de-tiempo-de-vida" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inferencia estadística
+              Análisis de supervivencia
             
           </span>
         </div>
@@ -586,123 +586,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Inferencia estadística
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../inferencia/" class="md-nav__link">
         Inferencia estadística
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#propiedades-deseables-de-los-estimadores" class="md-nav__link">
-    Propiedades deseables de los estimadores
-  </a>
-  
-    <nav class="md-nav" aria-label="Propiedades deseables de los estimadores">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#suficiencia" class="md-nav__link">
-    Suficiencia
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#estimadores-insesgados-de-varianza-uniformemente-minima" class="md-nav__link">
-    Estimadores insesgados de varianza uniformemente mínima
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consistencia" class="md-nav__link">
-    Consistencia
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mejor-asintototicamente-normal" class="md-nav__link">
-    Mejor asintótoticamente normal
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#completez" class="md-nav__link">
-    Completez
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#estimacion-puntual" class="md-nav__link">
-    Estimación puntual
-  </a>
-  
-    <nav class="md-nav" aria-label="Estimación puntual">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dos-teoremas-importantes" class="md-nav__link">
-    Dos teoremas importantes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metodo-de-momentos" class="md-nav__link">
-    Método de momentos
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#estimadores-de-maxima-verosimilitud" class="md-nav__link">
-    Estimadores de máxima verosimilitud
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -782,11 +670,48 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../supervivencia/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Análisis de supervivencia
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Análisis de supervivencia
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-de-tiempo-de-vida" class="md-nav__link">
+    Modelos de tiempo de vida
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -823,84 +748,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#propiedades-deseables-de-los-estimadores" class="md-nav__link">
-    Propiedades deseables de los estimadores
+  <a href="#modelos-de-tiempo-de-vida" class="md-nav__link">
+    Modelos de tiempo de vida
   </a>
-  
-    <nav class="md-nav" aria-label="Propiedades deseables de los estimadores">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#suficiencia" class="md-nav__link">
-    Suficiencia
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#estimadores-insesgados-de-varianza-uniformemente-minima" class="md-nav__link">
-    Estimadores insesgados de varianza uniformemente mínima
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consistencia" class="md-nav__link">
-    Consistencia
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mejor-asintototicamente-normal" class="md-nav__link">
-    Mejor asintótoticamente normal
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#completez" class="md-nav__link">
-    Completez
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#estimacion-puntual" class="md-nav__link">
-    Estimación puntual
-  </a>
-  
-    <nav class="md-nav" aria-label="Estimación puntual">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dos-teoremas-importantes" class="md-nav__link">
-    Dos teoremas importantes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metodo-de-momentos" class="md-nav__link">
-    Método de momentos
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#estimadores-de-maxima-verosimilitud" class="md-nav__link">
-    Estimadores de máxima verosimilitud
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -919,7 +769,7 @@
     <!-- Edit button -->
     
        <a
-           href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/estadistica/inferencia.md"
+           href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/estadistica/supervivencia.md"
            title="Edit this page"
            class="md-content__button md-icon"
        >
@@ -933,7 +783,7 @@
     as the main headline.
     -->
     
-       <h1>Inferencia estadística</h1>
+       <h1>Análisis de supervivencia</h1>
     
    
     <!-- Markdown content -->
@@ -951,173 +801,27 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
                 <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
-            </svg> 2021-09-10 ·
+            </svg> 2022-09-09 ·
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-            </svg> lectura: 25 minutos
+            </svg> lectura: 15 minutos
         </span>
         </p>
     </aside>
     
     
 
-       <p>En la vida real quisiéramos estimar valores aproximados de características de interés de una población, por ejemplo la temperatura promedio de cierto lugar.</p>
-<p><img alt="lluvia" src="../img/rain.jpg" />
-Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5960262">Bianca van Dijk</a> en <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5960262">Pixabay</a></p>
-<p>Sería conveniente tener <em>fórmulas generales</em> para poder estimar algo desconocido únicamente utilizando información obtenida a partir de la observación de fenómenos; quisiéramos que esas <em>fórmulas generales</em> sean buenas y que se pudieran utilizar con otros datos. Por ello en este documento se detalla la forma en obtener estimadores de los parámetros poblacionales que son de interés.</p>
-<h2 id="propiedades-deseables-de-los-estimadores">Propiedades deseables de los estimadores<a class="headerlink" href="#propiedades-deseables-de-los-estimadores" title="Permanent link">&para;</a></h2>
-<p>Supóngase que <span class="arithmatex">\(\mathbf{X}=( X_1,X_2,\ldots,X_n )\)</span> es una muestra aleatoria de una densidad <span class="arithmatex">\(f_X(x;\theta)\)</span> conocida, la cual depende de un parámetro desconocido<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <span class="arithmatex">\(\theta\)</span>, aunque sabemos que <span class="arithmatex">\(\theta\)</span> pertenece a un espacio de parámetros <span class="arithmatex">\(\Theta\)</span>. Si únicamente conocemos la muestra aleatoria (observaciones), <span class="arithmatex">\(\mathbf{x}\)</span> que representan una realización de <span class="arithmatex">\(\mathbf{X}\)</span>, ¿Cuál es el valor aproximado de <span class="arithmatex">\(\theta\)</span>?.</p>
-<div class="admonition note">
-<p class="admonition-title">Definición Estadística</p>
-<p>Una estadística es una <em>función de la muestra aleatoria</em> solamente. Note que es una <em>variable aleatoria</em>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Definición Estimador</p>
-<p>Un estimador del parámetro <span class="arithmatex">\(\theta\)</span> es una estadística <span class="arithmatex">\(T=v(\mathbf{X})\)</span>, función de la muestra aleatoria, tal que la estimación <span class="arithmatex">\(t=v(\mathbf{x}) \in \Theta\)</span>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Definición Estimación</p>
-<p>Una estimación es una <em>realización de un estimador</em>, es decir, es un número real.</p>
-</div>
-<p>En otras palabras, para que <span class="arithmatex">\(T\)</span> sea un estimador<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>, es necesario que al evaluar el estimador en cualquier muestra, <span class="arithmatex">\(T\)</span> caiga dentro del espacio de parámetros <span class="arithmatex">\(\Theta\)</span>. Se desea que los estimadores tengan ciertas propiedades deseables:</p>
-<h3 id="suficiencia">Suficiencia<a class="headerlink" href="#suficiencia" title="Permanent link">&para;</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Principio de suficiencia</p>
-<p>Si <span class="arithmatex">\(Y_1=u( X_1,X_2,\ldots,X_n )\)</span> es una estadística suficiente para <span class="arithmatex">\(\theta\)</span>, entonces cualquier inferencia sobre <span class="arithmatex">\(\theta\)</span> va a depender de la muestra <span class="arithmatex">\(X_1,X_2,\ldots,X_n\)</span> <em>únicamente a través de la estadística suficiente</em> <span class="arithmatex">\(Y_1\)</span>.</p>
-<p>Es decir si tenemos dos muestras observadas <span class="arithmatex">\(x_1,x_2,\ldots,x_n\)</span> y <span class="arithmatex">\(y_1,y_2,\ldots,y_n\)</span>, entonces la inferencia sobre <span class="arithmatex">\(\theta\)</span> será la misma sin importar que se use la muestra uno <span class="arithmatex">\(\mathbf{x}=x_1,x_2,\ldots,x_n\)</span> o la muestra dos <span class="arithmatex">\(\mathbf{y}=y_1,y_2,\ldots,y_n\)</span>; en otras palabras <span class="arithmatex">\(u( x_1,\ldots,x_n ) =u( y_1,\ldots,y_n ) \)</span>.</p>
-</div>
-<p>La propiedad de suficiencia se refiere a que una estadística <span class="arithmatex">\(Y_1\)</span> <em>concentra</em> toda la información acerca del parámetro de la muestra aleatoria en <em>una sola variable aleatoria</em>. Es decir debe tomar en cuenta a <em>toda la muestra</em>.</p>
-<p>La estadística suficiente es un tipo especial de estadística, ya que condensa la información de la muestra de tal forma que no se pierda ninguna información acerca del parámetro <span class="arithmatex">\(\theta\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">Definición Estadística suficiente</p>
-<p>Sea <span class="arithmatex">\(\mathbf{X}\)</span> una muestra aleatoria con densidad conjunta <span class="arithmatex">\(f_{\mathbf{X}}(\mathbf{x} ;\theta)\)</span>. Una estadística <span class="arithmatex">\(Y_1=u(\mathbf{X}) \)</span> es suficiente si y sólo si <span class="arithmatex">\(f_{\mathbf{X}|Y_1 } (\mathbf{x}|y_1)\)</span> no depende de <span class="arithmatex">\(\theta\)</span>.</p>
-</div>
-<details class="example">
-<summary>Ilustración de una estadística suficiente</summary>
-<p>Sea <span class="arithmatex">\(X_1, X_2,\dots, X_n\)</span> una muestra aleatoria con densidad <span class="arithmatex">\(f_X(x; \theta) = \theta e^{−\theta x}I_{(0,\infty)}(x)\)</span>, se demostrara que</p>
-<p><span class="arithmatex">\(Y_1 = \sum_{i=1}^{n} Xi\)</span></p>
-<p>es una estadística suficiente para <span class="arithmatex">\(\theta\)</span>, la cual al ser suma de exponenciales, tiene densidad <span class="arithmatex">\(Gamma(n, \theta)\)</span>, donde <span class="arithmatex">\(\theta = 1/\beta\)</span>.</p>
-</details>
-<p>En la práctica, esta definición no es muy útil ya que implica calcular la densidad condicional y conocer la distribución de la estadística suficiente. Para ello se tiene el siguiente teorema.</p>
-<div class="admonition note">
-<p class="admonition-title">Teorema de Neyman-Fisher</p>
-<p>Sea <span class="arithmatex">\(X_1, X_2,\dots, X_n\)</span> una muestra aleatoria con densidad <span class="arithmatex">\(f_X(x; \theta), \theta \in (a, b) \subset \mathbb{R}\)</span>. Sea <span class="arithmatex">\(Y_1 = u(X)\)</span> una estadística con densidad <span class="arithmatex">\(f_{Y_1}(y_1)\)</span>. <span class="arithmatex">\(Y_1\)</span> es una estadística suficiente para <span class="arithmatex">\(\theta\)</span> si y solo si </p>
-<p><span class="arithmatex">\(f_X(x) = \varphi_1(Y_1, \theta)\varphi_2(x)\)</span></p>
-<p>la densidad conjunta de las observaciones se puede factorizar de la forma anterior.</p>
-</div>
-<h3 id="estimadores-insesgados-de-varianza-uniformemente-minima">Estimadores insesgados de varianza uniformemente mínima<a class="headerlink" href="#estimadores-insesgados-de-varianza-uniformemente-minima" title="Permanent link">&para;</a></h3>
-<h3 id="consistencia">Consistencia<a class="headerlink" href="#consistencia" title="Permanent link">&para;</a></h3>
-<h3 id="mejor-asintototicamente-normal">Mejor asintótoticamente normal<a class="headerlink" href="#mejor-asintototicamente-normal" title="Permanent link">&para;</a></h3>
-<h3 id="completez">Completez<a class="headerlink" href="#completez" title="Permanent link">&para;</a></h3>
-<h2 id="estimacion-puntual">Estimación puntual<a class="headerlink" href="#estimacion-puntual" title="Permanent link">&para;</a></h2>
-<h3 id="dos-teoremas-importantes">Dos teoremas importantes<a class="headerlink" href="#dos-teoremas-importantes" title="Permanent link">&para;</a></h3>
-<h3 id="metodo-de-momentos">Método de momentos<a class="headerlink" href="#metodo-de-momentos" title="Permanent link">&para;</a></h3>
-<h3 id="estimadores-de-maxima-verosimilitud">Estimadores de máxima verosimilitud<a class="headerlink" href="#estimadores-de-maxima-verosimilitud" title="Permanent link">&para;</a></h3>
-<p>Antes de conocer el método, se discutirá que se entiende por verosimilitud. Esta idea fue
-desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usados en estadística.</p>
-<p>La idea de verosimilitud se basa en la probabilidad de observar lo más creible dada una muestra, por lo tanto estos estimadores tratarán de maximizar la probabilidad de que haya ocurrido el evento más probable dada cierta información.</p>
-<p>Por ejemplo, si en una carrera de caballos participan 8 caballos en igualdad de condiciones,  pero se sabe que hay un caballo favorito (el cual ya ha ganado varias carreras anteriormente) y éste gana la carrera, entonces el caballo ganador seguramente tenía las mejores condiciones sobre los demás y por lógica ganó la carrera. De hecho pudo haber ganado cualquier otro caballo, ya que es un evento posble pero con poca probabilidad.</p>
-<div class="admonition abstract">
-<p class="admonition-title">Función de verosimilitud</p>
-<p>La función de verosimilitud de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(X_1, X_2,\dots,X_n\)</span>, denotada como <span class="arithmatex">\(L(\theta|x)\)</span>, se define como la <em>densidad conjunta</em> de <span class="arithmatex">\(n\)</span> variables aleatorias <span class="arithmatex">\(f_{X_1,\dots,X_n}(x_1,\dots,x_n; \theta)\)</span> como <em>función</em> de <span class="arithmatex">\(\theta\)</span>. </p>
-<p>En particular si <span class="arithmatex">\(X1, X_2,\dots,X_n\)</span> es una muestra aleatoria de <span class="arithmatex">\(f(x; \theta)\)</span>, entonces la función de verosimilitud es <span class="arithmatex">\(\prod_{i=1}^{n}f(x_i; \theta)\)</span>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Función de log-verosimilitud</p>
-<p>En ocasiones se prefiere trabajar con el logaritmo de la función de verosimilitud, denotado como <span class="arithmatex">\(l(\theta|x)=\log \left(L(\theta|x) \right)\)</span>. </p>
-<p>Note que bajo <em>muestreo aleatorio</em> <span class="arithmatex">\(l(\theta|x)=\sum_{i=1}^{n}\log \left(f(x; \theta) \right)\)</span>.</p>
-</div>
-<details class="example">
-<summary>Función de verosimilitud de lanzamiento de monedas</summary>
-<p>Suponga que se lanza una moneda 5 veces y resulta que sólo cae un águila. Se sospecha que la moneda está cargada (<span class="arithmatex">\(p = 0.2\)</span>), pero el dueño de la moneda asegura que la moneda es legal (<span class="arithmatex">\(p = 0.5\)</span>). De acuerdo a los datos, ¿cúal de los dos afirmaciones es más plausible?</p>
-<p>Note que la función de distribución conjunta puede expresarse como:</p>
-<p><span class="arithmatex">\(f_{\mathbf{X}}(\mathbf{x},p)=\prod_{i=1}^5 p^{x_i}\left(1-p\right)^{1-x_i}=p^{y}\left(1-p\right)^{5-y}
- \)</span></p>
-<p>donde <span class="arithmatex">\(y=\sum_{i=1}^5\)</span>. Debido a que se observó sólo un águila, <span class="arithmatex">\(y=1\)</span> y la función de verosimiltud únicamente depende de <span class="arithmatex">\(p\)</span>. Haciendo los cálculos, se tiene que </p>
-<p><span class="arithmatex">\(
- L(p|y=1) = 
- \begin{cases}
- 0.08192 &amp; \text{ si } p = 0.2 \\
- 0.03125 &amp; \text{ si } p = 0.5
- \end{cases}
- \)</span></p>
-<p>Si se toma la log-verosimilitud <span class="arithmatex">\(l(p|\mathbf{x})=1*\log(p)+4*\log(1-p)\)</span> , se obtiene el siguiente resultado.</p>
-<p><span class="arithmatex">\(
- l(p|y=1) = 
- \begin{cases}
- -2.5020 &amp; \text{ si } p = 0.2 \\
- -3.4657 &amp; \text{ si } p = 0.5
- \end{cases}
- \)</span></p>
-<p>Note que en ambos casos la conclusión es la misma: la verosimilitud (o log-verosimilitud) es más grande en <span class="arithmatex">\(p=0.2\)</span>.</p>
-<p>Por lo tanto se concluye que, <em>dada la muestra</em> <span class="arithmatex">\(p=0.2\)</span> es más plausible que la moneda esté cargada, ya que la función de verosimiltud es mayor.</p>
-</details>
-<p>A continuación se dará una definición para obtener un estimador de máxima verosimilitud.</p>
-<div class="admonition note">
-<p class="admonition-title">Estimador de máxima verosimilitud</p>
-<p>Sea <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span> la función de verosimilitud para las variables <span class="arithmatex">\(X_1, X_2,\dots, X_n\)</span>. Si <span class="arithmatex">\(\hat{\theta}\)</span> es un valor de <span class="arithmatex">\(\theta \in \Theta\)</span> que <em>maximiza la función de verosimilitud</em> <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span>, entonces <span class="arithmatex">\(\hat{\theta}\)</span> es una <strong>estimación</strong> de <span class="arithmatex">\(\theta\)</span> de la muestra observada <span class="arithmatex">\(x_1, x_2,\dots, x_n\)</span> <strong>específicamente</strong>.</p>
-<p>Si fuera posible encontrar una función que dependa sólo de la muestra aleatoria y que siempre maximizara <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span>, para cualquier muestra <span class="arithmatex">\(X_1, X_2,\dots, X_n\)</span>, entonces <span class="arithmatex">\(\hat{\theta}_X\)</span> es el <strong>estimador de máxima verosimilitud</strong>.</p>
-</div>
-<p>Se mostrarán algunos ejemplos en los cuales es posible encontrar el estimador de máxima verosimilitud.</p>
-<details class="example">
-<summary>Estimador de Máxima Verosimilitud del lanzamiento de una moneda</summary>
-<p>Suponga que se lanza una moneda <span class="arithmatex">\(n\)</span> veces. Encontrar el estimador de máxima verosimilitud para <span class="arithmatex">\(\theta\)</span>.</p>
-<p>Note que <span class="arithmatex">\(n\)</span> lanzamienton de moneda <span class="arithmatex">\(X_1, X_2,\dots, X_n\)</span> pueden considerarse como una muestra aleatoria de la distribución <span class="arithmatex">\(Ber(\theta)\)</span> con <span class="arithmatex">\(\theta \in (0, 1) = \Theta\)</span>. Usando la función de densidad conjunta del ejemplo anterior:</p>
-<p><span class="arithmatex">\(f_{\mathbf{X}}(\theta,\mathbf{x}) = \theta^{\sum_{i=1}^n x_i}\left(1-\theta\right)^{n-\sum_{i=1}^n x_i}\)</span></p>
-<p>Una vez observada la muestra, la función de verosimilitud puede expresarse como únicamente como función de <span class="arithmatex">\(\theta\)</span>, por lo que basta con encontrar <span class="arithmatex">\(\hat{\theta}\)</span> que maximice <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span>. Note que <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span> es continua en el intervalo (0,1), por lo que es posible encontrar la derivada de <span class="arithmatex">\(L(\theta|x_1, x_2,\dots, x_n)\)</span> y hallar su solución.</p>
-<p><span class="arithmatex">\(
- \frac{\partial L(\theta|x_1, x_2,\dots, x_n)}{\partial \theta} = \frac{\sum_{i=1}^n x_i}{\theta}-\frac{n-\sum_{i=1}^n x_i}{1-\theta}=0
- \)</span></p>
-<p>Cuya solución es <span class="arithmatex">\(\hat{\theta} = \frac{\sum_{i=1}^n x_i}{n}\)</span>. </p>
-<p>Para comprobar que este valor crítico en un punto máximo, se usa el criterio de la segunda derivada.</p>
-<p><span class="arithmatex">\(
- \frac{\partial ^2 L(\theta|x_1, x_2,\dots, x_n)}{\partial \theta^2} = \frac{-2\sum_{i=1}^n x_i}{\theta}-\frac{n-\sum_{i=1}^n x_i}{1-\theta}&lt;0
- \)</span></p>
-<p>Lo cual implica que <span class="arithmatex">\(\frac{\sum_{i=1}^n x_i}{n}\)</span> maximiza la función de verosimilitud.</p>
-<p>Por lo tanto <span class="arithmatex">\(\hat{\theta}=\frac{\sum_{i=1}^n x_i}{n}=\bar{x}\)</span> es la <em>estimación de máxima verosimilitud</em> de <span class="arithmatex">\(\theta\)</span> cuando observamos <span class="arithmatex">\(x_1,x_2,\dots,x_n\)</span>.</p>
-<p>Como esto ocurrirá en cada muestra <span class="arithmatex">\(\mathbf{X}\)</span>, entonces el <strong>estimador de máxima verosimilitud</strong> será:</p>
-<p><span class="arithmatex">\(\hat{\theta}=\bar{X}=\frac{\sum_{i=1}^n X_i}{n}\)</span></p>
-</details>
-<div class="admonition note">
-<p class="admonition-title">Función Score</p>
-<p>A la derivada de la función de verosimilitud, se le conoce como función Score.</p>
-</div>
-<p>A continuación mencionaremos características importantes de los estimadores de máxima verosimilitud.</p>
-<div class="admonition note">
-<p class="admonition-title">Condiciones de regularidad</p>
-<p>Se dice que una densidad <span class="arithmatex">\(f_X(x;\theta)\)</span> es <em>regular</em> si:</p>
+       <p>El análisis de supervivencia se basa en el estudio de variables de vida, por lo que se utilizan variables aleatorias con valores positivos. El nombre se debe a que en Medicina, se llevan a cabo estudios con pacientes en los cuales es de interés estimar el tiempo de <em>supervivencia</em> a una enfermedad.</p>
+<p>El análisis de superivencia es usado en otras disciplinas aunque tiene otros objetivos, tales como:</p>
 <ul>
-<li>El soporte de <span class="arithmatex">\(X\)</span> <strong>no depende</strong> de <span class="arithmatex">\(\theta\)</span>.</li>
-<li><span class="arithmatex">\(f_X(x;\theta)\)</span> <strong>es diferencible</strong>.</li>
-<li><span class="arithmatex">\(\theta\)</span> <strong>no está en la frontera</strong> del espacio paramétrico <span class="arithmatex">\(\Theta\)</span>.</li>
+<li><strong>Entomología:</strong> Modela el tiempo en que fallecen insectos al aplicárseles un insecticida.</li>
+<li><strong>Meteorología:</strong> Tiempo en que aparecen los huracanes.</li>
+<li><strong>Actuaría:</strong> Tiempo entre incidentes.</li>
+<li><strong>Ingeniería:</strong> (conocido como <em>confiabilidad</em>) Tiempo en que aparece una falla.</li>
 </ul>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Propiedades de los estimadores de máxima verosimilitud</p>
-<p>Bajo condiciones de regularidad, los estimadores de máxima verosimilitud tienen las siguientes propiedades:</p>
-<ul>
-<li>Mejores asintóticamente normales.</li>
-<li>Consistentes en error cuadrado medio.</li>
-<li>Son función de estadística suficiente (y minimal).</li>
-<li>Son invariantes (si <span class="arithmatex">\(g\)</span> es una función invertible, entonces <span class="arithmatex">\(\hat{g(\theta)} = g(\hat{\theta})\)</span>).</li>
-<li>No necesariamente insesgados.</li>
-</ul>
-</div>
-<blockquote>
-<p>Muchas de las ideas fueron tomadas del curso <em>Inferencia Estadística</em> impartido por el Dr. José Villaseñor en el cuatrimestre Otoño de 2014 en el Colegio de Postgraduados, Campus Montecillo.</p>
-</blockquote>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Por ahora se considerará que <span class="arithmatex">\(\theta\)</span> es de dimensión uno, aunque podría ser un vector de parámetros.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Note que podrían existir infinidad de estimadores con esta característica.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<h2 id="modelos-de-tiempo-de-vida">Modelos de tiempo de vida<a class="headerlink" href="#modelos-de-tiempo-de-vida" title="Permanent link">&para;</a></h2>
+<p>En análisis de supervivencia se usan conceptos que hasta ahora no habían sido descritos, aunque son similares a los que se usan en probabilidad.</p>
    
        <!-- Last update of source file -->
        
@@ -1140,7 +844,7 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../probabilidad/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introducción a la probabilidad" rel="prev">
+        <a href="../multivariado/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Estadística multivariada" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1149,26 +853,11 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
               <span class="md-footer__direction">
                 Previous
               </span>
-              Introducción a la probabilidad
+              Estadística multivariada
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../procesos_estocasticos/" class="md-footer__link md-footer__link--next" aria-label="Next: Procesos estocásticos" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Procesos estocásticos
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
