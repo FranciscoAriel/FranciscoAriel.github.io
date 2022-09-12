@@ -163,8 +163,7 @@ Se mostrarán algunos ejemplos en los cuales es posible encontrar el estimador d
 
      \(\hat{\theta}=\bar{X}=\frac{\sum_{i=1}^n X_i}{n}\)
 
-!!! note "Función Score"
-    A la derivada de la función de verosimilitud, se le conoce como función Score.
+Aunque hasta el momento se ha considerado distribuciones que tienen únicamente un parámetro $\theta$, esta idea puede generalizarse para un _vector de parámetros_.
 
 A continuación mencionaremos características importantes de los estimadores de máxima verosimilitud.
 
@@ -184,9 +183,22 @@ A continuación mencionaremos características importantes de los estimadores de
     - Son invariantes (si $g$ es una función invertible, entonces $\hat{g(\theta)} = g(\hat{\theta})$).
     - No necesariamente insesgados.
 
+Antes de entrar en detalles acerca de la distribución de los estimadores de máxima verosimilitud, se definirá un concepto muy importante en inferencia y será de gran utilidad en otros cursos.
 
+!!! note "Información de Fisher"
+    Sea $f_X(x;\theta)$ una densidad regular. La _información de Fisher para una sola observación_ se define como:
 
-[^1]: Por ahora se considerará que \(\theta\) es de dimensión uno, aunque podría ser un vector de parámetros.
-[^2]: Note que podrían existir infinidad de estimadores con esta característica.
+    \(I_x(\theta)=-E\left(\frac{\partial ^2}{\partial \theta ^2}l(\theta|x)\right)\).
+
+    Si $\mathbf{X}$ es una muestra aleatoria de tamaño $n$, entonces la _información de Fisher para la muestra_ se define como:
+
+    \(I_n(\theta)=-E\left(\frac{\partial ^2}{\partial \theta ^2}\sum_{i=1}^{n}\log \left(f(x; \theta) \right)\right)= nI_x(\theta)\) 
+
+!!! note "Función Score"
+    A la derivada de la función de verosimilitud $S(\theta)=\frac{\partial}{\partial \theta} l(\theta|x)$, se le conoce como función __Score__ y tiene las siguientes propiedades:
+
+    - $E(S(\theta))=0$
+    - $V(S(\theta))=I_x(\theta)$
+
 
 > Muchas de las ideas fueron tomadas del curso _Inferencia Estadística_ impartido por el Dr. José Villaseñor en el cuatrimestre Otoño de 2014 en el Colegio de Postgraduados, Campus Montecillo.

@@ -967,7 +967,7 @@
 Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5960262">Bianca van Dijk</a> en <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5960262">Pixabay</a></p>
 <p>Sería conveniente tener <em>fórmulas generales</em> para poder estimar algo desconocido únicamente utilizando información obtenida a partir de la observación de fenómenos; quisiéramos que esas <em>fórmulas generales</em> sean buenas y que se pudieran utilizar con otros datos. Por ello en este documento se detalla la forma en obtener estimadores de los parámetros poblacionales que son de interés.</p>
 <h2 id="propiedades-deseables-de-los-estimadores">Propiedades deseables de los estimadores<a class="headerlink" href="#propiedades-deseables-de-los-estimadores" title="Permanent link">&para;</a></h2>
-<p>Supóngase que <span class="arithmatex">\(\mathbf{X}=( X_1,X_2,\ldots,X_n )\)</span> es una muestra aleatoria de una densidad <span class="arithmatex">\(f_X(x;\theta)\)</span> conocida, la cual depende de un parámetro desconocido<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <span class="arithmatex">\(\theta\)</span>, aunque sabemos que <span class="arithmatex">\(\theta\)</span> pertenece a un espacio de parámetros <span class="arithmatex">\(\Theta\)</span>. Si únicamente conocemos la muestra aleatoria (observaciones), <span class="arithmatex">\(\mathbf{x}\)</span> que representan una realización de <span class="arithmatex">\(\mathbf{X}\)</span>, ¿Cuál es el valor aproximado de <span class="arithmatex">\(\theta\)</span>?.</p>
+<p>Supóngase que <span class="arithmatex">\(\mathbf{X}=( X_1,X_2,\ldots,X_n )\)</span> es una muestra aleatoria de una densidad <span class="arithmatex">\(f_X(x;\theta)\)</span> conocida, la cual depende de un parámetro desconocido[^1] <span class="arithmatex">\(\theta\)</span>, aunque sabemos que <span class="arithmatex">\(\theta\)</span> pertenece a un espacio de parámetros <span class="arithmatex">\(\Theta\)</span>. Si únicamente conocemos la muestra aleatoria (observaciones), <span class="arithmatex">\(\mathbf{x}\)</span> que representan una realización de <span class="arithmatex">\(\mathbf{X}\)</span>, ¿Cuál es el valor aproximado de <span class="arithmatex">\(\theta\)</span>?.</p>
 <div class="admonition note">
 <p class="admonition-title">Definición Estadística</p>
 <p>Una estadística es una <em>función de la muestra aleatoria</em> solamente. Note que es una <em>variable aleatoria</em>.</p>
@@ -980,7 +980,7 @@ Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_sourc
 <p class="admonition-title">Definición Estimación</p>
 <p>Una estimación es una <em>realización de un estimador</em>, es decir, es un número real.</p>
 </div>
-<p>En otras palabras, para que <span class="arithmatex">\(T\)</span> sea un estimador<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>, es necesario que al evaluar el estimador en cualquier muestra, <span class="arithmatex">\(T\)</span> caiga dentro del espacio de parámetros <span class="arithmatex">\(\Theta\)</span>. Se desea que los estimadores tengan ciertas propiedades deseables:</p>
+<p>En otras palabras, para que <span class="arithmatex">\(T\)</span> sea un estimador[^2], es necesario que al evaluar el estimador en cualquier muestra, <span class="arithmatex">\(T\)</span> caiga dentro del espacio de parámetros <span class="arithmatex">\(\Theta\)</span>. Se desea que los estimadores tengan ciertas propiedades deseables:</p>
 <h3 id="suficiencia">Suficiencia<a class="headerlink" href="#suficiencia" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Principio de suficiencia</p>
@@ -1079,10 +1079,7 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
 <p>Como esto ocurrirá en cada muestra <span class="arithmatex">\(\mathbf{X}\)</span>, entonces el <strong>estimador de máxima verosimilitud</strong> será:</p>
 <p><span class="arithmatex">\(\hat{\theta}=\bar{X}=\frac{\sum_{i=1}^n X_i}{n}\)</span></p>
 </details>
-<div class="admonition note">
-<p class="admonition-title">Función Score</p>
-<p>A la derivada de la función de verosimilitud, se le conoce como función Score.</p>
-</div>
+<p>Aunque hasta el momento se ha considerado distribuciones que tienen únicamente un parámetro <span class="arithmatex">\(\theta\)</span>, esta idea puede generalizarse para un <em>vector de parámetros</em>.</p>
 <p>A continuación mencionaremos características importantes de los estimadores de máxima verosimilitud.</p>
 <div class="admonition note">
 <p class="admonition-title">Condiciones de regularidad</p>
@@ -1104,20 +1101,25 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
 <li>No necesariamente insesgados.</li>
 </ul>
 </div>
+<p>Antes de entrar en detalles acerca de la distribución de los estimadores de máxima verosimilitud, se definirá un concepto muy importante en inferencia y será de gran utilidad en otros cursos.</p>
+<div class="admonition note">
+<p class="admonition-title">Información de Fisher</p>
+<p>Sea <span class="arithmatex">\(f_X(x;\theta)\)</span> una densidad regular. La <em>información de Fisher para una sola observación</em> se define como:</p>
+<p><span class="arithmatex">\(I_x(\theta)=-E\left(\frac{\partial ^2}{\partial \theta ^2}l(\theta|x)\right)\)</span>.</p>
+<p>Si <span class="arithmatex">\(\mathbf{X}\)</span> es una muestra aleatoria de tamaño <span class="arithmatex">\(n\)</span>, entonces la <em>información de Fisher para la muestra</em> se define como:</p>
+<p><span class="arithmatex">\(I_n(\theta)=-E\left(\frac{\partial ^2}{\partial \theta ^2}\sum_{i=1}^{n}\log \left(f(x; \theta) \right)\right)= nI_x(\theta)\)</span> </p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Función Score</p>
+<p>A la derivada de la función de verosimilitud <span class="arithmatex">\(S(\theta)=\frac{\partial}{\partial \theta} l(\theta|x)\)</span>, se le conoce como función <strong>Score</strong> y tiene las siguientes propiedades:</p>
+<ul>
+<li><span class="arithmatex">\(E(S(\theta))=0\)</span></li>
+<li><span class="arithmatex">\(V(S(\theta))=I_x(\theta)\)</span></li>
+</ul>
+</div>
 <blockquote>
 <p>Muchas de las ideas fueron tomadas del curso <em>Inferencia Estadística</em> impartido por el Dr. José Villaseñor en el cuatrimestre Otoño de 2014 en el Colegio de Postgraduados, Campus Montecillo.</p>
 </blockquote>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Por ahora se considerará que <span class="arithmatex">\(\theta\)</span> es de dimensión uno, aunque podría ser un vector de parámetros.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Note que podrían existir infinidad de estimadores con esta característica.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
    
        <!-- Last update of source file -->
        

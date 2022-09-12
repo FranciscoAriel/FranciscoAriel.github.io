@@ -810,7 +810,7 @@ De manera análoga al caso univariado, se puede realizar un contraste de hipóte
 T^2=n(\bar{\mathbf{X}}-\mathbf{\mu}_0)^t\mathbf{S}^{-1}(\bar{\mathbf{X}}-\mathbf{\mu}_0)
 \)
 
-donde $T^2 \sim \frac{(n-1)p}{n-p}F_{p,n-p}$. Por lo que se rechaza $H_0$ si $T^2 > \frac{(n-1)p}{n-p}F_{p,n-p}(\aplha)$.
+donde $T^2 \sim \frac{(n-1)p}{n-p}F_{p,n-p}$. Por lo que se rechaza $H_0$ si $T^2 > \frac{(n-1)p}{n-p}F_{p,n-p}(\alpha)$.
 
 ## Bibliografía
 
