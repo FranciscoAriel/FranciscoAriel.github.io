@@ -68,6 +68,27 @@ En la práctica, esta definición no es muy útil ya que implica calcular la den
 
 ### Completez
 
+### La familia exponencial
+
+Muchas de las distribuciones estudiadas en estadística, pueden clasificarse en una _familia_ de distribuciones que se denomina _familia exponencial_.
+
+!!! note "Familia exponencial"
+    Se dice que la distribución $f(y,\theta)$ pertenece a la familia exponencial si puede expresarse como:
+
+    $$f(y,\theta)=e^{a(y)b(\theta)+c(\theta)+d(y)}$$
+
+    Si $a(y)=y$, entonces se dice que la distribución está en __forma canónica__ y $b(\theta)$ es llamado el __parámetro natural__ (Dobson & Barnett, 2008).
+
+!!! note "Otra notación"
+    Algunos autores, por ejemplo (Mood et al., 1974), definen a la familia exponencial como $f(y,\theta)=a(\theta)b(y)e^{c(\theta)d(y)}$.
+
+Esta familia es importante debido a que pueden obtenerse las estadísticas suficientes y mostrar que son completas fácilmente.
+
+!!! note "Estadísticas suficientes en la familia exponencial"
+    Bajo _muestra aleatoria_, por el criterio de factorización $\sum_{i=1}^{n}d(y_i)$ es una estadística suficiente minimal.
+
+La definición de familia exponencial puede exterderse para el caso de $p$ parámetros.
+
 ## Estimación puntual
 
 ### Dos teoremas importantes
@@ -165,6 +186,8 @@ Se mostrarán algunos ejemplos en los cuales es posible encontrar el estimador d
 
 Aunque hasta el momento se ha considerado distribuciones que tienen únicamente un parámetro $\theta$, esta idea puede generalizarse para un _vector de parámetros_.
 
+#### Propiedades de los estimadores de Máxima verosimilitud
+
 A continuación mencionaremos características importantes de los estimadores de máxima verosimilitud.
 
 !!! note "Condiciones de regularidad"
@@ -200,5 +223,10 @@ Antes de entrar en detalles acerca de la distribución de los estimadores de má
     - $E(S(\theta))=0$
     - $V(S(\theta))=I_x(\theta)$
 
+## Bibliografía
+
+Dobson, A., & Barnett, A. (2008). An Introduction to Generalized Linear Models (Third Edition). CRC Press.
+
+Mood, A., Graybill, F., & Boes, D. (1974). _Introduction to the Theory of Statistics_. McGraw-Hill.
 
 > Muchas de las ideas fueron tomadas del curso _Inferencia Estadística_ impartido por el Dr. José Villaseñor en el cuatrimestre Otoño de 2014 en el Colegio de Postgraduados, Campus Montecillo.

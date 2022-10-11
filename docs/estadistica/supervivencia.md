@@ -17,7 +17,11 @@ El análisis de superivencia es usado en otras disciplinas aunque tiene otros ob
 - **Actuaría:** Tiempo entre incidentes.
 - **Ingeniería:** (conocido como _confiabilidad_) Tiempo en que aparece una falla.
 
+Aunque es común estudiar variables aleatorias relacionadas al _tiempo entre eventos_, es posible estudiar otras variables relacionadas, por ejemplo distancia o cualquier variable que tome valores positivos.
+
 ## Modelos de tiempo de vida
 
-En análisis de supervivencia se usan conceptos que hasta ahora no habían sido descritos, aunque son similares a los que se usan en probabilidad.
+En análisis de supervivencia se usan conceptos que hasta ahora no habían sido descritos, aunque son similares a los que se usan en probabilidad. A continuación se dará una breve definición de ellos.
+
+
 

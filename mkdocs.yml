@@ -50,6 +50,7 @@ nav:
         - "Estadística bayesiana": estadistica/bayesiano.md
         - "Estadística multivariada": estadistica/multivariado.md
         - "Análisis de supervivencia": estadistica/supervivencia.md
+        - "Modelos lineales generalizados": estadistica/modelos_lineales_generalizados.md
 
 markdown_extensions:
     - pymdownx.superfences

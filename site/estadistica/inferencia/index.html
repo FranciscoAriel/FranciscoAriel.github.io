@@ -660,6 +660,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#la-familia-exponencial" class="md-nav__link">
+    La familia exponencial
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -696,6 +703,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografía
+  </a>
   
 </li>
       
@@ -792,6 +806,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelos_lineales_generalizados/" class="md-nav__link">
+        Modelos lineales generalizados
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -865,6 +893,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#la-familia-exponencial" class="md-nav__link">
+    La familia exponencial
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -901,6 +936,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografía
+  </a>
   
 </li>
       
@@ -1010,6 +1052,24 @@ Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_sourc
 <h3 id="consistencia">Consistencia<a class="headerlink" href="#consistencia" title="Permanent link">&para;</a></h3>
 <h3 id="mejor-asintototicamente-normal">Mejor asintótoticamente normal<a class="headerlink" href="#mejor-asintototicamente-normal" title="Permanent link">&para;</a></h3>
 <h3 id="completez">Completez<a class="headerlink" href="#completez" title="Permanent link">&para;</a></h3>
+<h3 id="la-familia-exponencial">La familia exponencial<a class="headerlink" href="#la-familia-exponencial" title="Permanent link">&para;</a></h3>
+<p>Muchas de las distribuciones estudiadas en estadística, pueden clasificarse en una <em>familia</em> de distribuciones que se denomina <em>familia exponencial</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Familia exponencial</p>
+<p>Se dice que la distribución <span class="arithmatex">\(f(y,\theta)\)</span> pertenece a la familia exponencial si puede expresarse como:</p>
+<div class="arithmatex">\[f(y,\theta)=e^{a(y)b(\theta)+c(\theta)+d(y)}\]</div>
+<p>Si <span class="arithmatex">\(a(y)=y\)</span>, entonces se dice que la distribución está en <strong>forma canónica</strong> y <span class="arithmatex">\(b(\theta)\)</span> es llamado el <strong>parámetro natural</strong> (Dobson &amp; Barnett, 2008).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Otra notación</p>
+<p>Algunos autores, por ejemplo (Mood et al., 1974), definen a la familia exponencial como <span class="arithmatex">\(f(y,\theta)=a(\theta)b(y)e^{c(\theta)d(y)}\)</span>.</p>
+</div>
+<p>Esta familia es importante debido a que pueden obtenerse las estadísticas suficientes y mostrar que son completas fácilmente.</p>
+<div class="admonition note">
+<p class="admonition-title">Estadísticas suficientes en la familia exponencial</p>
+<p>Bajo <em>muestra aleatoria</em>, por el criterio de factorización <span class="arithmatex">\(\sum_{i=1}^{n}d(y_i)\)</span> es una estadística suficiente minimal.</p>
+</div>
+<p>La definición de familia exponencial puede exterderse para el caso de <span class="arithmatex">\(p\)</span> parámetros.</p>
 <h2 id="estimacion-puntual">Estimación puntual<a class="headerlink" href="#estimacion-puntual" title="Permanent link">&para;</a></h2>
 <h3 id="dos-teoremas-importantes">Dos teoremas importantes<a class="headerlink" href="#dos-teoremas-importantes" title="Permanent link">&para;</a></h3>
 <h3 id="metodo-de-momentos">Método de momentos<a class="headerlink" href="#metodo-de-momentos" title="Permanent link">&para;</a></h3>
@@ -1080,6 +1140,7 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
 <p><span class="arithmatex">\(\hat{\theta}=\bar{X}=\frac{\sum_{i=1}^n X_i}{n}\)</span></p>
 </details>
 <p>Aunque hasta el momento se ha considerado distribuciones que tienen únicamente un parámetro <span class="arithmatex">\(\theta\)</span>, esta idea puede generalizarse para un <em>vector de parámetros</em>.</p>
+<h4 id="propiedades-de-los-estimadores-de-maxima-verosimilitud">Propiedades de los estimadores de Máxima verosimilitud<a class="headerlink" href="#propiedades-de-los-estimadores-de-maxima-verosimilitud" title="Permanent link">&para;</a></h4>
 <p>A continuación mencionaremos características importantes de los estimadores de máxima verosimilitud.</p>
 <div class="admonition note">
 <p class="admonition-title">Condiciones de regularidad</p>
@@ -1117,6 +1178,9 @@ desarrollada por Fisher en la década de 1920 y es uno de los conceptos más usa
 <li><span class="arithmatex">\(V(S(\theta))=I_x(\theta)\)</span></li>
 </ul>
 </div>
+<h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
+<p>Dobson, A., &amp; Barnett, A. (2008). An Introduction to Generalized Linear Models (Third Edition). CRC Press.</p>
+<p>Mood, A., Graybill, F., &amp; Boes, D. (1974). <em>Introduction to the Theory of Statistics</em>. McGraw-Hill.</p>
 <blockquote>
 <p>Muchas de las ideas fueron tomadas del curso <em>Inferencia Estadística</em> impartido por el Dr. José Villaseñor en el cuatrimestre Otoño de 2014 en el Colegio de Postgraduados, Campus Montecillo.</p>
 </blockquote>
