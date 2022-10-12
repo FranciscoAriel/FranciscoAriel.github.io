@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#introduccion" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -688,9 +693,45 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Modelos lineales generalizados
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Modelos lineales generalizados
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimacion" class="md-nav__link">
+    Estimación
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -709,6 +750,44 @@
                 </div>
               </div>
             
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimacion" class="md-nav__link">
+    Estimación
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
             
           
           <div class="md-content" data-md-component="content">
@@ -761,8 +840,20 @@
     
     
 
-       <p>Los modelos lineales generalizados son una poderosa herramienta para el análisis de datos, cuya característica principal es que la variable respuesta no necesariamente es normal, por lo que se extiende a varias distribuciones.</p>
+       <h2 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h2>
+<p>Los modelos lineales generalizados (MLG) son una poderosa herramienta para el análisis de datos, cuya característica principal es que la variable respuesta no necesariamente es normal, por lo que se extiende a varias distribuciones.</p>
 <p>Un caso particular de estos modelos es el modelo de regresión lineal, aunque también lo son la regresión Poisson o regresión Logística.</p>
+<p>A continuación se definirá a los modelos lineales generalizados.</p>
+<div class="admonition note">
+<p class="admonition-title">Definición</p>
+<p>Sean <span class="arithmatex">\(Y_1,Y_2,\dots,Y_n\)</span> variables aleatorias independientes con distribución <span class="arithmatex">\(f_{Y}(y_i;\theta_i)=e^{y_i b(\theta_i)+c(\theta_i)+d(y_i)}\)</span>. Entonces se tienen las siguientes características:</p>
+<p>1) <span class="arithmatex">\(f_Y(y_i;\theta_i)\)</span> pertenece a la familia exponencial.</p>
+<p>2) Si <span class="arithmatex">\(E(Y_i)=\mu_i\)</span>, con <span class="arithmatex">\(h(\theta_i)=\mu_i\)</span>, entonces <span class="arithmatex">\(g(\mu_i)=\mathbf{X\beta}\)</span>.</p>
+<p>3) <span class="arithmatex">\(g\)</span> es una función monótona y diferenciable y se le conoce como <em>función enlace</em>.</p>
+</div>
+<p>Note que <span class="arithmatex">\(g(\mu_i)\)</span> es explicada de forma lineal por covariables <span class="arithmatex">\(X_j,j=1,2,\dots,p&lt;n\)</span> a través de parámetros <span class="arithmatex">\(\beta_0, \beta_1,\dots,\beta_p\)</span>, por lo que estos parámetros son de interés.</p>
+<h2 id="estimacion">Estimación<a class="headerlink" href="#estimacion" title="Permanent link">&para;</a></h2>
+<p>Usando el supuesto de que </p>
    
        <!-- Last update of source file -->
        

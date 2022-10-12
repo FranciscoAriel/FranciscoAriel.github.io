@@ -89,6 +89,38 @@ Esta familia es importante debido a que pueden obtenerse las estadísticas sufic
 
 La definición de familia exponencial puede exterderse para el caso de $p$ parámetros.
 
+La familia exponencial tiene propiedades interesantes, ya que debido a su forma, la media y varianza (si existen) pueden obtenerse fácilmente.
+
+!!! note "Media y varianza en la familia exponencial"
+    Si $a(y)=y$, entonces: 
+
+    $$E(Y) = \frac{-b^{'}(\theta)}{c^{'}(\theta)}\;Var(Y)=\frac{b^{''}(\theta)c^{'}(\theta)-c^{''}(\theta)b^{'}(\theta)}{b^{'}(\theta)^3}$$
+
+??? example "Derivación de la media y varianza en la familia exponencial"
+    Primero se aprovecha el hecho de que la distribución $f(y,\theta)$ está bien definida $\int f(y,\theta)dy=1$, por lo que $\frac{\partial}{\partial \theta}\int f(y,\theta)dy=0$ y $\frac{\partial^2}{\partial \theta^2}\int f(y,\theta)dy=0$.
+
+    Bajo condiciones de regularidad, es posible intercambiar la integral con la derivada, por lo que $\int \frac{\partial}{\partial \theta} f(y,\theta)dy=0$ y $\int \frac{\partial^2}{\partial \theta^2} f(y,\theta)dy=0$.
+
+    Note que la primera con respecto a $\theta$ es:
+
+    $$\frac{\partial}{\partial \theta} f(y,\theta)=\left(a(y)b^{'}(\theta)+c^{'}(\theta)\right)f(y,\theta)$$
+
+    y la segunda derivada de la densidad es:
+
+    $$\frac{\partial^2}{\partial \theta^2} f(y,\theta)=\left(\left(a(y)b^{'}(\theta)+c^{'}(\theta)\right)^2+\left(a(y)b^{''}(\theta)+c^{''}(\theta)\right)\right)f(y,\theta)$$
+
+    Por lo tanto
+
+    \(
+    \begin{align*}
+    0 &=\frac{\partial}{\partial \theta}\int f(y,\theta)dy\\
+      &=\int \frac{\partial}{\partial \theta} f(y,\theta)dy\\
+      &= \int \left(a(y)b^{'}(\theta)+c^{'}(\theta)\right)f(y,\theta) dy\\
+      &= \left(a(y)b^{'}(\theta)+c^{'}(\theta)\right) \int f(y,\theta) dy\\
+      &=a(y)b^{'}(\theta)+c^{'}(\theta)
+    \end{align*}
+    \)
+
 ## Estimación puntual
 
 ### Dos teoremas importantes
