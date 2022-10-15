@@ -94,7 +94,7 @@ La familia exponencial tiene propiedades interesantes, ya que debido a su forma,
 !!! note "Media y varianza en la familia exponencial"
     Si $a(y)=y$, entonces: 
 
-    $$E(Y) = \frac{-b^{'}(\theta)}{c^{'}(\theta)}\;Var(Y)=\frac{b^{''}(\theta)c^{'}(\theta)-c^{''}(\theta)b^{'}(\theta)}{b^{'}(\theta)^3}$$
+    $$E(Y) = \frac{-c^{'}(\theta)}{b^{'}(\theta)},\;Var(Y)=\frac{b^{''}(\theta)c^{'}(\theta)-c^{''}(\theta)b^{'}(\theta)}{b^{'}(\theta)^3}$$
 
 ??? example "Derivación de la media y varianza en la familia exponencial"
     Primero se aprovecha el hecho de que la distribución $f(y,\theta)$ está bien definida $\int f(y,\theta)dy=1$, por lo que $\frac{\partial}{\partial \theta}\int f(y,\theta)dy=0$ y $\frac{\partial^2}{\partial \theta^2}\int f(y,\theta)dy=0$.
@@ -199,7 +199,7 @@ Por ejemplo, si en una carrera de caballos participan 8 caballos en igualdad de 
 A continuación se dará una definición para obtener un estimador de máxima verosimilitud.
 
 !!! note "Estimador de máxima verosimilitud"
-    Sea $L(\theta|x_1, x_2,\dots, x_n)$ la función de verosimilitud para las variables $X_1, X_2,\dots, X_n$. Si $\hat{\theta}$ es un valor de $\theta \in \Theta$ que *maximiza la función de verosimilitud* $L(\theta|x_1, x_2,\dots, x_n)$, entonces $\hat{\theta}$ es una **estimación** de $\theta$ de la muestra observada $x_1, x_2,\dots, x_n$ **específicamente**.
+    Sea $L(\theta|x_1, x_2,\dots, x_n)$ la función de verosimilitud para las variables $X_1, X_2,\dots, X_n$. Si $\hat{\theta}$ es un valor de $\theta \in \Theta$ que _maximiza la función de verosimilitud_ $L(\theta|x_1, x_2,\dots, x_n)$, entonces $\hat{\theta}$ es una **estimación** de $\theta$ de la muestra observada $x_1, x_2,\dots, x_n$ **específicamente**.
     
     Si fuera posible encontrar una función que dependa sólo de la muestra aleatoria y que siempre maximizara $L(\theta|x_1, x_2,\dots, x_n)$, para cualquier muestra $X_1, X_2,\dots, X_n$, entonces $\hat{\theta}_X$ es el **estimador de máxima verosimilitud**.
 
