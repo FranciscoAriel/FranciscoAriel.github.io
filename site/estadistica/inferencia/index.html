@@ -1079,12 +1079,12 @@ Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_sourc
 <details class="example">
 <summary>Derivación de la media y varianza en la familia exponencial</summary>
 <p>Primero se aprovecha el hecho de que la distribución <span class="arithmatex">\(f(y,\theta)\)</span> está bien definida <span class="arithmatex">\(\int f(y,\theta)dy=1\)</span>, por lo que <span class="arithmatex">\(\frac{\partial}{\partial \theta}\int f(y,\theta)dy=0\)</span> y <span class="arithmatex">\(\frac{\partial^2}{\partial \theta^2}\int f(y,\theta)dy=0\)</span>.</p>
-<p>Bajo condiciones de regularidad, es posible intercambiar la integral con la derivada, por lo que <span class="arithmatex">\(\int \frac{\partial}{\partial \theta} f(y,\theta)dy=0\)</span> y <span class="arithmatex">\(\int \frac{\partial^2}{\partial \theta^2} f(y,\theta)dy=0\)</span>.</p>
+<p><strong>Bajo condiciones de regularidad</strong>, es posible intercambiar la integral con la derivada, por lo que <span class="arithmatex">\(\int \frac{\partial}{\partial \theta} f(y,\theta)dy=0\)</span> y <span class="arithmatex">\(\int \frac{\partial^2}{\partial \theta^2} f(y,\theta)dy=0\)</span>.</p>
 <p>Note que la primera con respecto a <span class="arithmatex">\(\theta\)</span> es:</p>
 <div class="arithmatex">\[\frac{\partial}{\partial \theta} f(y,\theta)=\left(a(y)b^{'}(\theta)+c^{'}(\theta)\right)f(y,\theta)\]</div>
 <p>y la segunda derivada de la densidad es:</p>
-<div class="arithmatex">\[\frac{\partial^2}{\partial \theta^2} f(y,\theta)=\left(\left(a(y)b^{'}(\theta)+c^{'}(\theta)\right)^2+\left(a(y)b^{''}(\theta)+c^{''}(\theta)\right)\right)f(y,\theta)\]</div>
-<p>Por lo tanto</p>
+<div class="arithmatex">\[\frac{\partial^2}{\partial \theta^2} f(y,\theta)=\left[\left(a(y)b^{'}(\theta)+c^{'}(\theta)\right)^2+\left(a(y)b^{''}(\theta)+c^{''}(\theta)\right)\right]f(y,\theta)\]</div>
+<p>Por lo tanto el resultado con la primer derivada es:</p>
 <p><span class="arithmatex">\(
 \begin{align*}
 0 &amp;=\frac{\partial}{\partial \theta}\int f(y,\theta)dy\\
@@ -1094,6 +1094,20 @@ Imagen de <a href="https://pixabay.com/es/users/biancavandijk-9606149/?utm_sourc
   &amp;=a(y)b^{'}(\theta)+c^{'}(\theta)
 \end{align*}
 \)</span></p>
+<p>Por lo que <span class="arithmatex">\(a(y)=\frac{-c^{'}(\theta)}{b^{'}(\theta)}\)</span> y por lo tanto <span class="arithmatex">\(E(a(y))=\frac{-c^{'}(\theta)}{b^{'}(\theta)}\)</span>.</p>
+<p>Para la segunda derivada, note que <span class="arithmatex">\(\left[a(y)b^{'}(\theta)+c^{'}(\theta)\right]^2=b^{'}(\theta)^2\left[a(y)-E(a(y))\right]^2\)</span>, por ende</p>
+<p><span class="arithmatex">\(
+    \begin{align*}
+    0 &amp;=\frac{\partial^2}{\partial \theta^2} \int f(y,\theta)dy\\
+    &amp;=\int \frac{\partial^2}{\partial \theta^2} f(y,\theta)dy\\
+    &amp; =\int \left[\left(a(y)b^{'}(\theta)+c^{'}(\theta)\right)^2+\left(a(y)b^{''}(\theta)+c^{''}(\theta)\right)\right]f(y,\theta)dy\\
+    &amp;=\int \left[b^{'}(\theta)^2\left[a(y)-E(a(y))\right]^2+\left(a(y)b^{''}(\theta)+c^{''}(\theta)\right)\right]f(y,\theta)dy\\
+    &amp;=\int b^{'}(\theta)^2\left[a(y)-E(a(y))\right]^2f(y,\theta)dy+\int a(y)b^{''}(\theta)f(y,\theta)dy+\int c^{''}(\theta)f(y,\theta)dy\\
+    &amp;= b^{'}(\theta)^2 Var(a(y)) + b^{''}(\theta) E(a(y)) + c^{''}(\theta)\\
+    &amp;= b^{'}(\theta)^2 Var(a(y)) + b^{''}(\theta) \frac{-c^{'}(\theta)}{b^{'}(\theta)} + c^{''}(\theta)
+    \end{align*}
+\)</span></p>
+<p>Por lo tanto <span class="arithmatex">\(Var(a(y))= \frac{b^{''}(\theta) c^{'}(\theta)-c^{''}(\theta)b^{'}(\theta)}{b^{'}(\theta)^3}\)</span>.</p>
 </details>
 <h2 id="estimacion-puntual">Estimación puntual<a class="headerlink" href="#estimacion-puntual" title="Permanent link">&para;</a></h2>
 <h3 id="dos-teoremas-importantes">Dos teoremas importantes<a class="headerlink" href="#dos-teoremas-importantes" title="Permanent link">&para;</a></h3>

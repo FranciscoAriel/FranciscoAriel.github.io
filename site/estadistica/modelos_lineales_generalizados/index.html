@@ -727,6 +727,67 @@
     Estimación
   </a>
   
+    <nav class="md-nav" aria-label="Estimación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodo-de-scoring" class="md-nav__link">
+    Método de Scoring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimos-cuadrados-ponderados-iterativos" class="md-nav__link">
+    Mínimos cuadrados ponderados iterativos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inferencia" class="md-nav__link">
+    Inferencia
+  </a>
+  
+    <nav class="md-nav" aria-label="Inferencia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estadistica-score" class="md-nav__link">
+    Estadística Score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estadistica-de-wald" class="md-nav__link">
+    Estadística de Wald
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estadistica-de-razon-de-verosimilitudes" class="md-nav__link">
+    Estadística de razón de verosimilitudes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografía
+  </a>
+  
 </li>
       
     </ul>
@@ -778,6 +839,67 @@
         <li class="md-nav__item">
   <a href="#estimacion" class="md-nav__link">
     Estimación
+  </a>
+  
+    <nav class="md-nav" aria-label="Estimación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metodo-de-scoring" class="md-nav__link">
+    Método de Scoring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimos-cuadrados-ponderados-iterativos" class="md-nav__link">
+    Mínimos cuadrados ponderados iterativos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inferencia" class="md-nav__link">
+    Inferencia
+  </a>
+  
+    <nav class="md-nav" aria-label="Inferencia">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estadistica-score" class="md-nav__link">
+    Estadística Score
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estadistica-de-wald" class="md-nav__link">
+    Estadística de Wald
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estadistica-de-razon-de-verosimilitudes" class="md-nav__link">
+    Estadística de razón de verosimilitudes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografía
   </a>
   
 </li>
@@ -833,7 +955,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-            </svg> lectura: 15 minutos
+            </svg> lectura: 35 minutos
         </span>
         </p>
     </aside>
@@ -847,13 +969,108 @@
 <div class="admonition note">
 <p class="admonition-title">Definición</p>
 <p>Sean <span class="arithmatex">\(Y_1,Y_2,\dots,Y_n\)</span> variables aleatorias independientes con distribución <span class="arithmatex">\(f_{Y}(y_i;\theta_i)=e^{y_i b(\theta_i)+c(\theta_i)+d(y_i)}\)</span>. Entonces se tienen las siguientes características:</p>
-<p>1) <span class="arithmatex">\(f_Y(y_i;\theta_i)\)</span> pertenece a la familia exponencial.</p>
-<p>2) Si <span class="arithmatex">\(E(Y_i)=\mu_i\)</span>, con <span class="arithmatex">\(h(\theta_i)=\mu_i\)</span>, entonces <span class="arithmatex">\(g(\mu_i)=\mathbf{X\beta}\)</span>.</p>
+<p>1) <span class="arithmatex">\(f_Y(y_i;\theta_i)\)</span> pertenece a la <a href="../inferencia/#la-familia-exponencial">familia exponencial</a>.</p>
+<p>2) Si <span class="arithmatex">\(E(Y_i)=\mu_i\)</span>, con <span class="arithmatex">\(h(\theta_i)=\mu_i\)</span>, entonces <span class="arithmatex">\(g(\mu_i)=\eta_i\)</span>.</p>
 <p>3) <span class="arithmatex">\(g\)</span> es una función monótona y diferenciable y se le conoce como <em>función enlace</em>.</p>
 </div>
-<p>Note que <span class="arithmatex">\(g(\mu_i)\)</span> es explicada de forma lineal por covariables <span class="arithmatex">\(X_j,j=1,2,\dots,p&lt;n\)</span> a través de parámetros <span class="arithmatex">\(\beta_0, \beta_1,\dots,\beta_p\)</span>, por lo que estos parámetros son de interés.</p>
+<p>Note que <span class="arithmatex">\(g(\mu_i)\)</span> es una función del predictor lineal <span class="arithmatex">\(\eta_i=\beta_0+\beta_1X_{i1}+\dots+\beta_p X_{ip}\)</span> el cual está formado por por covariables <span class="arithmatex">\(X_j,j=1,2,\dots,p&lt;n\)</span> y parámetros desconocidos <span class="arithmatex">\(\beta_0, \beta_1,\dots,\beta_p\)</span>, por lo que estos parámetros son de interés.</p>
+<p>A continuación se presentan algunos ejemplo de los modelos lineales generalizados más usados en estadística.</p>
+<details class="example">
+<summary>Modelo de regresión lineal</summary>
+<p>El modelo de regresión lineal puede considerarse como un caso particular de un modelo lineal generalizado, ya que cumple con las 3 características descitas anteriormente.</p>
+<p>1) <span class="arithmatex">\(Y_i \sim N(\mu_i,\sigma^2)\)</span> (La distribución normal pertenece a la familia exponencial).</p>
+<p>2) <span class="arithmatex">\(E(Y_i)=\mu_i=\beta_0+\beta_1X_{i1}+\dots+\beta_p X_{ip}\)</span> (El valor esperado de <span class="arithmatex">\(Y_i\)</span> es el predictor lineal).</p>
+<p>3) <span class="arithmatex">\(g(\mu_i)=\mu_i\)</span> (función enlace identidad).</p>
+</details>
+<details class="example">
+<summary>Modelo de regresión logística</summary>
+<p>El modelo de regresión logística tambien es considerado un caso particular de un modelo lineal generalizado, este modelo es usado para modelar probabilidades de éxito con variable respuesta binaria o de conteos.</p>
+<p>1) <span class="arithmatex">\(Y_i \sim Ber(p_i)\)</span> para datos con respuesta binaria o <span class="arithmatex">\(Y_i \sim Bin(n_i,p_i)\)</span> para datos agrupados.</p>
+<p>2) <span class="arithmatex">\(\log \left(\frac{p_i}{1-p_i}\right)=\beta_0+\beta_1X_{i1}+\dots+\beta_p X_{ip}\)</span></p>
+<p>3) La función <em>logit</em> es monótona (es la inversa de la <a href="https://es.wikipedia.org/wiki/Funci%C3%B3n_log%C3%ADstica">función logística</a>).</p>
+</details>
+<details class="example">
+<summary>Modelo de regresión Poisson</summary>
+<p>Otro modelo que puede considerarse un caso particular de los modelos lineales generalizados es la regresión Poisson.</p>
+<p>1) <span class="arithmatex">\(Y_i \sim Poi(\lambda_i)\)</span>.</p>
+<p>2) <span class="arithmatex">\(\log \lambda_i = \beta_0+\beta_1X_{i1}+\dots+\beta_p X_{ip}\)</span>.</p>
+<p>3) <span class="arithmatex">\(g\)</span> es monótona (La inversa de la función logaritmo es la función exponencial).</p>
+</details>
 <h2 id="estimacion">Estimación<a class="headerlink" href="#estimacion" title="Permanent link">&para;</a></h2>
-<p>Usando el supuesto de que </p>
+<p>Usando el supuesto de que las observaciones son independientes, es posible construir la función de verosimilitud</p>
+<div class="arithmatex">\[L(\theta_i|\mathbf{x},y)=e^{\sum_{i=1}^n y_i b(\theta_i)+c(\theta_i)+d(y_i)}\]</div>
+<p>sin embargo en ocasiones es preferible trabajar con la función de log-verosimilitud.</p>
+<div class="arithmatex">\[l(\theta_i|\mathbf{x},y)=\sum_{i=1}^n y_i b(\theta_i)+\sum_{i=1}^n c(\theta_i)+\sum_{i=1}^n d(y_i)\]</div>
+<p>Las estimaciones de los parámetros se obtienen maximizando esa función. En general, no es posible encontrar una solución analítica cerrada de la función de log-verosimilitud.</p>
+<p>A continuación se muestran algunos métodos para la estimación de parámetros.</p>
+<h3 id="metodo-de-scoring">Método de Scoring<a class="headerlink" href="#metodo-de-scoring" title="Permanent link">&para;</a></h3>
+<p>Este método puede ser considerado como una variante del método de Newton-Raphson, en el cual los parámetros se estiman de forma iterativa</p>
+<p><span class="arithmatex">\(\theta^{(i+1)}=\theta^{(i)}+\mathbf{I}\left(\theta^{(i)}\right)^{-1}\mathbf{U}\left(\theta^{(i)}\right)\)</span></p>
+<p>donde <span class="arithmatex">\(\mathbf{U}=\frac{\partial l(\theta|\mathbf{x},y)}{\partial \theta}\)</span> es conocido como vector <em>score</em> o gradiente y <span class="arithmatex">\(\mathbf{I}=-E\left(\frac{\partial^2 l(\theta|\mathbf{x},y)}{\partial \theta^2}\right)\)</span> es la información.</p>
+<p>Note que si no se tienen covariables, este método puede ser usado directamente para estimar a <span class="arithmatex">\(\theta_i\)</span> como se muestra en el siguiente ejemplo.</p>
+<h3 id="minimos-cuadrados-ponderados-iterativos">Mínimos cuadrados ponderados iterativos<a class="headerlink" href="#minimos-cuadrados-ponderados-iterativos" title="Permanent link">&para;</a></h3>
+<p>Para los modelos lineales generalizados, el vector <em>score</em> puede escribirse como</p>
+<p><span class="arithmatex">\(
+\mathbf{U}= \left(U_j\right), j=1,\dots,p
+\)</span></p>
+<p>donde <span class="arithmatex">\(U_j=\sum_{i_1}^n\frac{(y_i-\mu_i)}{Var(Y_i)}x_{ij}\frac{\partial \mu_i}{\partial \eta_i}\)</span> y la matriz de Información como</p>
+<p><span class="arithmatex">\(
+\mathbf{I}=\lbrace I_{jk} \rbrace, j,k=1,\dots,p
+\)</span></p>
+<p>donde <span class="arithmatex">\(I_{jk}=\frac{x_{ij}x_{ik}}{Var(Y_i)}\left(\frac{\partial \mu_i}{\partial \eta_i}\right)^2\)</span>. Vea el capítulo 4 de (Dobson &amp; Barnett, 2008) para mayores detalles.</p>
+<p>Usando las ecuaciones del método de Scoring se tiene que</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+\mathbf{b}^{(i+1)}&amp;=\mathbf{b}^{(i)} + \left(\mathbf{I}^{(i)}\right)^{-1}\mathbf{U}^{(i)}\\
+\mathbf{I}^{(i)}\mathbf{b}^{(i+1)}&amp;=\mathbf{I}^{(i)}\mathbf{b}^{(i)} + \mathbf{U}^{(i)}
+\end{align*}
+\)</span></p>
+<p>donde <span class="arithmatex">\(\mathbf{b}\)</span> es un vector que contiene estimaciones de los parámetros de interés.</p>
+<p>Note que la información puede expresarse de forma matricial como <span class="arithmatex">\(\mathbf{I}=\mathbf{X}^t\mathbf{W}\mathbf{X}\)</span>, donde <span class="arithmatex">\(\mathbf{W}\)</span> es una matriz diagonal de dimensión <span class="arithmatex">\(n \times n\)</span> con elementos <span class="arithmatex">\(w_i=\frac{1}{Var(Y_i)}\left(\frac{\partial \mu_i}{\partial \eta_i}\right)^2\)</span>, también se puede construir un vector <span class="arithmatex">\(\mathbf{z}\)</span> con elementos <span class="arithmatex">\(z_i=\sum_{k=1}^{p}x_{ik}b_k^{(i)}+(y_i-\mu_i)\left(\frac{\partial \mu_i}{\partial \eta_i}\right)\)</span>, por lo que las ecuaciones se pueden representar como</p>
+<p><span class="arithmatex">\(
+\mathbf{X}^t\mathbf{W}\mathbf{X}\mathbf{b}^{(i+1)}=\mathbf{X}^t\mathbf{W}\mathbf{z}
+\)</span></p>
+<p>Estas ecuaciones son similares a las ecuaciones normales, aunque deben ser resueltas de forma iterativa ya que <span class="arithmatex">\(\mathbf{z}\)</span> y <span class="arithmatex">\(\mathbf{W}\)</span> dependen del valor de <span class="arithmatex">\(\mathbf{b}\)</span> anterior.</p>
+<p>La mayoría de los softwares estadísticos emplean este método cuando estiman los parámetros por máxima verosimilitud.</p>
+<h2 id="inferencia">Inferencia<a class="headerlink" href="#inferencia" title="Permanent link">&para;</a></h2>
+<p>En estadística no sólo es importante obtener estimaciones de parámetros, sino también es de interés hacer inferencia ya sea sobre valores futuros o realizar pruebas de hipótesis o de bondad de ajuste con el fin de verificar si el modelo propuesto es válido o no para un conjunto de datos.</p>
+<p>Debido a que es complicado obtener las distribuciones exactas de muchas cantidades de interés, se suele recurrir a la teoría asintótica. A continuación se muestran algunos resultados de interés.</p>
+<h3 id="estadistica-score">Estadística Score<a class="headerlink" href="#estadistica-score" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Distribución muestral para la estadística Score</p>
+<p>Sea <span class="arithmatex">\(Y_1,Y_2,\dots,Y_n\)</span> variables aleatorias independientes y sea <span class="arithmatex">\(\mathbf{U}\)</span> la estadística score y <span class="arithmatex">\(\mathbf{I}\)</span> la matriz de información, entonces <strong>asintóticamente</strong></p>
+<ul>
+<li><span class="arithmatex">\(\mathbf{U} \sim N_p \left(\mathbf{0},\mathbf{I}\right)\)</span></li>
+<li><span class="arithmatex">\(\mathbf{U}^T\mathbf{I}^{-1}\mathbf{U} \sim \chi_{p}^2\)</span></li>
+</ul>
+</div>
+<h3 id="estadistica-de-wald">Estadística de Wald<a class="headerlink" href="#estadistica-de-wald" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Estadística de Wald</p>
+<p>Sea <span class="arithmatex">\(\hat{\beta}=(\hat{\beta}_0,\hat{\beta}_1,\dots,\hat{\beta}_p)^t\)</span> el estimador de máxima verosimilitud de <span class="arithmatex">\(\beta=(\beta_0,\beta_1,\dots,\beta_p)^t\)</span>. Por las <a href="../inferencia/#estimadores-de-máxima-verosimilitud">propiedades del estimador de máxima verosimilitud</a>, la distribución asintótica es:</p>
+<ul>
+<li><span class="arithmatex">\((\hat{\beta}-\beta)^{T}\mathbf{I}^{-1}(\hat{\beta})(\hat{\beta}-\beta)\sim \chi_{p}^2\)</span></li>
+</ul>
+</div>
+<h2 id="estadistica-de-razon-de-verosimilitudes">Estadística de razón de verosimilitudes<a class="headerlink" href="#estadistica-de-razon-de-verosimilitudes" title="Permanent link">&para;</a></h2>
+<p>Una forma de medir la bondad de ajuste de un modelo, es compararlo con el <em>modelo saturado</em>, el cual tendrá <span class="arithmatex">\(n\)</span> parámetros y en teoría tendría el mejor ajuste posible. La idea es comparar si el modelo ajustado está cerca o lejos del modelo saturado.</p>
+<p>Para ello se usa la <em>devianza</em> definida como <span class="arithmatex">\(D=2\left(l(\beta_m)-l(\hat{\beta})\right)\)</span>, donde <span class="arithmatex">\(l(\beta_m)\)</span> es la verosimilitud evaluada en los parámetros del modelo saturado y <span class="arithmatex">\(l(\hat{\beta})\)</span> es la verosimilitud evaluada en el estimador de máxima verosimilitud.</p>
+<div class="admonition note">
+<p class="admonition-title">Distribución muestral de la devianza</p>
+<p>La distribución muestral de la devianza asintótica es:</p>
+<p><span class="arithmatex">\(D\sim\chi_{n-p,v}^2\)</span></p>
+<p>donde <span class="arithmatex">\(v\)</span> es el parámetro de no centralidad y <span class="arithmatex">\(p\)</span> el número de parámetros del modelo.</p>
+</div>
+<p>Tambien es posible hacer pruebas de hipótesis para verificar si algun coeficiente <span class="arithmatex">\(\beta_j\)</span> estadísticamente es cero con el fin de tener un modelo más parsimoniso. A estos modelos se les denominan <em>modelos anidados</em>.</p>
+<p>Por ejemplo, sea <span class="arithmatex">\(H_0:\beta = \beta_{M_0}=(\beta_0,\beta_1,\dots,\beta_q)\)</span> contra la alternativa <span class="arithmatex">\(H_a:\beta = \beta_{M_1}=(\beta_0,\beta_1,\dots,\beta_p)\)</span> con <span class="arithmatex">\(q&lt;p\)</span>. Es posible usar la estadística de diferencia de devianzas de los modelos <span class="arithmatex">\(\Delta D=2\left(l(\beta_{M_1})-l(\hat{\beta_{M_0}})\right)\)</span> para probar dicha hipótesis.</p>
+<div class="admonition note">
+<p class="admonition-title">Prueba de modelos anidados</p>
+<p>La distribución muestral de la diferencia de devianza de dos modelos anidados asintótica es:</p>
+<p><span class="arithmatex">\(D\sim\chi_{p-q,v}^2\)</span></p>
+<p>donde <span class="arithmatex">\(v\)</span> es el parámetro de no centralidad, <span class="arithmatex">\(p\)</span> y <span class="arithmatex">\(q\)</span> el número de parámetros del modelo del modelo 1 y modelo 0 respectivamente.</p>
+</div>
+<h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
+<p>Dobson, A., &amp; Barnett, A. (2008). An Introduction to Generalized Linear Models (Third Edition). CRC Press.</p>
    
        <!-- Last update of source file -->
        

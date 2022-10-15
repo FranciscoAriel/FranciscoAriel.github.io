@@ -99,7 +99,7 @@ La familia exponencial tiene propiedades interesantes, ya que debido a su forma,
 ??? example "Derivación de la media y varianza en la familia exponencial"
     Primero se aprovecha el hecho de que la distribución $f(y,\theta)$ está bien definida $\int f(y,\theta)dy=1$, por lo que $\frac{\partial}{\partial \theta}\int f(y,\theta)dy=0$ y $\frac{\partial^2}{\partial \theta^2}\int f(y,\theta)dy=0$.
 
-    Bajo condiciones de regularidad, es posible intercambiar la integral con la derivada, por lo que $\int \frac{\partial}{\partial \theta} f(y,\theta)dy=0$ y $\int \frac{\partial^2}{\partial \theta^2} f(y,\theta)dy=0$.
+    __Bajo condiciones de regularidad__, es posible intercambiar la integral con la derivada, por lo que $\int \frac{\partial}{\partial \theta} f(y,\theta)dy=0$ y $\int \frac{\partial^2}{\partial \theta^2} f(y,\theta)dy=0$.
 
     Note que la primera con respecto a $\theta$ es:
 
@@ -107,9 +107,9 @@ La familia exponencial tiene propiedades interesantes, ya que debido a su forma,
 
     y la segunda derivada de la densidad es:
 
-    $$\frac{\partial^2}{\partial \theta^2} f(y,\theta)=\left(\left(a(y)b^{'}(\theta)+c^{'}(\theta)\right)^2+\left(a(y)b^{''}(\theta)+c^{''}(\theta)\right)\right)f(y,\theta)$$
+    $$\frac{\partial^2}{\partial \theta^2} f(y,\theta)=\left[\left(a(y)b^{'}(\theta)+c^{'}(\theta)\right)^2+\left(a(y)b^{''}(\theta)+c^{''}(\theta)\right)\right]f(y,\theta)$$
 
-    Por lo tanto
+    Por lo tanto el resultado con la primer derivada es:
 
     \(
     \begin{align*}
@@ -120,6 +120,24 @@ La familia exponencial tiene propiedades interesantes, ya que debido a su forma,
       &=a(y)b^{'}(\theta)+c^{'}(\theta)
     \end{align*}
     \)
+
+    Por lo que $a(y)=\frac{-c^{'}(\theta)}{b^{'}(\theta)}$ y por lo tanto $E(a(y))=\frac{-c^{'}(\theta)}{b^{'}(\theta)}$.
+
+    Para la segunda derivada, note que $\left[a(y)b^{'}(\theta)+c^{'}(\theta)\right]^2=b^{'}(\theta)^2\left[a(y)-E(a(y))\right]^2$, por ende
+
+    \(
+        \begin{align*}
+        0 &=\frac{\partial^2}{\partial \theta^2} \int f(y,\theta)dy\\
+        &=\int \frac{\partial^2}{\partial \theta^2} f(y,\theta)dy\\
+        & =\int \left[\left(a(y)b^{'}(\theta)+c^{'}(\theta)\right)^2+\left(a(y)b^{''}(\theta)+c^{''}(\theta)\right)\right]f(y,\theta)dy\\
+        &=\int \left[b^{'}(\theta)^2\left[a(y)-E(a(y))\right]^2+\left(a(y)b^{''}(\theta)+c^{''}(\theta)\right)\right]f(y,\theta)dy\\
+        &=\int b^{'}(\theta)^2\left[a(y)-E(a(y))\right]^2f(y,\theta)dy+\int a(y)b^{''}(\theta)f(y,\theta)dy+\int c^{''}(\theta)f(y,\theta)dy\\
+        &= b^{'}(\theta)^2 Var(a(y)) + b^{''}(\theta) E(a(y)) + c^{''}(\theta)\\
+        &= b^{'}(\theta)^2 Var(a(y)) + b^{''}(\theta) \frac{-c^{'}(\theta)}{b^{'}(\theta)} + c^{''}(\theta)
+        \end{align*}
+    \)
+
+    Por lo tanto $Var(a(y))= \frac{b^{''}(\theta) c^{'}(\theta)-c^{''}(\theta)b^{'}(\theta)}{b^{'}(\theta)^3}$.
 
 ## Estimación puntual
 
