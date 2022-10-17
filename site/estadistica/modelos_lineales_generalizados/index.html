@@ -771,15 +771,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#estadistica-de-razon-de-verosimilitudes" class="md-nav__link">
     Estadística de razón de verosimilitudes
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -885,15 +885,15 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#estadistica-de-razon-de-verosimilitudes" class="md-nav__link">
     Estadística de razón de verosimilitudes
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1052,7 +1052,7 @@
 <li><span class="arithmatex">\((\hat{\beta}-\beta)^{T}\mathbf{I}^{-1}(\hat{\beta})(\hat{\beta}-\beta)\sim \chi_{p}^2\)</span></li>
 </ul>
 </div>
-<h2 id="estadistica-de-razon-de-verosimilitudes">Estadística de razón de verosimilitudes<a class="headerlink" href="#estadistica-de-razon-de-verosimilitudes" title="Permanent link">&para;</a></h2>
+<h3 id="estadistica-de-razon-de-verosimilitudes">Estadística de razón de verosimilitudes<a class="headerlink" href="#estadistica-de-razon-de-verosimilitudes" title="Permanent link">&para;</a></h3>
 <p>Una forma de medir la bondad de ajuste de un modelo, es compararlo con el <em>modelo saturado</em>, el cual tendrá <span class="arithmatex">\(n\)</span> parámetros y en teoría tendría el mejor ajuste posible. La idea es comparar si el modelo ajustado está cerca o lejos del modelo saturado.</p>
 <p>Para ello se usa la <em>devianza</em> definida como <span class="arithmatex">\(D=2\left(l(\beta_m)-l(\hat{\beta})\right)\)</span>, donde <span class="arithmatex">\(l(\beta_m)\)</span> es la verosimilitud evaluada en los parámetros del modelo saturado y <span class="arithmatex">\(l(\hat{\beta})\)</span> es la verosimilitud evaluada en el estimador de máxima verosimilitud.</p>
 <div class="admonition note">
@@ -1061,6 +1061,36 @@
 <p><span class="arithmatex">\(D\sim\chi_{n-p,v}^2\)</span></p>
 <p>donde <span class="arithmatex">\(v\)</span> es el parámetro de no centralidad y <span class="arithmatex">\(p\)</span> el número de parámetros del modelo.</p>
 </div>
+<p>A continuación se muestran algunos ejemplos del cálculo de la devianza para algunos modelos</p>
+<details class="example">
+<summary>Devianza en el modelo Poisson</summary>
+<p>Sea <span class="arithmatex">\(Y_1,\dots,Y_n\)</span> una muestra aleatoria con <span class="arithmatex">\(Y_i\sim Poi(\lambda_i)\)</span>. Note que el modelo completo es aquel que tenga tantos parámetros como observaciones. Para encontrar un estimador de <span class="arithmatex">\(\lambda_i\)</span> se puede usar la primer derivada de la función de log-densidad e igualar a cero.</p>
+<p><span class="arithmatex">\(
+    \begin{align*}
+    0&amp;=\frac{\partial}{\partial \lambda_i}\log e^{y_i \log \lambda_i -\lambda_i -\log y_i!}\\
+    &amp;=\frac{\partial}{\partial \lambda_i} y_i \log \lambda_i -\lambda_i -\log y_i! \\
+    &amp;=\frac{y_i}{\lambda_i}-1\\
+    &amp;=y_i-\lambda_i
+    \end{align*}
+\)</span></p>
+<p>Por lo que <span class="arithmatex">\(l(\beta_m)=\sum_{i=1}^n y_i \log y_i -y_i -\log y_i!\)</span>.</p>
+<p>Por otro lado, <span class="arithmatex">\(\hat{y}_i\)</span> son los valores estimados con los estimadores de máxima verosimilitud <span class="arithmatex">\(\hat{\beta}\)</span>, asumiendo <span class="arithmatex">\(\hat{y}_i=\hat{\lambda}_i\)</span>, por lo que <span class="arithmatex">\(l(\hat{\beta})=\sum_{i=1}^n y_i \log \hat{y}_i -\hat{y}_i -\log y_i!\)</span>.</p>
+<p>Por lo tanto la devianza puede ser calculada como <span class="arithmatex">\(D=2\left[\sum_{i=1}^n y_i \log \frac{y_i}{\hat{y}_i}-(y_i-\hat{y}_i) \right]\)</span>.</p>
+</details>
+<details class="example">
+<summary>Devianza en el modelo Binomial</summary>
+<p>Sea <span class="arithmatex">\(Y_1,\dots,Y_n\)</span> una muestra aleatoria con <span class="arithmatex">\(Y_i\sim Bin(n_i,p_i)\)</span>. Asumiendo <span class="arithmatex">\(n_i\)</span> conocida, el estimador para <span class="arithmatex">\(\pi\)</span> puede obtenerse de la siguiente manera:</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+0&amp;=\frac{\partial}{\partial \lambda_i}\log e^{y_i \log \left(\frac{p_i}{1-p_i}\right) + n_i\log (1-p_i)+\log \binom{n_i}{y_i}}\\
+&amp;=\frac{\partial}{\partial p_i} y_i \log \left(\frac{p_i}{1-p_i}\right) + n_i\log (1-p_i)+\log \binom{n_i}{y_i}\\
+&amp;=\frac{y_i}{p_i(1-p_i)}-\frac{n_i}{(1-p_i)}
+\end{align*}
+\)</span></p>
+<p>Por lo que <span class="arithmatex">\(\hat{p}_i = \frac{y_i}{n_i}\)</span> y la verosimilitud completa es <span class="arithmatex">\(l(\beta_m)=\sum_{i=1}^n y_i\log \frac{y_i}{n_i}-y_i\log \frac{n_i-y_i}{n_i} +n_i\log \frac{n_i-y_i}{n_i}+\log \binom{n_i}{y_i}\)</span>.</p>
+<p>Los estimadores <span class="arithmatex">\(\hat{\beta}\)</span> pueden ser usados para estimar <span class="arithmatex">\(\hat{p}_i\)</span> y con ello es posible estimar <span class="arithmatex">\(\hat{y}_i=n_i\hat{p}_i\)</span>, por lo que <span class="arithmatex">\(l(\hat{\beta})=\sum_{i=1}^n y_i\log \frac{\hat{y}_i}{n_i}-y_i\log \frac{n_i-\hat{y}_i}{n_i}+n_i\log \frac{n_i-\hat{y}_i}{n_i}+\log \binom{n_i}{y_i}\)</span>.</p>
+<p>Por lo tanto, la devianza para el modelo binomial es <span class="arithmatex">\(D=2\left[\sum_{i=1}^n y_i \log \frac{y_i}{\hat{y}_i}+(n_i-y_i)\log \frac{n_i-y_i}{n_i-\hat{y}_i} \right]\)</span>.</p>
+</details>
 <p>Tambien es posible hacer pruebas de hipótesis para verificar si algun coeficiente <span class="arithmatex">\(\beta_j\)</span> estadísticamente es cero con el fin de tener un modelo más parsimoniso. A estos modelos se les denominan <em>modelos anidados</em>.</p>
 <p>Por ejemplo, sea <span class="arithmatex">\(H_0:\beta = \beta_{M_0}=(\beta_0,\beta_1,\dots,\beta_q)\)</span> contra la alternativa <span class="arithmatex">\(H_a:\beta = \beta_{M_1}=(\beta_0,\beta_1,\dots,\beta_p)\)</span> con <span class="arithmatex">\(q&lt;p\)</span>. Es posible usar la estadística de diferencia de devianzas de los modelos <span class="arithmatex">\(\Delta D=2\left(l(\beta_{M_1})-l(\hat{\beta_{M_0}})\right)\)</span> para probar dicha hipótesis.</p>
 <div class="admonition note">

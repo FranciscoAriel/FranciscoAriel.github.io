@@ -138,7 +138,7 @@ Debido a que es complicado obtener las distribuciones exactas de muchas cantidad
 
     - $(\hat{\beta}-\beta)^{T}\mathbf{I}^{-1}(\hat{\beta})(\hat{\beta}-\beta)\sim \chi_{p}^2$
 
-## Estadística de razón de verosimilitudes
+### Estadística de razón de verosimilitudes
 
 Una forma de medir la bondad de ajuste de un modelo, es compararlo con el _modelo saturado_, el cual tendrá $n$ parámetros y en teoría tendría el mejor ajuste posible. La idea es comparar si el modelo ajustado está cerca o lejos del modelo saturado.
 
@@ -150,6 +150,43 @@ Para ello se usa la _devianza_ definida como $D=2\left(l(\beta_m)-l(\hat{\beta})
     \(D\sim\chi_{n-p,v}^2\)
 
     donde $v$ es el parámetro de no centralidad y $p$ el número de parámetros del modelo.
+
+A continuación se muestran algunos ejemplos del cálculo de la devianza para algunos modelos
+
+??? example "Devianza en el modelo Poisson"
+    Sea $Y_1,\dots,Y_n$ una muestra aleatoria con $Y_i\sim Poi(\lambda_i)$. Note que el modelo completo es aquel que tenga tantos parámetros como observaciones. Para encontrar un estimador de $\lambda_i$ se puede usar la primer derivada de la función de log-densidad e igualar a cero.
+
+    \(
+        \begin{align*}
+        0&=\frac{\partial}{\partial \lambda_i}\log e^{y_i \log \lambda_i -\lambda_i -\log y_i!}\\
+        &=\frac{\partial}{\partial \lambda_i} y_i \log \lambda_i -\lambda_i -\log y_i! \\
+        &=\frac{y_i}{\lambda_i}-1\\
+        &=y_i-\lambda_i
+        \end{align*}
+    \)
+
+    Por lo que $l(\beta_m)=\sum_{i=1}^n y_i \log y_i -y_i -\log y_i!$.
+
+    Por otro lado, $\hat{y}_i$ son los valores estimados con los estimadores de máxima verosimilitud $\hat{\beta}$, asumiendo $\hat{y}_i=\hat{\lambda}_i$, por lo que $l(\hat{\beta})=\sum_{i=1}^n y_i \log \hat{y}_i -\hat{y}_i -\log y_i!$.
+
+    Por lo tanto la devianza puede ser calculada como $D=2\left[\sum_{i=1}^n y_i \log \frac{y_i}{\hat{y}_i}-(y_i-\hat{y}_i) \right]$.
+
+??? example "Devianza en el modelo Binomial"
+    Sea $Y_1,\dots,Y_n$ una muestra aleatoria con $Y_i\sim Bin(n_i,p_i)$. Asumiendo $n_i$ conocida, el estimador para $\pi$ puede obtenerse de la siguiente manera:
+
+    \(
+    \begin{align*}
+    0&=\frac{\partial}{\partial \lambda_i}\log e^{y_i \log \left(\frac{p_i}{1-p_i}\right) + n_i\log (1-p_i)+\log \binom{n_i}{y_i}}\\
+    &=\frac{\partial}{\partial p_i} y_i \log \left(\frac{p_i}{1-p_i}\right) + n_i\log (1-p_i)+\log \binom{n_i}{y_i}\\
+    &=\frac{y_i}{p_i(1-p_i)}-\frac{n_i}{(1-p_i)}
+    \end{align*}
+    \)
+
+    Por lo que $\hat{p}_i = \frac{y_i}{n_i}$ y la verosimilitud completa es $l(\beta_m)=\sum_{i=1}^n y_i\log \frac{y_i}{n_i}-y_i\log \frac{n_i-y_i}{n_i} +n_i\log \frac{n_i-y_i}{n_i}+\log \binom{n_i}{y_i}$.
+
+    Los estimadores $\hat{\beta}$ pueden ser usados para estimar $\hat{p}_i$ y con ello es posible estimar $\hat{y}_i=n_i\hat{p}_i$, por lo que $l(\hat{\beta})=\sum_{i=1}^n y_i\log \frac{\hat{y}_i}{n_i}-y_i\log \frac{n_i-\hat{y}_i}{n_i}+n_i\log \frac{n_i-\hat{y}_i}{n_i}+\log \binom{n_i}{y_i}$.
+
+    Por lo tanto, la devianza para el modelo binomial es $D=2\left[\sum_{i=1}^n y_i \log \frac{y_i}{\hat{y}_i}+(n_i-y_i)\log \frac{n_i-y_i}{n_i-\hat{y}_i} \right]$.
 
 Tambien es posible hacer pruebas de hipótesis para verificar si algun coeficiente $\beta_j$ estadísticamente es cero con el fin de tener un modelo más parsimoniso. A estos modelos se les denominan _modelos anidados_.
 
