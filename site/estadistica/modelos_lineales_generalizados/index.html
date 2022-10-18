@@ -1031,6 +1031,14 @@
 \mathbf{X}^t\mathbf{W}\mathbf{X}\mathbf{b}^{(i+1)}=\mathbf{X}^t\mathbf{W}\mathbf{z}
 \)</span></p>
 <p>Estas ecuaciones son similares a las ecuaciones normales, aunque deben ser resueltas de forma iterativa ya que <span class="arithmatex">\(\mathbf{z}\)</span> y <span class="arithmatex">\(\mathbf{W}\)</span> dependen del valor de <span class="arithmatex">\(\mathbf{b}\)</span> anterior.</p>
+<details class="example">
+<summary>Mínimos cuadrados ponderados iterativos en el modelo normal</summary>
+<p>Sea <span class="arithmatex">\(Y_1,Y_2,\dots,Y_n\)</span> variables aleatoria independientes con <span class="arithmatex">\(Y_i \sim N(\mu_i,\sigma^2)\)</span>.</p>
+<p>De las propiedades de la distribución normal se sabe que <span class="arithmatex">\(E(Y_i)=\mu_i\)</span>, <span class="arithmatex">\(Var(Y_i)=\sigma^2\)</span>, además se puede modelar su media <span class="arithmatex">\(\mu_i\)</span> directamente a través del predictor lineal <span class="arithmatex">\(\eta_i\)</span>, es decir <span class="arithmatex">\(g(\mu_i)=\mu_i=\eta_i\)</span>.</p>
+<p>Se puede construir la matriz <span class="arithmatex">\(\mathbf{W}\)</span> con elementos de la diagonal iguales a <span class="arithmatex">\(w_i=\frac{1}{\sigma^2}\)</span> ya que <span class="arithmatex">\(\frac{\partial \mu_i}{\partial \eta_i}=1\)</span>. El vector <span class="arithmatex">\(\mathbf{z}\)</span> puede expresarse como <span class="arithmatex">\(\mathbf{z}=\eta_i+(y_i-\eta_i)=y_i\)</span>.</p>
+<p>Por lo que <span class="arithmatex">\(\mathbf{X}^t\mathbf{W}\mathbf{X}=\frac{1}{\sigma^2}\mathbf{X}^t\mathbf{X}\)</span> y <span class="arithmatex">\(\mathbf{X}^t\mathbf{W}\mathbf{z}=\frac{1}{\sigma^2}\mathbf{X}^t\mathbf{y}\)</span>.</p>
+<p>Note que en este caso particular, se obtienen las ecuaciones normales del modelo de regresión lineal <span class="arithmatex">\(\mathbf{X}^t\mathbf{X}\mathbf{b}^=\mathbf{X}^t\mathbf{z}\)</span>, por lo que no es necesario hacer la estimación de forma iterativa, ya que existirá la solución si <span class="arithmatex">\(\left(\mathbf{X}^t\mathbf{X}\right)^{-1}\)</span> existe.</p>
+</details>
 <p>La mayoría de los softwares estadísticos emplean este método cuando estiman los parámetros por máxima verosimilitud.</p>
 <h2 id="inferencia">Inferencia<a class="headerlink" href="#inferencia" title="Permanent link">&para;</a></h2>
 <p>En estadística no sólo es importante obtener estimaciones de parámetros, sino también es de interés hacer inferencia ya sea sobre valores futuros o realizar pruebas de hipótesis o de bondad de ajuste con el fin de verificar si el modelo propuesto es válido o no para un conjunto de datos.</p>

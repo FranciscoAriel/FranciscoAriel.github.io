@@ -115,6 +115,17 @@ Note que la información puede expresarse de forma matricial como $\mathbf{I}=\m
 
 Estas ecuaciones son similares a las ecuaciones normales, aunque deben ser resueltas de forma iterativa ya que $\mathbf{z}$ y $\mathbf{W}$ dependen del valor de $\mathbf{b}$ anterior.
 
+??? example "Mínimos cuadrados ponderados iterativos en el modelo normal"
+    Sea $Y_1,Y_2,\dots,Y_n$ variables aleatoria independientes con $Y_i \sim N(\mu_i,\sigma^2)$.
+
+    De las propiedades de la distribución normal se sabe que $E(Y_i)=\mu_i$, $Var(Y_i)=\sigma^2$, además se puede modelar su media $\mu_i$ directamente a través del predictor lineal $\eta_i$, es decir $g(\mu_i)=\mu_i=\eta_i$.
+
+    Se puede construir la matriz $\mathbf{W}$ con elementos de la diagonal iguales a $w_i=\frac{1}{\sigma^2}$ ya que $\frac{\partial \mu_i}{\partial \eta_i}=1$. El vector $\mathbf{z}$ puede expresarse como $\mathbf{z}=\eta_i+(y_i-\eta_i)=y_i$.
+
+    Por lo que $\mathbf{X}^t\mathbf{W}\mathbf{X}=\frac{1}{\sigma^2}\mathbf{X}^t\mathbf{X}$ y $\mathbf{X}^t\mathbf{W}\mathbf{z}=\frac{1}{\sigma^2}\mathbf{X}^t\mathbf{y}$.
+
+    Note que en este caso particular, se obtienen las ecuaciones normales del modelo de regresión lineal $\mathbf{X}^t\mathbf{X}\mathbf{b}^=\mathbf{X}^t\mathbf{z}$, por lo que no es necesario hacer la estimación de forma iterativa, ya que existirá la solución si $\left(\mathbf{X}^t\mathbf{X}\right)^{-1}$ existe.
+
 La mayoría de los softwares estadísticos emplean este método cuando estiman los parámetros por máxima verosimilitud.
 
 ## Inferencia
