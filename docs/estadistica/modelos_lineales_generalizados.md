@@ -140,7 +140,7 @@ Debido a que es complicado obtener las distribuciones exactas de muchas cantidad
     Sea $Y_1,Y_2,\dots,Y_n$ variables aleatorias independientes y sea $\mathbf{U}$ la estadística score y $\mathbf{I}$ la matriz de información, entonces __asintóticamente__
 
     - $\mathbf{U} \sim N_p \left(\mathbf{0},\mathbf{I}\right)$
-    - $\mathbf{U}^T\mathbf{I}^{-1}\mathbf{U} \sim \chi_{p}^2$
+    - $\mathbf{U}^T\mathbf{I}\mathbf{U} \sim \chi_{p}^2$
 
 ### Estadística de Wald
 
