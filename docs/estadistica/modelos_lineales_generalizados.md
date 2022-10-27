@@ -137,17 +137,17 @@ Debido a que es complicado obtener las distribuciones exactas de muchas cantidad
 ### Estadística Score
 
 !!! note "Distribución muestral para la estadística Score"
-    Sea $Y_1,Y_2,\dots,Y_n$ variables aleatorias independientes y sea $\mathbf{U}$ la estadística score y $\mathbf{I}$ la matriz de información, entonces __asintóticamente__
+    Sea $Y_1,Y_2,\dots,Y_n$ variables aleatorias independientes y sea $\mathbf{U}$ la estadística score y $\mathbf{I}_n$ la matriz de información, entonces __asintóticamente__
 
     - $\mathbf{U} \sim N_p \left(\mathbf{0},\mathbf{I}\right)$
-    - $\mathbf{U}^T\mathbf{I}\mathbf{U} \sim \chi_{p}^2$
+    - $\mathbf{U}^T\mathbf{I}_n^{-1}\mathbf{U} \sim \chi_{p}^2$
 
 ### Estadística de Wald
 
 !!! note "Estadística de Wald"
     Sea $\hat{\beta}=(\hat{\beta}_0,\hat{\beta}_1,\dots,\hat{\beta}_p)^t$ el estimador de máxima verosimilitud de $\beta=(\beta_0,\beta_1,\dots,\beta_p)^t$. Por las [propiedades del estimador de máxima verosimilitud](inferencia.md#estimadores-de-máxima-verosimilitud), la distribución asintótica es:
 
-    - $(\hat{\beta}-\beta)^{T}\mathbf{I}^{-1}(\hat{\beta})(\hat{\beta}-\beta)\sim \chi_{p}^2$
+    - $(\hat{\beta}-\beta)^{T}\mathbf{I}_n(\hat{\beta})(\hat{\beta}-\beta)\sim \chi_{p}^2$
 
 ### Estadística de razón de verosimilitudes
 
