@@ -8,6 +8,8 @@ publish_date: 2022-05-19
 read_time: 15 minutos
 ---
 
+## Introducción
+
 La estadística bayesiana es un paradigma completo de inferencia basado en la *teoría de la decisión* y por lo tanto se basa en los conceptos de probabilidad.
 
 A diferencia del enfoque frecuentista, la estadística bayesiana se basa en el enfoque de *probabilidad subjetiva*. Dicha probabilidad subjetiva es una medida o grado de creencia de qué tan verosímil sea un evento.
@@ -26,6 +28,8 @@ Note que $p(x)$ es una densidad que no depende de $\theta$, por lo que la distri
     p(\theta|x)\propto p(x|\theta)p(\theta)
 \)
 
+El siguiente ejemplo ilustra una forma de obtener la distribución a posteriori.
+
 ??? example "Lanzamiento de una moneda 1"
     Suponga que se tiene una moneda y se realizan 10 lanzamientos. Sea $\theta$ la probabilidad de que caiga águila, mientras que $1-\theta$ es la probabilidad de que caiga sol. No se tiene información acerca del comportamiento de la moneda, pero se sospecha es una moneda honesta. Supóngase que se han observado 7 águilas.
 
@@ -40,3 +44,28 @@ Note que $p(x)$ es una densidad que no depende de $\theta$, por lo que la distri
     Note que como tal, **no es una función de densidad**, debido a que la integral no es 1, sin embargo, es proporcional a una función de densidad beta con parámetros 8 y 4.
 
     Por lo tanto, la distribución *a posteriori* es $p(\theta|x)=\frac{\theta^{8-1} \left(1-\theta\right)^{4-1}}{B(8,4)}I_{(0,1)}(\theta)$.
+
+!!! note "Densidad conjugada"
+    Se dice que $p(\theta)$ es conjugada con $L(\theta|x)$ si $p(\theta|x)$ es de la misma familia que $p(\theta)$.
+
+En el ejemplo anterior se pudo observar que la distribución Beta(1,1) es conjugada con la verosimilitud Bernoulli.
+
+## Teoría Bayesiana
+
+### Intervalos
+
+### Factor de Bayes
+
+## Modelo Normal - Normal
+
+## Modelo Lineal Normal
+
+### Análisis de Referencia
+
+## Métodos numéricos
+
+### Métodos MCMC
+
+### Metropolis - Hastings
+
+### Muestreo de Gibss

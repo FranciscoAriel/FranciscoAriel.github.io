@@ -708,6 +708,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#inferencia-parametrica-con-datos-censurados" class="md-nav__link">
+    Inferencia paramétrica con datos censurados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimacion-no-parametrica" class="md-nav__link">
+    Estimación no paramétrica
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparacion-de-curvas-de-supervivencia" class="md-nav__link">
+    Comparación de curvas de supervivencia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-riesgos-proporcionales" class="md-nav__link">
+    Modelo de riesgos proporcionales
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensiones" class="md-nav__link">
+    Extensiones
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -764,6 +799,41 @@
         <li class="md-nav__item">
   <a href="#modelos-de-tiempo-de-vida" class="md-nav__link">
     Modelos de tiempo de vida
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inferencia-parametrica-con-datos-censurados" class="md-nav__link">
+    Inferencia paramétrica con datos censurados
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estimacion-no-parametrica" class="md-nav__link">
+    Estimación no paramétrica
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparacion-de-curvas-de-supervivencia" class="md-nav__link">
+    Comparación de curvas de supervivencia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelo-de-riesgos-proporcionales" class="md-nav__link">
+    Modelo de riesgos proporcionales
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensiones" class="md-nav__link">
+    Extensiones
   </a>
   
 </li>
@@ -834,9 +904,46 @@
 <li><strong>Actuaría:</strong> Tiempo entre incidentes.</li>
 <li><strong>Ingeniería:</strong> (conocido como <em>confiabilidad</em>) Tiempo en que aparece una falla.</li>
 </ul>
-<p>Aunque es común estudiar variables aleatorias relacionadas al <em>tiempo entre eventos</em>, es posible estudiar otras variables relacionadas, por ejemplo distancia o cualquier variable que tome valores positivos.</p>
+<p>Aunque es común estudiar variables aleatorias relacionadas al <em>tiempo entre eventos</em>, es posible estudiar otras variables relacionadas, por ejemplo distancia o cualquier variable que tome valores positivos. A la ocurrencia de los eventos de interes se les llama también como <em>fallos</em> (failures).</p>
+<p>Un problema común en datos de tiempo de vida es la presencia de <em>censura</em> y/o <em>truncamiento</em>. Debido a esta problemática, es necesario desarrollar teoría y métodos que puedan lidiar con este problema, en la <a href="#inferencia-paramétrica-con-datos-censurados">sección 3</a> se estudiará este problema de forma detallada.</p>
 <h2 id="modelos-de-tiempo-de-vida">Modelos de tiempo de vida<a class="headerlink" href="#modelos-de-tiempo-de-vida" title="Permanent link">&para;</a></h2>
 <p>En análisis de supervivencia se usan conceptos que hasta ahora no habían sido descritos, aunque son similares a los que se usan en probabilidad. A continuación se dará una breve definición de ellos.</p>
+<div class="admonition note">
+<p class="admonition-title">Función de Supervivencia</p>
+<p>Sea <span class="arithmatex">\(T\)</span> una variable aleatoria con soporte en los reales positivos.</p>
+<p><span class="arithmatex">\(S(t) = P(T &gt; t) = 1 - F_T(t)\)</span></p>
+<p>La función de supervivencia se interpreta como la probabilidad de que un individuo sobreviva más que tiempo que <span class="arithmatex">\(t\)</span>.</p>
+</div>
+<p>Esta definición es muy importante y frecuentemente el objetivo será estimarla.</p>
+<div class="admonition note">
+<p class="admonition-title">Función de riesgo</p>
+<p>Sea <span class="arithmatex">\(T\)</span> una variable aleatoria positiva. La función de riesgo <span class="arithmatex">\(h(t)\)</span> se define como la probabilidad de un individuo muera en un intervalo de tiempo pequeño <em>dado</em> que ha sobrevivido al tiempo <span class="arithmatex">\(t\)</span>.</p>
+<p>Si <span class="arithmatex">\(T\)</span> es continua, entonces <span class="arithmatex">\(h(t) = \frac{f(t)}{S(t)}=-\frac{\partial}{\partial t}\log S(t)\)</span>.</p>
+</div>
+<p>En diversas aplicaciones, por ejemplo para determinar la garantía de un producto, es de interés conocer la función de riesgo,</p>
+<div class="admonition note">
+<p class="admonition-title">Función de riesgo acumulado</p>
+<p>La función de riesgo acumulado <span class="arithmatex">\(H(t)\)</span> se define como:</p>
+<p><span class="arithmatex">\(H(t)=\int_{0}^{t}h(s)ds=-\log S(t) \)</span></p>
+<p>Por lo que <span class="arithmatex">\(S(t) = e^{-H(t)}\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Relación entre la función de supervivencia y de riesgo acumulado</p>
+<p>Si <span class="arithmatex">\(T\)</span> es una variable aleatoria discreta, entonces</p>
+<p><span class="arithmatex">\(
+\begin{align}
+S(t) &amp;= P(T &gt; t)\\
+&amp; = P(T &gt; a_1) \times P(T&gt;a_2|T&gt;a_1)\times \dots \times P(T&gt;a_k|T&gt;a_{k-1})\\
+&amp; = (1-h_1)\times \dots \times (1-h_k)\\
+&amp; = \prod_{a_i \le t} (1-h_i)
+\end{align}
+\)</span></p>
+</div>
+<h2 id="inferencia-parametrica-con-datos-censurados">Inferencia paramétrica con datos censurados<a class="headerlink" href="#inferencia-parametrica-con-datos-censurados" title="Permanent link">&para;</a></h2>
+<h2 id="estimacion-no-parametrica">Estimación no paramétrica<a class="headerlink" href="#estimacion-no-parametrica" title="Permanent link">&para;</a></h2>
+<h2 id="comparacion-de-curvas-de-supervivencia">Comparación de curvas de supervivencia<a class="headerlink" href="#comparacion-de-curvas-de-supervivencia" title="Permanent link">&para;</a></h2>
+<h2 id="modelo-de-riesgos-proporcionales">Modelo de riesgos proporcionales<a class="headerlink" href="#modelo-de-riesgos-proporcionales" title="Permanent link">&para;</a></h2>
+<h2 id="extensiones">Extensiones<a class="headerlink" href="#extensiones" title="Permanent link">&para;</a></h2>
    
        <!-- Last update of source file -->
        
