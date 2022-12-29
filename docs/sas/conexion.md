@@ -22,6 +22,9 @@ Es posible usar [SAS &reg; OnDemand for Academics](https://www.sas.com/en_us/sof
 
 Consulte la [ayuda de SAS OnDemand](https://support.sas.com/ondemand/saspy.html) para una referencia completa y detallada.
 
+!!! note "Actualización de Java"
+    Debido a actualizaciones recientes, es posible que existan problemas con Java y no permitan conectarse correctamente. Se recomeida leer este [post](https://github.com/sassoftware/saspy/issues/470#issuecomment-1178996639) con el fin de actualizar algunos archivos de java.
+
 ### Configuración de saspy
 
 Se puede instalar el paquete `saspy` desde la consola (cmd o powershell) escribiendo el siguiente comando:
