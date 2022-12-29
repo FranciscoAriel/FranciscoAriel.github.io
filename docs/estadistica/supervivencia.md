@@ -60,7 +60,17 @@ En diversas aplicaciones, por ejemplo para determinar la garantía de un product
     \end{align}
     \)
 
-## Inferencia paramétrica con datos censurados
+## Inferencia con datos de tiempo de vida
+
+Como se mencionó anteriormente, es de interés conocer las funciones de riesgo y supervivencia, por lo que se tienen que estimar dichas funciones a partir de los datos de tiempo de vida.
+
+Sin embargo es común que los datos presenten _censura_ y/o _truncamiento_, por lo que es importante estudiar sus características.
+
+### Inferencia paramétrica con datos censurados
+
+Se puede usar el método de estimación por máxima verosimilitud para estimar los parámetros y con ellos encontrar las funciones de interés.
+
+Sin embargo si se tienen datos censurados, se debe tomar en cuanta dicha información, por lo que la función de verosimilitud será distinta a la que se tuviera información completa.
 
 ## Estimación no paramétrica
 
