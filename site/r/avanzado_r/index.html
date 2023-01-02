@@ -353,6 +353,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creacion-de-paquetes-en-r" class="md-nav__link">
+    Creación de paquetes en R
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación de paquetes en R">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion-a-la-creacion-de-paquetes" class="md-nav__link">
+    Introducción a la creación de paquetes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estructura-del-paquete" class="md-nav__link">
+    Estructura del paquete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilacion-del-paquete" class="md-nav__link">
+    Compilación del paquete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -830,6 +864,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#creacion-de-paquetes-en-r" class="md-nav__link">
+    Creación de paquetes en R
+  </a>
+  
+    <nav class="md-nav" aria-label="Creación de paquetes en R">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion-a-la-creacion-de-paquetes" class="md-nav__link">
+    Introducción a la creación de paquetes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estructura-del-paquete" class="md-nav__link">
+    Estructura del paquete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compilacion-del-paquete" class="md-nav__link">
+    Compilación del paquete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -921,6 +989,31 @@
 </code></pre></div></td></tr></table></div>
 <p><img alt="prediccion" src="../img/pred2.png" /></p>
 <p>Los intervalos de confianza para los valores individuales son muy grandes, por lo que no serían consideradas buenas debido a que inclusive se translapan.</p>
+<h2 id="creacion-de-paquetes-en-r">Creación de paquetes en R<a class="headerlink" href="#creacion-de-paquetes-en-r" title="Permanent link">&para;</a></h2>
+<p>Hasta el momento se ha considerado únicamente instalar y cargar paquetes que están disponibles en el CRAM, sin embargo, los usuarios pueden crear su propios paquetes e incluso subirlos a diversos repositorios si así lo desean.</p>
+<div class="admonition caution">
+<p class="admonition-title">Mantenimiento de los paquetes</p>
+<p>La creación, mantenimiento y corrección de errores es responsabilidad del creador del paquete, por lo que se debe ser muy cuidadoso del contenido de paquetes de terceros.</p>
+</div>
+<p>En esta sección se abordará el tema de la instalación de paquetes de fórma fácil.</p>
+<h3 id="introduccion-a-la-creacion-de-paquetes">Introducción a la creación de paquetes<a class="headerlink" href="#introduccion-a-la-creacion-de-paquetes" title="Permanent link">&para;</a></h3>
+<p>En esta subsección, se describirá de forma general la forma de crear paquetes de R. Para detalles consulte el documento <a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writting R Extensions</a>.</p>
+<p>En Windows, se debe descargar el software adicional <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a> con el fin poder compilar los paquetes. A continuación se proporcionan instrucciones para la instalación.</p>
+<ol>
+<li>Descargar el <a href="https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html">instalador de Rtools</a>, procurando tener la versión más actualizada (versión 4.2).</li>
+<li>Seguir las instrucciones del asistente de instalación.</li>
+</ol>
+<p>Las siguientes imágenes ilustran los pasos para la instalación de Rtools (se recomienda aceptar las opciones de configuración tal y como están).</p>
+<p><img alt="Instalador 1" src="../img/rtools1.png" /></p>
+<p><img alt="Instalador 2" src="../img/rtools2.png" /></p>
+<p><img alt="Instalador 3" src="../img/rtools3.png" /></p>
+<p><img alt="Instalador 4" src="../img/rtools4.png" /></p>
+<p><img alt="Instalador 5" src="../img/rtools5.png" /></p>
+<p>Es necesario tener instalado Latex para la construcción de la documentación.</p>
+<h3 id="estructura-del-paquete">Estructura del paquete<a class="headerlink" href="#estructura-del-paquete" title="Permanent link">&para;</a></h3>
+<h3 id="compilacion-del-paquete">Compilación del paquete<a class="headerlink" href="#compilacion-del-paquete" title="Permanent link">&para;</a></h3>
+<p>Una vez que se tengan los archivos necesarios para el paquete, se procerá a la construcción del mismo ubicándose en una carpeta <em>un nivel anterior</em>.</p>
+<p><img alt="construcción" src="../img/rbuild.png" /></p>
    
        <!-- Last update of source file -->
        

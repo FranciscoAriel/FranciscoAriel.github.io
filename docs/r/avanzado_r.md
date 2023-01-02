@@ -99,3 +99,43 @@ predict(modelo,newdata=nuevos,interval="prediction")
 ![prediccion](img/pred2.png)
 
 Los intervalos de confianza para los valores individuales son muy grandes, por lo que no serían consideradas buenas debido a que inclusive se translapan.
+
+## Creación de paquetes en R
+
+Hasta el momento se ha considerado únicamente instalar y cargar paquetes que están disponibles en el CRAM, sin embargo, los usuarios pueden crear su propios paquetes e incluso subirlos a diversos repositorios si así lo desean.
+
+!!! caution "Mantenimiento de los paquetes"
+    La creación, mantenimiento y corrección de errores es responsabilidad del creador del paquete, por lo que se debe ser muy cuidadoso del contenido de paquetes de terceros.
+
+En esta sección se abordará el tema de la instalación de paquetes de fórma fácil.
+
+### Introducción a la creación de paquetes
+
+En esta subsección, se describirá de forma general la forma de crear paquetes de R. Para detalles consulte el documento [Writting R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html).
+
+En Windows, se debe descargar el software adicional [Rtools](https://cran.r-project.org/bin/windows/Rtools/) con el fin poder compilar los paquetes. A continuación se proporcionan instrucciones para la instalación.
+
+1. Descargar el [instalador de Rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html), procurando tener la versión más actualizada (versión 4.2).
+2. Seguir las instrucciones del asistente de instalación.
+
+Las siguientes imágenes ilustran los pasos para la instalación de Rtools (se recomienda aceptar las opciones de configuración tal y como están).
+
+![Instalador 1](img/rtools1.png)
+
+![Instalador 2](img/rtools2.png)
+
+![Instalador 3](img/rtools3.png)
+
+![Instalador 4](img/rtools4.png)
+
+![Instalador 5](img/rtools5.png)
+
+Es necesario tener instalado Latex para la construcción de la documentación.
+
+### Estructura del paquete
+
+### Compilación del paquete
+
+Una vez que se tengan los archivos necesarios para el paquete, se procerá a la construcción del mismo ubicándose en una carpeta _un nivel anterior_.
+
+![construcción](img/rbuild.png)
