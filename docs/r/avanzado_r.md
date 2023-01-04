@@ -102,7 +102,7 @@ Los intervalos de confianza para los valores individuales son muy grandes, por l
 
 ## Creación de paquetes en R
 
-Hasta el momento se ha considerado únicamente instalar y cargar paquetes que están disponibles en el CRAM, sin embargo, los usuarios pueden crear su propios paquetes e incluso subirlos a diversos repositorios si así lo desean.
+Hasta el momento se ha considerado únicamente instalar y cargar paquetes que están disponibles en el CRAN, sin embargo, los usuarios pueden crear su propios paquetes e incluso subirlos a diversos repositorios si así lo desean.
 
 !!! caution "Mantenimiento de los paquetes"
     La creación, mantenimiento y corrección de errores es responsabilidad del creador del paquete, por lo que se debe ser muy cuidadoso del contenido de paquetes de terceros.
@@ -134,8 +134,53 @@ Es necesario tener instalado Latex para la construcción de la documentación.
 
 ### Estructura del paquete
 
+Se recomienda usar una carpeta la cual será la base del paquete.
+
+Una forma sencilla de crear la estructura del paquete es con la función `package.skeleton`. La estructura básica de un paquete se muestra a continuación.
+
+![Estructura de un paquete](img/paquete.png)
+
+Los archivos `DESCRIPTION` y `NAMESPACE` son los metadatos del paquete. El primero debe ser llenado indicando datos que identifique al paquete, tal como el nombre del paquete, descripción, autor, entre otras cosas, mientra que el segundo contendrá las funciones que serán visibles al usuario, así como las funciones utilizadas de otros paquetes o si se debe registrar un archivo compilado.
+
+La funciones o métodos de R, deben de ir en específicamente en la subcarpeta `R`, mientra que la carpeta `man` deberá contener únicamente la documentación en formato `Rd` y la carpeta `data` deberá contener archivos `RData` o `rda`.
+
+Para ver un ejemplo más concreto, se puede en github el paquete [wnr](https://github.com/FranciscoAriel/wnr).
+
 ### Compilación del paquete
 
-Una vez que se tengan los archivos necesarios para el paquete, se procerá a la construcción del mismo ubicándose en una carpeta _un nivel anterior_.
+Una vez que se tengan los archivos necesarios para el paquete, se procerá a la construcción del mismo ubicándose en una carpeta _un nivel anterior_ usando la siguiente sintaxis.
+
+````bash
+R CMD build pkg
+````
+
+donde `pkg` es el directorio que contiene la estructura del paquete.
+
+!!! caution "Comando no reconocido en Windows"
+    En Windows es posible que no se reconozca el comando `R CMD`.
+
+    Para solucionar ese problema, en el bloc de notas (o cualquier otro editor de texto) se puede crear el archivo `compilar.bat` que contenga _la ruta completa de R_ y las instrucciones, por ejemplo:
+
+    ````txt
+    "C:\Program Files\R\R-4.2.2\bin\x64\R" CMD build pkg
+    ````
+
+    Por lo que simplemente se debe correr el archivo `compilar.bat` desde la linea de comandos (cmd o powershell)
+
+    === "CMD"
+        
+        ````cmd
+        compilar.bat
+        ````
+    
+    === "PowerShell"
+
+        ````cmd
+        .\compilar.bat
+        ````
+
+El resultado de la compilación será un archivo con extensión `.tar.gz` que tendrá toda la información del paquete comprimida respetando los directorios originales.
+
+En la siguiente imagen se muestra el mensaje resultante de la compilación del paquete `wnr`.
 
 ![construcción](img/rbuild.png)
