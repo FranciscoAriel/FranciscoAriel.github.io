@@ -9,17 +9,17 @@
         <meta name="description" content="Un sitio donde aprenderás desde lo básico hasta lo mas avanzado acerca de estadística y probabilidad, así como los mejores lenguajes de programación que se usan en estadística.">
       
       
-        <meta name="author" content="Francisco Ariel Vázquez Chávez">
+        <meta name="author" content="Francisco Vázquez">
       
       
-        <link rel="canonical" href="https://FranciscoAriel.github.io/site/sas/avanzado_sas/">
+        <link rel="canonical" href="https://FranciscoAriel.github.io/site/r/paquetes/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>SAS avanzado - Estadística desde Cero</title>
+        <title>Creación de Paquetes en R - Estadística desde Cero</title>
       
     
     
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SAS avanzado
+              Creación de Paquetes en R
             
           </span>
         </div>
@@ -228,12 +228,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -256,7 +258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../r/intro_r/" class="md-nav__link">
+      <a href="../intro_r/" class="md-nav__link">
         Introducción a R
       </a>
     </li>
@@ -270,7 +272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../r/basico_r/" class="md-nav__link">
+      <a href="../basico_r/" class="md-nav__link">
         R nivel básico
       </a>
     </li>
@@ -284,7 +286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../r/avanzado_r/" class="md-nav__link">
+      <a href="../avanzado_r/" class="md-nav__link">
         R nivel avanzado
       </a>
     </li>
@@ -296,11 +298,89 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../r/paquetes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Creación de paquetes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Creación de paquetes
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requisitos-preeliminares" class="md-nav__link">
+    Requisitos preeliminares
+  </a>
+  
+    <nav class="md-nav" aria-label="Requisitos preeliminares">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estructura-del-paquete" class="md-nav__link">
+    Estructura del paquete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#construccion-del-paquete" class="md-nav__link">
+    Construcción del paquete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision-del-paquete" class="md-nav__link">
+    Revisión del paquete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compilacion-e-instalacion" class="md-nav__link">
+    Compilación e instalación
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -318,14 +398,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
@@ -348,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intro_sas/" class="md-nav__link">
+      <a href="../../sas/intro_sas/" class="md-nav__link">
         Introducción a SAS
       </a>
     </li>
@@ -362,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basico_sas/" class="md-nav__link">
+      <a href="../../sas/basico_sas/" class="md-nav__link">
         Lectura y escritura de datos
       </a>
     </li>
@@ -376,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../manejo_variables/" class="md-nav__link">
+      <a href="../../sas/manejo_variables/" class="md-nav__link">
         Manipulación de bases
       </a>
     </li>
@@ -390,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reportes/" class="md-nav__link">
+      <a href="../../sas/reportes/" class="md-nav__link">
         Elaboración de reportes
       </a>
     </li>
@@ -402,52 +480,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          SAS nivel avanzado
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../sas/avanzado_sas/" class="md-nav__link">
         SAS nivel avanzado
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#graficos" class="md-nav__link">
-    Gráficos
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -459,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../conexion/" class="md-nav__link">
+      <a href="../../sas/conexion/" class="md-nav__link">
         Conexión con otros programas
       </a>
     </li>
@@ -774,8 +811,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -784,8 +819,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#graficos" class="md-nav__link">
-    Gráficos
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requisitos-preeliminares" class="md-nav__link">
+    Requisitos preeliminares
+  </a>
+  
+    <nav class="md-nav" aria-label="Requisitos preeliminares">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estructura-del-paquete" class="md-nav__link">
+    Estructura del paquete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#construccion-del-paquete" class="md-nav__link">
+    Construcción del paquete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision-del-paquete" class="md-nav__link">
+    Revisión del paquete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compilacion-e-instalacion" class="md-nav__link">
+    Compilación e instalación
   </a>
   
 </li>
@@ -806,7 +882,7 @@
     <!-- Edit button -->
     
        <a
-           href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/sas/avanzado_sas.md"
+           href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/r/paquetes.md"
            title="Edit this page"
            class="md-content__button md-icon"
        >
@@ -820,17 +896,113 @@
     as the main headline.
     -->
     
+       <h1>Creación de paquetes</h1>
+    
    
     <!-- Markdown content -->
     <!-- Markdown content -->
     
+    <aside class="mdx-author">
+        <p>
+        <img src="https://avatars.githubusercontent.com/FranciscoAriel" alt="@FranciscoAriel">
+        </p>
+        <p>
+        <span> 
+        <b>Francisco Vázquez</b> · <a href="https://github.com/FranciscoAriel">@FranciscoAriel</a>
+        </span>
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+            </svg> 2023-01-04 ·
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+            </svg> lectura: 30 minutos
+        </span>
+        </p>
+    </aside>
+    
     
 
-       <h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
-<p>En esta sección se aprenderá a usar SAS para ajustar distintos modelos predictivos más comunes, tales como modelo de regresión lineal simple y múltiple, así como el modelo ANOVA y regresión logística.</p>
-<p>Para los modelos lineales, se puede usar el procedimiento <strong>GLM</strong>. Sin embargo, SAS tiene procedimientos especialmente dedicados a modelos ANOVA (PROC ANOVA) de regresión lineal (PROC REG) y regresión logística (PROC LOGISTIC).</p>
-<h2 id="graficos">Gráficos<a class="headerlink" href="#graficos" title="Permanent link">&para;</a></h2>
-<p>En SAS se pueden realizar gráficos modernos usando el procedimiento <strong>SGPLOT</strong>.</p>
+       <h2 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h2>
+<p>Hasta el momento se ha considerado únicamente instalar y cargar paquetes que están disponibles en el CRAN, sin embargo, los usuarios pueden crear su propios paquetes e incluso subirlos a diversos repositorios si así lo desean.</p>
+<div class="admonition caution">
+<p class="admonition-title">Mantenimiento de los paquetes</p>
+<p>La creación, mantenimiento y corrección de errores es responsabilidad del creador del paquete, por lo que se debe ser muy cuidadoso del contenido de paquetes de terceros.</p>
+</div>
+<p>En esta sección se abordará el tema de la instalación de paquetes de fórma fácil.</p>
+<h2 id="requisitos-preeliminares">Requisitos preeliminares<a class="headerlink" href="#requisitos-preeliminares" title="Permanent link">&para;</a></h2>
+<p>En esta subsección, se describirá de forma general la forma de crear paquetes de R. Para detalles consulte el documento <a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writting R Extensions</a>.</p>
+<p>En Windows, se debe descargar el software adicional <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a> con el fin poder compilar los paquetes. A continuación se proporcionan instrucciones para la instalación.</p>
+<ol>
+<li>Descargar el <a href="https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html">instalador de Rtools</a>, procurando tener la versión más actualizada (versión 4.2).</li>
+<li>Seguir las instrucciones del asistente de instalación.</li>
+</ol>
+<p>Las siguientes imágenes ilustran los pasos para la instalación de Rtools (se recomienda aceptar las opciones de configuración tal y como están).</p>
+<p><img alt="Instalador 1" src="../img/rtools1.png" /></p>
+<p><img alt="Instalador 2" src="../img/rtools2.png" /></p>
+<p><img alt="Instalador 3" src="../img/rtools3.png" /></p>
+<p><img alt="Instalador 4" src="../img/rtools4.png" /></p>
+<p><img alt="Instalador 5" src="../img/rtools5.png" /></p>
+<p>Es necesario tener instalado Latex para la construcción de la documentación.</p>
+<h3 id="estructura-del-paquete">Estructura del paquete<a class="headerlink" href="#estructura-del-paquete" title="Permanent link">&para;</a></h3>
+<p>Se recomienda usar una carpeta la cual será la base del paquete.</p>
+<p>Una forma sencilla de crear la estructura del paquete es con la función <code>package.skeleton</code>. La estructura básica de un paquete se muestra a continuación.</p>
+<p><img alt="Estructura de un paquete" src="../img/paquete.png" /></p>
+<p>Los archivos <code>DESCRIPTION</code> y <code>NAMESPACE</code> son los metadatos del paquete. El primero debe ser llenado indicando datos que identifique al paquete, tal como el nombre del paquete, descripción, autor, entre otras cosas, mientra que el segundo contendrá las funciones que serán visibles al usuario, así como las funciones utilizadas de otros paquetes o si se debe registrar un archivo compilado.</p>
+<p>La funciones o métodos de R, deben de ir en específicamente en la subcarpeta <code>R</code>, mientra que la carpeta <code>man</code> deberá contener únicamente la documentación en formato <code>Rd</code> y la carpeta <code>data</code> deberá contener archivos <code>RData</code> o <code>rda</code>.</p>
+<p>Para ver un ejemplo más concreto, se puede en github el paquete <a href="https://github.com/FranciscoAriel/wnr">wnr</a>.</p>
+<h2 id="construccion-del-paquete">Construcción del paquete<a class="headerlink" href="#construccion-del-paquete" title="Permanent link">&para;</a></h2>
+<p>Una vez que se tengan los archivos necesarios para el paquete, se procerá a la construcción del mismo ubicándose en una carpeta <em>un nivel anterior</em> usando la siguiente sintaxis.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>R CMD build pkg
+</code></pre></div></td></tr></table></div>
+<p>donde <code>pkg</code> es el directorio que contiene la estructura del paquete.</p>
+<div class="admonition caution">
+<p class="admonition-title">Comando no reconocido en Windows</p>
+<p>En Windows es posible que no se reconozca el comando <code>R CMD</code>.</p>
+<p>Para solucionar ese problema, en el bloc de notas (o cualquier otro editor de texto) se puede crear el archivo <code>compilar.bat</code> que contenga <em>la ruta completa de R</em> y las instrucciones, por ejemplo:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>&quot;C:\Program Files\R\R-4.2.2\bin\x64\R&quot; CMD build pkg
+</code></pre></div></td></tr></table></div>
+<p>Por lo que simplemente se debe correr el archivo <code>compilar.bat</code> desde la linea de comandos (cmd o powershell)</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">CMD</label><label for="__tabbed_1_2">PowerShell</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>compilar.bat
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>.\compilar.bat
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</div>
+<p>El resultado de la compilación será un archivo con extensión <code>.tar.gz</code> que tendrá toda la información del paquete comprimida respetando los directorios originales.</p>
+<p>En la siguiente imagen se muestra el mensaje resultante de la compilación del paquete <code>wnr</code>.</p>
+<p><img alt="construcción" src="../img/rbuild.png" /></p>
+<h2 id="revision-del-paquete">Revisión del paquete<a class="headerlink" href="#revision-del-paquete" title="Permanent link">&para;</a></h2>
+<p>Una vez construido el paquete, se debe revisar con el fin de que se cumplan todos los requerimientos del mismo, tales como documentación, validación de funciones, carga de dependencias, entre otros.</p>
+<p>Para revisar el paquete, se debe ejecutar el comando:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>R CMD check pkg.tar.gz
+</code></pre></div></td></tr></table></div>
+<p>Se realizará una revisión exahustiva de todos los componentes del paquete y si todo está correcto, el paquete estará listo para instalar o incluso subirlo directamente a CRAN.</p>
+<p>La siguiente imagen muestra un ejemplo en donde se obtuvo una revisión exitosa.</p>
+<p><img alt="Revisión de paquete" src="../img/rcheck.png" /></p>
+<h2 id="compilacion-e-instalacion">Compilación e instalación<a class="headerlink" href="#compilacion-e-instalacion" title="Permanent link">&para;</a></h2>
+<p>Para instalar el paquete, se debe ejecutar el siguiente comando.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>R CMD install pkg.tar.gz
+</code></pre></div></td></tr></table></div>
+<p>con esto se creara un archivo binario &ldquo;instalable&rdquo; para el sistema operativo correspondiente.</p>
+<p>Otra forma de distribuir el paquete sin necesidad de enviarlo al CRAN, es crear un repositorio en github o alguna otra plataforma.</p>
+<p>La siguiente imagen muestra como ejemplo el paquete <code>wnr</code></p>
+<p><img alt="Repositorio github wnr" src="../img/github.png" /></p>
+<p>Posteriormente, se puede instalar usando el paquete <code>devtools</code>.</p>
+<p>El siguiente ejemplo muestra cómo instalar el paquete <code>wnr</code> desde github.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nf">library</span><span class="p">(</span><span class="n">devtools</span><span class="p">)</span>
+<span class="nf">install_github</span><span class="p">(</span><span class="n">repo</span> <span class="o">=</span> <span class="s">&quot;FranciscoAriel/wnr&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
    
        <!-- Last update of source file -->
        
@@ -858,7 +1030,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../reportes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Elaboración de reportes" rel="prev">
+        <a href="../avanzado_r/" class="md-footer__link md-footer__link--prev" aria-label="Previous: R nivel avanzado" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -867,20 +1039,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Elaboración de reportes
+              R nivel avanzado
             </div>
           </div>
         </a>
       
       
         
-        <a href="../conexion/" class="md-footer__link md-footer__link--next" aria-label="Next: Conexión con otros programas" rel="next">
+        <a href="../../sas/intro_sas/" class="md-footer__link md-footer__link--next" aria-label="Next: Introducción a SAS" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Conexión con otros programas
+              Introducción a SAS
             </div>
           </div>
           <div class="md-footer__button md-icon">
