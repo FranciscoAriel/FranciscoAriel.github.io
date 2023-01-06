@@ -1,13 +1,13 @@
 ---
-title: Introducción a SAS
-summary: Una guía rápida sobre SAS.
+title: Introducción a SAS software
+summary: Una guía rápida sobre SAS software.
 authors: Francisco Vázquez
 date: 2020-02-05
 ---
 
 # Elementos esenciales
 
-Este es un tutorial breve sobre el programa, se muestran los principales conceptos de SAS para iniciarse en SAS.
+Este es un tutorial breve sobre el programa, se muestran los principales conceptos de SAS &reg; software.
 
 En esta sección se aprenderán los principios sobre los cuales se basa SAS, así como algunas definiciones importantes como datasets o librerías.
 
@@ -15,7 +15,7 @@ Finalmente se muestran algunas pinceladas de lo que se puede hacer con SAS media
 
 ## Instalación e interfaces gráficas
 
-Consulte el sitio web de [sas](https://www.sas.com) para más detalles.
+Consulte el sitio web de [SAS Institute Inc.](https://www.sas.com) para más detalles.
 
 !!! info "SAS &reg; OnDemand for Academics"
     SAS &reg; software no es libre ni de código abierto, sin embargo usted puede usarlo gratuitamente con fines de aprendizaje.
@@ -33,7 +33,7 @@ Su principal ventaja es que gasta pocos recurso y es bastante rápida.
 
 Tiene un panel principal en el cual se muestra el flujo de trabajo. La idea básica es ir trabajando en pequeños programas y se conectan entre sí, con el fin de tener una visión más global de lo que se está realizando.
 
-También puede usarse la interfaz de SAS &reg; Studio
+También puede usarse la interfaz de SAS &reg; Studio cuando se utiliza SAS &reg; OnDemand for Academics.
 
 ![Sas &reg; Studio](img/SAS_Studio.png)
 
@@ -225,3 +225,7 @@ En internet existe muchos recursos para encontrar ayuda acerca de SAS.
 Una de los mejores sitios para encontrar ayuda es en el foro de [sas communities](https://communities.sas.com/). También existe una versión en [español](https://communities.sas.com/t5/SAS-Spanish-Community/gh-p/sasspanish) enfocada en usuarios de México y Latinoamérica.
 
 También hay un [blog](https://blogs.sas.com/content/) en donde se abordan distintos temas especializados tales como [gráficos](https://blogs.sas.com/content/author/robertallison/), [programación](https://blogs.sas.com/content/author/rickwicklin/), entre otros.
+
+----
+
+> SAS and all other SAS Institute Inc. product or service names are registered trademarks or trademarks of SAS Institute Inc. in the USA and other countries. &reg; indicates USA registration.

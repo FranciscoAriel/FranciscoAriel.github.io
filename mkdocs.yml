@@ -29,12 +29,12 @@ nav:
         - "R nivel básico": r/basico_r.md
         - "R nivel avanzado": r/avanzado_r.md
         - "Creación de paquetes": r/paquetes.md
-    - "SAS":
-        - "Introducción a SAS": sas/intro_sas.md
+    - "SAS software":
+        - "Introducción a SAS software": sas/intro_sas.md
         - "Lectura y escritura de datos": sas/basico_sas.md
         - "Manipulación de bases": sas/manejo_variables.md
         - "Elaboración de reportes": sas/reportes.md
-        - "SAS nivel avanzado": sas/avanzado_sas.md
+        - "Nivel avanzado": sas/avanzado_sas.md
         - "Conexión con otros programas": sas/conexion.md
     - "Python":
         - "Introducción a Python": python/intro_python.md

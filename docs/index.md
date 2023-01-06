@@ -5,8 +5,9 @@ En este sitio web conocerás los fundamentos y conceptos básicos de estadístic
 ![Ilustración de una laptop](img/laptop.png)
 Imagen de [Sara Torda](https://pixabay.com/es/users/sara_torda-888816/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286)
 
-Proximamente estaremos estrenando un blog. Te mantendremos informado, :wink:.
+*Nuevo*
 
+Estamos a punto de lanzar un blog con temas de estadística aplicada.
 
 ## Software estadístico
 
@@ -105,10 +106,10 @@ Síguenos en nuestras redes sociales
 
 :fontawesome-brands-linkedin: [LinkedIn](https://www.linkedin.com/in/fcoavc/)
 
-No te pierdas las últimas noticias en nuestro canal de :fontawesome-brands-telegram-plane: [Telegram](https://t.me/estad_camp_0)
+No te pierdas las últimas noticias en nuestro canal de [Telegram](https://t.me/estad_camp_0)
 
 <div>
-<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="estad_camp_0/11" data-width="100%"></script>
+<script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-post="estad_camp_0/12" data-width="100%"></script>
 </div>
 
 ----
