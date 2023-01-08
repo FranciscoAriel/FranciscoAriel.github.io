@@ -1,0 +1,40 @@
+name: deploy
+on:
+  push:
+    branches:
+      - master
+
+env:
+  PYTHON_VERSION: 3.x
+
+permissions:
+  contents: write
+
+jobs:
+  documentation:
+    name: Build documentation
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python runtime
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Set up build cache
+        uses: actions/cache@v3
+        id: cache
+        with:
+          key: ${{ runner.os }}-${{ hashFiles('.cache/**') }}
+          path: .cache
+
+      - name: Deploy documentation
+        env:
+        run: |
+          mkdocs gh-deploy --force
+          mkdocs --version

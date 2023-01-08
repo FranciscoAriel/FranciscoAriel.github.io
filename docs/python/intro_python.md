@@ -184,6 +184,28 @@ Note que `x` toma el valor de cada elemento de la lista y en cada iteración se 
 
 Visite [ciclos en python](https://www.w3schools.com/python/python_for_loops.asp) para saber más acerca de cómo funcionan los ciclos.
 
+## Funciones
+
+En Python se puede definir una función usando la siguiente sintaxis.
+
+````
+def funcion(arg1,arg2,...,argn)
+  instrucciones
+  return valor
+````
+
+Como ejemplo se muestra la siguiente función que devuelve el producto de dos números.
+
+````python
+def mult(x,y):
+    z = x*y
+    return z
+````
+
+El resultado se muestra a continuación.
+
+![Resultado de la función](img/funcion.png)
+
 ## Paquetes
 
 La mayoría de los paquetes usados en ciencia de datos son instalados cuando se instala Anaconda, por lo que solo es necesario llamar los paquetes necesarios.

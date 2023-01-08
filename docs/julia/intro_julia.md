@@ -19,6 +19,29 @@ Una vez en la consola se pueden entrar a distintos modos, tal como el modo de ay
 
 Julia también puede ejecutarse en entornos gráficos, por ejemplo Jypiter Notebooks o VS Code.
 
+## Directorio de trabajo
+
+Cuando se inicia una sesión de trabajo en Julia, es importante conocer en dónde se encuentra el directorio de trabajo.
+
+Para conocer en dónde se encuentra el directorio de trabajo, basta con escribir en la consola la siguiente función.
+
+````julia
+pwd()
+````
+
+!!! tip "Función similar"
+    También es posible conocer el actual directorio con la fonción `homedir()`.
+
+El resultado será desplegado en pantalla con el directorio en donde se encuentra actualmente el directorio de trabajo.
+
+Para cambiar el actual directorio de trabajo, se puede usar la función
+
+````julia
+cd("dir")
+````
+
+Por ejemplo, si se desea cambiar a la carpeta **Documentos**, se puede especificar usando la instrucción `cd("C:\\Users\\user\\Documentos")`.
+
 ## Variables
 
 Julia tiene varios tipos de variables, por ejemplo tipo numérico (entero y flotante) booleano o caracter. Para conocer todos los tipos de variables que existen, consulte la [documentación](https://docs.julialang.org/en/v1/manual/integers-and-floating-point-numbers/).

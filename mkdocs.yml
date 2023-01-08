@@ -91,7 +91,7 @@ extra:
         - icon: fontawesome/brands/linkedin
           link: https://www.linkedin.com/in/fcoavc/
 
-copyright: Copyright &copy; 2021. Creado por Francisco Vázquez.
+copyright: Copyright &copy; 2023. Creado por Francisco Vázquez.
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
