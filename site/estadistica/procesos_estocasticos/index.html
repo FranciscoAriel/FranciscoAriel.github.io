@@ -1,0 +1,1621 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Un sitio donde aprenderás desde lo básico hasta lo mas avanzado acerca de estadística y probabilidad, así como los mejores lenguajes de programación que se usan en estadística.">
+      
+      
+        <meta name="author" content="Francisco Vázquez">
+      
+      
+        <link rel="canonical" href="https://FranciscoAriel.github.io/site/estadistica/procesos_estocasticos/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Introducción a Procesos Estocásticos - Estadística desde Cero</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Estadística desde Cero" class="md-header__button md-logo" aria-label="Estadística desde Cero" data-md-component="logo">
+      
+  <img src="../../img/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Estadística desde Cero
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción a Procesos Estocásticos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Estadística desde Cero" class="md-nav__button md-logo" aria-label="Estadística desde Cero" data-md-component="logo">
+      
+  <img src="../../img/favicon.png" alt="logo">
+
+    </a>
+    Estadística desde Cero
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FranciscoAriel/FranciscoAriel.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Inicio
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          R
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="R" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          R
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../r/intro_r/" class="md-nav__link">
+        Introducción a R
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../r/basico_r/" class="md-nav__link">
+        R nivel básico
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../r/avanzado_r/" class="md-nav__link">
+        R nivel avanzado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../r/paquetes/" class="md-nav__link">
+        Creación de paquetes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          SAS software
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SAS software" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          SAS software
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sas/intro_sas/" class="md-nav__link">
+        Introducción a SAS software
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sas/basico_sas/" class="md-nav__link">
+        Lectura y escritura de datos
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sas/manejo_variables/" class="md-nav__link">
+        Manipulación de bases
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sas/reportes/" class="md-nav__link">
+        Elaboración de reportes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sas/avanzado_sas/" class="md-nav__link">
+        Nivel avanzado
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sas/conexion/" class="md-nav__link">
+        Conexión con otros programas
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/intro_python/" class="md-nav__link">
+        Introducción a Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/basico/" class="md-nav__link">
+        Python nivel básico
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Julia
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Julia" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Julia
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../julia/intro_julia/" class="md-nav__link">
+        Introducción a Julia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../julia/basico_julia/" class="md-nav__link">
+        Julia nivel básico
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Estadística
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Estadística" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Estadística
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../probabilidad/" class="md-nav__link">
+        Introducción a la probabilidad
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inferencia/" class="md-nav__link">
+        Inferencia estadística
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Procesos estocásticos
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Procesos estocásticos
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definiciones" class="md-nav__link">
+    Definiciones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-de-los-procesos" class="md-nav__link">
+    Características de los procesos
+  </a>
+  
+    <nav class="md-nav" aria-label="Características de los procesos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-del-valor-medio" class="md-nav__link">
+    Función del valor medio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-del-nucleo-de-covarianza" class="md-nav__link">
+    Función del núcleo de covarianza
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesos-ergodicos" class="md-nav__link">
+    Procesos ergódicos
+  </a>
+  
+    <nav class="md-nav" aria-label="Procesos ergódicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procesos-ergodicos-discretos" class="md-nav__link">
+    Procesos ergódicos discretos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procesos-ergodicos-continuos" class="md-nav__link">
+    Procesos ergódicos continuos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-integral-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
+    La integral de un proceso con tiempo continuo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-derivada-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
+    La derivada de un proceso con tiempo continuo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesos-normales" class="md-nav__link">
+    Procesos normales
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesos-contadores" class="md-nav__link">
+    Procesos contadores
+  </a>
+  
+    <nav class="md-nav" aria-label="Procesos contadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proceso-poisson" class="md-nav__link">
+    Proceso Poisson
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cadenas-de-markov" class="md-nav__link">
+    Cadenas de Markov
+  </a>
+  
+    <nav class="md-nav" aria-label="Cadenas de Markov">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cadenas-de-markov-con-parametro-de-tiempo-discreto" class="md-nav__link">
+    Cadenas de Markov con parámetro de tiempo discreto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesos-de-nacimiento-y-muerte" class="md-nav__link">
+    Procesos de nacimiento y muerte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografía
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../series_tiempo/" class="md-nav__link">
+        Series de tiempo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estadistica_matematica/" class="md-nav__link">
+        Estadística matemática
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bayesiano/" class="md-nav__link">
+        Estadística bayesiana
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multivariado/" class="md-nav__link">
+        Estadística multivariada
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../supervivencia/" class="md-nav__link">
+        Análisis de supervivencia
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelos_lineales_generalizados/" class="md-nav__link">
+        Modelos lineales generalizados
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    Introducción
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definiciones" class="md-nav__link">
+    Definiciones
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-de-los-procesos" class="md-nav__link">
+    Características de los procesos
+  </a>
+  
+    <nav class="md-nav" aria-label="Características de los procesos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-del-valor-medio" class="md-nav__link">
+    Función del valor medio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcion-del-nucleo-de-covarianza" class="md-nav__link">
+    Función del núcleo de covarianza
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesos-ergodicos" class="md-nav__link">
+    Procesos ergódicos
+  </a>
+  
+    <nav class="md-nav" aria-label="Procesos ergódicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procesos-ergodicos-discretos" class="md-nav__link">
+    Procesos ergódicos discretos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procesos-ergodicos-continuos" class="md-nav__link">
+    Procesos ergódicos continuos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-integral-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
+    La integral de un proceso con tiempo continuo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-derivada-de-un-proceso-con-tiempo-continuo" class="md-nav__link">
+    La derivada de un proceso con tiempo continuo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesos-normales" class="md-nav__link">
+    Procesos normales
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesos-contadores" class="md-nav__link">
+    Procesos contadores
+  </a>
+  
+    <nav class="md-nav" aria-label="Procesos contadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proceso-poisson" class="md-nav__link">
+    Proceso Poisson
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cadenas-de-markov" class="md-nav__link">
+    Cadenas de Markov
+  </a>
+  
+    <nav class="md-nav" aria-label="Cadenas de Markov">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cadenas-de-markov-con-parametro-de-tiempo-discreto" class="md-nav__link">
+    Cadenas de Markov con parámetro de tiempo discreto
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#procesos-de-nacimiento-y-muerte" class="md-nav__link">
+    Procesos de nacimiento y muerte
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bibliografia" class="md-nav__link">
+    Bibliografía
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+
+    <!-- Edit button -->
+    
+       <a
+           href="https://github.com/FranciscoAriel/FranciscoAriel.github.io/blob/master/docs/estadistica/procesos_estocasticos.md"
+           title="Edit this page"
+           class="md-content__button md-icon"
+       >
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+       </a>
+    
+   
+    <!--
+    Hack: check whether the content contains a h1 headline. If it
+    doesn't, the page title (or respectively site name) is used
+    as the main headline.
+    -->
+    
+       <h1>Procesos estocásticos</h1>
+    
+   
+    <!-- Markdown content -->
+    <!-- Markdown content -->
+    
+    <aside class="mdx-author">
+        <p>
+        <img src="https://avatars.githubusercontent.com/FranciscoAriel" alt="@FranciscoAriel">
+        </p>
+        <p>
+        <span> 
+        <b>Francisco Vázquez</b> · <a href="https://github.com/FranciscoAriel">@FranciscoAriel</a>
+        </span>
+        <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+            </svg> 2022-02-16 ·
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+            </svg> lectura: 60 minutos
+        </span>
+        </p>
+    </aside>
+    
+    
+
+       <p>En esta sección se estudiará a los procesos estocásticos, los cuales pueden ser considerados una generalización de una muestra aleatoria.</p>
+<p>El estudio de procesos estocásticos requiere el uso de varios conceptos de probabilidad, por que se recomienda leer la página de <a href="../probabilidad/">Introducción a la probabilidad</a>.</p>
+<h2 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h2>
+<p>Un proceso estocástico (o probabilístico) puede considerarse una generalización de una muestra aleatoria, en el sentido de que las variables aleatorias <strong>no son necesariamente independientes</strong> y su distrbución podría cambiar.</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso estocástico</p>
+<p>Un <em>proceso estocástico</em>, denotado por <span class="arithmatex">\(\lbrace X(t) : t \in T \rbrace\)</span> o por <span class="arithmatex">\(\lbrace X_t : t \ge 0 \rbrace\)</span>, es una colección de variables aleatorias <em>indizadas</em> con valores en un conjunto <span class="arithmatex">\(T\)</span>, en donde <span class="arithmatex">\(T\)</span> es un conjunto a lo más numerable o un intervalo de números reales en <span class="arithmatex">\([0,\infty)\)</span>.</p>
+</div>
+<p>De la definición anterior se entiende que las variables <em>dependerán</em> del parámetro <span class="arithmatex">\(t\)</span> (usualmente el tiempo) y están ordenadas. Además el conjunto <span class="arithmatex">\(T\)</span> puede ser discreto o continuo. Si el conjunto de índices <span class="arithmatex">\(T\)</span> es discreto, se le conoce como <em>proceso estocástico de tiempo discreto</em> mientras que si <span class="arithmatex">\(T\)</span> es continuo, se le conoce como <em>proceso estocástico de tiempo coninuo</em>. Las variables aleatorias <span class="arithmatex">\(X_t\)</span> pueden tomar tanto valores continuos o valores discretos.</p>
+<p>Note que si se fija un punto <span class="arithmatex">\(t\)</span>, se tiene <span class="arithmatex">\(X_t\)</span> una variable aleatoria. Una <em>realización</em> del proceso <span class="arithmatex">\(X(t)\)</span>, es decir si se observa la variable aleatoria, se le conoce como <em>camino muestral</em> y se entiende como el estado del proceso en el tiempo <span class="arithmatex">\(t\)</span> (Ross, 1996).</p>
+<h3 id="definiciones">Definiciones<a class="headerlink" href="#definiciones" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Proceso completamente especificado</p>
+<p>Se dice que un proceso estocástico <span class="arithmatex">\(\lbrace X(t) : t \in T \rbrace\)</span> está completamente especificado si para cualquier valor del tiempo <span class="arithmatex">\(t_1&lt;t_2&lt;\dots&lt;t_n\)</span> con <span class="arithmatex">\(n \in \mathbb{N}\)</span>, la distribución conjunta de <span class="arithmatex">\((X_{t_1},X_{t_2},\cdots,X_{t_n})\)</span> es conocida.</p>
+</div>
+<p>De la definición anterior se entiende que es difícil conocer el comportamiento de un proceso estocástico o ley de probabilidad, ya que en general es complicado hallar las distribuciones conjuntas, por lo que en ocasiones se deben imponer ciertas condiciones para su estudio.</p>
+<div class="admonition note">
+<p class="admonition-title">Procesos con incrementos independientes</p>
+<p>Se dice que un proceso estocástico <span class="arithmatex">\(\lbrace X_t : t \ge 0 \rbrace\)</span> tiene <em>incrementos independientes</em> si dados <span class="arithmatex">\(t_0,t_1,t2,\dots,t_n\)</span> las variables aleatorias <span class="arithmatex">\(X_{t_1}-X_{t_0},X_{t_2}-X_{t_1},\dots,X_{t_n}-X_{t_{n-1}}\)</span> son independientes.</p>
+</div>
+<p>La definición anterior nos asegura que <em>la diferencia de 2 variables aleatorias</em> será independiente de cualquier otra diferencia de 2 variables aleatoria, siempre y cuando sus intervalos no se translapen.</p>
+<div class="admonition danger">
+<p class="admonition-title">Las variables aleatorias no están ordenadas</p>
+<p>No tiene sentido decir que <span class="arithmatex">\(X_{t_1}\)</span> es menor que <span class="arithmatex">\(X_{t_2}\)</span> ya que las variables aleatorias <strong>no están ordenadas</strong>.</p>
+</div>
+<p><img alt="Ilustración de incrementos independientes" src="../img/inc_indep.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Procesos con incrementos estacionarios</p>
+<p>Se dice que el proceso <span class="arithmatex">\(\lbrace X_t : t \in T \rbrace\)</span> tiene <em>incrementos estacionarios</em> si para <span class="arithmatex">\(s&lt;t\)</span> la distribución de <span class="arithmatex">\(X_t-X_s\)</span> es la misma que <span class="arithmatex">\(X_{t+h}-X_{s+h}\)</span>, para toda <span class="arithmatex">\(h &gt; 0\)</span> y <span class="arithmatex">\(s+h,t+h \in T\)</span>.</p>
+</div>
+<p>La definición anterior nos indica que la distribución de la diferencia entre cualesquiera 2 diferencias de variables aleatorias de igual longitud es la misma, no importa en qué parte del proceso hayan sido tomadas, sin embargo, esto <strong>no necesariamente implica que sean independientes</strong>.</p>
+<p><img alt="Ilustración de incrementos estacionarios" src="../img/inc_est.png" /></p>
+<p>El siguiente ejemplo muestra un proceso con incrementos independientes.</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso de Weiner</p>
+<p>Se dice que el proceso <span class="arithmatex">\(\lbrace W_t:t \ge 0 \rbrace\)</span> es un <em>Proceso de Weiner</em> si satisface las siguientes condiciones:</p>
+<p>a)    <span class="arithmatex">\(W_0 = 0\)</span> (El proceso comienza en cero).</p>
+<p>b)    Tiene incrementos independientes.</p>
+<p>c)    <span class="arithmatex">\(W_t-W_s \sim N(0,C)\)</span> para <span class="arithmatex">\(0&lt;s&lt;t\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Movimiento Browniano</p>
+<p>Este proceso también recibe el nombre de <em>movimiento browniano</em> debido a que el biólogo R. Brown en 1827 observó que algunas partículas en el agua exhibían movimientos irregulares (Karlin &amp; Taylor, 1975).</p>
+</div>
+<p>Un resultado interesante de este proceso es que los incrementos son independientes y estacionarios y su varianza depende de <span class="arithmatex">\(t\)</span>. Es decir:</p>
+<p><span class="arithmatex">\(W_{t}=W_{t}-W_0 \sim N(0,\sigma^2t)\)</span></p>
+<p>La siguiente figura muestra como sería un proceso Wienier con <span class="arithmatex">\(\sigma^2=1\)</span>. Note que cada línea representaría una variable aleatoria <span class="arithmatex">\(W_t\)</span>.</p>
+<p><img alt="Representación de un proceso Weinier" src="../img/weiner.png" />
+Elaboración propia usando SAS &reg; OnDemand for Academics.</p>
+<p><img alt="Representación de una realización de un proceso Weinier" src="../img/path1.png" />
+Elaboración propia usando SAS &reg; OnDemand for Academics.</p>
+<details class="example"><summary>Varianza del incremento del proceso de Weiner</summary><p>Para calcular la varianza de los incrementos, se puede proceder con la fórmula de la varianza, teniendo en cuenta que la esperanza de las diferencias es cero.</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+\mathbb{V}(W_t-W_s) &amp;= \mathbb{E}\left( (W_t-W_s)^2\right)\\
+&amp;=\mathbb{E}\left( W_t^2 -2 W_t W_s +W_s^2\right)\\
+&amp;=\mathbb{E}(W_t^2)-2\mathbb{E}(W_t W_s)+\mathbb{E}(W_s^2)
+\end{align*}
+\)</span></p>
+<p>Para calcular <span class="arithmatex">\(\mathbb{E}(W_t W_s)\)</span>, se puede realizar un &ldquo;truco&rdquo; expresando <span class="arithmatex">\(W_t = (W_t -W_s) + W_s\)</span> y <span class="arithmatex">\(W_s = W_s-W_0\)</span>, por lo que</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+\mathbb{E}( W_s W_t) &amp;= \mathbb{E}( (W_s-W_0) ((W_t -W_s) + W_s))\\
+&amp;=\mathbb{E}((W_s-W_0)(W_t-W_s)+W_s^2)\\
+&amp;=\mathbb{E}((W_s-W_0)(W_t-W_s))+\mathbb{E}(W_s^2)\\
+&amp;=\mathbb{E}((W_s-W_0))\mathbb{E}((W_t-W_s))+\mathbb{E}(W_s^2)\\
+&amp;=\mathbb{E}(W_s^2)
+\end{align*}
+\)</span></p>
+<p>Entonces, la varianza del los incrementos es</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+\mathbb{V}(W_t-W_s) &amp;= \mathbb{E}(W_t^2)-2\mathbb{E}(W_s^2)+\mathbb{E}(W_s^2)\\
+&amp;= \mathbb{E}(W_t^2)-\mathbb{E}(W_s^2)\\
+&amp;= \mathbb{V}(W_t)-\mathbb{V}(W_s)
+\end{align*}
+\)</span></p>
+<p>Ahora supóngase que <span class="arithmatex">\(s=1\)</span> y <span class="arithmatex">\(t&gt;1\)</span> y <span class="arithmatex">\(\mathbb{V}(W_1)=\sigma^2\)</span>. Entonces necesariamente la varianza en el tiempo será <span class="arithmatex">\(t-1\)</span> será la constante <span class="arithmatex">\(\sigma^2\)</span> por la diferencia de <span class="arithmatex">\(t-1\)</span>. Por lo tanto <span class="arithmatex">\(\mathbb{V}(W_t-W_s)=\sigma^2(t-s)\)</span> es una función lineal que depende de <span class="arithmatex">\(t\)</span> y <span class="arithmatex">\(s\)</span>.</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Proceso de Poisson</p>
+<p>Se dice que el proceso <span class="arithmatex">\(\lbrace N_t:t \ge 0 \rbrace\)</span> es un <em>Proceso de Poisson</em> si satisface las siguientes condiciones:</p>
+<p>a)    <span class="arithmatex">\(N_0 = 0\)</span> (El proceso comienza en cero).</p>
+<p>b)    Tiene incrementos independientes.</p>
+<p>c)    <span class="arithmatex">\(N_t-N_s \sim Poi(\lambda(t-s))\)</span> para <span class="arithmatex">\(0&lt;s&lt;t\)</span>.</p>
+</div>
+<p>Al igual que el proceso de Weinier, los incrementos de este proceso son independientes y estacionarios y su varianza depende de <span class="arithmatex">\(t\)</span>. Es decir:</p>
+<p><span class="arithmatex">\(N_{t}=N_{t}-N_0 \sim Poi(0,\lambda(t-s))\)</span></p>
+<p>La siguiente figura muestra como sería un proceso Poisson con <span class="arithmatex">\(\lambda=1\)</span>. Note que cada línea representaría una variable aleatoria <span class="arithmatex">\(N_t\)</span>.</p>
+<p><img alt="Representación de un proceso Weinier" src="../img/poisson.png" />
+Elaboración propia usando SAS &reg; OnDemand for Academics.</p>
+<p><img alt="Representación de una realización de un proceso Weinier" src="../img/path2.png" />
+Elaboración propia usando SAS &reg; OnDemand for Academics.</p>
+<details class="example"><summary>Covarianza de los incremento del proceso de Poisson</summary><p>De las propiedades de la distribución poisson, se sabe que su media es igual a su varianza, por lo que <span class="arithmatex">\(\mathbb{E}( N_t - N_s) = \mathbb{V}( N_t - N_s) = \lambda(t-s)\)</span>.</p>
+<p>Para calcular la covarianza de los incrementos, se debe obtener sus momentos mixtos, es decir</p>
+<p><span class="arithmatex">\(
+\begin{align}
+\mathbb{E}( N_s N_t) &amp;=\mathbb{E}(N_s(N_t-N_s)+N_s^2)\\
+&amp;=\mathbb{E}(N_s(N_t-N_s))+ {E}(N_s^2)\\
+&amp;=\mathbb{E}((N_s-N_0)(N_t-N_s))+ {E}(N_s^2)\\
+&amp;=\mathbb{E}(N_s-N_0)\mathbb{E}(N_t-N_s)+ {E}(N_s^2)\\
+&amp;=\lambda s \lambda (t-s) + (\lambda s + (\lambda s)^2)\\
+&amp;=\lambda^2 st+\lambda s
+\end{align}
+\)</span></p>
+<p>Por lo que la covarianza entre <span class="arithmatex">\(N_t\)</span> y <span class="arithmatex">\(N_s\)</span> se expresa como</p>
+<p><span class="arithmatex">\(
+\begin{align}
+Cov( N_s, N_t) &amp;=\mathbb{E}( N_s N_t)-\mathbb{E}( N_s)\mathbb{E}( N_t)\\
+&amp;=\lambda^2 st+\lambda s-(\lambda s)(\lambda t)\\
+&amp;=\lambda s
+\end{align}
+\)</span></p>
+<p>Note que se obtiene un resultado muy similar a la covarianza de proceso Weinier.</p>
+</details>
+<p>Finalmente se presenta una definición que nos ayudará a comprender la complejidad de los procesos estocásticos.</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso estrictamente estacionario</p>
+<p>Se dice que un proceso estocástico <span class="arithmatex">\(\lbrace X_t:t \in T \rbrace\)</span> es un <em>proceso estrictamente estacionario</em> de orden <span class="arithmatex">\(k\)</span> si <span class="arithmatex">\((X_{t_1},X_{t_2},\dots,X_{t_k})\)</span> tiene la misma distribución que <span class="arithmatex">\((X_{t_1+h},X_{t_2+h},\dots,X_{t_k+h})\)</span> para <span class="arithmatex">\(h \in T\)</span>.</p>
+</div>
+<p>La condición anterior es muy fuerte de cumplir para la mayoría de los procesos estocásticos. Note que una <strong>muestra aleatoria</strong> puede ser considerado un proceso estrictamente estacionario si <span class="arithmatex">\(T=\mathbb{N}\)</span>.</p>
+<h2 id="caracteristicas-de-los-procesos">Características de los procesos<a class="headerlink" href="#caracteristicas-de-los-procesos" title="Permanent link">&para;</a></h2>
+<p>Como se había mencionado anteriormente, en general es complicado conocer la distribución conjunta de un proceso estocástico, por lo que en ocasiones deben emplearse otras formas para conocer su describir su comportamiento.</p>
+<p>Para ello se emplearán las funciones del valor medio y de núcleo de covarianza, las cuales serán algo equivalente a la media y la varianza de variables aleatorias.</p>
+<h3 id="funcion-del-valor-medio">Función del valor medio<a class="headerlink" href="#funcion-del-valor-medio" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Función del valor medio</p>
+<p>La función del valor medio, denotada por <span class="arithmatex">\(m(t)\)</span>, se define como</p>
+<p><span class="arithmatex">\(m_X(t)=\mathbb{E}(X_t),t \ge 0\)</span></p>
+<p>si dicha esperanza existe y es una función del tiempo <span class="arithmatex">\(t\)</span>.</p>
+</div>
+<p>La función del valor medio es muy útil para caracterizar un proceso ya que nos da una idea de como se comporta el proceso. Funciona de manera similar a la media de una variable aleatoria.</p>
+<details class="example"><summary>Función del valor medio del proceso Weinier</summary><p>De la definción del proceso Weinier, se puede comprobar que <span class="arithmatex">\(m(t)=\mathbb{E}(W_t)=0, t \ge 0\)</span>. Esto implica que la función del valor medio del proceso es constante y se entiende que es un proceso que <em>oscila</em> alrededor del cero.</p>
+</details>
+<h3 id="funcion-del-nucleo-de-covarianza">Función del núcleo de covarianza<a class="headerlink" href="#funcion-del-nucleo-de-covarianza" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Función del núcleo de covarianza</p>
+<p>La función del núcleo de covarianza, denotada por <span class="arithmatex">\(K_X(s,t)\)</span>, se define como</p>
+<p><span class="arithmatex">\(K_X(s,t)=Cov(X_s,X_t),0&lt;s&lt;t\)</span></p>
+<p>si dicha covarianza existe.</p>
+</div>
+<p>Al igual que la función del valor medio, la función del núcleo de covarianzanos permite conocer el comportamiento del proceso por medio de la covarianza entre <span class="arithmatex">\(X_t\)</span> y <span class="arithmatex">\(X_s\)</span> y nos da idea de cómo cambia la relación de dichas variables aleatorias a través del tiempo.</p>
+<details class="example"><summary>Función del núcleo de covarianza del proceso Weinier</summary><p>Se debe conocer la covarianza entre <span class="arithmatex">\(W_t\)</span> y <span class="arithmatex">\(W_s\)</span> suponiendo <span class="arithmatex">\(0&lt;s&lt;t\)</span>.</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+K_X(s,t)&amp;=Cov(W_s,W_t)\\
+&amp;=Cov(W_s,(W_t-W_s)+W_s)\\
+&amp;=Cov(W_s,(W_t-W_s))+Cov(W_s,W_s)\\
+&amp;=\mathbb{V}(W_s)\\
+&amp;=\sigma^2 s
+\end{align*}
+\)</span></p>
+<p>En general, para cualquier <span class="arithmatex">\(s, t \in \mathbb{R}^+\)</span>, la función de núcleo de covarianza de un proceso Weinier puede expresarse como </p>
+<p><span class="arithmatex">\(K_X(s,t)=\sigma^2 min(s,t)\)</span></p>
+<p>Lo cual implica que no importa la distancia entre <span class="arithmatex">\(s\)</span> y <span class="arithmatex">\(t\)</span>, la covarianza siempre será constante <img alt="😱" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f631.svg" title=":scream:" />.</p>
+</details>
+<p>El estudio de la función de núcleo de covarianza también nos ayuda a conocer como será su comportamiento del proceso a través del tiempo, esto es, si la función de núcleo de covarianza cambia a través del tiempo.</p>
+<div class="admonition note">
+<p class="admonition-title">Procesos de covarianza estacionaria</p>
+<p>Se dice que el proceso <span class="arithmatex">\(\lbrace X_t:t \ge 0 \rbrace\)</span> es de covarianza estacionaria si <span class="arithmatex">\(K(s,t)=R(t-s)\)</span> para <span class="arithmatex">\(0&lt;s&lt;t\)</span> es una función que depende de <span class="arithmatex">\(s\)</span> y <span class="arithmatex">\(t\)</span>.</p>
+</div>
+<p>El teorema anterior nos dice que si un proceso es de <strong>covarianza estacionaria</strong>, entonces la covarianza entre <span class="arithmatex">\(X_t\)</span> y <span class="arithmatex">\(X_s\)</span> no dependerá de <span class="arithmatex">\(t\)</span>, sino de la distancia <span class="arithmatex">\(t-s\)</span>. En este sentido, la <em>estacionariedad</em> se refiere a algo que se mantiene constante a través del tiempo.</p>
+<h2 id="procesos-ergodicos">Procesos ergódicos<a class="headerlink" href="#procesos-ergodicos" title="Permanent link">&para;</a></h2>
+<p>Hasta ahora se ha hablado de algunas propiedades de los Procesos estocásticos, pero al igual que las variables aleatorias, existe un resultado muy similar a la convergencia conocido como ergocidad.</p>
+<p>Primero se abordarán los procesos con parámetro de tiempo discreto y posteriormente con tiempo continuo.</p>
+<h3 id="procesos-ergodicos-discretos">Procesos ergódicos discretos<a class="headerlink" href="#procesos-ergodicos-discretos" title="Permanent link">&para;</a></h3>
+<p>La idea de ergocidad de procesos estocásticos es muy parecida a las propiedades de convergencia de la media en muestras aleatorias, pero para ello se requiere desarrollar idea de límites de variables aleatorias.</p>
+<p>Debido a la complejidad de las demostraciones de diversos teoremas, estas serán omitida pero pueden encontrarse por ejemplo en (Parzen, 1999).</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso ergódico discreto</p>
+<p>Supóngase que se tiene un proceso estocástico <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> con parámetro de tiempo <span class="arithmatex">\(n\)</span> discreto. Se dice que <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> es ergódico si las medias muestrales <span class="arithmatex">\(M_n = 1/n \sum_{i=1}^{n} X_i\)</span> pueden ser usadas para aproximar la función del valor medio.</p>
+</div>
+<p>Note que <span class="arithmatex">\(M_n\)</span> es un <em>nuevo</em> proceso estocástico con parámetro de tiempo discreto y  <span class="arithmatex">\(\mathbb{E}(M_n) = \mathbb{E}(1/n \sum_{i=1}^{n} X_i) = 1/n \mathbb{E}( \sum_{i=1}^{n} X_i) = 1/n \sum_{i=1}^{n} \mathbb{E} (X_i) = 1/n \sum_{i=1}^{n} m(i)\)</span>. Por ejemplo <span class="arithmatex">\(X_n\)</span> podría ser la temperatura diaria tomada a las 12 del día en cierto lugar y <span class="arithmatex">\(M_n\)</span> el promedio de las temperaturas de esas temperaturas</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso ergódico discreto 2</p>
+<p>El proceso <span class="arithmatex">\(\lbrace X_n: n \in \mathbb{N} \rbrace\)</span> es ergódico si</p>
+<p><span class="arithmatex">\(\lim_{n \to \infty} \mathbb{V}(M_n) = 0\)</span></p>
+</div>
+<p>Obsérvese que el resultado anterior da una idea de convergencia. A continuación se muestra un teorema de gran importancia.</p>
+<div class="admonition note">
+<p class="admonition-title">Teorema de ergodicidad</p>
+<p>Si <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> es ergódico entonces</p>
+<p><span class="arithmatex">\(
+\lim_{n \to \infty} P(|M_n - E(M_n)| &gt; \epsilon) = 0; \epsilon &gt; 0
+\)</span></p>
+</div>
+<p>Este teorema es una convergencia en probabilidad yes más facil de cumplir ya que solo se requiere que exista la media.</p>
+<p>El siguiente teorema nos da una idea de covarianza estacionaria.</p>
+<div class="admonition note">
+<p class="admonition-title">Teorema de ergodicidad</p>
+<p>Sea <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> tal que <span class="arithmatex">\(k(m,n)\)</span> existe y está acotada. El proceso es ergódico si y solo si</p>
+<p><span class="arithmatex">\(
+\lim_{n \to \infty} Cov(X_n,M_n) = 0
+\)</span></p>
+</div>
+<p>Note que</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+Cov(X_n,M_n) &amp;= Cov(X_n,1/n \sum_{i=1}^{n} X_i)\\
+&amp;=1/n Cov(X_n, \sum_{i=1}^{n} X_i) \\
+&amp;= 1/n \sum_{i=1}^{n} Cov(X_n,X_i)\\
+&amp;=1/n \sum_{i=1}^{n} k(n,i)
+\end{align*}
+\)</span></p>
+<p>depende únicamente de las variables en el proceso.</p>
+<p>Finalmente se muestra un resultado muy importante relacionada con la función de covarianza y ergocidad.</p>
+<div class="admonition note">
+<p class="admonition-title">Teorema de ergocidad</p>
+<p>Sea <span class="arithmatex">\(\lbrace X_n:n \in \mathbb{N} \rbrace\)</span> un proceso estocástico. El proceso <span class="arithmatex">\(\lbrace X_n \rbrace\)</span> es un proceso ergódico si <span class="arithmatex">\(k(m,n)&lt;\varepsilon\)</span> para toda <span class="arithmatex">\(m,n \in \mathbb{N}, \varepsilon &gt; 0\)</span>. En otras palabras, el proceso es ergódico si y solo si</p>
+<p><span class="arithmatex">\(\lim_{n \to \infty}Cov(X_n,M_n)=0\)</span></p>
+<p>En otras palabras <span class="arithmatex">\(X_n\)</span> no está correlacionado con <span class="arithmatex">\(M_n\)</span>.</p>
+</div>
+<p>La demostración de los teoremas se puede encontar en (Parzen, 1999).</p>
+<h3 id="procesos-ergodicos-continuos">Procesos ergódicos continuos<a class="headerlink" href="#procesos-ergodicos-continuos" title="Permanent link">&para;</a></h3>
+<p>La idea de ergocidad puede extenderse para procesos estocásticos de tiempo continuo, sin embargo no pueden usarse las fórmulas de procesos estocásticos discretos, por lo que es necesario definir nuevas operaciones las cuales naturalmente generarán nuevos procesos estocásticos.</p>
+<p>En concreto, se debe de definir la integral y la derivada de un proceso estocástico, sin embargo debido a que se está trabajando con variables aleatorias, se usarán ideas similares a las usadas en cálculo.</p>
+<p>Nuevamente debido a la complejidad del tema, se omitirán las pruebas y demostraciones. La demostración de los teoremas se puede encontar en (Parzen, 1999).</p>
+<h4 id="convergencia-de-variables-aleatorias">Convergencia de variables aleatorias<a class="headerlink" href="#convergencia-de-variables-aleatorias" title="Permanent link">&para;</a></h4>
+<h3 id="la-integral-de-un-proceso-con-tiempo-continuo">La integral de un proceso con tiempo continuo<a class="headerlink" href="#la-integral-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h3>
+<p>En esta sección se definirá la integral de un proceso estocástico.</p>
+<div class="admonition note">
+<p class="admonition-title">Definición de integral</p>
+<p>La integral de <span class="arithmatex">\(\lbrace X_t\rbrace\)</span> respecto a <span class="arithmatex">\(t\)</span> en el intervalo <span class="arithmatex">\((a,b)\)</span> se define como:</p>
+<p><span class="arithmatex">\(
+\int_a^b X_t dt = \lim_{\max (t_k-t_{k-1}) \to 0} \sum_{k=1}^n X_{t_k}(t_k-t_{k-1})
+\)</span></p>
+</div>
+<p>En otras palabras, si se consideran subdivisiones del intervalo <span class="arithmatex">\(a=t_0&lt;t_1&lt;\dots&lt;t_n=b\)</span>, entonces la integral se define como el límite de esas subdiviciones cuando la longitud máxima de un subintervalo tiende a cero.</p>
+<div class="admonition note">
+<p class="admonition-title">Existencia de la integral</p>
+<p>Una condición necesaria y suficiente para que <span class="arithmatex">\(\int_a^b X_t dt\)</span> exista es que </p>
+<p><span class="arithmatex">\(
+0 \le \int_a^b \int_a^b |E(X_s X_t)| ds dt &lt; \infty
+\)</span></p>
+<p>donde </p>
+<div class="arithmatex">\[\begin{align}
+E(X_s X_t) &amp; = Cov(X_s X_t) + m(s) m(t)\\
+&amp; = k(s,t) + m(s) m(t)
+\end{align}\]</div>
+</div>
+<details class="example"><summary>Integral de un proceso Weinier</summary><p>Sea <span class="arithmatex">\(\lbrace W_t: t\ge 0 \rbrace\)</span> un proceso de Weinier. Note que:</p>
+<div class="arithmatex">\[\begin{align}
+m_X(t) &amp;= 0\\
+K_X(s,t) &amp;= \sigma^2 min(s,t)
+\end{align}\]</div>
+<p>Por lo que <span class="arithmatex">\(Z_t = \int_{a}^{b} W_t dt\)</span> existe en el intervalo <span class="arithmatex">\((a,b)\)</span>.</p>
+</details>
+<p>En general, <em>no es fácil encontrar la integral de un proceso estocástico</em>, sin embargo es posible conocer su función de valor medio y su función de núcleo de covarianza que nos permita estudiar su comportamiento.</p>
+<div class="admonition note">
+<p class="admonition-title">Propiedades de la integral de un proceso estocástico</p>
+<p>a) <span class="arithmatex">\(\mathbb{E}\left( \int_{a}^{b} X_t dt \right) =\int_{a}^{b} \mathbb{E}(X_t) dt = \int_{a}^{b} m_X(t) dt\)</span></p>
+<p>b) <span class="arithmatex">\(\mathbb{E}\left( \left[ \int_{a}^{b} X_t dt \right]^2\right) = \mathbb{E}\left( \int_{a}^{b} X_s ds \int_{a}^{b} X_t dt \right) = \mathbb{E}\left( \int_{a}^{b} \int_{a}^{b} X_s X_t ds dt \right) = \int_{a}^{b} \mathbb{E}(X_s X_t) ds dt\)</span></p>
+<p>c) <span class="arithmatex">\(Cov \left(\int_{a}^{b} X_t dt,\int_{c}^{d} X_s ds\right)=\int_{a}^{b}\int_{c}^{d} K_X(s,t) ds dt\)</span></p>
+<p>d) <span class="arithmatex">\(Var \left(\int_{a}^{b} X_t dt\right)=\mathbb{E}\left(\left(\int_{a}^{b} X_t dt \right)^2\right)-\left(\mathbb{E}\left(\int_{a}^{b} X_t dt\right)\right)^2=\int_{a}^{b}\int_{a}^{b}k(s,t)ds dt=2\int_{a}^{b}\int_{a}^{t} K_X(s,t) ds dt\)</span></p>
+</div>
+<h3 id="la-derivada-de-un-proceso-con-tiempo-continuo">La derivada de un proceso con tiempo continuo<a class="headerlink" href="#la-derivada-de-un-proceso-con-tiempo-continuo" title="Permanent link">&para;</a></h3>
+<p>En esta sección se define la derivada de un proceso continuo.</p>
+<div class="admonition note">
+<p class="admonition-title">Definición</p>
+<p>Se define la derivada de <span class="arithmatex">\(X_t\)</span> respecto a <span class="arithmatex">\(t\)</span> como</p>
+<p><span class="arithmatex">\(
+{X´}_t = \lim_{h \to 0} \frac{X_{t+h}-X_t}{h}
+\)</span></p>
+<p>Siempre y cuando el límite es tomado en ECM, es decir, <span class="arithmatex">\(\lim_{h \to 0} \left( \frac{X_{t+h}-X_t}{h} - {X´}_t\right)^2 = 0\)</span></p>
+</div>
+<p>El siguiente teorema nos indica las condiciones cuando existe la derivada de un proceso.</p>
+<div class="admonition note">
+<p class="admonition-title">Teorema</p>
+<p>El proceso <span class="arithmatex">\(\lbrace X_t: t \ge 0 \rbrace\)</span> es diferenciable si y solo si</p>
+<p>a) La función del valor medio <span class="arithmatex">\(m_X(t)\)</span> es diferenciable.</p>
+<p>b) La función del kernel de covarianza <span class="arithmatex">\(K_X(s,t)\)</span> tiene segundas derivadas mixtas continuas.</p>
+</div>
+<p>Del teorema anterior, se puede deducir que <span class="arithmatex">\(\mathbb{E}({X´}_t)={m´}_X(t)\)</span> y <span class="arithmatex">\(Cov({X´}_s,{X´}_t)=\frac{\partial^2}{\partial s \partial t}K_X(s,t)\)</span>.</p>
+<h2 id="procesos-normales">Procesos normales<a class="headerlink" href="#procesos-normales" title="Permanent link">&para;</a></h2>
+<h2 id="procesos-contadores">Procesos contadores<a class="headerlink" href="#procesos-contadores" title="Permanent link">&para;</a></h2>
+<p>Los procesos contadores, denotados como <span class="arithmatex">\(\lbrace N(t):t \ge 0 \rbrace\)</span> o <span class="arithmatex">\(\lbrace N_t:t \ge 0 \rbrace\)</span>, son un tipo de procesos estocásticos que toman valores enteros y modelan el número de eventos que ocurren en un intervalo de tiempo. Las variables aleatorias del proceso son discretas pero <span class="arithmatex">\(t\)</span> sigue siendo continuo.</p>
+<p>De acuerdo con Ross (1996), un proceso contador tiene las siguientes propiedades.</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso contador</p>
+<p>Un <strong>proceso contador</strong> debe satisfacer las siguientes condiciones:</p>
+<p>i) <span class="arithmatex">\(N(t) \ge 0\)</span>.</p>
+<p>ii) <span class="arithmatex">\(N(t)\)</span> toma valores enteros.</p>
+<p>iii) Si <span class="arithmatex">\(s&lt;t\)</span> entonces <span class="arithmatex">\(N(s) \le N(t)\)</span>.</p>
+<p>iv) <span class="arithmatex">\(N(t) - N(s)\)</span> representa el número de eventos que han ocurrido en el intervalo <span class="arithmatex">\((s,t]\)</span>, donde <span class="arithmatex">\(s &lt; t\)</span>.</p>
+</div>
+<p>Aunque puede haber muchos tipos de procesos contadores, se estudiará uno de los más utilizado en diversas aplicaciones.</p>
+<h3 id="proceso-poisson">Proceso Poisson<a class="headerlink" href="#proceso-poisson" title="Permanent link">&para;</a></h3>
+<p>En la <a href="./#definiciones">intoducción</a> ya se había mencionado el proceso poisson, sin embargo ahora se estudiarán más sus propiedades.</p>
+<div class="admonition note">
+<p class="admonition-title">Proceso Poisson</p>
+<p>Se dice que el proceso contador <span class="arithmatex">\(\lbrace N(t):t \ge 0 \rbrace\)</span> es un <em>Proceso de Poisson</em> si satisface las siguientes condiciones:</p>
+<p>a)    <span class="arithmatex">\(N(0) = 0\)</span>.</p>
+<p>b)    <span class="arithmatex">\(N(t)\)</span> Tiene incrementos independientes.</p>
+<p>c)    Para <span class="arithmatex">\(t&gt;0\)</span>, <span class="arithmatex">\(0&lt;P(N(t) &gt; 0)&lt;1\)</span>.
+d)    Para <span class="arithmatex">\(t\ge 0\)</span></p>
+<p><span class="arithmatex">\(
+\lim_{h \to 0} \frac{P(N(t+h)-N(t) \ge 2)}{P(N(t+h)-N(t)=1)}=0
+\)</span></p>
+<p>e)    El proceso <span class="arithmatex">\(N(t)\)</span> tiene incrementos estacionarios.</p>
+</div>
+<p>El proceso Poisson se llama así debido a que el número de eventos que ocurren en un intervalo de tiempo de longitud <span class="arithmatex">\(t\)</span>, tiene distribución Poisson con parámetro <span class="arithmatex">\(\lambda t\)</span>. La constante <span class="arithmatex">\(\lambda\)</span> se conoce como <em>la intensidad de paso</em> o <em>tasa media de ocurrencias</em> y puede ser interpretada como el número de eventos que ocurren por unidad de tiempo. Vea Parzen (1999) o Ross(1996) para la demostración.</p>
+<p>La propiedad c) implica que para cualquier intervalo, hay una probabilidad de que un evento ocurrirá, aunque no hay certeza de que el evento ocurra.</p>
+<p>La propiedad d) se refiere a que en <em>intervalos muy pequeños</em> a lo más un evento puede ocurrir, por lo que no puede ocurrir más de un evento simultaneamente, es decir <span class="arithmatex">\(P(N(h)=1)=\lambda h +0(h)\)</span> y <span class="arithmatex">\(P(N(h)\ge 2)=0(h)\)</span> para <span class="arithmatex">\(h&gt;0\)</span>.</p>
+<p>Finalmente la propiedad e) indica que para <span class="arithmatex">\(0&lt;s&lt;t\)</span> y <span class="arithmatex">\(h&gt;0\)</span>, las variables aleatorias <span class="arithmatex">\(N(t)-N(s)\)</span> y <span class="arithmatex">\(N(t+h)-N(s+h)\)</span> son identicamente distribuidas <span class="arithmatex">\(Poi(\lambda (t-s))\)</span>.</p>
+<details class="example"><summary>Proceso Poisson</summary><p>Supóngase que el número promedio de llamadas recibidas por minuto en una empresa es de 0.5; se desea conocer la probabilidad de que ninguna llamada entre en 5 minutos.</p>
+<p><img alt="Ilustración de los eventos en el intervalo de 0 a \(t_1\)" src="../img/ocurrencias.jpg" /></p>
+<p>Note que en este caso la tasa media de ocurrencia <span class="arithmatex">\(\lambda\)</span> es de 0.5 llamadas por minuto y la longitud del intervalo es de 5 minutos, por lo que el número de llamadas esperadas durante en ese intervalo de tiempo <span class="arithmatex">\(\lambda t\)</span> es de 2.5 llamadas. Por lo que la probabilidad de que no se tengan llamadas en ese periodo es de </p>
+<p><span class="arithmatex">\(
+P(N(5)=0) = \frac{e^{-2.5}(2.5)^0}{0!} = e^{-2.5} = 0.082085
+\)</span></p>
+</details>
+<h2 id="cadenas-de-markov">Cadenas de Markov<a class="headerlink" href="#cadenas-de-markov" title="Permanent link">&para;</a></h2>
+<p>A continuación se estudiará otro tipo de procesos estocásticos, los cuales se caracterizan porque el proceso pasa de un estado a otro con cierta probabilidad.</p>
+<p>El parámetro de tiempo <span class="arithmatex">\(t\)</span> puede ser discreto o continuo, pero primero se estudiará el caso con parámetro de tiempo discreto.</p>
+<h3 id="cadenas-de-markov-con-parametro-de-tiempo-discreto">Cadenas de Markov con parámetro de tiempo discreto<a class="headerlink" href="#cadenas-de-markov-con-parametro-de-tiempo-discreto" title="Permanent link">&para;</a></h3>
+<p>Supóngase que un proceso estocástico <span class="arithmatex">\(\lbrace X_n: n = 0,1,2, \dots \rbrace\)</span> toma valores enteros llamados <em>estados</em>. Se dice que el proceso se encuentra en el estado <span class="arithmatex">\(i\)</span> en el tiempo <span class="arithmatex">\(n\)</span> y se denota como <span class="arithmatex">\(X_n = i\)</span>.</p>
+<p>A continuación se establecen unas definiciones que caracterizan a las cadenas de Markov.</p>
+<div class="admonition note">
+<p class="admonition-title">Propiedad de Markov</p>
+<p>Sea <span class="arithmatex">\(\lbrace X_n  \rbrace\)</span> una sucesión de variables aleatorias. Se dice que la distribución condicional de <span class="arithmatex">\(X_n\)</span> dado los valores pasados, <em>sólo depende del valor más reciente</em>, es decir,</p>
+<p><span class="arithmatex">\(P(X_n = x_n|X_{n-1}=x_{n-1},\dots,X_1=x_1 )=P(X_n = x_n|X_{n-1}=x_{n-1})\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Cadena de Markov</p>
+<p>Sea <span class="arithmatex">\(\lbrace X_n: n = 0,1,2, \dots \rbrace\)</span> un proceso estocástico que se encuentra en el estado <span class="arithmatex">\(i\)</span> en el tiempo <span class="arithmatex">\(n\)</span>. Entonces la probabilidad de que se encuentra en el estado <span class="arithmatex">\(j\)</span> en el tiempo <span class="arithmatex">\(n+1\)</span>, conocida como <strong>probabilidad de transición</strong> del estado <span class="arithmatex">\(i\)</span> al estado <span class="arithmatex">\(j\)</span>, es <span class="arithmatex">\(p^{n,n+1}_{ij}\)</span>.</p>
+<p><span class="arithmatex">\(P(X_{n+1}=j|X_{n}=i,X_{n-1}=i_{n-1},\dots,X_1=i_1,X_0=i_0)=p^{n,n+1}_{ij}\)</span></p>
+</div>
+<p>Note que <em>necesariamente</em> las probabilidades de transición <span class="arithmatex">\(p_{i,j} \ge 0, i,j \ge 0\)</span> y <span class="arithmatex">\(\sum_{j=0}^\infty p_{i,j}\)</span> para <span class="arithmatex">\(i=0,1,\dots\)</span>. Estas probabilidades pueden representarse en una matriz <span class="arithmatex">\(P\)</span> conocida como <em>matriz de transición</em>.</p>
+<p><span class="arithmatex">\(
+P=\left(\begin{matrix}
+p_{0,0} &amp; p_{0,1} &amp; \dots \\
+p_{1,0} &amp; p_{1,1} &amp; \dots \\
+\vdots &amp; \vdots &amp; \ddots
+\end{matrix}
+\right)
+\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Cadena de Markov homogénea</p>
+<p>Se dice que una cadena de Markov es <em>homogénea</em> o que tiene <em>probabilidades de transición estacionarias</em> si las probabilidades de transición <em>no dependen</em> de <span class="arithmatex">\(n\)</span> y se denotan como <span class="arithmatex">\(p_{i,j}\)</span>.</p>
+</div>
+<p>A continuación se ilustra con un ejemplo una cadena de Markov.</p>
+<details class="example"><summary>Una cadena de Markov finita</summary><p>Supóngase que una cadena de Markov tiene únicamente 3 estados <span class="arithmatex">\(S=\lbrace 1,2,3 \rbrace\)</span> que denotan el estado de salud de una persona (1 = enfermo, 2 = recuperación, 3 sano).</p>
+</details>
+<h2 id="procesos-de-nacimiento-y-muerte">Procesos de nacimiento y muerte<a class="headerlink" href="#procesos-de-nacimiento-y-muerte" title="Permanent link">&para;</a></h2>
+<h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
+<p>Parzen, E. (1999). <em>Stochastic processes</em>. SIAM.</p>
+<p>Ross, S. M. (1996). <em>Stochastic Processes</em> (Second Edition). John Wiley &amp; Sons.</p>
+<p>Karlin, S., &amp; Taylor, H. (1975). <em>A first course in stochastic processes</em> (Second Edition). Academic Press.</p>
+<blockquote>
+<p>Muchas de las ideas fueron tomadas del curso <em>Procesos estocásticos</em> impartido por el Dr. José Villaseñor en Primavera del 2022 en el Colegio de Postgraduados, Campus Montecillo.</p>
+</blockquote>
+   
+       <!-- Last update of source file -->
+       
+           
+       
+   
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../inferencia/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Inferencia estadística" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Inferencia estadística
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../series_tiempo/" class="md-footer__link md-footer__link--next" aria-label="Next: Series de tiempo" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Series de tiempo
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023. Creado por Francisco Vázquez.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/FranciscoAriel" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/yoo236254676" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://t.me/estad_camp_0" target="_blank" rel="noopener" title="t.me" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M248 8C111.033 8 0 119.033 0 256s111.033 248 248 248 248-111.033 248-248S384.967 8 248 8Zm114.952 168.66c-3.732 39.215-19.881 134.378-28.1 178.3-3.476 18.584-10.322 24.816-16.948 25.425-14.4 1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25 5.342-39.5 3.652-3.793 67.107-61.51 68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608 69.142-14.845 10.194-26.894 9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7 18.45-13.7 108.446-47.248 144.628-62.3c68.872-28.647 83.183-33.623 92.511-33.789 2.052-.034 6.639.474 9.61 2.885a10.452 10.452 0 0 1 3.53 6.716 43.765 43.765 0 0 1 .417 9.769Z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/fcoavc/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": 1.0}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    
+  </body>
+</html>
