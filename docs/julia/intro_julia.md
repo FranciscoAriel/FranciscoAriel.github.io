@@ -30,7 +30,7 @@ pwd()
 ````
 
 !!! tip "Función similar"
-    También es posible conocer el actual directorio con la fonción `homedir()`.
+    También es posible conocer el actual directorio con la función `homedir()`.
 
 El resultado será desplegado en pantalla con el directorio en donde se encuentra actualmente el directorio de trabajo.
 
