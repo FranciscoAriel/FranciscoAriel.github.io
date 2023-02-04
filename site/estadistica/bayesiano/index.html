@@ -724,9 +724,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#modelo-normal-normal" class="md-nav__link">
-    Modelo Normal - Normal
+  <a href="#modelo-normal" class="md-nav__link">
+    Modelo Normal
   </a>
+  
+    <nav class="md-nav" aria-label="Modelo Normal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inferencia-sobre-la-media-modelo-normal-normal" class="md-nav__link">
+    Inferencia sobre la media (Modelo Normal - Normal)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inferencia-sobre-la-media-y-varianza-modelo-normal-gamma" class="md-nav__link">
+    Inferencia sobre la media y varianza (Modelo Normal - Gamma)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -781,6 +801,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
   
 </li>
       
@@ -900,9 +927,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#modelo-normal-normal" class="md-nav__link">
-    Modelo Normal - Normal
+  <a href="#modelo-normal" class="md-nav__link">
+    Modelo Normal
   </a>
+  
+    <nav class="md-nav" aria-label="Modelo Normal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inferencia-sobre-la-media-modelo-normal-normal" class="md-nav__link">
+    Inferencia sobre la media (Modelo Normal - Normal)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inferencia-sobre-la-media-y-varianza-modelo-normal-gamma" class="md-nav__link">
+    Inferencia sobre la media y varianza (Modelo Normal - Gamma)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -960,6 +1007,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#referencias" class="md-nav__link">
+    Referencias
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1012,7 +1066,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                 <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-            </svg> lectura: 15 minutos
+            </svg> lectura: 25 minutos
         </span>
         </p>
     </aside>
@@ -1023,14 +1077,23 @@
 <p>La estadística bayesiana es un paradigma completo de inferencia basado en la <em>teoría de la decisión</em> y por lo tanto se basa en los conceptos de probabilidad.</p>
 <p>A diferencia del enfoque frecuentista, la estadística bayesiana se basa en el enfoque de <em>probabilidad subjetiva</em>. Dicha probabilidad subjetiva es una medida o grado de creencia de qué tan verosímil sea un evento.</p>
 <p>Por ejemplo, si le preguntáramos a cada persona sobre la probabilidad de que llueva <span class="arithmatex">\(\theta\)</span>, cada una nos responderá según su creencia o nivel de conocimiento sobre <span class="arithmatex">\(\theta\)</span>. Todo ese conocimiento podría resumirse en una función de distribución que llamaremos <em>distribución a priori</em>, denotada <span class="arithmatex">\(f_\Theta(\theta)\)</span> o <span class="arithmatex">\(p(\theta)\)</span>.</p>
-<p>Esta información <em>a priori</em> se combina con la <em>información de los datos</em>, denotada como <span class="arithmatex">\(f_{X| \Theta}(x|\theta)\)</span> o <span class="arithmatex">\(L(\theta|x)\)</span> con el fin de obtener la <em>distribución a posteriori</em>, denotada como <span class="arithmatex">\(f_{\Theta|X}(\theta|x)\)</span> o <span class="arithmatex">\(p(\theta|x)\)</span> usando la regla de Bayes.</p>
+<p>Esta información <em>a priori</em> se combina con la <em>información de los datos</em> o <em>verosimilitud</em>, denotada como <span class="arithmatex">\(f_{X| \Theta}(x|\theta)\)</span> o <span class="arithmatex">\(L(\theta|x)\)</span> con el fin de obtener la <em>distribución a posteriori</em>, denotada como <span class="arithmatex">\(f_{\Theta|X}(\theta|x)\)</span> o <span class="arithmatex">\(p(\theta|x)\)</span> usando la regla de Bayes.</p>
 <p><span class="arithmatex">\(
     p(\theta|x)=\frac{p(\theta,x)}{p(x)}=\frac{L(\theta|x)p(\theta)}{p(x)}
 \)</span></p>
-<p>Note que <span class="arithmatex">\(p(x)\)</span> es una densidad que no depende de <span class="arithmatex">\(\theta\)</span>, por lo que la distribución a posteriori pude escribirse como:</p>
-<p><span class="arithmatex">\(
-    p(\theta|x)\propto p(x|\theta)p(\theta)
-\)</span></p>
+<div class="admonition abstract">
+<p class="admonition-title">Verosimilitud bajo muestreo aleatorio</p>
+<p>Sea <span class="arithmatex">\(X_1,X_2,\dots, X_n \sim f(X_i|\theta)\)</span> una muestra aleatoria.</p>
+<p>Entonces la función de verosimilitud <span class="arithmatex">\(L(\theta|\mathbf{x})\)</span> se puede representar como:</p>
+<div class="arithmatex">\[L(\theta|\mathbf{x}) = \prod_{i=1}^{n}f(X_i|\theta)\]</div>
+<p>Note que en este caso, <strong>es una función que depende del parámetro</strong> ya que los datos ya fueron <em>observados</em>.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Distribución a posteriori</p>
+<p>La distribución a posteriori puede escribirse como:</p>
+<div class="arithmatex">\[p(\theta|\mathbf{x})\propto L(\theta|\mathbf{x})p(\theta) = p(\theta|\mathbf{x})p(\theta)\]</div>
+<p>Note que <span class="arithmatex">\(p(x)\)</span> es una densidad que <em>no depende</em> de <span class="arithmatex">\(\theta\)</span> (es considerada una &ldquo;constante&rdquo;), por lo cual en estadística bayesiana se utiliza el símbolo <span class="arithmatex">\(\propto\)</span> para denotar que la distribución <em>a posteriori</em> es <em>proporcional</em> a <span class="arithmatex">\(L(\theta|\mathbf{x})p(\theta)\)</span>.</p>
+</div>
 <p>El siguiente ejemplo ilustra una forma de obtener la distribución a posteriori.</p>
 <details class="example"><summary>Lanzamiento de una moneda 1</summary><p>Suponga que se tiene una moneda y se realizan 10 lanzamientos. Sea <span class="arithmatex">\(\theta\)</span> la probabilidad de que caiga águila, mientras que <span class="arithmatex">\(1-\theta\)</span> es la probabilidad de que caiga sol. No se tiene información acerca del comportamiento de la moneda, pero se sospecha es una moneda honesta. Supóngase que se han observado 7 águilas.</p>
 <p>Debido a que no se tiene información sobre <span class="arithmatex">\(\theta\)</span>, se pude asumir una función de distribución uniforme en el intervalo [0,1], esto es: <span class="arithmatex">\(p(\theta)=I_{(0,1)}(\theta)\)</span>.</p>
@@ -1048,13 +1111,124 @@
 <h2 id="teoria-bayesiana">Teoría Bayesiana<a class="headerlink" href="#teoria-bayesiana" title="Permanent link">&para;</a></h2>
 <h3 id="intervalos">Intervalos<a class="headerlink" href="#intervalos" title="Permanent link">&para;</a></h3>
 <h3 id="factor-de-bayes">Factor de Bayes<a class="headerlink" href="#factor-de-bayes" title="Permanent link">&para;</a></h3>
-<h2 id="modelo-normal-normal">Modelo Normal - Normal<a class="headerlink" href="#modelo-normal-normal" title="Permanent link">&para;</a></h2>
+<h2 id="modelo-normal">Modelo Normal<a class="headerlink" href="#modelo-normal" title="Permanent link">&para;</a></h2>
+<p>Una de las distribuciones más utilizadas en estadística es la normal, debido a que no solo muchos fenómenos tiene un comportamiento similar, sino por que los promedios tienden a una distribución normal.</p>
+<p>En esta sección se usará esta distribución para hacer inferencia sobre los parámetros de interés usando estadística Bayesiana.</p>
+<h3 id="inferencia-sobre-la-media-modelo-normal-normal">Inferencia sobre la media (Modelo Normal - Normal)<a class="headerlink" href="#inferencia-sobre-la-media-modelo-normal-normal" title="Permanent link">&para;</a></h3>
+<p>Debido a que la distribución Normal es ampliamente utilizada en estadística, se ilustrarán algunas de propiedades de la distribución <em>a posteriori</em> de la media <span class="arithmatex">\(\mu\)</span>.</p>
+<p>El siguiente ejemplo ilustra cómo obtener la distribución posterior de la media <span class="arithmatex">\(\mu\)</span> asumiendo varianza conocida y distribución <em>a priori</em> para la media una distribución normal.</p>
+<details class="example"><summary>Derivación de la distribución posterior para la media</summary><p>Suponga que se tiene una muestra aleatoria <span class="arithmatex">\(X_1,X_2,\dots, X_n \sim N(\mu,\sigma^2)\)</span> con <span class="arithmatex">\(\sigma^2\)</span> conocida. Se propone utilizar una distribución <em>a priori</em> normal para <span class="arithmatex">\(\mu\)</span>, es decir <span class="arithmatex">\(\mu \sim N(\mu_0,\sigma_0^2)\)</span>, donde <span class="arithmatex">\(\mu_0\)</span> y <span class="arithmatex">\(\sigma_0^2\)</span> son conocidos.</p>
+<p>La distribución a posteriori puede encontrarse de la siguiente manera:</p>
+<div class="arithmatex">\[p(\mu|\mathbf{x}) \propto L(\mu|\mathbf{x})p(\mu)\]</div>
+<p>Note que la verosimilitud puede expresarse como: </p>
+<div class="arithmatex">\[
+\begin{align*}
+L(\mu|\mathbf{x}) &amp;= \prod_{i=1}^{n}\left(\frac{1}{2 \pi \sigma^2}\right)^{\frac{1}{2}}e^{\frac{1}{2\sigma^2}(x_i-\mu)^2}\\
+&amp;=\left(\frac{1}{2 \pi \sigma^2}\right)^{\frac{n}{2}}e^{\frac{1}{2\sigma^2}\sum_{i=1}^{n}(x_i-\mu)^2}\\
+&amp;\propto e^{\frac{1}{2\sigma^2}\sum_{i=1}^{n}(x_i-\mu)^2}
+\end{align*}
+\]</div>
+<p>Usando la suma de cuadrados <span class="arithmatex">\(\sum_{i=1}^{n}(X_i-\mu)^2 =n(\bar{X}-\mu)^2 + \sum_{i=1}^{n}(X_i-\bar{X})^2\)</span>, se propone usar <span class="arithmatex">\(L(\mu|\mathbf{x}) \propto e^{-\frac{n}{2\sigma^2}(\mu-\bar{x})^2}\)</span> ya que la exponencial es una función <em>simétrica</em>.</p>
+<p>Al usar <span class="arithmatex">\(p(\mu) \propto e^{-\frac{1}{2\sigma_0^2}(\mu-\mu_0)^2}\)</span>, por lo tanto la distribución <em>a posteriori</em> es:</p>
+<div class="arithmatex">\[
+\begin{align*}
+p(\mu|\mathbf{x}) &amp;\propto e^{-\frac{n}{2 \sigma^2}(\mu-\bar{x})^2} e^{-\frac{1}{2 \sigma_0^2}(\mu-\mu_0)^2}\\
+&amp;\propto e^{-\frac{1}{2}\left(\frac{n}{\sigma^2}\left(\mu^2-2\mu \bar{x}+\bar{x}^2\right)+\frac{1}{ \sigma_0^2}\left(\mu^2-2\mu \mu_0 +\mu_0^2\right)\right)}\\
+&amp;\propto e^{-\frac{1}{2}\left(\frac{n}{\sigma^2}\left(\mu^2-2\mu \bar{x}\right)+\frac{1}{ \sigma_0^2}\left(\mu^2-2\mu \mu_0\right)\right)}\\
+&amp;\propto e^{-\frac{1}{2}\left(\mu^2\left(\frac{n}{\sigma^2}+\frac{1}{\sigma_0^2}\right)-2\mu \left(\frac{n \bar{x}}{\sigma^2} + \frac{\mu_0}{\sigma_0^2} \right)\right)}\\
+&amp;\propto e^{-\frac{1}{2 V}(\mu-M)^2}
+\end{align*}
+\]</div>
+<p>Por lo que se concluye que <span class="arithmatex">\(\mu|\mathbf{x} \sim N \left(M,V \right)\)</span>, donde <span class="arithmatex">\(V = \frac{n}{\sigma^2}+\frac{1}{\sigma_0^2}\)</span> y <span class="arithmatex">\(M = \frac{\frac{n }{\sigma^2}\bar{x}+\frac{1}{\sigma_0^2}\mu_0}{V}\)</span></p>
+</details>
+<p>Del ejemplo anterior, se puede deducir el siguiente teorema:</p>
+<div class="admonition note">
+<p class="admonition-title">Distribución normal posterior</p>
+<p>Sea <span class="arithmatex">\(X_1,X_2,\dots, X_n \sim N(\mu,\sigma^2)\)</span> una muestra aleatoria con <span class="arithmatex">\(\sigma^2\)</span> conocida y <span class="arithmatex">\(\mu \sim N(\mu_0,\sigma_0^2)\)</span>. Entonces se cumplen las siguientes propiedades.</p>
+<ul>
+<li>La distribución <em>a posteriori</em> es conjugada.</li>
+<li><span class="arithmatex">\(E(\mu|\mathbf{x}) = p_1\bar{x} + p_2\mu_0\)</span> es un promedio ponderado de la media <em>a priori</em> y el <em>estimador de máxima verosimilitud</em>, cuyos pesos son proporcionales a la suma del inverso de las varianzas.</li>
+<li>Cuando <span class="arithmatex">\(n \to \infty\)</span> la media <em>a posteriori</em> coincide con el estimador de máxima verosimilitud.</li>
+<li>Si <span class="arithmatex">\(p(\mu) \propto 1\)</span>, entonces <span class="arithmatex">\(p(\mu|\mathbf{x}) = N\left(\bar{x},\frac{\sigma^2}{n}\right)\)</span> coincide con el resultado frecuentista que asume varianza conocida.</li>
+</ul>
+</div>
+<p>Esta propiedad será usada posteriormente para obtener de manera fácil distibuciones posteriores, por ejemplo en un modelo lineal.</p>
+<p>Finalmente es de interés encontrar la distribución <em>predictiva a posteriori</em> para este modelo.</p>
+<div class="arithmatex">\[p(X_{n+1}|x_1,\dots,x_n) = N\left(\bar{x},\left(1+\frac{1}{n}\right)\sigma^2\right)\]</div>
+<p>El siguiente ejemplo muestra detalles para hallar dicha distribución.</p>
+<details class="example"><summary>Derivación de la distribución predictiva</summary><p>Asumiendo que <span class="arithmatex">\(X_{n+1}\)</span> tambien proviene de la misma población, se tiene que</p>
+<div class="arithmatex">\[
+\begin{align*}
+p(X_{n+1} |\mathbf{x}) &amp;\propto \int_{-\infty}^{\infty} p(x_{n+1}|\mu) p(\mu|\mathbf{x}) d \mu\\
+&amp;\propto \int_{-\infty}^{\infty} e^{\frac{-1}{2\sigma^2}\left(n(\mu-\bar{x})^2+(x_{n+1}-\mu)^2\right)}d\mu
+\end{align*}
+\]</div>
+<p>Note que <span class="arithmatex">\(Q(\mu)=n(\mu-\bar{x})^2+(x_{n+1}-\mu)=(n+1)(\mu-\bar{x}_{n+1})^2+\frac{n}{n+1}(x_{n+1}-\bar{x})^2\)</span>, donde <span class="arithmatex">\(\bar{x}_{n+1}=\frac{n\bar{x}+x_{n+1}}{n+1}\)</span>, por lo que:</p>
+<div class="arithmatex">\[
+\begin{align*}
+p(x_{n+1} |\mathbf{x}) &amp; \propto e^{\frac{-1}{2\sigma^2}\left(\frac{n}{n+1}(x_{n+1}-\bar{x})^2\right)} \int_{-\infty}^{\infty} e^{\frac{-1}{2\sigma^2}\left((n+1)(\mu-\bar{x}_{n+1})^2\right)}d\mu\\
+&amp;\propto e^{\frac{-n}{2(n+1)\sigma^2}\left(x_{n+1}-\bar{x}\right)^2}
+\end{align*}
+\]</div>
+<p>Por lo tanto <span class="arithmatex">\(X_{n+1}|\mathbf{x} \sim N\left(\bar{x},(1+\frac{1}{n})\sigma^{2}\right)\)</span>.</p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Reparametrización de la varianza</p>
+<p>Algunos autores, por ejemplo Hoff (2009), recomiendan reparametrizar la distribución normal usando la precisión que es la inversa de la varianza.</p>
+<p>La ventaja de esta reparametrización es que es más fácil hacer cálculos con la precisión que con la varianza, ya que se evitan hacer suma de fracciones. Sin embargo las conclusiones son las mismas.</p>
+<p>En la siguiente sección se hará uso de la precisión para facilitar los cálculos.</p>
+</div>
+<h3 id="inferencia-sobre-la-media-y-varianza-modelo-normal-gamma">Inferencia sobre la media y varianza (Modelo Normal - Gamma)<a class="headerlink" href="#inferencia-sobre-la-media-y-varianza-modelo-normal-gamma" title="Permanent link">&para;</a></h3>
+<p>En la sección anterior se hizo inferencia únicamente sobre la media <span class="arithmatex">\(\mu\)</span>, asumiendo la varianza <span class="arithmatex">\(\sigma^2\)</span> conocida. Ahora se considerará inferencia sobre ambos parámetros, es decir <span class="arithmatex">\(\theta = (\mu, \sigma^2)´\)</span>.</p>
+<p>El objetivo será encontrar la distribución <em>a posteriori</em> de <span class="arithmatex">\(\theta\)</span> dados los datos <span class="arithmatex">\(\mathbf{x}\)</span>, es decir:</p>
+<div class="arithmatex">\[p(\theta|\mathbf{x}) \propto L(\theta|\mathbf{x})p(\theta)\]</div>
+<p>Se puede proponer una densidad <em>a priori conjunta</em>, la cual sea producto de una <em>condicional</em> y una marginal.</p>
+<div class="arithmatex">\[p(\mu,\sigma^2) = p(\mu|\sigma^2)p(\sigma^2)\]</div>
+<p>o en términos de precisión <span class="arithmatex">\(\tau=\frac{1}{\sigma^2}\)</span>:</p>
+<div class="arithmatex">\[p(\mu,\tau) = p(\mu|\tau)p(\tau)\]</div>
+<p>La distribución a priori propuesta es la siguiente:</p>
+<div class="admonition abstract">
+<p class="admonition-title">Distribución Normal-Gama</p>
+<p>Se dice que la densidad conjunta <span class="arithmatex">\(p(\mu,\tau)\)</span> es Normal-Gama(m,c,a,b) si:</p>
+<ul>
+<li><span class="arithmatex">\(p(\tau) = Ga(a,b)\)</span>, donde <span class="arithmatex">\(a\)</span> es el parámetro de forma y <span class="arithmatex">\(b\)</span> es parámetro de tasa (inverso de la escala).</li>
+<li><span class="arithmatex">\(p(\mu|\tau) = N\left(m,\frac{1}{c\tau}\right)\)</span> donde <span class="arithmatex">\(m\)</span> es la media a priori y la varianza es <span class="arithmatex">\(\sigma^2=\frac{1}{c\tau}\)</span>.</li>
+<li><span class="arithmatex">\(p(\mu,\tau) \propto \tau ^{a-\frac{1}{2}-1}e^{-\frac{\tau}{2}(c(\mu-m)^2+2b)}\)</span></li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Usando la varianza</p>
+<p>Se puede usar la varianza, sin embargo la distribución <em>a priori</em> sería la Normal-Inversa Gama y los resultados serían similares a los anteriores.</p>
+<p>Si <span class="arithmatex">\(\tau = \frac{1}{\sigma^2} \sim Ga(a,b)\)</span>, entonces <span class="arithmatex">\(p(\sigma^2) \sim IGa(a,b)\)</span>, es decir Inversa-Gama. Se puede encontrar más información de esta densidad en este <a href="https://en.wikipedia.org/wiki/Inverse-gamma_distribution">link</a>.</p>
+</div>
+<p>Se puede mostrar que la distribución <em>a posteriori</em> tiene la siguiente forma:</p>
+<div class="arithmatex">\[p(\mu,\tau|\mathbf{x}) \propto \tau ^ {\frac{n}{2}+a+\frac{1}{2}-1}e^{-\frac{\tau}{2}((n-1)S^2 + 2b + (n+c)(\mu-m_n)^2+\frac{nc}{n+c}(\bar{X}-m)^2)}\]</div>
+<p>donde <span class="arithmatex">\(m_n = \frac{n\bar{x}+cm}{n+c}\)</span>. Esta densidad no tiene forma conocida. Sin embargo comunmente es de interés conocer la distibución <em>condicional posterior</em> de <span class="arithmatex">\(\mu\)</span> dada la precisión <span class="arithmatex">\(\tau\)</span> y los datos. </p>
+<div class="admonition note">
+<p class="admonition-title">Inferencia en el modelo Normal-Gama</p>
+<p>Sea <span class="arithmatex">\(X_1,X_2,\dots, X_n \sim N(\mu,\sigma^2)\)</span> una muestra aleatoria con <span class="arithmatex">\(\tau = \frac{1}{\sigma^2}\)</span> y <span class="arithmatex">\(p(\mu,\tau) = NG(m,c,a,b)\)</span>. Entonces se cumplen las siguientes propiedades.</p>
+<ul>
+<li><span class="arithmatex">\(\mu|\tau,\mathbf{x} \sim N\left(m_n,\frac{1}{\tau (n+c)}\right)\)</span> con <span class="arithmatex">\(m_n = \frac{n\bar{x}+cm}{n+c}\)</span>.</li>
+<li><span class="arithmatex">\(\tau|\mathbf{x} \sim Ga\left(\frac{n-1}{2},\frac{n-1}{2}S^2\right)\)</span> o equivalentemente <span class="arithmatex">\(\sigma^2|\mathbf{x} \sim iGa\left(\frac{n-1}{2},\frac{n-1}{2}S^2\right)\)</span> con <span class="arithmatex">\(S^2 = \frac{1}{n-1}\sum_{i=1}^{n}(X_i-\bar{X})^2\)</span>.</li>
+<li><span class="arithmatex">\(\mu|\mathbf{x} \sim t_{n-1}\left(\bar{x},\frac{S^2}{n}\right)\)</span> o equivalentemente <span class="arithmatex">\(\frac{\sqrt{n}(\mu-\bar{x})}{S}|\mathbf{x} \sim t_{n-1}\)</span>.</li>
+<li><span class="arithmatex">\(X_{n+1}|\mathbf{x} \sim t_{n-1}\left(\bar{x},(1+\frac{1}{n})S^2\right)\)</span> o equivalentemente <span class="arithmatex">\(\frac{(X_{n+1}-\bar{x})}{\sqrt{(1+\frac{1}{n})S^2}}|\mathbf{x} \sim t_{n-1}\)</span>.</li>
+</ul>
+</div>
+<p>No es difícil mostrar que:</p>
+<div class="arithmatex">\[p(\mu|\tau,\mathbf{x}) \propto e^{-\frac{\tau}{2}(n+c)(\mu-m_n)^2}\]</div>
+<p>por lo que <span class="arithmatex">\(\mu|\tau,\mathbf{x} \sim N\left(m_n,\frac{1}{\tau (n+c)}\right)\)</span> o equivalentemente <span class="arithmatex">\(\mu|\sigma^2,\mathbf{x} \sim N(m_n,\sigma^2 (n+c))\)</span>.</p>
+<p>Sin embargo obtener las otras distribuciones requiere algunos conocimiento de cálculo integral.</p>
 <h2 id="modelo-lineal-normal">Modelo Lineal Normal<a class="headerlink" href="#modelo-lineal-normal" title="Permanent link">&para;</a></h2>
 <h3 id="analisis-de-referencia">Análisis de Referencia<a class="headerlink" href="#analisis-de-referencia" title="Permanent link">&para;</a></h3>
 <h2 id="metodos-numericos">Métodos numéricos<a class="headerlink" href="#metodos-numericos" title="Permanent link">&para;</a></h2>
 <h3 id="metodos-mcmc">Métodos MCMC<a class="headerlink" href="#metodos-mcmc" title="Permanent link">&para;</a></h3>
 <h3 id="metropolis-hastings">Metropolis - Hastings<a class="headerlink" href="#metropolis-hastings" title="Permanent link">&para;</a></h3>
 <h3 id="muestreo-de-gibss">Muestreo de Gibss<a class="headerlink" href="#muestreo-de-gibss" title="Permanent link">&para;</a></h3>
+<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
+<p>Hoff, Peter. 2009. <em>A First Course in Bayesian Statistical Methods</em>. New York: Springer.</p>
+<blockquote>
+<p>Muchas de las ideas fueron tomadas del curso <em>Análisis Bayesiano</em> impartido por el Dr. Sergio Pérez en el cuatrimestre Verano de 2022 en el Colegio de Postgraduados, Campus Montecillo.</p>
+</blockquote>
    
        <!-- Last update of source file -->
        
