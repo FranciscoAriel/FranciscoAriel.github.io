@@ -1139,13 +1139,14 @@ p(\mu|\mathbf{x}) &amp;\propto e^{-\frac{n}{2 \sigma^2}(\mu-\bar{x})^2} e^{-\fra
 &amp;\propto e^{-\frac{1}{2 V}(\mu-M)^2}
 \end{align*}
 \]</div>
-<p>Por lo que se concluye que <span class="arithmatex">\(\mu|\mathbf{x} \sim N \left(M,V \right)\)</span>, donde <span class="arithmatex">\(V = \frac{n}{\sigma^2}+\frac{1}{\sigma_0^2}\)</span> y <span class="arithmatex">\(M = \frac{\frac{n }{\sigma^2}\bar{x}+\frac{1}{\sigma_0^2}\mu_0}{V}\)</span></p>
+<p>Por lo que se concluye que <span class="arithmatex">\(\mu|\mathbf{x} \sim N \left(M,V \right)\)</span>, donde <span class="arithmatex">\(V = \frac{n}{\sigma^2}+\frac{1}{\sigma_0^2}\)</span> y <span class="arithmatex">\(M = \frac{\frac{n }{\sigma^2}\bar{x}+\frac{1}{\sigma_0^2}\mu_0}{V}\)</span>.</p>
 </details>
 <p>Del ejemplo anterior, se puede deducir el siguiente teorema:</p>
 <div class="admonition note">
 <p class="admonition-title">Distribución normal posterior</p>
 <p>Sea <span class="arithmatex">\(X_1,X_2,\dots, X_n \sim N(\mu,\sigma^2)\)</span> una muestra aleatoria con <span class="arithmatex">\(\sigma^2\)</span> conocida y <span class="arithmatex">\(\mu \sim N(\mu_0,\sigma_0^2)\)</span>. Entonces se cumplen las siguientes propiedades.</p>
 <ul>
+<li><span class="arithmatex">\(\mu|\mathbf{x} \sim N \left(M,V \right)\)</span>, donde <span class="arithmatex">\(V = \frac{n}{\sigma^2}+\frac{1}{\sigma_0^2}\)</span> y <span class="arithmatex">\(M = \frac{\frac{n }{\sigma^2}\bar{x}+\frac{1}{\sigma_0^2}\mu_0}{V}\)</span>.</li>
 <li>La distribución <em>a posteriori</em> es conjugada.</li>
 <li><span class="arithmatex">\(E(\mu|\mathbf{x}) = p_1\bar{x} + p_2\mu_0\)</span> es un promedio ponderado de la media <em>a priori</em> y el <em>estimador de máxima verosimilitud</em>, cuyos pesos son proporcionales a la suma del inverso de las varianzas.</li>
 <li>Cuando <span class="arithmatex">\(n \to \infty\)</span> la media <em>a posteriori</em> coincide con el estimador de máxima verosimilitud.</li>

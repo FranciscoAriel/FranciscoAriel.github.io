@@ -109,13 +109,14 @@ El siguiente ejemplo ilustra cómo obtener la distribución posterior de la medi
     \end{align*}
     $$
 
-    Por lo que se concluye que $\mu|\mathbf{x} \sim N \left(M,V \right)$, donde $V = \frac{n}{\sigma^2}+\frac{1}{\sigma_0^2}$ y $M = \frac{\frac{n }{\sigma^2}\bar{x}+\frac{1}{\sigma_0^2}\mu_0}{V}$
+    Por lo que se concluye que $\mu|\mathbf{x} \sim N \left(M,V \right)$, donde $V = \frac{n}{\sigma^2}+\frac{1}{\sigma_0^2}$ y $M = \frac{\frac{n }{\sigma^2}\bar{x}+\frac{1}{\sigma_0^2}\mu_0}{V}$.
 
 Del ejemplo anterior, se puede deducir el siguiente teorema:
 
 !!! note "Distribución normal posterior"
     Sea $X_1,X_2,\dots, X_n \sim N(\mu,\sigma^2)$ una muestra aleatoria con $\sigma^2$ conocida y $\mu \sim N(\mu_0,\sigma_0^2)$. Entonces se cumplen las siguientes propiedades.
 
+    - $\mu|\mathbf{x} \sim N \left(M,V \right)$, donde $V = \frac{n}{\sigma^2}+\frac{1}{\sigma_0^2}$ y $M = \frac{\frac{n }{\sigma^2}\bar{x}+\frac{1}{\sigma_0^2}\mu_0}{V}$.
     - La distribución _a posteriori_ es conjugada.
     - $E(\mu|\mathbf{x}) = p_1\bar{x} + p_2\mu_0$ es un promedio ponderado de la media _a priori_ y el _estimador de máxima verosimilitud_, cuyos pesos son proporcionales a la suma del inverso de las varianzas.
     - Cuando $n \to \infty$ la media _a posteriori_ coincide con el estimador de máxima verosimilitud.
