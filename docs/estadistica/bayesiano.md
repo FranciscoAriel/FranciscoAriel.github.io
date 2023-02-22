@@ -212,6 +212,22 @@ Sin embargo obtener las otras distribuciones requiere algunos conocimiento de c�
 
 ## Modelo Lineal Normal
 
+En esta sección se abordará uno de los modelos más utilizados en estadística. Este modelo, aunque es muy simple, es una poderosa herramienta que permite analizar la asociación lineal entre dos variables. Esta idea puede generalizarse aún más para crear modelos más complejos.
+
+### Modelo de regresión lineal simple
+
+Primero se estudiará el modelo lineal simple, el cual servirá como punto de partida para otros modelos posteriores.
+
+Suponga que se tienen 2 variables aleatorias $Y$ y $X$, donde $Y$ es la variable de interés y $X$ una variable que _explica_ el comportamiento de la otra. Si se tiene una muestra aleatoria de tamaño $n$, es decir $(X_1,Y_1), (X_2,Y_2), \dots (X_n,Y_n)$ entonces el modelo puede representarse de la siguiente manera:
+
+$$
+y_i = \beta_0 + \beta_1 x_i + e_i\;i=1,2,\dots,n
+$$
+
+donde $\beta_0$ (ordenada al origen) y $\beta_1$ (pendiente) son parámatros de interés desconocidos y $e_i$ es una variable alatoria que se asume $e_i \sim N(0,\sigma^2)$.
+
+Este modelo trata de modelar la esperanza condicional de $Y_i$ dados los demás parámetros y variables aleatorias, es decir $E(Y_i|x_i,\beta_0,\beta_1,\sigma^2) = \beta_0 + \beta_1 x_i = \mu_i$.
+
 ### Análisis de Referencia
 
 ## Métodos numéricos
