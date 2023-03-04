@@ -759,6 +759,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#modelo-de-regresion-lineal-simple" class="md-nav__link">
+    Modelo de regresión lineal simple
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#analisis-de-referencia" class="md-nav__link">
     Análisis de Referencia
   </a>
@@ -960,6 +967,13 @@
   
     <nav class="md-nav" aria-label="Modelo Lineal Normal">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modelo-de-regresion-lineal-simple" class="md-nav__link">
+    Modelo de regresión lineal simple
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#analisis-de-referencia" class="md-nav__link">
@@ -1220,6 +1234,68 @@ p(x_{n+1} |\mathbf{x}) &amp; \propto e^{\frac{-1}{2\sigma^2}\left(\frac{n}{n+1}(
 <p>por lo que <span class="arithmatex">\(\mu|\tau,\mathbf{x} \sim N\left(m_n,\frac{1}{\tau (n+c)}\right)\)</span> o equivalentemente <span class="arithmatex">\(\mu|\sigma^2,\mathbf{x} \sim N(m_n,\sigma^2 (n+c))\)</span>.</p>
 <p>Sin embargo obtener las otras distribuciones requiere algunos conocimiento de cálculo integral.</p>
 <h2 id="modelo-lineal-normal">Modelo Lineal Normal<a class="headerlink" href="#modelo-lineal-normal" title="Permanent link">&para;</a></h2>
+<p>En esta sección se abordará uno de los modelos más utilizados en estadística. Este modelo, aunque es muy simple, es una poderosa herramienta que permite analizar la asociación lineal entre dos variables. Esta idea puede generalizarse aún más para crear modelos más complejos.</p>
+<h3 id="modelo-de-regresion-lineal-simple">Modelo de regresión lineal simple<a class="headerlink" href="#modelo-de-regresion-lineal-simple" title="Permanent link">&para;</a></h3>
+<p>Primero se estudiará el modelo lineal simple, el cual servirá como punto de partida para otros modelos posteriores.</p>
+<p>Suponga que se tienen 2 variables aleatorias <span class="arithmatex">\(Y\)</span> y <span class="arithmatex">\(X\)</span>, donde <span class="arithmatex">\(Y\)</span> es la variable de interés y <span class="arithmatex">\(X\)</span> una variable que <em>explica</em> el comportamiento de la otra. Si se tiene una muestra aleatoria <em>bivariada</em> de tamaño <span class="arithmatex">\(n\)</span>, es decir <span class="arithmatex">\((X_1,Y_1), (X_2,Y_2), \dots , (X_n,Y_n)\)</span> entonces el modelo puede representarse de la siguiente manera:</p>
+<div class="arithmatex">\[
+y_i = \beta_0 + \beta_1 x_i + e_i\;i=1,2,\dots,n
+\]</div>
+<p>donde <span class="arithmatex">\(\beta_0\)</span> (ordenada al origen) y <span class="arithmatex">\(\beta_1\)</span> (pendiente) son parámetros de interés desconocidos y <span class="arithmatex">\(e_i\)</span> es una variable alatoria que se asume <span class="arithmatex">\(e_i \sim N(0,\sigma^2)\)</span>.</p>
+<p>Este modelo trata de modelar la esperanza condicional de <span class="arithmatex">\(Y_i\)</span> dados los demás parámetros y variables aleatorias, es decir <span class="arithmatex">\(E(Y_i|x_i,\beta_0,\beta_1,\sigma^2) = \mu_i = \beta_0 + \beta_1 x_i = \mathtt{x}\mathbf{\beta}\)</span>, donde <span class="arithmatex">\(\mathtt{x}\)</span> es la matriz diseño y <span class="arithmatex">\(\mathbf{\beta} = (\beta_0,\beta_1)'\)</span>.</p>
+<p>Note que la función de verosimilitud puede representarse como:</p>
+<div class="arithmatex">\[L(\mathbf{\beta},\sigma^2|\mathbf{x},\mathbf{y})\propto \left(\frac{1}{\sigma^2}\right)^{\frac{n}{2}}e^{-\frac{1}{2\sigma^2}\left( \sum_{i=1}^n y_i-\mathtt{x}_i\mathbf{\beta} \right)^2}\]</div>
+<p>Para hacer inferencia sobre los parámetros, se puede suponer distribuciones <em>a priori</em> sobre los parámetros de interés, en este caso se usarán las distribuciones <em>a priori</em> similares a las utilizadas en el modelo normal-gamma, esto es:</p>
+<div class="arithmatex">\[
+p(\theta) \propto p(\sigma^2)p(\mathbf{\beta})
+\]</div>
+<p>donde <span class="arithmatex">\(p(\mathbf{\beta}) \sim N(\mathbf{m},\mathbf{U})\)</span> y <span class="arithmatex">\(p(\sigma^2)\sim InvGa(a/2,ab/2)\)</span> o equivalentemente <span class="arithmatex">\(p(1/\sigma^2) \sim Ga(a/2,ab/2)\)</span>.</p>
+<p>Debido a que estamos interesados en la distribución <em>a posteriori marginal</em> de los parámetros, se puede obtener de manera sencilla dichas distribuciones de la siguiente manera.</p>
+<details class="example"><summary>Distribución marginal posterior de las betas</summary><p>Se puede demostrar que la distribución posterior marginal tiene la siguiente forma</p>
+<div class="arithmatex">\[
+\begin{align*}
+p(\beta|\sigma^2,\mathbf{x},\mathbf{y}) &amp;\propto e^{-\frac{1}{2}(\mathbf{y}-\mathtt{x}\beta)^t\Sigma^{-1}(\mathbf{y}-\mathtt{x}\beta)} \times e^{-\frac{1}{2}(\beta-\mathbf{m})^t\mathbf{U}^{-1}(\beta-\mathbf{m})}\\
+&amp;=e^{-\frac{1}{2}(\mathbf{y}^t\Sigma^{-1}\mathbf{y}-\mathbf{y}^t\Sigma^{-1}\mathtt{x}\beta-(\mathtt{x}\beta)^t\Sigma^{-1}\mathbf{y}+(\mathtt{x}\beta)^t\Sigma^{-1}\mathtt{x}\beta + \beta^t\mathbf{U}^{-1}\beta-\mathbf{\beta}^t\mathbf{U}^{-1}\mathbf{m} -\mathbf{m}^t\mathbf{U}^{-1}\mathbf{\beta}+(\mathbf{m})^t\mathbf{U}^{-1}\mathbf{m})}\\
+&amp;\propto e^{-\frac{1}{2}(\beta^t\mathtt{x}^t\Sigma^{-1}\mathtt{x}\beta -2\beta^t\mathtt{x}^t\Sigma^{-1}\mathbf{y} + \beta^t\mathbf{U}^{-1}\beta  -2\mathbf{\beta}^t\mathbf{U}^{-1}\mathbf{m})}\\
+&amp;= e^{-\frac{1}{2}(\beta^t(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\beta -2\beta^t(\mathtt{x}^t\Sigma^{-1}\mathbf{y}+\mathbf{U}^{-1}\mathbf{m})) }
+\end{align*}
+\]</div>
+<p>Se puede completar el cuadrado si se agrega al segundo término <span class="arithmatex">\((\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})^{-1}\)</span> y se define <span class="arithmatex">\(\mathbf{b}=(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})^{-1}(\mathtt{x}^t\Sigma^{-1}\mathbf{y}+\mathbf{U}^{-1}\mathbf{m})\)</span>, por lo que</p>
+<div class="arithmatex">\[
+\begin{align*}
+p(\beta|\sigma^2,\mathbf{x},\mathbf{y}) &amp;\propto e^{-\frac{1}{2}(\beta^t(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\beta -2(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\mathbf{b}) }\\
+&amp; \propto e^{-\frac{1}{2}(\beta^t(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\beta -2(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\mathbf{b} + \mathbf{b}^t(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\mathbf{b} )} \\
+&amp; \propto e^{-\frac{1}{2}((\beta-\mathbf{b})^t(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})(\beta-\mathbf{b}))}
+\end{align*}
+\]</div>
+<p>Por lo que se reconoce una distribución Normal multivariada, con vector de medias <span class="arithmatex">\(\mathbf{b}=(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})^{-1}(\mathtt{x}^t\Sigma^{-1}\mathbf{y}+\mathbf{U}^{-1}\mathbf{m})\)</span> y matriz de covarianzas <span class="arithmatex">\(\mathbf{V} = (\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})^{-1}\)</span>.</p>
+<p>Note que si <span class="arithmatex">\(\Sigma = \sigma^2 I\)</span>, entonces <span class="arithmatex">\(\beta|\sigma^2,\mathbf{x},\mathbf{y} \sim N(\mathbf{b},\mathbf{V})\)</span>, con <span class="arithmatex">\(\mathbf{V} = (\frac{1}{\sigma^2}\mathtt{x}^t\mathtt{x}+\mathbf{U}^{-1})^{-1}\)</span> y <span class="arithmatex">\(\mathbf{b}=\mathbf{V}(\frac{1}{\sigma^2}\mathtt{x}^t\mathbf{y}+\mathbf{U}^{-1}\mathbf{m})\)</span>.</p>
+</details>
+<details class="example"><summary>Distribución marginal posterior de la varianza</summary><p>Para facilitar los cálculos, sea <span class="arithmatex">\(\tau = \frac{1}{\sigma^2}\)</span>, puede mostrarse que la distribución <em>a posteiori marginal</em> para <span class="arithmatex">\(\tau\)</span> está dada por:</p>
+<div class="arithmatex">\[
+\begin{align*}
+p(\tau|\beta,\mathbf{x},\mathbf{y}) &amp;\propto (\tau)^{\frac{n}{2}} e^{-\frac{\tau}{2}(\mathbf{y}-\mathtt{x}\beta)^t(\mathbf{y}-\mathtt{x}\beta)} \times \tau^{\frac{a}{2}-1}e^{-\frac{ab}{2}\tau}\\
+&amp;\propto \tau^{\frac{n+a}{2}-1}e^{-\frac{\tau}{2}((\mathbf{y}-\mathtt{x}\beta)^t(\mathbf{y}-\mathtt{x}\beta)+ab)}
+\end{align*}
+\]</div>
+<p>Por lo tanto <span class="arithmatex">\(\frac{1}{\sigma^2}|\beta,\mathbf{x},\mathbf{y} \sim Ga\left(\frac{n+a}{2},\frac{SCE+ab}{2}\right)\)</span>, donde <span class="arithmatex">\(SCE = \sum_{i=1}^n(y_i-\mathtt{x}_i\beta)^2\)</span> o equivalentemente <span class="arithmatex">\(\sigma^2|\beta,\mathbf{x},\mathbf{y} \sim InvGa\left(\frac{n+a}{2},\frac{SCE+ab}{2}\right)\)</span>.</p>
+</details>
+<p>Se pueden resumir los resultados obtenidos de la siguiente manera:</p>
+<div class="admonition note">
+<p class="admonition-title">Inferencia en el modelo de regresión lineal simple</p>
+<p>Sea <span class="arithmatex">\((X_1,Y_1), (X_2,Y_2), \dots , (X_n,Y_n)\)</span> una muestra aleatoria <em>bivariada</em> de tamaño <span class="arithmatex">\(n\)</span>, donde <span class="arithmatex">\(Y_i = \beta_0 + \beta_1 X_i + e_i,\, e_i \sim N(0,\sigma^2)\)</span> y <span class="arithmatex">\(p(\theta) \propto p(\sigma^2)p(\mathbf{\beta})\)</span>. Entonces se cumplen las siguientes propiedades.</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\beta|\sigma^2,\mathbf{x},\mathbf{y} \sim N(\mathbf{b},\mathbf{V})\)</span> con <span class="arithmatex">\(\mathbf{V} = (\frac{1}{\sigma^2}\mathtt{x}^t\mathtt{x}+\mathbf{U}^{-1})^{-1}\)</span> y <span class="arithmatex">\(\mathbf{b}=\mathbf{V}(\frac{1}{\sigma^2}\mathtt{x}^t\mathbf{y}+\mathbf{U}^{-1}\mathbf{m})\)</span>.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\sigma^2|\beta,\mathbf{x},\mathbf{y} \sim InvGa\left(\frac{n+a}{2},\frac{SCE+ab}{2}\right)\)</span> con <span class="arithmatex">\(SCE = \sum_{i=1}^n(y_i-\mathtt{x}_i\beta)^2\)</span>.</p>
+</li>
+<li>
+<p>Si <span class="arithmatex">\(p(\theta) \propto \sigma^2\)</span> entonces <span class="arithmatex">\(\beta|\sigma^2,\mathbf{x},\mathbf{y} \sim N(\hat{\beta},\sigma^2(\mathtt{x}^t\mathtt{x})^{-1})\)</span> y <span class="arithmatex">\(\sigma|\mathbf{x},\mathbf{y} \sim InvGa(\frac{n-2}{2},\frac{SCE}{2})\)</span>, es decir, el resultado coincide con los estimadores de mínimos cuadrados ordinarios.</p>
+</li>
+</ul>
+</div>
 <h3 id="analisis-de-referencia">Análisis de Referencia<a class="headerlink" href="#analisis-de-referencia" title="Permanent link">&para;</a></h3>
 <h2 id="metodos-numericos">Métodos numéricos<a class="headerlink" href="#metodos-numericos" title="Permanent link">&para;</a></h2>
 <h3 id="metodos-mcmc">Métodos MCMC<a class="headerlink" href="#metodos-mcmc" title="Permanent link">&para;</a></h3>

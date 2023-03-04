@@ -218,15 +218,79 @@ En esta sección se abordará uno de los modelos más utilizados en estadística
 
 Primero se estudiará el modelo lineal simple, el cual servirá como punto de partida para otros modelos posteriores.
 
-Suponga que se tienen 2 variables aleatorias $Y$ y $X$, donde $Y$ es la variable de interés y $X$ una variable que _explica_ el comportamiento de la otra. Si se tiene una muestra aleatoria de tamaño $n$, es decir $(X_1,Y_1), (X_2,Y_2), \dots (X_n,Y_n)$ entonces el modelo puede representarse de la siguiente manera:
+Suponga que se tienen 2 variables aleatorias $Y$ y $X$, donde $Y$ es la variable de interés y $X$ una variable que _explica_ el comportamiento de la otra. Si se tiene una muestra aleatoria _bivariada_ de tamaño $n$, es decir $(X_1,Y_1), (X_2,Y_2), \dots , (X_n,Y_n)$ entonces el modelo puede representarse de la siguiente manera:
 
 $$
 y_i = \beta_0 + \beta_1 x_i + e_i\;i=1,2,\dots,n
 $$
 
-donde $\beta_0$ (ordenada al origen) y $\beta_1$ (pendiente) son parámatros de interés desconocidos y $e_i$ es una variable alatoria que se asume $e_i \sim N(0,\sigma^2)$.
+donde $\beta_0$ (ordenada al origen) y $\beta_1$ (pendiente) son parámetros de interés desconocidos y $e_i$ es una variable alatoria que se asume $e_i \sim N(0,\sigma^2)$.
 
-Este modelo trata de modelar la esperanza condicional de $Y_i$ dados los demás parámetros y variables aleatorias, es decir $E(Y_i|x_i,\beta_0,\beta_1,\sigma^2) = \beta_0 + \beta_1 x_i = \mu_i$.
+Este modelo trata de modelar la esperanza condicional de $Y_i$ dados los demás parámetros y variables aleatorias, es decir $E(Y_i|x_i,\beta_0,\beta_1,\sigma^2) = \mu_i = \beta_0 + \beta_1 x_i = \mathtt{x}\mathbf{\beta}$, donde $\mathtt{x}$ es la matriz diseño y $\mathbf{\beta} = (\beta_0,\beta_1)'$.
+
+Note que la función de verosimilitud puede representarse como:
+
+$$L(\mathbf{\beta},\sigma^2|\mathbf{x},\mathbf{y})\propto \left(\frac{1}{\sigma^2}\right)^{\frac{n}{2}}e^{-\frac{1}{2\sigma^2}\left( \sum_{i=1}^n y_i-\mathtt{x}_i\mathbf{\beta} \right)^2}$$
+
+Para hacer inferencia sobre los parámetros, se puede suponer distribuciones _a priori_ sobre los parámetros de interés, en este caso se usarán las distribuciones _a priori_ similares a las utilizadas en el modelo normal-gamma, esto es:
+
+$$
+p(\theta) \propto p(\sigma^2)p(\mathbf{\beta})
+$$
+
+donde $p(\mathbf{\beta}) \sim N(\mathbf{m},\mathbf{U})$ y $p(\sigma^2)\sim InvGa(a/2,ab/2)$ o equivalentemente $p(1/\sigma^2) \sim Ga(a/2,ab/2)$.
+
+Debido a que estamos interesados en la distribución _a posteriori marginal_ de los parámetros, se puede obtener de manera sencilla dichas distribuciones de la siguiente manera.
+
+??? example "Distribución marginal posterior de las betas"
+    Se puede demostrar que la distribución posterior marginal tiene la siguiente forma
+
+    $$
+    \begin{align*}
+    p(\beta|\sigma^2,\mathbf{x},\mathbf{y}) &\propto e^{-\frac{1}{2}(\mathbf{y}-\mathtt{x}\beta)^t\Sigma^{-1}(\mathbf{y}-\mathtt{x}\beta)} \times e^{-\frac{1}{2}(\beta-\mathbf{m})^t\mathbf{U}^{-1}(\beta-\mathbf{m})}\\
+    &=e^{-\frac{1}{2}(\mathbf{y}^t\Sigma^{-1}\mathbf{y}-\mathbf{y}^t\Sigma^{-1}\mathtt{x}\beta-(\mathtt{x}\beta)^t\Sigma^{-1}\mathbf{y}+(\mathtt{x}\beta)^t\Sigma^{-1}\mathtt{x}\beta + \beta^t\mathbf{U}^{-1}\beta-\mathbf{\beta}^t\mathbf{U}^{-1}\mathbf{m} -\mathbf{m}^t\mathbf{U}^{-1}\mathbf{\beta}+(\mathbf{m})^t\mathbf{U}^{-1}\mathbf{m})}\\
+    &\propto e^{-\frac{1}{2}(\beta^t\mathtt{x}^t\Sigma^{-1}\mathtt{x}\beta -2\beta^t\mathtt{x}^t\Sigma^{-1}\mathbf{y} + \beta^t\mathbf{U}^{-1}\beta  -2\mathbf{\beta}^t\mathbf{U}^{-1}\mathbf{m})}\\
+    &= e^{-\frac{1}{2}(\beta^t(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\beta -2\beta^t(\mathtt{x}^t\Sigma^{-1}\mathbf{y}+\mathbf{U}^{-1}\mathbf{m})) }
+    \end{align*}
+    $$
+
+    Se puede completar el cuadrado si se agrega al segundo término $(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})^{-1}$ y se define $\mathbf{b}=(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})^{-1}(\mathtt{x}^t\Sigma^{-1}\mathbf{y}+\mathbf{U}^{-1}\mathbf{m})$, por lo que
+
+    $$
+    \begin{align*}
+    p(\beta|\sigma^2,\mathbf{x},\mathbf{y}) &\propto e^{-\frac{1}{2}(\beta^t(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\beta -2(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\mathbf{b}) }\\
+    & \propto e^{-\frac{1}{2}(\beta^t(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\beta -2(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\mathbf{b} + \mathbf{b}^t(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})\mathbf{b} )} \\
+    & \propto e^{-\frac{1}{2}((\beta-\mathbf{b})^t(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})(\beta-\mathbf{b}))}
+    \end{align*}
+    $$
+
+    Por lo que se reconoce una distribución Normal multivariada, con vector de medias $\mathbf{b}=(\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})^{-1}(\mathtt{x}^t\Sigma^{-1}\mathbf{y}+\mathbf{U}^{-1}\mathbf{m})$ y matriz de covarianzas $\mathbf{V} = (\mathtt{x}^t\Sigma^{-1}\mathtt{x}+\mathbf{U}^{-1})^{-1}$.
+
+    Note que si $\Sigma = \sigma^2 I$, entonces $\beta|\sigma^2,\mathbf{x},\mathbf{y} \sim N(\mathbf{b},\mathbf{V})$, con $\mathbf{V} = (\frac{1}{\sigma^2}\mathtt{x}^t\mathtt{x}+\mathbf{U}^{-1})^{-1}$ y $\mathbf{b}=\mathbf{V}(\frac{1}{\sigma^2}\mathtt{x}^t\mathbf{y}+\mathbf{U}^{-1}\mathbf{m})$.
+
+??? example "Distribución marginal posterior de la varianza"
+    Para facilitar los cálculos, sea $\tau = \frac{1}{\sigma^2}$, puede mostrarse que la distribución _a posteiori marginal_ para $\tau$ está dada por:
+
+    $$
+    \begin{align*}
+    p(\tau|\beta,\mathbf{x},\mathbf{y}) &\propto (\tau)^{\frac{n}{2}} e^{-\frac{\tau}{2}(\mathbf{y}-\mathtt{x}\beta)^t(\mathbf{y}-\mathtt{x}\beta)} \times \tau^{\frac{a}{2}-1}e^{-\frac{ab}{2}\tau}\\
+    &\propto \tau^{\frac{n+a}{2}-1}e^{-\frac{\tau}{2}((\mathbf{y}-\mathtt{x}\beta)^t(\mathbf{y}-\mathtt{x}\beta)+ab)}
+    \end{align*}
+    $$
+
+    Por lo tanto $\frac{1}{\sigma^2}|\beta,\mathbf{x},\mathbf{y} \sim Ga\left(\frac{n+a}{2},\frac{SCE+ab}{2}\right)$, donde $SCE = \sum_{i=1}^n(y_i-\mathtt{x}_i\beta)^2$ o equivalentemente $\sigma^2|\beta,\mathbf{x},\mathbf{y} \sim InvGa\left(\frac{n+a}{2},\frac{SCE+ab}{2}\right)$.
+
+Se pueden resumir los resultados obtenidos de la siguiente manera:
+
+!!! note "Inferencia en el modelo de regresión lineal simple"
+    Sea $(X_1,Y_1), (X_2,Y_2), \dots , (X_n,Y_n)$ una muestra aleatoria _bivariada_ de tamaño $n$, donde $Y_i = \beta_0 + \beta_1 X_i + e_i,\, e_i \sim N(0,\sigma^2)$ y $p(\theta) \propto p(\sigma^2)p(\mathbf{\beta})$. Entonces se cumplen las siguientes propiedades.
+
+    - $\beta|\sigma^2,\mathbf{x},\mathbf{y} \sim N(\mathbf{b},\mathbf{V})$ con $\mathbf{V} = (\frac{1}{\sigma^2}\mathtt{x}^t\mathtt{x}+\mathbf{U}^{-1})^{-1}$ y $\mathbf{b}=\mathbf{V}(\frac{1}{\sigma^2}\mathtt{x}^t\mathbf{y}+\mathbf{U}^{-1}\mathbf{m})$.
+
+    - $\sigma^2|\beta,\mathbf{x},\mathbf{y} \sim InvGa\left(\frac{n+a}{2},\frac{SCE+ab}{2}\right)$ con $SCE = \sum_{i=1}^n(y_i-\mathtt{x}_i\beta)^2$.
+
+    - Si $p(\theta) \propto \sigma^2$ entonces $\beta|\sigma^2,\mathbf{x},\mathbf{y} \sim N(\hat{\beta},\sigma^2(\mathtt{x}^t\mathtt{x})^{-1})$ y $\sigma|\mathbf{x},\mathbf{y} \sim InvGa(\frac{n-2}{2},\frac{SCE}{2})$, es decir, el resultado coincide con los estimadores de mínimos cuadrados ordinarios.
+
 
 ### Análisis de Referencia
 
