@@ -45,6 +45,7 @@ nav:
     - "Estadística":
         - "Introducción a la probabilidad": estadistica/probabilidad.md
         - "Inferencia estadística": estadistica/inferencia.md
+        - "Modelos Lineales": estadistica/modelos_lineales.md
         - "Procesos estocásticos": estadistica/procesos_estocasticos.md 
         - "Series de tiempo": estadistica/series_tiempo.md
         - "Estadística matemática": estadistica/estadistica_matematica.md

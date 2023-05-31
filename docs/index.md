@@ -5,9 +5,8 @@ En este sitio web conocerás los fundamentos y conceptos básicos de estadístic
 ![Ilustración de una laptop](img/laptop.png)
 Imagen de [Sara Torda](https://pixabay.com/es/users/sara_torda-888816/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286) en [Pixabay](https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=2298286)
 
-*Nuevo*
+Si estás interesado en aplicar los conocimientos de estadística, visita nuestro [blog de estadística aplicada](https://fcoavc.github.io/).
 
-Estamos a punto de lanzar un blog con temas de estadística aplicada.
 
 ## Software estadístico
 
