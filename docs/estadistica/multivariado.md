@@ -127,7 +127,7 @@ Para el cálculo de un eigenvalores y eigenvectores, se requiere el uso de sotfw
 
     === "Julia"
 
-        Para definir una matriz en julia se usan los corchetes cuadrados  `[]` ys se pueden definir los renglones de la matriz la notación de vectores `[]` separados por un espacio.
+        Para definir una matriz en julia se usan los corchetes cuadrados  `[]` y se pueden definir los renglones de la matriz la notación de vectores `[]` separados por un espacio.
         
         Para obtener los eigenvalores y eigenvectores, se usa la función `eigen` de la librería `LinearAlgebra`. También se pueden usar las funciones `eigvals` y `eigvecs`.
 
