@@ -655,6 +655,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#inferencia" class="md-nav__link">
+    Inferencia
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#modelos-de-rango-completo" class="md-nav__link">
     Modelos de rango completo
   </a>
@@ -815,6 +822,13 @@
         <li class="md-nav__item">
   <a href="#introduccion" class="md-nav__link">
     Introducción
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inferencia" class="md-nav__link">
+    Inferencia
   </a>
   
 </li>
@@ -1045,6 +1059,25 @@ y = {<span class="m">95</span>, <span class="m">80</span>, <span class="m">0</sp
 </div>
 </div>
 </div>
+</details>
+<h2 id="inferencia">Inferencia<a class="headerlink" href="#inferencia" title="Permanent link">&para;</a></h2>
+<p>Dado el modelo lineal <span class="arithmatex">\(\mathbf{y} = \mathbf{X} \vec{\beta} + \mathbf{e}\)</span> donde <span class="arithmatex">\(\mathbf{y}\)</span> es el vector de observaciones de la variable respuesta, <span class="arithmatex">\(\mathbf{X}\)</span> es la matriz diseño que contiene las covariables o variables explicativas, <span class="arithmatex">\(\vec{\beta}\)</span> es un vector que contiene los parámetros del modelo y <span class="arithmatex">\(\mathbf{e}\)</span> es el vector de errores del modelo. Se asume que <span class="arithmatex">\(E(\mathbf{e}) = \mathbf{0}\)</span> y <span class="arithmatex">\(V(\mathbf{e}) = \sigma^2 I\)</span>.</p>
+<p>Para encontrar el estimador de <span class="arithmatex">\(\vec{\beta}\)</span>, denotado como <span class="arithmatex">\(\hat{\beta}\)</span> mediante el <em>método de Mínmos Cuadrados Ordinarios</em>.</p>
+<details class="example"><summary>Derivación del método de Mínimos Cuadrados Ordinarios</summary><p>El estimador de <em>mínimos cuadrados</em> es el vector que minimiza la suma de cuadrados del vector <span class="arithmatex">\(\mathbf{y}\)</span> con respecto a <span class="arithmatex">\(\mathbf{X} \vec{\beta}\)</span>.</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+S(\vec{\beta}) &amp;= (\mathbf{y}-\mathbf{X} \vec{\beta})^´(\mathbf{y}-\mathbf{X} \vec{\beta})\\
+&amp; = \mathbf{y}^´\mathbf{y} - 2 \vec{\beta}^´ \mathbf{X}^´\mathbf{y} + \vec{\beta}^´\mathbf{X}^´\mathbf{X}\vec{\beta}
+\end{align*}
+\)</span></p>
+<p>Para hallar el mínimo se deriva con respecto a <span class="arithmatex">\(\vec{\beta}\)</span> y se iguala a cero.</p>
+<div class="arithmatex">\[
+\frac{\partial}{\partial \vec{\beta}}S(\vec{\beta}) = - 2 \mathbf{X}^´\mathbf{y} + 2 \mathbf{X}^´\mathbf{X}\vec{\beta} = 0
+\]</div>
+<p>Al sistema de ecuaciones resultante <span class="arithmatex">\(\mathbf{X}^´\mathbf{X}\vec{\beta} = \mathbf{X}^´\mathbf{y}\)</span> se le conoce como <em>Ecuaciones Normales</em>. Al resolver este sistema de ecuaciones si la inversa <span class="arithmatex">\((\mathbf{X}^´\mathbf{X})^{-1}\)</span> existe  , se obtiene el estimador de mínimos cuadrados ordinarios, dados por:</p>
+<div class="arithmatex">\[
+\hat{\beta} = (\mathbf{X}^´\mathbf{X})^{-1}\mathbf{X}^´\mathbf{y}
+\]</div>
 </details>
 <h2 id="modelos-de-rango-completo">Modelos de rango completo<a class="headerlink" href="#modelos-de-rango-completo" title="Permanent link">&para;</a></h2>
 <h2 id="modelos-de-rango-incompleto">Modelos de rango incompleto<a class="headerlink" href="#modelos-de-rango-incompleto" title="Permanent link">&para;</a></h2>

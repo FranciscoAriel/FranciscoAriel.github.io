@@ -175,6 +175,34 @@ Debido a que es común trabajr con matrices y vectores, se ilustrará de forma b
         QUIT;
         ```
 
+## Inferencia
+
+Dado el modelo lineal $\mathbf{y} = \mathbf{X} \vec{\beta} + \mathbf{e}$ donde $\mathbf{y}$ es el vector de observaciones de la variable respuesta, $\mathbf{X}$ es la matriz diseño que contiene las covariables o variables explicativas, $\vec{\beta}$ es un vector que contiene los parámetros del modelo y $\mathbf{e}$ es el vector de errores del modelo. Se asume que $E(\mathbf{e}) = \mathbf{0}$ y $V(\mathbf{e}) = \sigma^2 I$.
+
+Para encontrar el estimador de $\vec{\beta}$, denotado como $\hat{\beta}$ mediante el _método de Mínmos Cuadrados Ordinarios_.
+
+??? example "Derivación del método de Mínimos Cuadrados Ordinarios"
+    El estimador de _mínimos cuadrados_ es el vector que minimiza la suma de cuadrados del vector $\mathbf{y}$ con respecto a $\mathbf{X} \vec{\beta}$.
+
+    \(
+    \begin{align*}
+    S(\vec{\beta}) &= (\mathbf{y}-\mathbf{X} \vec{\beta})^´(\mathbf{y}-\mathbf{X} \vec{\beta})\\
+    & = \mathbf{y}^´\mathbf{y} - 2 \vec{\beta}^´ \mathbf{X}^´\mathbf{y} + \vec{\beta}^´\mathbf{X}^´\mathbf{X}\vec{\beta}
+    \end{align*}
+    \)
+
+    Para hallar el mínimo se deriva con respecto a $\vec{\beta}$ y se iguala a cero.
+
+    $$
+    \frac{\partial}{\partial \vec{\beta}}S(\vec{\beta}) = - 2 \mathbf{X}^´\mathbf{y} + 2 \mathbf{X}^´\mathbf{X}\vec{\beta} = 0
+    $$
+
+    Al sistema de ecuaciones resultante $\mathbf{X}^´\mathbf{X}\vec{\beta} = \mathbf{X}^´\mathbf{y}$ se le conoce como _Ecuaciones Normales_. Al resolver este sistema de ecuaciones si la inversa $(\mathbf{X}^´\mathbf{X})^{-1}$ existe  , se obtiene el estimador de mínimos cuadrados ordinarios, dados por:
+
+    $$
+    \hat{\beta} = (\mathbf{X}^´\mathbf{X})^{-1}\mathbf{X}^´\mathbf{y}
+    $$
+
 ## Modelos de rango completo
 
 ## Modelos de rango incompleto
