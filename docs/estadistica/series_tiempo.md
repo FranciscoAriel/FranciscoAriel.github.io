@@ -177,21 +177,54 @@ donde $a_t$ es un término de error de ruido blanco con varianza $\sigma^2 _a$ y
 
 Note que este modelo es muy parecido a un modelo de regresión lineal simple, con la diferencia de que la variable explicativa es **ella misma pero un periodo anterior**.
 
-Si se asume que el proceso AR(1) es estacionario, entonces $E(Y_t)=E(Y_{t-1})=\mu$, donde $\mu$ es el nivel de la serie, la varianza $Var(Y_t) = Var(Y_{t-1}) = \gamma_0$ es constante y
-la covarianza $Cov(Y_t,Y_{t+h}) = \gamma (h)$ no depende de $t$, sino únicamente de la distancia $h$ entre ellas.
 
-Note que, bajo el supuesto de estacionriedad el nivel de la serie $\mu$ puede representarse como $\mu = \frac{\phi_0}{1-\phi_1}$ y por lo tanto $\phi_1$ **no puede ser igual a 1**. También puede notarse que $\phi_0 =\mu(1-\phi_1)$, por lo que $\phi_0 = 0$ si $\mu = 0$, en otras palabras, el término $\phi_0$ no aparecerá en el modelo únicamente si el nivel de la serie es cero.
+??? example "Derivación de la media y varianza de un proceso AR(1)"
 
-La varianza de la serie puede expresarse como $Var(Y_t) = \gamma_0 = \frac{\sigma^2 _a}{1-\phi^2_1}$. Por lo tanto si la serie es estacionaria, necesariamente $\phi^2_1 < 1$ ó $-1 < \phi_1 < 1$.
+    Si se asume que el proceso AR(1) es estacionario, es decir tiene media constante $E(Y_t) = E(Y_{t-1}) = \mu$, entonces 
+    
+    \(
+    \begin{align*}
+    \mu &= E(Y_t) \\
+    &=E(\phi_0 + \phi_1 Y_{t-1} + a_t) \\
+    &=\phi_0 + \phi_1 E(Y_{t-1}) + E(a_t)\\
+    &=\phi_0 + \phi_1 \mu
+    \end{align*}
+    \)
+    
+    donde $\mu$ es el nivel de la serie. 
+    
+    Note que, bajo el supuesto de estacionriedad el nivel de la serie $\mu$ puede representarse como $\mu = \frac{\phi_0}{1-\phi_1}$ y por lo tanto $\phi_1$ **no puede ser igual a 1**. También puede notarse que $\phi_0 =\mu(1-\phi_1)$, por lo que $\phi_0 = 0$ si $\mu = 0$, en otras palabras, el término $\phi_0$ no aparecerá en el modelo únicamente si el nivel de la serie es cero.
 
-Es común que trabajar con las series centradas, es decir $Z_t = Y_t - \mu$ y por lo tanto únicamente se trabaja con el modelo $Z_t = \phi_1 Z_{t-1} + a_t$. Usando esta expresión, se puede calcular la covarianza de $Z_t$ y $Z_{t-h}$.
+    Nuevamente asumiendo el supuesto de estacionariedad, la varianza $Var(Y_t) = Var(Y_{t-1}) = \gamma_0$ es constante y la covarianza $Cov(Y_t,Y_{t+h}) = \gamma (h)$ no depende de $t$, sino únicamente de la distancia $h$ entre ellas.
+    
+    Es común que trabajar con las series centradas, es decir $Z_t = Y_t - \mu$ y por lo tanto únicamente se trabaja con el modelo $Z_t = \phi_1 Z_{t-1} + a_t$. La varianza de la serie centrada puede expresarse como
+    
+    \(
+    \begin{align*}
+    \gamma_0 & = Var(Z_t)\\
+    & = E(Z_t^2)\\
+    &= E(\phi_1^2 Z^2_{t-1}+a^2_t)\\
+    &= \phi_1^2E(Z^2_{t-1}) + E(a^2_t)\\
+    &= \phi_1^2 Var(Z_{t-1}) + Var(a_t)\\
+    &= \phi_1^2 Var(Z_t) + \sigma^2_a
+    \end{align*}    
+    \)
+
+    Por lo tanto si la serie es estacionaria se obtiene $\gamma_0 = \frac{\sigma^2 _a}{1-\phi^2_1}$ y necesariamente $\phi^2_1 < 1$ ó $-1 < \phi_1 < 1$.
+
+Usando esta expresión, se puede calcular la covarianza de $Z_t$ y $Z_{t-h}$.
 
 \(
 \begin{align*}
 Cov(Z_t,Z_{t-h}) &= E(Z_t Z_{t-h})\\
-&=  E(Z_t ( \phi_1 Z_{t-h-1} + a_{t-h}) )
+&=  E(Z_t ( \phi_1 Z_{t-h-1} + a_{t-h}) )\\
+&= E(\phi_1 Z_t Z_{t-h-1} + Z_t a_{t-h})\\
+&= E(\phi_1 Z_t Z_{t-h-1}) + E( Z_t a_{t-h})\\
+&= \phi_1 E(Z_t Z_{t-h-1}) + E( Z_t a_{t-h})\\
+&= \phi_1 \gamma(h-1)
 \end{align*}
 \)
+
 
 ## Bibliografía
 
