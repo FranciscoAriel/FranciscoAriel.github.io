@@ -71,23 +71,21 @@ Un concepto muy importante en el estudio de las series de tiempo es la *estacion
 Un ejemplo de una serie de tiempo estacionaria estrictamente estacionaria sería una muestra aleatoria. Obsérvese que esta definición implica que la distribución es invariante en el tiempo. De acuerdo con (Tsay, 2010), esta es una condición muy fuerte y es dificil de verificarla empíricamente, por lo que a menudo se asume una condición más débil.
 
 !!! note "Serie de tiempo débilmente estacionaria"
-    Se dice que una serie de tiempo $X_t$ es *débilmente estacionaria* si sus primeros dos momentos son finitos y la media $E(X)_t=\mu$ es constante y $Cov(X_t,X_{t+h})=\gamma (h)$ solo depende de $h$, para $h \in \mathbb{N}$.
+    Se dice que una serie de tiempo $X_t$ es *débilmente estacionaria* si sus primeros dos momentos son finitos y la media $E(X_t)=\mu$ es constante y su función de covarianza $Cov(X_t,X_{t+h})=\gamma (h)$ solo depende de $h$, para $h \in \mathbb{N}$.
 
 !!! tip "Serie de tiempo estacionaria"
     Nos referiremos a una serie de tiempo *estacionaria* a aquella que sea *débilmente estacionaria*.
 
 En términos prácticos, la gráfica de series de tiempo debería fluctuar alrededor de una constante y su variabilidad debería mantenerse más o menos estable a través del tiempo.
 
-La autocovarianza entre $Y_t$ y $Y_{t+h}$ mide el grado de asociación lineal entre $Y_t$ y $Y_{t+h}$ con la misma serie pero *rezagada* $h$ periodos y se expresa como
+La autocovarianza entre $Y_t$ y $Y_{t+h}$, denotada por $\gamma(h)$, mide el grado de asociación lineal entre $Y_t$ y $Y_{t+h}$ con la misma serie pero *rezagada* $h$ periodos y se expresa como $\gamma(h)=Cov(Y_t,Y_{t+h})=E\left((Y_t-E(Y_t))(Y_{t+h}-E(Y_{t+h}))\right)$.
 
-\(
-Cov(Y_t,Y_{t+h})=E(Y_t,Y_{t+h})
-\)
+Note que si $h=0$, entonces se tiene la varianza de la serie y se puede denotar como $\gamma_0 = Cov(Y_t,Y_t)=E\left((Y_t-E(Y_t))(Y_{t}-E(Y_{t}))\right) = Var(Y_t)$.
 
 La correlación o *función de autocorrelación* (FAC) entre $Y_t$ y $Y_{t+h}$ también mide el grado de dependencia lineal de $Y_t$ con la misma serie pero *rezagada* $h$ periodos pero este valor se encuentra entre -1 y 1 y se expresa como
 
 \(
-\rho_{h}=\frac{Cov(Y_t,Y_{t+h})}{V(Y_t)}=\frac{\gamma (h)}{\gamma_0}
+\rho(h)=\frac{Cov(Y_t,Y_{t+h})}{Var(Y_t)}=\frac{\gamma (h)}{\gamma_0}
 \)
 
 Note que $\rho_0=1$. La función de autocorrelación es la más usada debido a que es preferible usar cantidades entre 0 y 1. Si la serie $Y_t$ es estacionaria, entonces la covarianza $\lim_{h \to \infty} \gamma_h = 0$ y la autocorrelación $\lim_{h \to \infty} \rho_h = 0$.
@@ -95,7 +93,7 @@ Note que $\rho_0=1$. La función de autocorrelación es la más usada debido a q
 En la práctica se usa la *función de correlación muestral* (FACM) definida como:
 
 \(
-\hat{\rho}_{h}=\frac{\sum_{t=1}^{T-h}(y_t-\bar{y})(y_{t+h}-\bar{y})}{\sum_{t=1}^{T}(y_t-\bar{y})^2}
+\hat{\rho}({h})=\frac{\sum_{t=1}^{T-h}(y_t-\bar{y})(y_{t+h}-\bar{y})}{\sum_{t=1}^{T}(y_t-\bar{y})^2}
 \)
 
 A continuación se presenta un tipo de serie de tiempo o proceso que cumple con esta característica.
@@ -130,12 +128,12 @@ Elaboración propia. Gráfico realizado con el software R.
 
 De la definición anterior, se entiende que una serie de tiempo lineal puede expresarse como una suma infinita ponderada de ruido, cuyos valores presentes y pasados afectan a la serie.
 
-Note que $E(Y_t) = \mu$ y $V(Y_t) = V(\sum_{i=0}^{\infty}\psi_i a_{t-i}) = \sigma^2_{a}\sum_{i=0}^{\infty}\psi^2_i$ y si la serie $Y_t$ es estacionaria, necesariamente $\sum_{i=0}^{\infty}\psi^2_i < \infty$, por lo que una condición necesaria y suficiente para que la varianza de $Y_t$ sea finita es que $\lim_{i \to \infty}\psi_i^2 = 0$.
+Note que $E(Y_t) = \mu$ y $Var(Y_t) = Var(\sum_{i=0}^{\infty}\psi_i a_{t-i}) = \sigma^2_{a}\sum_{i=0}^{\infty}\psi^2_i$ y si la serie $Y_t$ es estacionaria, necesariamente $\sum_{i=0}^{\infty}\psi^2_i < \infty$, por lo que una condición necesaria y suficiente para que la varianza de $Y_t$ sea finita es que $\lim_{i \to \infty}\psi_i^2 = 0$.
 
 Por otro lado, la covarianza entre $Y_t$ y $Y_{t+h}$ con $h \in \mathbb{N}$ puede expresarse como:
 
 \(
-\gamma_h =\sigma^2_{a} \sum_{i=0}^{\infty}\psi_i \psi_{i+h}
+\gamma(h) =\sigma^2_{a} \sum_{i=0}^{\infty}\psi_i \psi_{i+h}
 \)
 
 ??? example "Serie de tiempo lineal"
@@ -147,7 +145,7 @@ Por otro lado, la covarianza entre $Y_t$ y $Y_{t+h}$ con $h \in \mathbb{N}$ pued
 
     Note que esta serie es estacionaria ya que se cumple con la restricción de que la suma de los pesos al cuadrado (5.26) es finita.
 
-    La media o valor esperado $E(Y_t)$ de esta serie es 50 (el promedio de la realización es 50.83), mientras que la varianza $V(Y_t)$ es 131.5 (la varianza estimada fue de 133.02).Las autocovarianzas serían $\gamma_1=76.25,\gamma_2 =17.5$ y $\gamma_3 = 2.5$.
+    La media o valor esperado $E(Y_t)$ de esta serie es 50 (el promedio de la realización es 50.83), mientras que la varianza $V(Y_t)$ es 131.5 (la varianza estimada fue de 133.02).Las autocovarianzas serían $\gamma(1)=76.25,\gamma(2) =17.5$ y $\gamma(3) = 2.5$.
 
     La siguiente gráfica muestra del lado derecho las autocorrelaciones estimadas, mientras que del lado derecho se muestran las covarianzas estimadas.
 
@@ -167,7 +165,7 @@ La estimación de parámetros se discutirá de forma muy general y finalmente se
 
 ### Modelos autorregresivos
 
-El modelo autorregresivo es muy util para modelar muchos fenómenos, sobre todo relacionados con economía y finanzas ya que típicamente el valor actual *dependerá* de sus valores anteriores. Este modelo se puede expresar de la siguiente forma:
+El modelo autorregresivo es muy util para modelar muchos fenómenos, sobre todo relacionados con economía y finanzas ya que típicamente el valor actual *dependerá* de sus valores anteriores. Por simplicidad se puede comenzar con el modelo Autorregresivo de orden 1, pero se puede generalizar para orden $p$. Este modelo se puede expresar de la siguiente forma:
 
 \(
 Y_t = \phi_0 + \phi_1 Y_{t-1} + a_t
@@ -177,6 +175,13 @@ donde $a_t$ es un término de error de ruido blanco con varianza $\sigma^2 _a$ y
 
 Note que este modelo es muy parecido a un modelo de regresión lineal simple, con la diferencia de que la variable explicativa es **ella misma pero un periodo anterior**.
 
+!!! note "Propiedades del modelo Autorregresivo de orden 1"
+    Se dice que $Y_t = \phi_0 + \phi_1 Y_{t-1} + a_t$ es un proceso autoregresivo de orden 1. Si es proceso es estacionario, entonces
+
+    - $E(Y_t) = \mu = \frac{\phi_0}{1-\phi_1}$
+    - $Var(Y_t) = \gamma_0 = \frac{\sigma^2 _a}{1-\phi^2_1}$
+    - $\gamma(h) = \phi_1 \gamma(h-1)$
+    - $\rho(h) = \phi_1^h$
 
 ??? example "Derivación de la media y varianza de un proceso AR(1)"
 
@@ -206,24 +211,129 @@ Note que este modelo es muy parecido a un modelo de regresión lineal simple, co
     &= E(\phi_1^2 Z^2_{t-1}+a^2_t)\\
     &= \phi_1^2E(Z^2_{t-1}) + E(a^2_t)\\
     &= \phi_1^2 Var(Z_{t-1}) + Var(a_t)\\
-    &= \phi_1^2 Var(Z_t) + \sigma^2_a
+    &= \phi_1^2 Var(Z_t) + \sigma^2_a\\
+    &= \phi_1^2 \gamma_0 + \sigma^2_a
     \end{align*}    
     \)
 
     Por lo tanto si la serie es estacionaria se obtiene $\gamma_0 = \frac{\sigma^2 _a}{1-\phi^2_1}$ y necesariamente $\phi^2_1 < 1$ ó $-1 < \phi_1 < 1$.
 
-Usando esta expresión, se puede calcular la covarianza de $Z_t$ y $Z_{t-h}$.
+??? example "Derivación de la función de covarianza y autocorrelación de un proceso AR(1)"
+    Para simplificar los cálculos, se puede calcular la covarianza de $Z_t$ y $Z_{t-h}$, con $h > 0$, asumiendo que $Z_t$ es estacionaria.
+
+    \(
+    \begin{align*}
+    Cov(Z_t,Z_{t-h}) &= E(Z_t Z_{t-h})\\
+    &=  E(Z_t ( \phi_1 Z_{t-h-1} + a_{t-h}) )\\
+    &= E(\phi_1 Z_t Z_{t-h-1} + Z_t a_{t-h})\\
+    &= E(\phi_1 Z_t Z_{t-h-1}) + E( Z_t a_{t-h})\\
+    &= \phi_1 E(Z_t Z_{t-h-1}) + E( Z_{t-h} a_t)\\
+    &= \phi_1 \gamma(h-1)
+    \end{align*}
+    \)
+
+    Por lo que la función de covarianza está dada por:
+
+    \(
+        \gamma(h) = \phi_1 \gamma(h-1)
+    \)
+
+    Recordando que $\gamma_0$ es la varianza de la serie.
+
+    Para obtener la función de autocorrelación, simplemente se divide la función de covarianza entre la varianza, por lo que se tiene que:
+
+    \(
+        \rho(h) = \begin{cases}
+        1 & \text{ si } h=0\\
+        \phi_1^h & \text{ si } h>0
+        \end{cases}
+    \)
+
+Este proceso puede generalizarse de forma que se obtene el modelo Autorregresivo de orden $p$.
 
 \(
-\begin{align*}
-Cov(Z_t,Z_{t-h}) &= E(Z_t Z_{t-h})\\
-&=  E(Z_t ( \phi_1 Z_{t-h-1} + a_{t-h}) )\\
-&= E(\phi_1 Z_t Z_{t-h-1} + Z_t a_{t-h})\\
-&= E(\phi_1 Z_t Z_{t-h-1}) + E( Z_t a_{t-h})\\
-&= \phi_1 E(Z_t Z_{t-h-1}) + E( Z_t a_{t-h})\\
-&= \phi_1 \gamma(h-1)
-\end{align*}
+    Y_t = \phi_0 + \phi_1 Y_{t-1} + \dots + \phi_p Y_{t-p} + a_t
 \)
+
+Las propiedades de este modelo para órdenes superiores están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o  Box, G., Jenkins, G., Reinsel, G., & Ljung, G. (2016).
+
+### Modelos de Medias Móviles
+
+Otro modelo ampliamente usado en economía y otros campos es el modelo de medias móviles. El modelo de Medias Móviles o _Moving Average_ de orden 1 se define como sigue:
+
+\(
+    Y_t = m + a_t - \theta_1 a_{t-1}
+\)
+
+donde $a_t$ es un término de error de ruido blanco con varianza $\sigma^2 _a$ y $\theta_1$ es un parámetro del modelo y $m$ una constante.
+
+Observése que es una [serie de tiempo lineal](#serie-de-tiempo-lineal), aunque el parámetro $\theta_1$ aparece con signo negativo.
+
+
+!!! note "Propiedades del modelo de medias móviles de orden 1"
+    Se dice que $Y_t = m + a_t - \theta_1 a_{t-1}$ es un proceso de medias móviles de orden 1. Entonces
+
+    - Es un proceso estacionario
+    - $E(Y_t) = m$
+    - $Var(Y_t) = \gamma_0 = \sigma^2_a (1+\theta_1^2)$
+    - $\gamma(h) = -\theta_1\sigma^2_a$ si $h = 1$
+    - $\rho(h) = \frac{-\theta_1}{1+\theta_1^2}$ si $h = 1$
+
+
+??? example "Derivación de la media y varianza de un proceso MA(1)"
+    Usando las propiedades de la esperanza, se puede encontrar fácilmente la media del proceso.
+
+    \(
+        E(Y_t) = E(m + a_t - \theta_1 a_{t-1}) = E(m)+E(a_t) - \theta_1 E(a_{t-1}) = m
+    \)
+
+    Por lo que su media no depende del tiempo. De forma similar es posible encontrar la varianza del proceso.
+
+    \(
+        \begin{align*}
+        Var(Y_t) &= E((Y_t-E(Y_t))^2)\\
+        &= E((Y_t-m)^2)\\
+        &=E(a_t^2-2 \theta_1 a_t a_{t-1}+\theta_1^2 a_{t-1}^2)\\
+        &=E(a_t^2) - 2 \theta_1 E(a_t a_{t-1}) + \theta_1^2 E(a_{t-1}^2)\\
+        &=\sigma^2_a + \theta_1^2 \sigma^2_a\\
+        &=\sigma^2_a (1+\theta_1^2)
+        \end{align*}
+    \)
+
+??? example "Derivación de la función de covarianza y autocorrelación de un proceso MA(1)"
+    Para simplificar los cálculos, se puede calcular la covarianza de $Z_t$ y $Z_{t-h}$, con $h > 0$, donde $Z_t = Y_t-m = a_t - \theta_1 a_{t-1}$.
+
+    \(
+    \begin{align*}
+    Cov(Z_t,Z_{t-h}) &= E(Z_t Z_{t-h})\\
+    &=  E((a_t - \theta_1 a_{t-1})   Z_{t-h} )\\
+    &= E(a_t Z_{t-h}-\theta_1 a_{t-1} Z_{t-h})\\
+    &= E(a_t Z_{t-h})- E(\theta_1 a_{t-1} Z_{t-h})\\
+    &= -\theta_1 E(a_{t-1} Z_{t-h})
+    \end{align*}
+    \)
+
+    Por lo que 
+
+    \(
+    \gamma(h) = 
+    \begin{cases}
+    0 & \text{ si } h>1\\
+    -\theta_1\sigma^2_a & \text{ si } h = 1
+    \end{cases}
+    \)
+
+    Usando el resultado anterior, es posible obtener la función de autocorrelación dividiendo la función de covarianza entre la varianza, por lo que se tiene que:
+
+    \(
+        \rho(h) = \begin{cases}
+        1 & \text{ si } h=0\\
+        \frac{-\theta_1}{1+\theta_1^2} & \text{ si } h=1\\
+        0 & \text{ si } h>1
+        \end{cases}
+    \)
+
+Las propiedades y generalizaciones de este modelo están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o  Box, G., Jenkins, G., Reinsel, G., & Ljung, G. (2016).
 
 
 ## Bibliografía
