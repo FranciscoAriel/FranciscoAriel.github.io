@@ -68,7 +68,7 @@ Un concepto muy importante en el estudio de las series de tiempo es la *estacion
 !!! note "Serie de tiempo estacionaria"
     Se dice que una serie de tiempo, denotada $X_t$ es *estrictamente estacionaria* si la distribución conjunta de $(X_{t_1},X_{t_2},\dots,X_{t_k})$ tiene la misma distribución que $(X_{t_1+h},X_{t_2+h},\dots,X_{t_k+h})$ para $t_1,t_2,\dots,t_k,h \in \mathbb{N}$.
 
-Un ejemplo de una serie de tiempo estacionaria estrictamente estacionaria sería una muestra aleatoria. Obsérvese que esta definición implica que la distribución es invariante en el tiempo. De acuerdo con (Tsay, 2010), esta es una condición muy fuerte y es dificil de verificarla empíricamente, por lo que a menudo se asume una condición más débil.
+Un ejemplo de una serie de tiempo estacionaria estrictamente estacionaria sería una muestra aleatoria. Obsérvese que esta definición implica que la distribución es invariante en el tiempo. De acuerdo con Tsay (2010), esta es una condición muy fuerte y es dificil de verificarla empíricamente, por lo que a menudo se asume una condición más débil.
 
 !!! note "Serie de tiempo débilmente estacionaria"
     Se dice que una serie de tiempo $X_t$ es *débilmente estacionaria* si sus primeros dos momentos son finitos y la media $E(X_t)=\mu$ es constante y su función de covarianza $Cov(X_t,X_{t+h})=\gamma (h)$ solo depende de $h$, para $h \in \mathbb{N}$.
@@ -106,11 +106,19 @@ A continuación se presenta un tipo de serie de tiempo o proceso que cumple con 
 !!! tip "Ruido blanco"
     Nos referiremos a una serie de tiempo de *ruido blanco* a aquella que sea *ruido blanco gaussiana*.
 
-La siguiente imagen ilustra una realización de un proceso de ruido blanco $a_t$ con varianza $\sigma^2_{a} = 16$. Note que los valores se encuentran en un intervalo alrededor de cero y no presenta ningún patrón extraño, por lo que este proceso es un **proceso estacionario**.
+??? example "Propiedades de un proceso de ruido blanco"
+    De acuerdo a la definición de estacionariedad, se mostrará que el proceso de ruido blanco es estacionario
 
-![Simulación de un proceso de ruido blanco](img/ruido_blanco.png)
+    - $E(a_t) = 0, \forall t$
+    - $Var(a_t) = E(a_t^2) =\sigma^2, \forall t$
+    - $\gamma(h) = Cov(a_t,a_{t-h}) = 0, \forall h \ge 1$
 
-Elaboración propia. Gráfico realizado con el software R.
+??? example "Ilustración de un proceso de ruido blanco"
+    La siguiente imagen ilustra una realización de un proceso de ruido blanco $a_t$ con varianza $\sigma^2_{a} = 16$. Note que los valores se encuentran en un intervalo alrededor de cero y no presenta ningún patrón extraño, por lo que este proceso es un **proceso estacionario**.
+
+    ![Simulación de un proceso de ruido blanco](img/ruido_blanco.png)
+
+    Elaboración propia. Gráfico realizado con el software R.
 
 ### Serie de tiempo lineal
 
@@ -128,13 +136,16 @@ Elaboración propia. Gráfico realizado con el software R.
 
 De la definición anterior, se entiende que una serie de tiempo lineal puede expresarse como una suma infinita ponderada de ruido, cuyos valores presentes y pasados afectan a la serie.
 
-Note que $E(Y_t) = \mu$ y $Var(Y_t) = Var(\sum_{i=0}^{\infty}\psi_i a_{t-i}) = \sigma^2_{a}\sum_{i=0}^{\infty}\psi^2_i$ y si la serie $Y_t$ es estacionaria, necesariamente $\sum_{i=0}^{\infty}\psi^2_i < \infty$, por lo que una condición necesaria y suficiente para que la varianza de $Y_t$ sea finita es que $\lim_{i \to \infty}\psi_i^2 = 0$.
+!!! note "Propiedades de una serie de tiempo lineal"
+    De la definición de serie de tiempo lineal y las propiedades del ruido blanco, se puede deducir los siguientes resultados
 
-Por otro lado, la covarianza entre $Y_t$ y $Y_{t+h}$ con $h \in \mathbb{N}$ puede expresarse como:
+    - $E(Y_t) = \mu$ 
+    - $Var(Y_t) = Var(\sum_{i=0}^{\infty}\psi_i a_{t-i}) = \sigma^2_{a}\sum_{i=0}^{\infty}\psi^2_i$ 
+    - $\gamma(h) =\sigma^2_{a} \sum_{i=0}^{\infty}\psi_i \psi_{i+h}, h \in \mathbb{N}$
 
-\(
-\gamma(h) =\sigma^2_{a} \sum_{i=0}^{\infty}\psi_i \psi_{i+h}
-\)
+    Si la serie $Y_t$ es estacionaria, necesariamente $\sum_{i=0}^{\infty}\psi^2_i < \infty$, por lo que una condición necesaria y suficiente para que la varianza de $Y_t$ sea finita es que $\lim_{i \to \infty}\psi_i^2 = 0$.
+
+    Una manera de asegurar que la serie $\sum_{i=0}^{\infty}\psi^2_i < \infty$ es convergente es imponer la condición de que $\psi_i = \theta$ con $|\theta|<1$. Para mayor información consulte la [serie geométrica](https://es.wikipedia.org/wiki/Serie_geom%C3%A9trica).
 
 ??? example "Serie de tiempo lineal"
     Suponga que se tiene una serie de tiempo $a_t$ de ruido blanco con varianza $\sigma^2_{a}=25$ y sea $\mu=50$ una constante. Se definen los pesos $\psi_1 = 2, \psi_2=0.5,\psi_3=0.1$ (todos los demas son iguales a cero). Entonces se define la serie de tiempo lineal como $Y_t = 50 + a_t + 2 a_{t-1} + 0.5 a_{t-2} + 0.1 a_{t-3}$. La siguiente gráfica representa una *realización* del proceso
@@ -155,6 +166,30 @@ Por otro lado, la covarianza entre $Y_t$ y $Y_{t+h}$ con $h \in \mathbb{N}$ pued
 
     Las funciones de autocovarianza y autocorrelación muestrales muestran valores muy cercanos a los esperados, sin embargo a partir de los rezagos 10 se aprecian valores que debieran ser cero; esto se debe a que la FACM es una *estimación de los valores observados*, por lo que se debe tener cuidado al interpretar la FACM.
 
+### Operador de Retraso
+
+En la literatura de series de tiempo, existe un operador que nos permite trabajar con las series de tiempo y sus valores en el tiempo. A dicho operador se le conoce como **operador de retraso** o _Backward Shift Operator_ y se denota como $B$.
+
+!!! abstract "Propiedades del operador de Retraso"
+    El operador de retraso $B$ tiene las siguientes propiedades:
+
+    - $B Y_t = Y_{t-1}$
+    - $B^h Y_t = Y_{t-h}$
+    - $B^{-1} Y_t = Y_{t-(-1)} = Y_{t+1}$
+    - $B^0 Y_t = 1Y_t = Y_t$
+
+Note que usando este operador, es posible definir funciones o polinomios que dependan de $B$ conocidos como _funciones de transferencia_ (Box et al. 2016). Un ejemplo de estas funciones es el _filtro lineal_ revisado en la sección anterior.
+
+\(
+    \begin{align*}
+    Y_t & =\mu + a_t +\psi_1 a_{t-1} +\psi_2 a_{t-2} + \dots\\
+    & = \mu + (1+\psi_1B + \psi_2B^2 + \dots)a_t\\
+    & = \mu + \psi(B)a_t
+    \end{align*}
+\)
+
+Existen funciones de transferencia más complejas pero serán estudiadas en secciones posteriores.
+
 ## Modelos ARIMA
 
 Una forma de modelar series de tiempo es usando los modelos ARIMA o *Autorregresivos Integrados de Medias Móviles* tambien conocidos como modelos Box-Jenkins. Para una referencia completa y detallada vea (Box et al., 2016).
@@ -165,15 +200,36 @@ La estimación de parámetros se discutirá de forma muy general y finalmente se
 
 ### Modelos autorregresivos
 
-El modelo autorregresivo es muy util para modelar muchos fenómenos, sobre todo relacionados con economía y finanzas ya que típicamente el valor actual *dependerá* de sus valores anteriores. Por simplicidad se puede comenzar con el modelo Autorregresivo de orden 1, pero se puede generalizar para orden $p$. Este modelo se puede expresar de la siguiente forma:
+El modelo autorregresivo es muy util para modelar muchos fenómenos, sobre todo relacionados con economía y finanzas ya que típicamente el valor actual *dependerá* de sus valores anteriores. 
+
+Por simplicidad se puede comenzar a estudiar el modelo Autorregresivo de orden 1. Este modelo se puede expresar de la siguiente forma:
 
 \(
 Y_t = \phi_0 + \phi_1 Y_{t-1} + a_t
 \)
 
-donde $a_t$ es un término de error de ruido blanco con varianza $\sigma^2 _a$ y $\phi_0$, $\phi_1$ son parámetros del modelo. A este modelo se le conoce como modelo autorregresivo de orden 1 o AR(1).
+donde $a_t$ es un término de error de ruido blanco con varianza $\sigma^2 _a$ y $\phi_0$, $\phi_1$ son parámetros del modelo. A este modelo se le conoce como modelo autorregresivo de orden 1 y se denota como AR(1).
 
-Note que este modelo es muy parecido a un modelo de regresión lineal simple, con la diferencia de que la variable explicativa es **ella misma pero un periodo anterior**.
+Reordenando los términoes, es posible expresarlo en forma más compacta.
+
+\(
+(1-\phi_1 B) Y_t = \phi_0 + a_t
+\)
+
+Note que este modelo es muy parecido a un modelo de regresión lineal simple, con la diferencia de que la variable explicativa es **ella misma pero un periodo anterior**. Sin embargo, este modelo cumple con una propiedad muy interesante.
+
+!!! note "Propiedad Markoviana"
+    Se dice que una serie de tiempo cumple con la propiedad markoviana si:
+
+    \(
+        E(Y_t|Y_{t-1} = y_{t-1}) = \phi_0 + \phi_1 y_{t-1}
+    \)
+
+    Es decir, si el valor de la serie en el periodo anterior es conocido $y_{t-1}$, es posible conocer el _valor esperado_ de la serie en el periodo actual.
+
+    En otras palabras, el valor actual y el anterior están correlacionados, pero no así para periodos anteriores. 
+
+Para mayores detalles sobre esta propiedad vea la sección [cadenas de Markov](procesos_estocasticos.md#cadenas-de-markov).
 
 !!! note "Propiedades del modelo Autorregresivo de orden 1"
     Se dice que $Y_t = \phi_0 + \phi_1 Y_{t-1} + a_t$ es un proceso autoregresivo de orden 1. Si es proceso es estacionario, entonces
@@ -182,6 +238,15 @@ Note que este modelo es muy parecido a un modelo de regresión lineal simple, co
     - $Var(Y_t) = \gamma_0 = \frac{\sigma^2 _a}{1-\phi^2_1}$
     - $\gamma(h) = \phi_1 \gamma(h-1)$
     - $\rho(h) = \phi_1^h$
+
+Del resumen anterior es posible deducir el siguiente resultado.
+
+!!! note "Condición de estacionariedad del modelo AR(1)"
+    Una condición necesaria y suficiente para que un proceso AR(1) sea estacionario es la siguiente:
+
+    \(
+        |\phi_1| < 1
+    \)
 
 ??? example "Derivación de la media y varianza de un proceso AR(1)"
 
@@ -249,13 +314,23 @@ Note que este modelo es muy parecido a un modelo de regresión lineal simple, co
         \end{cases}
     \)
 
-Este proceso puede generalizarse de forma que se obtene el modelo Autorregresivo de orden $p$.
+Este proceso puede generalizarse de tal forma que se obtene el modelo Autorregresivo de orden $p$.
 
 \(
     Y_t = \phi_0 + \phi_1 Y_{t-1} + \dots + \phi_p Y_{t-p} + a_t
 \)
 
-Las propiedades de este modelo para órdenes superiores están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o  Box, G., Jenkins, G., Reinsel, G., & Ljung, G. (2016).
+O en usando operadores de retraso, se puede expresar como:
+
+\(
+\begin{align*}
+Y_t - \phi_1 Y_{t-1} - \dots - \phi_p Y_{t-p} &= \phi_0 + a_t\\
+(1-\phi_1 B - \dots - \phi_p B^p) Y_t & = \phi_0 + a_t\\
+\phi(B) Y_t & = \phi_0 + a_t
+\end{align*}
+\)
+
+Las propiedades de este modelo para órdenes superiores están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay (2010) o Box et al. (2016).
 
 ### Modelos de Medias Móviles
 
@@ -268,7 +343,6 @@ Otro modelo ampliamente usado en economía y otros campos es el modelo de medias
 donde $a_t$ es un término de error de ruido blanco con varianza $\sigma^2 _a$ y $\theta_1$ es un parámetro del modelo y $m$ una constante.
 
 Observése que es una [serie de tiempo lineal](#serie-de-tiempo-lineal), aunque el parámetro $\theta_1$ aparece con signo negativo.
-
 
 !!! note "Propiedades del modelo de medias móviles de orden 1"
     Se dice que $Y_t = m + a_t - \theta_1 a_{t-1}$ es un proceso de medias móviles de orden 1. Entonces
@@ -333,8 +407,74 @@ Observése que es una [serie de tiempo lineal](#serie-de-tiempo-lineal), aunque 
         \end{cases}
     \)
 
-Las propiedades y generalizaciones de este modelo están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o  Box, G., Jenkins, G., Reinsel, G., & Ljung, G. (2016).
+Aunque los procesos de media móvil son estacionarios, es importante mencionar que deben de cumplir con una condición especial conocida como _invertibilidad_
 
+!!! note "Invertibilidad"
+    Se dice que un proceso lineal es  _invertible_ si
+
+    - $\sum_{i=0}^{\infty}|\psi_i|<\infty$
+    - Las raíces del polinomio $\theta(B)=0$ son mayores a 1 en módulo.
+
+    Es decir, si los pesos $\psi_i$ son _absolutamente sumables_, el proceso es **invertible**.
+
+Básicamente, la idea de invertibilidad, es poder expresar un proceso MA como un proceso AR estacionario. En el siguiente ejemplo, se mostrará la idea de invertibilidad para un proceso MA(1).
+
+??? example "Ilustración de invertibilidad de un proceso MA(1)"
+    Considere un proceso MA(1) con media 0, $Z_t = a_t - \theta_1 a_{t-1}$, es posible expresar el proceso de ruido blanco $a_t$ como función de la serie y de ruido anterior de forma iterativa de la siguiente manera
+
+    \(
+    \begin{align*}
+    a_t &= Z_t + \theta_1 a_{t-1}\\
+        & = Z_t + \theta_1 Z_{t-1}+\theta_1^2 a_{t-2}\\
+        & = Z_t + \theta_1 Z_{t-1}+\theta_1^2 Z_{t-2} + \theta_1^3 a_{t-3}\\
+        & = Z_t + \theta_1 Z_{t-1}+\theta_1^2 Z_{t-2} + \theta_1^3 Z_{t-3} + \theta_1^4 a_{t-4}\\
+        & = Z_t + \theta_1 Z_{t-1}+\theta_1^2 Z_{t-2} + \theta_1^3 Z_{t-3} + \dots
+    \end{align*}
+    \)
+
+    Se esperaría que los impactos más alejados tuvieran menos efecto en el ruido actual, es decir, 
+    
+    \(
+        \lim_{i \to \infty} \theta_1^i = 0
+    \)
+
+    Por lo que esto se cumple necesariamente si $|\theta_1|<1$. Note que esto es equivalente a $\psi_0 = 1,\;\psi_1 = \theta_1,\;\psi_2 = \theta_1^2,\; \dots$, por lo que un proceso invertible puede representarse como un proceso autorregresivo estacionario.
+
+    Esta demostración tambien puede obtenerse usando funciones de transferencia. El modelo MA(1) puede expresarse de la siguiente manera:
+
+    \(
+        Y_t = (1-\theta_1 B) a_t
+    \)
+
+    Para saber si el modelo es invertible, las raíces del polinomio de medias móviles $\theta(B)=1-\theta_1 B=0$ debeb ser _mayores a 1 en valor absoluto_, por lo que la solución es $B=\frac{1}{\theta_1}$ cumple esta restricción si $|\theta_1|<1$ o $|\frac{1}{\theta_1}|>1$.
+
+    En conclusión, el proceso podría representarse como un modelo Autorregresivo estacionariocon infinidad de parámetros, o de forma más parsimoniosa es posible representarlo como un proceso de media móvil de orden 1.
+
+??? example "Un proceso MA no invertible"
+    Considere el siguiente modelo lineal $Y_t = a_t + 2 a_{t-1} + 0.5 a_{t-2}$. Este modelo puede considerarse como un modelo MA(2), pero se comprobará que no es invertible.
+
+    Expresándolo como en términos del polinomio autorregresivo $Y_t = (1+2B + 0.5 B^2)a_t$, es posible encontrar que las raices del polinomio son $-\sqrt{2}-2$ y $\sqrt{2}-2$.
+
+    Como el valor absoluto de alguna de las soluciones del polinomio no es mayor a 1, se concluye que el proceso _no es invertible_, por lo que no admite representación como un Autorregresivo estacionario.
+    
+
+Las propiedades y generalizaciones de este modelo están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o Box et al., (2016) .
+
+### Modelos ARMA
+
+El modelo ARMA(p,q) o Autorregresivo de Medias Móviles de orden $p$ y $q$ combina tanto a los Modelos Autorregresivos para la parte de la serie de tiempo y las Medias Móviles para la serie de ruido. Este modelo es muy flexible y permite modelar muchas series.
+
+Una serie de tiempo sigue un proceso ARMA(1,1) si puede representarse de la siguiente manera:
+
+\(
+    Y_t-\phi_1 Y_{t-1} = \mu + a_t - \theta_1 a_{t-1}
+\)
+
+o en términos de operadores de retraso
+
+\(
+    (1-\phi_1 B)Y_t = \mu + (1-\theta_1 B) a_t
+\)
 
 ## Bibliografía
 

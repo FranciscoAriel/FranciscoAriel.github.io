@@ -730,6 +730,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#operador-de-retraso" class="md-nav__link">
+    Operador de Retraso
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -753,6 +760,13 @@
           <li class="md-nav__item">
   <a href="#modelos-de-medias-moviles" class="md-nav__link">
     Modelos de Medias Móviles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelos-arma" class="md-nav__link">
+    Modelos ARMA
   </a>
   
 </li>
@@ -927,6 +941,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#operador-de-retraso" class="md-nav__link">
+    Operador de Retraso
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -950,6 +971,13 @@
           <li class="md-nav__item">
   <a href="#modelos-de-medias-moviles" class="md-nav__link">
     Modelos de Medias Móviles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelos-arma" class="md-nav__link">
+    Modelos ARMA
   </a>
   
 </li>
@@ -1061,7 +1089,7 @@ Ejemplo de una gráfica de serie de tiempo. Elaboración propia usando SAS &reg;
 <p class="admonition-title">Serie de tiempo estacionaria</p>
 <p>Se dice que una serie de tiempo, denotada <span class="arithmatex">\(X_t\)</span> es <em>estrictamente estacionaria</em> si la distribución conjunta de <span class="arithmatex">\((X_{t_1},X_{t_2},\dots,X_{t_k})\)</span> tiene la misma distribución que <span class="arithmatex">\((X_{t_1+h},X_{t_2+h},\dots,X_{t_k+h})\)</span> para <span class="arithmatex">\(t_1,t_2,\dots,t_k,h \in \mathbb{N}\)</span>.</p>
 </div>
-<p>Un ejemplo de una serie de tiempo estacionaria estrictamente estacionaria sería una muestra aleatoria. Obsérvese que esta definición implica que la distribución es invariante en el tiempo. De acuerdo con (Tsay, 2010), esta es una condición muy fuerte y es dificil de verificarla empíricamente, por lo que a menudo se asume una condición más débil.</p>
+<p>Un ejemplo de una serie de tiempo estacionaria estrictamente estacionaria sería una muestra aleatoria. Obsérvese que esta definición implica que la distribución es invariante en el tiempo. De acuerdo con Tsay (2010), esta es una condición muy fuerte y es dificil de verificarla empíricamente, por lo que a menudo se asume una condición más débil.</p>
 <div class="admonition note">
 <p class="admonition-title">Serie de tiempo débilmente estacionaria</p>
 <p>Se dice que una serie de tiempo <span class="arithmatex">\(X_t\)</span> es <em>débilmente estacionaria</em> si sus primeros dos momentos son finitos y la media <span class="arithmatex">\(E(X_t)=\mu\)</span> es constante y su función de covarianza <span class="arithmatex">\(Cov(X_t,X_{t+h})=\gamma (h)\)</span> solo depende de <span class="arithmatex">\(h\)</span>, para <span class="arithmatex">\(h \in \mathbb{N}\)</span>.</p>
@@ -1092,9 +1120,21 @@ Ejemplo de una gráfica de serie de tiempo. Elaboración propia usando SAS &reg;
 <p class="admonition-title">Ruido blanco</p>
 <p>Nos referiremos a una serie de tiempo de <em>ruido blanco</em> a aquella que sea <em>ruido blanco gaussiana</em>.</p>
 </div>
+<details class="example">
+<summary>Propiedades de un proceso de ruido blanco</summary>
+<p>De acuerdo a la definición de estacionariedad, se mostrará que el proceso de ruido blanco es estacionario</p>
+<ul>
+<li><span class="arithmatex">\(E(a_t) = 0, \forall t\)</span></li>
+<li><span class="arithmatex">\(Var(a_t) = E(a_t^2) =\sigma^2, \forall t\)</span></li>
+<li><span class="arithmatex">\(\gamma(h) = Cov(a_t,a_{t-h}) = 0, \forall h \ge 1\)</span></li>
+</ul>
+</details>
+<details class="example">
+<summary>Ilustración de un proceso de ruido blanco</summary>
 <p>La siguiente imagen ilustra una realización de un proceso de ruido blanco <span class="arithmatex">\(a_t\)</span> con varianza <span class="arithmatex">\(\sigma^2_{a} = 16\)</span>. Note que los valores se encuentran en un intervalo alrededor de cero y no presenta ningún patrón extraño, por lo que este proceso es un <strong>proceso estacionario</strong>.</p>
 <p><img alt="Simulación de un proceso de ruido blanco" src="../img/ruido_blanco.png" /></p>
 <p>Elaboración propia. Gráfico realizado con el software R.</p>
+</details>
 <h3 id="serie-de-tiempo-lineal">Serie de tiempo lineal<a class="headerlink" href="#serie-de-tiempo-lineal" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Serie de tiempo lineal</p>
@@ -1108,11 +1148,17 @@ Y_t &amp; = \mu + \sum_{i=0}^{\infty}\psi_i a_{t-i}\\
 <p>donde <span class="arithmatex">\(\psi_0 = 1\)</span> y <span class="arithmatex">\(\mu\)</span> es la media de la serie y <span class="arithmatex">\({a_t}\)</span> es una serie de ruido blanco.</p>
 </div>
 <p>De la definición anterior, se entiende que una serie de tiempo lineal puede expresarse como una suma infinita ponderada de ruido, cuyos valores presentes y pasados afectan a la serie.</p>
-<p>Note que <span class="arithmatex">\(E(Y_t) = \mu\)</span> y <span class="arithmatex">\(Var(Y_t) = Var(\sum_{i=0}^{\infty}\psi_i a_{t-i}) = \sigma^2_{a}\sum_{i=0}^{\infty}\psi^2_i\)</span> y si la serie <span class="arithmatex">\(Y_t\)</span> es estacionaria, necesariamente <span class="arithmatex">\(\sum_{i=0}^{\infty}\psi^2_i &lt; \infty\)</span>, por lo que una condición necesaria y suficiente para que la varianza de <span class="arithmatex">\(Y_t\)</span> sea finita es que <span class="arithmatex">\(\lim_{i \to \infty}\psi_i^2 = 0\)</span>.</p>
-<p>Por otro lado, la covarianza entre <span class="arithmatex">\(Y_t\)</span> y <span class="arithmatex">\(Y_{t+h}\)</span> con <span class="arithmatex">\(h \in \mathbb{N}\)</span> puede expresarse como:</p>
-<p><span class="arithmatex">\(
-\gamma(h) =\sigma^2_{a} \sum_{i=0}^{\infty}\psi_i \psi_{i+h}
-\)</span></p>
+<div class="admonition note">
+<p class="admonition-title">Propiedades de una serie de tiempo lineal</p>
+<p>De la definición de serie de tiempo lineal y las propiedades del ruido blanco, se puede deducir los siguientes resultados</p>
+<ul>
+<li><span class="arithmatex">\(E(Y_t) = \mu\)</span> </li>
+<li><span class="arithmatex">\(Var(Y_t) = Var(\sum_{i=0}^{\infty}\psi_i a_{t-i}) = \sigma^2_{a}\sum_{i=0}^{\infty}\psi^2_i\)</span> </li>
+<li><span class="arithmatex">\(\gamma(h) =\sigma^2_{a} \sum_{i=0}^{\infty}\psi_i \psi_{i+h}, h \in \mathbb{N}\)</span></li>
+</ul>
+<p>Si la serie <span class="arithmatex">\(Y_t\)</span> es estacionaria, necesariamente <span class="arithmatex">\(\sum_{i=0}^{\infty}\psi^2_i &lt; \infty\)</span>, por lo que una condición necesaria y suficiente para que la varianza de <span class="arithmatex">\(Y_t\)</span> sea finita es que <span class="arithmatex">\(\lim_{i \to \infty}\psi_i^2 = 0\)</span>.</p>
+<p>Una manera de asegurar que la serie <span class="arithmatex">\(\sum_{i=0}^{\infty}\psi^2_i &lt; \infty\)</span> es convergente es imponer la condición de que <span class="arithmatex">\(\psi_i = \theta\)</span> con <span class="arithmatex">\(|\theta|&lt;1\)</span>. Para mayor información consulte la <a href="https://es.wikipedia.org/wiki/Serie_geom%C3%A9trica">serie geométrica</a>.</p>
+</div>
 <details class="example">
 <summary>Serie de tiempo lineal</summary>
 <p>Suponga que se tiene una serie de tiempo <span class="arithmatex">\(a_t\)</span> de ruido blanco con varianza <span class="arithmatex">\(\sigma^2_{a}=25\)</span> y sea <span class="arithmatex">\(\mu=50\)</span> una constante. Se definen los pesos <span class="arithmatex">\(\psi_1 = 2, \psi_2=0.5,\psi_3=0.1\)</span> (todos los demas son iguales a cero). Entonces se define la serie de tiempo lineal como <span class="arithmatex">\(Y_t = 50 + a_t + 2 a_{t-1} + 0.5 a_{t-2} + 0.1 a_{t-3}\)</span>. La siguiente gráfica representa una <em>realización</em> del proceso</p>
@@ -1125,17 +1171,53 @@ Y_t &amp; = \mu + \sum_{i=0}^{\infty}\psi_i a_{t-i}\\
 <p>Elaboración propia usando la función <code>acf()</code> del software R.</p>
 <p>Las funciones de autocovarianza y autocorrelación muestrales muestran valores muy cercanos a los esperados, sin embargo a partir de los rezagos 10 se aprecian valores que debieran ser cero; esto se debe a que la FACM es una <em>estimación de los valores observados</em>, por lo que se debe tener cuidado al interpretar la FACM.</p>
 </details>
+<h3 id="operador-de-retraso">Operador de Retraso<a class="headerlink" href="#operador-de-retraso" title="Permanent link">&para;</a></h3>
+<p>En la literatura de series de tiempo, existe un operador que nos permite trabajar con las series de tiempo y sus valores en el tiempo. A dicho operador se le conoce como <strong>operador de retraso</strong> o <em>Backward Shift Operator</em> y se denota como <span class="arithmatex">\(B\)</span>.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Propiedades del operador de Retraso</p>
+<p>El operador de retraso <span class="arithmatex">\(B\)</span> tiene las siguientes propiedades:</p>
+<ul>
+<li><span class="arithmatex">\(B Y_t = Y_{t-1}\)</span></li>
+<li><span class="arithmatex">\(B^h Y_t = Y_{t-h}\)</span></li>
+<li><span class="arithmatex">\(B^{-1} Y_t = Y_{t-(-1)} = Y_{t+1}\)</span></li>
+<li><span class="arithmatex">\(B^0 Y_t = 1Y_t = Y_t\)</span></li>
+</ul>
+</div>
+<p>Note que usando este operador, es posible definir funciones o polinomios que dependan de <span class="arithmatex">\(B\)</span> conocidos como <em>funciones de transferencia</em> (Box et al. 2016). Un ejemplo de estas funciones es el <em>filtro lineal</em> revisado en la sección anterior.</p>
+<p><span class="arithmatex">\(
+    \begin{align*}
+    Y_t &amp; =\mu + a_t +\psi_1 a_{t-1} +\psi_2 a_{t-2} + \dots\\
+    &amp; = \mu + (1+\psi_1B + \psi_2B^2 + \dots)a_t\\
+    &amp; = \mu + \psi(B)a_t
+    \end{align*}
+\)</span></p>
+<p>Existen funciones de transferencia más complejas pero serán estudiadas en secciones posteriores.</p>
 <h2 id="modelos-arima">Modelos ARIMA<a class="headerlink" href="#modelos-arima" title="Permanent link">&para;</a></h2>
 <p>Una forma de modelar series de tiempo es usando los modelos ARIMA o <em>Autorregresivos Integrados de Medias Móviles</em> tambien conocidos como modelos Box-Jenkins. Para una referencia completa y detallada vea (Box et al., 2016).</p>
 <p>Primero se introducirán los modelos Autorregresivos (AR), Medias móviles (MA) y los Autorregresivos de medias móviles (ARMA). Posteriormente se introducirá el concepto de raíz unitaria y modelos integrados (ARIMA), así como los modelos estacionales (SARIMA).</p>
 <p>La estimación de parámetros se discutirá de forma muy general y finalmente se mencionará la validación de supuestos y cómo realizar predicciones.</p>
 <h3 id="modelos-autorregresivos">Modelos autorregresivos<a class="headerlink" href="#modelos-autorregresivos" title="Permanent link">&para;</a></h3>
-<p>El modelo autorregresivo es muy util para modelar muchos fenómenos, sobre todo relacionados con economía y finanzas ya que típicamente el valor actual <em>dependerá</em> de sus valores anteriores. Por simplicidad se puede comenzar con el modelo Autorregresivo de orden 1, pero se puede generalizar para orden <span class="arithmatex">\(p\)</span>. Este modelo se puede expresar de la siguiente forma:</p>
+<p>El modelo autorregresivo es muy util para modelar muchos fenómenos, sobre todo relacionados con economía y finanzas ya que típicamente el valor actual <em>dependerá</em> de sus valores anteriores. </p>
+<p>Por simplicidad se puede comenzar a estudiar el modelo Autorregresivo de orden 1. Este modelo se puede expresar de la siguiente forma:</p>
 <p><span class="arithmatex">\(
 Y_t = \phi_0 + \phi_1 Y_{t-1} + a_t
 \)</span></p>
-<p>donde <span class="arithmatex">\(a_t\)</span> es un término de error de ruido blanco con varianza <span class="arithmatex">\(\sigma^2 _a\)</span> y <span class="arithmatex">\(\phi_0\)</span>, <span class="arithmatex">\(\phi_1\)</span> son parámetros del modelo. A este modelo se le conoce como modelo autorregresivo de orden 1 o AR(1).</p>
-<p>Note que este modelo es muy parecido a un modelo de regresión lineal simple, con la diferencia de que la variable explicativa es <strong>ella misma pero un periodo anterior</strong>.</p>
+<p>donde <span class="arithmatex">\(a_t\)</span> es un término de error de ruido blanco con varianza <span class="arithmatex">\(\sigma^2 _a\)</span> y <span class="arithmatex">\(\phi_0\)</span>, <span class="arithmatex">\(\phi_1\)</span> son parámetros del modelo. A este modelo se le conoce como modelo autorregresivo de orden 1 y se denota como AR(1).</p>
+<p>Reordenando los términoes, es posible expresarlo en forma más compacta.</p>
+<p><span class="arithmatex">\(
+(1-\phi_1 B) Y_t = \phi_0 + a_t
+\)</span></p>
+<p>Note que este modelo es muy parecido a un modelo de regresión lineal simple, con la diferencia de que la variable explicativa es <strong>ella misma pero un periodo anterior</strong>. Sin embargo, este modelo cumple con una propiedad muy interesante.</p>
+<div class="admonition note">
+<p class="admonition-title">Propiedad Markoviana</p>
+<p>Se dice que una serie de tiempo cumple con la propiedad markoviana si:</p>
+<p><span class="arithmatex">\(
+    E(Y_t|Y_{t-1} = y_{t-1}) = \phi_0 + \phi_1 y_{t-1}
+\)</span></p>
+<p>Es decir, si el valor de la serie en el periodo anterior es conocido <span class="arithmatex">\(y_{t-1}\)</span>, es posible conocer el <em>valor esperado</em> de la serie en el periodo actual.</p>
+<p>En otras palabras, el valor actual y el anterior están correlacionados, pero no así para periodos anteriores. </p>
+</div>
+<p>Para mayores detalles sobre esta propiedad vea la sección <a href="../procesos_estocasticos/#cadenas-de-markov">cadenas de Markov</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Propiedades del modelo Autorregresivo de orden 1</p>
 <p>Se dice que <span class="arithmatex">\(Y_t = \phi_0 + \phi_1 Y_{t-1} + a_t\)</span> es un proceso autoregresivo de orden 1. Si es proceso es estacionario, entonces</p>
@@ -1145,6 +1227,14 @@ Y_t = \phi_0 + \phi_1 Y_{t-1} + a_t
 <li><span class="arithmatex">\(\gamma(h) = \phi_1 \gamma(h-1)\)</span></li>
 <li><span class="arithmatex">\(\rho(h) = \phi_1^h\)</span></li>
 </ul>
+</div>
+<p>Del resumen anterior es posible deducir el siguiente resultado.</p>
+<div class="admonition note">
+<p class="admonition-title">Condición de estacionariedad del modelo AR(1)</p>
+<p>Una condición necesaria y suficiente para que un proceso AR(1) sea estacionario es la siguiente:</p>
+<p><span class="arithmatex">\(
+    |\phi_1| &lt; 1
+\)</span></p>
 </div>
 <details class="example">
 <summary>Derivación de la media y varianza de un proceso AR(1)</summary>
@@ -1200,11 +1290,19 @@ Cov(Z_t,Z_{t-h}) &amp;= E(Z_t Z_{t-h})\\
     \end{cases}
 \)</span></p>
 </details>
-<p>Este proceso puede generalizarse de forma que se obtene el modelo Autorregresivo de orden <span class="arithmatex">\(p\)</span>.</p>
+<p>Este proceso puede generalizarse de tal forma que se obtene el modelo Autorregresivo de orden <span class="arithmatex">\(p\)</span>.</p>
 <p><span class="arithmatex">\(
     Y_t = \phi_0 + \phi_1 Y_{t-1} + \dots + \phi_p Y_{t-p} + a_t
 \)</span></p>
-<p>Las propiedades de este modelo para órdenes superiores están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o  Box, G., Jenkins, G., Reinsel, G., &amp; Ljung, G. (2016).</p>
+<p>O en usando operadores de retraso, se puede expresar como:</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+Y_t - \phi_1 Y_{t-1} - \dots - \phi_p Y_{t-p} &amp;= \phi_0 + a_t\\
+(1-\phi_1 B - \dots - \phi_p B^p) Y_t &amp; = \phi_0 + a_t\\
+\phi(B) Y_t &amp; = \phi_0 + a_t
+\end{align*}
+\)</span></p>
+<p>Las propiedades de este modelo para órdenes superiores están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay (2010) o Box et al. (2016).</p>
 <h3 id="modelos-de-medias-moviles">Modelos de Medias Móviles<a class="headerlink" href="#modelos-de-medias-moviles" title="Permanent link">&para;</a></h3>
 <p>Otro modelo ampliamente usado en economía y otros campos es el modelo de medias móviles. El modelo de Medias Móviles o <em>Moving Average</em> de orden 1 se define como sigue:</p>
 <p><span class="arithmatex">\(
@@ -1270,7 +1368,58 @@ Cov(Z_t,Z_{t-h}) &amp;= E(Z_t Z_{t-h})\\
     \end{cases}
 \)</span></p>
 </details>
-<p>Las propiedades y generalizaciones de este modelo están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o  Box, G., Jenkins, G., Reinsel, G., &amp; Ljung, G. (2016).</p>
+<p>Aunque los procesos de media móvil son estacionarios, es importante mencionar que deben de cumplir con una condición especial conocida como <em>invertibilidad</em></p>
+<div class="admonition note">
+<p class="admonition-title">Invertibilidad</p>
+<p>Se dice que un proceso lineal es  <em>invertible</em> si</p>
+<ul>
+<li><span class="arithmatex">\(\sum_{i=0}^{\infty}|\psi_i|&lt;\infty\)</span></li>
+<li>Las raíces del polinomio <span class="arithmatex">\(\theta(B)=0\)</span> son mayores a 1 en módulo.</li>
+</ul>
+<p>Es decir, si los pesos <span class="arithmatex">\(\psi_i\)</span> son <em>absolutamente sumables</em>, el proceso es <strong>invertible</strong>.</p>
+</div>
+<p>Básicamente, la idea de invertibilidad, es poder expresar un proceso MA como un proceso AR estacionario. En el siguiente ejemplo, se mostrará la idea de invertibilidad para un proceso MA(1).</p>
+<details class="example">
+<summary>Ilustración de invertibilidad de un proceso MA(1)</summary>
+<p>Considere un proceso MA(1) con media 0, <span class="arithmatex">\(Z_t = a_t - \theta_1 a_{t-1}\)</span>, es posible expresar el proceso de ruido blanco <span class="arithmatex">\(a_t\)</span> como función de la serie y de ruido anterior de forma iterativa de la siguiente manera</p>
+<p><span class="arithmatex">\(
+\begin{align*}
+a_t &amp;= Z_t + \theta_1 a_{t-1}\\
+    &amp; = Z_t + \theta_1 Z_{t-1}+\theta_1^2 a_{t-2}\\
+    &amp; = Z_t + \theta_1 Z_{t-1}+\theta_1^2 Z_{t-2} + \theta_1^3 a_{t-3}\\
+    &amp; = Z_t + \theta_1 Z_{t-1}+\theta_1^2 Z_{t-2} + \theta_1^3 Z_{t-3} + \theta_1^4 a_{t-4}\\
+    &amp; = Z_t + \theta_1 Z_{t-1}+\theta_1^2 Z_{t-2} + \theta_1^3 Z_{t-3} + \dots
+\end{align*}
+\)</span></p>
+<p>Se esperaría que los impactos más alejados tuvieran menos efecto en el ruido actual, es decir, </p>
+<p><span class="arithmatex">\(
+    \lim_{i \to \infty} \theta_1^i = 0
+\)</span></p>
+<p>Por lo que esto se cumple necesariamente si <span class="arithmatex">\(|\theta_1|&lt;1\)</span>. Note que esto es equivalente a <span class="arithmatex">\(\psi_0 = 1,\;\psi_1 = \theta_1,\;\psi_2 = \theta_1^2,\; \dots\)</span>, por lo que un proceso invertible puede representarse como un proceso autorregresivo estacionario.</p>
+<p>Esta demostración tambien puede obtenerse usando funciones de transferencia. El modelo MA(1) puede expresarse de la siguiente manera:</p>
+<p><span class="arithmatex">\(
+    Y_t = (1-\theta_1 B) a_t
+\)</span></p>
+<p>Para saber si el modelo es invertible, las raíces del polinomio de medias móviles <span class="arithmatex">\(\theta(B)=1-\theta_1 B=0\)</span> debeb ser <em>mayores a 1 en valor absoluto</em>, por lo que la solución es <span class="arithmatex">\(B=\frac{1}{\theta_1}\)</span> cumple esta restricción si <span class="arithmatex">\(|\theta_1|&lt;1\)</span> o <span class="arithmatex">\(|\frac{1}{\theta_1}|&gt;1\)</span>.</p>
+<p>En conclusión, el proceso podría representarse como un modelo Autorregresivo estacionariocon infinidad de parámetros, o de forma más parsimoniosa es posible representarlo como un proceso de media móvil de orden 1.</p>
+</details>
+<details class="example">
+<summary>Un proceso MA no invertible</summary>
+<p>Considere el siguiente modelo lineal <span class="arithmatex">\(Y_t = a_t + 2 a_{t-1} + 0.5 a_{t-2}\)</span>. Este modelo puede considerarse como un modelo MA(2), pero se comprobará que no es invertible.</p>
+<p>Expresándolo como en términos del polinomio autorregresivo <span class="arithmatex">\(Y_t = (1+2B + 0.5 B^2)a_t\)</span>, es posible encontrar que las raices del polinomio son <span class="arithmatex">\(-\sqrt{2}-2\)</span> y <span class="arithmatex">\(\sqrt{2}-2\)</span>.</p>
+<p>Como el valor absoluto de alguna de las soluciones del polinomio no es mayor a 1, se concluye que el proceso <em>no es invertible</em>, por lo que no admite representación como un Autorregresivo estacionario.</p>
+</details>
+<p>Las propiedades y generalizaciones de este modelo están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o Box et al., (2016) .</p>
+<h3 id="modelos-arma">Modelos ARMA<a class="headerlink" href="#modelos-arma" title="Permanent link">&para;</a></h3>
+<p>El modelo ARMA(p,q) o Autorregresivo de Medias Móviles de orden <span class="arithmatex">\(p\)</span> y <span class="arithmatex">\(q\)</span> combina tanto a los Modelos Autorregresivos para la parte de la serie de tiempo y las Medias Móviles para la serie de ruido. Este modelo es muy flexible y permite modelar muchas series.</p>
+<p>Una serie de tiempo sigue un proceso ARMA(1,1) si puede representarse de la siguiente manera:</p>
+<p><span class="arithmatex">\(
+    Y_t-\phi_1 Y_{t-1} = \mu + a_t - \theta_1 a_{t-1}
+\)</span></p>
+<p>o en términos de operadores de retraso</p>
+<p><span class="arithmatex">\(
+    (1-\phi_1 B)Y_t = \mu + (1-\theta_1 B) a_t
+\)</span></p>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
 <p>Box, G., Jenkins, G., Reinsel, G., &amp; Ljung, G. (2016). Time Series Analysis: Forecasting and Control. John Wiley &amp; Sons.</p>
 <p>Hyndman, R., &amp; Athanasopoulos, G. (2022). Forecasting: Principles and Practice (3rd ed). OTexts. https://Otexts.com/fpp3/</p>
