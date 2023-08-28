@@ -192,7 +192,7 @@ Existen funciones de transferencia más complejas pero serán estudiadas en secc
 
 ## Modelos ARIMA
 
-Una forma de modelar series de tiempo es usando los modelos ARIMA o *Autorregresivos Integrados de Medias Móviles* tambien conocidos como modelos Box-Jenkins. Para una referencia completa y detallada vea (Box et al., 2016).
+Una forma de modelar series de tiempo es usando los modelos ARIMA o *Autorregresivos Integrados de Medias Móviles* tambien conocidos como modelos Box-Jenkins. Para una referencia completa y detallada vea Box et al. (2016).
 
 Primero se introducirán los modelos Autorregresivos (AR), Medias móviles (MA) y los Autorregresivos de medias móviles (ARMA). Posteriormente se introducirá el concepto de raíz unitaria y modelos integrados (ARIMA), así como los modelos estacionales (SARIMA).
 
@@ -247,6 +247,8 @@ Del resumen anterior es posible deducir el siguiente resultado.
     \(
         |\phi_1| < 1
     \)
+
+    Note que este resultado es equivalente si las raíces del polinomio $\phi(B)=0$ son mayores a 1 en valor absoluto.
 
 ??? example "Derivación de la media y varianza de un proceso AR(1)"
 
@@ -446,9 +448,9 @@ Básicamente, la idea de invertibilidad, es poder expresar un proceso MA como un
         Y_t = (1-\theta_1 B) a_t
     \)
 
-    Para saber si el modelo es invertible, las raíces del polinomio de medias móviles $\theta(B)=1-\theta_1 B=0$ debeb ser _mayores a 1 en valor absoluto_, por lo que la solución es $B=\frac{1}{\theta_1}$ cumple esta restricción si $|\theta_1|<1$ o $|\frac{1}{\theta_1}|>1$.
+    Para saber si el modelo es invertible, las raíces del polinomio de medias móviles $\theta(B)=1-\theta_1 B=0$ deben ser _mayores a 1 en valor absoluto_, por lo que la solución es $B=\frac{1}{\theta_1}$ cumple esta restricción si $|\theta_1|<1$ o $|\frac{1}{\theta_1}|>1$.
 
-    En conclusión, el proceso podría representarse como un modelo Autorregresivo estacionariocon infinidad de parámetros, o de forma más parsimoniosa es posible representarlo como un proceso de media móvil de orden 1.
+    En conclusión, el proceso podría representarse como un modelo Autorregresivo estacionario con infinidad de parámetros, o de forma más parsimoniosa es posible representarlo como un proceso de media móvil de orden 1.
 
 ??? example "Un proceso MA no invertible"
     Considere el siguiente modelo lineal $Y_t = a_t + 2 a_{t-1} + 0.5 a_{t-2}$. Este modelo puede considerarse como un modelo MA(2), pero se comprobará que no es invertible.
@@ -475,6 +477,31 @@ o en términos de operadores de retraso
 \(
     (1-\phi_1 B)Y_t = \mu + (1-\theta_1 B) a_t
 \)
+
+o funciones de tranferencia.
+
+\(
+    \phi(B)Y_t=\mu+\theta(B)a_t
+\)
+
+Es importante mencionar que es deseable que los modelos ARMA(1,1) cumplan con las propiedades de estacionariedad e inveribilidad, con el fin de que se faciliten algunos cálculos.
+
+A continuación se mencionan algunas propiedades del modelo ARMA(1,1)
+
+!!! note "Propiedades del modelo ARMA(1,1)"
+    Sea $Y_t-\phi_1 Y_{t-1} = \mu + a_t - \theta_1 a_{t-1}$. Si el proceso es estacionario, entonces se tiene que:
+
+    - $E(Y_t) = \frac{mu}{1-\phi_1}$
+    - $Var(Y_t) = \frac{(1-2\phi_1\theta_1 + \theta_1^2)\sigma^2_a}{1-\phi_1^2}$
+    - $\gamma(1)=\frac{(1-\theta_1 \phi_1)(\phi_1 - \theta_1)\sigma^2_a}{1-\phi_1^2}$
+    - $\gamma(k) = \phi_1 gamma(k-1), \;k\ge 2$
+
+!!! note "Condiciones de estacionariedad e invertibilidad"
+    Un proceso ARMA(1,1) es _estacionario e invertible_ si y solo si:
+
+    - $|\theta_1| < 1$ y $|\phi_1| < 1$
+
+Las propiedades y generalizaciones de este modelo están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o Box et al., (2016) .
 
 ## Bibliografía
 

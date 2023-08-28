@@ -1193,7 +1193,7 @@ Y_t &amp; = \mu + \sum_{i=0}^{\infty}\psi_i a_{t-i}\\
 \)</span></p>
 <p>Existen funciones de transferencia más complejas pero serán estudiadas en secciones posteriores.</p>
 <h2 id="modelos-arima">Modelos ARIMA<a class="headerlink" href="#modelos-arima" title="Permanent link">&para;</a></h2>
-<p>Una forma de modelar series de tiempo es usando los modelos ARIMA o <em>Autorregresivos Integrados de Medias Móviles</em> tambien conocidos como modelos Box-Jenkins. Para una referencia completa y detallada vea (Box et al., 2016).</p>
+<p>Una forma de modelar series de tiempo es usando los modelos ARIMA o <em>Autorregresivos Integrados de Medias Móviles</em> tambien conocidos como modelos Box-Jenkins. Para una referencia completa y detallada vea Box et al. (2016).</p>
 <p>Primero se introducirán los modelos Autorregresivos (AR), Medias móviles (MA) y los Autorregresivos de medias móviles (ARMA). Posteriormente se introducirá el concepto de raíz unitaria y modelos integrados (ARIMA), así como los modelos estacionales (SARIMA).</p>
 <p>La estimación de parámetros se discutirá de forma muy general y finalmente se mencionará la validación de supuestos y cómo realizar predicciones.</p>
 <h3 id="modelos-autorregresivos">Modelos autorregresivos<a class="headerlink" href="#modelos-autorregresivos" title="Permanent link">&para;</a></h3>
@@ -1235,6 +1235,7 @@ Y_t = \phi_0 + \phi_1 Y_{t-1} + a_t
 <p><span class="arithmatex">\(
     |\phi_1| &lt; 1
 \)</span></p>
+<p>Note que este resultado es equivalente si las raíces del polinomio <span class="arithmatex">\(\phi(B)=0\)</span> son mayores a 1 en valor absoluto.</p>
 </div>
 <details class="example">
 <summary>Derivación de la media y varianza de un proceso AR(1)</summary>
@@ -1400,8 +1401,8 @@ a_t &amp;= Z_t + \theta_1 a_{t-1}\\
 <p><span class="arithmatex">\(
     Y_t = (1-\theta_1 B) a_t
 \)</span></p>
-<p>Para saber si el modelo es invertible, las raíces del polinomio de medias móviles <span class="arithmatex">\(\theta(B)=1-\theta_1 B=0\)</span> debeb ser <em>mayores a 1 en valor absoluto</em>, por lo que la solución es <span class="arithmatex">\(B=\frac{1}{\theta_1}\)</span> cumple esta restricción si <span class="arithmatex">\(|\theta_1|&lt;1\)</span> o <span class="arithmatex">\(|\frac{1}{\theta_1}|&gt;1\)</span>.</p>
-<p>En conclusión, el proceso podría representarse como un modelo Autorregresivo estacionariocon infinidad de parámetros, o de forma más parsimoniosa es posible representarlo como un proceso de media móvil de orden 1.</p>
+<p>Para saber si el modelo es invertible, las raíces del polinomio de medias móviles <span class="arithmatex">\(\theta(B)=1-\theta_1 B=0\)</span> deben ser <em>mayores a 1 en valor absoluto</em>, por lo que la solución es <span class="arithmatex">\(B=\frac{1}{\theta_1}\)</span> cumple esta restricción si <span class="arithmatex">\(|\theta_1|&lt;1\)</span> o <span class="arithmatex">\(|\frac{1}{\theta_1}|&gt;1\)</span>.</p>
+<p>En conclusión, el proceso podría representarse como un modelo Autorregresivo estacionario con infinidad de parámetros, o de forma más parsimoniosa es posible representarlo como un proceso de media móvil de orden 1.</p>
 </details>
 <details class="example">
 <summary>Un proceso MA no invertible</summary>
@@ -1420,6 +1421,30 @@ a_t &amp;= Z_t + \theta_1 a_{t-1}\\
 <p><span class="arithmatex">\(
     (1-\phi_1 B)Y_t = \mu + (1-\theta_1 B) a_t
 \)</span></p>
+<p>o funciones de tranferencia.</p>
+<p><span class="arithmatex">\(
+    \phi(B)Y_t=\mu+\theta(B)a_t
+\)</span></p>
+<p>Es importante mencionar que es deseable que los modelos ARMA(1,1) cumplan con las propiedades de estacionariedad e inveribilidad, con el fin de que se faciliten algunos cálculos.</p>
+<p>A continuación se mencionan algunas propiedades del modelo ARMA(1,1)</p>
+<div class="admonition note">
+<p class="admonition-title">Propiedades del modelo ARMA(1,1)</p>
+<p>Sea <span class="arithmatex">\(Y_t-\phi_1 Y_{t-1} = \mu + a_t - \theta_1 a_{t-1}\)</span>. Si el proceso es estacionario, entonces se tiene que:</p>
+<ul>
+<li><span class="arithmatex">\(E(Y_t) = \frac{mu}{1-\phi_1}\)</span></li>
+<li><span class="arithmatex">\(Var(Y_t) = \frac{(1-2\phi_1\theta_1 + \theta_1^2)\sigma^2_a}{1-\phi_1^2}\)</span></li>
+<li><span class="arithmatex">\(\gamma(1)=\frac{(1-\theta_1 \phi_1)(\phi_1 - \theta_1)\sigma^2_a}{1-\phi_1^2}\)</span></li>
+<li><span class="arithmatex">\(\gamma(k) = \phi_1 gamma(k-1), \;k\ge 2\)</span></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Condiciones de estacionariedad e invertibilidad</p>
+<p>Un proceso ARMA(1,1) es <em>estacionario e invertible</em> si y solo si:</p>
+<ul>
+<li><span class="arithmatex">\(|\theta_1| &lt; 1\)</span> y <span class="arithmatex">\(|\phi_1| &lt; 1\)</span></li>
+</ul>
+</div>
+<p>Las propiedades y generalizaciones de este modelo están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o Box et al., (2016) .</p>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
 <p>Box, G., Jenkins, G., Reinsel, G., &amp; Ljung, G. (2016). Time Series Analysis: Forecasting and Control. John Wiley &amp; Sons.</p>
 <p>Hyndman, R., &amp; Athanasopoulos, G. (2022). Forecasting: Principles and Practice (3rd ed). OTexts. https://Otexts.com/fpp3/</p>
