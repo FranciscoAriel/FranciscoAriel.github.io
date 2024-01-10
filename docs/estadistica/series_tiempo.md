@@ -503,9 +503,35 @@ A continuación se mencionan algunas propiedades del modelo ARMA(1,1)
 
 Las propiedades y generalizaciones de este modelo están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o Box et al., (2016) .
 
+## Modelos Espacio-Estado
+
+Los modelos Espacio-Estado son una metodología muy amplia que permite representar una gran cantidad de modelos de series de tiempo. 
+
+La principal ventaja de esta metodología es su flexibilidad debido a que puede abordar una gran cantidad de metodologías usadas en series de tiempo, por ejemplo los modelos ARIMA, suavizamiento exponencial y algunos modelos de regresión pueden ser representados como modelos Espacio-Estado (Durbin y Koopman 2012).
+
+Otra ventaja de los modelos Espacio-Estado es que pueden ser representados de forma recursiva y puede hacerse uso de técnicas computacionales. También este tipo de modelos admite valores faltantes, debido a que dichos valores pueden ser estimados posteriormente mediante algunas de las técnicas que el mismo modelo emplea.
+
+### Definición
+
+El modelo de Espacio-Estado puede ser representado de la siguiente forma:
+
+\(
+\begin{align}
+y_t &= Z_t \alpha_t + \varepsilon_t,\; \varepsilon_t \sim N(0,H_t) \\
+\alpha_{t+1} &= T_t \alpha_t + R_t \eta_t,\; \eta_t \sim N(0,Q_t)
+\end{align}
+\)
+
+donde $y_t$ es un vector de dimensión $p \times 1$ que representa las observaciones en el tiempo $t$ con $t=1, \dots , n$ y $\alpha_t$ es el \textit{vector de estados} de dimensión $m \times 1$ el cual es no observable. 
+
+La idea de este modelo es que el comportamiento las observaciones $y_t$ en el tiempo $t$ está determinado por el vector de estados $\alpha_t$ más un ruido aleatorio. 
+
+
 ## Bibliografía
 
 Box, G., Jenkins, G., Reinsel, G., & Ljung, G. (2016). Time Series Analysis: Forecasting and Control. John Wiley & Sons.
+
+Durbin, J., y S. J. Koopman. 2012. Time Series Analysis by State Space Methods. Oxford, UK: Oxford University Press.
 
 Hyndman, R., & Athanasopoulos, G. (2022). Forecasting: Principles and Practice (3rd ed). OTexts. https://Otexts.com/fpp3/
 

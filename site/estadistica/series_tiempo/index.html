@@ -777,6 +777,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#modelos-espacio-estado" class="md-nav__link">
+    Modelos Espacio-Estado
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelos Espacio-Estado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicion" class="md-nav__link">
+    Definición
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bibliografia" class="md-nav__link">
     Bibliografía
   </a>
@@ -978,6 +998,26 @@
           <li class="md-nav__item">
   <a href="#modelos-arma" class="md-nav__link">
     Modelos ARMA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelos-espacio-estado" class="md-nav__link">
+    Modelos Espacio-Estado
+  </a>
+  
+    <nav class="md-nav" aria-label="Modelos Espacio-Estado">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definicion" class="md-nav__link">
+    Definición
   </a>
   
 </li>
@@ -1445,8 +1485,23 @@ a_t &amp;= Z_t + \theta_1 a_{t-1}\\
 </ul>
 </div>
 <p>Las propiedades y generalizaciones de este modelo están fuera del alcance de este blog, sin embargo, se pueden consultar con mayor detalle en Tsay, R. (2010) o Box et al., (2016) .</p>
+<h2 id="modelos-espacio-estado">Modelos Espacio-Estado<a class="headerlink" href="#modelos-espacio-estado" title="Permanent link">&para;</a></h2>
+<p>Los modelos Espacio-Estado son una metodología muy amplia que permite representar una gran cantidad de modelos de series de tiempo. </p>
+<p>La principal ventaja de esta metodología es su flexibilidad debido a que puede abordar una gran cantidad de metodologías usadas en series de tiempo, por ejemplo los modelos ARIMA, suavizamiento exponencial y algunos modelos de regresión pueden ser representados como modelos Espacio-Estado (Durbin y Koopman 2012).</p>
+<p>Otra ventaja de los modelos Espacio-Estado es que pueden ser representados de forma recursiva y puede hacerse uso de técnicas computacionales. También este tipo de modelos admite valores faltantes, debido a que dichos valores pueden ser estimados posteriormente mediante algunas de las técnicas que el mismo modelo emplea.</p>
+<h3 id="definicion">Definición<a class="headerlink" href="#definicion" title="Permanent link">&para;</a></h3>
+<p>El modelo de Espacio-Estado puede ser representado de la siguiente forma:</p>
+<p><span class="arithmatex">\(
+\begin{align}
+y_t &amp;= Z_t \alpha_t + \varepsilon_t,\; \varepsilon_t \sim N(0,H_t) \\
+\alpha_{t+1} &amp;= T_t \alpha_t + R_t \eta_t,\; \eta_t \sim N(0,Q_t)
+\end{align}
+\)</span></p>
+<p>donde <span class="arithmatex">\(y_t\)</span> es un vector de dimensión <span class="arithmatex">\(p \times 1\)</span> que representa las observaciones en el tiempo <span class="arithmatex">\(t\)</span> con <span class="arithmatex">\(t=1, \dots , n\)</span> y <span class="arithmatex">\(\alpha_t\)</span> es el \textit{vector de estados} de dimensión <span class="arithmatex">\(m \times 1\)</span> el cual es no observable. </p>
+<p>La idea de este modelo es que el comportamiento las observaciones <span class="arithmatex">\(y_t\)</span> en el tiempo <span class="arithmatex">\(t\)</span> está determinado por el vector de estados <span class="arithmatex">\(\alpha_t\)</span> más un ruido aleatorio. </p>
 <h2 id="bibliografia">Bibliografía<a class="headerlink" href="#bibliografia" title="Permanent link">&para;</a></h2>
 <p>Box, G., Jenkins, G., Reinsel, G., &amp; Ljung, G. (2016). Time Series Analysis: Forecasting and Control. John Wiley &amp; Sons.</p>
+<p>Durbin, J., y S. J. Koopman. 2012. Time Series Analysis by State Space Methods. Oxford, UK: Oxford University Press.</p>
 <p>Hyndman, R., &amp; Athanasopoulos, G. (2022). Forecasting: Principles and Practice (3rd ed). OTexts. https://Otexts.com/fpp3/</p>
 <p>Tsay, R. (2010). Analysis of Financial Time Series (Third Edition). John Wiley &amp; Sons.</p>
 <blockquote>
