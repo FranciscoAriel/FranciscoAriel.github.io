@@ -505,6 +505,12 @@ Las propiedades y generalizaciones de este modelo están fuera del alcance de es
 
 ## Modelos Espacio-Estado
 
+En décadas recientes se han presentado un mayor número de huracanes categoría 5 en el Océano Pacífico, el cual a pesar de ser un evento raro tiene consecuencias muy graves para la población afectada, por lo que es necesario estudiar este fenómeno natural y sus posibles causas con el fin de poder modelar su incidencia a través del tiempo y poder alertar a la población que vive en las zonas costeras.
+
+![Imagen de un huracán visto desde el espacio](img/hurricane.jpg)
+Imagen obtenida del programa [Shipping Forecast](https://www.bbc.co.uk/programmes/p02prk28) de [BBC Radio 4](https://www.bbc.com/).
+
+
 Los modelos Espacio-Estado son una metodología muy amplia que permite representar una gran cantidad de modelos de series de tiempo. 
 
 La principal ventaja de esta metodología es su flexibilidad debido a que puede abordar una gran cantidad de metodologías usadas en series de tiempo, por ejemplo los modelos ARIMA, suavizamiento exponencial y algunos modelos de regresión pueden ser representados como modelos Espacio-Estado (Durbin y Koopman 2012).
