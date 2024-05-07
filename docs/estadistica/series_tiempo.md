@@ -519,7 +519,7 @@ Otra ventaja de los modelos Espacio-Estado es que pueden ser representados de fo
 
 ### Definición
 
-El modelo de Espacio-Estado puede ser representado de la siguiente forma:
+La idea de este modelo es que el comportamiento las observaciones $y_t$ en el tiempo $t$ está determinado por una _señal_ más un _ruido_ aleatorio.  El modelo de Espacio-Estado puede ser representado de la siguiente forma:
 
 \(
 \begin{align}
@@ -528,16 +528,96 @@ y_t &= Z_t \alpha_t + \varepsilon_t,\; \varepsilon_t \sim N(0,H_t) \\
 \end{align}
 \)
 
-donde $y_t$ es un vector de dimensión $p \times 1$ que representa las observaciones en el tiempo $t$ con $t=1, \dots , n$ y $\alpha_t$ es el \textit{vector de estados} de dimensión $m \times 1$ el cual es no observable. 
+donde $y_t$ es un vector de dimensión $p \times 1$ que representa las observaciones en el tiempo $t$ con $t=1, \dots , n$ y $\alpha_t$ es el _vector de estados_ de dimensión $m \times 1$ el cual es no observable. 
 
-La idea de este modelo es que el comportamiento las observaciones $y_t$ en el tiempo $t$ está determinado por el vector de estados $\alpha_t$ más un ruido aleatorio. 
+La primer ecuación es conocida como *ecuación de observaciones*, mientras que la segunda es conocida como *ecuación de estados*.
 
+Las matrices $Z_t, T_t, R_t, H_t, Q_t$ son consideradas conocidas, mientras que $\varepsilon_t$ y $\eta_t$ son variables aleatorias independientes e independentes entre ellas.
+
+A continuación se muestran algunos ejemplos de modelos que pueden ser representados por esta metodología.
+
+??? example "Modelo de caminata aleatoria mas ruido"
+
+    El modelo de *caminata aleatoria más ruido* o *modelo de nivel local*  (Harvey y Durbin 1986) consiste en modelar a la serie con respecto a su nivel más un ruido aleatorio. Este modelo es de los más sencillos, sin embargo es muy útil en diversas aplicaciones ya que es fácil de interpretar.
+
+    $$
+    \begin{align}
+    y_t &= \mu_t + \varepsilon_t, \;\varepsilon_t \sim N(0,\sigma^2_\varepsilon)\\
+    \mu_t &= \mu_{t-1} + \eta_t,\; \eta_t \sim N(0,\sigma^2_\eta)
+    \end{align}
+    $$
+    
+    Este modelo puede representarse en forma de espacio estados de la siguiente manera:
+    
+    $$
+    \alpha_t = \begin{pmatrix} \mu_t \\ v_t \end{pmatrix}
+    $$
+    
+    $$
+    Z_t = \begin{pmatrix} 1 & 0 \end{pmatrix}
+    $$
+    
+    $$
+    T_t = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}
+    $$
+    
+    $$
+    R_t = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+    $$
+    
+    $$
+    H_t = \sigma^2_\varepsilon
+    $$
+    
+    $$
+    Q_t = \sigma^2_\eta
+    $$
+    
+    Es decir, usando la notación de modelos espacio estado, realmente se está modelando la siguiente ecuación de     observaciones:
+    
+    $$
+    y_t = \begin{pmatrix} 1 & 0 \end{pmatrix} \begin{pmatrix} \mu_t \\ v_t \end{pmatrix} + \varepsilon_t = \mu_t +     \varepsilon_t
+    $$
+    
+    y la siguiente ecuación de estados
+    
+    $$
+    \begin{pmatrix} \mu_{t+1} \\ v_{t+1} \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \begin{pmatrix}     \mu_t \\ v_t \end{pmatrix} + \begin{pmatrix} 1 \\ 0 \end{pmatrix} \eta_t \rightarrow \begin{bmatrix} \mu_{t+1} \\ v_{t    +1} \end{bmatrix} = \begin{bmatrix} \mu_t + v_t + \eta_t  \\ v_{t} \end{bmatrix} 
+    $$
+    
+    con
+    
+    $$
+    \alpha_1 \sim N(a_1,P_1)
+    $$
+    
+    donde $a_1$ y $P_1$ son conocidas.
+
+### Estimación
+
+Como puede observarse en el modelo anterior, se requiere estimar los valores correspondientes a las cantidades desconocidas $\alpha_t$ y a los componentes de las matrices $H_t$ y $Q_t$.
+
+Para ello se requiere encontrar las distribuciones condicionales de $\alpha_t$ y $\alpha_{t+1}$ dado $Y_t = y_1,\dots,y_t$ con $t = 1, \dots,n$. Asumiendo *normalidad*, se define $a_{t|t}=E(\alpha_t|Y_t)$, $a_{t+1|t}=E(\alpha_{t+1}|Y_t)$, $P_{t|t}=Var(\alpha_t|Y_t)$ y $P_{t+1|t}=Var(\alpha_{t+1}|Y_t)$. Por lo tanto, usando las propiedades de la normal multivariada, se obtiene
+
+$$
+\alpha_t|Y_t \sim N(a_{t|t},P_{t|t})
+$$
+
+y
+
+$$
+\alpha_{t+1}|Y_t \sim N(a_{t+1|t},P_{t+1|t})
+$$
+
+Para encontrar estas cantidades de interés, se procederá a calcularlas inductivamente a partir de $a_t$ y $P_t$ usando el método conocido como el **filtro de Kalman**.
 
 ## Bibliografía
 
 Box, G., Jenkins, G., Reinsel, G., & Ljung, G. (2016). Time Series Analysis: Forecasting and Control. John Wiley & Sons.
 
 Durbin, J., y S. J. Koopman. 2012. Time Series Analysis by State Space Methods. Oxford, UK: Oxford University Press.
+
+Harvey, A. C., y J. Durbin. 1986. «The Effects of Seat Belt Legislation on British Road Casualties: A Case Study in Structural Time Series Modelling». Journal of the Royal Statistical Society: Series A (General) 149 (3): 187-210. https://doi.org/10.2307/2981553.
 
 Hyndman, R., & Athanasopoulos, G. (2022). Forecasting: Principles and Practice (3rd ed). OTexts. https://Otexts.com/fpp3/
 
